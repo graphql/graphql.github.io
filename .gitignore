@@ -1,0 +1,8 @@
+*.swp
+*~
+.DS_Store
+.nvmrc
+node_modules
+npm-debug.log
+
+/build/

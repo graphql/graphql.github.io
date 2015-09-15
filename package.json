@@ -1,0 +1,38 @@
+{
+  "repository": "graphql/graphql.github.io",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "rm -rf build && babel-node resources/server.js",
+    "build": "rm -rf build && babel-node resources/build.js",
+    "watch": "rm -rf build && babel-node resources/watch.js",
+    "test": "exit 0"
+  },
+  "babel": {
+    "optional": [
+      "es7.asyncFunctions",
+      "es7.objectRestSpread"
+    ]
+  },
+  "site": {
+    "source": "./site",
+    "build": "./build"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.23",
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.20",
+    "express": "^4.13.3",
+    "js-yaml": "^3.4.0",
+    "react": "^0.13.3",
+    "sane": "^1.2.0",
+    "webpack": "^1.12.1"
+  },
+  "dependencies": {
+    "codemirror": "^5.6.0",
+    "codemirror-graphql": "^0.1.1",
+    "graphql": "^0.4.3",
+    "marked": "^0.3.5"
+  }
+}
