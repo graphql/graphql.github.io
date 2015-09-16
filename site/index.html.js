@@ -185,7 +185,7 @@ Product developers are free to focus on their client software and requirements w
             </a>
             <a
               className="button"
-              href={'spec/index.html'}>
+              href={'http://facebook.github.io/graphql/'}>
               Read the Spec
             </a>
           </div>
