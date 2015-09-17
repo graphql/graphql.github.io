@@ -16,7 +16,7 @@ in chronological order.
 Nick introduces GraphQL and its origin and explains how React and GraphQL are
 horizontal platforms which can improve the current state of mobile development.
 
-<iframe width="760" height="426" src="https://www.youtube-nocookie.com/embed/ox8qGHUHrQo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="760" height="426" src="https://www.youtube-nocookie.com/embed/_9RgHXqH8J0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Exploring GraphQL – React Rally
 
