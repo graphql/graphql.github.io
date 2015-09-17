@@ -62,7 +62,7 @@ var GraphQL = require('graphql'); // CommonJS
   <li>
     <a href="api-reference-type-system.html#graphqluniontype">
       <pre>class GraphQLUnionType</pre>
-      An union type within GraphQL that defines a list of implementations.
+      A union type within GraphQL that defines a list of implementations.
     </a>
   </li>
   <li>
@@ -80,13 +80,13 @@ var GraphQL = require('graphql'); // CommonJS
   <li>
     <a href="api-reference-type-system.html#graphqllist">
       <pre>class GraphQLList</pre>
-      An type wrapper around other types that represents a list of those types.
+      A type wrapper around other types that represents a list of those types.
     </a>
   </li>
   <li>
     <a href="api-reference-type-system.html#graphqlnonnull">
       <pre>class GraphQLNonNull</pre>
-      An type wrapper around other types that represents a non-null version of those types.
+      A type wrapper around other types that represents a non-null version of those types.
     </a>
   </li>
 </ul>
