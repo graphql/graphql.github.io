@@ -26,4 +26,4 @@ Anytime you change the contents, just refresh the page and it's going to be upda
 
 ### Publish the Website
 
-Once pushed to the `source` branch, Travis CI will publish http://github.org/
+Once pushed to the `source` branch, Travis CI will publish http://graphql.org/
