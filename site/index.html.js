@@ -21,7 +21,7 @@ var index = React.createClass({
             <div className="marketing-col">
               <h3>Declarative</h3>
               <p>
-                {`Query respones are decided by the client rather
+                {`Query responses are decided by the client rather
                 than the server. A GraphQL query returns exactly what a client
                 asks for and no more.`}
               </p>
