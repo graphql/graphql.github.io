@@ -21,7 +21,7 @@ var Site = React.createClass({
           <meta name="viewport" content="width=device-width" />
           <meta property="og:title" content={'GraphQL | ' + SiteData.description} />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="http://facebook.github.io/graphal/index.html" />
+          <meta property="og:url" content="http://graphql.org/" />
           <meta property="og:description" content={SiteData.description} />
 
           <link rel="shortcut icon" href={'/img/favicon.png'} />
