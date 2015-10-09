@@ -31,7 +31,7 @@ var GraphQL = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="api-reference-type-system.html#graphqlschema">
+    <a href="../api-reference-type-system/#graphqlschema">
       <pre>class GraphQLSchema</pre>
       A representation of the capabilities of a GraphQL Server.
     </a>
@@ -42,49 +42,49 @@ var GraphQL = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="api-reference-type-system.html#graphqlscalartype">
+    <a href="../api-reference-type-system/#graphqlscalartype">
       <pre>class GraphQLScalarType</pre>
       A scalar type within GraphQL.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlobjecttype">
+    <a href="../api-reference-type-system/#graphqlobjecttype">
       <pre>class GraphQLObjectType</pre>
       An object type within GraphQL that contains fields.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlinterfacetype">
+    <a href="../api-reference-type-system/#graphqlinterfacetype">
       <pre>class GraphQLInterfaceType</pre>
       An interface type within GraphQL that defines fields implementations will contain.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqluniontype">
+    <a href="../api-reference-type-system/#graphqluniontype">
       <pre>class GraphQLUnionType</pre>
       A union type within GraphQL that defines a list of implementations.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlenumtype">
+    <a href="../api-reference-type-system/#graphqlenumtype">
       <pre>class GraphQLEnumType</pre>
       An enum type within GraphQL that defines a list of valid values.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlinputobjecttype">
+    <a href="../api-reference-type-system/#graphqlinputobjecttype">
       <pre>class GraphQLInputObjectType</pre>
       An input object type within GraphQL that represents structured inputs.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqllist">
+    <a href="../api-reference-type-system/#graphqllist">
       <pre>class GraphQLList</pre>
       A type wrapper around other types that represents a list of those types.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlnonnull">
+    <a href="../api-reference-type-system/#graphqlnonnull">
       <pre>class GraphQLNonNull</pre>
       A type wrapper around other types that represents a non-null version of those types.
     </a>
@@ -95,31 +95,31 @@ var GraphQL = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="api-reference-type-system.html#graphqlint">
+    <a href="../api-reference-type-system/#graphqlint">
       <pre>var GraphQLInt</pre>
       A scalar type representing integers.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlfloat">
+    <a href="../api-reference-type-system/#graphqlfloat">
       <pre>var GraphQLFloat</pre>
       A scalar type representing floats.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlstring">
+    <a href="../api-reference-type-system/#graphqlstring">
       <pre>var GraphQLString</pre>
       A scalar type representing strings.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlboolean">
+    <a href="../api-reference-type-system/#graphqlboolean">
       <pre>var GraphQLBoolean</pre>
       A scalar type representing booleans.
     </a>
   </li>
   <li>
-    <a href="api-reference-type-system.html#graphqlid">
+    <a href="../api-reference-type-system/#graphqlid">
       <pre>var GraphQLID</pre>
       A scalar type representing IDs.
     </a>
@@ -130,7 +130,7 @@ var GraphQL = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="api-reference-errors.html#formaterror">
+    <a href="../api-reference-errors/#formaterror">
       <pre>function formatError</pre>
       Format an error according to the rules described by the Response Format.
     </a>

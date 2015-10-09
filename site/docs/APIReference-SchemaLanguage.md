@@ -87,7 +87,7 @@ export function visitSchema(root, visitor, keys); any
 ```
 
 The equivalent of `graphql/language`'s
-**[visit](api-reference-language.html#visit)** method, but for
+**[visit](../api-reference-language/#visit)** method, but for
 schema ASTs parsed by `parseSchemaIntoAST`.
 
 ## Printer
@@ -100,4 +100,3 @@ function printSchema(ast): string
 
 Converts a Schema AST into a string, using one set of reasonable
 formatting rules.
-
