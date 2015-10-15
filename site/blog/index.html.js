@@ -26,6 +26,8 @@ var BlogIndex = React.createClass({
           {posts.map(post =>
             <div className="inner-content" key={post.permalink}>
               <h1><a href={post.url}>{post.title}</a></h1>
+              <p>{new Date(post.date).toLocaleDateString()} by {post.byline}</p>
+              <hr />
               <Marked url={post.url}>{post.content}</Marked>
             </div>
           )}
