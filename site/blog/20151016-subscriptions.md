@@ -74,7 +74,8 @@ What events could trigger that a change to the data fetched in that fragment?
 * Someone who had liked the post deactivates their account (changes the like count down one, changes the like sentence to decrement the translated count).
 * Someone who had liked the post reactivates their account (changes the like count up one, changes the like sentence to increment the translated count).
 * Someone who had liked the post blocks you (cannot show them in the like sentence).
-* Someone who had liked the post changes their name (need to update the text of the like sentence). Our internal ranking model for the ordering of names in the like sentence updates, and we should be listing a different person first (want to update the text of the like sentence).
+* Someone who had liked the post changes their name (need to update the text of the like sentence).
+* Our internal ranking model for the ordering of names in the like sentence updates, and we should be listing a different person first (want to update the text of the like sentence).
 
 And that’s just the tip of the iceberg in terms of events; each of those events also becomes tricky when there are thousands of people subscribed, and millions of people who liked the post. Implementing live queries for this set of data proved to be immensely complicated.
 
