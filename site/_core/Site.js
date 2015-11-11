@@ -12,12 +12,13 @@ var SiteData = require('./SiteData');
 
 var Site = React.createClass({
   render: function() {
+    var pageTitle = this.props.title ? `${this.props.title} | GraphQL` : `GraphQL | ${SiteData.description}`;
     return (
       <html>
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-          <title>GraphQL | {SiteData.description}</title>
+          <title>{pageTitle}</title>
           <meta name="viewport" content="width=device-width" />
           <meta property="og:title" content={'GraphQL | ' + SiteData.description} />
           <meta property="og:type" content="website" />
