@@ -17,7 +17,7 @@ var BlogLayout = React.createClass({
     var page = this.props.page;
     var site = this.props.site;
     return (
-      <Site section="blog">
+      <Site section="blog" title={page.title}>
         <section className="content wrap documentationContent">
           <BlogSidebar site={site} page={page} />
           <div className="inner-content">
