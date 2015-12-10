@@ -282,6 +282,7 @@ type GraphQLFieldConfigArgumentMap = {
 type GraphQLArgumentConfig = {
   type: GraphQLInputType;
   defaultValue?: any;
+  description?: ?string;
 }
 
 type GraphQLFieldConfigMap = {
