@@ -210,8 +210,9 @@ class GraphQLScalarType {
 type GraphQLScalarTypeConfig = {
   name: string;
   description?: ?string;
-  coerce: (value: any) => ?any;
-  coerceLiteral: (value: Value) => ?any;
+  serialize: (value: any) => ?any;
+  parseValue: (value: any) => ?any;
+  parseLiteral: (valueAST: Value) => ?any;
 }
 ```
 
@@ -219,14 +220,26 @@ The leaf values of any request and input values to arguments are
 Scalars (or Enums) and are defined with a name and a series of coercion
 functions used to ensure validity.
 
-#### Example
+#### Examples
 
 ```js
 var OddType = new GraphQLScalarType({
   name: 'Odd',
-  coerce(value) {
+  serialize(value) {
     return value % 2 === 1 ? value : null;
   }
+});
+
+function parseHex(value) {
+  var int = parseInt(value, 16);
+  return Number.isNaN(int) ? null : int;
+}
+
+var HexType = new GraphQLScalarType({
+  name: 'Hex',
+  serialize: value => value.toString(16),
+  parseValue: parseHex,
+  parseLiteral: valueAST => valueAST.kind === Kind.STRING ? parseHex(valueAST.value) : null
 });
 ```
 
