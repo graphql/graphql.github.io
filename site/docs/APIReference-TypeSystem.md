@@ -210,8 +210,8 @@ class GraphQLScalarType {
 type GraphQLScalarTypeConfig = {
   name: string;
   description?: ?string;
-  coerce: (value: any) => ?any;
-  coerceLiteral: (value: Value) => ?any;
+  serialize: (value: any) => ?any;
+  parseLiteral: (value: Value) => ?any;
 }
 ```
 
@@ -224,7 +224,7 @@ functions used to ensure validity.
 ```js
 var OddType = new GraphQLScalarType({
   name: 'Odd',
-  coerce(value) {
+  serialize(value) {
     return value % 2 === 1 ? value : null;
   }
 });
