@@ -203,15 +203,16 @@ var MyAppSchema = new GraphQLSchema({
 ### GraphQLScalarType
 
 ```js
-class GraphQLScalarType {
-  constructor(config: GraphQLScalarTypeConfig)
+class GraphQLScalarType<InternalType> {
+  constructor(config: GraphQLScalarTypeConfig<InternalType>)
 }
 
-type GraphQLScalarTypeConfig = {
+type GraphQLScalarTypeConfig<InternalType> = {
   name: string;
   description?: ?string;
-  coerce: (value: any) => ?any;
-  coerceLiteral: (value: Value) => ?any;
+  serialize: (value: mixed) => ?InternalType;
+  parseValue?: (value: mixed) => ?InternalType;
+  parseLiteral?: (valueAST: Value) => ?InternalType;
 }
 ```
 
