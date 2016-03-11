@@ -3,7 +3,7 @@ title: Errors
 layout: ../_core/DocsLayout
 category: API Reference
 permalink: /docs/api-reference-errors/
-next: /docs/api-reference-schema-language/
+next: /docs/api-reference-utilities/
 ---
 
 The `graphql/error` module is responsible for creating and formating
