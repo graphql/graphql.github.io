@@ -135,7 +135,7 @@ Prints the provided schema in the Schema Language format.
 ### printIntrospectionSchema
 
 ```js
-function printSchema(schema: GraphQLSchema): string {
+function printIntrospectionSchema(schema: GraphQLSchema): string {
 ```
 
 Prints the built-in introspection schema in the Schema Language format.
