@@ -25,6 +25,7 @@ var Site = React.createClass({
           <meta property="og:url" content="http://graphql.org/" />
           <meta property="og:description" content={SiteData.description} />
 
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
           <link rel="shortcut icon" href={'/img/favicon.png'} />
           <link rel="stylesheet" href={'/css/graphql.css'} />
 
@@ -53,8 +54,14 @@ var Site = React.createClass({
 
           <div id="fb-root" />
 
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
           <script dangerouslySetInnerHTML={{__html: `
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            docsearch({
+              apiKey: 'd103541f3e6041148aade2e746ed4d61',
+              indexName: 'graphql',
+              inputSelector: '#algolia-doc-search'
+            });
           `}} />
         </body>
       </html>
