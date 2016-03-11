@@ -217,7 +217,7 @@ type GraphQLScalarTypeConfig<InternalType> = {
 ```
 
 The leaf values of any request and input values to arguments are
-Scalars (or Enums) and are defined with a name and a series of coercion
+Scalars (or Enums) and are defined with a name and a series of serialization
 functions used to ensure validity.
 
 #### Example
@@ -225,10 +225,19 @@ functions used to ensure validity.
 ```js
 var OddType = new GraphQLScalarType({
   name: 'Odd',
-  coerce(value) {
-    return value % 2 === 1 ? value : null;
+  serialize: oddValue,
+  parseValue: oddValue,
+  parseLiteral(ast) {
+    if (ast.kind === Kind.INT) {
+      return oddValue(parseInt(ast.value, 10));
+    }
+    return null;
   }
 });
+
+function oddValue(value) {
+  return value % 2 === 1 ? value : null;
+}
 ```
 
 ### GraphQLObjectType
