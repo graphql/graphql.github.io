@@ -6,38 +6,45 @@ permalink: /docs/getting-started/
 next: /docs/videos/
 ---
 
-Let's build a basic GraphQL server from scratch. We'll be using the **[graphql-js](https://github.com/graphql/graphql-js)** reference implementation of GraphQL for this example.
+Let's build a basic GraphQL server from scratch using **[graphql-js](https://github.com/graphql/graphql-js)**.
 
-Our server will be simple; it will have one type, a `User`, where a user has two fields; an `id` and a `name`. For an example of a more complex server and additional features,
-check out the **[walkthrough](../intro)** section of the docs.
+Our server's schema will be simple: it will have one type, a `User`, with two fields, `id` and `name`.
+(For an example of a more complex server, check out the **[Walkthrough](../intro)**.)
 
 ## Setup
 
-We'll start by making a folder for our demo server.
+Start by making a folder for your demo server:
 
 ```sh
 mkdir graphql-demo
 cd graphql-demo
 ```
 
-Now, we'll install the three packages that we need:
+The example server requires **[Node.js](https://nodejs.org/en/)**
+and three additional packages for our server:
 
-1. **[graphql](https://github.com/graphql/graphql-js)**, the reference implementation of GraphQL in JS.
+1. **[graphql](https://github.com/graphql/graphql-js)**, the reference implementation of GraphQL in JavaScript.
 2. **[express](https://github.com/strongloop/express)**, a basic web framework.
-3. **[express-graphql](https://github.com/graphql/express-graphql)**, middleware for express to make it easy to expose a GraphQL server.
+3. **[express-graphql](https://github.com/graphql/express-graphql)**, an express middleware that exposes a GraphQL server.
 
-We install these three packages by running:
+Install these three packages using **[npm](https://docs.npmjs.com/getting-started/installing-node)**:
 
 ```sh
 npm init -f
-npm install graphql --save
-npm install express --save
-npm install express-graphql --save
+npm install graphql express express-graphql --save
 ```
 
-## Server
+## Data
 
-Now that we have our packages installed, let's quickly define our data set of users, in `data.json`:
+Our server will consist of two files, `data.json` and `index.js`.
+To create these files, run
+
+```sh
+touch data.json
+touch index.js
+```
+
+Now define the user data in `data.json`:
 
 ```json
 {
@@ -47,27 +54,34 @@ Now that we have our packages installed, let's quickly define our data set of us
   },
   "2": {
     "id": "2",
-    "name": "Lee"
+    "name": "Marie"
   },
   "3": {
     "id": "3",
-    "name": "Nick"
+    "name": "Jessie"
   }
 }
 ```
 
-We'll create a very basic GraphQL schema to describe that data set in
-`index.js`, then allow that GraphQL Schema to be queried over HTTP.
+## Server
+
+Next you'll create a very basic GraphQL schema to describe the data;
+you can then allow this schema to be queried over HTTP.
+
+Insert the following into `index.js` (and be sure to read the comments!):
 
 ```js
+// Import the required libraries
 var graphql = require('graphql');
 var graphqlHTTP = require('express-graphql');
 var express = require('express');
 
-// Import our data set from above
+// Import the data you created above
 var data = require('./data.json');
 
-// Define our user type, with two string fields; `id` and `name`
+// Define the User type with two string fields: `id` and `name`.
+// The type of User is GraphQLObjectType, which has child fields
+// with their own types (in this case, GraphQLString).
 var userType = new graphql.GraphQLObjectType({
   name: 'User',
   fields: {
@@ -76,17 +90,24 @@ var userType = new graphql.GraphQLObjectType({
   }
 });
 
-// Define our schema, with one top level field, named `user`, that
+// Define the schema with one top-level field, `user`, that
 // takes an `id` argument and returns the User with that ID.
+// Note that the `query` is a GraphQLObjectType, just like User.
+// The `user` field, however, is a userType, which we defined above.
 var schema = new graphql.GraphQLSchema({
   query: new graphql.GraphQLObjectType({
     name: 'Query',
     fields: {
       user: {
         type: userType,
+        // `args` describes the arguments that the `user` query accepts
         args: {
           id: { type: graphql.GraphQLString }
         },
+        // The resolve function describes how to "resolve" or fulfill
+        // the incoming query.
+        // In this case we use the `id` argument from above as a key
+        // to get the User from `data`
         resolve: function (_, args) {
           return data[args.id];
         }
@@ -95,16 +116,16 @@ var schema = new graphql.GraphQLSchema({
   })
 });
 
-console.log('Server online!');
 express()
   .use('/graphql', graphqlHTTP({ schema: schema, pretty: true }))
   .listen(3000);
+
+console.log('GraphQL server running on http://localhost:3000/graphql');
 ```
 
 <script data-inline>
 var graphql = require('graphql');
 
-// Import our data set from above
 var data = {
   "1": {
     "id": "1",
@@ -112,15 +133,14 @@ var data = {
   },
   "2": {
     "id": "2",
-    "name": "Lee"
+    "name": "Marie"
   },
   "3": {
     "id": "3",
-    "name": "Nick"
+    "name": "Jessie"
   }
 };
 
-// Define our user type, with two string fields; `id` and `name`
 var userType = new graphql.GraphQLObjectType({
   name: 'User',
   fields: {
@@ -129,8 +149,6 @@ var userType = new graphql.GraphQLObjectType({
   }
 });
 
-// Define our schema, with one top level field, named `user`, that
-// takes an `id` argument and returns the User with that ID.
 var schema = new graphql.GraphQLSchema({
   query: new graphql.GraphQLObjectType({
     name: 'Query',
@@ -151,20 +169,34 @@ var schema = new graphql.GraphQLSchema({
 global.schema = schema;
 </script>
 
-That's it! Our basic GraphQL server is done!
-
-## Testing
-
-Let's test our GraphQL server. We start by running
+That's it - your basic GraphQL server is done! Start it by running
 
 ```sh
 node index.js
 ```
 
-The server should announce that it is online. We can verify that by hitting
-`http://localhost:3000/graphql?query={user(id:%221%22){name}}`, which will
-execute this GraphQL query which asks to fetch the user with ID "1", and return
-that user's name.
+The server should announce that it is running at
+[localhost:3000/graphql](http://localhost:3000/graphql).
+If you navigate to this address you will receive this notice:
+
+```javascript
+{
+  "errors": [
+    {
+      "message": "Must provide query string."
+    }
+  ]
+}
+```
+
+We know our server is running - now we just need to send it a query!
+
+## Queries
+
+Below is a very simple query you can make against your schema. To the right is
+the result your server should deliver. Take a moment to read the query and the
+result. Note that the result and query have the same basic "shape": whereas the
+result is JSON key-value pairs, the query is the just the keys.
 
 <script data-inline>
   import MiniGraphiQL from '../_core/MiniGraphiQL';
@@ -177,17 +209,40 @@ that user's name.
 `} />);
 </script>
 
-To fetch a different user, we can run `http://localhost:3000/graphql?query={user(id:%222%22){name}}`
-to execute this GraphQL query with a changed the ID, so we'll get the name of
-that user instead:
+You can edit the above query; the result will automatically update when you do.
+If you make a syntax mistake it will be underlined in red. Try replacing
+`id: "1"` with `id: "2"`; replace `name` with `id` or with `name id`.
 
-<script data-inline>
-  import MiniGraphiQL from '../_core/MiniGraphiQL';
-  renderHere(<MiniGraphiQL schema={global.schema} query={ `
+Now that you know what a GraphQL query looks like you can query your own server.
+Let's start with the simple query
+
+```
 {
-  user(id: "2") {
+  user(id: "1") {
     name
   }
 }
-`} />);
-</script>
+```
+
+Remove all the whitespace in the query: `{user(id:"1"){name}}` (whitespace is optional in GraphQL).
+You can send this to your server via a GET request with a URL query string:
+**http://localhost:3000/graphql?query={user(id:"1"){name}}**
+- the server should respond with
+
+```javascript
+{
+  "data": {
+    "user": {
+      "name": "Dan"
+    }
+  }
+}
+```
+
+To be standards compliant, the query itself should be URL-encoded.
+If you received a GraphQL Syntax Error from the above query, try replacing it with
+the URL-encoded version: `%7Buser(id:%221%22)%7Bname%7D%7D`.
+(You can URL-encode any string in JavaScript with the global `encodeURI` function.)
+
+Congratulations! You've built your first GraphQL server. Try different queries,
+or changing the data, or even adding new fields to the schema.
