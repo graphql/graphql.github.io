@@ -10,7 +10,7 @@ GraphQL queries declaratively describe what data the issuer wishes
 to fetch from whoever is fulfilling the GraphQL query.
 
 For our Star Wars example, the
-[starWarsQueryTests.js](https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsQueryTests.js)
+[starWarsQuery-test.js](https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsQuery-test.js)
 file in the GraphQL.js repository contains a number of queries and responses.
 That file is a test file that uses the schema discussed in the "Type System" walkthrough and a set of
 sample data, located in

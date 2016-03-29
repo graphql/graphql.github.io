@@ -11,7 +11,7 @@ queries it supports. GraphQL allows us to do so using the introspection
 system!
 
 For our Star Wars example, the file
-[starWarsIntrospectionTests.js](https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsIntrospectionTests.js)
+[starWarsIntrospection-test.js](https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsIntrospection-test.js)
 contains a number of queries demonstrating the introspection system, and is a
 test file that can be run to exercise the reference implementation's
 introspection system.
