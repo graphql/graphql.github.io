@@ -17,7 +17,7 @@ var BlogPost = React.createClass({
       <div className="inner-content">
         <h1>{isPermalink ? post.title : <a href={post.url}>{post.title}</a>}</h1>
         <p>{new Date(post.date).toLocaleDateString()} by {post.byline}</p>
-        {post.guestBio ? <hr /> : null}
+        {post.guestBio ? null : <hr />}
         {post.guestBio && <p className="guestBio">{
           `This guest article contributed by ${post.byline}, ${post.guestBio}.`
         }</p>}
