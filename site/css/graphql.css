@@ -520,6 +520,14 @@ section.black content {
   padding-bottom: 18px;
 }
 
+.guestBio {
+  background: #f9f0f3;
+  border-top: solid 2px #e0c3c8;
+  font-style: italic;
+  margin: 1em -10px;
+  padding: 10px;
+}
+
 .blogContent {
   *zoom: 1;
   padding-top: 20px;

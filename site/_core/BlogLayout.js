@@ -6,11 +6,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-var path = require('path');
 var React = require('react');
 var Site = require('./Site');
-var Marked = require('./Marked');
 var BlogSidebar = require('./BlogSidebar');
+var BlogPost = require('./BlogPost');
 
 var BlogLayout = React.createClass({
   render: function() {
@@ -20,12 +19,7 @@ var BlogLayout = React.createClass({
       <Site section="blog" title={page.title}>
         <section className="content wrap documentationContent">
           <BlogSidebar site={site} page={page} />
-          <div className="inner-content">
-            <h1>{page.title}</h1>
-            <p>{new Date(page.date).toLocaleDateString()} by {page.byline}</p>
-            <hr />
-            <Marked>{page.content}</Marked>
-          </div>
+          <BlogPost post={page} isPermalink={true} />
         </section>
       </Site>
     );
