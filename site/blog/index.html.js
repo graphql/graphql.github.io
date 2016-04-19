@@ -11,6 +11,7 @@ var React = require('react');
 var Site = require('../_core/Site');
 var Marked = require('../_core/Marked');
 var BlogSidebar = require('../_core/BlogSidebar');
+var BlogPost = require('../_core/BlogPost');
 
 var BlogIndex = React.createClass({
   render: function() {
@@ -24,12 +25,7 @@ var BlogIndex = React.createClass({
         <section className="content wrap documentationContent">
           <BlogSidebar site={site} />
           {posts.map(post =>
-            <div className="inner-content" key={post.permalink}>
-              <h1><a href={post.url}>{post.title}</a></h1>
-              <p>{new Date(post.date).toLocaleDateString()} by {post.byline}</p>
-              <hr />
-              <Marked url={post.url}>{post.content}</Marked>
-            </div>
+            <BlogPost post={post} isPermalink={false} key={post.permalink} />
           )}
         </section>
       </Site>
