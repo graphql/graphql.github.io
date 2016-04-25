@@ -9,6 +9,16 @@ next: /docs/intro/
 As conference presentations are published to YouTube, videos will be posted here
 in chronological order.
 
+## Zero to GraphQL in 30 Minutes
+
+*Steven Luscher – April 25, 2016*
+
+Stephen explains how to quickly set up a GraphQL endpoint starting from existing
+data services like Django, Rails, or an existing REST API while live-coding
+examples in Ruby, Python, and Javascript.
+
+<iframe width="760" height="426" src="https://www.youtube-nocookie.com/embed/UBGzsb2UkeY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
 ## GraphQL, A Horizontal Platform – @Scale
 
 *Nick Schrock – September 14, 2015*
