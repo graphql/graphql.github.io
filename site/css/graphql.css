@@ -549,6 +549,10 @@ section.black content {
   border-left: 5px solid #f7ebc6;
 }
 
+.blogContent img {
+  max-width: 100%;
+}
+
 .documentationContent {
   *zoom: 1;
   padding-top: 20px;
@@ -592,6 +596,10 @@ section.black content {
   line-height: 20px;
   margin-top: 0;
   text-rendering: optimizelegibility;
+}
+
+.documentationContent img {
+  max-width: 100%;
 }
 
 .docs-prevnext {
