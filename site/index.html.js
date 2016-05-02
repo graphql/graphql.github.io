@@ -153,7 +153,7 @@ Nearly all externally facing REST APIs we know of trend towards or end up in the
 
 Because of multiple round-trips and over-fetching, applications built in the REST style inevitably end up building ad hoc endpoints that are superficially in the REST style. These actually couple the data to a particular view which explicitly violates one of REST's major goals. Most REST systems of any complexity end up as a continuum of endpoints that span from “traditional” REST to ad hoc endpoints.
 
-###Ad Hoc Endpoints
+### Ad Hoc Endpoints
 
 Many applications have no formalized client-server contract. Product developers access server capabilities through ad hoc endpoints and write custom code to fetch the data they need. Servers define procedures, and they return data. This approach has the virtue of simplicity, but can often become untenable as systems age.
 
