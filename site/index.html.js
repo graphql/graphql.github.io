@@ -69,7 +69,7 @@ provides a library in JavaScript that is the basis for full GraphQL
 implementations and tools. It is not a fully standalone GraphQL server
 that a client developer could use to start manipulating and querying
 data. Most importantly it provides no mapping to a functioning,
-production-ready backend. For those using a express server, we recommend
+production-ready backend. For those using an express server, we recommend
 using [express-graphql](https://github.com/graphql/express-graphql) to
 provide a GraphQL server.
 
