@@ -206,7 +206,7 @@ AST during a recursive descent by calling `enter(node)` and `leave(node)`.
 ### isValidJSValue
 
 ```js
-function isValidJSValue(value: any, type: GraphQLInputType): boolean
+function isValidJSValue(value: any, type: GraphQLInputType): string[]
 ```
 
 Given a JavaScript value and a GraphQL type, determine if the value will be
@@ -219,7 +219,7 @@ runtime values of query variables.
 function isValidLiteralValue(
   type: GraphQLInputType,
   valueAST: Value
-): boolean
+): string[]
 ```
 
 Utility for validators which determines if a value literal AST is valid given
