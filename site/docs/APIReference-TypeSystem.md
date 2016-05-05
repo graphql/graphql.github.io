@@ -262,6 +262,7 @@ type GraphQLFieldConfigMapThunk = () => GraphQLFieldConfigMap;
 type GraphQLFieldResolveFn = (
   source?: any,
   args?: {[argName: string]: any},
+  context?: any,
   info?: GraphQLResolveInfo
 ) => any
 
