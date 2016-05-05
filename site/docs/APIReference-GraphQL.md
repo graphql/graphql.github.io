@@ -146,6 +146,7 @@ graphql(
   schema: GraphQLSchema,
   requestString: string,
   rootValue?: ?any,
+  contextValue?: ?any,
   variableValues?: ?{[key: string]: any},
   operationName?: ?string
 ): Promise<GraphQLResult>
@@ -153,7 +154,8 @@ graphql(
 
 The `graphql` function lexes, parses, validates and executes a GraphQL request.
 It requires a `schema` and a `requestString`. Optional arguments include a
-`rootValue`, which will get passed as the root value to the executor,
+`rootValue`, which will get passed as the root value to the executor, a `contextValue`,
+which will get passed to all resolve functions,
 `variableValues`, which will get passed to the executor to provide values for
 any variables in `requestString`, and `operationName`, which allows the caller
 to specify which operation in `requestString` will be run, in cases where
