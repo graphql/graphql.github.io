@@ -55,7 +55,7 @@ module.exports = class MiniGraphiQL extends React.Component {
     var queryID = this._editorQueryID;
 
     graphql(
-      this.state.schema, this.state.query, null, this.state.values
+      this.state.schema, this.state.query, null, null, this.state.values
     ).then(result => {
       if (result.errors) {
         result.errors = result.errors.map(formatError);
