@@ -33,8 +33,9 @@ var GraphQLExecution = require('graphql/execution'); // CommonJS
 export function execute(
   schema: GraphQLSchema,
   documentAST: Document,
-  rootValue?: any,
-  variableValues?: ?{[key: string]: any},
+  rootValue?: mixed,
+  contextValue?: mixed,
+  variableValues?: ?{[key: string]: mixed},
   operationName?: ?string
 ): Promise<ExecutionResult>
 
