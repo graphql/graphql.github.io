@@ -196,7 +196,7 @@ We know our server is running - now we just need to send it a query!
 Below is a very simple query you can make against your schema. To the right is
 the result your server should deliver. Take a moment to read the query and the
 result. Note that the result and query have the same basic "shape": whereas the
-result is JSON key-value pairs, the query is the just the keys.
+result is JSON key-value pairs, the query is just the keys.
 
 <script data-inline>
   import MiniGraphiQL from '../_core/MiniGraphiQL';
