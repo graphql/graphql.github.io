@@ -28,7 +28,7 @@ GraphQL consists of the following open-source repos on [Github](https://github.c
 
   - **[graphql](https://github.com/facebook/graphql)** ([html](http://facebook.github.io/graphql/)): A working draft of the specification for GraphQL.
 
-### Server (JavaSscript)
+### Server (JavaScript)
 
   - **[graphql-js](https://github.com/graphql/graphql-js)** ([npm](https://www.npmjs.com/package/graphql)): A JS Reference implementation of the GraphQL Specification.
   - **[express-graphql](https://github.com/graphql/express-graphql)** ([npm](https://www.npmjs.com/package/express-graphql)): Create a GraphQL HTTP server with Express.
