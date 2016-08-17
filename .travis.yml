@@ -1,8 +1,10 @@
+language: node_js
+node_js: 6
+
+branches: only: source
+
+after_success: ./resources/publish.sh
+
 env:
   global:
   - secure: "HisahnzlpVlTi239Z80UtqRWYEWUBXyVDYsxX9vxwg332jSxO7Hr6TFmNjghpJPtT/HRjQ/FQ4Cfain2ae2OBi0a1mBNNvOTrfy8/Rvs+FwxlmPolzXKZg1PLx1A9HMlhVkAxYuk5AKv5wLNN3xWzPS9xcHASiCgHE1imq9tuf53tuflNpoAlRT6WVYqxuLluDTbfiTrmjjydfh/iTkYyU7mdfowEyS7+b7ltx8tzGD5Fif1dKBVZEkImxC5KV3oczk5zxIBC/j0SEmd4KLl5NH/kbUcD/mFSgtoKRSW0QwJdwR0I3AurP/D8FlTzVyCwwxMrZfnWjoync1bMJvRbz02KkiICt2lfI0BFo1dDD1yO8lYOhSHcXZRhhEypLu9mho2Cy0zy5zF5PF5t2X8zfGgkQ5eTy6xYCHOAl4eqO9NU2mtpKLdYpXfkBLRTa2e5U+DBqYt8fVXyBR2qVCbpIkg96Hx/FCCKtNlzjyhyTJmyoZr7BxPpHQZkmroieEMfpM7VfF729npf0n6jrfBLwyWFjCFAG9xLey537sUdczEltdWgOuW1rs0KaP4uM1si3S+fNndXLDX70n8BsadnJgq0y1RWAH1y8Y+Pa5cRl0QXQOJUgK4ZcS29+BzZ6RIsFUrAJXHCRdaTDrQNw8CepW443Ke9quwG8IJLCAPV0c="
-
-language: node_js
-node_js: "v4.0.0"
-
-after_success: ./resources/publish.sh
