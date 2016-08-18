@@ -14,8 +14,8 @@ var HeaderLinks = React.createClass({
     {section: 'code', text: 'Code', href: '/code/' },
     {section: 'help', text: 'Community', href: '/help/' },
     {section: 'blog', text: 'Blog', href: '/blog/' },
-  ],
-  linksExternal: [
+  // ],
+  // linksExternal: [
     {section: 'spec', text: 'Spec', href: 'http://facebook.github.io/graphql/' },
   ],
 
@@ -41,13 +41,9 @@ var HeaderLinks = React.createClass({
           {this.renderLinks(this.linksInternal)}
         </ul>
 
-        <div className="algolia-search-wrapper">
-          <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
-        </div>
-
-        <ul className="nav-site nav-site-external">
+        {/*<ul className="nav-site nav-site-external">
           {this.renderLinks(this.linksExternal)}
-        </ul>
+        </ul>*/}
       </div>
     );
   }

@@ -28,7 +28,7 @@ var Site = React.createClass({
           <link rel="shortcut icon" href="/img/favicon.png" />
           <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog" />
           <link rel="stylesheet" href="/css/graphql.css" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik|Roboto|Roboto+Mono:400,400i,700" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300|Roboto+Mono:300,300i,500" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
         </head>
         <body>
@@ -37,7 +37,7 @@ var Site = React.createClass({
             <div className="nav-main">
               <div className="wrap">
                 <a className="nav-home" href={'/'}>
-                  <img className="nav-logo" src={'/img/logo.svg'} width="40" height="40" />
+                  <img className="nav-logo" src={'/img/logo.svg'} width="30" height="30" />
                   GraphQL
                 </a>
                 <HeaderLinks section={this.props.section} />
