@@ -79,7 +79,7 @@ h3 small {
 }
 
 h4 small {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 ul, ol {
@@ -96,7 +96,6 @@ ul ul, ul ol, ol ol, ol ul {
 }
 
 li {
-  line-height: 20px;
   margin-bottom: 1em;
 }
 
@@ -369,7 +368,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .nav-docs {
   color: #2d2d2d;
-  font-size: 14px;
+  font-size: 13px;
   float: left;
   width: 170px;
 }
@@ -389,7 +388,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .nav-docs h3 {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .nav-docs a {
@@ -488,7 +487,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 #examples #todoExample {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 #examples #todoExample ul {
@@ -773,8 +772,8 @@ p code {
   background-color: #f6f5f5;
   color: #333;
   font-family: 'Roboto Mono', Menlo, Monaco, monospace;
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 13px;
   line-height: 20px;
   padding: 4px 4px 2px;
   margin: 0 -1px;
@@ -1111,7 +1110,7 @@ pre[class*="language-"],
 	color: #333;
 	text-shadow: 0 1px white;
 	font-family: 'Roboto Mono', Menlo, Monaco, monospace;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
 	direction: ltr;
 	text-align: left;
@@ -1253,11 +1252,13 @@ pre[class*="language-"],
 code[class*="language-"],
 pre[class*="language-"],
 .apiIndex li {
-  font-size: 14px;
-  line-height: 20px;
-  border-left: 4px solid #E10098;
+  font-size: 13px;
+  line-height: 17px;
   padding: 7px 14px;
-  background-color: #faf9f9;
+  background: white;
+  box-shadow: inset 0 0 0 1px #EEE, inset 4px 0 0 #EEE;
+  border-radius: 3px;
+  margin-left: -4px;
 }
 
 .prism + .prism {
@@ -1290,7 +1291,7 @@ pre[class*="language-"],
 
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: monospace;
+  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
   height: 300px;
   color: black;
 }
@@ -1760,7 +1761,7 @@ span.CodeMirror-selectedtext { background: none; }
      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
   font-family: 'Roboto Mono', Menlo, Monaco, monospace;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
   list-style: none;
   margin: 0;
@@ -1979,31 +1980,39 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 /* CM override */
 
 .CodeMirror {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 13px;
+  line-height: 17px;
   font-family:
 }
 
 .miniGraphiQL {
   margin: 28px 0;
   color: #333;
-  background: #faf9f9;
-  border-left: 4px solid #E10098;
+  /*background: #faf9f9;*/
+  /*border-left: 4px solid #E10098;*/
   width: 100%;
   display: -webkit-flex;
   display:         flex;
   -webkit-flex-direction: row;
           flex-direction: row;
   font-family: helvetica, arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   position: relative;
+
+  font-size: 13px;
+  line-height: 17px;
+  padding: 3px; /*7px 14px;*/
+  background: white;
+  box-shadow: inset 0 0 0 1px #EEE, inset 4px 0 0 #EEE;
+  border-radius: 3px;
+  margin-left: -4px;
 }
 
 .query-editor .CodeMirror {
   height: auto;
   min-height: 100px;
   margin: 0px 7px 28px;
-  background: #faf9f9;
+  /*background: #faf9f9;*/
 }
 
 .query-editor {
@@ -2011,18 +2020,23 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 
 .result-window {
-  background: #fbfafa;
+  /*background: #fbfafa;*/
   box-shadow: inset 5px 0px 4px -3px rgba(0,0,0,0.2);
+
   position: absolute;
   left: 50%;
   top: 0;
   bottom: 0;
   height: 100%;
   right: 0;
+
+  box-shadow: inset 0 0 0 1px #EEE;
+  border-radius: 3px;
 }
 
 .result-window .CodeMirror {
-  background: #fbfafa;
+  /*background: #fbfafa;*/
+  background: transparent;
   height: 100%;
   margin: 0 7px;
   -webkit-box-sizing: border-box;
