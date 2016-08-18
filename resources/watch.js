@@ -52,13 +52,23 @@ function startWatch() {
 }
 
 function deleteFile(fileName) {
-  delete require.cache[fileName];
+  clearCache(fileName);
   build().catch(error => console.error(error.stack || error));
 }
 
 function changeFile(fileName) {
-  delete require.cache[fileName];
+  clearCache(fileName);
   build().catch(error => console.error(error.stack || error));
+}
+
+function clearCache(causeFileName) {
+  if (path.extname(causeFileName) === '.js') {
+    for (var fileName in require.cache) {
+      if (fileName.indexOf('/node_modules/') === -1) {
+        delete require.cache[fileName];
+      }
+    }
+  }
 }
 
 if (require.main === module) {
