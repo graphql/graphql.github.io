@@ -285,9 +285,21 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .hero {
   background: #2d2d2d;
-  padding: 50px 0;
   color: #f8f8f8;
-  font-weight: 300;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hero .content {
+  margin: 30px;
+}
+
+.hero .main-logo {
+  margin: 0 auto;
+  display: block;
 }
 
 .hero .text {

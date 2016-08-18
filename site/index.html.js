@@ -8,7 +8,8 @@ var index = React.createClass({
     return (
       <Site>
         <div className="hero">
-          <div className="wrap">
+          <div className="content">
+            <img className="main-logo" src={'/img/logo.svg'} width="240" height="240" />
             <h1 className="text"><strong>GraphQL</strong></h1>
             <h2 className="minitext">
               {SiteData.description}
