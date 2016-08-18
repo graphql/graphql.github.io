@@ -10,10 +10,10 @@ var React = require('react');
 
 var HeaderLinks = React.createClass({
   linksInternal: [
-    {section: 'docs', text: 'Docs', href: '/docs/getting-started/' },
-    {section: 'blog', text: 'Blog', href: '/blog/' },
-    {section: 'help', text: 'Help', href: '/help/' },
+    {section: 'docs', text: 'Learn', href: '/docs/getting-started/' },
     {section: 'code', text: 'Code', href: '/code/' },
+    {section: 'help', text: 'Community', href: '/help/' },
+    {section: 'blog', text: 'Blog', href: '/blog/' },
   ],
   linksExternal: [
     {section: 'spec', text: 'Spec', href: 'http://facebook.github.io/graphql/' },
