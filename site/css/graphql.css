@@ -1,8 +1,8 @@
 html {
-  font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #484848;
   font-size: 16px;
-  line-height: 1.375;
+  line-height: 24px;
 }
 
 body {
@@ -21,10 +21,8 @@ em {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 10px 0;
-  font-family: inherit;
-  font-weight: bold;
-  line-height: 20px;
   color: inherit;
   text-rendering: optimizelegibility;
 }
@@ -40,14 +38,17 @@ h1, h2, h3 {
 
 h1 {
   font-size: 39px;
+  line-height: 60px;
 }
 
 h2 {
   font-size: 24px;
+  line-height: 36px;
 }
 
 h3 {
   font-size: 18px;
+  line-height: 28px;
 }
 
 h4 {
@@ -98,12 +99,12 @@ li {
 }
 
 a {
-  color: #E535AB;
+  /* https://www.pantone.com/color-finder/Rhodamine-Red-C */
+  color: #E10098;
   text-decoration: none;
 }
 
 a:hover, a:focus {
-  color: #E97CC5;
   text-decoration: underline;
 }
 
@@ -194,6 +195,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .nav-main {
+  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   *zoom: 1;
   background: #222;
   color: #fafafa;
@@ -252,18 +254,18 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .nav-main .nav-site a.active {
   color: #fafafa;
-  border-bottom: 3px solid #E535AB;
+  border-bottom: 3px solid #E10098;
   background: #333;
 }
 
 .nav-main .nav-home {
-  color: #E535AB;
+  color: #E10098;
   font-size: 24px;
   line-height: 50px;
 }
 
 .nav-home a {
-  color: #E535AB;
+  color: #E10098;
 }
 
 .nav-home img {
@@ -290,11 +292,11 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .hero .text {
   font-size: 64px;
+  line-height: 100px;
   text-align: center;
 }
 
 .hero h1.text {
-  line-height: inherit;
   margin: 0;
 }
 
@@ -311,7 +313,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .hero strong {
-  color: #E535AB;
+  color: #E10098;
   font-weight: 400;
 }
 
@@ -326,7 +328,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .buttons-unit .button {
   font-size: 24px;
-  background: #E535AB;
+  background: #E10098;
   color: #fafafa;
 }
 
@@ -366,11 +368,11 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .nav-docs a:hover {
   text-decoration: none;
-  color: #E535AB;
+  color: #E10098;
 }
 
 .nav-docs a.active {
-  color: #E535AB;
+  color: #E10098;
 }
 
 .nav-docs .nav-docs-section {
@@ -739,7 +741,7 @@ li code,
 p code {
   background-color: #f6f5f5;
   color: #333;
-  font-family: Consolas, Inconsolata, 'Droid Sans Mono', 'Andale Mono', 'Ubuntu Mono', Menlo, Monaco, monospace;
+  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
   font-size: 14px;
   line-height: 20px;
   padding: 4px 4px 2px;
@@ -986,7 +988,7 @@ p + .apiIndex {
   text-decoration: none;
 }
 .apiIndex li a:hover::before {
-  color: #E535AB;
+  color: #E10098;
   content: '#';
   font-size: 16px;
   left: -2em;
@@ -1076,7 +1078,7 @@ pre[class*="language-"],
 .apiIndex pre {
 	color: #333;
 	text-shadow: 0 1px white;
-	font-family: 'Consolas', 'Inconsolata', 'Droid Sans Mono', 'Andale Mono', 'Ubuntu Mono', 'Monaco', monospace;
+	font-family: 'Roboto Mono', Menlo, Monaco, monospace;
   font-size: 14px;
   line-height: 20px;
 	direction: ltr;
@@ -1212,7 +1214,7 @@ pre[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"],
 .apiIndex pre {
-  font-family: Consolas, Inconsolata, 'Droid Sans Mono', 'Andale Mono', 'Ubuntu Mono', Menlo, Monaco, monospace;
+  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
   white-space: pre-wrap;
 }
 
@@ -1221,7 +1223,7 @@ pre[class*="language-"],
 .apiIndex li {
   font-size: 14px;
   line-height: 20px;
-  border-left: 4px solid #E535AB;
+  border-left: 4px solid #E10098;
   padding: 7px 14px;
   background-color: #faf9f9;
 }
@@ -1725,7 +1727,7 @@ span.CodeMirror-selectedtext { background: none; }
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-  font-family: Consolas, Inconsolata, 'Droid Sans Mono', 'Andale Mono', 'Ubuntu Mono', Menlo, Monaco, monospace;
+  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
   font-size: 14px;
   line-height: 20px;
   list-style: none;
@@ -1954,7 +1956,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   margin: 28px 0;
   color: #333;
   background: #faf9f9;
-  border-left: 4px solid #E535AB;
+  border-left: 4px solid #E10098;
   width: 100%;
   display: -webkit-flex;
   display:         flex;
@@ -2041,13 +2043,13 @@ input#algolia-doc-search {
   background-color: #B51780;
 }
 .algolia-docsearch-suggestion--highlight {
-  color: #E535AB;
+  color: #E10098;
 }
 .algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight  {
-  background-color: #E535AB;
+  background-color: #E10098;
 }
 .aa-cursor .algolia-docsearch-suggestion--content {
-  color: #E535AB;
+  color: #E10098;
 }
 .aa-cursor .algolia-docsearch-suggestion {
   background: #FEF6FB;
@@ -2058,5 +2060,5 @@ input#algolia-doc-search {
 .algolia-docsearch-suggestion--subcategory-column {
   border-right-color: #FEF6FB;
   background-color: #FEF6FB;
-  color: #E535AB;
+  color: #E10098;
 }
