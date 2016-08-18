@@ -25,12 +25,10 @@ var Site = React.createClass({
           <meta property="og:url" content="http://graphql.org/" />
           <meta property="og:description" content={SiteData.description} />
 
+          <link rel="shortcut icon" href="/img/favicon.png" />
+          <link rel="stylesheet" href="/css/graphql.css" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik|Roboto|Roboto+Mono:400,400i,700" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-          <link rel="shortcut icon" href={'/img/favicon.png'} />
-          <link rel="stylesheet" href={'/css/graphql.css'} />
-
-          <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
-          <script type="text/javascript">{'try{Typekit.load();}catch(e){}'}</script>
         </head>
         <body>
 
