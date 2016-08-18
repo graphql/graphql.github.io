@@ -1,8 +1,9 @@
 html {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #484848;
-  font-size: 16px;
-  line-height: 24px;
+  font-weight: 300;
+  color: #202020;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 body {
@@ -22,6 +23,7 @@ em {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
   margin: 10px 0;
   color: inherit;
   text-rendering: optimizelegibility;
@@ -197,12 +199,12 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 .nav-main {
   font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   *zoom: 1;
-  background: #222;
-  color: #fafafa;
+  color: #606060;
   position: fixed;
   top: 0;
   height: 50px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  background: white;
+  box-shadow: inset 0 -1px 0 0px rgba(0, 0, 0, 0.1);
   width: 100%;
   z-index: 100;
 }
@@ -217,8 +219,8 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .nav-main a {
-  color: #e9e9e9;
   text-decoration: none;
+  transition: color 0.1s ease-out
 }
 
 .nav-main .nav-site-wrapper {
@@ -226,13 +228,14 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .nav-main .nav-site-internal {
+  float: right;
   margin: 0 0 0 20px;
 }
 
-.nav-main .nav-site-external {
+/*.nav-main .nav-site-external {
   float: right;
   margin: 0;
-}
+}*/
 
 .nav-main .nav-site li {
   margin: 0;
@@ -249,11 +252,11 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .nav-main .nav-site a:hover {
-  color: #fafafa;
+  color: #0f0f0f;
 }
 
 .nav-main .nav-site a.active {
-  color: #fafafa;
+  color: #0f0f0f;
   border-bottom: 3px solid #E10098;
   background: #333;
 }
@@ -269,28 +272,45 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .nav-home img {
-  vertical-align: -17px;
+  vertical-align: -9px;
   margin-right: 4px;
-  width: 40px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
-.nav-main ul {
+.nav-site-wrapper ul {
   display: inline;
 }
 
-.nav-main li {
+.nav-site-wrapper li {
   display: inline;
 }
 
 .hero {
-  background: #2d2d2d;
+  background: #222;
   color: #f8f8f8;
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+  z-index: 101;
+  margin-top: -50px;
+  padding-top: 50px;
+}
+
+.nav-main.hero-nav {
+  position: absolute;
+  top: 0;
+  height: 50px;
+  width: 1020px;
+  background: none;
+  box-shadow: none;
+}
+
+.hero-nav .nav-site-wrapper {
+  float: right;
 }
 
 .hero .content {
@@ -319,14 +339,13 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .hero h2.minitext {
-  font-weight: normal;
   line-height: inherit;
   margin: 0;
 }
 
 .hero strong {
   color: #E10098;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .buttons-unit {
@@ -440,7 +459,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 .marketing-col h3 {
   color: #2d2d2d;
   font-size: 24px;
-  font-weight: normal;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
@@ -455,7 +474,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 #examples h3, .home-presentation h3 {
   color: #2d2d2d;
   font-size: 24px;
-  font-weight: normal;
+  font-weight: 300;
   margin-bottom: 5px;
 }
 
@@ -754,6 +773,7 @@ p code {
   background-color: #f6f5f5;
   color: #333;
   font-family: 'Roboto Mono', Menlo, Monaco, monospace;
+  font-weight: 300;
   font-size: 14px;
   line-height: 20px;
   padding: 4px 4px 2px;
@@ -2014,11 +2034,11 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 div.algolia-search-wrapper {
   display: inline-block;
   vertical-align: top;
-  margin-left: 15px;
+  /*margin-left: 15px;*/
 }
 
 .algolia-autocomplete .aa-dropdown-menu {
-  margin-left: -110px;
+  /*margin-left: -110px;*/
   margin-top: -4px;
 }
 
@@ -2034,7 +2054,7 @@ input#algolia-doc-search {
 
   padding: 0 10px;
   padding-left: 35px;
-  margin-top: 12px;
+  margin-top: 9px;
   height: 30px;
   font-size: 16px;
   line-height: 20px;

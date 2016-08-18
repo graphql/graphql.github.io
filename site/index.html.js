@@ -1,6 +1,7 @@
 var React = require('react');
 var Site = require('./_core/Site');
 var SiteData = require('./_core/SiteData');
+var HeaderLinks = require('./_core/HeaderLinks');
 var Marked = require('./_core/Marked');
 
 var index = React.createClass({
@@ -8,6 +9,15 @@ var index = React.createClass({
     return (
       <Site>
         <div className="hero">
+          <div className="hero-nav nav-main">
+            <div className="wrap">
+              <div className="algolia-search-wrapper">
+                <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+              </div>
+              <HeaderLinks section={this.props.section} />
+            </div>
+          </div>
+
           <div className="content">
             <img className="main-logo" src={'/img/logo.svg'} width="240" height="240" />
             <h1 className="text"><strong>GraphQL</strong></h1>
