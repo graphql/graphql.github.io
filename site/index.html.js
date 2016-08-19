@@ -7,17 +7,18 @@ var Marked = require('./_core/Marked');
 var index = React.createClass({
   render: function() {
     return (
-      <Site>
+      <Site className="index">
         <div className="hero">
           <div className="abs">
-            <div className="hero-nav nav-main">
-              <div className="wrap">
+
+            <header aria-hidden>
+              <section>
                 <div className="algolia-search-wrapper">
                   <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
                 </div>
                 <HeaderLinks section={this.props.section} />
-              </div>
-            </div>
+              </section>
+            </header>
 
             <div className="content">
               <img className="main-logo" src={'/img/logo.svg'} width="240" height="240" />
@@ -29,39 +30,38 @@ var index = React.createClass({
           </div>
         </div>
 
-        <section className="content wrap">
-          <section className="marketing-row">
-            <div className="marketing-col">
-              <h3>Declarative</h3>
-              <p>
-                {`Query responses are decided by the client rather
-                than the server. A GraphQL query returns exactly what a client
-                asks for and no more.`}
-              </p>
-            </div>
-            <div className="marketing-col">
-              <h3>Compositional</h3>
-              <p>
-                {`A GraphQL query itself is a hierarchical set of fields. The
-                query is shaped just like the data it returns. It is a natural
-                way for product engineers to describe data requirements.`}
-              </p>
-            </div>
-            <div className="marketing-col">
-              <h3>Strong-typed</h3>
-              <p>
-                {`A GraphQL query can be ensured to be valid within a GraphQL type
-                system at development time allowing the server to make
-                guarantees about the response. This makes it easier to build
-                high-quality client tools.`}
-              </p>
-            </div>
-          </section>
+
+        <section className="marketing-row">
+          <div className="marketing-col">
+            <h3>Declarative</h3>
+            <p>
+              {`Query responses are decided by the client rather
+              than the server. A GraphQL query returns exactly what a client
+              asks for and no more.`}
+            </p>
+          </div>
+          <div className="marketing-col">
+            <h3>Compositional</h3>
+            <p>
+              {`A GraphQL query itself is a hierarchical set of fields. The
+              query is shaped just like the data it returns. It is a natural
+              way for product engineers to describe data requirements.`}
+            </p>
+          </div>
+          <div className="marketing-col">
+            <h3>Strong-typed</h3>
+            <p>
+              {`A GraphQL query can be ensured to be valid within a GraphQL type
+              system at development time allowing the server to make
+              guarantees about the response. This makes it easier to build
+              high-quality client tools.`}
+            </p>
+          </div>
         </section>
 
         <hr className="home-divider" />
 
-        <section className="home-content wrap">
+        <section className="home-content">
         <Marked>{`
 
 GraphQL is a data query language and runtime designed and used at

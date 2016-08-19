@@ -32,27 +32,23 @@ var Site = React.createClass({
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,600" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
         </head>
-        <body>
+        <body className={this.props.className}>
 
-          <div className="container">
-            <div className="nav-main">
-              <div className="wrap">
-                <a className="nav-home" href={'/'}>
-                  <img className="nav-logo" src={'/img/logo.svg'} width="30" height="30" />
-                  GraphQL
-                </a>
-                <HeaderLinks section={this.props.section} />
-              </div>
-            </div>
+          <header>
+            <section>
+              <a className="nav-home" href={'/'}>
+                <img className="nav-logo" src={'/img/logo.svg'} width="30" height="30" />
+                GraphQL
+              </a>
+              <HeaderLinks section={this.props.section} />
+            </section>
+          </header>
 
-            {this.props.children}
+          {this.props.children}
 
-            <footer className="wrap">
-              <div className="right">©2016 Facebook Inc.</div>
-            </footer>
-          </div>
-
-          <div id="fb-root" />
+          <footer>
+            ©2016 Facebook Inc.
+          </footer>
 
           <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
           <script dangerouslySetInnerHTML={{__html: `

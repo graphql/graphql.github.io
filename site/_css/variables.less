@@ -2,10 +2,12 @@
 @rhodamine-color: #E10098;
 @text-color: #202020;
 
-.headline-font() {
+.headline-font(@size: 48px, @color: @text-color) {
   font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
-  color: @text-color;
+  color: @color;
+  font-size: @size;
+  line-height: @size * 1.4;
 }
 
 .body-font(@size: 18px, @color: @text-color) {

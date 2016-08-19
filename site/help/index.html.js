@@ -16,7 +16,7 @@ var Help = React.createClass({
     return (
       <Site section="help" title="Help">
 
-        <section className="content wrap documentationContent nosidebar">
+        <section className="content documentationContent nosidebar">
           <div className="inner-content">
             <h1>Need help?</h1>
             <p>
