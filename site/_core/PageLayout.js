@@ -15,7 +15,7 @@ var support = React.createClass({
     var page = this.props.page;
     return (
       <Site section={page.section}>
-        <section className="content wrap documentationContent nosidebar">
+        <section className="content documentationContent nosidebar">
           <div className="inner-content">
             <Marked>{page.content}</Marked>
           </div>

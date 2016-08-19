@@ -18,7 +18,7 @@ var DocsLayout = React.createClass({
     var site = this.props.site;
     return (
       <Site section="docs" title={page.title}>
-        <section className="content wrap documentationContent">
+        <section className="content documentationContent">
           <DocsSidebar site={site} page={page} />
           <div className="inner-content">
             <h1>{page.title}</h1>

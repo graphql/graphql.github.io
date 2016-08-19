@@ -22,7 +22,7 @@ var BlogIndex = React.createClass({
       .sort((a, b) => a.date < b.date);
     return (
       <Site section="blog" title="Blog">
-        <section className="content wrap documentationContent">
+        <section className="content documentationContent">
           <BlogSidebar site={site} />
           {posts.map(post =>
             <BlogPost post={post} isPermalink={false} key={post.permalink} />
