@@ -12,6 +12,7 @@ var React = require('react');
 var fs = require('fs');
 var yaml = require('js-yaml');
 var path = require('path');
+var less = require('less');
 var renderReactPage = require('./renderReactPage');
 import { endsWith } from './util';
 
@@ -20,6 +21,13 @@ module.exports = writer;
 
 async function writer(buildDir, file, site) {
   var writePath = getWritePath(buildDir, file);
+
+  // Render Less file
+  if (endsWith(file.absPath, '.less')) {
+    const input = await readFile(file.absPath);
+    const output = await less.render(input, { filename: file.absPath });
+    return await writeFile(writePath, output.css);
+  }
 
   // Non-modified content
   if (!file.content) {
@@ -258,6 +266,14 @@ function getWritePath(buildDir, file) {
   return path.join(buildDir, writePath.slice(1));
 }
 
+// Simple Promise wrapper around fs.writeFile
+function readFile(filePath, fmt) {
+  return new Promise((resolve, reject) =>
+    fs.readFile(filePath, fmt || 'utf8', (err, results) =>
+      err ? reject(err) : resolve(results))
+  );
+}
+
 // Ensures directory exists, then writes file
 async function writeFile(filePath, data) {
   await promiseDirExists(path.dirname(filePath));
@@ -266,15 +282,9 @@ async function writeFile(filePath, data) {
 
 // Simple Promise wrapper around fs.writeFile
 function _writeFile(filePath, data) {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(filePath, data, err => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
-  });
+  return new Promise((resolve, reject) =>
+    fs.writeFile(filePath, data, err => err ? reject(err) : resolve())
+  );
 }
 
 function promisePipeEnds(pipe) {
