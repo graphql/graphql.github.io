@@ -49,15 +49,6 @@ var Site = React.createClass({
             ©2016 Facebook Inc.
           </footer>
 
-          <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-          <script dangerouslySetInnerHTML={{__html: `
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            docsearch({
-              apiKey: 'd103541f3e6041148aade2e746ed4d61',
-              indexName: 'graphql',
-              inputSelector: '#algolia-doc-search'
-            });
-          `}} />
           <script dangerouslySetInnerHTML={{__html: `
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
