@@ -1,9 +1,7 @@
+@import "variables.less";
+
 html {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  color: #202020;
-  font-size: 18px;
-  line-height: 28px;
+  .body-font();
 }
 
 body {
@@ -22,8 +20,7 @@ em {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  .headline-font();
   margin: 10px 0;
   color: inherit;
   text-rendering: optimizelegibility;
@@ -100,8 +97,7 @@ li {
 }
 
 a {
-  /* https://www.pantone.com/color-finder/Rhodamine-Red-C */
-  color: #E10098;
+  color: @rhodamine-color;
   text-decoration: none;
 }
 
@@ -256,18 +252,18 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .nav-main .nav-site a.active {
   color: #0f0f0f;
-  border-bottom: 3px solid #E10098;
+  border-bottom: 3px solid @rhodamine-color;
   background: #333;
 }
 
 .nav-main .nav-home {
-  color: #E10098;
+  color: @rhodamine-color;
   font-size: 24px;
   line-height: 50px;
 }
 
 .nav-home a {
-  color: #E10098;
+  color: @rhodamine-color;
 }
 
 .nav-home img {
@@ -343,7 +339,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .hero strong {
-  color: #E10098;
+  color: @rhodamine-color;
   font-weight: 300;
 }
 
@@ -358,7 +354,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .buttons-unit .button {
   font-size: 24px;
-  background: #E10098;
+  background: @rhodamine-color;
   color: #fafafa;
 }
 
@@ -367,7 +363,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .nav-docs {
-  color: #2d2d2d;
+  color: @text-color;
   font-size: 13px;
   float: left;
   width: 170px;
@@ -398,11 +394,11 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
 .nav-docs a:hover {
   text-decoration: none;
-  color: #E10098;
+  color: @rhodamine-color;
 }
 
 .nav-docs a.active {
-  color: #E10098;
+  color: @rhodamine-color;
 }
 
 .nav-docs .nav-docs-section {
@@ -456,7 +452,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .marketing-col h3 {
-  color: #2d2d2d;
+  color: @text-color;
   font-size: 24px;
   font-weight: 300;
   text-transform: uppercase;
@@ -471,7 +467,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 #examples h3, .home-presentation h3 {
-  color: #2d2d2d;
+  color: @text-color;
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 5px;
@@ -769,12 +765,9 @@ figure {
 small code,
 li code,
 p code {
-  background-color: #f6f5f5;
-  color: #333;
-  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
+  .code-font(15px);
+  background-color: #f8f8f8;
+  border-radius: 2px;
   padding: 4px 4px 2px;
   margin: 0 -1px;
 }
@@ -809,7 +802,7 @@ p code {
 }
 
 .playground-tab-active {
-  color: #222;
+  color: @text-color;
 }
 
 .playgroundCode {
@@ -1019,7 +1012,7 @@ p + .apiIndex {
   text-decoration: none;
 }
 .apiIndex li a:hover::before {
-  color: #E10098;
+  color: @rhodamine-color;
   content: '#';
   font-size: 16px;
   left: -2em;
@@ -1107,11 +1100,8 @@ p + .apiIndex {
 code[class*="language-"],
 pre[class*="language-"],
 .apiIndex pre {
-	color: #333;
+  .code-font();
 	text-shadow: 0 1px white;
-	font-family: 'Roboto Mono', Menlo, Monaco, monospace;
-  font-size: 13px;
-  line-height: 20px;
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
@@ -1245,7 +1235,7 @@ pre[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"],
 .apiIndex pre {
-  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
+  .code-font();
   white-space: pre-wrap;
 }
 
@@ -1291,9 +1281,8 @@ pre[class*="language-"],
 
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
   height: 300px;
-  color: black;
+  .code-font();
 }
 
 /* PADDING */
@@ -1685,9 +1674,7 @@ span.CodeMirror-selectedtext { background: none; }
   background-color: infobackground;
   border: 1px solid black;
   border-radius: 4px 4px 4px 4px;
-  color: infotext;
-  font-family: monospace;
-  font-size: 10pt;
+  .code-font();
   overflow: hidden;
   padding: 2px 5px;
   position: fixed;
@@ -1760,9 +1747,7 @@ span.CodeMirror-selectedtext { background: none; }
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
-  font-size: 13px;
-  line-height: 20px;
+  .code-font();
   list-style: none;
   margin: 0;
   margin-left: -6px;
@@ -1829,12 +1814,9 @@ li.CodeMirror-hint-active {
 
 .CodeMirror-hint-information .content {
   -webkit-box-orient: vertical;
-  color: #333;
   display: -webkit-box;
-  font-family: helvetica, arial, sans-serif;
-  font-size: 13px;
+  .body-font(@size: 15px);
   -webkit-line-clamp: 3;
-  line-height: 16px;
   max-height: 48px;
   overflow: hidden;
   text-overflow: -o-ellipsis-lastline;
@@ -1866,9 +1848,7 @@ div.CodeMirror-lint-tooltip {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-  font-family: helvetica, arial, sans-serif;
-  font-size: 13px;
-  line-height: 16px;
+  .body-font(@size: 15px);
   padding: 6px 10px;
   opacity: 0;
   transition: opacity 0.15s;
@@ -1980,27 +1960,21 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 /* CM override */
 
 .CodeMirror {
-  font-size: 13px;
-  line-height: 17px;
-  font-family: 'Roboto Mono', Menlo, Monaco, monospace;
+  .code-font();
 }
 
 .miniGraphiQL {
   margin: 28px 0;
   color: #333;
   /*background: #faf9f9;*/
-  /*border-left: 4px solid #E10098;*/
+  /*border-left: 4px solid @rhodamine-color;*/
   width: 100%;
   display: -webkit-flex;
   display:         flex;
   -webkit-flex-direction: row;
           flex-direction: row;
-  font-family: helvetica, arial, sans-serif;
-  font-size: 13px;
   position: relative;
 
-  font-size: 13px;
-  line-height: 17px;
   padding: 3px; /*7px 14px;*/
   background: white;
   box-shadow: inset 0 0 0 1px #EEE, inset 4px 0 0 #EEE;
@@ -2070,11 +2044,9 @@ input#algolia-doc-search {
   padding-left: 35px;
   margin-top: 9px;
   height: 30px;
-  font-size: 16px;
-  line-height: 20px;
+  .body-font(@color: white);
   background-color: #555;
   border-radius: 4px;
-  color: white;
   outline: none;
   border: none;
   width: 170px;
@@ -2089,13 +2061,13 @@ input#algolia-doc-search {
   background-color: #B51780;
 }
 .algolia-docsearch-suggestion--highlight {
-  color: #E10098;
+  color: @rhodamine-color;
 }
 .algolia-docsearch-suggestion--category-header .algolia-docsearch-suggestion--highlight  {
-  background-color: #E10098;
+  background-color: @rhodamine-color;
 }
 .aa-cursor .algolia-docsearch-suggestion--content {
-  color: #E10098;
+  color: @rhodamine-color;
 }
 .aa-cursor .algolia-docsearch-suggestion {
   background: #FEF6FB;
@@ -2106,5 +2078,5 @@ input#algolia-doc-search {
 .algolia-docsearch-suggestion--subcategory-column {
   border-right-color: #FEF6FB;
   background-color: #FEF6FB;
-  color: #E10098;
+  color: @rhodamine-color;
 }

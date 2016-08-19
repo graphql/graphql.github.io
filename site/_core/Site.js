@@ -28,7 +28,8 @@ var Site = React.createClass({
           <link rel="shortcut icon" href="/img/favicon.png" />
           <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog" />
           <link rel="stylesheet" href="/style.css" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300|Roboto+Mono:400,400i,600" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,600" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
         </head>
         <body>
