@@ -44,9 +44,9 @@ async function readSite(siteRoot) {
 }
 
 function buildSite(buildRoot, site) {
-  return Promise.all(site.files.map(file => {
-    return writer(buildRoot, file, site);
-  }));
+  return Promise.all(site.files.map(file =>
+    writer(buildRoot, file, site)
+  ));
 }
 
 
@@ -121,6 +121,11 @@ function urlToFile(file) {
         }
       }
     }
+  }
+
+  // Convert .less to .css
+  if (path.extname(url) === '.less') {
+    url = url.slice(0, -5) + '.css';
   }
 
   // Assume index.html stands for the parent directory

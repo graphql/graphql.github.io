@@ -11,9 +11,10 @@ var Site = require('./Site');
 
 module.exports = build;
 
-process.on('unhandledRejection', error => {
+process.on('unhandledRejection', (error, promise) => {
   console.error('Unhandled Promise Rejection:');
   console.error(error && error.stack || error);
+  console.error(promise);
 });
 
 var pwd = process.env.PWD;
