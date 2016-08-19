@@ -19,7 +19,6 @@ var Help = React.createClass({
         <section className="content wrap documentationContent nosidebar">
           <div className="inner-content">
             <h1>Need help?</h1>
-            <div className="subHeader"></div>
             <p>
               <strong>GraphQL</strong> is worked on full-time by Facebook&#39;s product infrastructure engineering teams. They&#39;re often around and available for questions.
             </p>
