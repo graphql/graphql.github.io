@@ -8,12 +8,12 @@
 
 var React = require('react');
 
+var Search = require('./Search');
+
 var DocsSidebar = React.createClass({
   render: function() {
     return <div className="nav-docs">
-      <div className="algolia-search-wrapper">
-        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
-      </div>
+      <Search />
       {getCategories(this.props.site).map((category) =>
         <div className="nav-docs-section" key={category.name}>
           <h3>{category.name}</h3>

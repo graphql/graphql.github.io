@@ -33,6 +33,10 @@ var Help = React.createClass({
             <p><a href="https://twitter.com/search?q=%23graphql" target="_blank"><strong>#graphql</strong> hash tag on Twitter</a> is used to keep up with the latest GraphQL news.</p>
 
             <p><center><a className="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/graphql" data-widget-id="633776128688193537" data-chrome="nofooter noheader transparent">#graphql Tweets</a></center></p>
+            <script dangerouslySetInnerHTML={{__html: `
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            `}} />
+
           </div>
         </section>
 

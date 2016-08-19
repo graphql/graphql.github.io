@@ -3,6 +3,7 @@ var Site = require('./_core/Site');
 var SiteData = require('./_core/SiteData');
 var HeaderLinks = require('./_core/HeaderLinks');
 var Marked = require('./_core/Marked');
+var Search = require('./_core/Search');
 
 var index = React.createClass({
   render: function() {
@@ -13,9 +14,7 @@ var index = React.createClass({
 
             <header aria-hidden>
               <section>
-                <div className="algolia-search-wrapper">
-                  <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
-                </div>
+                <Search />
                 <HeaderLinks section={this.props.section} />
               </section>
             </header>
