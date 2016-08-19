@@ -15,7 +15,7 @@ var Code = React.createClass({
     return (
       <Site section="code" title="Code">
 
-        <section className="content wrap documentationContent nosidebar">
+        <section className="content documentationContent nosidebar">
           <div className="inner-content">
             <h1>Releases</h1>
             <Marked>{`
