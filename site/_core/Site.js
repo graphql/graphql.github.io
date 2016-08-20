@@ -46,7 +46,39 @@ var Site = React.createClass({
           {this.props.children}
 
           <footer>
-            ©2016 Facebook Inc.
+            <section className="sitemap">
+              <img src="/img/logo-gray.svg" width="30" height="30" />
+              <div>
+                <h5><a>Learn</a></h5>
+                <a>Introduction</a>
+                <a>Query Language</a>
+                <a>Type System</a>
+                <a>How GraphQL Works</a>
+                <a>Best Practices</a>
+              </div>
+              <div>
+                <h5><a>Code</a></h5>
+                <a>Servers</a>
+                <a>Clients</a>
+                <a>Tools</a>
+              </div>
+              <div>
+                <h5><a>Community</a></h5>
+                <a>Upcoming Events</a>
+                <a>Conference Talks</a>
+                <a>Stack Overflow</a>
+                <a>Twitter</a>
+              </div>
+              <div>
+                <h5><a>More</a></h5>
+                <a>GraphQL Team Blog</a>
+                <a>Read the Spec</a>
+                <a>GitHub</a>
+              </div>
+            </section>
+            <section className="copyright">
+              Copyright &copy; 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause.
+            </section>
           </footer>
 
           <script dangerouslySetInnerHTML={{__html: `

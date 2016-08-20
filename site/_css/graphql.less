@@ -9,11 +9,8 @@
   padding: 0;
 }
 
-html {
-  .body-font();
-}
-
 body {
+  .body-font();
   background-color: white;
 }
 
@@ -140,11 +137,48 @@ section {
 }
 
 footer {
-  font-size: 13px;
-  font-weight: 600;
-  padding-top: 36px;
-  padding-bottom: 18px;
-  overflow: auto;
+  .body-font(@size: 15px, @color: lighten(@dark-color, 40%));
+  background: lighten(@dark-color, 10%);
+  box-shadow: inset 0 10px 10px -5px darken(@dark-color, 5%);
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  .copyright {
+    text-align: center;
+  }
+
+  .sitemap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3em;
+
+    div {
+      flex: 1;
+    }
+
+    img {
+      margin: -4px 30px 0 0;
+    }
+
+    a {
+      color: white;
+      display: block;
+      margin: 0.5em 0;
+      &:hover, &:focus {
+        color: @rhodamine-color;
+        text-decoration: none;
+      }
+    }
+
+    h5, h6 {
+      margin: 0 0 1em;
+
+      & > a {
+        margin: 0;
+        color: lighten(@dark-color, 50%);
+      }
+    }
+  }
 }
 
 // Index page uses a fixed header with an overlay
@@ -157,15 +191,6 @@ body.index {
       top: 0;
       left: 0;
       right: 0;
-    }
-  }
-
-  .hero header {
-    background: none;
-    box-shadow: none;
-
-    nav a:hover, nav a:focus {
-      color: white;
     }
   }
 }
@@ -185,13 +210,22 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 }
 
 .hero {
-  background: #222;
+  background: @dark-color;
   color: #f8f8f8;
   height: 80vh;
   position: relative;
   z-index: 101;
   margin-top: -50px;
   padding-top: 50px;
+
+  header {
+    background: none;
+    box-shadow: none;
+
+    nav a:hover, nav a:focus {
+      color: white;
+    }
+  }
 
   .abs {
     display: flex;
