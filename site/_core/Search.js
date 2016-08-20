@@ -8,20 +8,17 @@
 
 var React = require('react');
 
-var Search = React.createClass({
-  render: function() {
-    return <div className="algolia-search-wrapper">
-      <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
-      <script dangerouslySetInnerHTML={{__html: `
-        docsearch({
-          apiKey: 'd103541f3e6041148aade2e746ed4d61',
-          indexName: 'graphql',
-          inputSelector: '#algolia-doc-search'
-        });
-      `}} />
-    </div>;
-  }
-});
-
-module.exports = Search;
+export default function Search() {
+  const uuid = Math.floor(Math.random() * 999999999999999);
+  return <div className="algolia-search-wrapper">
+    <input id={uuid} type="text" placeholder="Search docs..." />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script dangerouslySetInnerHTML={{__html: `
+      docsearch({
+        apiKey: 'd103541f3e6041148aade2e746ed4d61',
+        indexName: 'graphql',
+        inputSelector: '#${uuid}'
+      });
+    `}} />
+  </div>;
+}
