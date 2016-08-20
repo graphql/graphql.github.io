@@ -122,7 +122,7 @@ nav {
     padding: 0 1em;
     transition: color 0.1s ease-out;
 
-    &:hover, &.active {
+    &:hover, &:focus, &.active {
       color: @text-color;
       text-decoration: none;
     }
@@ -164,7 +164,7 @@ body.index {
     background: none;
     box-shadow: none;
 
-    nav a:hover {
+    nav a:hover, nav a:focus {
       color: white;
     }
   }
@@ -233,20 +233,16 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 .buttons-unit {
   margin-top: 60px;
   text-align: center;
-}
 
-.buttons-unit a {
-  color: #FA6900;
-}
+  .button {
+    .body-font(@color: white);
+    background: @rhodamine-color;
+    transition: background 0.1s ease-out;
 
-.buttons-unit .button {
-  font-size: 24px;
-  background: @rhodamine-color;
-  color: #fafafa;
-}
-
-.buttons-unit .button:active {
-  background: #E97CC5;
+    &:hover, &:focus, &.active {
+      background: lighten(@rhodamine-color, 10%);
+    }
+  }
 }
 
 .nav-docs {
@@ -279,12 +275,8 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
   display: block;
 }
 
-.nav-docs a:hover {
+.nav-docs a:hover, .nav-docs a:focus, .nav-docs a.active {
   text-decoration: none;
-  color: @rhodamine-color;
-}
-
-.nav-docs a.active {
   color: @rhodamine-color;
 }
 
@@ -476,7 +468,7 @@ section.black content {
   text-decoration: none;
 }
 
-.button:hover {
+.button:hover, .button:focus {
   text-decoration: none;
 }
 
