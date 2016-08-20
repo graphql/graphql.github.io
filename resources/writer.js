@@ -9,6 +9,7 @@
 var vm = require('vm');
 var webpack = require('webpack');
 var React = require('react');
+var ReactDOM = require('react-dom/server')
 var fs = require('fs');
 var yaml = require('js-yaml');
 var path = require('path');
@@ -76,7 +77,7 @@ function writeReact(writePath, file, fileData) {
       var { module, props } = getReactData(componentData);
       var componentPath = require.resolve(path.resolve(path.dirname(file.absPath), module));
       var component = require(componentPath);
-      var initialRender = React.renderToString(React.createElement(component, props));
+      var initialRender = ReactDOM.renderToString(React.createElement(component, props));
       var guid = `r${++id}`;
       if (!script) {
         script = `var React = require('react');\n`;
@@ -168,30 +169,41 @@ function writeScript(writePath, file, fileData) {
     var id = 100;
     var script;
     var context;
+    var renderHere;
+    var relRequire;
 
     var withInitialRenders = fileData.replace(SCRIPT_RX, function (_, scriptData) {
       if (!script) {
-        script = `var React = require('react');
-          var id = 100;
+        script = `var id = 100;
           function renderHere(element) {
-            React.render(element, document.getElementById('r' + (++id)));
+            ReactDOM.render(element, document.getElementById('r' + (++id)));
           }`;
-        var renderHere = function (element) {
-          renders += `<div id="r${++id}">${React.renderToString(element)}</div>`;
+        renderHere = function (element) {
+          renders += `<div id="r${++id}">${ReactDOM.renderToString(element)}</div>`;
         };
-        var relRequire = reqPath => require(
+        relRequire = reqPath => require(
           reqPath[0] === '.' ?
             path.resolve(path.dirname(file.absPath), reqPath) :
             reqPath
         );
-        context = { console, process, React, require: relRequire, renderHere };
-        context.global = context;
-        context = vm.createContext(context);
       }
       var es5 = require('babel-core').transform(scriptData).code;
-      script += `(function () {\n${es5}\n}());\n`;
+      es5 = `(function () {\n${es5}\n}());\n`;
+      script += es5;
       renders = '';
-      var output = vm.runInContext(es5, context);
+      var realRequire = require;
+      global.require = relRequire;
+      global.renderHere = renderHere;
+      global.React = React;
+      try {
+        vm.runInThisContext(es5);
+      } catch (e) {
+        throw e;
+      } finally {
+        global.require = realRequire;
+        delete global.renderHere;
+        delete global.React;
+      }
       return renders;
     });
 
@@ -245,7 +257,8 @@ function writeScript(writePath, file, fileData) {
           resolve(
             withInitialRenders.replace(
               '</body></html>',
-              `<script src="//cdn.jsdelivr.net/react/0.13.3/react.js"></script>` +
+              `<script src="//cdn.jsdelivr.net/react/15.3.1/react.js"></script>` +
+              `<script src="//cdn.jsdelivr.net/react/15.3.1/react-dom.js"></script>` +
               `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
             )
           );
