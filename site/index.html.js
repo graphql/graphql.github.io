@@ -21,10 +21,10 @@ var index = React.createClass({
 
             <div className="content">
               <img className="main-logo" src={'/img/logo.svg'} width="240" height="240" />
-              <h1 className="text"><strong>GraphQL</strong></h1>
-              <h2 className="minitext">
+              <h1>GraphQL</h1>
+              <h3>
                 {SiteData.description}
-              </h2>
+              </h3>
             </div>
           </div>
         </div>
