@@ -83,6 +83,14 @@ var Site = React.createClass({
             </section>
           </footer>
 
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+          <script dangerouslySetInnerHTML={{__html: `
+            docsearch({
+              apiKey: 'd103541f3e6041148aade2e746ed4d61',
+              indexName: 'graphql',
+              inputSelector: '#algolia-search-input'
+            });
+          `}} />
           <script dangerouslySetInnerHTML={{__html: `
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
