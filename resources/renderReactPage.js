@@ -6,6 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+var ReactDOM = require('react-dom/server')
 var React = require('react');
 
 module.exports = renderReactPage;
@@ -21,7 +22,9 @@ function renderReactPage(options) {
   var component = options.component;
   var props = options.props;
 
-  var html = React.renderToStaticMarkup(React.createElement(component, props));
+  var html = ReactDOM.renderToStaticMarkup(
+    React.createElement(component, props)
+  );
 
   // Assert correct return
   if (html.indexOf('</body></html') === -1) {
