@@ -152,10 +152,12 @@ body.index {
   margin-top: 50px;
 
   header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    @media screen and (min-width: 1020px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
   }
 
   .hero header {
@@ -182,14 +184,6 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
   visibility: hidden;
 }
 
-.nav-site-wrapper ul {
-  display: inline;
-}
-
-.nav-site-wrapper li {
-  display: inline;
-}
-
 .hero {
   background: #222;
   color: #f8f8f8;
@@ -212,50 +206,28 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
     clip: rect(0, auto, auto, 0);
     overflow: hidden;
   }
-}
 
-.nav-main.hero-nav {
-  background: none;
-  box-shadow: none;
-}
+  .content {
+    text-align: center;
+    margin: 30px;
+  }
 
-.hero-nav .nav-site-wrapper {
-  float: right;
-}
+  .main-logo {
+    margin: 0 auto;
+    display: block;
+  }
 
-.hero .content {
-  margin: 30px;
-}
+  h1 {
+    color: @rhodamine-color;
+    font-size: 64px;
+    line-height: 100px;
+    margin: 0;
+  }
 
-.hero .main-logo {
-  margin: 0 auto;
-  display: block;
-}
-
-.hero .text {
-  font-size: 64px;
-  line-height: 100px;
-  text-align: center;
-}
-
-.hero h1.text {
-  margin: 0;
-}
-
-.hero .minitext {
-  font-size: 16px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.hero h2.minitext {
-  line-height: inherit;
-  margin: 0;
-}
-
-.hero strong {
-  color: @rhodamine-color;
-  font-weight: 300;
+  h3 {
+    color: white;
+    margin: 0;
+  }
 }
 
 .buttons-unit {
@@ -336,6 +308,9 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
   border-top-color: #bbb;
   margin: 3em auto;
   width: 400px;
+  @media screen and (max-width: 1020px) {
+    display: none;
+  }
 }
 
 .marketing-row {
@@ -642,21 +617,6 @@ p + .apiIndex {
 }
 
 @media screen and (max-width: 1020px) {
-  .nav-main {
-    position: static;
-  }
-
-  .container {
-    padding-top: 0;
-  }
-
-  .container {
-    min-width: 0;
-    overflow: scroll;
-  }
-  .wrap {
-    width: auto;
-  }
   .inner-content {
     width: auto;
     float: none;
@@ -666,18 +626,6 @@ p + .apiIndex {
     float: none;
     margin-bottom: 30px;
     text-align: center;
-  }
-  .nav-main .nav-site a {
-    padding: 0 4px;
-  }
-  .nav-main .wrap {
-    padding: 0 2px 0 4px;
-  }
-  .home-divider {
-    display: none;
-  }
-  .hero {
-    padding: 10px 0 30px 0;
   }
   .nav-docs .nav-docs-section {
     border: none;
