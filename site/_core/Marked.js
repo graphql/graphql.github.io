@@ -8,6 +8,10 @@ var React = require('react');
 var Prism = require('./Prism');
 var Header = require('./Header');
 
+export default function Marked(props) {
+  return <div>{marked(props.children, props)}</div>;
+}
+
 /**
  * Block-Level Grammar
  */
@@ -1084,11 +1088,3 @@ marked.InlineLexer = InlineLexer;
 marked.inlineLexer = InlineLexer.output;
 
 marked.parse = marked;
-
-var Marked = React.createClass({
-  render: function() {
-    return <div>{marked(this.props.children, this.props)}</div>;
-  }
-});
-
-module.exports = Marked;

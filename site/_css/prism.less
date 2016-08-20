@@ -20,7 +20,6 @@
 
 .prism {
   .code-font();
-  text-shadow: 0 1px white;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -53,10 +52,13 @@
     position: absolute;
     right: 0;
   }
+}
 
-  ::-moz-selection, ::selection {
+.not(code) > pre.prism {
+  text-shadow: 0 1px white;
+
+  &::-moz-selection, &::selection {
     text-shadow: none;
-    background: #b3d4fc;
   }
 }
 
