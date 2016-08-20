@@ -89,10 +89,11 @@ header {
   height: 50px;
   background: white;
   box-shadow: inset 0 -1px 0 0px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  z-index: 10;
 
   // Home link within nav.
   .nav-home {
+    float: left;
     font-size: 18px;
     color: @rhodamine-color;
     line-height: 50px;
@@ -110,7 +111,7 @@ header {
 }
 
 nav {
-  float: right;
+  float: left;
 
   a {
     color: #aaa;
@@ -122,10 +123,6 @@ nav {
     &:hover, &:focus, &.active {
       color: @text-color;
       text-decoration: none;
-    }
-
-    &:last-child {
-      margin-right: -1em;
     }
   }
 }
@@ -209,12 +206,20 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
   visibility: hidden;
 }
 
+.fixedSearch {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 12;
+  pointer-events: none;
+}
+
 .hero {
   background: @dark-color;
   color: #f8f8f8;
   height: 80vh;
   position: relative;
-  z-index: 101;
+  z-index: 11;
   margin-top: -50px;
   padding-top: 50px;
 
@@ -224,6 +229,10 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 
     nav a:hover, nav a:focus {
       color: white;
+    }
+
+    a:first-child {
+      margin-left: -1em;
     }
   }
 

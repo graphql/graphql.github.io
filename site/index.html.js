@@ -8,19 +8,21 @@ var Search = require('./_core/Search');
 var index = React.createClass({
   render: function() {
     return (
-      <Site className="index">
+      <Site className="index" noSearch={true}>
+        <section className="fixedSearch" aria-hidden>
+          <Search />
+        </section>
+
         <div className="hero">
           <div className="abs">
-
             <header aria-hidden>
               <section>
-                <Search />
                 <HeaderLinks section={this.props.section} />
               </section>
             </header>
 
             <div className="content">
-              <img className="main-logo" src={'/img/logo.svg'} width="240" height="240" />
+              <img className="main-logo" src="/img/logo.svg" width="240" height="240" />
               <h1>GraphQL</h1>
               <h3>
                 {SiteData.description}
@@ -28,7 +30,6 @@ var index = React.createClass({
             </div>
           </div>
         </div>
-
 
         <section className="marketing-row">
           <div className="marketing-col">

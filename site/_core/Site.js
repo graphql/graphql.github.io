@@ -8,6 +8,7 @@
 
 var React = require('react');
 var HeaderLinks = require('./HeaderLinks');
+var Search = require('./Search');
 var SiteData = require('./SiteData');
 
 var Site = React.createClass({
@@ -41,6 +42,7 @@ var Site = React.createClass({
                 GraphQL
               </a>
               <HeaderLinks section={this.props.section} />
+              {this.props.noSearch || <Search />}
             </section>
           </header>
 
