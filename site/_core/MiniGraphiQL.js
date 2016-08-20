@@ -121,7 +121,7 @@ class QueryEditor extends React.Component {
     require('codemirror-graphql/lint');
     require('codemirror-graphql/mode');
 
-    this.editor = CodeMirror(React.findDOMNode(this), {
+    this.editor = CodeMirror(this.domNode, {
       value: this.props.value || '',
       viewportMargin: Infinity,
       tabSize: 2,
@@ -297,7 +297,7 @@ class QueryEditor extends React.Component {
   }
 
   render() {
-    return <div className="query-editor" />;
+    return <div className="query-editor" ref={e => this.domNode = e} />;
   }
 }
 
@@ -317,7 +317,7 @@ class ResultViewer extends React.Component {
     var CodeMirror = require('codemirror');
     require('codemirror/mode/javascript/javascript');
 
-    this.viewer = CodeMirror(React.findDOMNode(this), {
+    this.viewer = CodeMirror(this.domNode, {
       value: this.props.value || '',
       viewportMargin: Infinity,
       readOnly: true,
@@ -350,6 +350,6 @@ class ResultViewer extends React.Component {
   }
 
   render() {
-    return <div className="result-window" />;
+    return <div className="result-window" ref={e => this.domNode = e} />;
   }
 }
