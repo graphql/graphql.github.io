@@ -3,6 +3,7 @@ var Site = require('./_core/Site');
 var SiteData = require('./_core/SiteData');
 var HeaderLinks = require('./_core/HeaderLinks');
 var Marked = require('./_core/Marked');
+var Prism = require('./_core/Prism');
 var Search = require('./_core/Search');
 
 var index = React.createClass({
@@ -22,12 +23,43 @@ var index = React.createClass({
             </header>
 
             <div className="content">
-              <img className="main-logo" src="/img/logo.svg" width="240" height="240" />
+              <img className="main-logo" src="/img/logo.svg" width="120" height="120" />
               <h1>GraphQL</h1>
-              <h3>
-                {SiteData.description}
-              </h3>
             </div>
+
+            <section className="marketing-row">
+              <div className="marketing-col">
+                <h4>Describe your data</h4>
+                <Prism>
+                  {`type Project {
+  name: String
+  tagline: String
+  contributors: [User]
+}`}
+                </Prism>
+              </div>
+              <div className="marketing-col">
+                <h4>Ask for what you want</h4>
+                <Prism>
+                  {`{
+  project(name: "GraphQL") {
+    tagline
+  }
+}`}
+                </Prism>
+              </div>
+              <div className="marketing-col">
+                <h4>Get predictable results</h4>
+                <Prism>
+                  {`{
+  "project": {
+    "tagline": "A query language for APIs"
+  }
+}`}
+                </Prism>
+              </div>
+            </section>
+
           </div>
         </div>
 
