@@ -9,10 +9,13 @@ next: /docs/queries/
 ### Outline
 
 * A simple query
-* Fields, arguments, and aliases
+* Nesting
+* Arguments
+* Aliases
 * Fragments
 * Comments
 * Variables
+* Operation names
 * Directives (skip & include)
 * A simple mutation
 
@@ -136,3 +139,107 @@ fragment comparisonFields on Character {
 </script>
 
 You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
+
+### Variables
+
+So far, we have been writing all of our arguments inside the query string. But in most applications, the arguments to fields will be dynamic: For example, there might be a dropdown that lets you select which Star Wars episode you are interested in, or a search field, or a set of filters.
+
+It wouldn't be a good idea to pass these dynamic arguments directly in the query string, because then our client-side code would need to dynamically manipulate the query string at runtime, and serialize it into a GraphQL-specific format. Instead, GraphQL has a first-class way to factor dynamic values out of the query, and pass them as a separate dictionary. These values are called _variables_.
+
+When we start working with variables, we need to do three things:
+
+1. Replace the static value in the query with `$variableName`
+2. Declare `$variableName` in our query
+3. Pass `variableName: value` in the separate, transport-specific (usually JSON) variables dictionary
+
+Here's what it looks like all together:
+
+```graphql
+# as far as I know, this mini GraphiQL thing doesn't have variable support...
+query HeroNameAndFriends($episode: Episode) {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}
+
+variables: {
+  episode: 'JEDI'
+}
+```
+
+Now, in our client code, we can simply pass a different variable rather than needing to construct an entirely new query. This is also in general a good practice for denoting which arguments in our query are expected to be dynamic - we should never be doing string interpolation to construct queries from user-supplied values.
+
+### Operation name
+
+One thing we also saw in the example above is that our query has acquired a _name_. Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
+
+Think of this just like a function name in your favorite programming language. For example, in JavaScript we can easily work only with anonymous functions, but when we give a function a name, it's easier to track it down, debug our code, and log when it's called. In the same way, GraphQL query and mutation names, along with fragment names, can be a useful debugging tool on the server side to identify different GraphQL requests.
+
+### Directives: skip and include
+
+We discussed above how variables enable us to avoid doing manual string interpolation to construct dynamic queries. Passing variables in arguments solves a pretty big class of these problems, but we might also need a way to dynamically change the structure and shape of our queries using variables. For example, we can imagine a UI component that has a summarized and detailed view, where one includes more fields than the other.
+
+Let's construct a query for such a component:
+
+```graphql
+query Hero($episode: Episode, $withFriends: Boolean) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
+
+variables: {
+  episode: 'JEDI',
+  withFriends: false
+}
+```
+
+We needed to use a new feature in GraphQL called a _directive_. A directive can be attached to a field or fragment inclusion, and can affect execution of the query in any way the server desires. The core GraphQL specification includes exactly two directives, which must be supported by any spec-compliant GraphQL server implementation:
+
+- `@include(if: Boolean)` Only include this field in the result if the argument is `true`.
+- `@skip(if: Boolean)` Skip this field if the argument is `true`.
+
+Directives can be useful to get out of situations where you otherwise would need to do string manipulation to add and remove fields in your query. Server implementations may also add experimental features by defining completely new directives.
+
+### Mutations
+
+Most discussions of GraphQL focus on data fetching, but any complete data platform needs a way to modify server-side data as well.
+
+In REST, any request might end up causing some side-effects on the server, but by convention it's suggested that one doesn't use `GET` requests to modify data. GraphQL is similar - technically any query could be implemented to cause a data write. However, it's useful to establish a convention that any operations that cause writes should be sent explicitly via a mutation.
+
+Here's an example of a simple mutation:
+
+```graphql
+mutation CreateCharacterInEpisode($name: String!, $appearsIn: Episode!) {
+  createCharacter(name: $name)
+  addCharacterToEpisode(name: $name, episode: $appearsIn)
+}
+```
+
+You can see that a mutation can contain multiple fields, just like a query. There's one important distinction between queries, and mutations, other than the name:
+
+**While query fields are executed in parallel, mutation fields run in series, one after the other.**
+
+This means that even though we sent `createCharacter` and `addCharacterToEpisode` in one request, the first is guaranteed to finish before the second begins, ensuring that we create the character before trying to add it an episode.
+
+#### Returning data from mutations
+
+Just like in queries, you can ask for nested fields in the mutation result. This can be useful for fetching the new state of an object after an update:
+
+```graphql
+mutation IncrementCredits($characterId: ID!) {
+  incrementCredits(characterId: $characterId) {
+    totalCredits
+  }
+}
+```
+
+In this case, the `incrementCredits` mutation field returns a `Character` object, so we can query the new value of `totalCredits` after giving that character some more credits. Otherwise, we would have needed to send two requests - one to update the credits, and another to get the new value - or guess at the new amount based on outdated data.
+
+That's all! Now you know everything you need to know about GraphQL queries and mutations to build a pretty good application. For more advanced features and tips, check out the advanced section.
