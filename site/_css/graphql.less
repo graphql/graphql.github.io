@@ -1,8 +1,6 @@
 @import "variables.less";
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: none;
   margin: 0;
@@ -140,6 +138,7 @@ footer {
   padding-top: 2em;
   padding-bottom: 2em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   .copyright {
     text-align: center;
@@ -210,6 +209,7 @@ body.index {
   margin-top: -50px;
   padding-top: 50px;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   header {
     background: none;
@@ -261,6 +261,7 @@ body.index {
 
   .prism {
     -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
     color: white;
     background: transparent;
     box-shadow: none;
@@ -272,31 +273,14 @@ body.index {
     margin-right: -20px;
   }
 
-  .marketing-col:nth-child(1) {
-    -webkit-animation: fade 1.1s ease-in-out;
-    -moz-animation: fade 1.1s ease-in-out;
-    animation: fade 1.1s ease-in-out;
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    animation-fill-mode: both;
-  }
+  .fadein-cols(3);
 
-  .marketing-col:nth-child(2) {
-    -webkit-animation: fade 1.1s 0.8s ease-in-out;
-    -moz-animation: fade 1.1s 0.8s ease-in-out;
-    animation: fade 1.1s 0.8s ease-in-out;
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    animation-fill-mode: both;
-  }
-
-  .marketing-col:nth-child(3) {
-    -webkit-animation: fade 1.1s 1.6s ease-in-out;
-    -moz-animation: fade 1.1s 1.6s ease-in-out;
-    animation: fade 1.1s 1.6s ease-in-out;
-    -webkit-animation-fill-mode: both;
-    -moz-animation-fill-mode: both;
-    animation-fill-mode: both;
+  .fadein-cols(@n) when (@n > 0) {
+    .fadein-cols(@n - 1);
+    .marketing-col:nth-child(@{n}) {
+      animation: fade 1.1s 0.8s * (@n - 1) ease-in-out;
+      animation-fill-mode: both;
+    }
   }
 
   @keyframes fade {
@@ -524,7 +508,6 @@ section.black content {
 }
 
 .button {
-  background: -webkit-linear-gradient( #9a9a9a, #646464);
   background: linear-gradient( #9a9a9a, #646464);
   border-radius: 4px;
   padding: 8px 16px;
@@ -552,7 +535,6 @@ section.black content {
 }
 
 .button.blue {
-  background: -webkit-linear-gradient( #77a3d2, #4783c2);
   background: linear-gradient( #77a3d2, #4783c2);
 }
 
@@ -649,23 +631,17 @@ p + .apiIndex {
 
 .apiIndex pre {
   .code-font();
-  text-shadow: 0 1px white;
   direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2;
-
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-
-  white-space: pre-wrap;
+  tab-size: 2;
+  text-align: left;
+  text-shadow: 0 1px white;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
 }
 
 .apiIndex li {
