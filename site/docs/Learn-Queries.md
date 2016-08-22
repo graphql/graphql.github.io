@@ -6,7 +6,9 @@ permalink: /learn/queries/
 next: /docs/queries/
 ---
 
-### Outline
+### ToC
+
+XXX we should probably generate one
 
 * A simple query
 * Nesting
@@ -61,7 +63,7 @@ In the previous example, we just asked for a simple string, but fields can also 
 `} />);
 </script>
 
-Filtering fields and traversing related objects is pretty nice, but we are just getting started.
+Note that in this example, the `friends` field returns an array of items. In GraphQL, queries don't specify whether the return value should be a single item or an array. You need to know which one to expect ahead of time, but it will always be consistent with what is indicated in the schema.
 
 ### Arguments
 
