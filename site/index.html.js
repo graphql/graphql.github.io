@@ -10,7 +10,7 @@ var index = React.createClass({
   render: function() {
     return (
       <Site className="index" noSearch={true}>
-        <section className="fixedSearch" aria-hidden>
+        <section className="fixedSearch">
           <Search />
         </section>
 
@@ -63,6 +63,55 @@ var index = React.createClass({
           </div>
         </div>
 
+        <section className="lead">
+          <h1>A query language for your API.</h1>
+          <p>
+            GraphQL is a query language for APIs and a runtime for fulfilling
+            those queries with your existing data. GraphQL provides a complete
+            and understandable description of the data in your API, gives
+            clients the power to ask for exactly what they need and nothing
+            more, makes it easier to evolve APIs over time, and enables powerful
+            developer tools.</p>
+        </section>
+
+<section>
+  <h2>Ask for what you need, get exactly that.</h2>
+  {/*[Illustration: just a simple query and response?]*/}
+  <p>Send a GraphQL query to your API and get exactly what you need, nothing more and nothing less. GraphQL queries always return predictable results. Apps using GraphQL are fast and stable because they control the data they get, not the server.</p>
+</section>
+
+<section>
+  <h2>Access many resources in a single request.</h2>
+  {/*Illustration: a query 2 or 3 levels deep]*/}
+  <p>GraphQL queries access not just the properties of one resource but also smoothly follow references between them. While typical APIs require loading from multiple URLs, GraphQL APIs get all the data your app needs in a single request. Apps using GraphQL are quick even on slow mobile network connections.</p>
+</section>
+
+<section>
+  <h2>Describe what's possible with a type system.</h2>
+  {/*Illustration of a type IDL following a query by line]*/}
+  {/*Under: a server <-> client (Capabilities, Requirements)]?*/}
+  <p>GraphQL presents an API organized in terms of objects, types, and fields, not endpoints. GraphQL APIs provide a complete description of your data, exposing the full set of capabilities available from a single endpoint. APIs use these types to ensure Apps only ask for what's possible and provide clear and helpful errors. Apps can use these types to avoid writing manual parsing and model code.</p>
+</section>
+
+<section>
+  <h2>Move faster with powerful developer tools.</h2>
+  {/*Illustration of GraphiQL validation error and typeahead, animated?]*/}
+  <p>Know exactly what data you can request from your API without leaving your editor, highlight potential issues before sending a query, and take advantage of improved code intelligence. GraphQL introspection makes it easy to build new powerful tools by leveraging a GraphQL API's type system. You can even automatically generate your API documentation.</p>
+</section>
+
+<section>
+  <h2>Evolve your API without versions.</h2>
+  {/*Illustration showing more legs added to a graph? Or a type evolving over time?]*/}
+  <p>Add new fields and types to a GraphQL API without affecting queries sent from existing apps. Aging fields can be deprecated and hidden from documentation. By using a single version, GraphQL APIs give apps easier access to new features and enable cleaner, more maintainable server code.</p>
+</section>
+
+<section>
+  <h2>Powered by your existing data and code.</h2>
+  {/*Illustration of each field becoming a function?]*/}
+  <p>GraphQL creates a uniform, powerful API across the entire surface area of your application without being limited by a specific storage engine. Write GraphQL APIs that leverage your existing data model and server with GraphQL engine implementations available in many languages. You provide small functions that fulfill fields in the type system, and GraphQL calls them with optimal concurrency.</p>
+</section>
+
+{/*
         <section className="marketing-row">
           <div className="marketing-col">
             <h3>Declarative</h3>
@@ -218,20 +267,15 @@ Product developers are free to focus on their client software and requirements w
 
         <hr className="home-divider" />
 
+      */}
+
         <section className="home-bottom-section">
           <div className="buttons-unit">
-            <a className="button" href="docs/getting-started">
+            <a className="button" href="/code/">
               Get Started
             </a>
-            <a
-              className="button"
-              href={'https://github.com/graphql/graphql-js/'}>
-              Reference Implementation
-            </a>
-            <a
-              className="button"
-              href={'http://facebook.github.io/graphql/'}>
-              Read the Spec
+            <a className="button" href="/docs/">
+              Learn More
             </a>
           </div>
         </section>
