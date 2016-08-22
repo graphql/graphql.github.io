@@ -1,0 +1,198 @@
+@import "variables.less";
+
+// Index page uses a fixed header with an overlay
+body.index {
+  margin-top: 50px;
+
+  header {
+    @media screen and (min-width: 1020px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.fixedSearch {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.hero {
+  background: @dark-color;
+  color: #f8f8f8;
+  height: 80vh;
+  position: relative;
+  z-index: 11;
+  margin-top: -50px;
+  padding-top: 50px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  header {
+    background: none;
+    box-shadow: none;
+
+    nav a:hover, nav a:focus {
+      color: white;
+    }
+
+    a:first-child {
+      margin-left: -1em;
+    }
+  }
+
+  .abs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    clip: rect(0, auto, auto, 0);
+    overflow: hidden;
+  }
+
+  .content {
+    text-align: center;
+    margin: 30px;
+  }
+
+  .main-logo {
+    margin: 0 auto;
+    display: block;
+  }
+
+  h1 {
+    color: @rhodamine-color;
+    margin: 0;
+  }
+
+  h2, h3, h4 {
+    color: white;
+    margin: 1em 0;
+    text-align: center;
+  }
+
+  .prism {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    color: white;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .marketing-col:last-child > .prism {
+    margin-right: -20px;
+  }
+
+  .fadein-cols(3);
+
+  .fadein-cols(@n) when (@n > 0) {
+    .fadein-cols(@n - 1);
+    .marketing-col:nth-child(@{n}) {
+      animation: fade 1.1s 0.8s * (@n - 1) ease-in-out;
+      animation-fill-mode: both;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: translate(0, 30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.home-divider {
+  border-top-color: #bbb;
+  margin: 3em auto;
+  width: 400px;
+  @media screen and (max-width: 1020px) {
+    display: none;
+  }
+}
+
+.marketing-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marketing-col {
+  flex: 1;
+  width: 320px;
+  @media screen and (max-width: 1020px) {
+    margin-left: 0;
+    float: none;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
+
+.home-bottom-section {
+  margin-bottom: 100px;
+}
+
+.home-content {
+  width: 760px;
+}
+
+.buttons-unit {
+  margin-top: 60px;
+  text-align: center;
+
+  .button {
+    .body-font(@color: white);
+    background: @rhodamine-color;
+    transition: background 0.1s ease-out;
+
+    &:hover, &:focus, &.active {
+      background: lighten(@rhodamine-color, 10%);
+    }
+  }
+}
+
+.button {
+  background: linear-gradient( #9a9a9a, #646464);
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 12px;
+  display: inline-block;
+  color: #fafafa;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.button:hover, .button:focus {
+  text-decoration: none;
+}
+
+.button:active {
+  box-shadow: none;
+}
+
+.hero .button {
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button.blue {
+  background: linear-gradient( #77a3d2, #4783c2);
+}
