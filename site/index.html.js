@@ -71,40 +71,74 @@ var index = React.createClass({
             and understandable description of the data in your API, gives
             clients the power to ask for exactly what they need and nothing
             more, makes it easier to evolve APIs over time, and enables powerful
-            developer tools.</p>
+            developer&nbsp;tools.</p>
         </section>
 
-        <div className="grayWash">
-          <section className="point1">
-            <div>
-              <h2>Ask for what you need,<br />get exactly that</h2>
-              {/*[Illustration: just a simple query and response?]*/}
-              <p>
-                Send a GraphQL query to your API and get exactly what you need,
-                nothing more and nothing less. GraphQL queries always return
-                predictable results. Apps using GraphQL are fast and stable because
-                they control the data they get, not the server.</p>
-            </div>
-            <Prism>
-              {`{
+
+        <section className="point1">
+          <Prism>
+            {`{
   me {
     name
   }
 }`}
-            </Prism>
+          </Prism>
+          <div className="prose">
+            <h2>Ask for what you need,<br />get exactly that</h2>
+            {/*[Illustration: just a simple query and response?]*/}
+            <p>
+              Send a GraphQL query to your API and get exactly what you need,
+              nothing more and nothing less. GraphQL queries always return
+              predictable results. Apps using GraphQL are fast and stable because
+              they control the data they get, not the&nbsp;server.</p>
+          </div>
+        </section>
+
+        <div className="grayWash">
+          <section className="point2">
+            <div className="prose">
+            <h2>Get many resources<br />in a single request</h2>
+            {/*Illustration: a query 2 or 3 levels deep]*/}
+            <p>
+              GraphQL queries access not just the properties of one resource but
+              also smoothly follow references between them. While typical APIs
+              require loading from multiple URLs, GraphQL APIs get all the data
+              your app needs in a single request. Apps using GraphQL are quick
+              even on slow mobile network&nbsp;connections.</p>
+            </div>
+            <div className="app-to-server">
+              <img src="/img/phone.svg" width="496" height="440" />
+              <div className="query">
+              <Prism>
+                {`{
+  me {
+    name
+    friends {
+      name
+    }
+  }
+}`}
+              </Prism>
+              </div>
+              <div className="response">
+              <Prism>
+                {`{
+  "me": {
+    "name": "Luke Skywalker",
+    "friends": [
+      { "name": "Obi-Wan Kenobi" },
+      { "name": "R2-D2" },
+      { "name": "Han Solo" },
+      { "name": "Leia Organica" }
+    ]
+  }
+}`}
+              </Prism>
+              </div>
+              <img src="/img/server.svg" width="496" height="440" />
+            </div>
           </section>
         </div>
-
-        <section>
-          <h2>Access many resources in a single request</h2>
-          {/*Illustration: a query 2 or 3 levels deep]*/}
-          <p>
-            GraphQL queries access not just the properties of one resource but
-            also smoothly follow references between them. While typical APIs
-            require loading from multiple URLs, GraphQL APIs get all the data
-            your app needs in a single request. Apps using GraphQL are quick
-            even on slow mobile network connections.</p>
-        </section>
 
         <section>
           <h2>Describe what&rsquo;s possible with a type system</h2>
@@ -116,7 +150,7 @@ var index = React.createClass({
             of your data, exposing the full set of capabilities available from a
             single endpoint. APIs use these types to ensure Apps only ask for
             what&rsquo;s possible and provide clear and helpful errors. Apps can
-            use these types to avoid writing manual parsing and model code.</p>
+            use these types to avoid writing manual parsing and model&nbsp;code.</p>
         </section>
 
         <section>
@@ -128,7 +162,7 @@ var index = React.createClass({
             take advantage of improved code intelligence. GraphQL introspection
             makes it easy to build new powerful tools by leveraging a GraphQL
             API&rsquo;s type system. You can even automatically generate your
-            API documentation.</p>
+            API&nbsp;documentation.</p>
         </section>
 
         <section>
@@ -139,7 +173,7 @@ var index = React.createClass({
             sent from existing apps. Aging fields can be deprecated and hidden
             from documentation. By using a single version, GraphQL APIs give
             apps easier access to new features and enable cleaner, more
-            maintainable server code.</p>
+            maintainable server&nbsp;code.</p>
         </section>
 
         <section>
@@ -151,7 +185,7 @@ var index = React.createClass({
             engine. Write GraphQL APIs that leverage your existing data model
             and server with GraphQL engine implementations available in many
             languages. You provide small functions that fulfill fields in the
-            type system, and GraphQL calls them with optimal concurrency.</p>
+            type system, and GraphQL calls them with optimal&nbsp;concurrency.</p>
         </section>
 
 {/*

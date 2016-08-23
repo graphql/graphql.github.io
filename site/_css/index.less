@@ -166,8 +166,92 @@ body.index {
     padding-top: 4em;
     padding-bottom: 4em;
 
-    & > div {
+    .prose {
       max-width: 415px;
+    }
+  }
+
+  section.point2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4em;
+    padding-bottom: 4em;
+
+    .prose {
+      max-width: 415px;
+    }
+
+    .app-to-server {
+      width: 476px;
+      height: 370px;
+      position: relative;
+
+      & > img {
+        position: absolute;
+        top: -35px;
+        left: -10px;
+        right: -10px;
+      }
+
+      .query, .response {
+        position: absolute;
+
+        .prism {
+          box-shadow: none;
+          background: none;
+        }
+      }
+
+      .query {
+        animation: query-up 6s 0s infinite ease-in both;
+        left: 155px;
+
+        @keyframes query-up {
+          from {
+            opacity: 0;
+            top: 160px;
+          }
+
+          5%, 25% {
+            opacity: 1;
+          }
+
+          40% {
+            opacity: 0;
+          }
+
+          50%, 100% {
+            top: 90px;
+            opacity: 0;
+          }
+        }
+      }
+
+      .response {
+        animation: response-down 6s 2.3s infinite ease-out both;
+        left: 115px;
+
+        @keyframes response-down {
+          0% {
+            opacity: 0;
+            top: 70px;
+          }
+
+          10% {
+            opacity: 0;
+          }
+
+          25%, 45% {
+            opacity: 1;
+          }
+
+          50%, 100% {
+            opacity: 0;
+            top: 130px;
+          }
+        }
+      }
     }
   }
 

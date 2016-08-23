@@ -1,5 +1,39 @@
 var React = require('react');
-var unindent = require('./unindent');
+
+export default function PrismComponent(props) {
+  const lines = [];
+  if (props.line) {
+    props.line.split(',').forEach(range => {
+      const parts = range.split('-');
+      if (parts.length === 1) {
+        lines.push(parts[0].trim());
+      } else {
+        const start = parseInt(parts[0].trim(), 10);
+        const end = parseInt(parts[1].trim(), 10);
+        for (let ii = start; ii <= end; ii++) {
+          lines.push(ii);
+        }
+      }
+    });
+  }
+
+  const language = props.language || 'javascript';
+  const grammar = _.languages[language];
+  return (
+    <pre className={'prism language-' + language}>
+      {Token.reactify(_.tokenize(props.children, grammar))}
+      {lines.map(function(line, ii) {
+        return (
+          <div
+            className="line-highlight"
+            key={ii}
+            style={{height: 20, top: 20 * (line - 1)}}
+          />
+        );
+      })}
+    </pre>
+  );
+}
 
 /* http://prismjs.com/download.html?themes=prism&languages=markup+clike+javascript+jsx */
 /**
@@ -516,48 +550,3 @@ Prism.languages.insertBefore('inside', 'attr-value',{
 }, Prism.languages.jsx.tag);
 
 }(Prism));
-
-var PrismComponent = React.createClass({
-  statics: {
-    _: _
-  },
-  getDefaultProps: function() {
-    return {
-      language: 'javascript'
-    };
-  },
-  render: function() {
-    var lines = [];
-    if (this.props.line) {
-      this.props.line.split(',').forEach(function(range) {
-        var parts = range.split('-');
-        if (parts.length === 1) {
-          lines.push(parts[0].trim());
-        } else {
-          var start = parseInt(parts[0].trim(), 10);
-          var end = parseInt(parts[1].trim(), 10);
-          for (var ii = start; ii <= end; ii++) {
-            lines.push(ii);
-          }
-        }
-      });
-    }
-    var grammar = _.languages[this.props.language];
-    return (
-      <pre className={'prism language-' + this.props.language}>
-        {Token.reactify(_.tokenize(this.props.children, grammar))}
-        {lines.map(function(line, ii) {
-          return (
-            <div
-              className="line-highlight"
-              key={ii}
-              style={{height: 20, top: 20 * (line - 1)}}
-            />
-          );
-        })}
-      </pre>
-    );
-  }
-})
-
-module.exports = PrismComponent;
