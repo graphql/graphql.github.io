@@ -23,6 +23,10 @@ function renderReactPage(options) {
 
   var html = React.renderToStaticMarkup(React.createElement(component, props));
 
+  if (html.indexOf('<feed') !== -1) {
+    return '<?xml version="1.0" encoding="utf-8"?>' + html;
+  }
+
   // Assert correct return
   if (html.indexOf('</body></html') === -1) {
     throw new Error(
