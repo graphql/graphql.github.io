@@ -74,15 +74,27 @@ var index = React.createClass({
             developer&nbsp;tools.</p>
         </section>
 
-
         <section className="point1">
-          <Prism>
-            {`{
+          <div className="faux-graphiql" aria-hidden>
+            <div className="query">
+            <Prism>
+              {`{
   me {
     name
   }
 }`}
-          </Prism>
+            </Prism>
+            </div>
+            <div className="response">
+            <Prism>
+              {`{
+  "me": {
+    "name": "Luke Skywalker"
+  }
+}`}
+            </Prism>
+            </div>
+          </div>
           <div className="prose">
             <h2>Ask for what you need,<br />get exactly that</h2>
             {/*[Illustration: just a simple query and response?]*/}
@@ -106,7 +118,7 @@ var index = React.createClass({
               your app needs in a single request. Apps using GraphQL are quick
               even on slow mobile network&nbsp;connections.</p>
             </div>
-            <div className="app-to-server">
+            <div className="app-to-server" aria-hidden>
               <img src="/img/phone.svg" width="496" height="440" />
               <div className="query">
               <Prism>
