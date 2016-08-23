@@ -17,6 +17,10 @@ var BlogSidebar = React.createClass({
     return (
       <div className="nav-docs">
         <div className="nav-docs-section">
+          <h3>Subscribe</h3>
+          <a rel="home" type="application/rss+xml" href="/blog/rss.xml">RSS</a>
+        </div>
+        <div className="nav-docs-section">
           <h3>Recent Posts</h3>
           <ul>
             {posts.map(post =>
