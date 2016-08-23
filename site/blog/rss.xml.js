@@ -9,35 +9,30 @@
 var path = require('path');
 var React = require('react');
 
-var BlogRss = React.createClass({
-  render: function() {
-    var site = this.props.site;
-    var posts = site.files.blog
-      .filter(file => !file.draft && path.extname(file.relPath) === '.md')
-      .sort((a, b) => a.date < b.date);
-    return (
-      <feed>
-        <title>Blog | GraphQL</title>
-        <link href="http://graphql.org/blog/"/>
-        <id>http://graphql.org/blog/</id>
-        <updated>{new Date(posts[0].date).toISOString()}</updated>
+export default function BlogRSS({ site }) {
+  const posts = site.files.blog
+    .filter(file => !file.draft && path.extname(file.relPath) === '.md')
+    .sort((a, b) => a.date < b.date);
+  return (
+    <feed>
+      <title>Blog | GraphQL</title>
+      <link href="http://graphql.org/blog/"/>
+      <id>http://graphql.org/blog/</id>
+      <updated>{new Date(posts[0].date).toISOString()}</updated>
 
-        {posts.map(post =>
-          <entry>
-            <title>{post.title}</title>
-            <link href={'http://graphql.org' + post.url}/>
-            <id>http://graphql.org{post.url}</id>
-            <updated>{new Date(post.date).toISOString()}</updated>
-            <summary>{post.title}</summary>
-            <content>{post.title}</content>
-            <author>
-              <name>{post.byline}</name>
-            </author>
-          </entry>
-        )}
-      </feed>
-    );
-  }
-});
-
-module.exports = BlogRss;
+      {posts.map(post =>
+        <entry>
+          <title>{post.title}</title>
+          <link href={'http://graphql.org' + post.url}/>
+          <id>http://graphql.org{post.url}</id>
+          <updated>{new Date(post.date).toISOString()}</updated>
+          <summary>{post.title}</summary>
+          <content>{post.title}</content>
+          <author>
+            <name>{post.byline}</name>
+          </author>
+        </entry>
+      )}
+    </feed>
+  );
+}
