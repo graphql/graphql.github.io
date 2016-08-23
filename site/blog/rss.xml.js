@@ -16,15 +16,17 @@ var BlogRss = React.createClass({
       .filter(file => !file.draft && path.extname(file.relPath) === '.md')
       .sort((a, b) => a.date < b.date);
     return (
-      <feed xmlns="http://www.w3.org/2005/Atom">
+      <feed>
         <title>Blog | GraphQL</title>
         <link href="http://graphql.org/blog/"/>
+        <id>http://graphql.org/blog/</id>
+        <updated>{new Date(posts[0].date).toISOString()}</updated>
 
         {posts.map(post =>
           <entry>
             <title>{post.title}</title>
             <link href={'http://graphql.org' + post.url}/>
-            <id>{post.permalink}</id>
+            <id>http://graphql.org{post.url}</id>
             <updated>{new Date(post.date).toISOString()}</updated>
             <summary>{post.title}</summary>
             <content>{post.title}</content>
