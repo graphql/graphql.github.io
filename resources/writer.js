@@ -33,7 +33,7 @@ async function writer(buildDir, file, site) {
   var data;
 
   // Render JS file
-  if (endsWith(file.relPath, '.html.js')) {
+  if (endsWith(file.relPath, '.html.js') || endsWith(file.relPath, '.xml.js')) {
     data = renderReactPage({
       component: require(path.resolve(file.absPath)),
       props: { site, page: file }
