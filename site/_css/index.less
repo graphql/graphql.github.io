@@ -152,11 +152,12 @@ body.index {
     text-align: center;
     max-width: 760px;
     padding-top: 4em;
-    padding-bottom: 4em;
+    padding-bottom: 2em;
   }
 
   .grayWash {
     background: #f3f4f6;
+    position: relative;
   }
 
   section.point1 {
@@ -168,6 +169,36 @@ body.index {
 
     .prose {
       max-width: 415px;
+    }
+
+    .faux-graphiql {
+      border: 1px solid transparent;
+      border-image: url(/img/terminal.png) repeat;
+      border-image-slice: 190 210 190 234;
+      border-image-width: 95px 105px 95px 117px;
+      padding: 54px 55px 79px 55px;
+      margin-bottom: -40px;
+      margin-left: -70px;
+      width: 570px;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      pointer-events: none;
+
+      .query, .response {
+        flex: 1;
+      }
+
+      .query {
+        border-bottom: solid 5px #e0e0e0;
+      }
+
+      .prism {
+        box-shadow: none;
+        background: none;
+        margin: 0;
+        padding: 1ch;
+      }
     }
   }
 
@@ -186,6 +217,7 @@ body.index {
       width: 476px;
       height: 370px;
       position: relative;
+      pointer-events: none;
 
       & > img {
         position: absolute;
@@ -194,23 +226,25 @@ body.index {
         right: -10px;
       }
 
+      .prism {
+        box-shadow: none;
+        background: none;
+        margin: 0;
+        padding: 0;
+      }
+
       .query, .response {
         position: absolute;
-
-        .prism {
-          box-shadow: none;
-          background: none;
-        }
       }
 
       .query {
         animation: query-up 6s 0s infinite ease-in both;
-        left: 155px;
+        left: 165px;
 
         @keyframes query-up {
           from {
             opacity: 0;
-            top: 160px;
+            top: 170px;
           }
 
           5%, 25% {
@@ -222,7 +256,7 @@ body.index {
           }
 
           50%, 100% {
-            top: 90px;
+            top: 100px;
             opacity: 0;
           }
         }
@@ -230,12 +264,12 @@ body.index {
 
       .response {
         animation: response-down 6s 2.3s infinite ease-out both;
-        left: 115px;
+        left: 125px;
 
         @keyframes response-down {
           0% {
             opacity: 0;
-            top: 70px;
+            top: 80px;
           }
 
           10% {
@@ -248,7 +282,7 @@ body.index {
 
           50%, 100% {
             opacity: 0;
-            top: 130px;
+            top: 140px;
           }
         }
       }
