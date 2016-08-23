@@ -138,7 +138,7 @@ var index = React.createClass({
                   showResponse(2);
                   setTimeout(type, 1500);
                 } else {
-                  setTimeout(type, Math.random() * 140 + 70);
+                  setTimeout(type, Math.random() * 180 + 70);
                 }
               } else {
                 i--;
@@ -215,17 +215,18 @@ var index = React.createClass({
           </section>
         </div>
 
-        <section>
-          <h2>Describe what&rsquo;s possible with a type system</h2>
+        <section className="point3">
+          <div className="prose">
+          <h2>Describe what&rsquo;s possible<br />with a type system</h2>
           {/*Illustration of a type IDL following a query by line]*/}
           {/*Under: a server <-> client (Capabilities, Requirements)]?*/}
           <p>
-            GraphQL presents an API organized in terms of objects, types, and
-            fields, not endpoints. GraphQL APIs provide a complete description
-            of your data, exposing the full set of capabilities available from a
-            single endpoint. APIs use these types to ensure Apps only ask for
+            GraphQL APIs are organized in terms of types and fields,
+            not endpoints. Access the full capabilities of your data from a
+            single endpoint. GraphQL uses types to ensure Apps only ask for
             what&rsquo;s possible and provide clear and helpful errors. Apps can
-            use these types to avoid writing manual parsing and model&nbsp;code.</p>
+            use types to avoid writing manual parsing and model&nbsp;code.</p>
+          </div>
         </section>
 
         <section>
