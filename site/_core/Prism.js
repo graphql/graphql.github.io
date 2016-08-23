@@ -389,7 +389,7 @@ Token.reactify = function(o, language, parent, key) {
 		type: o.type,
 		content: Token.reactify(o.content, language, parent),
 		tag: 'span',
-		classes: ['token', o.type],
+		classes: [o.type],
 		attributes: {key: key},
 		language: language,
 		parent: parent
