@@ -77,24 +77,87 @@ var index = React.createClass({
         <section className="point1">
           <div className="faux-graphiql" aria-hidden>
             <div className="query">
-            <Prism>
-              {`{
-  me {
-    name
-  }
-}`}
-            </Prism>
+              <pre className="prism">
+                {'{'}
+                {'\n  me {'}
+                {'\n    name'}
+                {'\n    eyeColor\n    hairColor'.split('').map((c, i) =>
+                  <span key={i} id={'ch' + i} className="ch">{c === '\n' ? <br/> : c}</span>)}
+                <span className="cursor" />
+                {'\n  }'}
+                {'\n}'}
+              </pre>
             </div>
             <div className="response">
-            <Prism>
-              {`{
+              <div id="r1">
+                <Prism>
+                  {`{
   "me": {
     "name": "Luke Skywalker"
   }
 }`}
-            </Prism>
+                </Prism>
+              </div>
+              <div id="r2">
+                <Prism>
+                  {`{
+  "me": {
+    "name": "Luke Skywalker",
+    "eyeColor": "blue"
+  }
+}`}
+                </Prism>
+              </div>
+              <div id="r3">
+                <Prism>
+                  {`{
+  "me": {
+    "name": "Luke Skywalker",
+    "eyeColor": "blue",
+    "hairColor": "blond"
+  }
+}`}
+                </Prism>
+              </div>
             </div>
           </div>
+          <script dangerouslySetInnerHTML={{__html: `
+            var i = 0;
+            var forward = true;
+            setTimeout(type, 2000);
+            showResponse(1);
+            function type() {
+              if (forward) {
+                document.getElementById('ch' + i).style.display = 'inline';
+                i++;
+                if (i === 27) {
+                  forward = false;
+                  showResponse(3);
+                  setTimeout(type, 1500);
+                } else if (i === 13) {
+                  showResponse(2);
+                  setTimeout(type, 1500);
+                } else {
+                  setTimeout(type, Math.random() * 140 + 70);
+                }
+              } else {
+                i--;
+                document.getElementById('ch' + i).style.display = 'none';
+                if (i === 0) {
+                  forward = true;
+                  showResponse(1);
+                  setTimeout(type, 2000);
+                } else {
+                  setTimeout(type, 80);
+                }
+              }
+            }
+            function showResponse(num) {
+              document.getElementById('r1').style.display = num === 1 ? 'block' : 'none';
+              document.getElementById('r2').style.display = num === 2 ? 'block' : 'none';
+              document.getElementById('r3').style.display = num === 3 ? 'block' : 'none';
+            }
+          `}} />
           <div className="prose">
             <h2>Ask for what you need,<br />get exactly that</h2>
             {/*[Illustration: just a simple query and response?]*/}
