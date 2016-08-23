@@ -24,6 +24,7 @@ async function readSite(siteRoot) {
 
   await fileWalker(site.root, (absPath, stat) => {
     var relPath = path.relative(site.root, absPath);
+
     return readFileData(absPath, relPath, stat).then(data => {
       data = normalizeData(data);
       var dirName = path.dirname(relPath);
@@ -50,7 +51,7 @@ function buildSite(buildRoot, site) {
 
 
 
-var PAGEISH = [ '.html.js', '.md', '.markdown' ];
+var PAGEISH = [ '.html.js', '.xml.js', '.md', '.markdown' ];
 
 function isPageish(filePath) {
   for (var i = 0; i < PAGEISH.length; i++) {
@@ -72,6 +73,7 @@ function readFileData(absPath, relPath, stat) {
   }
   return readFile(absPath).then(content => {
     var frontMatter = FRONT_MATTER_RX.exec(content);
+
     if (!frontMatter) {
       return { absPath, relPath, stat, content };
     }
@@ -109,9 +111,14 @@ function urlToFile(file) {
     }
   } else {
     url = '/' + file.relPath;
-    for (var i = 0; i < PAGEISH.length; i++) {
-      if (endsWith(url, PAGEISH[i])) {
-        url = url.slice(0, -PAGEISH[i].length) + '.html';
+
+    if (endsWith(file.relPath, '.xml.js')) {
+        url = url.slice(0, -'.js'.length);
+    } else {
+      for (var i = 0; i < PAGEISH.length; i++) {
+        if (endsWith(url, PAGEISH[i])) {
+          url = url.slice(0, -PAGEISH[i].length) + '.html';
+        }
       }
     }
   }
