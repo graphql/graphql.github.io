@@ -142,10 +142,33 @@ body.index {
     }
   }
 
+  section h1,
+  section h2 {
+    margin-top: 0;
+  }
+
   section.lead {
     .body-font(22px);
     text-align: center;
     max-width: 760px;
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+
+  .grayWash {
+    background: #f3f4f6;
+  }
+
+  section.point1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4em;
+    padding-bottom: 4em;
+
+    & > div {
+      max-width: 415px;
+    }
   }
 
   .home-divider {
