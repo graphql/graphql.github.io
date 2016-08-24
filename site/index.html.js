@@ -93,7 +93,7 @@ var index = React.createClass({
               predictable results. Apps using GraphQL are fast and stable because
               they control the data they get, not the&nbsp;server.</p>
           </div>
-          <div className="faux-graphiql" aria-hidden>
+          <div className="window faux-graphiql" aria-hidden>
             <div className="query">
               <pre className="prism">
                 {'{'}
@@ -237,7 +237,7 @@ var index = React.createClass({
               what&rsquo;s possible and provide clear and helpful errors. Apps can
               use types to avoid writing manual parsing&nbsp;code.</p>
           </div>
-          <div className="strong-typed-query" aria-hidden>
+          <div className="window strong-typed-query" aria-hidden>
           <div className="query">
           <div id="query-highlight" className="highlight" />
           <Prism>
@@ -314,12 +314,12 @@ type Species {
               Know exactly what data you can request from your API without
               leaving your editor, highlight potential issues before sending a
               query, and take advantage of improved code intelligence. GraphQL
-              makes it easy to build powerful tools like <a href="https://github.com/graphql/graphiql" target="_blank">GraphiQL</a> by
+              makes it easy to build powerful tools like <a href="https://github.com/graphql/graphiql" target="_blank">Graph<em>i</em>QL</a> by
               leveraging your API&rsquo;s type system.</p>
           </div>
           <div className="graphiqlVid" dangerouslySetInnerHTML={{__html: `
             <video autoplay loop playsinline>
-              <source src="/img/graphiql.mp4?" type="video/mp4" />
+              <source src="/img/graphiql.mp4?x" type="video/mp4" />
             </video>
           `}} />
         </section>
