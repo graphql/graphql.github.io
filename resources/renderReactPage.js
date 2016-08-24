@@ -24,6 +24,9 @@ function renderReactPage(options) {
   var html = React.renderToStaticMarkup(React.createElement(component, props));
 
   if (html.indexOf('<feed') !== -1) {
+    // react remove namespace so we re-add manually
+    html = html.replace('<feed>', '<feed xmlns="http://www.w3.org/2005/Atom">');
+
     return '<?xml version="1.0" encoding="utf-8"?>' + html;
   }
 
