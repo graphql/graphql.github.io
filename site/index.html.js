@@ -192,7 +192,7 @@ var index = React.createClass({
                 network&nbsp;connections.</p>
             </div>
             <div className="app-to-server" aria-hidden>
-              <img src="/img/phone.svg" width="496" height="440" />
+              <img src="/img/phone.svg" width="496" height="440" className="phone" />
               <div className="query">
               <Prism>
                 {`{
@@ -220,7 +220,7 @@ var index = React.createClass({
 }`}
               </Prism>
               </div>
-              <img src="/img/server.svg" width="496" height="440" />
+              <img src="/img/server.svg" width="496" height="440" className="server" />
             </div>
           </section>
         </div>

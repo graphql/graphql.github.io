@@ -256,15 +256,22 @@ body.index {
 
     .app-to-server {
       width: 476px;
-      height: 370px;
+      height: 430px;
       position: relative;
       pointer-events: none;
 
-      & > img {
+      .phone, .server {
         position: absolute;
-        top: -35px;
         left: -10px;
         right: -10px;
+      }
+
+      .phone {
+        bottom: -35px;
+      }
+
+      .server {
+        top: -35px;
       }
 
       .prism {
@@ -285,7 +292,7 @@ body.index {
         @keyframes query-up {
           from {
             opacity: 0;
-            top: 170px;
+            top: 200px;
           }
 
           5%, 25% {
@@ -297,20 +304,20 @@ body.index {
           }
 
           50%, 100% {
-            top: 100px;
+            top: 120px;
             opacity: 0;
           }
         }
       }
 
       .response {
-        animation: response-down 6s 2.3s infinite ease-out both;
+        animation: response-down 6s 2.3s infinite ease-in both;
         left: 125px;
 
         @keyframes response-down {
           0% {
             opacity: 0;
-            top: 80px;
+            top: 100px;
           }
 
           10% {
@@ -323,7 +330,7 @@ body.index {
 
           50%, 100% {
             opacity: 0;
-            top: 140px;
+            top: 170px;
           }
         }
       }
