@@ -23,8 +23,8 @@ var HeaderLinks = React.createClass({
         <a
           key={link.section}
           href={link.href}
-          target={link.href.slice(0, 4) === 'http' && '_blank'}
-          className={link.section === this.props.section && 'active'}>
+          target={link.href.slice(0, 4) === 'http' ? '_blank' : null}
+          className={link.section === this.props.section ? 'active' : null}>
           {link.text}
         </a>
       )}

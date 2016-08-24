@@ -188,7 +188,8 @@ var index = React.createClass({
                 but also smoothly follow references between them. While typical
                 REST APIs require loading from multiple URLs, GraphQL APIs get
                 all the data your app needs in a single request. Apps using
-                GraphQL are quick even on slow mobile network&nbsp;connections.</p>
+                GraphQL can be quick even on slow mobile
+                network&nbsp;connections.</p>
             </div>
             <div className="app-to-server" aria-hidden>
               <img src="/img/phone.svg" width="496" height="440" />
