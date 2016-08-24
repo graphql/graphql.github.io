@@ -161,6 +161,7 @@ body.index {
   .darkWash {
     background: #3d464f;
     position: relative;
+    overflow: hidden;
   }
 
   section.point1 {
@@ -378,9 +379,52 @@ body.index {
     }
 
     .prose {
-      max-width: 540px;
+      max-width: 575px;
       text-align: center;
       margin: 0 auto;
+
+      a {
+        color: lighten(@rhodamine-color, 30%);
+      }
+    }
+
+    .graphiqlVid {
+      background: white;
+      border-radius: 4px;
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.2),
+        0 16px 64px rgba(0, 0, 0, 0.6);
+      margin: 3em -10px -100px;
+      transform: translateZ(0);
+
+      video {
+        width: 100%;
+      }
+    }
+  }
+
+  section.point5 {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 4em;
+    padding-top: 4em;
+
+    .prose {
+      max-width: 415px;
+    }
+  }
+
+  section.point6 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 4em;
+    padding-top: 4em;
+
+    .prose {
+      max-width: 415px;
     }
   }
 
