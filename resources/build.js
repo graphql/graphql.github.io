@@ -24,10 +24,10 @@ var buildDir = process.env.npm_package_site_build || './_build';
 var SITE_ROOT = path.resolve(pwd, sourceDir);
 var BUILD_ROOT = path.resolve(pwd, buildDir);
 
-async function build() {
+async function build(filter) {
   console.log('building...');
   var site = await Site.readSite(SITE_ROOT);
-  await Site.buildSite(BUILD_ROOT, site);
+  await Site.buildSite(BUILD_ROOT, site, filter);
   console.log('built');
 }
 

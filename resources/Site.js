@@ -43,10 +43,13 @@ async function readSite(siteRoot) {
   return site;
 }
 
-function buildSite(buildRoot, site) {
-  return Promise.all(site.files.map(file =>
-    writer(buildRoot, file, site)
-  ));
+function buildSite(buildRoot, site, filter) {
+  return Promise.all(site.files
+    .filter(file =>
+      !filter ||
+      (filter.test ? filter.test(file.absPath) : filter === file.absPath))
+    .map(file => writer(buildRoot, file, site))
+  );
 }
 
 

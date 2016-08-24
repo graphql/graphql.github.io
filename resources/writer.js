@@ -22,6 +22,7 @@ module.exports = writer;
 
 async function writer(buildDir, file, site) {
   var writePath = getWritePath(buildDir, file);
+  console.log('  writing', file.relPath);
 
   // Render Less file
   if (endsWith(file.absPath, '.less')) {
