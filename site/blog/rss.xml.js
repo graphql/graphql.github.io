@@ -21,7 +21,7 @@ export default function BlogRSS({ site }) {
       <updated>{new Date(posts[0].date).toISOString()}</updated>
 
       {posts.map(post =>
-        <entry>
+        <entry key={post.permalink}>
           <title>{post.title}</title>
           <link href={'http://graphql.org' + post.url}/>
           <id>http://graphql.org{post.url}</id>
