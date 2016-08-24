@@ -304,33 +304,45 @@ type Species {
               Know exactly what data you can request from your API without
               leaving your editor, highlight potential issues before sending a
               query, and take advantage of improved code intelligence. GraphQL
-              makes it easy to build powerful tools by leveraging your
-              API&rsquo;s type system. You can even auto-generate your&nbsp;docs.</p>
+              makes it easy to build powerful tools like <a href="https://github.com/graphql/graphiql" target="_blank">GraphiQL</a> by
+              leveraging your API&rsquo;s type system.</p>
+          </div>
+          <div className="graphiqlVid" dangerouslySetInnerHTML={{__html: `
+            <video autoplay loop playsinline>
+              <source src="/img/graphiql.mp4?" type="video/mp4" />
+            </video>
+          `}} />
+        </section>
+        </div>
+
+        <div className="grayWash">
+        <section className="point5">
+          <div className="prose">
+            <h2>Evolve your API<br />without versions</h2>
+            {/*Illustration showing more legs added to a graph? Or a type evolving over time?]*/}
+            <p>
+              Add new fields and types to a GraphQL API without affecting
+              queries sent from existing apps. Aging fields can be deprecated
+              and hidden from documentation. By using a single version, GraphQL
+              APIs give apps easier access to new features and enable cleaner,
+              more maintainable server&nbsp;code.</p>
           </div>
         </section>
         </div>
 
-        <section>
-          <h2>Evolve your API without versions</h2>
-          {/*Illustration showing more legs added to a graph? Or a type evolving over time?]*/}
-          <p>
-            Add new fields and types to a GraphQL API without affecting queries
-            sent from existing apps. Aging fields can be deprecated and hidden
-            from documentation. By using a single version, GraphQL APIs give
-            apps easier access to new features and enable cleaner, more
-            maintainable server&nbsp;code.</p>
-        </section>
-
-        <section>
-          <h2>Powered by your existing data and code</h2>
-          {/*Illustration of each field becoming a function?]*/}
-          <p>
-            GraphQL creates a uniform, powerful API across the entire surface
-            area of your application without being limited by a specific storage
-            engine. Write GraphQL APIs that leverage your existing data model
-            and server with GraphQL engine implementations available in many
-            languages. You provide small functions that fulfill fields in the
-            type system, and GraphQL calls them with optimal&nbsp;concurrency.</p>
+        <section className="point6">
+          <div className="prose">
+            <h2>Powered by your<br />existing data and code</h2>
+            {/*Illustration of each field becoming a function?]*/}
+            <p>
+              GraphQL creates a uniform, powerful API across the entire surface
+              area of your application without being limited by a specific
+              storage engine. Write GraphQL APIs that leverage your existing
+              data model and server with GraphQL engine implementations
+              available in many languages. You provide small functions that
+              fulfill fields in the type system, and GraphQL calls them with
+              optimal&nbsp;concurrency.</p>
+          </div>
         </section>
 
 {/*
