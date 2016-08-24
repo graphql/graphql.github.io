@@ -158,8 +158,14 @@ body.index {
     position: relative;
   }
 
+  .darkWash {
+    background: #3d464f;
+    position: relative;
+  }
+
   section.point1 {
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     padding-top: 4em;
@@ -175,8 +181,7 @@ body.index {
       border-image-slice: 190 210 190 234;
       border-image-width: 95px 105px 95px 117px;
       padding: 54px 55px 79px 55px;
-      margin-bottom: -40px;
-      margin-left: -70px;
+      margin: -30px 0 -80px -70px;
       width: 570px;
       height: 450px;
       display: flex;
@@ -201,10 +206,10 @@ body.index {
 
       .cursor {
         width: 7px;
-        height: 14px;
+        height: 15px;
         background-color: #d0d0d0;
         display: inline-block;
-        margin: 0 1px -3px;
+        margin: -1px 1px -3px;
         animation: cursor-blink 0.5s infinite linear both alternate;
 
         @keyframes cursor-blink {
@@ -311,13 +316,71 @@ body.index {
   }
 
   section.point3 {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
     padding-bottom: 4em;
     padding-top: 4em;
-    text-align: center;
 
     .prose {
-      max-width: 630px;
-      margin: auto;
+      max-width: 415px;
+    }
+
+    .strong-typed-query {
+      border: 1px solid transparent;
+      border-image: url(/img/terminal.png) repeat;
+      border-image-slice: 190 210 190 234;
+      border-image-width: 95px 105px 95px 117px;
+      padding: 54px 55px 79px 55px;
+      margin: -30px 0 -80px -70px;
+      width: 580px;
+      display: flex;
+      pointer-events: none;
+
+      .type-system, .query {
+        background: white;
+        flex: 1;
+        position: relative;
+      }
+
+      .query {
+        border-right: solid 5px #e0e0e0;
+      }
+
+      .highlight {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 18px;
+        top: 8px;
+        background: lighten(@dark-color, 80%);
+      }
+
+      .prism {
+        background: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 1ch;
+      }
+    }
+  }
+
+  section.point4 {
+    color: white;
+    padding-bottom: 4em;
+    padding-top: 4em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    h2 {
+      color: white;
+    }
+
+    .prose {
+      max-width: 540px;
+      text-align: center;
+      margin: 0 auto;
     }
   }
 

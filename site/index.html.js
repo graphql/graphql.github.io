@@ -75,11 +75,20 @@ var index = React.createClass({
         </section>
 
         <section className="point1">
+          <div className="prose">
+            <h2>Ask for what you need,<br />get exactly that</h2>
+            {/*[Illustration: just a simple query and response?]*/}
+            <p>
+              Send a GraphQL query to your API and get exactly what you need,
+              nothing more and nothing less. GraphQL queries always return
+              predictable results. Apps using GraphQL are fast and stable because
+              they control the data they get, not the&nbsp;server.</p>
+          </div>
           <div className="faux-graphiql" aria-hidden>
             <div className="query">
               <pre className="prism">
                 {'{'}
-                {'\n  me {'}
+                {'\n  hero {'}
                 {'\n    name'}
                 {'\n    eyeColor\n    hairColor'.split('').map((c, i) =>
                   <span key={i} id={'ch' + i} className="ch">{c === '\n' ? <br/> : c}</span>)}
@@ -92,7 +101,7 @@ var index = React.createClass({
               <div id="r1">
                 <Prism>
                   {`{
-  "me": {
+  "hero": {
     "name": "Luke Skywalker"
   }
 }`}
@@ -101,7 +110,7 @@ var index = React.createClass({
               <div id="r2">
                 <Prism>
                   {`{
-  "me": {
+  "hero": {
     "name": "Luke Skywalker",
     "eyeColor": "blue"
   }
@@ -111,7 +120,7 @@ var index = React.createClass({
               <div id="r3">
                 <Prism>
                   {`{
-  "me": {
+  "hero": {
     "name": "Luke Skywalker",
     "eyeColor": "blue",
     "hairColor": "blond"
@@ -121,7 +130,7 @@ var index = React.createClass({
               </div>
             </div>
           </div>
-          <script dangerouslySetInnerHTML={{__html: `
+          <script dangerouslySetInnerHTML={{__html: `(function(){
             var i = 0;
             var forward = true;
             setTimeout(type, 2000);
@@ -157,36 +166,27 @@ var index = React.createClass({
               document.getElementById('r2').style.display = num === 2 ? 'block' : 'none';
               document.getElementById('r3').style.display = num === 3 ? 'block' : 'none';
             }
-          `}} />
-          <div className="prose">
-            <h2>Ask for what you need,<br />get exactly that</h2>
-            {/*[Illustration: just a simple query and response?]*/}
-            <p>
-              Send a GraphQL query to your API and get exactly what you need,
-              nothing more and nothing less. GraphQL queries always return
-              predictable results. Apps using GraphQL are fast and stable because
-              they control the data they get, not the&nbsp;server.</p>
-          </div>
+          })()`}} />
         </section>
 
         <div className="grayWash">
           <section className="point2">
             <div className="prose">
-            <h2>Get many resources<br />in a single request</h2>
-            {/*Illustration: a query 2 or 3 levels deep]*/}
-            <p>
-              GraphQL queries access not just the properties of one resource but
-              also smoothly follow references between them. While typical APIs
-              require loading from multiple URLs, GraphQL APIs get all the data
-              your app needs in a single request. Apps using GraphQL are quick
-              even on slow mobile network&nbsp;connections.</p>
+              <h2>Get many resources<br />in a single request</h2>
+              {/*Illustration: a query 2 or 3 levels deep]*/}
+              <p>
+                GraphQL queries access not just the properties of one resource
+                but also smoothly follow references between them. While typical
+                REST APIs require loading from multiple URLs, GraphQL APIs get
+                all the data your app needs in a single request. Apps using
+                GraphQL are quick even on slow mobile network&nbsp;connections.</p>
             </div>
             <div className="app-to-server" aria-hidden>
               <img src="/img/phone.svg" width="496" height="440" />
               <div className="query">
               <Prism>
                 {`{
-  me {
+  hero {
     name
     friends {
       name
@@ -198,7 +198,7 @@ var index = React.createClass({
               <div className="response">
               <Prism>
                 {`{
-  "me": {
+  "hero": {
     "name": "Luke Skywalker",
     "friends": [
       { "name": "Obi-Wan Kenobi" },
@@ -217,29 +217,98 @@ var index = React.createClass({
 
         <section className="point3">
           <div className="prose">
-          <h2>Describe what&rsquo;s possible<br />with a type system</h2>
-          {/*Illustration of a type IDL following a query by line]*/}
-          {/*Under: a server <-> client (Capabilities, Requirements)]?*/}
-          <p>
-            GraphQL APIs are organized in terms of types and fields,
-            not endpoints. Access the full capabilities of your data from a
-            single endpoint. GraphQL uses types to ensure Apps only ask for
-            what&rsquo;s possible and provide clear and helpful errors. Apps can
-            use types to avoid writing manual parsing and model&nbsp;code.</p>
+            <h2>Describe what&rsquo;s possible<br />with a type system</h2>
+            {/*Illustration of a type IDL following a query by line]*/}
+            {/*Under: a server <-> client (Capabilities, Requirements)]?*/}
+            <p>
+              GraphQL APIs are organized in terms of types and fields,
+              not endpoints. Access the full capabilities of your data from a
+              single endpoint. GraphQL uses types to ensure Apps only ask for
+              what&rsquo;s possible and provide clear and helpful errors. Apps can
+              use types to avoid writing manual parsing&nbsp;code.</p>
           </div>
+          <div className="strong-typed-query" aria-hidden>
+          <div className="query">
+          <div id="query-highlight" className="highlight" />
+          <Prism>
+                {`{
+  hero {
+    name
+    friends {
+      name
+      homeWorld {
+        name
+        climate
+      }
+      species {
+        name
+        lifespan
+        origin {
+          name
+        }
+      }
+    }
+  }
+}`}
+          </Prism>
+          </div>
+          <div className="type-system">
+          <div id="type-highlight" className="highlight" />
+          <Prism>
+                {`type Query {
+  hero: Character
+}
+
+type Character {
+  name: String
+  friends: [Character]
+  homeWorld: Planet
+  species: Species
+}
+
+type Planet {
+  name: String
+  climate: String
+}
+
+type Species {
+  name: String
+  lifespan: Int
+  origin: Planet
+}`}
+          </Prism>
+          </div>
+          </div>
+          <script dangerouslySetInnerHTML={{__html: `(function(){
+            var typeHighlight = document.getElementById('type-highlight');
+            var queryHighlight = document.getElementById('query-highlight');
+            var line = 0;
+            var typeLines  = [2,6,7,6,8,13,14, 9,18,19,20,13];
+            var queryLines = [2,3,4,5,6, 7, 8,10,11,12,13,14];
+            highlightLine();
+            function highlightLine() {
+              typeHighlight.style.top = (17 * typeLines[line] - 9) + 'px';
+              queryHighlight.style.top = (17 * queryLines[line] - 9) + 'px';
+              line = (line + 1) % typeLines.length;
+              setTimeout(highlightLine, 800 + Math.random() * 200);
+            }
+          })()`}} />
         </section>
 
-        <section>
-          <h2>Move faster with powerful developer tools</h2>
-          {/*Illustration of GraphiQL validation error and typeahead, animated?]*/}
-          <p>
-            Know exactly what data you can request from your API without leaving
-            your editor, highlight potential issues before sending a query, and
-            take advantage of improved code intelligence. GraphQL introspection
-            makes it easy to build new powerful tools by leveraging a GraphQL
-            API&rsquo;s type system. You can even automatically generate your
-            API&nbsp;documentation.</p>
+        <div className="darkWash">
+        <section className="point4">
+          <div className="prose">
+            <h2>Move faster with<br />powerful developer tools</h2>
+            {/*Illustration of GraphiQL validation error and typeahead, animated?]*/}
+            <p>
+              Know exactly what data you can request from your API without
+              leaving your editor, highlight potential issues before sending a
+              query, and take advantage of improved code intelligence. GraphQL
+              makes it easy to build powerful tools by leveraging your
+              API&rsquo;s type system. You can even auto-generate your&nbsp;docs.</p>
+          </div>
         </section>
+        </div>
 
         <section>
           <h2>Evolve your API without versions</h2>
