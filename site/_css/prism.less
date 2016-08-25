@@ -69,75 +69,156 @@ pre.prism {
 }
 
 // Colors
-.prism {
-  .comment,
-  .prolog,
-  .doctype,
-  .cdata {
-    color: slategray;
-  }
+// .prism {
+//   .comment,
+//   .prolog,
+//   .doctype,
+//   .cdata {
+//     color: slategray;
+//   }
 
-  .punctuation {
-    color: #999;
-  }
+//   .punctuation {
+//     color: #999;
+//   }
 
-  .namespace {
-    opacity: .7;
-  }
+//   .namespace {
+//     opacity: .7;
+//   }
 
-  .property,
-  .tag,
-  .boolean,
-  .number,
-  .constant,
-  .symbol,
-  .deleted {
-    color: #905;
-  }
+//   .property,
+//   .tag,
+//   .boolean,
+//   .number,
+//   .constant,
+//   .symbol,
+//   .deleted {
+//     color: #905;
+//   }
 
-  .selector,
-  .attr-name,
-  .string,
-  .char,
-  .builtin,
-  .inserted {
-    color: #690;
-  }
+//   .selector,
+//   .attr-name,
+//   .string,
+//   .char,
+//   .builtin,
+//   .inserted {
+//     color: #690;
+//   }
 
-  .operator,
-  .entity,
-  .url,
-  .language-css .string,
-  .style .string {
-    color: #a67f59;
-    background: hsla(0, 0%, 100%, .5);
-  }
+//   .operator,
+//   .entity,
+//   .url,
+//   .language-css .string,
+//   .style .string {
+//     color: #a67f59;
+//     background: hsla(0, 0%, 100%, .5);
+//   }
 
-  .atrule,
-  .attr-value,
-  .keyword {
-    color: #07a;
-  }
+//   .atrule,
+//   .attr-value,
+//   .keyword {
+//     color: #07a;
+//   }
 
-  .function {
-    color: #DD4A68;
-  }
+//   .function {
+//     color: #DD4A68;
+//   }
 
-  .regex,
-  .important,
-  .variable {
-    color: #e90;
-  }
+//   .regex,
+//   .important,
+//   .variable {
+//     color: #e90;
+//   }
 
-  .important,
-  .bold {
-    font-weight: bold;
-  }
-  .italic {
-    font-style: italic;
-  }
+//   .important,
+//   .bold {
+//     font-weight: bold;
+//   }
+//   .italic {
+//     font-style: italic;
+//   }
 
-  .entity {
-    cursor: help;
-  }
+//   .entity {
+//     cursor: help;
+//   }
+// }
+
+
+
+
+/* Comment */
+.prism .comment,
+.cm-comment {
+  color: #999;
+}
+
+/* Punctuation */
+.prism .punctuation,
+.cm-punctuation {
+  color: #555;
+}
+
+/* Keyword */
+.prism .keyword,
+.cm-keyword {
+  color: #B11A04;
+}
+
+/* OperationName, FragmentName */
+.prism .constant,
+.cm-def {
+  color: #D2054E;
+}
+
+/* FieldName */
+.prism .attr-name,
+.cm-property {
+  color: #1F61A0;
+}
+
+/* FieldAlias */
+.cm-qualifier {
+  color: #1C92A9;
+}
+
+/* ArgumentName and ObjectFieldName */
+.cm-attribute {
+  color: #8B2BB9;
+}
+
+/* Number */
+.prism .number,
+.cm-number {
+  color: #2882F9;
+}
+
+/* String */
+.prism .string,
+.cm-string {
+  color: #D64292;
+}
+
+/* Boolean */
+.prism .boolean,
+.cm-builtin {
+  color: #D47509;
+}
+
+/* EnumValue */
+.cm-string-2 {
+  color: #0B7FC7;
+}
+
+/* Variable */
+.cm-variable {
+  color: #397D13;
+}
+
+/* Directive */
+.cm-meta {
+  color: #B33086;
+}
+
+/* Type */
+.cm-atom {
+  color: #CA9800;
 }
