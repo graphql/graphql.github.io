@@ -30,7 +30,7 @@ var index = React.createClass({
             <section className="marketing-row">
               <div className="marketing-col">
                 <h4>Describe your data</h4>
-                <Prism>
+                <Prism language="graphql">
                   {`type Project {
   name: String
   tagline: String
@@ -40,7 +40,7 @@ var index = React.createClass({
               </div>
               <div className="marketing-col">
                 <h4>Ask for what you want</h4>
-                <Prism>
+                <Prism language="graphql">
                   {`{
   project(name: "GraphQL") {
     tagline
@@ -50,7 +50,7 @@ var index = React.createClass({
               </div>
               <div className="marketing-col">
                 <h4>Get predictable results</h4>
-                <Prism>
+                <Prism language="json">
                   {`{
   "project": {
     "tagline": "A query language for APIs"
@@ -108,7 +108,7 @@ var index = React.createClass({
             </div>
             <div className="response">
               <div id="r1">
-                <Prism>
+                <Prism language="json">
                   {`{
   "hero": {
     "name": "Luke Skywalker"
@@ -117,7 +117,7 @@ var index = React.createClass({
                 </Prism>
               </div>
               <div id="r2">
-                <Prism>
+                <Prism language="json">
                   {`{
   "hero": {
     "name": "Luke Skywalker",
@@ -127,7 +127,7 @@ var index = React.createClass({
                 </Prism>
               </div>
               <div id="r3">
-                <Prism>
+                <Prism language="json">
                   {`{
   "hero": {
     "name": "Luke Skywalker",
@@ -194,7 +194,7 @@ var index = React.createClass({
             <div className="app-to-server" aria-hidden>
               <img src="/img/phone.svg" width="496" height="440" className="phone" />
               <div className="query">
-              <Prism>
+              <Prism language="graphql">
                 {`{
   hero {
     name
@@ -206,7 +206,7 @@ var index = React.createClass({
               </Prism>
               </div>
               <div className="response">
-              <Prism>
+              <Prism language="json">
                 {`{
   "hero": {
     "name": "Luke Skywalker",
@@ -240,7 +240,7 @@ var index = React.createClass({
           <div className="window strong-typed-query" aria-hidden>
           <div className="query">
           <div id="query-highlight" className="highlight" />
-          <Prism>
+          <Prism language="graphql">
                 {`{
   hero {
     name
@@ -264,7 +264,7 @@ var index = React.createClass({
           </div>
           <div className="type-system">
           <div id="type-highlight" className="highlight" />
-          <Prism>
+          <Prism language="graphql">
                 {`type Query {
   hero: Character
 }
