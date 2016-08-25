@@ -479,7 +479,7 @@ Prism.languages.clike = {
 	'operator': /[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|~|\^|%/,
 	'punctuation': /[{}[\];(),.:]/
 };
-;
+
 Prism.languages.javascript = Prism.languages.extend('clike', {
 	'keyword': /\b(as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield)\b/,
 	'number': /\b-?(0x[\dA-Fa-f]+|0b[01]+|0o[0-7]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|Infinity)\b/,
@@ -550,3 +550,50 @@ Prism.languages.insertBefore('inside', 'attr-value',{
 }, Prism.languages.jsx.tag);
 
 }(Prism));
+
+Prism.languages.graphql = {
+	'comment': /#.*/,
+	'string': /"(?:\\.|[^\\"])*"/,
+	'number': /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
+	'boolean': /\b(?:true|false)\b/,
+	'variable': /\$[a-z_]\w*/i,
+	'directive': {
+		pattern: /@[a-z_]\w*/i,
+		alias: 'function'
+	},
+	'attr-name': /[a-z_]\w*(?=\s*:)/i,
+	'keyword': [
+		{
+			pattern: /(fragment\s+(?!on)[a-z_]\w*\s+|\.\.\.\s*)on\b/,
+			lookbehind: true
+		},
+		/\b(?:query|fragment|mutation)\b/
+	],
+	'operator': /!|=|\.{3}/,
+	'type-def': {
+		pattern: /\b(?:type|interface)\b\s+[a-zA-Z_]\w*\s?{[\w\W]*?}/,
+		inside: {
+			keyword: /\b(?:type|interface)\b/,
+			'type-name': /[a-z_]\w*/i,
+			fields: {
+				pattern: /{[\w\W]*?}/,
+				inside: {
+					'punctuation': /[!{}\[\]:=,]/,
+					'attr-name': /[a-z_]\w*(?=\s*:)/i,
+					'type-name': /[a-z_]\w*/i,
+				}
+			}
+		}
+	},
+	'punctuation': /[!(){}\[\]:=,]/,
+	'enum': /[a-z_]\w*/i
+};
+
+Prism.languages.json = {
+	'attr-name': /"(?:\\.|[^\\"])*"(?=\s*:)/i,
+	'string': /"(?:\\.|[^\\"])*"/,
+	'boolean': /\b(?:true|false)\b/,
+	'keyword': /\bnull\b/,
+	'number': /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
+	'punctuation': /[{}[\],:]/,
+};
