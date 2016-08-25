@@ -79,6 +79,9 @@ var Site = React.createClass({
                 <a>GitHub</a>
               </div>
             </section>
+            <a href="https://code.facebook.com/projects/" target="_blank" className="fbOpenSource">
+              <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
+            </a>
             <section className="copyright">
               Copyright &copy; 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause.
             </section>
