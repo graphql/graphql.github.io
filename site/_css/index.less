@@ -115,10 +115,6 @@ body.index {
         -webkit-font-smoothing: auto;
         -moz-osx-font-smoothing: auto;
         color: white;
-        background: transparent;
-        box-shadow: none;
-        padding: 0;
-        margin: 0;
       }
 
       &:last-child > .prism {
@@ -218,6 +214,10 @@ body.index {
       top: 0;
       width: 100%;
     }
+
+    .prism {
+      padding: 1ch;
+    }
   }
 
   section.point1 {
@@ -245,13 +245,6 @@ body.index {
 
       .query {
         border-bottom: solid 5px #e0e0e0;
-      }
-
-      .prism {
-        background: none;
-        box-shadow: none;
-        margin: 0;
-        padding: 1ch;
       }
 
       .cursor {
@@ -307,13 +300,6 @@ body.index {
 
       .server {
         top: -35px;
-      }
-
-      .prism {
-        background: none;
-        box-shadow: none;
-        margin: 0;
-        padding: 0;
       }
 
       .query, .response {
@@ -406,13 +392,6 @@ body.index {
         height: 18px;
         top: 8px;
         background: lighten(@dark-color, 80%);
-      }
-
-      .prism {
-        background: none;
-        box-shadow: none;
-        margin: 0;
-        padding: 1ch;
       }
     }
   }
