@@ -147,12 +147,20 @@ body.index {
 
     .buttons-unit {
       position: absolute;
-      top: ~"calc(73% - 50px)";
+      top: ~"calc(75%)";
       animation: fade 1.1s 3.2s ease-in-out both;
+      text-align: center;
 
       .button {
         .headline-font(@size: 17px, @color: white);
         border: solid 1px fadeout(white, 60%);
+        border-radius: 6px;
+        line-height: 1.0;
+        transition: background 0.1s ease-out, color 0.1s ease-out;
+        padding: 0.6em 1.6em;
+        margin: 0 0.8em;
+        display: inline-block;
+        text-decoration: none;
 
         &:hover, &:focus, &:active {
           color: @text-color;
@@ -480,48 +488,9 @@ body.index {
     }
   }
 
-  .home-divider {
-    border-top-color: #bbb;
-    margin: 3em auto;
-    width: 400px;
-    @media screen and (max-width: 1020px) {
-      display: none;
-    }
-  }
-
-  .home-bottom-section {
-    margin-bottom: 100px;
-  }
-
-  .home-content {
-    width: 760px;
-  }
-
-  .buttons-unit {
-    margin-top: 60px;
+  section.powered-by {
+    padding-bottom: 8em;
+    padding-top: 1em;
     text-align: center;
-
-    .button {
-      .headline-font(@size: 24px);
-      line-height: 1.0;
-      transition: background 0.1s ease-out, color 0.1s ease-out;
-
-      border: solid 1px @rhodamine-color;
-      border-radius: 6px;
-      padding: 0.4em 1.2em;
-      margin: 0 0.6em;
-      display: inline-block;
-      text-decoration: none;
-
-      &:hover, &:focus, &:active {
-        color: white;
-        background: lighten(@rhodamine-color, 10%);
-        text-decoration: none;
-      }
-
-      &:active {
-        box-shadow: none;
-      }
-    }
   }
 }
