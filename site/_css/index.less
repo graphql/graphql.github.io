@@ -24,9 +24,9 @@ body.index {
 
   .hero {
     background: @dark-color;
-    min-height: 540px;
-    max-height: 1000px;
-    height: 70vh;
+    min-height: 450px;
+    max-height: 900px;
+    height: 65vh;
     position: relative;
     z-index: 11;
     margin-top: -50px;
@@ -40,9 +40,9 @@ body.index {
         fadeout(@dark-color, 100%)
       );
       box-shadow: none;
-      min-height: 75px;
-      max-height: 150px;
-      height: 12vh;
+      min-height: 80px;
+      max-height: 160px;
+      height: 13vh;
 
       nav > a {
         text-shadow: 0 1px 1px @dark-color, 0 0 3px @dark-color;
@@ -71,57 +71,65 @@ body.index {
       overflow: hidden;
     }
 
-    .content {
-      text-align: center;
-      margin: 30px;
-      animation: fade 1.3s ease-in-out;
-      animation-fill-mode: both;
-    }
-
-    .main-logo {
-      margin: 0 auto;
-      display: block;
-    }
-
-    h1 {
-      color: @rhodamine-color;
-      margin: 0;
-    }
-
-    h4 {
-      color: white;
-      margin: 1em 0;
-      text-align: center;
-    }
-
-    .prism {
-      -webkit-font-smoothing: auto;
-      -moz-osx-font-smoothing: auto;
-      color: white;
-      background: transparent;
-      box-shadow: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .marketing-col:last-child > .prism {
-      margin-right: -20px;
-    }
-
-    .marketing-row {
+    .intro {
       display: flex;
-      justify-content: space-between;
+      max-width: 1070px;
+      margin-top: -3%;
+    }
+
+    .named-logo {
+      text-align: center;
+      animation: fade 1.2s ease-in-out;
+      animation-fill-mode: both;
+      margin-right: 18px;
+
+      h1 {
+        color: @rhodamine-color;
+        margin: 0;
+        margin-top: 0.25em;
+        font-size: 30px;
+        line-height: 1;
+      }
+
+      img {
+        margin: 0 auto;
+        display: block;
+        width: 90px;
+        height: 90px;
+      }
     }
 
     .marketing-col {
       flex: 1;
-      width: 320px;
+      border-left: solid 1px rgba(255,255,255,0.15);
+      padding: 0 18px;
+      margin: 3px 18px;
+
+      h4 {
+        color: white;
+        margin: 0 0 1em;
+        line-height: 1;
+      }
+
+      .prism {
+        -webkit-font-smoothing: auto;
+        -moz-osx-font-smoothing: auto;
+        color: white;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      &:last-child > .prism {
+        margin-right: -20px;
+      }
     }
 
-    .fadein-cols(3);
-    .fadein-cols(@n) when (@n > 0) { .fadein-cols(@n - 1);
+    .fadein-cols(4);
+    .fadein-cols(@n) when (@n > 1) { .fadein-cols(@n - 1);
       .marketing-col:nth-child(@{n}) {
-        animation: fade 1.1s 0.8s * @n ease-in-out both;
+        animation: fade 1.0s 0.7s * @n ease-in-out both;
       }
     }
 
@@ -138,7 +146,9 @@ body.index {
     }
 
     .buttons-unit {
-      animation: fade 1.1s 3s ease-in-out both;
+      position: absolute;
+      top: ~"calc(73% - 50px)";
+      animation: fade 1.1s 3.2s ease-in-out both;
 
       .button {
         .headline-font(@size: 17px, @color: white);
