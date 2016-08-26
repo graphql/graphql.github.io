@@ -22,12 +22,12 @@ var index = React.createClass({
               </section>
             </header>
 
-            <div className="content">
-              <img className="main-logo" src="/img/logo.svg" width="120" height="120" />
-              <h1>GraphQL</h1>
-            </div>
+            <section className="intro">
+              <div className="named-logo">
+                <img src="/img/logo.svg" />
+                <h1>GraphQL</h1>
+              </div>
 
-            <section className="marketing-row">
               <div className="marketing-col">
                 <h4>Describe your data</h4>
                 <Prism language="graphql">
@@ -38,6 +38,7 @@ var index = React.createClass({
 }`}
                 </Prism>
               </div>
+
               <div className="marketing-col">
                 <h4>Ask for what you want</h4>
                 <Prism language="graphql">
@@ -48,6 +49,7 @@ var index = React.createClass({
 }`}
                 </Prism>
               </div>
+
               <div className="marketing-col">
                 <h4>Get predictable results</h4>
                 <Prism language="json">
