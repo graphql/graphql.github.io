@@ -140,44 +140,44 @@ var index = React.createClass({
                 </Prism>
               </div>
             </div>
-          </div>
-          <script dangerouslySetInnerHTML={{__html: `(function(){
-            var i = 0;
-            var forward = true;
-            setTimeout(type, 2000);
-            showResponse(1);
-            function type() {
-              if (forward) {
-                document.getElementById('ch' + i).style.display = 'inline';
-                i++;
-                if (i === 27) {
-                  forward = false;
-                  showResponse(3);
-                  setTimeout(type, 1500);
-                } else if (i === 13) {
-                  showResponse(2);
-                  setTimeout(type, 1500);
+            <script dangerouslySetInnerHTML={{__html: `(function(){
+              var i = 0;
+              var forward = true;
+              setTimeout(type, 2000);
+              showResponse(1);
+              function type() {
+                if (forward) {
+                  document.getElementById('ch' + i).style.display = 'inline';
+                  i++;
+                  if (i === 27) {
+                    forward = false;
+                    showResponse(3);
+                    setTimeout(type, 1500);
+                  } else if (i === 13) {
+                    showResponse(2);
+                    setTimeout(type, 1500);
+                  } else {
+                    setTimeout(type, Math.random() * 180 + 70);
+                  }
                 } else {
-                  setTimeout(type, Math.random() * 180 + 70);
-                }
-              } else {
-                i--;
-                document.getElementById('ch' + i).style.display = 'none';
-                if (i === 0) {
-                  forward = true;
-                  showResponse(1);
-                  setTimeout(type, 2000);
-                } else {
-                  setTimeout(type, 80);
+                  i--;
+                  document.getElementById('ch' + i).style.display = 'none';
+                  if (i === 0) {
+                    forward = true;
+                    showResponse(1);
+                    setTimeout(type, 2000);
+                  } else {
+                    setTimeout(type, 80);
+                  }
                 }
               }
-            }
-            function showResponse(num) {
-              document.getElementById('r1').style.display = num === 1 ? 'block' : 'none';
-              document.getElementById('r2').style.display = num === 2 ? 'block' : 'none';
-              document.getElementById('r3').style.display = num === 3 ? 'block' : 'none';
-            }
-          })()`}} />
+              function showResponse(num) {
+                document.getElementById('r1').style.display = num === 1 ? 'block' : 'none';
+                document.getElementById('r2').style.display = num === 2 ? 'block' : 'none';
+                document.getElementById('r3').style.display = num === 3 ? 'block' : 'none';
+              }
+            })()`}} />
+          </div>
         </section>
 
         <div className="grayWash">
@@ -290,7 +290,6 @@ type Species {
 }`}
           </Prism>
           </div>
-          </div>
           <script dangerouslySetInnerHTML={{__html: `(function(){
             var typeHighlight = document.getElementById('type-highlight');
             var queryHighlight = document.getElementById('query-highlight');
@@ -305,6 +304,7 @@ type Species {
               setTimeout(highlightLine, 800 + Math.random() * 200);
             }
           })()`}} />
+          </div>
         </section>
 
         <div className="darkWash">
@@ -338,6 +338,15 @@ type Species {
               and hidden from documentation. By using a single version, GraphQL
               APIs give apps easier access to new features and enable cleaner,
               more maintainable server&nbsp;code.</p>
+          </div>
+          <div className="window type-evolution" aria-hidden>
+            <Prism language="graphql">
+              {`type Film {
+  title: String
+  episode: Int
+  director: String
+}`}
+            </Prism>
           </div>
         </section>
         </div>
