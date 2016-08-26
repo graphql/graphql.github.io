@@ -822,7 +822,7 @@ Parser.prototype.tok = function() {
       );
     }
     case 'code': {
-      return <Prism line={this.token.line}>{this.token.text}</Prism>;
+      return <Prism language={this.token.lang} line={this.token.line}>{this.token.text}</Prism>;
     }
     case 'table': {
       var table = []
