@@ -133,7 +133,8 @@ function writeReact(writePath, file, fileData) {
         resolve(
           withInitialRenders.replace(
             '</body></html>',
-            `<script src="//cdn.jsdelivr.net/react/0.13.3/react.js"></script>` +
+            `<script src="/vendor/react-15.0.1.min.js"></script>` +
+            `<script src="/vendor/react-dom-15.0.1.min.js"></script>` +
             `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
           )
         );
@@ -258,8 +259,8 @@ function writeScript(writePath, file, fileData) {
           resolve(
             withInitialRenders.replace(
               '</body></html>',
-              `<script src="//cdn.jsdelivr.net/react/15.3.1/react.js"></script>` +
-              `<script src="//cdn.jsdelivr.net/react/15.3.1/react-dom.js"></script>` +
+              `<script src="/vendor/react-15.0.1.min.js"></script>` +
+              `<script src="/vendor/react-dom-15.0.1.min.js"></script>` +
               `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
             )
           );

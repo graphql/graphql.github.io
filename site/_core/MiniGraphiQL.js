@@ -315,17 +315,14 @@ class QueryEditor extends React.Component {
 class ResultViewer extends React.Component {
   componentDidMount() {
     var CodeMirror = require('codemirror');
-    require('codemirror/mode/javascript/javascript');
+    require('codemirror-graphql/results/mode');
 
     this.viewer = CodeMirror(this.domNode, {
       value: this.props.value || '',
       viewportMargin: Infinity,
       readOnly: true,
       theme: 'graphiql',
-      mode: {
-        name: 'javascript',
-        json: true
-      },
+      mode: 'graphql-results',
       keyMap: 'sublime',
       extraKeys: {
         // Editor improvements
