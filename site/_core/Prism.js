@@ -663,6 +663,7 @@ Prism.languages.insertBefore('inside', 'attr-value',{
 
 }(Prism));
 
+
 var graphqlCommon = {
   string: {
     pattern: /"(?:\\.|[^\\"])*"/,
@@ -671,20 +672,55 @@ var graphqlCommon = {
   number: /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
   boolean: /\b(?:true|false)\b/,
   variable: /\$[a-z_]\w*/i,
-  directive: {
-    pattern: /@[a-z_]\w*/i,
-    alias: 'function'
-  },
   comment: /#.*/,
+  operator: /!|=|\.{3}/,
   punctuation: /[!(){|}[\]:=,]/
 };
 
+var graphqlDirective = {
+  pattern: /@[a-z_]\w*(\([\w\W]*?\))?/i,
+  inside: {
+    function: /@[a-z_]\w*/i,
+    args: {
+      pattern: /\([\w\W]*?\)/,
+      inside: {
+        arg: /[a-z_]\w*(?=\s*:)/i,
+        ...graphqlCommon
+      }
+    }
+  }
+};
+
 Prism.languages.graphql = {
+  'schema-def': {
+    pattern: /\bschema\b[^{]*{[^{}]*}/,
+    inside: {
+      keyword: /\bschema\b|[a-zA-Z_]\w*(?=\s*:)/,
+      'type-name': {
+        pattern: /(:[\s\[]*)[a-z_]\w*/i,
+        lookbehind: true
+      },
+      directive: graphqlDirective,
+      punctuation: graphqlCommon.punctuation
+    }
+  },
+  'union-def': {
+    pattern: /\bunion\b[^=]+=\s*[a-zA-Z_]\w*(?:\s*\|\s*[a-zA-Z_]\w*)*/,
+    inside: {
+      keyword: /\bunion\b/,
+      'type-name': {
+        pattern: /([=|]\s*)[a-z_]\w*/i,
+        lookbehind: true
+      },
+      directive: graphqlDirective,
+      punctuation: graphqlCommon.punctuation
+    }
+  },
   'type-def': {
-    pattern: /\b(?:type|interface)\b[\w\W]+?{[\w\W]*?}/,
+    pattern: /\b(?:type|interface|input|enum)\b[\w\W]+?{(?:[^{}]*|[^{}]*{[^{}]*}[^{}]*|[^{}]*{[^{}]*[^{}]*{[^{}]*}[^{}]*}[^{}]*)}/,
     inside: {
       fields: {
-        pattern: /{[\w\W]*?}/,
+        pattern: /{(?:[^{}]*|[^{}]*{[^{}]*}[^{}]*|[^{}]*{[^{}]*[^{}]*{[^{}]*}[^{}]*}[^{}]*)}/,
         inside: {
           argDefs: {
             pattern: /\([\w\W]*?\)/,
@@ -694,68 +730,65 @@ Prism.languages.graphql = {
                 pattern: /(:[\s\[]*)[a-z_]\w*/i,
                 lookbehind: true
               },
-              directive: {
-                pattern: /@[a-z_]\w*/i,
-                alias: 'function'
-              },
-              rest: graphqlCommon
+              directive: graphqlDirective,
+              ...graphqlCommon
             }
           },
+          directive: graphqlDirective,
           'attr-name': {
             pattern: /[a-z_]\w*(?=\s*[:\(])/i,
+            greedy: true,
           },
           'type-name': {
             pattern: /(:[\s\[]*)[a-z_]\w*/i,
             lookbehind: true
           },
-          directive: {
-            pattern: /@[a-z_]\w*/i,
-            alias: 'function'
-          },
           comment: /#.*/,
           punctuation: /[!{}\[\]:=,]/,
         }
       },
-      keyword: /\b(?:type|interface|implements)\b/,
-      'type-name': /[a-z_]\w*/i,
-      string: /"(?:\\.|[^\\"])*"/,
-      number: /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
-      boolean: /\b(?:true|false)\b/,
-      variable: /\$[a-z_]\w*/i,
-      directive: {
-        pattern: /@[a-z_]\w*/i,
-        alias: 'function'
-      },
-      comment: /#.*/,
+      keyword: /\b(?:type|interface|implements|input|enum)\b/,
+      directive: graphqlDirective,
+      ...graphqlCommon,
+
+      // 'type-name': /[a-z_]\w*/i,
     }
   },
-  string: /"(?:\\.|[^\\"])*"/,
-  number: /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
-  boolean: /\b(?:true|false)\b/,
-  variable: /\$[a-z_]\w*/i,
-  directive: {
-    pattern: /@[a-z_]\w*/i,
-    alias: 'function'
-  },
+  // string: /"(?:\\.|[^\\"])*"/,
+  // number: /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
+  // boolean: /\b(?:true|false)\b/,
+  // variable: /\$[a-z_]\w*/i,
+  // directive: {
+  //   pattern: /@[a-z_]\w*/i,
+  //   alias: 'function'
+  // },
+  directive: graphqlDirective,
   'attr-name': /[a-z_]\w*(?=\s*:)/i,
   'keyword': [
     {
       pattern: /(fragment\s+(?!on)[a-z_]\w*\s+|\.\.\.\s*)on\b/,
       lookbehind: true
     },
-    /\b(?:query|mutation|subscription|fragment|extend)\b/
+    /\b(?:query|mutation|subscription|fragment|extend|scalar)\b/
   ],
-  'operator': /!|=|\.{3}/,
-  'punctuation': /[!(){}\[\]:=,]/,
-  comment: /#.*/,
+  ...graphqlCommon,
+  // 'operator': /!|=|\.{3}/,
+  // 'punctuation': /[!(){}\[\]:=,]/,
+  // comment: /#.*/,
   // 'enum': /[a-z_]\w*/i
 };
 
 Prism.languages.json = {
-  'attr-name': /"(?:\\.|[^\\"])*"(?=\s*:)/i,
-  'string': /"(?:\\.|[^\\"])*"/,
-  'boolean': /\b(?:true|false)\b/,
-  'keyword': /\bnull\b/,
-  'number': /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
-  'punctuation': /[{}[\],:]/,
+  'attr-name': {
+    pattern: /"(?:\\.|[^\\"])*"(?=\s*:)/i,
+    greedy: true
+  },
+  string: {
+    pattern: /"(?:\\.|[^\\"])*"/,
+    greedy: true
+  },
+  boolean: /\b(?:true|false)\b/,
+  keyword: /\bnull\b/,
+  number: /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
+  punctuation: /[{}[\],:]/,
 };
