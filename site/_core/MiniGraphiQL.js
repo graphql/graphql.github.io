@@ -19,28 +19,34 @@ module.exports = class MiniGraphiQL extends React.Component {
   constructor(props) {
     super();
 
+    const query = props.query.replace(/^\s+/, '').replace(/\s+$/, '');
+
     // Initialize state
     this.state = {
-      query: props.query.replace(/^\s+/, '').replace(/\s+$/, ''),
+      query: query,
       variables: props.variables,
       response: null,
-      variableToType: null,
+      variableToType: getVariableToType(props.schema, query)
     };
 
     this._editorQueryID = 0;
   }
 
   render() {
+    const editor =
+      <QueryEditor
+        key="query-editor"
+        schema={this.props.schema}
+        value={this.state.query}
+        onEdit={this._handleEditQuery.bind(this)}
+        runQuery={this._runQueryFromEditor.bind(this)}
+      />;
+
     return (
       <div className="miniGraphiQL">
-        {this.state.variables ?
+        {Object.keys(this.state.variableToType).length > 0 ?
           <div className="hasVariables">
-            <QueryEditor
-              schema={this.props.schema}
-              value={this.state.query}
-              onEdit={this._handleEditQuery.bind(this)}
-              runQuery={this._runQueryFromEditor.bind(this)}
-            />
+            {editor}
             <VariableEditor
               value={this.state.variables}
               variableToType={this.state.variableToType}
@@ -48,13 +54,7 @@ module.exports = class MiniGraphiQL extends React.Component {
               onRunQuery={this._runQuery.bind(this)}
             />
           </div>
-          :
-          <QueryEditor
-            schema={this.props.schema}
-            value={this.state.query}
-            onEdit={this._handleEditQuery.bind(this)}
-            runQuery={this._runQueryFromEditor.bind(this)}
-          />
+          : editor
         }
         <ResultViewer value={this.state.response} />
       </div>
@@ -556,7 +556,7 @@ function onHasCompletion(cm, data, onHintInformationRender) {
 
 function getVariableToType(schema, documentStr) {
   if (!documentStr || !schema) {
-    return;
+    return {};
   }
 
   try {
@@ -579,4 +579,6 @@ function getVariableToType(schema, documentStr) {
   } catch (e) {
     // ignore
   }
+
+  return {};
 }
