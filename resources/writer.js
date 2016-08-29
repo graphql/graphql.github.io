@@ -59,111 +59,12 @@ async function writer(buildDir, file, site) {
     data = file.content;
   }
 
-  data = await writeReact(writePath, file, data);
-
   data = await writeScript(writePath, file, data);
 
   await writeFile(writePath, data);
 }
 
-var REACT_COMPONENT_RX = /<react-component (.+?)(?:\/>|><\/react-component>)/g;
-
-var ATTR_RX = /data-([^=]+)=("(?:(?:\\.)|[^"])*")/g;
-
-function writeReact(writePath, file, fileData) {
-  return new Promise((resolve, reject) => {
-    var script;
-    var id = 0;
-    var withInitialRenders = fileData.replace(REACT_COMPONENT_RX, function (_, componentData) {
-      var { module, props } = getReactData(componentData);
-      var componentPath = require.resolve(path.resolve(path.dirname(file.absPath), module));
-      var component = require(componentPath);
-      var initialRender = ReactDOM.renderToString(React.createElement(component, props));
-      var guid = `r${++id}`;
-      if (!script) {
-        script = `var React = require('react');\n`;
-      }
-      script += `React.render(React.createElement(require("${componentPath}"), ${JSON.stringify(props)}), document.getElementById("${guid}"));\n`;
-      return `<div id="${guid}">${initialRender}</div>`;
-    });
-
-    if (!script) {
-      return resolve(fileData);
-    }
-
-    var tmpFile = '/tmp/' + file.relPath.replace('/', '__');
-
-    fs.writeFile(tmpFile, script, err => {
-      if (err) {
-        return reject(err);
-      }
-
-      var pack = webpack({
-        bail: true,
-        entry: tmpFile,
-        output: {
-          path: path.dirname(writePath),
-          filename: path.basename(writePath) + '.[hash].js'
-        },
-        externals: {
-          'react': 'var React'
-        },
-        resolveLoader: {
-          root: path.join(__dirname, '../node_modules')
-        },
-        module: {
-          loaders: [
-            {
-              test: /\.jsx?$/,
-              exclude: /(node_modules|bower_components)/,
-              loader: 'babel-loader',
-              query: {
-                optional: [ 'runtime' ],
-              }
-            }
-          ]
-        }
-      });
-
-      pack.run(function (err, stats) {
-        if (err) {
-          return reject(err);
-        }
-
-        resolve(
-          withInitialRenders.replace(
-            '</body></html>',
-            `<script src="/vendor/react-15.0.1.min.js"></script>` +
-            `<script src="/vendor/react-dom-15.0.1.min.js"></script>` +
-            `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
-          )
-        );
-      });
-
-    });
-  });
-}
-
-function getReactData(componentData) {
-  var module;
-  var props = {};
-  var data = componentData.split(ATTR_RX);
-  for (var i = 1; i < data.length; i += 3) {
-    var name = data[i];
-    var value = JSON.parse(data[i + 1]);
-    if (name === 'module') {
-      module = value;
-    } else {
-      props[name] =
-        value === 'true' ? true :
-        value === 'false' ? false :
-        !value || isNaN(value) ? value : parseInt(value, 10);
-    }
-  }
-  return { module, props };
-}
-
-var SCRIPT_RX = /<script data-inline>([^]+?)<\/script>/gm;
+var SCRIPT_RX = /<script data-inline(?:="true")?>([^]+?)<\/script>/gm;
 
 function writeScript(writePath, file, fileData) {
   return new Promise((resolve, reject) => {
@@ -268,7 +169,6 @@ function writeScript(writePath, file, fileData) {
       });
 
     });
-
 
   });
 }

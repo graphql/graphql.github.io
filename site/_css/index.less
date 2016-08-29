@@ -125,7 +125,7 @@ body.index {
     .fadein-cols(4);
     .fadein-cols(@n) when (@n > 1) { .fadein-cols(@n - 1);
       .marketing-col:nth-child(@{n}) {
-        animation: fade 1.0s 0.7s * @n ease-in-out both;
+        animation: fade 1.0s 0.5s * @n ease-in-out both;
       }
     }
 
