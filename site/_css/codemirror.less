@@ -721,6 +721,33 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   width: 50%;
 }
 
+.hasVariables {
+  width: 50%;
+
+  & > .query-editor {
+    width: auto;
+  }
+
+  .variable-editor .CodeMirror {
+    height: auto;
+    min-height: 30px;
+    margin: 0 7px;
+  }
+
+  .variable-editor::before {
+    background: #eee;
+    color: white;
+    content: 'VARIABLES';
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding: 3px 12px 2px;
+    text-shadow: 0 -1px #ddd;
+  }
+}
+
 .result-window {
   /*background: #fbfafa;*/
   box-shadow: inset 5px 0px 4px -3px rgba(0,0,0,0.2);
