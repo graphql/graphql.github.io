@@ -125,7 +125,7 @@ query FetchSomeIDQuery($someId: String!) {
     name
   }
 }
-`} values={{someId: `1000`}} />);
+`} variables={`{"someId": "1000"}`} />);
 </script>
 
 This query is now parameterized by `$someId`; to run it, we must provide
