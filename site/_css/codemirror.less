@@ -694,8 +694,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .miniGraphiQL {
   margin: 28px 0;
   color: #333;
-  /*background: #faf9f9;*/
-  /*border-left: 4px solid @rhodamine-color;*/
   width: 100%;
   display: -webkit-flex;
   display:         flex;
@@ -703,7 +701,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
           flex-direction: row;
   position: relative;
 
-  padding: 3px; /*7px 14px;*/
   background: white;
   box-shadow: inset 0 0 0 1px #EEE, inset 4px 0 0 #EEE;
   border-radius: 3px;
@@ -713,8 +710,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .query-editor .CodeMirror {
   height: auto;
   min-height: 100px;
-  margin: 0px 7px 28px;
-  /*background: #faf9f9;*/
+  margin: 0px 7px 35px;
+  background: none;
 }
 
 .query-editor {
@@ -724,14 +721,19 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .hasVariables {
   width: 50%;
 
-  & > .query-editor {
+  .query-editor {
     width: auto;
+  }
+
+  .query-editor .CodeMirror {
+    margin-bottom: 21px;
   }
 
   .variable-editor .CodeMirror {
     height: auto;
     min-height: 30px;
     margin: 0 7px;
+    background: none;
   }
 
   .variable-editor::before {
@@ -764,10 +766,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 
 .result-window .CodeMirror {
-  /*background: #fbfafa;*/
-  background: transparent;
+  background: none;
   height: 100%;
   margin: 0 7px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
