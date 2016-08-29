@@ -663,6 +663,10 @@ Prism.languages.insertBefore('inside', 'attr-value',{
 
 }(Prism));
 
+var graphqlComment = {
+  pattern: /#.*/,
+  greedy: true
+};
 
 var graphqlCommon = {
   string: {
@@ -671,8 +675,10 @@ var graphqlCommon = {
   },
   number: /(?:\B-|\b)\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/,
   boolean: /\b(?:true|false)\b/,
-  variable: /\$[a-z_]\w*/i,
-  comment: /#.*/,
+  variable: {
+    pattern: /\$[a-z_]\w*/i,
+    greedy: true
+  },
   operator: /!|=|\.{3}/,
   punctuation: /[!(){|}[\]:=,]/
 };
@@ -692,9 +698,11 @@ var graphqlDirective = {
 };
 
 Prism.languages.graphql = {
+  comment: graphqlComment,
   'schema-def': {
     pattern: /\bschema\b[^{]*{[^{}]*}/,
     inside: {
+      comment: graphqlComment,
       keyword: /\bschema\b|[a-zA-Z_]\w*(?=\s*:)/,
       'type-name': {
         pattern: /(:[\s\[]*)[a-z_]\w*/i,
@@ -707,6 +715,7 @@ Prism.languages.graphql = {
   'union-def': {
     pattern: /\bunion\b[^=]+=\s*[a-zA-Z_]\w*(?:\s*\|\s*[a-zA-Z_]\w*)*/,
     inside: {
+      comment: graphqlComment,
       keyword: /\bunion\b/,
       'type-name': {
         pattern: /([=|]\s*)[a-z_]\w*/i,
@@ -719,12 +728,15 @@ Prism.languages.graphql = {
   'type-def': {
     pattern: /\b(?:type|interface|input|enum)\b[\w\W]+?{(?:[^{}]*|[^{}]*{[^{}]*}[^{}]*|[^{}]*{[^{}]*[^{}]*{[^{}]*}[^{}]*}[^{}]*)}/,
     inside: {
+      comment: graphqlComment,
       fields: {
         pattern: /{(?:[^{}]*|[^{}]*{[^{}]*}[^{}]*|[^{}]*{[^{}]*[^{}]*{[^{}]*}[^{}]*}[^{}]*)}/,
         inside: {
+          comment: graphqlComment,
           argDefs: {
             pattern: /\([\w\W]*?\)/,
             inside: {
+              comment: graphqlComment,
               'attr-name': /[a-z_]\w*(?=\s*:)/i,
               'type-name': {
                 pattern: /(:[\s\[]*)[a-z_]\w*/i,
@@ -743,7 +755,6 @@ Prism.languages.graphql = {
             pattern: /(:[\s\[]*)[a-z_]\w*/i,
             lookbehind: true
           },
-          comment: /#.*/,
           punctuation: /[!{}\[\]:=,]/,
         }
       },

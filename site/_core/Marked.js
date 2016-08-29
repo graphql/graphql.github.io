@@ -822,6 +822,28 @@ Parser.prototype.tok = function() {
       );
     }
     case 'code': {
+      if (this.token.lang === 'graphql') {
+        var lines = this.token.text.split('\n');
+        var firstLine = lines.shift().match(/^\s*#\s*({.*})$/);
+        if (firstLine) {
+          var metaData;
+          try {
+            metaData = JSON.parse(firstLine[1]);
+          } catch (e) {
+            console.error('Invalid Metadata JSON:', firstLine[1]);
+          }
+          if (metaData) {
+            var query = lines.join('\n');
+            var variables = JSON.stringify(metaData.variables, null, 2);
+            return <script data-inline dangerouslySetInnerHTML={{__html: `
+              import MiniGraphiQL from '../_core/MiniGraphiQL';
+              import { StarWarsSchema } from './_swapiSchema';
+              renderHere(<MiniGraphiQL schema={StarWarsSchema}
+              query={\`${query}\`} variables={\`${variables}\`} />);
+            `}} />
+          }
+        }
+      }
       return <Prism language={this.token.lang} line={this.token.line}>{this.token.text}</Prism>;
     }
     case 'table': {

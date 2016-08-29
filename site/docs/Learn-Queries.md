@@ -156,10 +156,8 @@ When we start working with variables, we need to do three things:
 
 Here's what it looks like all together:
 
-<script data-inline>
-  import MiniGraphiQL from '../_core/MiniGraphiQL';
-  import { StarWarsSchema } from './_swapiSchema';
-  renderHere(<MiniGraphiQL schema={StarWarsSchema} query={`
+```graphql
+# { "graphiql": true, "variables": { "episode": "JEDI" } }
 query HeroNameAndFriends($episode: Episode) {
   hero(episode: $episode) {
     name
@@ -168,10 +166,7 @@ query HeroNameAndFriends($episode: Episode) {
     }
   }
 }
-`} variables={`{
-  "episode": "JEDI"
-}`} />);
-</script>
+```
 
 Now, in our client code, we can simply pass a different variable rather than needing to construct an entirely new query. This is also in general a good practice for denoting which arguments in our query are expected to be dynamic - we should never be doing string interpolation to construct queries from user-supplied values.
 
