@@ -216,7 +216,7 @@ That's all! Now you know everything you need to know about GraphQL queries and m
 
 Like many other type systems, GraphQL schemas include the ability to define interfaces and union types. [Learn about them in the schema guide.](/learn/schema/#interfaces)
 
-If you are querying a field that returns an interface or a union type, you will need to use _conditional fragments_ to access data on the underlying concrete type. It's easiest to see with an example:
+If you are querying a field that returns an interface or a union type, you will need to use _inline fragments_ to access data on the underlying concrete type. It's easiest to see with an example:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
