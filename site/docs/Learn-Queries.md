@@ -211,3 +211,30 @@ mutation IncrementCredits($characterId: ID!) {
 In this case, the `incrementCredits` mutation field returns a `Character` object, so we can query the new value of `totalCredits` after giving that character some more credits. Otherwise, we would have needed to send two requests - one to update the credits, and another to get the new value - or guess at the new amount based on outdated data.
 
 That's all! Now you know everything you need to know about GraphQL queries and mutations to build a pretty good application. For more advanced features and tips, check out the advanced section.
+
+### Fragments and type conditions
+
+Like many other type systems, GraphQL schemas include the ability to define interfaces and union types. [Learn about them in the schema guide.](/learn/schema/#interfaces)
+
+If you are querying a field that returns an interface or a union type, you will need to use _conditional fragments_ to access data on the underlying concrete type. It's easiest to see with an example:
+
+```graphql
+# { "graphiql": true, "variables": { "ep": "JEDI" } }
+query HeroForEpisode($ep: Episode!){
+  hero(episode: $ep) {
+    name
+    ... on Droid {
+      primaryFunction
+    }
+    ... on Droid {
+      homePlanet
+    }
+  }
+}
+```
+
+In this query, the `hero` field returns the type `Character`, which might be either a `Human` or a `Droid` depending on the `episode` argument. In the direct selection, you can only ask for fields that exist on the `Character` interface, such as `name`.
+
+To ask for a field on the concrete type, you need to use an _inline fragment_ with a type condition. Because the first fragment is labeled as `... on Droid`, the `primaryFunction` field will only be executed if the `Character` returned from `hero` is of the `Droid` type. Similarly for the `homePlanet` field for the `Human` type.
+
+Named fragments can also be used in the same way, since a named fragment always has a type condition attached.
