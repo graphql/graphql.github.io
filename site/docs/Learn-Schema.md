@@ -250,11 +250,12 @@ Interfaces are useful when you want to return an object or set of objects, but t
 query HeroForEpisode($ep: Episode!) {
   hero(episode: $ep) {
     name
+    primaryFunction
   }
 }
 ```
 
-The `hero` field returns the type `Character`, which means it might be either a `Human` or a `Droid` depending on the `episode` argument. In the query above, you can only ask for fields that exist on the `Character` interface, and to ask for a field on the concrete type, you need to use a fragment:
+The `hero` field returns the type `Character`, which means it might be either a `Human` or a `Droid` depending on the `episode` argument. In the query above, you can only ask for fields that exist on the `Character` interface, and to ask for a field on a specific object type, you need to use an inline fragment:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
@@ -268,7 +269,7 @@ query HeroForEpisode($ep: Episode!) {
 }
 ```
 
-Learn more about this in the [conditional fragments](XXX) section in the query guide.
+Learn more about this in the [inline fragments](XXX) section in the query guide.
 
 ### Union types
 
