@@ -6,21 +6,14 @@ permalink: /learn/schema/
 next: /docs/queries/
 ---
 
-### ToC
-
-* Type system
-* Type language
-* Basics (Schema, Objects & Fields)
-* Arguments (TODO)
-* Scalars & Enums
-* Lists & NonNull (mention error handling)
-* Interfaces & Unions
+On this page, you'll learn all you need to know about the GraphQL type system and how it describes what data can be queried. Since GraphQL can be used with any backend framework or programming language, we'll stay away from implementation-specific details and talk only about the concepts.
 
 ### Type system
 
 If you've seen a GraphQL query before, you know that the GraphQL query language is basically about selecting fields on objects. So, for example, in the following query:
 
 ```graphql
+# { "graphiql": true }
 {
   hero {
     name
@@ -29,11 +22,11 @@ If you've seen a GraphQL query before, you know that the GraphQL query language 
 }
 ```
 
-1. We start with the a special "root" object
+1. We start with a special "root" object
 2. We select the `hero` field on that
-3. For each object returned by `hero`, we select the `name` and `appearsIn` fields
+3. For the object returned by `hero`, we select the `name` and `appearsIn` fields
 
-So you can predict what the query will return without knowing that much about the server. But the question remains - what fields can we select? What kinds of objects might they return? What fields are available on those sub-objects? That's where the schema comes in.
+Because the shape of a GraphQL query closely matches the result, you can predict what the query will return without knowing that much about the server. But it's useful to have an exact description of the data we can ask for - what fields can we select? What kinds of objects might they return? What fields are available on those sub-objects? That's where the schema comes in.
 
 Every GraphQL service defines a set of types which completely describe the set of possible data you can query on that service. Then, when queries come in, they are validated and executed against that schema.
 
@@ -41,7 +34,7 @@ Every GraphQL service defines a set of types which completely describe the set o
 
 GraphQL services can be written in any language. Since we can't rely on a specific programming language syntax, like JavaScript, to talk about GraphQL schemas, we'll define our own simple language. We'll use the "GraphQL schema language" - it's similar to the query language, and allows us to talk about GraphQL schemas in a language-agnostic way.
 
-### Objects and fields
+### Object types and fields
 
 The most basic components of a GraphQL schema are object types, which just represent a kind of object you can fetch from your service, and what fields it has. In the GraphQL schema language, we might represent it like this:
 
@@ -76,6 +69,7 @@ schema {
 Every GraphQL service has exactly zero or one each of the `Query` and `Mutation` types. These types are mostly the same as a regular object type, but they are special because they define the _entry point_ of every GraphQL query. So if you see a query that looks like:
 
 ```graphql
+# { "graphiql": true }
 query {
   hero {
     name
@@ -97,7 +91,7 @@ type Query {
 
 Mutations work in a similar way - you define fields on the `Mutation` type, and those are available as the root mutation fields you can call in your query.
 
-It's important to remember that other than this special status, the `Query` and `Mutation` types are the same as any other GraphQL object type, and their fields work exactly the same way.
+It's important to remember that other than the special status of being the "entry point" into the schema, the `Query` and `Mutation` types are the same as any other GraphQL object type, and their fields work exactly the same way.
 
 ### Scalar types
 
@@ -106,6 +100,7 @@ A GraphQL object type has a name and fields, but at some point those fields have
 In the following query, the `name` and `appearsIn` will resolve to scalar types:
 
 ```graphql
+# { "graphiql": true }
 {
   hero {
     name
@@ -151,7 +146,7 @@ enum Episode {
 
 This means that wherever we use the type `Episode` in our schema, we expect it to be exactly one of `NEWHOPE`, `EMPIRE`, or `JEDI`.
 
-Note that GraphQL service implementations in various languages will have their own language-specific way to deal with enums. In languages that support enums as a first-class citizen, the implementation might take advantage of that; in a language like JavaScript with no enum support, these values might be internally mapped to a set of integers. However, this should not leak out to the client, which will operate entirely in terms of the string names of the values.
+Note that GraphQL service implementations in various languages will have their own language-specific way to deal with enums. In languages that support enums as a first-class citizen, the implementation might take advantage of that; in a language like JavaScript with no enum support, these values might be internally mapped to a set of integers. However, these details don't leak out to the client, which can operate entirely in terms of the string names of the enum values.
 
 ### Lists and Non-Null
 
@@ -167,6 +162,15 @@ type Character {
 Here, we're using a `String` type and marking it as _Non-Null_ by adding an exclamation mark, `!` after the type name. This means that our server always expects to return a non-null value for this field, and if it ends up getting a null value that will actually trigger a GraphQL execution error, letting the client know that something has gone wrong.
 
 The Non-Null type modifier can also be used when defining arguments for a field, which will cause the GraphQL server to return a validation error if a null value is passed as that argument, whether in the GraphQL string or in the variables.
+
+```graphql
+# { "graphiql": true, "variables": { "id": null } }
+query DroidById($id: String!) {
+  droid(id: $id) {
+    name
+  }
+}
+```
 
 Lists work in a similar way: We can use a type modifier to mark a type as a `List`, which indicates that this field will return an array of that type. In the schema language, this is denoted by wrapping the type in square brackets, `[` and `]`. It works the same for arguments, where the validation step will expect an array for that value.
 
@@ -242,6 +246,7 @@ You can see that both of these types have all of the fields from the `Character`
 Interfaces are useful when you want to return an object or set of objects, but those might be of several different types. For example, in the following query:
 
 ```graphql
+# { "graphiql": true, "variables": { "ep": "JEDI" } }
 query HeroForEpisode($ep: Episode!){
   hero(episode: $ep) {
     name
@@ -252,6 +257,7 @@ query HeroForEpisode($ep: Episode!){
 The `hero` field returns the type `Character`, which means it might be either a `Human` or a `Droid` depending on the `episode` argument. In the query above, you can only ask for fields that exist on the `Character` interface, and to ask for a field on the concrete type, you need to use a fragment:
 
 ```graphql
+# { "graphiql": true, "variables": { "ep": "JEDI" } }
 query HeroForEpisode($ep: Episode!){
   hero(episode: $ep) {
     name

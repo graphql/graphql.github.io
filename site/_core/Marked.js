@@ -834,7 +834,7 @@ Parser.prototype.tok = function() {
           }
           if (metaData) {
             var query = lines.join('\n');
-            var variables = JSON.stringify(metaData.variables, null, 2);
+            var variables = metaData.variables ? JSON.stringify(metaData.variables, null, 2) : '';
             return <script data-inline dangerouslySetInnerHTML={{__html: `
               import MiniGraphiQL from '../_core/MiniGraphiQL';
               import { StarWarsSchema } from './_swapiSchema';

@@ -6,36 +6,20 @@ permalink: /learn/queries/
 next: /learn/schema/
 ---
 
-### ToC
-
-XXX we should probably generate one
-
-* A simple query
-* Nesting
-* Arguments
-* Aliases
-* Fragments
-* Comments
-* Variables
-* Operation names
-* Directives (skip & include)
-* A simple mutation
+On this page, you'll learn in detail about how to query a GraphQL server.
 
 ### A simple query
 
 Before we dive into all of the features of the query language, let's start with a very simple query, and look at the result we might get when we run it:
 
-<script data-inline>
-  import MiniGraphiQL from '../_core/MiniGraphiQL';
-  import { StarWarsSchema } from './_swapiSchema';
-  renderHere(<MiniGraphiQL schema={StarWarsSchema} query={ `
+```graphql
+# { "graphiql": true }
 {
   hero {
     name
   }
 }
-`} />);
-</script>
+```
 
 You can see immediately that the query has exactly the same shape as the result. This is essential to GraphQL, because you always get back what you expect, and the server knows exactly what fields the client is asking for.
 
@@ -47,10 +31,8 @@ Oh, one more thing - the query above is **interactive**. That means you can chan
 
 In the previous example, we just asked for a simple string, but fields can also refer to objects. In that case, you can make a _sub-selection_ - GraphQL queries can traverse related objects and their fields, letting clients fetch lots of related data in one request, instead of making several roundtrips as one would need in a classic REST architecture.
 
-<script data-inline>
-  import MiniGraphiQL from '../_core/MiniGraphiQL';
-  import { StarWarsSchema } from './_swapiSchema';
-  renderHere(<MiniGraphiQL schema={StarWarsSchema} query={ `
+```graphql
+# { "graphiql": true }
 {
   hero {
     name
@@ -60,8 +42,7 @@ In the previous example, we just asked for a simple string, but fields can also 
     }
   }
 }
-`} />);
-</script>
+```
 
 Note that in this example, the `friends` field returns an array of items. In GraphQL, queries don't specify whether the return value should be a single item or an array. You need to know which one to expect ahead of time, but it will always be consistent with what is indicated in the schema.
 
@@ -71,10 +52,8 @@ If the only thing we could do was traverse objects and their fields, GraphQL wou
 
 In a system like REST, you can only pass a single set of arguments - the query parameters and URL segments in your request. But in GraphQL, every field and nested object can get its own set of arguments, making GraphQL a complete replacement for making multiple API fetches.
 
-<script data-inline>
-  import MiniGraphiQL from '../_core/MiniGraphiQL';
-  import { StarWarsSchema } from './_swapiSchema';
-  renderHere(<MiniGraphiQL schema={StarWarsSchema} query={ `
+```graphql
+# { "graphiql": true }
 # XXX we should add an example of an argument on a nested field
 # people often get confused thinking you can only pass arguments
 # to top-level fields, since that's how it works in REST
@@ -83,21 +62,18 @@ In a system like REST, you can only pass a single set of arguments - the query p
     name
   }
 }
-`} />);
-</script>
+```
 
 Arguments can be of many different types. In the above example, we have used an Enumeration type, which represents one of a finite set of options (in this case, episides from the original Star Wars trilogy). GraphQL comes with a default set of types, but a GraphQL server can also declare its own custom types, as long as they can be serialized into your transport format.
 
-Read more about the GraphQL type system here. XXX this page doesn't exist yet
+[Read more about the GraphQL type system here.](/learn/schema)
 
 ### Aliases
 
 If you have a sharp eye, you may have noticed that, since the result object fields match the name of the field in the query but don't include arguments, you can't directly query for the same field with different arguments. That's why you need _aliases_ - they let you rename the result of a field to anything you want.
 
-<script data-inline>
-  import MiniGraphiQL from '../_core/MiniGraphiQL';
-  import { StarWarsSchema } from './_swapiSchema';
-  renderHere(<MiniGraphiQL schema={StarWarsSchema} query={ `
+```graphql
+# { "graphiql": true }
 {
   empireHero: hero(episode: EMPIRE) {
     name
@@ -106,8 +82,7 @@ If you have a sharp eye, you may have noticed that, since the result object fiel
     name
   }
 }
-`} />);
-</script>
+```
 
 In the above example, the two `hero` fields would have conflicted, but since we can alias them to different names, we can get both results in one request.
 
@@ -117,10 +92,8 @@ Let's say we had a relatively complicated page in our app, which let us look at 
 
 That's why GraphQL includes reusable units called _fragments_. Fragments let you construct sets of fields, and then include them in queries where you need to. Here's an example of how you could solve the above situation using fragments:
 
-<script data-inline>
-  import MiniGraphiQL from '../_core/MiniGraphiQL';
-  import { StarWarsSchema } from './_swapiSchema';
-  renderHere(<MiniGraphiQL schema={StarWarsSchema} query={ `
+```graphql
+# { "graphiql": true }
 {
   leftComparison: hero(episode: EMPIRE) {
     ...comparisonFields
@@ -137,8 +110,7 @@ fragment comparisonFields on Character {
     name
   }
 }
-`} />);
-</script>
+```
 
 You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
 
@@ -183,7 +155,8 @@ We discussed above how variables enable us to avoid doing manual string interpol
 Let's construct a query for such a component:
 
 ```graphql
-query Hero($episode: Episode, $withFriends: Boolean) {
+# { "graphiql": true, "variables": { "episode": "JEDI", "withFriends": false } }
+query Hero($episode: Episode, $withFriends: Boolean!) {
   hero(episode: $episode) {
     name
     friends @include(if: $withFriends) {
@@ -191,12 +164,9 @@ query Hero($episode: Episode, $withFriends: Boolean) {
     }
   }
 }
-
-variables: {
-  episode: 'JEDI',
-  withFriends: false
-}
 ```
+
+Try editing the variables above to instead pass `true` for `withFriends`, and see how the result changes.
 
 We needed to use a new feature in GraphQL called a _directive_. A directive can be attached to a field or fragment inclusion, and can affect execution of the query in any way the server desires. The core GraphQL specification includes exactly two directives, which must be supported by any spec-compliant GraphQL server implementation:
 
