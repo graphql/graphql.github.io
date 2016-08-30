@@ -224,7 +224,7 @@ This means that any type that _implements_ `Character` needs to have these exact
 For example, here are some types that might implement `Character`:
 
 ```graphql
-type Human : Character {
+type Human implements Character {
   id: String!
   name: String
   friends: [Character]
@@ -232,7 +232,7 @@ type Human : Character {
   homePlanet: String
 }
 
-type Droid : Character {
+type Droid implements Character {
   id: String!
   name: String
   friends: [Character]
