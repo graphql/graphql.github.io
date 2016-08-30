@@ -57,7 +57,7 @@ Now you know what a GraphQL object type looks like, and how to read the basics o
 
 ### The Query and Mutation types
 
-Most types in your schema will just be normal object types, but there are two types that are unique within a schema:
+Most types in your schema will just be normal object types, but there are two types that are special within a schema:
 
 ```graphql
 schema {
@@ -66,7 +66,7 @@ schema {
 }
 ```
 
-Every GraphQL service has exactly zero or one each of the `Query` and `Mutation` types. These types are mostly the same as a regular object type, but they are special because they define the _entry point_ of every GraphQL query. So if you see a query that looks like:
+Every GraphQL service has a `query` type and may or may not have a `mutation` type. These types are the same as a regular object type, but they are special because they define the _entry point_ of every GraphQL query. So if you see a query that looks like:
 
 ```graphql
 # { "graphiql": true }
