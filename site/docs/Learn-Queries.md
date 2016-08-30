@@ -3,7 +3,7 @@ title: Queries and Mutations
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/queries/
-next: /docs/queries/
+next: /learn/schema/
 ---
 
 ### ToC

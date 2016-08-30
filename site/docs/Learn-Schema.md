@@ -3,7 +3,7 @@ title: Schemas and Types
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/schema/
-next: /docs/schema/
+next: /docs/queries/
 ---
 
 ### ToC
