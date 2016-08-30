@@ -333,20 +333,106 @@ type Species {
             <h2>Evolve your API<br />without versions</h2>
             {/*Illustration showing more legs added to a graph? Or a type evolving over time?]*/}
             <p>
-              Add new fields and types to a GraphQL API without affecting
-              queries sent from existing apps. Aging fields can be deprecated
-              and hidden from documentation. By using a single version, GraphQL
-              APIs give apps easier access to new features and enable cleaner,
-              more maintainable server&nbsp;code.</p>
+              Add new fields and types to your GraphQL API without impacting
+              existing queries. Aging fields can be deprecated
+              and hidden from tools. By using a single evolving version,
+              GraphQL APIs give apps continuous access to new features and
+              encourage cleaner, more maintainable server&nbsp;code.</p>
           </div>
           <div className="window type-evolution" aria-hidden>
-            <Prism language="graphql">
-              {`type Film {
+            <div id="typeEvolveView">
+              <div className="v1">
+                <Prism language="graphql">
+                  {`type Film {
   title: String
   episode: Int
-  director: String
+  releaseDate: String
+
+
+
 }`}
-            </Prism>
+                </Prism>
+              </div>
+              <div className="v2">
+                <div className="add" />
+                <Prism language="graphql">
+                  {`type Film {
+  title: String
+  episode: Int
+  releaseDate: String
+  openingCrawl: String
+
+
+}`}
+                </Prism>
+              </div>
+              <div className="v3">
+                <div className="add" />
+                <Prism language="graphql">
+                  {`type Film {
+  title: String
+  episode: Int
+  releaseDate: String
+  openingCrawl: String
+  director: String
+
+}`}
+                </Prism>
+              </div>
+              <div className="v4">
+                <div className="add" />
+                <div className="add" />
+                <div className="add" />
+                <div className="add" />
+                <div className="add" />
+                <div className="add" />
+                <div className="remove" />
+                <Prism language="graphql">
+                  {`type Film {
+  title: String
+  episode: Int
+  releaseDate: String
+  openingCrawl: String
+  director: String
+  directedBy: Person
+}
+
+type Person {
+  name: String
+  directed: [Film]
+  actedIn: [Film]
+}`}
+                </Prism>
+              </div>
+              <div className="v5">
+                <div className="add" />
+                <Prism language="graphql">
+                  {`type Film {
+  title: String
+  episode: Int
+  releaseDate: String
+  openingCrawl: String
+  director: String @deprecated
+  directedBy: Person
+}
+
+type Person {
+  name: String
+  directed: [Film]
+  actedIn: [Film]
+}`}
+                </Prism>
+              </div>
+            </div>
+            <script dangerouslySetInnerHTML={{__html: `(function(){
+              var i = 0;
+              var inView = document.getElementById('typeEvolveView');
+              inView.className = 'step' + i;
+              setInterval(function () {
+                i = (i + 1) % 7;
+                inView.className = 'step' + i;
+              }, 2200);
+            })()`}} />
           </div>
         </section>
         </div>
@@ -367,7 +453,7 @@ type Species {
         </section>
 
         <section className="powered-by">
-          <h2>Powered by GraphQL</h2>
+          <h2>Who&rsquo;s using GraphQL?</h2>
           <div>Logo grid goes here</div>
         </section>
 
