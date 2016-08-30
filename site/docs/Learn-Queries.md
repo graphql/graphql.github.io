@@ -220,7 +220,7 @@ If you are querying a field that returns an interface or a union type, you will 
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
-query HeroForEpisode($ep: Episode!){
+query HeroForEpisode($ep: Episode!) {
   hero(episode: $ep) {
     name
     ... on Droid {

@@ -247,7 +247,7 @@ Interfaces are useful when you want to return an object or set of objects, but t
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
-query HeroForEpisode($ep: Episode!){
+query HeroForEpisode($ep: Episode!) {
   hero(episode: $ep) {
     name
   }
@@ -258,7 +258,7 @@ The `hero` field returns the type `Character`, which means it might be either a 
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
-query HeroForEpisode($ep: Episode!){
+query HeroForEpisode($ep: Episode!) {
   hero(episode: $ep) {
     name
     ... on Droid {
