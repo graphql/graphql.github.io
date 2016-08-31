@@ -37,8 +37,8 @@ var Site = React.createClass({
 
           <header>
             <section>
-              <a className="nav-home" href={'/'}>
-                <img className="nav-logo" src={'/img/logo.svg'} width="30" height="30" />
+              <a className="nav-home" href="/">
+                <img className="nav-logo" src="/img/logo.svg" width="30" height="30" />
                 GraphQL
               </a>
               <HeaderLinks section={this.props.section} />
@@ -50,9 +50,9 @@ var Site = React.createClass({
 
           <footer>
             <section className="sitemap">
-              <img src="/img/logo-gray.svg" width="30" height="30" />
+              <a href="/" className="nav-home" />
               <div>
-                <h5><a>Learn</a></h5>
+                <h5><a href="/learn">Learn</a></h5>
                 <a>Introduction</a>
                 <a>Query Language</a>
                 <a>Type System</a>
@@ -60,23 +60,23 @@ var Site = React.createClass({
                 <a>Best Practices</a>
               </div>
               <div>
-                <h5><a>Code</a></h5>
+                <h5><a href="/code">Code</a></h5>
                 <a>Servers</a>
                 <a>Clients</a>
                 <a>Tools</a>
               </div>
               <div>
-                <h5><a>Community</a></h5>
+                <h5><a href="/community">Community</a></h5>
                 <a>Upcoming Events</a>
                 <a>Conference Talks</a>
-                <a>Stack Overflow</a>
-                <a>Twitter</a>
+                <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank">Stack Overflow</a>
+                <a href="https://twitter.com/GraphQL" target="_blank">Twitter</a>
               </div>
               <div>
-                <h5><a>More</a></h5>
-                <a>GraphQL Team Blog</a>
-                <a>Read the Spec</a>
-                <a>GitHub</a>
+                <h5>More</h5>
+                <a href="/blog">GraphQL Team Blog</a>
+                <a href="http://facebook.github.io/graphql/" target="_blank">Read the Spec</a>
+                <a href="https://github.com/graphql" target="_blank">GitHub</a>
               </div>
             </section>
             <a href="https://code.facebook.com/projects/" target="_blank" className="fbOpenSource">

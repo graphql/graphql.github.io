@@ -149,8 +149,17 @@ footer {
       flex: 1;
     }
 
-    img {
-      margin: -2px 30px 0 0;
+    .nav-home {
+      display: table;
+      margin: -12px 20px 0 0;
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      background: url("/img/logo-gray.svg") no-repeat content-box;
+
+      &:hover, &:focus {
+        background-image: url("/img/logo.svg");
+      }
     }
 
     a {
@@ -167,9 +176,12 @@ footer {
     h5, h6 {
       margin: 0 0 10px;
 
+      &, & > a {
+        color: lighten(@dark-color, 50%);
+      }
+
       & > a {
         margin: 0 -10px;
-        color: lighten(@dark-color, 50%);
       }
     }
   }
