@@ -439,7 +439,7 @@ type Person {
 
         <section className="point6">
           <div className="prose">
-            <h2>Fulfilled with your<br />existing data and code</h2>
+            <h2>Bring your own<br />data and code</h2>
             {/*Illustration of each field becoming a function?]*/}
             <p>
               GraphQL creates a uniform API across your entire application
