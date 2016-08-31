@@ -624,8 +624,26 @@ body.index {
   }
 
   section.powered-by {
-    padding-bottom: 8em;
-    padding-top: 1em;
+    padding-bottom: 6em;
+    padding-top: 2em;
     text-align: center;
+
+    .prose {
+      max-width: 545px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .logos {
+      img {
+        height: 150px;
+        padding: 20px;
+
+        &.round {
+          height: 156px;
+          padding: 17px;
+        }
+      }
+    }
   }
 }
