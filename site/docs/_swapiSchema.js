@@ -25,6 +25,9 @@ schema {
 type Query {
   hero(episode: Episode): Character
   search(text: String): [SearchResult]
+  droid(id: ID!): Droid
+  human(id: ID!): Human
+  starship(id: ID!): Starship
 }
 
 type Mutation {
