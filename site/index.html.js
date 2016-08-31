@@ -464,7 +464,10 @@ type Person {
             <a href="https://www.facebook.com/" target="_blank">
               <img src="/img/logos/facebook.png" title="Facebook" />
             </a>
-            {/*
+            {/** /}
+            <a href="https://twitter.com/" target="_blank">
+              <img src="/img/logos/twitter.png" title="Twitter" className="round" />
+            </a>
             <a href="https://github.com/" target="_blank">
               <img src="/img/logos/github.png" title="GitHub" className="round" />
             </a>
@@ -474,7 +477,10 @@ type Person {
             <a href="https://www.airbnb.com/" target="_blank">
               <img src="/img/logos/airbnb.png" title="Airbnb" className="round" />
             </a>
-            */}
+            <a href="https://www.intuit.com/" target="_blank">
+              <img src="/img/logos/intuit.png" title="Intuit" />
+            </a>
+            {/**/}
             <a href="https://www.coursera.org/" target="_blank">
               <img src="/img/logos/coursera.png" title="Coursera" />
             </a>
