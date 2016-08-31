@@ -88,10 +88,10 @@ body.index {
       clear: both;
       display: flex;
       max-width: 1070px;
-      margin-top: -3%;
 
       flex-direction: column;
       @media screen and (min-width: 1020px) {
+        margin-top: -3%;
         flex-direction: row;
       }
     }
@@ -120,11 +120,14 @@ body.index {
 
     .marketing-col {
       flex: 1;
-      border-left: solid 1px rgba(255,255,255,0.15);
       padding: 0 18px;
       margin: 20px 18px;
       @media screen and (min-width: 1020px) {
+        border-left: solid 1px rgba(255,255,255,0.15);
         margin: 3px 18px;
+      }
+      @media screen and (max-width: 1019px) {
+        text-align: center;
       }
 
       h4 {
@@ -137,10 +140,15 @@ body.index {
         -webkit-font-smoothing: auto;
         -moz-osx-font-smoothing: auto;
         color: white;
+        @media screen and (max-width: 1019px) {
+          display: inline-block;
+        }
       }
 
-      &:last-child > .prism {
-        margin-right: -20px;
+      @media screen and (min-width: 1020px) {
+        &:last-child > .prism {
+          margin-right: -20px;
+        }
       }
     }
 
@@ -164,10 +172,16 @@ body.index {
     }
 
     .buttons-unit {
-      position: absolute;
-      top: ~"calc(75%)";
-      animation: fade 1.1s 3.2s ease-in-out both;
-      text-align: center;
+      @media screen and (min-width: 1020px) {
+        position: absolute;
+        top: ~"calc(75%)";
+        animation: fade 1.1s 3.2s ease-in-out both;
+        text-align: center;
+      }
+      @media screen and (max-width: 1019px) {
+        padding: 1em 0 2em;
+        text-align: center;
+      }
 
       .button {
         .headline-font(@size: 17px, @color: white);
@@ -247,17 +261,20 @@ body.index {
   section.point4,
   section.point5,
   section.point6 {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    min-height: 75vh;
     padding-bottom: 4em;
     padding-top: 4em;
+    @media screen and (max-width: 1019px) {
+      min-height: 75vh;
+      text-align: center;
+    }
   }
 
   section.point1 {
     @media screen and (min-width: 1020px) {
       flex-direction: row-reverse;
-      align-items: center;
       justify-content: space-between;
     }
 
@@ -306,7 +323,6 @@ body.index {
 
   section.point2 {
     @media screen and (min-width: 1020px) {
-      align-items: center;
       flex-direction: row;
       justify-content: space-between;
     }
@@ -317,22 +333,27 @@ body.index {
 
     .app-to-server {
       width: 476px;
-      height: 430px;
+      height: 500px;
       position: relative;
       pointer-events: none;
 
+      margin: -35px -10px;
+      @media screen and (max-width: 1019px) {
+        margin-top: 0;
+      }
+
       .phone, .server {
         position: absolute;
-        left: -10px;
-        right: -10px;
+        left: 0;
+        right: 0;
       }
 
       .phone {
-        bottom: -35px;
+        bottom: 0;
       }
 
       .server {
-        top: -35px;
+        top: 0;
       }
 
       .query, .response {
@@ -341,12 +362,12 @@ body.index {
 
       .query {
         animation: query-up 6s 0s infinite ease-in both;
-        left: 165px;
+        left: 175px;
 
         @keyframes query-up {
           from {
             opacity: 0;
-            top: 200px;
+            top: 230px;
           }
 
           5%, 25% {
@@ -358,7 +379,7 @@ body.index {
           }
 
           50%, 100% {
-            top: 120px;
+            top: 150px;
             opacity: 0;
           }
         }
@@ -366,12 +387,12 @@ body.index {
 
       .response {
         animation: response-down 6s 2.3s infinite ease-in both;
-        left: 125px;
+        left: 135px;
 
         @keyframes response-down {
           0% {
             opacity: 0;
-            top: 100px;
+            top: 130px;
           }
 
           10% {
@@ -384,7 +405,7 @@ body.index {
 
           50%, 100% {
             opacity: 0;
-            top: 170px;
+            top: 200px;
           }
         }
       }
@@ -394,7 +415,6 @@ body.index {
   section.point3 {
     @media screen and (min-width: 1020px) {
       flex-direction: row-reverse;
-      align-items: center;
       justify-content: space-between;
     }
 
@@ -429,7 +449,6 @@ body.index {
   }
 
   section.point4 {
-    align-items: center;
     color: white;
     flex-direction: column;
     padding-bottom: 0;
@@ -475,6 +494,7 @@ body.index {
       video {
         position: absolute;
         top: 0;
+        left: 0;
         width: 100%;
       }
     }
@@ -483,7 +503,6 @@ body.index {
   section.point5 {
     @media screen and (min-width: 1020px) {
       flex-direction: row-reverse;
-      align-items: center;
       justify-content: space-between;
     }
 
@@ -650,7 +669,6 @@ body.index {
 
   section.point6 {
     @media screen and (min-width: 1020px) {
-      align-items: center;
       flex-direction: row;
       justify-content: space-between;
     }
@@ -672,12 +690,20 @@ body.index {
 
     .logos {
       img {
-        height: 150px;
-        padding: 20px;
+        height: 100px;
+        padding: 14px;
+        @media screen and (min-width: 1020px) {
+          height: 150px;
+          padding: 20px;
+        }
 
         &.round {
-          height: 156px;
-          padding: 17px;
+          height: 106px;
+          padding: 11px;
+          @media screen and (min-width: 1020px) {
+            height: 158px;
+            padding: 16px;
+          }
         }
       }
     }
