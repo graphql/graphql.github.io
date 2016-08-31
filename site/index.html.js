@@ -442,19 +442,43 @@ type Person {
             <h2>Fulfilled with your<br />existing data and code</h2>
             {/*Illustration of each field becoming a function?]*/}
             <p>
-              GraphQL creates a uniform, powerful API across the entire surface
-              area of your application without being limited by a specific
-              storage engine. Write GraphQL APIs that leverage your existing
-              data model and server with GraphQL engine implementations
-              available in many languages. You provide small functions that
-              fulfill fields in the type system, and GraphQL calls them with
+              GraphQL creates a uniform API across your entire application
+              without being limited by a specific storage engine. Write GraphQL
+              APIs that leverage your existing data and code with GraphQL
+              engines available in many languages. You provide functions for
+              each field in the type system, and GraphQL calls them with
               optimal&nbsp;concurrency.</p>
           </div>
         </section>
 
         <section className="powered-by">
-          <h2>Who&rsquo;s using GraphQL?</h2>
-          <div>Logo grid goes here</div>
+          <div className="prose">
+            <h2>Who&rsquo;s using GraphQL?</h2>
+            <p>
+              Facebook's mobile apps have been powered by GraphQL since 2012.
+              A GraphQL spec was open sourced in 2015 and is now available in
+              many environments and used by teams of all sizes.</p>
+          </div>
+          <div className="logos">
+            {/* Waiting for permission from some of the below */}
+            <a href="https://www.facebook.com/" target="_blank">
+              <img src="/img/logos/facebook.png" title="Facebook" />
+            </a>
+            {/*
+            <a href="https://github.com/" target="_blank">
+              <img src="/img/logos/github.png" title="GitHub" className="round" />
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank">
+              <img src="/img/logos/pinterest.png" title="Pinterest" className="round" />
+            </a>
+            <a href="https://www.airbnb.com/" target="_blank">
+              <img src="/img/logos/airbnb.png" title="Airbnb" className="round" />
+            </a>
+            */}
+            <a href="https://www.coursera.org/" target="_blank">
+              <img src="/img/logos/coursera.png" title="Coursera" />
+            </a>
+          </div>
         </section>
 
       </Site>
