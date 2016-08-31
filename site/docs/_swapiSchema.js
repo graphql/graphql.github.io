@@ -16,17 +16,109 @@ import {
   GraphQLString
 } from 'graphql';
 
+const schemaString = `
+schema {
+  query: Query
+  mutation: Mutation
+}
 
-/**
- * This is designed to be an end-to-end test, demonstrating
- * the full GraphQL stack.
- *
- * We will create a GraphQL schema that describes the major
- * characters in the original Star Wars trilogy.
- *
- * NOTE: This may contain spoilers for the original Star
- * Wars trilogy.
- */
+type Query {
+  hero(episode: Episode): Character
+  search(query: String): [SearchResult]
+}
+
+# The episodes in the Star Wars trilogy
+enum Episode {
+  # Star Wars Episode IV: A New Hope, released in 1977.
+  NEWHOPE
+
+  # Star Wars Episode V: The Empire Strikes Back, released in 1980.
+  EMPIRE
+
+  # Star Wars Episode VI: Return of the Jedi, released in 1983.
+  JEDI
+}
+
+# A character from the Star Wars universe
+interface Character {
+  # The ID of the character
+  id: ID!
+
+  # The name of the character
+  name: String!
+
+  # The friends of the character, or an empty list if they have none
+  friends: [Character]
+
+  # The movies this character appears in
+  appearsIn: [Episode]!
+}
+
+# A humanoid creature from the Star Wars universe
+type Human implements Character {
+  # The ID of the human
+  id: ID!
+
+  # What this human calls themselves
+  name: String!
+
+  # This human's friends, or an empty list if they have none
+  friends: [Character]
+
+  # The movies this human appears in
+  appearsIn: [Episode]!
+
+  # A list of starships this person has piloted, or an empty list if none
+  starships: [Starship]
+}
+
+# An autonomous mechanical character in the Star Wars universe
+type Droid implements Character {
+  # The ID of the droid
+  id: ID!
+
+  # What others call this droid
+  name: String!
+
+  # This droid's friends, or an empty list if they have none
+  friends: [Character]
+
+  # The movies this droid appears in
+  appearsIn: [Episode]!
+
+  # This droid's primary function
+  primaryFunction: String
+}
+
+# Units of length
+enum LengthUnit {
+  # The standard unit around the world
+  METER
+
+  # Primarily used in the United States
+  FOOT
+}
+
+type Starship {
+  # The ID of the starship
+  id: ID!
+
+  # The name of the starship
+  name: String!
+
+  # The length of the starship, in meters
+  length(unit: LengthUnit = METER): Float!
+}
+
+union SearchResult = Character | Starship
+`;
+
+
+
+
+
+
+
 
 /**
  * This defines a basic set of data for our Star Wars Schema.

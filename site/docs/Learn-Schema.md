@@ -41,7 +41,7 @@ The most basic components of a GraphQL schema are object types, which just repre
 ```graphql
 type Character {
   name: String!
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
 }
 ```
 
@@ -54,6 +54,11 @@ The language is pretty readable, but let's go over it so that we can have a shar
 - `[Episode]` represents an _array_ of `Episode` objects. This means that you can always expect an array, with zero or more items, when you query the `appearsIn` field.
 
 Now you know what a GraphQL object type looks like, and how to read the basics of the GraphQL type language.
+
+### Arguments
+
+TODO
+- Include the idea of default arguments
 
 ### The Query and Mutation types
 
@@ -85,7 +90,7 @@ That means that the GraphQL service needs to have a `Query` type with `hero` and
 ```graphql
 type Query {
   hero(episode: Episode): Character
-  droid(id: ID!): Droid
+  droid(id: String!): Droid
 }
 ```
 
@@ -155,7 +160,7 @@ Object types, scalars, and enums are the only kinds of types you can define in G
 ```graphql
 type Character {
   name: String!
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
 }
 ```
 
@@ -213,9 +218,9 @@ For example, you could have an interface `Character` that represents any charact
 ```graphql
 interface Character {
   id: String!
-  name: String
+  name: String!
   friends: [Character]
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
 }
 ```
 
@@ -226,17 +231,17 @@ For example, here are some types that might implement `Character`:
 ```graphql
 type Human implements Character {
   id: String!
-  name: String
+  name: String!
   friends: [Character]
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
   homePlanet: String
 }
 
 type Droid implements Character {
   id: String!
-  name: String
+  name: String!
   friends: [Character]
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
   primaryFunction: String
 }
 ```
