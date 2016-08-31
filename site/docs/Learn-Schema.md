@@ -90,7 +90,7 @@ That means that the GraphQL service needs to have a `Query` type with `hero` and
 ```graphql
 type Query {
   hero(episode: Episode): Character
-  droid(id: String!): Droid
+  droid(id: ID!): Droid
 }
 ```
 
@@ -217,7 +217,7 @@ For example, you could have an interface `Character` that represents any charact
 
 ```graphql
 interface Character {
-  id: String!
+  id: ID!
   name: String!
   friends: [Character]
   appearsIn: [Episode]!
@@ -230,15 +230,16 @@ For example, here are some types that might implement `Character`:
 
 ```graphql
 type Human implements Character {
-  id: String!
+  id: ID!
   name: String!
   friends: [Character]
   appearsIn: [Episode]!
-  homePlanet: String
+  starships: [Starship]
+  totalCredits: Int
 }
 
 type Droid implements Character {
-  id: String!
+  id: ID!
   name: String!
   friends: [Character]
   appearsIn: [Episode]!
@@ -283,17 +284,7 @@ Union types are very similar to interfaces, but they don't get to specify any co
 XXX no example in SWAPI
 
 ```graphql
-union SearchResult = Photo | Person
-
-type Person {
-  name: String
-  age: Int
-}
-
-type Photo {
-  height: Int
-  width: Int
-}
+union SearchResult = Character | Starship
 ```
 
 In this case, if you query a field that returns the `SearchResult` union type, you need to use a conditional fragment to be able to query any fields at all.
