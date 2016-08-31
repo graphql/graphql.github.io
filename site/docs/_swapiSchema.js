@@ -24,7 +24,12 @@ schema {
 
 type Query {
   hero(episode: Episode): Character
-  search(query: String): [SearchResult]
+  search(text: String): [SearchResult]
+}
+
+type Mutation {
+  createHuman(human: HumanInput!): ID!
+  incrementCredits(humanId: ID!): Human
 }
 
 # The episodes in the Star Wars trilogy
@@ -70,6 +75,9 @@ type Human implements Character {
 
   # A list of starships this person has piloted, or an empty list if none
   starships: [Starship]
+
+  # The number of credits this human has
+  totalCredits: Int
 }
 
 # An autonomous mechanical character in the Star Wars universe
@@ -88,6 +96,15 @@ type Droid implements Character {
 
   # This droid's primary function
   primaryFunction: String
+}
+
+# The object to be passed in when creating a new human
+input HumanInput {
+  # The name of the new human
+  name: String!
+
+  # The movies this human appears in
+  appearsIn: [Episode]!
 }
 
 # Units of length
