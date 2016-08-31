@@ -177,7 +177,6 @@ body.index {
     text-align: center;
     max-width: 760px;
     padding-top: 6em;
-    padding-bottom: 2em;
   }
 
   .grayWash {
@@ -220,13 +219,22 @@ body.index {
     }
   }
 
-  section.point1 {
+  section.point1,
+  section.point2,
+  section.point3,
+  section.point4,
+  section.point5,
+  section.point6 {
     display: flex;
+    min-height: 75vh;
+    padding-bottom: 4em;
+    padding-top: 4em;
+  }
+
+  section.point1 {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    padding-top: 4em;
-    padding-bottom: 4em;
 
     .prose {
       max-width: 415px;
@@ -272,11 +280,8 @@ body.index {
   }
 
   section.point2 {
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 4em;
-    padding-bottom: 4em;
 
     .prose {
       max-width: 415px;
@@ -359,12 +364,9 @@ body.index {
   }
 
   section.point3 {
-    display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 4em;
-    padding-top: 4em;
 
     .prose {
       max-width: 415px;
@@ -397,9 +399,10 @@ body.index {
   }
 
   section.point4 {
+    align-items: center;
     color: white;
-    padding-bottom: 4em;
-    padding-top: 4em;
+    flex-direction: column;
+    padding-bottom: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -412,9 +415,13 @@ body.index {
     }
 
     .prose {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: center;
+      margin: 0 auto;
       max-width: 575px;
       text-align: center;
-      margin: 0 auto;
 
       a {
         color: lighten(@rhodamine-color, 30%);
@@ -427,12 +434,13 @@ body.index {
       box-shadow:
         0 0 0 1px rgba(0, 0, 0, 0.2),
         0 16px 64px rgba(0, 0, 0, 0.6);
-      margin: 3em -10px -75px;
+      margin: 3em -10px 0;
       overflow: hidden;
       padding-top: 40%;
       pointer-events: none;
       position: relative;
       transform: translateZ(0);
+      width: 100%;
 
       video {
         position: absolute;
@@ -443,12 +451,9 @@ body.index {
   }
 
   section.point5 {
-    display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 4em;
-    padding-top: 4em;
 
     .prose {
       max-width: 415px;
@@ -612,11 +617,8 @@ body.index {
   }
 
   section.point6 {
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 4em;
-    padding-top: 4em;
 
     .prose {
       max-width: 415px;
@@ -625,7 +627,6 @@ body.index {
 
   section.powered-by {
     padding-bottom: 6em;
-    padding-top: 2em;
     text-align: center;
 
     .prose {
