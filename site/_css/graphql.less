@@ -10,6 +10,7 @@
 body {
   .body-font();
   background-color: white;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -121,10 +122,7 @@ nav {
     color: #aaa;
     display: inline-block;
     line-height: 50px;
-    padding: 0 0.5em;
-    @media screen and (min-width: 1020px) {
-      padding: 0 1em;
-    }
+    padding: 0 1em;
     transition: color 0.1s ease-out;
 
     &:hover, &:focus, &.active {

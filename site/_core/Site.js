@@ -25,6 +25,7 @@ var Site = React.createClass({
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://graphql.org/" />
           <meta property="og:description" content={SiteData.description} />
+          <meta name="viewport" content="width=640" />
 
           <link rel="shortcut icon" href="/img/favicon.png" />
           <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog" />
