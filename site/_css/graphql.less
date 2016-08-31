@@ -109,13 +109,22 @@ header {
 }
 
 nav {
-  float: left;
+  @media screen and (min-width: 1020px) {
+    float: left;
+  }
+  @media screen and (max-width: 1019px) {
+    text-align: center;
+    margin: 0 -1em;
+  }
 
   a {
     color: #aaa;
     display: inline-block;
     line-height: 50px;
-    padding: 0 1em;
+    padding: 0 0.5em;
+    @media screen and (min-width: 1020px) {
+      padding: 0 1em;
+    }
     transition: color 0.1s ease-out;
 
     &:hover, &:focus, &.active {
