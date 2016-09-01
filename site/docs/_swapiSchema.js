@@ -165,7 +165,7 @@ const humans = [
     appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
     height: 1.72,
     mass: 77,
-    starships: [ '12', '22' ], // XXX
+    starships: [ '3001', '3003' ],
   },
   {
     id: '1001',
@@ -174,7 +174,7 @@ const humans = [
     appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
     height: 2.02,
     mass: 136,
-    starships: [ '13' ], // XXX
+    starships: [ '3002' ],
   },
   {
     id: '1002',
@@ -183,7 +183,7 @@ const humans = [
     appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
     height: 1.8,
     mass: 80,
-    starships: [ '10', '22' ], // XXX
+    starships: [ '3000', '3003' ],
   },
   {
     id: '1003',
