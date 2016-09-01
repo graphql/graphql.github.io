@@ -339,7 +339,13 @@ const resolvers = {
     },
   },
   Human: {
-    height: ({ height }) => height, // XXX add units
+    height: ({ height }, { unit }) => {
+      if (unit === 'FOOT') {
+        return height * 3.28084;
+      }
+
+      return height;
+    },
     friends: ({ friends }) => friends.map(getCharacter),
     starships: () => null,
     appearsIn: ({ appearsIn }) => appearsIn,
@@ -349,7 +355,13 @@ const resolvers = {
     appearsIn: ({ appearsIn }) => appearsIn,
   },
   Starship: {
-    length: ({ length }) => length, // XXX add units
+    length: ({ length }, { unit }) => {
+      if (unit === 'FOOT') {
+        return length * 3.28084;
+      }
+
+      return length;
+    }
   },
   SearchResult: {
     __resolveType(data, context, info){
