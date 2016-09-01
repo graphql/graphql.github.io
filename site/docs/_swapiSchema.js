@@ -22,6 +22,7 @@ schema {
   mutation: Mutation
 }
 
+# The query type, represents all of the entry points into our object graph
 type Query {
   hero(episode: Episode): Character
   reviews(episode: Episode!): [Review]
@@ -31,6 +32,7 @@ type Query {
   starship(id: ID!): Starship
 }
 
+# The mutation type, represents all updates we can make to our data
 type Mutation {
   createReview(episode: Episode, review: ReviewInput!): Review
 }
@@ -62,6 +64,15 @@ interface Character {
   appearsIn: [Episode]!
 }
 
+# Units of height
+enum LengthUnit {
+  # The standard unit around the world
+  METER
+
+  # Primarily used in the United States
+  FOOT
+}
+
 # A humanoid creature from the Star Wars universe
 type Human implements Character {
   # The ID of the human
@@ -69,6 +80,12 @@ type Human implements Character {
 
   # What this human calls themselves
   name: String!
+
+  # Height in the preferred unit, default is meters
+  height(unit: LengthUnit = METER): Float
+
+  # Mass in kilograms, or null if unknown
+  mass: Float
 
   # This human's friends, or an empty list if they have none
   friends: [Character]
@@ -78,9 +95,6 @@ type Human implements Character {
 
   # A list of starships this person has piloted, or an empty list if none
   starships: [Starship]
-
-  # The number of credits this human has
-  totalCredits: Int
 }
 
 # An autonomous mechanical character in the Star Wars universe
@@ -101,30 +115,22 @@ type Droid implements Character {
   primaryFunction: String
 }
 
+# Represents a review for a movie
 type Review {
   # The number of stars this review gave, 1-5
-  stars: Int
+  stars: Int!
 
-  # Comments about the movie
+  # Comment about the movie
   commentary: String
 }
 
 # The input object sent when someone is creating a new review
 input ReviewInput {
   # 0-5 stars
-  stars: Int
+  stars: Int!
 
-  # Comments about the movie
+  # Comment about the movie, optional
   commentary: String
-}
-
-# Units of length
-enum LengthUnit {
-  # The standard unit around the world
-  METER
-
-  # Primarily used in the United States
-  FOOT
 }
 
 type Starship {
@@ -134,19 +140,12 @@ type Starship {
   # The name of the starship
   name: String!
 
-  # The length of the starship, in meters
-  length(unit: LengthUnit = METER): Float!
+  # Length of the starship, along the longest axis
+  length(unit: LengthUnit = METER): Float
 }
 
-union SearchResult = Character | Starship
+union SearchResult = Human | Droid | Starship
 `;
-
-
-
-
-
-
-
 
 /**
  * This defines a basic set of data for our Star Wars Schema.
@@ -161,7 +160,9 @@ var luke = {
   name: 'Luke Skywalker',
   friends: [ '1002', '1003', '2000', '2001' ],
   appearsIn: [ 4, 5, 6 ],
-  homePlanet: 'Tatooine',
+  height: 1.72,
+  mass: 77,
+  starships: [ '12', '22' ], // XXX
 };
 
 var vader = {
@@ -169,7 +170,9 @@ var vader = {
   name: 'Darth Vader',
   friends: [ '1004' ],
   appearsIn: [ 4, 5, 6 ],
-  homePlanet: 'Tatooine',
+  height: 2.02,
+  mass: 136,
+  starships: [ '13' ], // XXX
 };
 
 var han = {
@@ -177,6 +180,9 @@ var han = {
   name: 'Han Solo',
   friends: [ '1000', '1003', '2001' ],
   appearsIn: [ 4, 5, 6 ],
+  height: 1.8,
+  mass: 80,
+  starships: [ '10', '22' ], // XXX
 };
 
 var leia = {
@@ -184,7 +190,9 @@ var leia = {
   name: 'Leia Organa',
   friends: [ '1000', '1002', '2000', '2001' ],
   appearsIn: [ 4, 5, 6 ],
-  homePlanet: 'Alderaan',
+  height: 1.5,
+  mass: 49,
+  starships: [],
 };
 
 var tarkin = {
@@ -192,6 +200,9 @@ var tarkin = {
   name: 'Wilhuff Tarkin',
   friends: [ '1001' ],
   appearsIn: [ 4 ],
+  height: 1.8,
+  mass: null,
+  starships: [],
 };
 
 var humanData = {
