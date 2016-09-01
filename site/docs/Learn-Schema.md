@@ -285,10 +285,30 @@ Learn more about this in the [inline fragments](XXX) section in the query guide.
 
 Union types are very similar to interfaces, but they don't get to specify any common fields between the types.
 
-XXX no example in SWAPI
-
 ```graphql
-union SearchResult = Character | Starship
+union SearchResult = Human | Droid | Starship
 ```
 
-In this case, if you query a field that returns the `SearchResult` union type, you need to use a conditional fragment to be able to query any fields at all.
+Wherever we return a `SearchResult` type in our schema, we might get a `Human`, a `Droid`, or a `Starship`. Note that members of a union type need to be concrete object types; you can't create a union type out of interfaces or other unions.
+
+In this case, if you query a field that returns the `SearchResult` union type, you need to use a conditional fragment to be able to query any fields at all:
+
+```graphql
+# { "graphiql": true}
+{
+  search(text: "an") {
+    ... on Human {
+      name
+      height
+    }
+    ... on Droid {
+      name
+      primaryFunction
+    }
+    ... on Starship {
+      name
+      length
+    }
+  }
+}
+```
