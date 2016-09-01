@@ -349,7 +349,7 @@ const resolvers = {
     appearsIn: ({ appearsIn }) => appearsIn,
   },
   Starship: {
-    length: ({ length }) => length,
+    length: ({ length }) => length, // XXX add units
   },
   SearchResult: {
     __resolveType(data, context, info){
