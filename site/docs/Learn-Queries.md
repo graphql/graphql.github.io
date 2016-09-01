@@ -237,3 +237,27 @@ In this query, the `hero` field returns the type `Character`, which might be eit
 To ask for a field on the concrete type, you need to use an _inline fragment_ with a type condition. Because the first fragment is labeled as `... on Droid`, the `primaryFunction` field will only be executed if the `Character` returned from `hero` is of the `Droid` type. Similarly for the `homePlanet` field for the `Human` type.
 
 Named fragments can also be used in the same way, since a named fragment always has a type attached.
+
+### Querying for typename
+
+Given that there are some situations where you don't know what type you'll get back from the GraphQL service, you need some way to determine how to handle that data on the client. That's why part of the GraphQL spec is that you can always ask for the type of any returned object by querying the special field `__typename`.
+
+```graphql
+# { "graphiql": true}
+{
+  search(text: "an") {
+    __typename
+    ... on Human {
+      name
+    }
+    ... on Droid {
+      name
+    }
+    ... on Starship {
+      name
+    }
+  }
+}
+```
+
+In the above query, `search` returns a union type that can be one of three options. It would be impossible to tell apart the different types from the client without the `__typename` field.
