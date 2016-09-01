@@ -79,7 +79,7 @@ query {
   hero {
     name
   }
-  droid(id: "2001") {
+  droid(id: "2000") {
     name
   }
 }
@@ -170,7 +170,7 @@ The Non-Null type modifier can also be used when defining arguments for a field,
 
 ```graphql
 # { "graphiql": true, "variables": { "id": null } }
-query DroidById($id: String!) {
+query DroidById($id: ID!) {
   droid(id: $id) {
     name
   }
@@ -249,7 +249,9 @@ type Droid implements Character {
 
 You can see that both of these types have all of the fields from the `Character` interface, but also bring in extra fields, `homePlanet` and `primaryFunction`, that are specific to that particular type of character.
 
-Interfaces are useful when you want to return an object or set of objects, but those might be of several different types. For example, in the following query:
+Interfaces are useful when you want to return an object or set of objects, but those might be of several different types.
+
+For example, note that the following query produces an error:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
@@ -261,7 +263,9 @@ query HeroForEpisode($ep: Episode!) {
 }
 ```
 
-The `hero` field returns the type `Character`, which means it might be either a `Human` or a `Droid` depending on the `episode` argument. In the query above, you can only ask for fields that exist on the `Character` interface, and to ask for a field on a specific object type, you need to use an inline fragment:
+The `hero` field returns the type `Character`, which means it might be either a `Human` or a `Droid` depending on the `episode` argument. In the query above, you can only ask for fields that exist on the `Character` interface, which doesn't include `primaryFunction`.
+
+To ask for a field on a specific object type, you need to use an inline fragment:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
