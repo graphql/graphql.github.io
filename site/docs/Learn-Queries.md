@@ -181,22 +181,14 @@ Most discussions of GraphQL focus on data fetching, but any complete data platfo
 
 In REST, any request might end up causing some side-effects on the server, but by convention it's suggested that one doesn't use `GET` requests to modify data. GraphQL is similar - technically any query could be implemented to cause a data write. However, it's useful to establish a convention that any operations that cause writes should be sent explicitly via a mutation.
 
-Here's an example of a simple mutation:
+Just like in queries, if the mutation field returns an object type, you can ask for nested fields. This can be useful for fetching the new state of an object after an update. Let's look at a simple example mutation:
 
 ```graphql
-mutation CreateCharacterInEpisode($name: String!, $appearsIn: Episode!) {
-  createCharacter(name: $name)
-}
-```
-
-#### Returning data from mutations
-
-Just like in queries, if the mutation field returns an object type, you can ask for nested fields. This can be useful for fetching the new state of an object after an update:
-
-```graphql
-mutation IncrementCredits($humanId: ID!) {
-  incrementCredits(humanId: $humanId) {
-    totalCredits
+# { "graphiql": true, "variables": { "ep": "JEDI", "review": { "stars": 5, "commentary": "This is a great movie!" } } }
+mutation CreateReviewForEpisode($ep: Episode!, $review: ReviewInput!) {
+  createReview(episode: $ep, review: $review) {
+    stars
+    commentary
   }
 }
 ```
