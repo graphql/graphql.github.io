@@ -281,10 +281,10 @@ function getFriends(character) {
 function getHero(episode) {
   if (episode === 'EMPIRE') {
     // Luke is the hero of Episode V.
-    return luke;
+    return humanData['1000'];
   }
   // Artoo is the hero otherwise.
-  return artoo;
+  return droidData['2001'];
 }
 
 /**
