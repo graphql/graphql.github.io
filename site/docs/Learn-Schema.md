@@ -41,7 +41,7 @@ The most basic components of a GraphQL schema are object types, which just repre
 ```graphql
 type Character {
   name: String!
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
 }
 ```
 
@@ -54,6 +54,11 @@ The language is pretty readable, but let's go over it so that we can have a shar
 - `[Episode]` represents an _array_ of `Episode` objects. This means that you can always expect an array, with zero or more items, when you query the `appearsIn` field.
 
 Now you know what a GraphQL object type looks like, and how to read the basics of the GraphQL type language.
+
+### Arguments
+
+TODO
+- Include the idea of default arguments
 
 ### The Query and Mutation types
 
@@ -74,7 +79,7 @@ query {
   hero {
     name
   }
-  droid(id: "2001") {
+  droid(id: "2000") {
     name
   }
 }
@@ -155,7 +160,7 @@ Object types, scalars, and enums are the only kinds of types you can define in G
 ```graphql
 type Character {
   name: String!
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
 }
 ```
 
@@ -165,7 +170,7 @@ The Non-Null type modifier can also be used when defining arguments for a field,
 
 ```graphql
 # { "graphiql": true, "variables": { "id": null } }
-query DroidById($id: String!) {
+query DroidById($id: ID!) {
   droid(id: $id) {
     name
   }
@@ -212,10 +217,10 @@ For example, you could have an interface `Character` that represents any charact
 
 ```graphql
 interface Character {
-  id: String!
-  name: String
+  id: ID!
+  name: String!
   friends: [Character]
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
 }
 ```
 
@@ -225,25 +230,28 @@ For example, here are some types that might implement `Character`:
 
 ```graphql
 type Human implements Character {
-  id: String!
-  name: String
+  id: ID!
+  name: String!
   friends: [Character]
-  appearsIn: [Episode]
-  homePlanet: String
+  appearsIn: [Episode]!
+  starships: [Starship]
+  totalCredits: Int
 }
 
 type Droid implements Character {
-  id: String!
-  name: String
+  id: ID!
+  name: String!
   friends: [Character]
-  appearsIn: [Episode]
+  appearsIn: [Episode]!
   primaryFunction: String
 }
 ```
 
 You can see that both of these types have all of the fields from the `Character` interface, but also bring in extra fields, `homePlanet` and `primaryFunction`, that are specific to that particular type of character.
 
-Interfaces are useful when you want to return an object or set of objects, but those might be of several different types. For example, in the following query:
+Interfaces are useful when you want to return an object or set of objects, but those might be of several different types.
+
+For example, note that the following query produces an error:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
@@ -255,7 +263,9 @@ query HeroForEpisode($ep: Episode!) {
 }
 ```
 
-The `hero` field returns the type `Character`, which means it might be either a `Human` or a `Droid` depending on the `episode` argument. In the query above, you can only ask for fields that exist on the `Character` interface, and to ask for a field on a specific object type, you need to use an inline fragment:
+The `hero` field returns the type `Character`, which means it might be either a `Human` or a `Droid` depending on the `episode` argument. In the query above, you can only ask for fields that exist on the `Character` interface, which doesn't include `primaryFunction`.
+
+To ask for a field on a specific object type, you need to use an inline fragment:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
@@ -275,20 +285,30 @@ Learn more about this in the [inline fragments](XXX) section in the query guide.
 
 Union types are very similar to interfaces, but they don't get to specify any common fields between the types.
 
-XXX no example in SWAPI
-
 ```graphql
-union SearchResult = Photo | Person
-
-type Person {
-  name: String
-  age: Int
-}
-
-type Photo {
-  height: Int
-  width: Int
-}
+union SearchResult = Human | Droid | Starship
 ```
 
-In this case, if you query a field that returns the `SearchResult` union type, you need to use a conditional fragment to be able to query any fields at all.
+Wherever we return a `SearchResult` type in our schema, we might get a `Human`, a `Droid`, or a `Starship`. Note that members of a union type need to be concrete object types; you can't create a union type out of interfaces or other unions.
+
+In this case, if you query a field that returns the `SearchResult` union type, you need to use a conditional fragment to be able to query any fields at all:
+
+```graphql
+# { "graphiql": true}
+{
+  search(text: "an") {
+    ... on Human {
+      name
+      height
+    }
+    ... on Droid {
+      name
+      primaryFunction
+    }
+    ... on Starship {
+      name
+      length
+    }
+  }
+}
+```

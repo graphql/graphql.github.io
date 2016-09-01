@@ -181,36 +181,27 @@ Most discussions of GraphQL focus on data fetching, but any complete data platfo
 
 In REST, any request might end up causing some side-effects on the server, but by convention it's suggested that one doesn't use `GET` requests to modify data. GraphQL is similar - technically any query could be implemented to cause a data write. However, it's useful to establish a convention that any operations that cause writes should be sent explicitly via a mutation.
 
-Here's an example of a simple mutation:
+Just like in queries, if the mutation field returns an object type, you can ask for nested fields. This can be useful for fetching the new state of an object after an update. Let's look at a simple example mutation:
 
 ```graphql
-mutation CreateCharacterInEpisode($name: String!, $appearsIn: Episode!) {
-  createCharacter(name: $name)
-  addCharacterToEpisode(name: $name, episode: $appearsIn)
-}
-```
-
-You can see that a mutation can contain multiple fields, just like a query. There's one important distinction between queries, and mutations, other than the name:
-
-**While query fields are executed in parallel, mutation fields run in series, one after the other.**
-
-This means that even though we sent `createCharacter` and `addCharacterToEpisode` in one request, the first is guaranteed to finish before the second begins, ensuring that we create the character before trying to add it an episode.
-
-#### Returning data from mutations
-
-Just like in queries, you can ask for nested fields in the mutation result. This can be useful for fetching the new state of an object after an update:
-
-```graphql
-mutation IncrementCredits($characterId: ID!) {
-  incrementCredits(characterId: $characterId) {
-    totalCredits
+# { "graphiql": true, "variables": { "ep": "JEDI", "review": { "stars": 5, "commentary": "This is a great movie!" } } }
+mutation CreateReviewForEpisode($ep: Episode!, $review: ReviewInput!) {
+  createReview(episode: $ep, review: $review) {
+    stars
+    commentary
   }
 }
 ```
 
-In this case, the `incrementCredits` mutation field returns a `Character` object, so we can query the new value of `totalCredits` after giving that character some more credits. Otherwise, we would have needed to send two requests - one to update the credits, and another to get the new value - or guess at the new amount based on outdated data.
+In this case, the `incrementCredits` mutation field returns a `Human` object, so we can query the new value of `totalCredits` after giving that character some more credits. Otherwise, we would have needed to send two requests - one to update the credits, and another to get the new value - or guess at the new amount based on outdated data.
 
-That's all! Now you know everything you need to know about GraphQL queries and mutations to build a pretty good application. For more advanced features and tips, check out the advanced section.
+#### Multiple fields in mutations
+
+A mutation can contain multiple fields, just like a query. There's one important distinction between queries and mutations, other than the name:
+
+**While query fields are executed in parallel, mutation fields run in series, one after the other.**
+
+This means that if we send two `incrementCredits` mutations in one request, the first is guaranteed to finish before the second begins, ensuring that we don't end up with a race condition with ourselves.
 
 ### Fragments and type conditions
 
@@ -226,8 +217,8 @@ query HeroForEpisode($ep: Episode!) {
     ... on Droid {
       primaryFunction
     }
-    ... on Droid {
-      homePlanet
+    ... on Human {
+      height
     }
   }
 }
@@ -237,4 +228,4 @@ In this query, the `hero` field returns the type `Character`, which might be eit
 
 To ask for a field on the concrete type, you need to use an _inline fragment_ with a type condition. Because the first fragment is labeled as `... on Droid`, the `primaryFunction` field will only be executed if the `Character` returned from `hero` is of the `Droid` type. Similarly for the `homePlanet` field for the `Human` type.
 
-Named fragments can also be used in the same way, since a named fragment always has a type condition attached.
+Named fragments can also be used in the same way, since a named fragment always has a type attached.
