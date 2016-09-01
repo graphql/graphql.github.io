@@ -203,6 +203,8 @@ mutation CreateReviewForEpisode($ep: Episode!, $review: ReviewInput!) {
 
 In this case, the `incrementCredits` mutation field returns a `Human` object, so we can query the new value of `totalCredits` after giving that character some more credits. Otherwise, we would have needed to send two requests - one to update the credits, and another to get the new value - or guess at the new amount based on outdated data.
 
+You might also notice that, in this example, the `review` variable we passed in is not a scalar. It's an _input object type_, a special kind of object type that can be passed in as an argument. Learn more about input types on the Schema page.
+
 #### Multiple fields in mutations
 
 A mutation can contain multiple fields, just like a query. There's one important distinction between queries and mutations, other than the name:
