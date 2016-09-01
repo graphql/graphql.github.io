@@ -16,6 +16,8 @@ import {
   GraphQLString
 } from 'graphql';
 
+import { makeExecutableSchema } from 'graphql-tools';
+
 const schemaString = `
 schema {
   query: Query
@@ -159,7 +161,7 @@ var luke = {
   id: '1000',
   name: 'Luke Skywalker',
   friends: [ '1002', '1003', '2000', '2001' ],
-  appearsIn: [ 4, 5, 6 ],
+  appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
   height: 1.72,
   mass: 77,
   starships: [ '12', '22' ], // XXX
@@ -169,7 +171,7 @@ var vader = {
   id: '1001',
   name: 'Darth Vader',
   friends: [ '1004' ],
-  appearsIn: [ 4, 5, 6 ],
+  appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
   height: 2.02,
   mass: 136,
   starships: [ '13' ], // XXX
@@ -179,7 +181,7 @@ var han = {
   id: '1002',
   name: 'Han Solo',
   friends: [ '1000', '1003', '2001' ],
-  appearsIn: [ 4, 5, 6 ],
+  appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
   height: 1.8,
   mass: 80,
   starships: [ '10', '22' ], // XXX
@@ -189,7 +191,7 @@ var leia = {
   id: '1003',
   name: 'Leia Organa',
   friends: [ '1000', '1002', '2000', '2001' ],
-  appearsIn: [ 4, 5, 6 ],
+  appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
   height: 1.5,
   mass: 49,
   starships: [],
@@ -199,7 +201,7 @@ var tarkin = {
   id: '1004',
   name: 'Wilhuff Tarkin',
   friends: [ '1001' ],
-  appearsIn: [ 4 ],
+  appearsIn: [ 'NEWHOPE' ],
   height: 1.8,
   mass: null,
   starships: [],
@@ -217,7 +219,7 @@ var threepio = {
   id: '2000',
   name: 'C-3PO',
   friends: [ '1000', '1002', '1003', '2001' ],
-  appearsIn: [ 4, 5, 6 ],
+  appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
   primaryFunction: 'Protocol',
 };
 
@@ -225,7 +227,7 @@ var artoo = {
   id: '2001',
   name: 'R2-D2',
   friends: [ '1000', '1002', '1003' ],
-  appearsIn: [ 4, 5, 6 ],
+  appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
   primaryFunction: 'Astromech',
 };
 
@@ -253,7 +255,7 @@ function getFriends(character) {
  * Allows us to fetch the undisputed hero of the Star Wars trilogy, R2-D2.
  */
 function getHero(episode) {
-  if (episode === 5) {
+  if (episode === 'EMPIRE') {
     // Luke is the hero of Episode V.
     return luke;
   }
@@ -515,6 +517,54 @@ var queryType = new GraphQLObjectType({
  * Finally, we construct our schema (whose starting query type is the query
  * type we defined above) and export it.
  */
-export var StarWarsSchema = new GraphQLSchema({
-  query: queryType
+// export var StarWarsSchema = new GraphQLSchema({
+//   query: queryType
+// });
+
+const resolvers = {
+  Query: {
+    hero: (root, { episode }) => getHero(episode),
+    human: (root, { id }) => getHuman(id),
+    droid: (root, { id }) => getDroid(id),
+    starship: () => null,
+    reviews: () => null,
+    search: () => null,
+  },
+  Mutation: {
+    createReview: () => null,
+  },
+  Character: {
+    __resolveType(data, context, info){
+      if(humanData[data.id]){
+        return info.schema.getType('Human');
+      }
+      if(droidData[data.id]){
+        return info.schema.getType('Droid');
+      }
+      return null;
+    },
+  },
+  Human: {
+    height: ({ height }) => height, // XXX add units
+    friends: ({ friends }) => friends.map(getCharacter),
+    starships: () => null,
+    appearsIn: ({ appearsIn }) => appearsIn,
+  },
+  Droid: {
+    friends: ({ friends }) => friends.map(getCharacter),
+    appearsIn: ({ appearsIn }) => appearsIn,
+  },
+  Starship: {
+    length: () => null,
+  }
+}
+
+/**
+ * Finally, we construct our schema (whose starting query type is the query
+ * type we defined above) and export it.
+ */
+console.log('hi')
+export const StarWarsSchema = makeExecutableSchema({
+  typeDefs: [schemaString],
+  resolvers
 });

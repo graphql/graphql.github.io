@@ -225,8 +225,8 @@ query HeroForEpisode($ep: Episode!) {
     ... on Droid {
       primaryFunction
     }
-    ... on Droid {
-      homePlanet
+    ... on Human {
+      height
     }
   }
 }
