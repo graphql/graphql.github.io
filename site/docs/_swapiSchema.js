@@ -24,6 +24,7 @@ schema {
 
 type Query {
   hero(episode: Episode): Character
+  reviews(episode: Episode!): [Review]
   search(text: String): [SearchResult]
   droid(id: ID!): Droid
   human(id: ID!): Human
@@ -31,8 +32,7 @@ type Query {
 }
 
 type Mutation {
-  createHuman(human: HumanInput!): ID!
-  incrementCredits(humanId: ID!): Human
+  createReview(episode: Episode, review: ReviewInput!): Review
 }
 
 # The episodes in the Star Wars trilogy
@@ -101,13 +101,21 @@ type Droid implements Character {
   primaryFunction: String
 }
 
-# The object to be passed in when creating a new human
-input HumanInput {
-  # The name of the new human
-  name: String!
+type Review {
+  # The number of stars this review gave, 1-5
+  stars: Int
 
-  # The movies this human appears in
-  appearsIn: [Episode]!
+  # Comments about the movie
+  commentary: String
+}
+
+# The input object sent when someone is creating a new review
+input ReviewInput {
+  # 0-5 stars
+  stars: Int
+
+  # Comments about the movie
+  commentary: String
 }
 
 # Units of length
