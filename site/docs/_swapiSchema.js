@@ -531,7 +531,7 @@ const resolvers = {
     search: () => null,
   },
   Mutation: {
-    createReview: () => null,
+    createReview: (root, { episode, review }) => review,
   },
   Character: {
     __resolveType(data, context, info){
