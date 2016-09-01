@@ -57,8 +57,19 @@ Now you know what a GraphQL object type looks like, and how to read the basics o
 
 ### Arguments
 
-TODO
-- Include the idea of default arguments
+Every field on a GraphQL object type can have zero or more arguments, for example the `length` field below:
+
+```graphql
+type Starship {
+  id: ID!
+  name: String!
+  length(unit: LengthUnit = METER): Float
+}
+```
+
+All arguments are named. Unlike languages like JavaScript and Python where functions take a list of ordered arguments, all arguments in GraphQL are be passed by name specifically. In this case, the `length` field has one defined argument, `unit`.
+
+Arguments can be either required or optional. When an argument is optional, we can define a _default value_ - if the `unit` argument is not passed, it will be set to `METER` by default.
 
 ### The Query and Mutation types
 
