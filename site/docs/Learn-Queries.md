@@ -131,7 +131,7 @@ It wouldn't be a good idea to pass these dynamic arguments directly in the query
 When we start working with variables, we need to do three things:
 
 1. Replace the static value in the query with `$variableName`
-2. Declare `$variableName` in our query
+2. Declare `$variableName` as one of the variables accepted by the query
 3. Pass `variableName: value` in the separate, transport-specific (usually JSON) variables dictionary
 
 Here's what it looks like all together:
@@ -150,9 +150,17 @@ query HeroNameAndFriends($episode: Episode) {
 
 Now, in our client code, we can simply pass a different variable rather than needing to construct an entirely new query. This is also in general a good practice for denoting which arguments in our query are expected to be dynamic - we should never be doing string interpolation to construct queries from user-supplied values.
 
-### Operation name
+#### Variable definitions
 
-One thing we also saw in the example above is that our query has acquired a _name_. Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
+The variable definitions are the part that looks like `($episode: Episode)` in the query above. It works just like the argument definitions for a function in a typed language. It lists all of the variables, prefixed by `$`, followed by their type, in this case `Episode`.
+
+All declared variables must be either scalars, enums, or input object types. So if you want to pass a complex object into a field, you need to know what input type that matches on the server. Learn more about input object types on the Schema page.
+
+Variable definitions can be optional or required. In the case above, since there isn't an `!` next to the `Episode` type, it's optional. But if the field you are passing the variable into requires a non-null argument, then the variable has to be required as well.
+
+#### Operation name
+
+One thing we also saw in the example above is that our query has acquired an _operation name_. Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
 
 Think of this just like a function name in your favorite programming language. For example, in JavaScript we can easily work only with anonymous functions, but when we give a function a name, it's easier to track it down, debug our code, and log when it's called. In the same way, GraphQL query and mutation names, along with fragment names, can be a useful debugging tool on the server side to identify different GraphQL requests.
 
