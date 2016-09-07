@@ -9,7 +9,7 @@
 var React = require('react');
 
 const links = [
-  { section: 'docs', text: 'Learn', href: '/docs/getting-started/' },
+  { section: 'docs', text: 'Learn', href: '/docs/' },
   { section: 'code', text: 'Code', href: '/code/' },
   { section: 'help', text: 'Community', href: '/help/' },
   { section: 'blog', text: 'Blog', href: '/blog/' },
