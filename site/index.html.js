@@ -101,7 +101,7 @@ var index = React.createClass({
                 {'{'}
                 {'\n  hero {'}
                 {'\n    name'}
-                {'\n    eyeColor\n    hairColor'.split('').map((c, i) =>
+                {'\n    height\n    mass'.split('').map((c, i) =>
                   <span key={i} id={'ch' + i} className="ch">{c === '\n' ? <br/> : c}</span>)}
                 <span className="cursor" />
                 {'\n  }'}
@@ -123,7 +123,7 @@ var index = React.createClass({
                   {`{
   "hero": {
     "name": "Luke Skywalker",
-    "eyeColor": "blue"
+    "height": 1.72
   }
 }`}
                 </Prism>
@@ -133,8 +133,8 @@ var index = React.createClass({
                   {`{
   "hero": {
     "name": "Luke Skywalker",
-    "eyeColor": "blue",
-    "hairColor": "blond"
+    "height": 1.72,
+    "mass": "mass"
   }
 }`}
                 </Prism>
@@ -149,11 +149,11 @@ var index = React.createClass({
                 if (forward) {
                   document.getElementById('ch' + i).style.display = 'inline';
                   i++;
-                  if (i === 27) {
+                  if (i === 20) {
                     forward = false;
                     showResponse(3);
                     setTimeout(type, 1500);
-                  } else if (i === 13) {
+                  } else if (i === 11) {
                     showResponse(2);
                     setTimeout(type, 1500);
                   } else {
