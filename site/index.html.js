@@ -66,7 +66,7 @@ var index = React.createClass({
               <a className="button" href="/code/">
                 Get Started
               </a>
-              <a className="button" href="/docs/">
+              <a className="button" href="/learn/">
                 Learn More
               </a>
             </div>
