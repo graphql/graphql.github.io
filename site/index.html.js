@@ -216,7 +216,7 @@ var index = React.createClass({
       { "name": "Obi-Wan Kenobi" },
       { "name": "R2-D2" },
       { "name": "Han Solo" },
-      { "name": "Leia Organica" }
+      { "name": "Leia Organa" }
     ]
   }
 }`}
