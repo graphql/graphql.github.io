@@ -3,7 +3,7 @@ title: Introduction
 layout: ../_core/DocsLayout
 category: Walkthrough
 permalink: /docs/intro/
-next: /docs/typesystem/
+next: /docs/todo/
 ---
 
 GraphQL consists of a type system, query language and execution semantics,
