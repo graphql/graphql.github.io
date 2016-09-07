@@ -678,6 +678,63 @@ body.index {
     .prose {
       max-width: 415px;
     }
+
+    .leverage-code {
+      @pane-width: 520px;
+      width: @pane-width;
+      overflow-y: hidden;
+
+      #leverageCodeView {
+        display: flex;
+        flex-direction: row;
+        left: 0;
+        position: relative;
+        transition: left 0.5s ease-in-out;
+        width: @pane-width * 4;
+
+        & > pre {
+          width: @pane-width;
+          position: relative;
+          top: 0;
+        }
+
+        &.step0 {
+          transition: none;
+        }
+
+        &.step1, &.step2 {
+          & > pre:first-child {
+            line-height: 4 * 17px;
+            transition:
+              top 0.5s ease-in-out,
+              line-height 0.5s ease-in-out;
+
+            &:first-line {
+              line-height: 17px;
+            }
+          }
+        }
+
+        &.step2 {
+          left: -1 * @pane-width;
+        }
+
+        &.step3 {
+          left: -2 * @pane-width;
+        }
+
+        &.step4 {
+          left: -3 * @pane-width;
+        }
+
+        &.step5 {
+          left: -4 * @pane-width;
+          & > pre:first-child {
+            left: 4 * @pane-width;
+          }
+        }
+      }
+    }
   }
 
   section.powered-by {
