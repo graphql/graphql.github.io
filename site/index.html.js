@@ -449,6 +449,80 @@ type Person {
               each field in the type system, and GraphQL calls them with
               optimal&nbsp;concurrency.</p>
           </div>
+          <div className="window leverage-code" aria-hidden>
+            <div id="leverageCodeView">
+              <Prism language="graphql">
+                {`type Character {
+  name: String
+  homeWorld: Planet
+  friends: [Character]
+}`}
+              </Prism>
+              <Prism>
+                {`// type Character {
+class Character {
+  // name: String
+  getName() {
+    return this._name
+  }
+
+  // homeWorld: Planet
+  getHomeWorld() {
+    return fetchHomeworld(this._homeworldID)
+  }
+
+  // friends: [Character]
+  getFriends() {
+    return this._friendIDs.map(fetchCharacter)
+  }
+}`}
+              </Prism>
+              <Prism language="python">
+                {`# type Character {
+class Character:
+  # name: String
+  def name(self):
+    return self._name
+
+  # homeWorld: Planet
+  def homeWorld(self):
+    return fetchHomeworld(self._homeworldID)
+
+  # friends: [Character]
+  def friends(self):
+    return map(fetchCharacter, self._friendIDs)
+`}
+              </Prism>
+              <Prism>
+                {`// type Character {
+public class Character {
+  // name: String
+  public String Name { get; }
+
+  // homeWorld: Planet
+  public async Task<Planet> GetHomeWorldAsync() {
+    return await FetchHomeworldAsync(_HomeworldID);
+  }
+
+  // friends: [Character]
+  public async IEnumerable<Task<Character>> GetFriendsAsync() {
+    return _FriendIDs.Select(FetchCharacterAsync);
+  }
+}`}
+              </Prism>
+            </div>
+            <script dangerouslySetInnerHTML={{__html: `(function(){
+              var i = 0;
+              var inView = document.getElementById('leverageCodeView');
+              var delayBefore = [ 800, 1800, 1200, 3000, 3000, 3000 ];
+              function step() {
+                inView.className = 'step' + i;
+                i = (i + 1) % 6;
+                setTimeout(step, delayBefore[i]);
+              }
+              step();
+            })()`}} />
+          </div>
         </section>
 
         <section className="powered-by">
