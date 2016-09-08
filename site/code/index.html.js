@@ -31,12 +31,12 @@ Many different programming languages support GraphQL. This list contains some of
   - [graphql-java](https://github.com/graphql-java/graphql-java): A Java library for building GraphQL APIs.
   - [graphql-relay](https://github.com/graphql/graphql-relay-js) ([npm](https://www.npmjs.com/package/graphql-relay)): A server library to help construct a Node.js GraphQL API that supports [Relay](https://facebook.github.io/relay/).
   - [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria)) A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
-  - [Apollo Server](http://dev.apollodata.com/tools/apollo-server/index.html) ([github](https://github.com/apollostack/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server)): A GraphQL server that works with all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa. Designed to work well with the Apollo Client.
+  - [Apollo Server](http://dev.apollodata.com/tools/apollo-server/index.html) ([github](https://github.com/apollostack/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server)): A GraphQL server that works with all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
 
 ## GraphQL Clients
 
   - [Relay](https://facebook.github.io/relay/) ([github](https://github.com/facebook/relay)) ([npm](https://www.npmjs.com/package/react-relay)): Facebook's framework for building React applications that talk to a GraphQL backend.
-  - [Apollo Client](http://dev.apollodata.com/react/) ([github](https://github.com/apollostack/apollo-client)): A powerful JavaScript GraphQL client, designed to work well with the Apollo Server.
+  - [Apollo Client](http://dev.apollodata.com/react/) ([github](https://github.com/apollostack/apollo-client)): A powerful JavaScript GraphQL client, designed to work well with React, React Native, Angular 2, or just plain JavaScript.
   - [Lokka](https://github.com/kadirahq/lokka): A simple JavaScript GraphQL client that works in all JavaScript environments - the browser, Node.js, and React Native.
 
 ## Tools
