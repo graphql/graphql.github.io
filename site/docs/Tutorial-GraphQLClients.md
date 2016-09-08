@@ -1,7 +1,7 @@
 ---
 title: GraphQL Clients
-layout: ../_core/DocsLayout
-category: Tutorial
+layout: ../_core/CodeLayout
+category: GraphQL.js Tutorial
 permalink: /graphql-js/graphql-clients/
 next: /graphql-js/basic-types/
 ---

@@ -1,6 +1,6 @@
 ---
 title: Execution
-layout: ../_core/DocsLayout
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-execution/
 next: /docs/api-reference-errors/

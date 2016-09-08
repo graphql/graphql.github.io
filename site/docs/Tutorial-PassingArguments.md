@@ -1,7 +1,7 @@
 ---
 title: Passing Arguments
-layout: ../_core/DocsLayout
-category: Tutorial
+layout: ../_core/CodeLayout
+category: GraphQL.js Tutorial
 permalink: /graphql-js/passing-arguments/
 next: /graphql-js/object-types/
 ---

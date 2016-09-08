@@ -11,7 +11,7 @@ var React = require('react');
 var DocsSidebar = React.createClass({
   render: function() {
     return <div className="nav-docs">
-      {getCategories(this.props.site).map((category) =>
+      {getCategories(this.props.site, this.props.firstURL).map((category) =>
         <div className="nav-docs-section" key={category.name}>
           <h3>{category.name}</h3>
           <ul>
@@ -22,7 +22,7 @@ var DocsSidebar = React.createClass({
                   style={{marginLeft: page.indent ? 20 : 0}}
                   className={page.id === this.props.page.id ? 'active' : ''}
                   href={page.url}>
-                  {page.title}
+                  {page.sidebarTitle || page.title}
                 </a>
               </li>
             )}
@@ -33,7 +33,9 @@ var DocsSidebar = React.createClass({
   }
 });
 
-function getCategories(site) {
+// If firstURL is provided, it's the URL (starting with /) of the
+// first page to put on the sidebar.
+function getCategories(site, firstURL) {
   var pages = site.files.docs.filter(file => file.content);
 
   // Build a hashmap of url -> page
@@ -61,10 +63,13 @@ function getCategories(site) {
   var first = null;
   for (var i = 0; i < pages.length; ++i) {
     var page = pages[i];
-    if (!previous[page.url]) {
+    if (firstURL ? (firstURL === page.url) : !previous[page.url]) {
       first = page;
       break;
     }
+  }
+  if (!first) {
+    throw new Error('first not found');
   }
 
   var categories = [];
