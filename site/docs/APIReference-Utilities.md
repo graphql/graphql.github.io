@@ -1,6 +1,6 @@
 ---
 title: Utilities
-layout: ../_core/DocsLayout
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-utilities/
 ---

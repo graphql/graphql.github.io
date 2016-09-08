@@ -1,6 +1,6 @@
 ---
 title: Type System
-layout: ../_core/DocsLayout
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-type-system/
 next: /docs/api-reference-validation/

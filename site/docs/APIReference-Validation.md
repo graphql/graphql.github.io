@@ -1,6 +1,6 @@
 ---
 title: Validation
-layout: ../_core/DocsLayout
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-validation/
 next: /docs/api-reference-execution/

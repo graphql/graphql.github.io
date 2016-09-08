@@ -1,7 +1,7 @@
 ---
 title: Basic Types
-layout: ../_core/DocsLayout
-category: Tutorial
+layout: ../_core/CodeLayout
+category: GraphQL.js Tutorial
 permalink: /graphql-js/basic-types/
 next: /graphql-js/passing-arguments/
 ---

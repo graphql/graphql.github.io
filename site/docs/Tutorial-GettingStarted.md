@@ -1,18 +1,15 @@
 ---
-title: Getting Started
-layout: ../_core/DocsLayout
-category: Tutorial
+title: Getting Started With GraphQL.js
+sidebarTitle: Getting Started
+layout: ../_core/CodeLayout
+category: GraphQL.js Tutorial
 permalink: /graphql-js/getting-started/
 next: /graphql-js/running-an-express-graphql-server/
 ---
 
 ## Prerequisites
 
-Before getting started, you should have Node v6 installed, although the examples should mostly work in previous versions of Node as well. For this guide, we won't use any language features that require transpilation, but we will use some ES6 features like Promises, classes, and fat arrow functions, so if you aren't familiar with them you might want to read up on them first.
-
-* Promises: http://www.html5rocks.com/en/tutorials/es6/promises/
-* Classes: http://javascriptplayground.com/blog/2014/07/introduction-to-es6-classes-tutorial/
-* Fat arrow functions: https://strongloop.com/strongblog/an-introduction-to-javascript-es6-arrow-functions/
+Before getting started, you should have Node v6 installed, although the examples should mostly work in previous versions of Node as well. For this guide, we won't use any language features that require transpilation, but we will use some ES6 features like [Promises](http://www.html5rocks.com/en/tutorials/es6/promises/), [classes](http://javascriptplayground.com/blog/2014/07/introduction-to-es6-classes-tutorial/), and [fat arrow functions](https://strongloop.com/strongblog/an-introduction-to-javascript-es6-arrow-functions/), so if you aren't familiar with them you might want to read up on them first.
 
 To create a new project and install GraphQL.js in your current directory:
 
@@ -62,4 +59,4 @@ You should see the GraphQL response printed out:
 
 Congratulations - you just executed a GraphQL query!
 
-For practical applications, you'll probably want to run GraphQL queries from an API server, rather than executing GraphQL with a command line tool. To use GraphQL for an API server over HTTP, check out [Running an Express-GraphQL Server](/graphql-js/running-an-express-graphql-server/).
+For practical applications, you'll probably want to run GraphQL queries from an API server, rather than executing GraphQL with a command line tool. To use GraphQL for an API server over HTTP, check out [Running an Express GraphQL Server](/graphql-js/running-an-express-graphql-server/).

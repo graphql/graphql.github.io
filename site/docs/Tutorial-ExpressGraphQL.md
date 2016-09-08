@@ -1,7 +1,8 @@
 ---
 title: Running an Express GraphQL Server
-layout: ../_core/DocsLayout
-category: Tutorial
+sidebarTitle: Running Express + GraphQL
+layout: ../_core/CodeLayout
+category: GraphQL.js Tutorial
 permalink: /graphql-js/running-an-express-graphql-server/
 next: /graphql-js/graphql-clients/
 ---
