@@ -41,7 +41,7 @@ GraphiQL, an in-browser GraphQL IDE.
 
 *Nick Schrock – August 24, 2015*
 
-Nick expands on Lee's talk, explaining how to use graphql-js to build a server.
+Nick expands on Lee's talk, explaining how to use GraphQL.js to build a server.
 Then introduces how wrapping an existing REST server can be an effective way to
 get started with GraphQL and announces the public release of "swapi-graphql" a
 wrapper of the Star Wars REST API to illustrate. Many live demos of "swapi-graphql"
@@ -54,7 +54,7 @@ using GraphiQL.
 *Lee Byron – July 2, 2015*
 
 Lee introduces GraphQL and its origin and announces the public release of the
-GraphQL working draft specification and "graphql-js" a reference implementation.
+GraphQL working draft specification and "GraphQL.js" a reference implementation.
 
 <iframe width="760" height="426" src="https://www.youtube-nocookie.com/embed/WQLzZf34FJ8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
@@ -62,7 +62,7 @@ GraphQL working draft specification and "graphql-js" a reference implementation.
 
 *Nick Schrock, Dan Schafer – July 3, 2015*
 
-Nick and Dan expands on Lee's talk, explaining how to use graphql-js to build a
+Nick and Dan expands on Lee's talk, explaining how to use GraphQL.js to build a
 server and explain the merits of a strong type system.
 
 <iframe width="760" height="426" src="https://www.youtube-nocookie.com/embed/gY48GW87Feo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
