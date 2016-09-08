@@ -26,14 +26,15 @@ You should see the output returned as JSON:
 It's also simple to send GraphQL from the browser. Open up [http://localhost:4000](http://localhost:4000/), open a developer console, and paste in:
 
 ```javascript
-var query = '{ hello }';
-fetch('http://localhost:4000/graphql', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({query: query}),
-}).then(response => response.json()).then((response) => {
-  console.log('data returned:', response.data);
-});
+var xhr = new XMLHttpRequest();
+xhr.responseType = 'json';
+xhr.open("POST", "/graphql");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Accept", "application/json");
+xhr.onload = function() {
+  console.log('data returned:', xhr.response);
+}
+xhr.send(JSON.stringify({query:"{ hello }"}));
 ```
 
 You should see the data returned, logged in the console:
@@ -41,8 +42,6 @@ You should see the data returned, logged in the console:
 ```
 data returned: Object { hello: "Hello world!" }
 ```
-
-The `fetch` API used here is in most modern browsers - check out [Mozilla's documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) if you'd like to learn more. Any mechanism of sending HTTP requests should work similarly. In the browser, we recommend using `fetch` over `XMLHttpRequest` if you have the choice because the API is nicer. In a mobile application, you can use whatever library you'd normally use to send HTTP requests.
 
 In general, it will take a bit more time to set up a GraphQL client like Relay, but it's worth it to get more features as your application grows. You might want to start out just using HTTP requests as the underlying transport layer, and switching to a more complex client as your application gets more complex.
 
