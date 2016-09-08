@@ -8,7 +8,22 @@ next: /graphql-js/basic-types/
 
 Since a GraphQL API has more underlying structure than a REST API, there are more powerful clients like [Relay](https://facebook.github.io/relay/) which can automatically handling batching, caching, and other features. But you don't need a complex client to call a GraphQL server. With `express-graphql`, you can just send an HTTP POST request to the endpoint you mounted your GraphQL server on, passing the GraphQL query as the `query` field in a JSON payload.
 
-For example, let's say we mounted a GraphQL server on [http://localhost:4000/graphql](http://localhost:4000/graphql) as in the example code for [running an Express GraphQL server](/graphql-js/running-an-express-graphql-server/), and we want to send a GraphQL request from the browser. Open up [http://localhost:4000](http://localhost:4000/), open a developer console, and paste in:
+For example, let's say we mounted a GraphQL server on [http://localhost:4000/graphql](http://localhost:4000/graphql) as in the example code for [running an Express GraphQL server](/graphql-js/running-an-express-graphql-server/), and we want to send the GraphQL query `{ hello }`. We can do this from the command line with `curl`. If you paste this into a terminal:
+
+```bash
+curl -X POST \
+-H "Content-Type: application/json" \
+-d '{"query": "{ hello }"}' \
+http://localhost:4000/graphql
+```
+
+You should see the output returned as JSON:
+
+```bash
+{"data":{"hello":"Hello world!"}}
+```
+
+It's also simple to send GraphQL from the browser. Open up [http://localhost:4000](http://localhost:4000/), open a developer console, and paste in:
 
 ```javascript
 var query = '{ hello }';
