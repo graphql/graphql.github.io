@@ -3,6 +3,7 @@ title: Schemas and Types
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/schema/
+next: /learn/serving-over-http/
 ---
 
 On this page, you'll learn all you need to know about the GraphQL type system and how it describes what data can be queried. Since GraphQL can be used with any backend framework or programming language, we'll stay away from implementation-specific details and talk only about the concepts.
