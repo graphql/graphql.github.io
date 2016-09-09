@@ -1,6 +1,6 @@
 ---
 title: Language
-layout: ../_core/DocsLayout
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-language/
 next: /docs/api-reference-type-system/
