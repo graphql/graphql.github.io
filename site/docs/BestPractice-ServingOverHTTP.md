@@ -35,7 +35,7 @@ This request could be sent via an HTTP GET like so:
 http://myapi/graphql?query={me{name}}
 ```
 
-Query variables can be sent in an additional query parameter called `variables`.
+Query variables can be sent as a JSON-encoded string in an additional query parameter called `variables`.
 
 #### POST request
 
