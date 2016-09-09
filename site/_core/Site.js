@@ -13,7 +13,8 @@ var SiteData = require('./SiteData');
 
 var Site = React.createClass({
   render: function() {
-    var pageTitle = this.props.title ? `${this.props.title} | GraphQL` : `GraphQL | ${SiteData.description}`;
+    var suffix = this.props.category || 'GraphQL';
+    var pageTitle = this.props.title ? `${this.props.title} | ${suffix}` : `GraphQL | ${SiteData.description}`;
     return (
       <html>
         <head>

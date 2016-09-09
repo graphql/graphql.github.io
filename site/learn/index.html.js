@@ -22,8 +22,35 @@ var Learn = React.createClass({
           <div className="inner-content">
             <h1>Learn</h1>
             <p>
-              Content coming soon...
+              Whether you're new to GraphQL or running GraphQL in production, we've prepared a list of topics to help you understand everything from fundamentals to best practices.
             </p>
+
+            <h3>Core Concepts</h3>
+            <p>
+              Start here to get a solid understanding GraphQL concepts and theory.
+            </p>
+            <ul>
+              <li><a>Query Language</a></li>
+              <li><a>Type System</a></li>
+              <li><a>Validation</a></li>
+              <li><a>Execution</a></li>
+              <li><a>Introspection</a></li>
+            </ul>
+
+            <h3>Best Practices</h3>
+            <p>
+              Ready to add GraphQL to your stack? Follow these guidelines to get a running start.
+            </p>
+            <ul>
+              <li><a href="/learn/serving-over-http/">Serving Over HTTP</a></li>
+              <li><a href="/learn/authorization/">Authorization</a></li>
+              <li><a>Domain Modeling</a></li>
+              <li><a>Pagination</a></li>
+              <li><a>Versioning</a></li>
+              <li><a>Performance</a></li>
+              <li><a>Security</a></li>
+            </ul>
+
           </div>
         </section>
 
