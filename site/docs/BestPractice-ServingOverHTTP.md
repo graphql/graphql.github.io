@@ -55,6 +55,19 @@ In addition to the above, we recommend supporting two additional cases:
 
 If you're using express-graphql, you already get these behaviors for free.
 
+### Response
+
+Regardless of the method by which the query and variables were sent, the response should be returned in the body of the request in JSON format. As mentioned in the spec, a query might result in some data and some errors, and those should be returned in a JSON object of the form:
+
+```js
+{
+  "data": { ... },
+  "errors": [ ... ]
+}
+```
+
+If there were no errors returned, the `"errors"` field should not be present on the response. If no data is returned, [according to the GraphQL spec](http://facebook.github.io/graphql/#sec-Data), the `"data"` field should only be included if the error occurred during execution.
+
 ### GraphiQL
 GraphiQL is useful during testing and development but should be disabled in production by default. If you are using express-graphql, you can toggle it based on the NODE_ENV environment variable:
 
