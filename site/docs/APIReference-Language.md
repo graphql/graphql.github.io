@@ -1,8 +1,9 @@
 ---
-title: Language
+title: graphql/language
 layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-language/
+sublinks: Source,getLocation,lex,parse,parseValue,Kind,visit,BREAK,print
 next: /docs/api-reference-type-system/
 ---
 
