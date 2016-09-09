@@ -17,8 +17,12 @@ var CodeLayout = React.createClass({
     var page = this.props.page;
     var site = this.props.site;
     var firstURL = '/graphql-js/getting-started/';
+    var category = page.category;
+    if (!category.match(/GraphQL/)) {
+      category = 'GraphQL.js ' + category;
+    }
     return (
-      <Site section="docs" title={page.title}>
+      <Site section="docs" title={page.title} category={category}>
         <section className="content documentationContent">
           <DocsSidebar site={site} page={page} firstURL={firstURL}/>
           <div className="inner-content">
