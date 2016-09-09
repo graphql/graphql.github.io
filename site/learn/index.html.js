@@ -42,9 +42,8 @@ var Learn = React.createClass({
               Ready to add GraphQL to your stack? Follow these guidelines to get a running start.
             </p>
             <ul>
-              <li><a href="/learn/project-setup/">Project Setup</a></li>
               <li><a href="/learn/serving-over-http/">Serving Over HTTP</a></li>
-              <li><a>Authorization</a></li>
+              <li><a href="/learn/authorization/">Authorization</a></li>
               <li><a>Domain Modeling</a></li>
               <li><a>Pagination</a></li>
               <li><a>Versioning</a></li>
