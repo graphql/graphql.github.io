@@ -1,9 +1,9 @@
 ---
-title: Validation
+title: graphql/validation
 layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-validation/
-next: /docs/api-reference-execution/
+sublinks: validate,specifiedRules
 ---
 
 The `graphql/validation` module fulfills the Validation phase of fulfilling a
