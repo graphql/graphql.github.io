@@ -35,7 +35,7 @@ This request could be sent via an HTTP GET like so:
 http://myapi/graphql?query={me{name}}
 ```
 
-Query variables can be sent as a JSON-encoded string in an additional query parameter called `variables`.
+Query variables can be sent as a JSON-encoded string in an additional query parameter called `variables`.  If the query contains several named operations, an `operationName` query parameter can be used to control which one should be executed.
 
 #### POST request
 
@@ -44,9 +44,12 @@ A standard GraphQL POST request should use the `application/json` content type, 
 ```js
 {
   "query": "...",
-  "variables": { variable1: value, ... }
+  "operationName": "...",
+  "variables": { variable1: value, ... }  
 }
 ```
+
+`operationName` and `variables` are optional fields. `operationName` is only required if multiple operations are present in the query. 
 
 In addition to the above, we recommend supporting two additional cases:
 
