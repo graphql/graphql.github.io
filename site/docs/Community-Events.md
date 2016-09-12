@@ -1,3 +1,10 @@
+---
+title: Upcoming Events
+layout: ../_core/DocsLayout
+category: Community
+permalink: /help/upcoming-events/
+---
+
 # Upcoming Events
 
 ## Talks

@@ -1,3 +1,10 @@
+---
+title: Community Resources
+layout: ../_core/DocsLayout
+category: Community
+permalink: /help/resources/
+---
+
 # Community Resources
 
 ## Slack
