@@ -28,7 +28,7 @@ So far, our resolver functions took no arguments. When a resolver takes argument
 
 ```javascript
 var root = {
-  rollDice: function(args) {
+  rollDice: function (args) {
     var output = [];
     for (var i = 0; i < args.numDice; i++) {
       output.push(1 + Math.floor(Math.random() * (args.numSides || 6)));
@@ -42,7 +42,7 @@ It's convenient to use [ES6 destructuring assignment](https://developer.mozilla.
 
 ```javascript
 var root = {
-  rollDice: function({numDice, numSides}) {
+  rollDice: function ({numDice, numSides}) {
     var output = [];
     for (var i = 0; i < numDice; i++) {
       output.push(1 + Math.floor(Math.random() * (numSides || 6)));
@@ -70,7 +70,7 @@ var schema = buildSchema(`
 
 // The root provides a resolver function for each API endpoint
 var root = {
-  rollDice: function({numDice, numSides}) {
+  rollDice: function ({numDice, numSides}) {
     var output = [];
     for (var i = 0; i < numDice; i++) {
       output.push(1 + Math.floor(Math.random() * (numSides || 6)));

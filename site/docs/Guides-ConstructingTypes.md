@@ -41,7 +41,7 @@ var fakeDatabase = {
 };
 
 var root = {
-  user: function({id}) {
+  user: function ({id}) {
     return fakeDatabase[id];
   }
 };
