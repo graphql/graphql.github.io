@@ -43,10 +43,13 @@ async function readSite(siteRoot) {
   return site;
 }
 
-function buildSite(buildRoot, site) {
-  return Promise.all(site.files.map(file => {
-    return writer(buildRoot, file, site);
-  }));
+function buildSite(buildRoot, site, filter) {
+  return Promise.all(site.files
+    .filter(file =>
+      !filter ||
+      (filter.test ? filter.test(file.absPath) : filter === file.absPath))
+    .map(file => writer(buildRoot, file, site))
+  );
 }
 
 
@@ -121,6 +124,11 @@ function urlToFile(file) {
         }
       }
     }
+  }
+
+  // Convert .less to .css
+  if (path.extname(url) === '.less') {
+    url = url.slice(0, -5) + '.css';
   }
 
   // Assume index.html stands for the parent directory

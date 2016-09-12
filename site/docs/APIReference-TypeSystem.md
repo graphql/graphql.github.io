@@ -1,9 +1,10 @@
 ---
-title: Type System
-layout: ../_core/DocsLayout
+title: graphql/types
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-type-system/
-next: /docs/api-reference-validation/
+sublinks: GraphQLSchema,GraphQLScalarType,GraphQLObjectType,GraphQLInterfaceType,GraphQLUnionType,GraphQLEnumType,GraphQLInputObjectType,GraphQLList,GraphQLNonNull,isInputType,isOutputType,isLeafType,isCompositeType,isAbstractType,getNullableType,getNamedType,GraphQLInt,GraphQLFloat,GraphQLString,GraphQLBoolean,GraphQLID
+next: /docs/api-reference-utilities/
 ---
 
 The `graphql/type` module is responsible for defining GraphQL types and schema.
@@ -80,11 +81,6 @@ var GraphQLType = require('graphql/type'); // CommonJS
 </ul>
 
 *Predicates*
-
-These types may be used as output types as the result of fields
-These types may describe types which may be leaf values
-These types may describe the parent context of a selection set
-These types may describe a combination of object types
 
 <ul class="apiIndex">
   <li>

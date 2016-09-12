@@ -9,7 +9,7 @@
 import React from 'react';
 import marked from 'marked';
 
-import { graphql, formatError } from 'graphql';
+import { graphql, formatError, parse, typeFromAST } from 'graphql';
 
 
 module.exports = class MiniGraphiQL extends React.Component {
@@ -19,43 +19,71 @@ module.exports = class MiniGraphiQL extends React.Component {
   constructor(props) {
     super();
 
+    const query = props.query.replace(/^\s+/, '').replace(/\s+$/, '');
+
     // Initialize state
     this.state = {
-      schema: props.schema,
-      query: props.query.replace(/^\s+/, ''),
-      values: props.values,
+      query: query,
+      variables: props.variables,
       response: null,
+      variableToType: getVariableToType(props.schema, query)
     };
 
     this._editorQueryID = 0;
   }
 
   render() {
+    const editor =
+      <QueryEditor
+        key="query-editor"
+        schema={this.props.schema}
+        value={this.state.query}
+        onEdit={this._handleEditQuery.bind(this)}
+        runQuery={this._runQueryFromEditor.bind(this)}
+      />;
+
     return (
       <div className="miniGraphiQL">
-        <QueryEditor
-          schema={this.state.schema}
-          value={this.state.query}
-          onEdit={this._onEditQuery.bind(this)}
-          runQuery={this._runEditorQuery.bind(this)}
-        />
+        {Object.keys(this.state.variableToType).length > 0 ?
+          <div className="hasVariables">
+            {editor}
+            <VariableEditor
+              value={this.state.variables}
+              variableToType={this.state.variableToType}
+              onEdit={this._handleEditVariables.bind(this)}
+              onRunQuery={this._runQuery.bind(this)}
+            />
+          </div>
+          : editor
+        }
         <ResultViewer value={this.state.response} />
       </div>
     );
   }
 
   componentDidMount() {
-    this._runEditorQuery();
+    this._runQueryFromEditor();
   }
 
   // Private methods
 
-  _runEditorQuery() {
+  _runQueryFromEditor() {
+    this.setState({
+      variableToType: getVariableToType(this.props.schema, this.state.query)
+    });
+    this._runQuery();
+  }
+
+  _runQuery() {
     this._editorQueryID++;
     var queryID = this._editorQueryID;
 
     graphql(
-      this.state.schema, this.state.query, null, this.state.values
+      this.props.schema,
+      this.state.query,
+      this.props.rootValue,
+      null, // context
+      this.state.variables && JSON.parse(this.state.variables),
     ).then(result => {
       if (result.errors) {
         result.errors = result.errors.map(formatError);
@@ -70,8 +98,12 @@ module.exports = class MiniGraphiQL extends React.Component {
     });
   }
 
-  _onEditQuery(value) {
+  _handleEditQuery(value) {
     this.setState({ query: value });
+  }
+
+  _handleEditVariables(value) {
+    this.setState({ variables: value });
   }
 }
 
@@ -121,7 +153,7 @@ class QueryEditor extends React.Component {
     require('codemirror-graphql/lint');
     require('codemirror-graphql/mode');
 
-    this.editor = CodeMirror(React.findDOMNode(this), {
+    this.editor = CodeMirror(this.domNode, {
       value: this.props.value || '',
       viewportMargin: Infinity,
       tabSize: 2,
@@ -141,8 +173,21 @@ class QueryEditor extends React.Component {
         completeSingle: false,
       },
       extraKeys: {
-        'Cmd-Space': () => this.editor.showHint({ completeSingle: true }),
-        'Ctrl-Space': () => this.editor.showHint({ completeSingle: true }),
+        'Cmd-Space': () => this.editor.showHint({ completeSingle: false }),
+        'Ctrl-Space': () => this.editor.showHint({ completeSingle: false }),
+        'Alt-Space': () => this.editor.showHint({ completeSingle: false }),
+        'Shift-Space': () => this.editor.showHint({ completeSingle: false }),
+
+        'Cmd-Enter': () => {
+          if (this.props.onRunQuery) {
+            this.props.onRunQuery();
+          }
+        },
+        'Ctrl-Enter': () => {
+          if (this.props.onRunQuery) {
+            this.props.onRunQuery();
+          }
+        },
 
         // Editor improvements
         'Ctrl-Left': 'goSubwordLeft',
@@ -207,97 +252,12 @@ class QueryEditor extends React.Component {
     }
   }
 
-  /**
-   * Render a custom UI for CodeMirror's hint which includes additional info
-   * about the type and description for the selected context.
-   */
   _onHasCompletion(cm, data) {
-    var CodeMirror = require('codemirror');
-    var wrapper;
-    var information;
-
-    // When a hint result is selected, we touch the UI.
-    CodeMirror.on(data, 'select', (ctx, el) => {
-      // Only the first time (usually when the hint UI is first displayed)
-      // do we create the wrapping node.
-      if (!wrapper) {
-        // Wrap the existing hint UI, so we have a place to put information.
-        var hintsUl = el.parentNode;
-        var container = hintsUl.parentNode;
-        wrapper = document.createElement('div');
-        container.appendChild(wrapper);
-
-        // CodeMirror vertically inverts the hint UI if there is not enough
-        // space below the cursor. Since this modified UI appends to the bottom
-        // of CodeMirror's existing UI, it could cover the cursor. This adjusts
-        // the positioning of the hint UI to accomodate.
-        var top = hintsUl.style.top;
-        var bottom = '';
-        var cursorTop = cm.cursorCoords().top;
-        if (parseInt(top, 10) < cursorTop) {
-          top = '';
-          bottom = (window.innerHeight - cursorTop + 3) + 'px';
-        }
-
-        // Style the wrapper, remove positioning from hints. Note that usage
-        // of this option will need to specify CSS to remove some styles from
-        // the existing hint UI.
-        wrapper.className = 'CodeMirror-hints-wrapper';
-        wrapper.style.left = hintsUl.style.left;
-        wrapper.style.top = top;
-        wrapper.style.bottom = bottom;
-        hintsUl.style.left = '';
-        hintsUl.style.top = '';
-
-        // This "information" node will contain the additional info about the
-        // highlighted typeahead option.
-        information = document.createElement('div');
-        information.className = 'CodeMirror-hint-information';
-        if (bottom) {
-          wrapper.appendChild(information);
-          wrapper.appendChild(hintsUl);
-        } else {
-          wrapper.appendChild(hintsUl);
-          wrapper.appendChild(information);
-        }
-
-        // When CodeMirror attempts to remove the hint UI, we detect that it was
-        // removed from our wrapper and in turn remove the wrapper from the
-        // original container.
-        var onRemoveFn;
-        wrapper.addEventListener('DOMNodeRemoved', onRemoveFn = event => {
-          if (event.target === hintsUl) {
-            wrapper.removeEventListener('DOMNodeRemoved', onRemoveFn);
-            wrapper.parentNode.removeChild(wrapper);
-            wrapper = null;
-            information = null;
-            onRemoveFn = null;
-          }
-        });
-      }
-
-      // Now that the UI has been set up, add info to information.
-      var description = ctx.description ?
-        marked(ctx.description, { smartypants: true }) :
-        'Self descriptive.';
-      var type = ctx.type ?
-        '<span class="infoType">' + String(ctx.type) + '</span>' :
-        '';
-      information.innerHTML = '<div class="content">' +
-        (description.slice(0, 3) === '<p>' ?
-          '<p>' + type + description.slice(3) :
-          type + description) + '</div>';
-
-      // Additional rendering?
-      var onHintInformationRender = this.props.onHintInformationRender;
-      if (onHintInformationRender) {
-        onHintInformationRender(information);
-      }
-    });
+    onHasCompletion(cm, data, this.props.onHintInformationRender);
   }
 
   render() {
-    return <div className="query-editor" />;
+    return <div className="query-editor" ref={e => this.domNode = e} />;
   }
 }
 
@@ -315,17 +275,14 @@ class QueryEditor extends React.Component {
 class ResultViewer extends React.Component {
   componentDidMount() {
     var CodeMirror = require('codemirror');
-    require('codemirror/mode/javascript/javascript');
+    require('codemirror-graphql/results/mode');
 
-    this.viewer = CodeMirror(React.findDOMNode(this), {
+    this.viewer = CodeMirror(this.domNode, {
       value: this.props.value || '',
       viewportMargin: Infinity,
       readOnly: true,
       theme: 'graphiql',
-      mode: {
-        name: 'javascript',
-        json: true
-      },
+      mode: 'graphql-results',
       keyMap: 'sublime',
       extraKeys: {
         // Editor improvements
@@ -350,6 +307,278 @@ class ResultViewer extends React.Component {
   }
 
   render() {
-    return <div className="result-window" />;
+    return <div className="result-window" ref={e => this.domNode = e} />;
   }
+}
+
+
+/**
+ * VariableEditor
+ *
+ * An instance of CodeMirror for editing variables defined in QueryEditor.
+ *
+ * Props:
+ *
+ *   - variableToType: A mapping of variable name to GraphQLType.
+ *   - value: The text of the editor.
+ *   - onEdit: A function called when the editor changes, given the edited text.
+ *
+ */
+class VariableEditor extends React.Component {
+  constructor(props) {
+    super();
+
+    // Keep a cached version of the value, this cache will be updated when the
+    // editor is updated, which can later be used to protect the editor from
+    // unnecessary updates during the update lifecycle.
+    this.cachedValue = props.value || '';
+    this._onKeyUp = this.onKeyUp.bind(this);
+    this._onEdit = this.onEdit.bind(this);
+    this._onHasCompletion = this.onHasCompletion.bind(this);
+  }
+
+  componentDidMount() {
+    // Lazily require to ensure requiring GraphiQL outside of a Browser context
+    // does not produce an error.
+    const CodeMirror = require('codemirror');
+    require('codemirror/addon/hint/show-hint');
+    require('codemirror/addon/edit/matchbrackets');
+    require('codemirror/addon/edit/closebrackets');
+    require('codemirror/addon/lint/lint');
+    require('codemirror/keymap/sublime');
+    require('codemirror-graphql/variables/hint');
+    require('codemirror-graphql/variables/lint');
+    require('codemirror-graphql/variables/mode');
+
+    this.editor = CodeMirror(this.domNode, {
+      value: this.props.value || '',
+      viewportMargin: Infinity,
+      tabSize: 2,
+      mode: 'graphql-variables',
+      theme: 'graphiql',
+      keyMap: 'sublime',
+      autoCloseBrackets: true,
+      matchBrackets: true,
+      showCursorWhenSelecting: true,
+      lint: {
+        variableToType: this.props.variableToType,
+        onUpdateLinting: this._didLint.bind(this)
+      },
+      hintOptions: {
+        variableToType: this.props.variableToType
+      },
+      extraKeys: {
+        'Cmd-Space': () => this.editor.showHint({ completeSingle: false }),
+        'Ctrl-Space': () => this.editor.showHint({ completeSingle: false }),
+        'Alt-Space': () => this.editor.showHint({ completeSingle: false }),
+        'Shift-Space': () => this.editor.showHint({ completeSingle: false }),
+
+        'Cmd-Enter': () => {
+          if (this.props.onRunQuery) {
+            this.props.onRunQuery();
+          }
+        },
+        'Ctrl-Enter': () => {
+          if (this.props.onRunQuery) {
+            this.props.onRunQuery();
+          }
+        },
+
+        // Editor improvements
+        'Ctrl-Left': 'goSubwordLeft',
+        'Ctrl-Right': 'goSubwordRight',
+        'Alt-Left': 'goGroupLeft',
+        'Alt-Right': 'goGroupRight',
+      }
+    });
+
+    this.editor.on('change', this._onEdit);
+    this.editor.on('keyup', this._onKeyUp);
+    this.editor.on('hasCompletion', this._onHasCompletion);
+  }
+
+  componentDidUpdate(prevProps) {
+    const CodeMirror = require('codemirror');
+
+    // Ensure the changes caused by this update are not interpretted as
+    // user-input changes which could otherwise result in an infinite
+    // event loop.
+    this.ignoreChangeEvent = true;
+    if (this.props.variableToType !== prevProps.variableToType) {
+      this.editor.options.lint.variableToType = this.props.variableToType;
+      this.editor.options.hintOptions.variableToType =
+        this.props.variableToType;
+      CodeMirror.signal(this.editor, 'change', this.editor);
+    }
+    if (this.props.value !== prevProps.value &&
+        this.props.value !== this.cachedValue) {
+      this.cachedValue = this.props.value;
+      this.editor.setValue(this.props.value);
+    }
+    this.ignoreChangeEvent = false;
+  }
+
+  componentWillUnmount() {
+    this.editor.off('change', this._onEdit);
+    this.editor.off('keyup', this._onKeyUp);
+    this.editor.off('hasCompletion', this._onHasCompletion);
+    this.editor = null;
+  }
+
+  render() {
+    return <div className="variable-editor" ref={e => this.domNode = e} />;
+  }
+
+  _didLint(annotations) {
+    if (annotations.length === 0) {
+      this.props.onRunQuery();
+    }
+  }
+
+  onKeyUp(cm, event) {
+    const code = event.keyCode;
+    if (
+      (code >= 65 && code <= 90) || // letters
+      (!event.shiftKey && code >= 48 && code <= 57) || // numbers
+      (event.shiftKey && code === 189) || // underscore
+      (event.shiftKey && code === 222) // "
+    ) {
+      this.editor.execCommand('autocomplete');
+    }
+  }
+
+  onEdit() {
+    if (!this.ignoreChangeEvent) {
+      this.cachedValue = this.editor.getValue();
+      if (this.props.onEdit) {
+        this.props.onEdit(this.cachedValue);
+      }
+    }
+  }
+
+  onHasCompletion(cm, data) {
+    onHasCompletion(cm, data, this.props.onHintInformationRender);
+  }
+}
+
+
+
+
+
+/**
+ * Render a custom UI for CodeMirror's hint which includes additional info
+ * about the type and description for the selected context.
+ */
+function onHasCompletion(cm, data, onHintInformationRender) {
+  var CodeMirror = require('codemirror');
+  var wrapper;
+  var information;
+
+  // When a hint result is selected, we touch the UI.
+  CodeMirror.on(data, 'select', (ctx, el) => {
+    // Only the first time (usually when the hint UI is first displayed)
+    // do we create the wrapping node.
+    if (!wrapper) {
+      // Wrap the existing hint UI, so we have a place to put information.
+      var hintsUl = el.parentNode;
+      var container = hintsUl.parentNode;
+      wrapper = document.createElement('div');
+      container.appendChild(wrapper);
+
+      // CodeMirror vertically inverts the hint UI if there is not enough
+      // space below the cursor. Since this modified UI appends to the bottom
+      // of CodeMirror's existing UI, it could cover the cursor. This adjusts
+      // the positioning of the hint UI to accomodate.
+      var top = hintsUl.style.top;
+      var bottom = '';
+      var cursorTop = cm.cursorCoords().top;
+      if (parseInt(top, 10) < cursorTop) {
+        top = '';
+        bottom = (window.innerHeight - cursorTop + 3) + 'px';
+      }
+
+      // Style the wrapper, remove positioning from hints. Note that usage
+      // of this option will need to specify CSS to remove some styles from
+      // the existing hint UI.
+      wrapper.className = 'CodeMirror-hints-wrapper';
+      wrapper.style.left = hintsUl.style.left;
+      wrapper.style.top = top;
+      wrapper.style.bottom = bottom;
+      hintsUl.style.left = '';
+      hintsUl.style.top = '';
+
+      // This "information" node will contain the additional info about the
+      // highlighted typeahead option.
+      information = document.createElement('div');
+      information.className = 'CodeMirror-hint-information';
+      if (bottom) {
+        wrapper.appendChild(information);
+        wrapper.appendChild(hintsUl);
+      } else {
+        wrapper.appendChild(hintsUl);
+        wrapper.appendChild(information);
+      }
+
+      // When CodeMirror attempts to remove the hint UI, we detect that it was
+      // removed from our wrapper and in turn remove the wrapper from the
+      // original container.
+      var onRemoveFn;
+      wrapper.addEventListener('DOMNodeRemoved', onRemoveFn = event => {
+        if (event.target === hintsUl) {
+          wrapper.removeEventListener('DOMNodeRemoved', onRemoveFn);
+          wrapper.parentNode.removeChild(wrapper);
+          wrapper = null;
+          information = null;
+          onRemoveFn = null;
+        }
+      });
+    }
+
+    // Now that the UI has been set up, add info to information.
+    var description = ctx.description ?
+      marked(ctx.description, { smartypants: true }) :
+      'Self descriptive.';
+    var type = ctx.type ?
+      '<span class="infoType">' + String(ctx.type) + '</span>' :
+      '';
+    information.innerHTML = '<div class="content">' +
+      (description.slice(0, 3) === '<p>' ?
+        '<p>' + type + description.slice(3) :
+        type + description) + '</div>';
+
+    // Additional rendering?
+    if (onHintInformationRender) {
+      onHintInformationRender(information);
+    }
+  });
+}
+
+
+function getVariableToType(schema, documentStr) {
+  if (!documentStr || !schema) {
+    return {};
+  }
+
+  try {
+    const documentAST = parse(documentStr);
+    const variableToType = Object.create(null);
+    documentAST.definitions.forEach(definition => {
+      if (definition.kind === 'OperationDefinition') {
+        const variableDefinitions = definition.variableDefinitions;
+        if (variableDefinitions) {
+          variableDefinitions.forEach(({ variable, type }) => {
+            const inputType = typeFromAST(schema, type);
+            if (inputType) {
+              variableToType[variable.name.value] = inputType;
+            }
+          });
+        }
+      }
+    });
+    return variableToType;
+  } catch (e) {
+    // ignore
+  }
+
+  return {};
 }

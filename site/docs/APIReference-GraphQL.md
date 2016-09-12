@@ -1,9 +1,10 @@
 ---
-title: GraphQL
-layout: ../_core/DocsLayout
+title: graphql
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-graphql/
-next: /docs/api-reference-language/
+sublinks: graphql
+next: /docs/api-reference-errors/
 ---
 
 The `graphql` module exports a core subset of GraphQL functionality for creation

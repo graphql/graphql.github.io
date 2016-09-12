@@ -1,8 +1,10 @@
 ---
-title: Utilities
-layout: ../_core/DocsLayout
+title: graphql/utilities
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-utilities/
+sublinks: introspectionQuery,buildClientSchema,printSchema,printIntrospectionSchema,buildASTSchema,typeFromAST,astFromValue,TypeInfo,isValidJSValue,isValidLiteralValue
+next: /docs/api-reference-validation/
 ---
 
 The `graphql/utilities` module contains common useful computations to use with
@@ -117,7 +119,7 @@ function buildClientSchema(
 Build a GraphQLSchema for use by client tools.
 
 Given the result of a client running the introspection query, creates and
-returns a GraphQLSchema instance which can be then used with all graphql-js
+returns a GraphQLSchema instance which can be then used with all GraphQL.js
 tools, but cannot be used to execute a query, as introspection does not
 represent the "resolver", "parse" or "serialize" functions or any other
 server-internal mechanisms.
@@ -152,7 +154,7 @@ function buildASTSchema(
 
 This takes the ast of a schema document produced by `parseSchemaIntoAST` in
 `graphql/language/schema` and constructs a GraphQLSchema instance which can be
-then used with all graphql-js tools, but cannot be used to execute a query, as
+then used with all GraphQL.js tools, but cannot be used to execute a query, as
 introspection does not represent the "resolver", "parse" or "serialize"
 functions or any other server-internal mechanisms.
 

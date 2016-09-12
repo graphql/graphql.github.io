@@ -9,9 +9,11 @@
 var vm = require('vm');
 var webpack = require('webpack');
 var React = require('react');
+var ReactDOM = require('react-dom/server')
 var fs = require('fs');
 var yaml = require('js-yaml');
 var path = require('path');
+var less = require('less');
 var renderReactPage = require('./renderReactPage');
 import { endsWith } from './util';
 
@@ -20,6 +22,14 @@ module.exports = writer;
 
 async function writer(buildDir, file, site) {
   var writePath = getWritePath(buildDir, file);
+  console.log('  writing', file.relPath);
+
+  // Render Less file
+  if (endsWith(file.absPath, '.less')) {
+    const input = await readFile(file.absPath);
+    const output = await less.render(input, { filename: file.absPath });
+    return await writeFile(writePath, output.css);
+  }
 
   // Non-modified content
   if (!file.content) {
@@ -49,110 +59,12 @@ async function writer(buildDir, file, site) {
     data = file.content;
   }
 
-  data = await writeReact(writePath, file, data);
-
   data = await writeScript(writePath, file, data);
 
   await writeFile(writePath, data);
 }
 
-var REACT_COMPONENT_RX = /<react-component (.+?)(?:\/>|><\/react-component>)/g;
-
-var ATTR_RX = /data-([^=]+)=("(?:(?:\\.)|[^"])*")/g;
-
-function writeReact(writePath, file, fileData) {
-  return new Promise((resolve, reject) => {
-    var script;
-    var id = 0;
-    var withInitialRenders = fileData.replace(REACT_COMPONENT_RX, function (_, componentData) {
-      var { module, props } = getReactData(componentData);
-      var componentPath = require.resolve(path.resolve(path.dirname(file.absPath), module));
-      var component = require(componentPath);
-      var initialRender = React.renderToString(React.createElement(component, props));
-      var guid = `r${++id}`;
-      if (!script) {
-        script = `var React = require('react');\n`;
-      }
-      script += `React.render(React.createElement(require("${componentPath}"), ${JSON.stringify(props)}), document.getElementById("${guid}"));\n`;
-      return `<div id="${guid}">${initialRender}</div>`;
-    });
-
-    if (!script) {
-      return resolve(fileData);
-    }
-
-    var tmpFile = '/tmp/' + file.relPath.replace('/', '__');
-
-    fs.writeFile(tmpFile, script, err => {
-      if (err) {
-        return reject(err);
-      }
-
-      var pack = webpack({
-        bail: true,
-        entry: tmpFile,
-        output: {
-          path: path.dirname(writePath),
-          filename: path.basename(writePath) + '.[hash].js'
-        },
-        externals: {
-          'react': 'var React'
-        },
-        resolveLoader: {
-          root: path.join(__dirname, '../node_modules')
-        },
-        module: {
-          loaders: [
-            {
-              test: /\.jsx?$/,
-              exclude: /(node_modules|bower_components)/,
-              loader: 'babel-loader',
-              query: {
-                optional: [ 'runtime' ],
-              }
-            }
-          ]
-        }
-      });
-
-      pack.run(function (err, stats) {
-        if (err) {
-          return reject(err);
-        }
-
-        resolve(
-          withInitialRenders.replace(
-            '</body></html>',
-            `<script src="//cdn.jsdelivr.net/react/0.13.3/react.js"></script>` +
-            `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
-          )
-        );
-      });
-
-    });
-  });
-}
-
-function getReactData(componentData) {
-  var module;
-  var props = {};
-  var data = componentData.split(ATTR_RX);
-  for (var i = 1; i < data.length; i += 3) {
-    var name = data[i];
-    var value = JSON.parse(data[i + 1]);
-    if (name === 'module') {
-      module = value;
-    } else {
-      props[name] =
-        value === 'true' ? true :
-        value === 'false' ? false :
-        !value || isNaN(value) ? value : parseInt(value, 10);
-    }
-  }
-  return { module, props };
-}
-
-var SCRIPT_RX = /<script data-inline>([^]+?)<\/script>/gm;
+var SCRIPT_RX = /<script data-inline(?:="true")?>([^]+?)<\/script>/gm;
 
 function writeScript(writePath, file, fileData) {
   return new Promise((resolve, reject) => {
@@ -160,30 +72,41 @@ function writeScript(writePath, file, fileData) {
     var id = 100;
     var script;
     var context;
+    var renderHere;
+    var relRequire;
 
     var withInitialRenders = fileData.replace(SCRIPT_RX, function (_, scriptData) {
       if (!script) {
-        script = `var React = require('react');
-          var id = 100;
+        script = `var id = 100;
           function renderHere(element) {
-            React.render(element, document.getElementById('r' + (++id)));
+            ReactDOM.render(element, document.getElementById('r' + (++id)));
           }`;
-        var renderHere = function (element) {
-          renders += `<div id="r${++id}">${React.renderToString(element)}</div>`;
+        renderHere = function (element) {
+          renders += `<div id="r${++id}">${ReactDOM.renderToString(element)}</div>`;
         };
-        var relRequire = reqPath => require(
+        relRequire = reqPath => require(
           reqPath[0] === '.' ?
             path.resolve(path.dirname(file.absPath), reqPath) :
             reqPath
         );
-        context = { console, process, React, require: relRequire, renderHere };
-        context.global = context;
-        context = vm.createContext(context);
       }
       var es5 = require('babel-core').transform(scriptData).code;
-      script += `(function () {\n${es5}\n}());\n`;
+      es5 = `(function () {\n${es5}\n}());\n`;
+      script += es5;
       renders = '';
-      var output = vm.runInContext(es5, context);
+      var realRequire = require;
+      global.require = relRequire;
+      global.renderHere = renderHere;
+      global.React = React;
+      try {
+        vm.runInThisContext(es5);
+      } catch (e) {
+        throw e;
+      } finally {
+        global.require = realRequire;
+        delete global.renderHere;
+        delete global.React;
+      }
       return renders;
     });
 
@@ -237,7 +160,8 @@ function writeScript(writePath, file, fileData) {
           resolve(
             withInitialRenders.replace(
               '</body></html>',
-              `<script src="//cdn.jsdelivr.net/react/0.13.3/react.js"></script>` +
+              `<script src="/vendor/react-15.0.1.min.js"></script>` +
+              `<script src="/vendor/react-dom-15.0.1.min.js"></script>` +
               `<script src="${path.basename(writePath)}.${stats.hash}.js"></script></body></html>`
             )
           );
@@ -245,7 +169,6 @@ function writeScript(writePath, file, fileData) {
       });
 
     });
-
 
   });
 }
@@ -258,6 +181,14 @@ function getWritePath(buildDir, file) {
   return path.join(buildDir, writePath.slice(1));
 }
 
+// Simple Promise wrapper around fs.writeFile
+function readFile(filePath, fmt) {
+  return new Promise((resolve, reject) =>
+    fs.readFile(filePath, fmt || 'utf8', (err, results) =>
+      err ? reject(err) : resolve(results))
+  );
+}
+
 // Ensures directory exists, then writes file
 async function writeFile(filePath, data) {
   await promiseDirExists(path.dirname(filePath));
@@ -266,15 +197,9 @@ async function writeFile(filePath, data) {
 
 // Simple Promise wrapper around fs.writeFile
 function _writeFile(filePath, data) {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(filePath, data, err => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
-  });
+  return new Promise((resolve, reject) =>
+    fs.writeFile(filePath, data, err => err ? reject(err) : resolve())
+  );
 }
 
 function promisePipeEnds(pipe) {

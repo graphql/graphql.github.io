@@ -1,9 +1,10 @@
 ---
-title: Execution
-layout: ../_core/DocsLayout
+title: graphql/execution
+layout: ../_core/CodeLayout
 category: API Reference
 permalink: /docs/api-reference-execution/
-next: /docs/api-reference-errors/
+sublinks: execute
+next: /docs/api-reference-language/
 ---
 
 The `graphql/execution` module is responsible for the execution phase of
