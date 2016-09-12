@@ -58,7 +58,7 @@ function sidebarForCategory(thisPageID, category) {
 var DocsSidebar = React.createClass({
   render: function() {
     return <div className="nav-docs">
-      {getCategories(this.props.site, this.props.firstURL).map((category) =>
+      {getCategories(this.props.site, this.props.page.dir, this.props.firstURL).map((category) =>
         sidebarForCategory(this.props.page.id, category)
       )}
     </div>;
@@ -67,8 +67,11 @@ var DocsSidebar = React.createClass({
 
 // If firstURL is provided, it's the URL (starting with /) of the
 // first page to put on the sidebar.
-function getCategories(site, firstURL) {
-  var pages = site.files.docs.filter(file => file.content);
+function getCategories(site, dir, firstURL) {
+  if (!site.files[dir]) {
+    throw new Error('Cannot build sidebar for ' + dir);
+  }
+  var pages = site.files[dir].filter(file => file.content);
 
   // Build a hashmap of url -> page
   var articles = {}
@@ -95,7 +98,7 @@ function getCategories(site, firstURL) {
   var first = null;
   for (var i = 0; i < pages.length; ++i) {
     var page = pages[i];
-    if (firstURL ? (firstURL === page.url) : !previous[page.url]) {
+    if (firstURL === page.url || !previous[page.url]) {
       first = page;
       break;
     }

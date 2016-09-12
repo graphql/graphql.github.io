@@ -94,6 +94,8 @@ function readFileData(absPath, relPath, stat) {
 function normalizeData(file) {
   file.isPage = file.content && isPageish(file.relPath);
   file.url = urlToFile(file);
+  var dirname = path.dirname(file.relPath);
+  file.dir = dirname === '.' ? 'docs' : dirname.split('/')[0];
   file.date = file.date ?
     Date.parse(file.date) :
     (file.stat.birthtime || file.stat.ctime);

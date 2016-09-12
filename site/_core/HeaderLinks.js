@@ -11,7 +11,7 @@ var React = require('react');
 const links = [
   { section: 'learn', text: 'Learn', href: '/learn/' },
   { section: 'code', text: 'Code', href: '/code/' },
-  { section: 'help', text: 'Community', href: '/help/' },
+  { section: 'community', text: 'Community', href: '/community/' },
   { section: 'blog', text: 'Blog', href: '/blog/' },
   { section: 'spec', text: 'Spec', href: 'http://facebook.github.io/graphql/' },
 ];
