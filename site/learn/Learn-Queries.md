@@ -4,6 +4,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/queries/
 next: /learn/schema/
+sublinks: a-simple-query,nested-data,arguments,aliases,fragments,variables,variable-definitions,operation-name,directives-skip-and-include,mutations,fragments-and-type-conditions,querying-for-typename
 ---
 
 On this page, you'll learn in detail about how to query a GraphQL server.
