@@ -16,6 +16,7 @@ var DocsLayout = React.createClass({
   render: function() {
     var page = this.props.page;
     var site = this.props.site;
+
     return (
       <Site section="docs" title={page.title}>
         <section className="content documentationContent">

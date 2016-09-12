@@ -837,7 +837,7 @@ Parser.prototype.tok = function() {
             var variables = metaData.variables ? JSON.stringify(metaData.variables, null, 2) : '';
             return <script data-inline dangerouslySetInnerHTML={{__html: `
               import MiniGraphiQL from '../_core/MiniGraphiQL';
-              import { StarWarsSchema } from './_swapiSchema';
+              import { StarWarsSchema } from '../_core/swapiSchema';
               renderHere(<MiniGraphiQL schema={StarWarsSchema}
               query={\`${query}\`} variables={\`${variables}\`} />);
             `}} />
