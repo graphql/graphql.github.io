@@ -14,7 +14,7 @@ export default function({ page, site }) {
   return (
     <Site section="community" title="Community">
       <section className="content documentationContent">
-        <DocsSidebar site={site} page={page} />
+        <DocsSidebar site={site} page={page} firstURL="/community/resources/" />
         <div className="inner-content">
           WIP.
         </div>
