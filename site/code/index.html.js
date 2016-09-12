@@ -19,7 +19,7 @@ var Code = React.createClass({
     return (
       <Site section="code" title="Code">
 
-        <section className="content documentationContent">
+        <section className="content documentationContent nosidebar">
           <DocsSidebar site={site} page={page} firstURL={firstURL} />
           <div className="inner-content">
             <h1>Code</h1>
