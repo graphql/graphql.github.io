@@ -34,7 +34,7 @@ xhr.setRequestHeader("Accept", "application/json");
 xhr.onload = function () {
   console.log('data returned:', xhr.response);
 }
-xhr.send(JSON.stringify({query:"{ hello }"}));
+xhr.send(JSON.stringify({query: "{ hello }"}));
 ```
 
 You should see the data returned, logged in the console:
@@ -42,6 +42,37 @@ You should see the data returned, logged in the console:
 ```
 data returned: Object { hello: "Hello world!" }
 ```
+
+In this example, the query was just a hardcoded string. As your application becomes more complex, and you add GraphQL endpoints that take arguments as described in [Passing Arguments](/graphql-js/passing-arguments/), you will want to construct GraphQL queries using variables in client code. You can do this by including a keyword prefixed with a dollar sign in the query, and passing an extra `variables` field on the payload.
+
+For example, let's say you're running the example server from [Passing Arguments](/graphql-js/passing-arguments/) that has a schema of
+
+```javascript
+type Query {
+  rollDice(numDice: Int!, numSides: Int): [Int]
+}
+```
+
+You could access this from JavaScript with the code:
+
+```javascript
+var dice = 3;
+var sides = 6;
+var xhr = new XMLHttpRequest();
+xhr.responseType = 'json';
+xhr.open("POST", "/graphql");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Accept", "application/json");
+xhr.onload = function () {
+  console.log('data returned:', xhr.response);
+}
+xhr.send(JSON.stringify({
+  query: "{ rollDice(numDice: $dice, numSides: $sides) }",
+  variables: { dice: dice, sides: sides },
+}));
+```
+
+Using this syntax for variables is a good idea because it automatically prevents bugs due to escaping, and it makes it easier to monitor your server.
 
 In general, it will take a bit more time to set up a GraphQL client like Relay, but it's worth it to get more features as your application grows. You might want to start out just using HTTP requests as the underlying transport layer, and switching to a more complex client as your application gets more complex.
 
