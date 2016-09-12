@@ -5,7 +5,7 @@ category: Best Practices
 permalink: /learn/thinking-in-graphs/
 ---
 
-### It's Graphs All the Way Down
+### It's Graphs All the Way Down [\*](https://en.wikipedia.org/wiki/Turtles_all_the_way_down)
 > With GraphQL, you model your business domain as a graph
 
 Graphs are powerful tools for modeling many real-world phenomena because they resemble our natural mental models and verbal descriptions of the underlying process. With GraphQL, you model your business domain as a graph by defining a schema; within your schema, you define different types of nodes and how they connect/relate to one another. To the client, this pattern exposes a graph of entities and relationships that describe the business domain without implementation details.
@@ -50,7 +50,7 @@ fragment previewInfo on Email {
 ### Business Logic Layer
 > Your business logic layer should act as the single source of truth for enforcing business domain rules
 
-Where should we define the actual business logic? Where should we perform validation and authorization checks? The answer: inside a dedicated business logic layer. Your business logic layer should act as the single source of truth for enforcing business domain rules.
+Where should you define the actual business logic? Where should you perform validation and authorization checks? The answer: inside a dedicated business logic layer. Your business logic layer should act as the single source of truth for enforcing business domain rules.
 
 ![Business Logic Layer Diagram](/img/diagrams/business_layer.png)
 
