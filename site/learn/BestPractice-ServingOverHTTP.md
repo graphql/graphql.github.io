@@ -3,7 +3,6 @@ title: Serving over HTTP
 layout: ../_core/DocsLayout
 category: Best Practices
 permalink: /learn/serving-over-http/
-next: /learn/authorization/
 ---
 
 HTTP is the most common choice for client-server protocol when using GraphQL because of its ubiquity. Here are some guidelines for setting up a GraphQL server to operate over HTTP.
@@ -49,7 +48,7 @@ A standard GraphQL POST request should use the `application/json` content type, 
 }
 ```
 
-`operationName` and `variables` are optional fields. `operationName` is only required if multiple operations are present in the query. 
+`operationName` and `variables` are optional fields. `operationName` is only required if multiple operations are present in the query.
 
 In addition to the above, we recommend supporting two additional cases:
 
