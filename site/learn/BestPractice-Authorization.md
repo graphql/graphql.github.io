@@ -6,7 +6,9 @@ permalink: /learn/authorization/
 next: /learn/serving-over-http/
 ---
 
-Authorization rules are a type of business logic that describe whether a given user/session/context has permission to perform a given action or see a piece of data. For example:
+> Delegate authorization logic to the business logic layer
+
+Authorization is a type of business logic that describes whether a given user/session/context has permission to perform an action or see a piece of data. For example:
 
 *“Only authors can see their drafts”*
 
@@ -30,9 +32,9 @@ var postType = new GraphQLObjectType({
 });
 ```
 
-Notice that we define “author owns a post" by checking whether the post's authorId field equals the current user’s id. This is an implementation detail that should be encapsulated in the business domain layer.
+Notice that we define “author owns a post" by checking whether the post's `authorId` field equals the current user’s `id`. Can you spot the problem? We would need to duplicate this code for each entry point into the service. Then if the authorization logic is not kept perfectly in sync, users could see different data depending on which API they use. Yikes! We can avoid that by having a [single source of truth](/learn/thinking-in-graphs/#business-logic-layer) for authorization.
 
-Defining authorization logic inside the resolver is fine when learning GraphQL or prototyping. For production, we recommend delegating this kind of decision to the business logic layer. Here’s what we mean:
+Defining authorization logic inside the resolver is fine when learning GraphQL or prototyping. However, for a production codebase, delegate authorization logic to the business logic layer. Here’s an example:
 
 ```javascript
 //Authorization logic lives inside postRepository
@@ -51,6 +53,6 @@ var postType = new GraphQLObjectType({
 });
 ```
 
-In the example above, we see that the business logic layer requires the caller to provide a user object. If you are using GraphQL.js, the User object should be passed populated on the context or rootValue arguments of the resolver.
+In the example above, we see that the business logic layer requires the caller to provide a user object. If you are using GraphQL.js, the User object should be populated on the `context` or `rootValue` arguments of the resolver.
 
-We recommend passing a hydrated User object instead of an opaque token or API key because there is plenty of handy middleware to help you perform [authentication](/graphql-js/authentication-and-express-middleware/).
+We recommend passing a fully-hydrated User object instead of an opaque token or API key your business logic layer. This way, we can handle the distinct concerns of [authentication](/graphql-js/authentication-and-express-middleware/) and authorization in different stages of the request processing pipeline.
