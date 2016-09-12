@@ -2,7 +2,7 @@
 title: Community Resources
 layout: ../_core/DocsLayout
 category: Community
-permalink: /help/resources/
+permalink: /community/resources/
 ---
 
 # Community Resources

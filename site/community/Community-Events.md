@@ -2,7 +2,7 @@
 title: Upcoming Events
 layout: ../_core/DocsLayout
 category: Community
-permalink: /help/upcoming-events/
+permalink: /community/upcoming-events/
 ---
 
 # Upcoming Events
