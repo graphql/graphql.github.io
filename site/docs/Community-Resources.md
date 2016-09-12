@@ -19,7 +19,7 @@ Use the [**#graphql** hashtag](https://twitter.com/search?q=%23GraphQL&src=tyah)
 
 Here are some helpful accounts to follow:
 - [@GraphQL](https://twitter.com/GraphQL)
-- [@graphqlweekly](graphqlweekly)
+- [@graphqlweekly](https://twitter.com/graphqlweekly)
 - [@graphqlnews](https://twitter.com/graphqlnews)
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollostack](https://twitter.com/apollostack)
