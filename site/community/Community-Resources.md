@@ -3,9 +3,8 @@ title: Community Resources
 layout: ../_core/DocsLayout
 category: Community
 permalink: /community/resources/
+next: /community/upcoming-events/
 ---
-
-# Community Resources
 
 ## Slack
 

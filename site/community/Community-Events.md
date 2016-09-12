@@ -5,8 +5,6 @@ category: Community
 permalink: /community/upcoming-events/
 ---
 
-# Upcoming Events
-
 ## Talks
 
 ### High Performance GraphQL
