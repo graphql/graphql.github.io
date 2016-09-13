@@ -29,6 +29,7 @@ type Query {
   hero(episode: Episode): Character
   reviews(episode: Episode!): [Review]
   search(text: String): [SearchResult]
+  character(id: ID!): Character
   droid(id: ID!): Droid
   human(id: ID!): Human
   starship(id: ID!): Starship
@@ -308,6 +309,7 @@ function getStarship(id) {
 const resolvers = {
   Query: {
     hero: (root, { episode }) => getHero(episode),
+    character: (root, { id }) => getCharacter(id),
     human: (root, { id }) => getHuman(id),
     droid: (root, { id }) => getDroid(id),
     starship: (root, { id }) => getStarship(id),
@@ -347,7 +349,7 @@ const resolvers = {
       return height;
     },
     friends: ({ friends }) => friends.map(getCharacter),
-    starships: () => null,
+    starships: ({ starships }) => starships.map(getStarship),
     appearsIn: ({ appearsIn }) => appearsIn,
   },
   Droid: {
