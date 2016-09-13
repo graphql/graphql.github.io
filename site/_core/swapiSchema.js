@@ -383,7 +383,6 @@ const resolvers = {
  * Finally, we construct our schema (whose starting query type is the query
  * type we defined above) and export it.
  */
-console.log('hi')
 export const StarWarsSchema = makeExecutableSchema({
   typeDefs: [schemaString],
   resolvers
