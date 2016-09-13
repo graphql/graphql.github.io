@@ -48,7 +48,7 @@ A standard GraphQL POST request should use the `application/json` content type, 
 }
 ```
 
-`operationName` and `variables` are optional fields. `operationName` is only required if multiple operations are present in the query. 
+`operationName` and `variables` are optional fields. `operationName` is only required if multiple operations are present in the query.
 
 In addition to the above, we recommend supporting two additional cases:
 

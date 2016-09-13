@@ -3,7 +3,7 @@ title: Schemas and Types
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/schema/
-next: /learn/serving-over-http/
+next: /learn/thinking-in-graphs/
 sublinks: type-system,type-language,object-types-and-fields,arguments,the-query-and-mutation-types,scalar-types,enumeration-types,lists-and-non-null,interfaces,union-types,input-types
 ---
 
