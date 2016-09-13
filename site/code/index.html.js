@@ -17,10 +17,11 @@ var Code = React.createClass({
     return (
       <Site section="code" title="Code">
 
-        <section className="content documentationContent nosidebar">
-          <div className="inner-content">
-            <h1>Code</h1>
-            <Marked>{`
+        <section>
+          <div className="documentationContent">
+            <div className="inner-content">
+              <h1>Code</h1>
+              <Marked>{`
 
 Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, and other useful stuff.
 
@@ -50,8 +51,9 @@ Many different programming languages support GraphQL. This list contains some of
 
   - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 
-            `}</Marked>
+              `}</Marked>
 
+            </div>
           </div>
         </section>
 
