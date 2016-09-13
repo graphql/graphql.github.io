@@ -125,4 +125,31 @@ mutation {
 }
 ```
 
+You can use variables to simplify mutation client logic just like you can with queries. For example, some JavaScript code that calls the server to execute this mutation is:
+
+```javascript
+var author = 'andy';
+var content = 'hope is a good thing';
+var xhr = new XMLHttpRequest();
+xhr.responseType = 'json';
+xhr.open("POST", "/graphql");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Accept", "application/json");
+xhr.onload = function () {
+  console.log('data returned:', xhr.response);
+}
+var query = `mutation CreateMessage($input: MessageInput) {
+  createMessage(message: $input)
+}`;
+xhr.send(JSON.stringify({
+  query: query,
+  variables: {
+    input: {
+      author: author,
+      content: content,
+    }
+  }
+}));
+```
+
 One particular type of mutation is operations that change users, like signing up a new user. While you can implement this using GraphQL mutations, you can reuse many existing libraries if you learn about [GraphQL with authentication and Express middleware](/graphql-js/authentication-and-express-middleware/).
