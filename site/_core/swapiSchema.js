@@ -63,6 +63,9 @@ interface Character {
   # The friends of the character, or an empty list if they have none
   friends: [Character]
 
+  # The friends of the character exposed as a connection with edges
+  friendsConnection(first: Int, after: ID): FriendsConnection!
+
   # The movies this character appears in
   appearsIn: [Episode]!
 }
@@ -93,6 +96,9 @@ type Human implements Character {
   # This human's friends, or an empty list if they have none
   friends: [Character]
 
+  # The friends of the human exposed as a connection with edges
+  friendsConnection(first: Int, after: ID): FriendsConnection!
+
   # The movies this human appears in
   appearsIn: [Episode]!
 
@@ -111,11 +117,40 @@ type Droid implements Character {
   # This droid's friends, or an empty list if they have none
   friends: [Character]
 
+  # The friends of the droid exposed as a connection with edges
+  friendsConnection(first: Int, after: ID): FriendsConnection!
+
   # The movies this droid appears in
   appearsIn: [Episode]!
 
   # This droid's primary function
   primaryFunction: String
+}
+
+# A connection object for a character's friends
+type FriendsConnection {
+  # The total number of friends
+  totalCount: Int
+
+  # The edges for each of the character's friends.
+  edges: [FriendsEdge]
+
+  # Information for paginating this connection
+  pageInfo: PageInfo!
+}
+
+# An edge object for a character's friends
+type FriendsEdge {
+  # A cursor used for pagination
+  cursor: ID!
+
+  # The character represented by this friendship edge
+  node: Character
+}
+
+# Information for paginating this connection
+type PageInfo {
+  hasNextPage: Boolean!
 }
 
 # Represents a review for a movie
@@ -306,6 +341,14 @@ function getStarship(id) {
   return starshipData[id];
 }
 
+function toCursor(str) {
+  return Buffer("cursor" + str).toString('base64');
+}
+
+function fromCursor(str) {
+  return Buffer.from(str, 'base64').toString().slice(6);
+}
+
 const resolvers = {
   Query: {
     hero: (root, { episode }) => getHero(episode),
@@ -349,12 +392,45 @@ const resolvers = {
       return height;
     },
     friends: ({ friends }) => friends.map(getCharacter),
+    friendsConnection: ({ friends }, { first, after }) => {
+      first = first || friends.length;
+      after = parseInt(fromCursor(after), 10) || 0; 
+      return {
+        edges: friends.map((friend, i) => ({
+          cursor: toCursor(i+1),
+          node: getCharacter(friend)
+        })).slice(after, first + after),
+        pageInfo: { hasNextPage: first + after < friends.length },
+        totalCount: friends.length
+      };
+    },
     starships: ({ starships }) => starships.map(getStarship),
     appearsIn: ({ appearsIn }) => appearsIn,
   },
   Droid: {
     friends: ({ friends }) => friends.map(getCharacter),
+    friendsConnection: ({ friends }, { first, after }) => {
+      first = first || friends.length;
+      after = parseInt(fromCursor(after), 10) || 0; 
+      return {
+        edges: friends.map((friend, i) => ({
+          cursor: toCursor(i+1),
+          node: getCharacter(friend)
+        })).slice(after, first + after),
+        pageInfo: { hasNextPage: first + after < friends.length },
+        totalCount: friends.length
+      };
+    },
     appearsIn: ({ appearsIn }) => appearsIn,
+  },
+  FriendsConnection: {
+    edges: ({ edges }) => edges,
+    pageInfo: ({ pageInfo }) => pageInfo,
+    totalCount: ({ totalCount }) => totalCount,
+  },
+  FriendsEdge: {
+    node: ({ node }) => node,
+    cursor: ({ cursor }) => cursor,
   },
   Starship: {
     length: ({ length }, { unit }) => {
