@@ -63,9 +63,9 @@ Start here to get a solid understanding of GraphQL and how it works.
 
   - [Query Language](/learn/queries/)
   - [Type System](/learn/schema/)
-  - Validation
-  - Execution
-  - Introspection
+  - [Validation](/learn/validation/)
+  - [Execution](/learn/execution/)
+  - [Introspection](/learn/introspection/)
 
 ## Best Practices
 
