@@ -3,6 +3,7 @@ title: Upcoming Events
 layout: ../_core/DocsLayout
 category: Community
 permalink: /community/upcoming-events/
+sublinks: talks,events,meetups
 ---
 
 ## Talks
@@ -45,6 +46,7 @@ As our applications grow larger and our models and views become more and more co
 - **Speaker:** Martjin Walraven
 - **Link:** https://reactiveconf.com/
 
+
 ## Events
 
 ### [Workshop] Learn React, GraphQL, and Relay over a weekend
@@ -61,23 +63,25 @@ As our applications grow larger and our models and views become more and more co
 - **Speakers:** Lee Byron, Joe Savona, Sashko Stubailo, James Baxley, Brandon Black
 - **Link:** http://graphqlsumit.com
 
-# Meetup Groups
 
-## North America
+## Meetups
+
+### North America
 
 - [GraphQL San Francisco](http://www.meetup.com/GraphQL-SF/)
 - [GraphQL & Relay (San Francisco)](http://www.meetup.com/graphql/)
 - [GraphQL Seattle](https://www.meetup.com/Seattle-GraphQL-Meetup/)
 - [GraphQL Toronto](https://www.meetup.com/GraphQL-Toronto/)
 
-## Europe
+### Europe
 
 - [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
 
-## Australia
+### Australia
 
 - [GraphQL Melbourne](http://graphql.melbourne/)
 
-## Remote
+### Remote
+
 - [GraphQL Remote](https://www.meetup.com/GraphQL-Remote-Meetup/)
