@@ -1,6 +1,6 @@
 ---
 title: graphql/execution
-layout: ../_core/CodeLayout
+layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-execution/
 sublinks: execute

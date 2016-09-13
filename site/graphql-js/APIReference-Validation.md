@@ -1,6 +1,6 @@
 ---
 title: graphql/validation
-layout: ../_core/CodeLayout
+layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-validation/
 sublinks: validate,specifiedRules

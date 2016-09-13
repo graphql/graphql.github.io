@@ -54,12 +54,12 @@ var Site = React.createClass({
             <section className="sitemap">
               <a href="/" className="nav-home" />
               <div>
-                <h5><a href="/learn">Learn</a></h5>
-                <a>Introduction</a>
-                <a>Query Language</a>
-                <a>Type System</a>
-                <a>How GraphQL Works</a>
-                <a>Best Practices</a>
+                <h5><a href="/learn/">Learn</a></h5>
+                <a href="/learn/">Introduction</a>
+                <a href="/learn/query/">Query Language</a>
+                <a href="/learn/schema/">Type System</a>
+                <a href="/learn/execution/">Execution</a>
+                <a href="/learn/best-practices/">Best Practices</a>
               </div>
               <div>
                 <h5><a href="/code">Code</a></h5>

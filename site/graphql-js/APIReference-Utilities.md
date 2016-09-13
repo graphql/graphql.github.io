@@ -1,6 +1,6 @@
 ---
 title: graphql/utilities
-layout: ../_core/CodeLayout
+layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-utilities/
 sublinks: introspectionQuery,buildClientSchema,printSchema,printIntrospectionSchema,buildASTSchema,typeFromAST,astFromValue,TypeInfo,isValidJSValue,isValidLiteralValue,buildSchema
