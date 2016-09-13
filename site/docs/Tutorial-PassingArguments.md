@@ -28,7 +28,7 @@ So far, our resolver functions took no arguments. When a resolver takes argument
 
 ```javascript
 var root = {
-  rollDice: function(args) {
+  rollDice: function (args) {
     var output = [];
     for (var i = 0; i < args.numDice; i++) {
       output.push(1 + Math.floor(Math.random() * (args.numSides || 6)));
@@ -42,7 +42,7 @@ It's convenient to use [ES6 destructuring assignment](https://developer.mozilla.
 
 ```javascript
 var root = {
-  rollDice: function({numDice, numSides}) {
+  rollDice: function ({numDice, numSides}) {
     var output = [];
     for (var i = 0; i < numDice; i++) {
       output.push(1 + Math.floor(Math.random() * (numSides || 6)));
@@ -70,7 +70,7 @@ var schema = buildSchema(`
 
 // The root provides a resolver function for each API endpoint
 var root = {
-  rollDice: function({numDice, numSides}) {
+  rollDice: function ({numDice, numSides}) {
     var output = [];
     for (var i = 0; i < numDice; i++) {
       output.push(1 + Math.floor(Math.random() * (numSides || 6)));
@@ -98,5 +98,28 @@ When you call this API, you have to pass each argument by name. So for the serve
 ```
 
 If you run this code with `node server.js` and browse to [http://localhost:4000/graphql](http://localhost:4000/graphql) you can try out this API.
+
+When you're passing arguments in code, it's generally better to avoid constructing the whole query string yourself. Instead, you can use `$` syntax to define variables in your query, and pass the variables as a separate map.
+
+For example, some JavaScript code that calls our server above is:
+
+```javascript
+var dice = 3;
+var sides = 6;
+var xhr = new XMLHttpRequest();
+xhr.responseType = 'json';
+xhr.open("POST", "/graphql");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Accept", "application/json");
+xhr.onload = function () {
+  console.log('data returned:', xhr.response);
+}
+xhr.send(JSON.stringify({
+  query: "{ rollDice(numDice: $dice, numSides: $sides) }",
+  variables: { dice: dice, sides: sides },
+}));
+```
+
+Using `$dice` and `$sides` as variables in GraphQL means we don't have to worry about escaping on the client side.
 
 With basic types and argument passing, you can implement anything you can implement in a REST API. But GraphQL supports even more powerful queries. You can replace multiple API calls with a single API call if you learn how to [define your own object types](/graphql-js/object-types/).

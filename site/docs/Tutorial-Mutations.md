@@ -25,10 +25,10 @@ Both mutations and queries can be handled by root resolvers, so the root that im
 ```javascript
 var fakeDatabase = {};
 var root = {
-  setMessage: function({message}) {
+  setMessage: function ({message}) {
     fakeDatabase.message = message;
   }
-  getMessage: function() {
+  getMessage: function () {
     return fakeDatabase.message;
   }
 };
@@ -87,16 +87,16 @@ var fakeDatabase = {};
 
 // The root provides the top-level API endpoints
 var root = {
-  getMessage: function({author}) {
+  getMessage: function ({author}) {
     return fakeDatabase[author];
   },
-  createMessage: function({message}) {
+  createMessage: function ({message}) {
     if (fakeDatabase[message.author]) {
       throw new Error('a message already exists with this author');
     }
     fakeDatabase[message.author] = message.content;
   },
-  updateMessage: function({message}) {
+  updateMessage: function ({message}) {
     if (!fakeDatabase[message.author]) {
       throw new Error('no message exists with this author');
     }

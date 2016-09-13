@@ -3,7 +3,7 @@ title: Constructing Types
 layout: ../_core/CodeLayout
 category: Advanced Guides
 permalink: /graphql-js/constructing-types/
-next: /docs/api-reference-graphql/
+next: /docs/api-reference-express-graphql/
 ---
 
 For many apps, you can define a fixed schema when the application starts, and define it using GraphQL schema language. In some cases, it's useful to construct a schema programmatically. You can do this using the `GraphQLSchema` constructor.
@@ -41,7 +41,7 @@ var fakeDatabase = {
 };
 
 var root = {
-  user: function({id}) {
+  user: function ({id}) {
     return fakeDatabase[id];
   }
 };
