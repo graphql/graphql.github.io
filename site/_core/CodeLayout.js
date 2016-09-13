@@ -16,7 +16,7 @@ var CodeLayout = React.createClass({
   render: function() {
     var page = this.props.page;
     var site = this.props.site;
-    var firstURL = '/graphql-js/getting-started/';
+    var firstURL = '/graphql-js/';
     var category = page.category;
     if (!category.match(/GraphQL/)) {
       category = 'GraphQL.js ' + category;

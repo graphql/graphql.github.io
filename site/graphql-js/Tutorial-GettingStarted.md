@@ -3,7 +3,7 @@ title: Getting Started With GraphQL.js
 sidebarTitle: Getting Started
 layout: ../_core/CodeLayout
 category: GraphQL.js Tutorial
-permalink: /graphql-js/getting-started/
+permalink: /graphql-js/
 next: /graphql-js/running-an-express-graphql-server/
 ---
 

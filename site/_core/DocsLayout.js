@@ -20,7 +20,6 @@ var DocsLayout = React.createClass({
     return (
       <Site section="docs" title={page.title}>
         <section className="content documentationContent">
-          <DocsSidebar site={site} page={page} />
           <div className="inner-content">
             <h1>{page.title}</h1>
             <Marked>{page.content}</Marked>
@@ -29,6 +28,7 @@ var DocsLayout = React.createClass({
               {page.next && <a className="docs-next" href={path.resolve(page.url, page.next)}>Next &rarr;</a>}
             </div>
           </div>
+          <DocsSidebar site={site} page={page} />
         </section>
       </Site>
     );

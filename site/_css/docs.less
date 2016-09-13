@@ -1,0 +1,111 @@
+@import "variables.less";
+
+.documentationContent {
+  margin-bottom: 8em;
+  @media screen and (max-width: 1019px) {
+    margin-bottom: 4em;
+  }
+
+  &:after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+}
+
+.inner-content {
+  float: left;
+  max-width: 760px;
+  margin-right: 210px;
+  @media screen and (max-width: 740px) {
+    margin-right: 0;
+  }
+
+  & > h1:first-child {
+    margin-top: 1em;
+  }
+
+  blockquote {
+    padding: 0.5em 1em 0.5em 0.5em;
+    margin: 1em 0;
+    background-color: rgba(204, 122, 111, 0.05);
+    border-left: 5px solid rgba(191, 87, 73, 0.1);
+
+    h4 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.docs-prevnext {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  .docs-prev {
+    float: left;
+  }
+
+  .docs-next {
+    float: right;
+  }
+}
+
+.nav-docs {
+  color: @text-color;
+  float: right;
+  font-size: 13px;
+  margin: 1em 0 4em;
+  width: 175px;
+  margin-left: -210px;
+
+  @media screen and (max-width: 740px) {
+    float: none;
+    width: auto;
+    margin-left: 0;
+  }
+
+  h3 {
+    .body-font(@size: 13px);
+    text-transform: uppercase;
+    margin: 3em 0 1.5em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      margin: 0;
+
+      ul {
+        margin-bottom: 10px;
+
+        li {
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  a {
+    color: #666;
+    display: block;
+
+    &:hover, &:focus, &.active {
+      text-decoration: none;
+      color: @rhodamine-color;
+    }
+  }
+}
