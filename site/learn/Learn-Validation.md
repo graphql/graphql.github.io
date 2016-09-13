@@ -3,7 +3,7 @@ title: Validation
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/validation/
-next: /learn/thinking-in-graphs/
+next: /learn/introspection/
 ---
 
 By using the type system, it can be predetermined whether a GraphQL query
