@@ -1,11 +1,11 @@
 ---
-title: Connections
+title: Pagination
 layout: ../_core/DocsLayout
 category: Best Practices
-permalink: /learn/connections/
+permalink: /learn/pagination/
 ---
 
-> Different connection models enable different client capabilities
+> Different pagination models enable different client capabilities
 
 A common use case in GraphQL is traversing the relationship between sets of objects. There are a number of different ways that these relationships can be exposed in GraphQL, giving a varying set of capabilities to the client developer.
 

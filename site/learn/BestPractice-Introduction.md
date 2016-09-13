@@ -60,7 +60,7 @@ Typically fields that could return long lists accept arguments "first" and "afte
 
 Ultimately designing APIs with feature-rich pagination led to a best practice pattern called "Connections". Some client tools for GraphQL, such as [Relay](https://facebook.github.io/relay/), know about the Connections pattern and can automatically provide automatic support for client-side pagination when a GraphQL API employs this pattern.
 
-Read more about this in [Connections](/learn/connections/).
+Read more about this in the article on [Pagination](/learn/pagination/).
 
 
 ### Server-side Batching & Caching
