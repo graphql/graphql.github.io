@@ -3,6 +3,7 @@ title: Authorization
 layout: ../_core/DocsLayout
 category: Best Practices
 permalink: /learn/authorization/
+next: /learn/connections/
 ---
 
 > Delegate authorization logic to the business logic layer
