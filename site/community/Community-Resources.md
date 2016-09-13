@@ -2,8 +2,9 @@
 title: Community Resources
 layout: ../_core/DocsLayout
 category: Community
-permalink: /community/resources/
+permalink: /community/
 next: /community/upcoming-events/
+sublinks: slack,stack-overflow,twitter,blogs,videos,other
 ---
 
 ## Slack
