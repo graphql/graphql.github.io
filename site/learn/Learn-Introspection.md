@@ -3,7 +3,7 @@ title: Introspection
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/introspection/
-next: /learn/thinking-in-graphs/
+next: /learn/best-practices/
 ---
 
 It's often useful to ask a GraphQL schema for information about what

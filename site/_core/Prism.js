@@ -27,7 +27,7 @@ export default function PrismComponent(props) {
           <div
             className="line-highlight"
             key={ii}
-            style={{height: 20, top: 20 * (line - 1)}}
+            style={{height: 21, top: 17 * (line - 1)}}
           />
         );
       })}

@@ -17,9 +17,11 @@ var BlogLayout = React.createClass({
     var site = this.props.site;
     return (
       <Site section="blog" title={page.title}>
-        <section className="content documentationContent">
-          <BlogSidebar site={site} page={page} />
-          <BlogPost post={page} isPermalink={true} />
+        <section>
+          <div className="documentationContent">
+            <BlogPost post={page} isPermalink={true} />
+            <BlogSidebar site={site} page={page} />
+          </div>
         </section>
       </Site>
     );

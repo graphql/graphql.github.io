@@ -1,6 +1,6 @@
 ---
 title: graphql/types
-layout: ../_core/CodeLayout
+layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-type-system/
 sublinks: GraphQLSchema,GraphQLScalarType,GraphQLObjectType,GraphQLInterfaceType,GraphQLUnionType,GraphQLEnumType,GraphQLInputObjectType,GraphQLList,GraphQLNonNull,isInputType,isOutputType,isLeafType,isCompositeType,isAbstractType,getNullableType,getNamedType,GraphQLInt,GraphQLFloat,GraphQLString,GraphQLBoolean,GraphQLID

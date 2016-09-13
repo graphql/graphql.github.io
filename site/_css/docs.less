@@ -2,21 +2,19 @@
 
 .documentationContent {
   margin-bottom: 8em;
-  @media screen and (max-width: 1019px) {
-    margin-bottom: 4em;
-  }
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 
-  &:after {
-    clear: both;
-    content: " ";
-    display: table;
+  @media screen and (max-width: 740px) {
+    margin-bottom: 4em;
+    display: block;
   }
 }
 
 .inner-content {
-  float: left;
-  max-width: 760px;
-  margin-right: 210px;
+  flex: 1;
+  max-width: 720px;
   @media screen and (max-width: 740px) {
     margin-right: 0;
   }
@@ -47,6 +45,51 @@
   img {
     max-width: 100%;
   }
+
+  .prism {
+    position: relative;
+    box-shadow:
+      inset 0 1px 0 rgba(0,0,0,0.08),
+      inset 0 -1px 0 rgba(0,0,0,0.08),
+      inset -1px 0 0 rgba(0,0,0,0.08),
+      inset 4px 0 0 rgba(0,0,0,0.08);
+    border-radius: 3px;
+
+    .line-highlight {
+      background-color: lighten(desaturate(@rhodamine-color, 50%), 50%);
+      left: 0;
+      line-height: inherit;
+      margin-top: 5px;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+    }
+
+    @media print {
+      text-shadow: none;
+    }
+  }
+
+  .prism + .prism {
+    margin-top: -15px;
+  }
+
+  .not(code) > pre.prism {
+    text-shadow: 0 1px white;
+
+    &::-moz-selection, &::selection {
+      text-shadow: none;
+    }
+  }
+
+  // Code blocks
+  pre.prism {
+    padding: 7px 14px;
+    margin-left: -4px;
+    margin-bottom: 10px;
+    overflow: auto;
+  }
 }
 
 .docs-prevnext {
@@ -63,17 +106,14 @@
 }
 
 .nav-docs {
-  color: @text-color;
-  float: right;
-  font-size: 13px;
+  .body-font(@size: 13px);
   margin: 1em 0 4em;
-  width: 175px;
-  margin-left: -210px;
+  width: 195px;
+  padding-left: 20px;
 
   @media screen and (max-width: 740px) {
-    float: none;
     width: auto;
-    margin-left: 0;
+    padding-left: 0;
   }
 
   h3 {
@@ -88,12 +128,13 @@
 
     li {
       margin: 0;
+      line-height: 32px;
 
       ul {
-        margin-bottom: 10px;
+        margin-bottom: 18px;
 
         li {
-          line-height: 24px;
+          line-height: 21px;
         }
       }
     }
