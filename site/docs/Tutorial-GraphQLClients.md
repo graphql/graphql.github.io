@@ -66,8 +66,11 @@ xhr.setRequestHeader("Accept", "application/json");
 xhr.onload = function () {
   console.log('data returned:', xhr.response);
 }
+var query = `query RollDice($dice: Int!, $sides: Int) {
+  rollDice(numDice: $dice, numSides: $sides)
+}`;
 xhr.send(JSON.stringify({
-  query: "{ rollDice(numDice: $dice, numSides: $sides) }",
+  query: query,
   variables: { dice: dice, sides: sides },
 }));
 ```
