@@ -16,6 +16,16 @@ function sidebarForCategory(thisPageID, category) {
     var target = page.url.match(/^https?:/) && '_blank';
     var marginLeft = page.indent ? 20 : 0;
 
+    // Sublinks to any page sub-parts
+    var sublinkUL = page.sublinks &&
+      <ul>{page.sublinks.split(',').map(sublink =>
+        <li key={sublink}>
+          <a target={target} href={page.url + '#' + sublink.toLowerCase()}>
+            {sublink}
+          </a>
+        </li>
+      )}</ul>;
+
     // Link for the main page overall
     listItems.push(
       <li key={page.permalink}>
@@ -26,29 +36,13 @@ function sidebarForCategory(thisPageID, category) {
           href={page.url}>
           {page.sidebarTitle || page.title}
         </a>
+        {sublinkUL}
       </li>
     );
-
-    // Sublinks to any page sub-parts
-    if (page.sublinks) {
-      var sublinks = page.sublinks.split(',').sort();
-      for (var sublink of sublinks) {
-        listItems.push(
-          <li key={page.permalink + '-' + sublink}>
-            <a
-              target={target}
-              style={{marginLeft: marginLeft + 20}}
-              href={page.url + '#' + sublink.toLowerCase()}>
-              {sublink}
-            </a>
-          </li>
-        );
-      }
-    }
   }
 
   return (
-    <div className="nav-docs-section" key={category.name}>
+    <div key={category.name}>
       <h3>{category.name}</h3>
       <ul>{listItems}</ul>
     </div>

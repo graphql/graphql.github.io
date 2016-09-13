@@ -1,5 +1,6 @@
 ---
-title: Introduction
+title: Introduction to GraphQL
+sidebarTitle: Introduction
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
