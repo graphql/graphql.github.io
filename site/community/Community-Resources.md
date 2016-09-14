@@ -50,6 +50,7 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 
 Developers inside and outside of Facebook have given talks about GraphQL at conferences and meetups around the world. Here are some of our favorites:
 
+- [Exploring GraphQL](https://www.youtube.com/watch?v=WQLzZf34FJ8) - Lee Byron, React Europe 2015
 - [From Zero to GraphQL in 30 Minutes](https://www.youtube.com/watch?v=UBGzsb2UkeY) - Steve Luscher
 - [Exploring GraphQL](https://www.youtube.com/watch?v=_9RgHXqH8J0) - Nick Schrock, @Scale 2015
 - [GraphQL Servers](https://www.youtube.com/watch?v=KOudxKJXsjc) - Nick Schrock, React Rally 2015

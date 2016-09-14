@@ -9,7 +9,7 @@ var Search = require('./_core/Search');
 var index = React.createClass({
   render: function() {
     return (
-      <Site className="index" noSearch={true}>
+      <Site className="index" noSearch={true} page={this.props.page}>
         <section className="fixedSearch">
           <Search />
         </section>
@@ -525,6 +525,7 @@ public class Character {
           </div>
         </section>
 
+        {/*
         <section className="powered-by">
           <div className="prose">
             <h2>Who&rsquo;s using GraphQL?</h2>
@@ -534,7 +535,7 @@ public class Character {
               many environments and used by teams of all sizes.</p>
           </div>
           <div className="logos">
-            {/* Waiting for permission from some of the below */}
+            {/* Waiting for permission from some of the below * /}
             <a href="https://www.facebook.com/" target="_blank">
               <img src="/img/logos/facebook.png" title="Facebook" />
             </a>
@@ -554,12 +555,13 @@ public class Character {
             <a href="https://www.intuit.com/" target="_blank">
               <img src="/img/logos/intuit.png" title="Intuit" />
             </a>
-            {/**/}
+            {/** /}
             <a href="https://www.coursera.org/" target="_blank">
               <img src="/img/logos/coursera.png" title="Coursera" />
             </a>
           </div>
         </section>
+        */}
 
       </Site>
     );

@@ -15,7 +15,7 @@ var Code = React.createClass({
     var page = this.props.page;
     var site = this.props.site;
     return (
-      <Site section="code" title="Code">
+      <Site section="code" title="Code" page={page}>
 
         <section>
           <div className="documentationContent">
