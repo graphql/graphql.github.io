@@ -11,8 +11,8 @@ The `graphql` module exports a core subset of GraphQL functionality for creation
 of GraphQL type systems and servers.
 
 ```js
-import { ... } from 'graphql'; // ES6
-var GraphQL = require('graphql'); // CommonJS
+import { graphql } from 'graphql'; // ES6
+var { graphql } = require('graphql'); // CommonJS
 ```
 
 ## Overview
