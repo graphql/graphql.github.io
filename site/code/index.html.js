@@ -44,11 +44,31 @@ Many different programming languages support GraphQL. This list contains some of
 
 ### Scala
 
-  - [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria)) A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
+  - [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria)): A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
 
 ### Java
 
   - [graphql-java](https://github.com/graphql-java/graphql-java): A Java library for building GraphQL APIs.
+
+### Go
+
+  - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
+  - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
+
+### PHP
+
+  - [graphql-php](https://github.com/webonyx/graphql-php): A PHP port of GraphQL reference implementation
+  - [graphql-relay-php](https://github.com/ivome/graphql-relay-php): A library to help construct a graphql-php server supporting react-relay.
+
+### C# / .NET
+
+  - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
+  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQuerable
+
+### Elixir
+
+  - [absinthe](https://github.com/absinthe-graphql/absinthe): GraphQL implementation for Elixir.
+  - [graphql-elixir](https://github.com/graphql-elixir/graphql): An Elixir implementation of Facebook's GraphQL.
 
 
 ## GraphQL Clients
@@ -61,6 +81,7 @@ Many different programming languages support GraphQL. This list contains some of
 
   - [graphiql](https://github.com/graphql/graphiql) ([npm](https://www.npmjs.com/package/graphiql)): An interactive in-browser GraphQL IDE.
   - [libgraphqlparser](https://github.com/graphql/libgraphqlparser): A GraphQL query language parser in C++ with C and C++ APIs.
+
 
 ## More Stuff
 
