@@ -525,7 +525,6 @@ public class Character {
           </div>
         </section>
 
-        {/*
         <section className="powered-by">
           <div className="prose">
             <h2>Who&rsquo;s using GraphQL?</h2>
@@ -535,7 +534,7 @@ public class Character {
               many environments and used by teams of all sizes.</p>
           </div>
           <div className="logos">
-            {/* Waiting for permission from some of the below * /}
+            {/* Waiting for permission from some of the below */}
             <a href="https://www.facebook.com/" target="_blank">
               <img src="/img/logos/facebook.png" title="Facebook" />
             </a>
@@ -543,9 +542,11 @@ public class Character {
             <a href="https://twitter.com/" target="_blank">
               <img src="/img/logos/twitter.png" title="Twitter" className="round" />
             </a>
+            {/**/}
             <a href="https://github.com/" target="_blank">
               <img src="/img/logos/github.png" title="GitHub" className="round" />
             </a>
+            {/** /}
             <a href="https://www.pinterest.com/" target="_blank">
               <img src="/img/logos/pinterest.png" title="Pinterest" className="round" />
             </a>
@@ -555,13 +556,12 @@ public class Character {
             <a href="https://www.intuit.com/" target="_blank">
               <img src="/img/logos/intuit.png" title="Intuit" />
             </a>
-            {/** /}
+            {/**/}
             <a href="https://www.coursera.org/" target="_blank">
               <img src="/img/logos/coursera.png" title="Coursera" />
             </a>
           </div>
         </section>
-        */}
 
       </Site>
     );
