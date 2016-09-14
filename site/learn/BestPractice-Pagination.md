@@ -54,7 +54,7 @@ There are a number of ways we could do pagination:
 
 In general, we've found that **cursor-based pagination** is the most powerful of those designed. Especially if the cursors are opaque, either offset or ID-based pagination can be implemented using cursor-based pagination (by making the cursor the offset or the ID), and using cursors gives additional flexibility if the pagination model changes in the future. As a reminder that the cursors are opaque and that their format should not be relied upon, we suggest base64 encoding them.
 
-That leads us to a problem; though; how do we get the cursor from the object? We wouldn't want cursor to live on the `User` type; it's a property of the connection, not of the object. So we want to introduce a new layer of indirection; our `friends` field should give us a list of edges, and an edge has both a cursor and the underlying node:
+That leads us to a problem; though; how do we get the cursor from the object? We wouldn't want cursor to live on the `User` type; it's a property of the connection, not of the object. So we might want to introduce a new layer of indirection; our `friends` field should give us a list of edges, and an edge has both a cursor and the underlying node:
 
 ```graphql
 {
@@ -92,12 +92,15 @@ To solve both of these problems, our `friends` field can return a connection obj
         cursor
       }
       pageInfo {
+        endCursor
         hasNextPage
       }
     }
   }
 }
 ```
+
+Note that we also might include `endCursor` and `startCursor` in this `PageInfo` object. This way, if we don't need any of the additional information that the edge contains, we don't need to query for the edges at all, since we got the cursors needed for pagination from `pageInfo`. This leads to a potential usability improvement for connections; instead of just exposing the `edges` list, we could also expose a dedicated list of just the nodes, to avoid a layer of indirection.
 
 ## Complete Connection Model
 
@@ -108,7 +111,7 @@ Clearly, this is more complex than our original design of just having a plural! 
  - The ability to ask for information about the edge itself, like `cursor` or `friendshipTime`.
  - The ability to change how our backend does pagination, since the user just uses opaque cursors.
 
-To see this in action, there's an additional field in the example schema, called `friendsConnection`, that exposes all of these concepts. You can check it out in the example query. Try removing the `after` parameter to `friendsConnection` to see how the pagination will be affected.
+To see this in action, there's an additional field in the example schema, called `friendsConnection`, that exposes all of these concepts. You can check it out in the example query. Try removing the `after` parameter to `friendsConnection` to see how the pagination will be affected. Also, try replacing the `edges` field with the helper `friends` field on the connection, which lets you get directly to the list of friends without the additional edge layer of indirection, when that's appropriate for clients.
 
 ```graphql
 # { "graphiql": true }
@@ -124,6 +127,7 @@ To see this in action, there's an additional field in the example schema, called
         cursor
       }
       pageInfo {
+        endCursor
         hasNextPage
       }
     }
