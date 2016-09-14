@@ -4,7 +4,6 @@ layout: ../_core/BlogLayout
 permalink: /blog/production-ready/
 date: 14 Sep 2016
 byline: "Lee Byron"
-draft: true
 ---
 
 After over a year of being open sourced we're bringing GraphQL out of "technical preview" and relaunching [graphql.org](http://graphql.org/).
