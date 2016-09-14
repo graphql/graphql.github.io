@@ -8,11 +8,11 @@ next: /docs/api-reference-validation/
 ---
 
 The `graphql/utilities` module contains common useful computations to use with
-the GraphQL language and type objects.
+the GraphQL language and type objects. You can import either from the `graphql/utilities` module, or from the root `graphql` module. For example:
 
 ```js
-import { ... } from 'graphql/utilities'; // ES6
-var GraphQLUtilities = require('graphql/utilities'); // CommonJS
+import { introspectionQuery } from 'graphql'; // ES6
+var { introspectionQuery } = require('graphql'); // CommonJS
 ```
 
 ## Overview

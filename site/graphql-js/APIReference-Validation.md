@@ -7,11 +7,11 @@ sublinks: specifiedRules,validate
 ---
 
 The `graphql/validation` module fulfills the Validation phase of fulfilling a
-GraphQL result.
+GraphQL result. You can import either from the `graphql/validation` module, or from the root `graphql` module. For example:
 
 ```js
 import { validate } from 'graphql/validation'; // ES6
-var GraphQLValidator = require('graphql/validation'); // CommonJS
+var { validate } = require('graphql/validation'); // CommonJS
 ```
 
 ## Overview
