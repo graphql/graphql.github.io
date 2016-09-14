@@ -7,12 +7,11 @@ sublinks: BREAK,getLocation,Kind,lex,parse,parseValue,printSource,visit
 next: /docs/api-reference-type-system/
 ---
 
-The `graphql/language` module is responsible for parsing and operating on the
-GraphQL language.
+The `graphql/language` module is responsible for parsing and operating on the GraphQL language. You can import either from the `graphql/language` module, or from the root `graphql` module. For example:
 
 ```js
-import { ... } from 'graphql/language'; // ES6
-var GraphQLLanguage = require('graphql/language'); // CommonJS
+import { Source } from 'graphql'; // ES6
+var { Source } = require('graphql'); // CommonJS
 ```
 
 ## Overview

@@ -7,11 +7,11 @@ sublinks: getNamedType,getNullableType,GraphQLBoolean,GraphQLEnumType,GraphQLFlo
 next: /docs/api-reference-utilities/
 ---
 
-The `graphql/type` module is responsible for defining GraphQL types and schema.
+The `graphql/type` module is responsible for defining GraphQL types and schema. You can import either from the `graphql/type` module, or from the root `graphql` module. For example:
 
 ```js
-import { ... } from 'graphql/type'; // ES6
-var GraphQLType = require('graphql/type'); // CommonJS
+import { GraphQLSchema } from 'graphql'; // ES6
+var { GraphQLSchema } = require('graphql'); // CommonJS
 ```
 
 ## Overview
