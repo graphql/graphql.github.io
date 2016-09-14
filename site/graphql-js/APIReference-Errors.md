@@ -3,7 +3,7 @@ title: graphql/error
 layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-errors/
-sublinks: GraphQLError,syntaxError,locatedError,formatError
+sublinks: formatError,GraphQLError,locatedError,syntaxError
 next: /docs/api-reference-execution/
 ---
 

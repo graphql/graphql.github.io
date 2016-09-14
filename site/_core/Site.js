@@ -14,20 +14,18 @@ var SiteData = require('./SiteData');
 var Site = React.createClass({
   render: function() {
     var suffix = this.props.category || 'GraphQL';
-    var pageTitle = this.props.title ? `${this.props.title} | ${suffix}` : `GraphQL | ${SiteData.description}`;
+    var pageTitle = this.props.title ?
+      `${this.props.title} | ${suffix}` :
+      `GraphQL | ${SiteData.description}`;
     return (
       <html>
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <title>{pageTitle}</title>
-          <meta name="viewport" content="width=device-width" />
-          <meta property="og:title" content={'GraphQL | ' + SiteData.description} />
+          <meta name="viewport" content="width=640" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://graphql.org/" />
-          <meta property="og:description" content={SiteData.description} />
-          <meta name="viewport" content="width=640" />
-
           <link rel="shortcut icon" href="/img/favicon.png" />
           <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog" />
           <link rel="stylesheet" href="/style.css" />

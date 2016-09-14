@@ -3,7 +3,7 @@ title: graphql/utilities
 layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-utilities/
-sublinks: introspectionQuery,buildClientSchema,printSchema,printIntrospectionSchema,buildASTSchema,typeFromAST,astFromValue,TypeInfo,isValidJSValue,isValidLiteralValue,buildSchema
+sublinks: astFromValue,buildASTSchema,buildClientSchema,buildSchema,introspectionQuery,isValidJSValue,isValidLiteralValue,printIntrospectionSchema,printSchema,typeFromAST,TypeInfo
 next: /docs/api-reference-validation/
 ---
 

@@ -3,7 +3,7 @@ title: graphql/types
 layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-type-system/
-sublinks: GraphQLSchema,GraphQLScalarType,GraphQLObjectType,GraphQLInterfaceType,GraphQLUnionType,GraphQLEnumType,GraphQLInputObjectType,GraphQLList,GraphQLNonNull,isInputType,isOutputType,isLeafType,isCompositeType,isAbstractType,getNullableType,getNamedType,GraphQLInt,GraphQLFloat,GraphQLString,GraphQLBoolean,GraphQLID
+sublinks: getNamedType,getNullableType,GraphQLBoolean,GraphQLEnumType,GraphQLFloat,GraphQLID,GraphQLInputObjectType,GraphQLInt,GraphQLInterfaceType,GraphQLList,GraphQLNonNull,GraphQLObjectType,GraphQLScalarType,GraphQLSchema,GraphQLString,GraphQLUnionType,isAbstractType,isCompositeType,isInputType,isLeafType,isOutputType
 next: /docs/api-reference-utilities/
 ---
 
