@@ -11,7 +11,7 @@ On this page, you'll learn in detail about how to query a GraphQL server.
 
 ## Fields
 
-At it's simplest, GraphQL is about asking for specific fields on objects. Let's start by looking at a very simple query and the result we get when we run it:
+At its simplest, GraphQL is about asking for specific fields on objects. Let's start by looking at a very simple query and the result we get when we run it:
 
 ```graphql
 # { "graphiql": true }
