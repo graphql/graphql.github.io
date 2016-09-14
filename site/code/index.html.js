@@ -29,18 +29,175 @@ Many different programming languages support GraphQL. This list contains some of
 
 ### JavaScript
 
-  - [GraphQL.js](/graphql-js/) ([github](https://github.com/graphql/graphql-js/)) ([npm](https://www.npmjs.com/package/graphql)): The reference implementation of the GraphQL specification, designed for running a GraphQL server in a Node.js environment.
-  - [express-graphql](/graphql-js/running-an-express-graphql-server/) ([github](https://github.com/graphql/express-graphql)) ([npm](https://www.npmjs.com/package/express-graphql)): The reference implementation of a GraphQL API server over an Express webserver. You can use this to run GraphQL in conjunction with a regular Express webserver, or as a standalone GraphQL server.
-  - [graphql-relay](https://github.com/graphql/graphql-relay-js) ([npm](https://www.npmjs.com/package/graphql-relay)): A server library to help construct a Node.js GraphQL API that supports [Relay](https://facebook.github.io/relay/).
-  - [Apollo Server](http://dev.apollodata.com/tools/apollo-server/index.html) ([github](https://github.com/apollostack/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server)): A GraphQL server that works with all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+#### [GraphQL.js](/graphql-js/) ([github](https://github.com/graphql/graphql-js/)) ([npm](https://www.npmjs.com/package/graphql))
+
+The reference implementation of the GraphQL specification, designed for running GraphQL in a Node.js environment.
+
+To run a \`GraphQL.js\` hello world script from the command line:
+
+\`\`\`bash
+npm install graphql
+\`\`\`
+
+Then run \`node hello.js\` with this code in \`hello.js\`:
+
+\`\`\`js
+var { graphql, buildSchema } = require('graphql');
+
+var schema = buildSchema(\`
+  type Query {
+    hello: String
+  }
+\`);
+
+var root = { hello: () => 'Hello world!' };
+
+graphql(schema, '{ hello }', root).then((response) => {
+  console.log(response);
+});
+\`\`\`
+
+#### [express-graphql](/graphql-js/running-an-express-graphql-server/) ([github](https://github.com/graphql/express-graphql)) ([npm](https://www.npmjs.com/package/express-graphql))
+
+The reference implementation of a GraphQL API server over an Express webserver. You can use this to run GraphQL in conjunction with a regular Express webserver, or as a standalone GraphQL server.
+
+To run an \`express-graphql\` hello world server:
+
+\`\`\`bash
+npm install express express-graphql graphql
+\`\`\`
+
+Then run \`node server.js\` with this code in \`server.js\`:
+
+\`\`\`js
+var express = require('express');
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
+
+var schema = buildSchema(\`
+  type Query {
+    hello: String
+  }
+\`);
+
+var root = { hello: () => 'Hello world!' };
+
+var app = express();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
+\`\`\`
+
+#### [Apollo Server](http://dev.apollodata.com/tools/apollo-server/index.html) ([github](https://github.com/apollostack/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server))
+
+A GraphQL server that works with Node.js.
+
+To run a hello world server with Apollo Server:
+
+\`\`\`bash
+npm install apollo-server body-parser express graphql graphql-tools
+\`\`\`
+
+Then run \`node server.js\` with this code in \`server.js\`:
+
+\`\`\`js
+var express = require('express');
+var bodyParser = require('body-parser');
+var { apolloExpress, graphiqlExpress } = require('apollo-server');
+var { makeExecutableSchema } = require('graphql-tools');
+
+var typeDefs = [\`
+type Query {
+  hello: String
+}
+
+schema {
+  query: Query
+}\`];
+
+var resolvers = {
+  Query: {
+    hello(root) {
+      return 'world';
+    }
+  }
+};
+
+var schema = makeExecutableSchema({typeDefs, resolvers});
+var app = express();
+app.use('/graphql', bodyParser.json(), apolloExpress({schema}));
+app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
+app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
+\`\`\`
+
+Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
 
 ### Ruby
 
-  - [graphql-ruby](https://github.com/rmosolgo/graphql-ruby): A Ruby library for building GraphQL APIs. Built-in support for Relay and Rails.
+#### [graphql-ruby](https://github.com/rmosolgo/graphql-ruby)
+
+A Ruby library for building GraphQL APIs.
+
+To run a hello world script with \`graphql-ruby\`:
+
+\`\`\`bash
+gem install graphql
+\`\`\`
+
+Then run \`ruby hello.rb\` with this code in \`hello.rb\`:
+
+\`\`\`ruby
+require 'graphql'
+
+QueryType = GraphQL::ObjectType.define do
+  name 'Query'
+  field :hello do
+    type types.String
+    resolve -> (obj, args, ctx) { 'Hello world!' }
+  end
+end
+
+Schema = GraphQL::Schema.define do
+  query QueryType
+end
+
+puts Schema.execute('{ hello }')
+\`\`\`
+
+There are also nice bindings for Relay and Rails.
 
 ### Python
 
-  - [Graphene](http://graphene-python.org/) ([github](https://github.com/graphql-python/graphene)): A Python library for building GraphQL APIs. Built-in support for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
+#### [Graphene](http://graphene-python.org/) ([github](https://github.com/graphql-python/graphene))
+
+A Python library for building GraphQL APIs.
+
+To run a Graphene hello world script:
+
+\`\`\`bash
+pip install graphene
+\`\`\`
+
+Then run \`python hello.py\` with this code in \`hello.py\`:
+
+\`\`\`python
+import graphene
+
+class Query(graphene.ObjectType):
+  hello = graphene.String()
+
+  def resolve_hello(self, args, info):
+    return 'Hello world!'
+
+schema = graphene.Schema(query=Query)
+result = schema.execute('{ hello }')
+print(result.data['hello'])
+\`\`\`
+
+There are also nice bindings for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
 
 ### Scala
 
@@ -48,7 +205,44 @@ Many different programming languages support GraphQL. This list contains some of
 
 ### Java
 
-  - [graphql-java](https://github.com/graphql-java/graphql-java): A Java library for building GraphQL APIs.
+#### [graphql-java](https://github.com/graphql-java/graphql-java)
+
+A Java library for building GraphQL APIs.
+
+Code that executes a hello world GraphQL query with \`graphql-java\`:
+
+\`\`\`java
+import graphql.schema.GraphQLObjectType;
+import graphql.schema.GraphQLSchema;
+
+import static graphql.Scalars.GraphQLString;
+import static graphql.schema.GraphQLFieldDefinition.newFieldDefinition;
+import static graphql.schema.GraphQLObjectType.newObject;
+
+public class HelloWorld {
+
+    public static void main(String[] args) {
+
+        GraphQLObjectType queryType = newObject()
+                        .name("helloWorldQuery")
+                        .field(newFieldDefinition()
+                                .type(GraphQLString)
+                                .name("hello")
+                                .staticValue("Hello world!"))
+                        .build();
+
+        GraphQLSchema schema = GraphQLSchema.newSchema()
+                        .query(queryType)
+                        .build();
+        Map<String, Object> result = new GraphQL(schema).execute("{hello}").getData();
+
+        System.out.println(result);
+        // Prints: {hello=world}
+    }
+}
+\`\`\`
+
+See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for more information on setup.
 
 ### Go
 
