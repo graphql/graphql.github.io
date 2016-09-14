@@ -16,7 +16,7 @@ var BlogLayout = React.createClass({
     var page = this.props.page;
     var site = this.props.site;
     return (
-      <Site section="blog" title={page.title}>
+      <Site section="blog" title={page.title} page={page}>
         <section>
           <div className="documentationContent">
             <BlogPost post={page} isPermalink={true} />

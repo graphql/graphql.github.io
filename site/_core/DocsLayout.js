@@ -13,7 +13,7 @@ var Marked = require('./Marked');
 var DocsSidebar = require('./DocsSidebar');
 
 export default ({ page, site }) =>
-  <Site section="docs" title={page.title}>
+  <Site section="docs" title={page.title} page={page}>
     <section>
       <div className="documentationContent">
         <div className="inner-content">

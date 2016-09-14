@@ -13,6 +13,7 @@ var SiteData = require('./SiteData');
 
 var Site = React.createClass({
   render: function() {
+    var page = this.props.page;
     var suffix = this.props.category || 'GraphQL';
     var pageTitle = this.props.title ?
       `${this.props.title} | ${suffix}` :
@@ -77,6 +78,7 @@ var Site = React.createClass({
                 <a href="/blog">GraphQL Team Blog</a>
                 <a href="http://facebook.github.io/graphql/" target="_blank">Read the Spec</a>
                 <a href="https://github.com/graphql" target="_blank">GitHub</a>
+                {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank">&#x270E; Edit this page</a>}
               </div>
             </section>
             <a href="https://code.facebook.com/projects/" target="_blank" className="fbOpenSource">
