@@ -7,6 +7,7 @@
  */
 
 var React = require('react');
+import { toSlug } from './Header';
 
 // thisPageID is the id of the rendering page
 // category is the category object to render a sidebar for
@@ -20,7 +21,7 @@ function sidebarForCategory(thisPageID, category) {
     var sublinkUL = page.sublinks &&
       <ul>{page.sublinks.split(',').map(sublink =>
         <li key={sublink}>
-          <a target={target} href={page.url + '#' + sublink.toLowerCase()}>
+          <a target={target} href={page.url + '#' + toSlug(sublink)}>
             {sublink}
           </a>
         </li>

@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/queries/
 next: /learn/schema/
-sublinks: fields,arguments,aliases,fragments,variables,operation-name,directives,mutations,inline-fragments
+sublinks: Fields,Arguments,Aliases,Fragments,Variables,Operation Name,Directives,Mutations,Inline Fragments
 ---
 
 On this page, you'll learn in detail about how to query a GraphQL server.

@@ -6,7 +6,7 @@
 
 var React = require('react');
 var Prism = require('./Prism');
-var Header = require('./Header');
+import Header from './Header';
 
 export default function Marked(props) {
   return <div>{marked(props.children, props)}</div>;
