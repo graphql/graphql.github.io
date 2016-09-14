@@ -745,6 +745,7 @@ function Parser(options) {
   this.tokens = [];
   this.token = null;
   this.options = options || marked.defaults;
+  this.usedSlugs = {};
 }
 
 /**
@@ -816,7 +817,7 @@ Parser.prototype.tok = function() {
     }
     case 'heading': {
       return (
-        <Header url={this.options.url} level={this.token.depth} toSlug={this.token.text}>
+        <Header url={this.options.url} level={this.token.depth} toSlug={this.token.text} usedSlugs={this.usedSlugs}>
           {this.inline.output(this.token.text)}
         </Header>
       );

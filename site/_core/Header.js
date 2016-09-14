@@ -38,7 +38,14 @@ export function toSlug(string) {
 }
 
 export default (props) => {
-  var slug = toSlug(props.toSlug || props.children);
+  var usedSlugs = props.usedSlugs || {};
+  var append = '';
+  var loopCount = 0;
+  do {
+    var slug = toSlug((props.toSlug || props.children) + append);
+    append = '-' + (++loopCount);
+  } while (usedSlugs[slug]);
+  usedSlugs[slug] = slug;
   var Heading = 'h' + props.level;
   var url = props.url || '';
 
