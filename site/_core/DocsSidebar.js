@@ -7,34 +7,66 @@
  */
 
 var React = require('react');
+import { toSlug } from './Header';
+
+// thisPageID is the id of the rendering page
+// category is the category object to render a sidebar for
+function sidebarForCategory(thisPageID, category) {
+  var listItems = [];
+  for (var page of category.links) {
+    var target = page.url.match(/^https?:/) && '_blank';
+    var marginLeft = page.indent ? 20 : 0;
+
+    // Sublinks to any page sub-parts
+    var sublinkUL = page.sublinks &&
+      <ul>{page.sublinks.split(',').map(sublink =>
+        <li key={sublink}>
+          <a target={target} href={page.url + '#' + toSlug(sublink)}>
+            {sublink}
+          </a>
+        </li>
+      )}</ul>;
+
+    // Link for the main page overall
+    listItems.push(
+      <li key={page.permalink}>
+        <a
+          target={target}
+          style={{marginLeft: marginLeft}}
+          className={page.id === thisPageID ? 'active' : ''}
+          href={page.url}>
+          {page.sidebarTitle || page.title}
+        </a>
+        {sublinkUL}
+      </li>
+    );
+  }
+
+  return (
+    <div key={category.name}>
+      <h3>{category.name}</h3>
+      <ul>{listItems}</ul>
+    </div>
+  );
+}
 
 var DocsSidebar = React.createClass({
   render: function() {
     return <div className="nav-docs">
-      {getCategories(this.props.site).map((category) =>
-        <div className="nav-docs-section" key={category.name}>
-          <h3>{category.name}</h3>
-          <ul>
-            {category.links.map(page =>
-              <li key={page.permalink}>
-                <a
-                  target={page.url.match(/^https?:/) && '_blank'}
-                  style={{marginLeft: page.indent ? 20 : 0}}
-                  className={page.id === this.props.page.id ? 'active' : ''}
-                  href={page.url}>
-                  {page.title}
-                </a>
-              </li>
-            )}
-          </ul>
-        </div>
+      {getCategories(this.props.site, this.props.page.dir, this.props.firstURL).map((category) =>
+        sidebarForCategory(this.props.page.id, category)
       )}
     </div>;
   }
 });
 
-function getCategories(site) {
-  var pages = site.files.docs.filter(file => file.content);
+// If firstURL is provided, it's the URL (starting with /) of the
+// first page to put on the sidebar.
+function getCategories(site, dir, firstURL) {
+  if (!site.files[dir]) {
+    throw new Error('Cannot build sidebar for ' + dir);
+  }
+  var pages = site.files[dir].filter(file => file.content);
 
   // Build a hashmap of url -> page
   var articles = {}
@@ -61,10 +93,13 @@ function getCategories(site) {
   var first = null;
   for (var i = 0; i < pages.length; ++i) {
     var page = pages[i];
-    if (!previous[page.url]) {
+    if (firstURL === page.url || !previous[page.url]) {
       first = page;
       break;
     }
+  }
+  if (!first) {
+    throw new Error('first not found');
   }
 
   var categories = [];

@@ -7,5 +7,5 @@
  */
 
 module.exports = {
-  description: "A data query language and runtime"
+  description: "A query language for your API"
 };

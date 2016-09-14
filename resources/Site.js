@@ -40,13 +40,29 @@ async function readSite(siteRoot) {
     });
   });
 
+  // Cross-link all prev/next pages
+  var pageByUrl = Object.create(null);
+  for (var i = 0; i < site.files.length; i++) {
+    pageByUrl[path.resolve(site.files[i].url)] = site.files[i];
+  }
+
+  for (var i = 0; i < site.files.length; i++) {
+    var page = site.files[i];
+    if (page.next) {
+      page.nextPage = pageByUrl[path.resolve(page.url, page.next)];
+    }
+  }
+
   return site;
 }
 
-function buildSite(buildRoot, site) {
-  return Promise.all(site.files.map(file => {
-    return writer(buildRoot, file, site);
-  }));
+function buildSite(buildRoot, site, filter) {
+  return Promise.all(site.files
+    .filter(file =>
+      !filter ||
+      (filter.test ? filter.test(file.absPath) : filter === file.absPath))
+    .map(file => writer(buildRoot, file, site))
+  );
 }
 
 
@@ -91,6 +107,8 @@ function readFileData(absPath, relPath, stat) {
 function normalizeData(file) {
   file.isPage = file.content && isPageish(file.relPath);
   file.url = urlToFile(file);
+  var dirname = path.dirname(file.relPath);
+  file.dir = dirname === '.' ? 'docs' : dirname.split('/')[0];
   file.date = file.date ?
     Date.parse(file.date) :
     (file.stat.birthtime || file.stat.ctime);
@@ -121,6 +139,11 @@ function urlToFile(file) {
         }
       }
     }
+  }
+
+  // Convert .less to .css
+  if (path.extname(url) === '.less') {
+    url = url.slice(0, -5) + '.css';
   }
 
   // Assume index.html stands for the parent directory

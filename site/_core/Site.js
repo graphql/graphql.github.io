@@ -8,60 +8,93 @@
 
 var React = require('react');
 var HeaderLinks = require('./HeaderLinks');
+var Search = require('./Search');
 var SiteData = require('./SiteData');
 
 var Site = React.createClass({
   render: function() {
-    var pageTitle = this.props.title ? `${this.props.title} | GraphQL` : `GraphQL | ${SiteData.description}`;
+    var page = this.props.page;
+    var suffix = this.props.category || 'GraphQL';
+    var pageTitle = this.props.title ?
+      `${this.props.title} | ${suffix}` :
+      `GraphQL | ${SiteData.description}`;
     return (
       <html>
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <title>{pageTitle}</title>
-          <meta name="viewport" content="width=device-width" />
-          <meta property="og:title" content={'GraphQL | ' + SiteData.description} />
+          <meta name="viewport" content="width=640" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://graphql.org/" />
-          <meta property="og:description" content={SiteData.description} />
-
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
-          <link rel="shortcut icon" href={'/img/favicon.png'} />
-          <link rel="stylesheet" href={'/css/graphql.css'} />
+          <link rel="shortcut icon" href="/img/favicon.png" />
           <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog" />
-
-          <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
-          <script type="text/javascript">{'try{Typekit.load();}catch(e){}'}</script>
+          <link rel="stylesheet" href="/style.css" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,600" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
         </head>
-        <body>
+        <body className={this.props.className}>
 
-          <div className="container">
-            <div className="nav-main">
-              <div className="wrap">
-                <a className="nav-home" href={'/'}>
-                  <img className="nav-logo" src={'/img/logo.svg'} width="40" height="40" />
-                  GraphQL
-                </a>
-                <HeaderLinks section={this.props.section} />
+          <header>
+            <section>
+              <a className="nav-home" href="/">
+                <img className="nav-logo" src="/img/logo.svg" width="30" height="30" />
+                GraphQL
+              </a>
+              <HeaderLinks section={this.props.section} />
+              {this.props.noSearch || <Search />}
+            </section>
+          </header>
+
+          {this.props.children}
+
+          <footer>
+            <section className="sitemap">
+              <a href="/" className="nav-home" />
+              <div>
+                <h5><a href="/learn/">Learn</a></h5>
+                <a href="/learn/">Introduction</a>
+                <a href="/learn/query/">Query Language</a>
+                <a href="/learn/schema/">Type System</a>
+                <a href="/learn/execution/">Execution</a>
+                <a href="/learn/best-practices/">Best Practices</a>
               </div>
-            </div>
-
-            {this.props.children}
-
-            <footer className="wrap">
-              <div className="right">©2016 Facebook Inc.</div>
-            </footer>
-          </div>
-
-          <div id="fb-root" />
+              <div>
+                <h5><a href="/code">Code</a></h5>
+                <a href="/code/#graphql-server-libraries">Servers</a>
+                <a href="/code/#graphql-clients">Clients</a>
+                <a href="/code/#tools">Tools</a>
+              </div>
+              <div>
+                <h5><a href="/community">Community</a></h5>
+                <a href="/community/upcoming-events/">Upcoming Events</a>
+                <a href="/community/#videos">Conference Talks</a>
+                <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank">Stack Overflow</a>
+                <a href="https://twitter.com/GraphQL" target="_blank">Twitter</a>
+              </div>
+              <div>
+                <h5>More</h5>
+                <a href="/blog">GraphQL Team Blog</a>
+                <a href="http://facebook.github.io/graphql/" target="_blank">Read the Spec</a>
+                <a href="https://github.com/graphql" target="_blank">GitHub</a>
+                {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank">&#x270E; Edit this page</a>}
+              </div>
+            </section>
+            <a href="https://code.facebook.com/projects/" target="_blank" className="fbOpenSource">
+              <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
+            </a>
+            <section className="copyright">
+              Copyright &copy; 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause.
+            </section>
+          </footer>
 
           <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
           <script dangerouslySetInnerHTML={{__html: `
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
             docsearch({
               apiKey: 'd103541f3e6041148aade2e746ed4d61',
               indexName: 'graphql',
-              inputSelector: '#algolia-doc-search'
+              inputSelector: '#algolia-search-input'
             });
           `}} />
           <script dangerouslySetInnerHTML={{__html: `
