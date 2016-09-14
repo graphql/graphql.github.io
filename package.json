@@ -6,7 +6,7 @@
     "start": "rm -rf build && babel-node resources/server.js",
     "build": "rm -rf build && babel-node resources/build.js",
     "watch": "rm -rf build && babel-node resources/watch.js",
-    "test": "exit 0"
+    "test": "npm run build"
   },
   "babel": {
     "optional": [
