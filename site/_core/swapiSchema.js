@@ -135,6 +135,9 @@ type FriendsConnection {
   # The edges for each of the character's friends.
   edges: [FriendsEdge]
 
+  # A list of the friends, as a convenience when edges are not needed.
+  friends: [Character]
+
   # Information for paginating this connection
   pageInfo: PageInfo!
 }
@@ -150,6 +153,8 @@ type FriendsEdge {
 
 # Information for paginating this connection
 type PageInfo {
+  startCursor: ID
+  endCursor: ID
   hasNextPage: Boolean!
 }
 
@@ -394,13 +399,20 @@ const resolvers = {
     friends: ({ friends }) => friends.map(getCharacter),
     friendsConnection: ({ friends }, { first, after }) => {
       first = first || friends.length;
-      after = parseInt(fromCursor(after), 10) || 0; 
+      after = after ? parseInt(fromCursor(after), 10) : 0; 
+      const edges = friends.map((friend, i) => ({
+        cursor: toCursor(i+1),
+        node: getCharacter(friend)
+      })).slice(after, first + after);
+      const slicedFriends = edges.map(({ node }) => node);
       return {
-        edges: friends.map((friend, i) => ({
-          cursor: toCursor(i+1),
-          node: getCharacter(friend)
-        })).slice(after, first + after),
-        pageInfo: { hasNextPage: first + after < friends.length },
+        edges,
+        friends: slicedFriends,
+        pageInfo: {
+          startCursor: edges.length > 0 ? edges[0].cursor : null,
+          hasNextPage: first + after < friends.length,
+          endCursor: edges.length > 0 ? edges[edges.length - 1].cursor : null
+        },
         totalCount: friends.length
       };
     },
@@ -411,13 +423,20 @@ const resolvers = {
     friends: ({ friends }) => friends.map(getCharacter),
     friendsConnection: ({ friends }, { first, after }) => {
       first = first || friends.length;
-      after = parseInt(fromCursor(after), 10) || 0; 
+      after = after ? parseInt(fromCursor(after), 10) : 0; 
+      const edges = friends.map((friend, i) => ({
+        cursor: toCursor(i+1),
+        node: getCharacter(friend)
+      })).slice(after, first + after);
+      const slicedFriends = edges.map(({ node }) => node);
       return {
-        edges: friends.map((friend, i) => ({
-          cursor: toCursor(i+1),
-          node: getCharacter(friend)
-        })).slice(after, first + after),
-        pageInfo: { hasNextPage: first + after < friends.length },
+        edges,
+        friends: slicedFriends,
+        pageInfo: {
+          startCursor: edges.length > 0 ? edges[0].cursor : null,
+          hasNextPage: first + after < friends.length,
+          endCursor: edges.length > 0 ? edges[edges.length - 1].cursor : null
+        },
         totalCount: friends.length
       };
     },
@@ -425,6 +444,7 @@ const resolvers = {
   },
   FriendsConnection: {
     edges: ({ edges }) => edges,
+    friends: ({ friends }) => friends,
     pageInfo: ({ pageInfo }) => pageInfo,
     totalCount: ({ totalCount }) => totalCount,
   },
