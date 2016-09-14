@@ -3,7 +3,7 @@ title: Upcoming Events
 layout: ../_core/DocsLayout
 category: Community
 permalink: /community/upcoming-events/
-sublinks: talks,events,meetups
+sublinks: Talks,Events,Meetups
 ---
 
 ## Talks

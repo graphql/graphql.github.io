@@ -56,31 +56,4 @@ Could produce the JSON result:
 }
 ```
 
-Learn more about GraphQL: the query language, type system, how the GraphQL service works, and best practices for using GraphQL:
-
-## Core Concepts
-
-Start here to get a solid understanding of GraphQL and how it works.
-
-  - [Query Language](/learn/queries/)
-  - [Type System](/learn/schema/)
-  - [Validation](/learn/validation/)
-  - [Execution](/learn/execution/)
-  - [Introspection](/learn/introspection/)
-
-## Best Practices
-
-Ready to start using GraphQL? Follow these guidelines to get a better understanding of how to approach common topics.
-
-  - [GraphQL Best Practices](/learn/best-practices/)
-  - [Thinking in Graphs](/learn/thinking-in-graphs/)
-  - [Serving Over HTTP](/learn/serving-over-http/)
-  - [Authorization](/learn/authorization/)
-
-<!--
-  - Domain Modeling
-  - Pagination
-  - Versioning
-  - Performance
-  - Security
--->
+Learn more about GraphQL: the query language, type system, how the GraphQL service works, and as well as best practices for using GraphQL to solve common problems in the articles written in this section.

@@ -29,7 +29,7 @@ var index = React.createClass({
               </div>
 
               <div className="marketing-col">
-                <h4>Describe your data</h4>
+                <h3>Describe your data</h3>
                 <Prism language="graphql">
                   {`type Project {
   name: String
@@ -40,7 +40,7 @@ var index = React.createClass({
               </div>
 
               <div className="marketing-col">
-                <h4>Ask for what you want</h4>
+                <h3>Ask for what you want</h3>
                 <Prism language="graphql">
                   {`{
   project(name: "GraphQL") {
@@ -51,7 +51,7 @@ var index = React.createClass({
               </div>
 
               <div className="marketing-col">
-                <h4>Get predictable results</h4>
+                <h3>Get predictable results</h3>
                 <Prism language="json">
                   {`{
   "project": {

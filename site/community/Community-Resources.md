@@ -4,10 +4,12 @@ layout: ../_core/DocsLayout
 category: Community
 permalink: /community/
 next: /community/upcoming-events/
-sublinks: slack,stack-overflow,twitter,blogs,videos,other
+sublinks: Connect,Blogs,Videos
 ---
 
-## Slack
+## Connect
+
+### Slack
 
 Many developers and users idle on Slack in [**#general** on GraphQL](https://graphql.slack.com/messages/general/). [Get your invite here!](https://graphql-slack.herokuapp.com/)
 
@@ -16,11 +18,11 @@ Other helpful Slack communities:
 - [Reindex Slack](http://slack.reindex.io/)
 - [Graph.cool Slack](https://slack.graph.cool/)
 
-## Stack Overflow
+### Stack Overflow
 
 Many members of the community use Stack Overflow to ask questions. [Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
 
-## Twitter
+### Twitter
 
 Use the [**#graphql** hashtag](https://twitter.com/search?q=%23GraphQL&src=tyah) on Twitter to join the conversation.
 
@@ -62,9 +64,10 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [GraphQL server tutorial for Node.js with SQL, MongoDB and REST ](https://www.youtube.com/watch?v=PHabPhgRUuU) - Jonas Helfer
 - [Building Native Mobile Apps with GraphQL](https://www.youtube.com/watch?v=z5rz3saDPJ8) - Martjin Walraven, React Europe 2016
 
-## Other
+## More Resources
 
 To explore other community-developed resources and content about GraphQL, take a look at these sites:
 
 - [Building Apollo](https://medium.com/apollo-stack)
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)
+- [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.

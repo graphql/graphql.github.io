@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/schema/
 next: /learn/validation/
-sublinks: type-system,type-language,object-types-and-fields,arguments,the-query-and-mutation-types,scalar-types,enumeration-types,lists-and-non-null,interfaces,union-types,input-types
+sublinks: Type System,Type Language,Object Types and Fields,Arguments,The Query and Mutation Types,Scalar Types,Enumeration Types,Lists and Non-Null,Interfaces,Union Types,Input Types
 ---
 
 On this page, you'll learn all you need to know about the GraphQL type system and how it describes what data can be queried. Since GraphQL can be used with any backend framework or programming language, we'll stay away from implementation-specific details and talk only about the concepts.
