@@ -14,7 +14,7 @@ Early last year when we first [spoke publicly about GraphQL](https://www.youtube
 
 Part of Facebook's open source philosophy is that we want to only open source what is ready for production. While it's true that we had been using GraphQL in production at Facebook for years, we knew that these newly released pieces had yet to be proven. We expected feedback. So we carefully released GraphQL as a "technical preview."
 
-Exactly one year ago, we published graphql.org, with a [formal announcement](/blog/graphql-a-query-language/) that GraphQL was open source and ready to be "technically previewed". Since then we've seen GraphQL implemented [in many languages](/code/), and successfully adopted by other companies. That includes today's exciting announcement of the Github GraphQL API, the first major public API to use GraphQL.
+Exactly one year ago, we published graphql.org, with a [formal announcement](/blog/graphql-a-query-language/) that GraphQL was open source and ready to be "technically previewed". Since then we've seen GraphQL implemented [in many languages](/code/), and successfully adopted by other companies. That includes today's exciting announcement of the [Github GraphQL API](http://githubengineering.com/the-github-graphql-api/), the first major public API to use GraphQL.
 
 In recognition of the fact that GraphQL is now being used in production by many companies, we're excited to remove the "technical preview" moniker. GraphQL is production ready.
 
