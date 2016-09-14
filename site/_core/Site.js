@@ -55,7 +55,7 @@ var Site = React.createClass({
               <div>
                 <h5><a href="/learn/">Learn</a></h5>
                 <a href="/learn/">Introduction</a>
-                <a href="/learn/query/">Query Language</a>
+                <a href="/learn/queries/">Query Language</a>
                 <a href="/learn/schema/">Type System</a>
                 <a href="/learn/execution/">Execution</a>
                 <a href="/learn/best-practices/">Best Practices</a>
