@@ -13,7 +13,7 @@ var Marked = require('./Marked');
 var DocsSidebar = require('./DocsSidebar');
 
 export default ({ page, site }) =>
-  <Site title={page.title} category="GraphQL.js">
+  <Site title={page.title} category={page.category}>
     <section>
       <div className="documentationContent">
         <div className="inner-content">
