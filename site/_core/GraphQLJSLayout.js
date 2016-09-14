@@ -12,20 +12,27 @@ var Site = require('./Site');
 var Marked = require('./Marked');
 var DocsSidebar = require('./DocsSidebar');
 
-export default ({ page, site }) =>
-  <Site title={page.title} category="GraphQL.js">
-    <section>
-      <div className="documentationContent">
-        <div className="inner-content">
-          <h1>{page.title}</h1>
-          <Marked>{page.content}</Marked>
-          {page.next &&
-            <a className="read-next" href={path.resolve(page.url, page.next)}>
-              <span className="read-next-continue">Continue Reading &rarr;</span>
-              <span className="read-next-title">{page.nextPage.title}</span>
-            </a>}
+export default ({ page, site }) => {
+  var category = page.category;
+  if (!category.match(/GraphQL/)) {
+    category = 'GraphQL.js ' + category;
+  }
+  return (
+    <Site title={page.title} category={category}>
+      <section>
+        <div className="documentationContent">
+          <div className="inner-content">
+            <h1>{page.title}</h1>
+            <Marked>{page.content}</Marked>
+            {page.next &&
+              <a className="read-next" href={path.resolve(page.url, page.next)}>
+                <span className="read-next-continue">Continue Reading &rarr;</span>
+                <span className="read-next-title">{page.nextPage.title}</span>
+              </a>}
+          </div>
+          <DocsSidebar site={site} page={page} />
         </div>
-        <DocsSidebar site={site} page={page} />
-      </div>
-    </section>
-  </Site>
+      </section>
+    </Site>
+  );
+}
