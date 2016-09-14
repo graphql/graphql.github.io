@@ -7,12 +7,12 @@ sublinks: formatError,GraphQLError,locatedError,syntaxError
 next: /docs/api-reference-execution/
 ---
 
-The `graphql/error` module is responsible for creating and formating
-GraphQL errors.
+The `graphql/error` module is responsible for creating and formatting
+GraphQL errors. You can import either from the `graphql/error` module, or from the root `graphql` module. For example:
 
 ```js
-import { ... } from 'graphql/error'; // ES6
-var GraphQLError = require('graphql/error'); // CommonJS
+import { GraphQLError } from 'graphql'; // ES6
+var { GraphQLError } = require('graphql'); // CommonJS
 ```
 
 ## Overview
