@@ -134,7 +134,7 @@ var index = React.createClass({
   "hero": {
     "name": "Luke Skywalker",
     "height": 1.72,
-    "mass": "mass"
+    "mass": 77
   }
 }`}
                 </Prism>

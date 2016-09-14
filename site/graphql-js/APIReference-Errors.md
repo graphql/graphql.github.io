@@ -1,6 +1,6 @@
 ---
 title: graphql/error
-layout: ../_core/CodeLayout
+layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /docs/api-reference-errors/
 sublinks: GraphQLError,syntaxError,locatedError,formatError

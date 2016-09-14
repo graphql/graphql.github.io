@@ -53,7 +53,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [GraphQL Servers](https://www.youtube.com/watch?v=KOudxKJXsjc) - Nick Schrock, React Rally 2015
 - [GraphQL at Facebook](https://www.youtube.com/watch?v=etax3aEe2dA) - Dan Schafer, React Europe 2016
 - [GraphQL Source Code Overview](https://www.youtube.com/watch?v=IqtYr6RX32Q) - Lee Byron
-- [GraphQL Future](https://www.youtube.com/watch?v=ViXL0YQnioU) - Lee Byron & Laney Keunzel
+- [GraphQL Future](https://www.youtube.com/watch?v=ViXL0YQnioU) - Lee Byron & Laney Kuenzel
 - [Apollo Client: Put GraphQL Data in Your UI](https://www.youtube.com/watch?v=u1E0CbGeICo) - Sashko Stubailo
 - [Placeholder for Greg's React Rally Talk on Relay 2]
 - [Build a GraphQL server for Node.js, using PostgreSQL/MySQL](https://www.youtube.com/watch?v=DNPVqK_woRQ) - Lee Benson

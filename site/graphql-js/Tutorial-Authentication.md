@@ -1,7 +1,7 @@
 ---
 title: Authentication and Express Middleware
 sidebarTitle: Authentication & Middleware
-layout: ../_core/CodeLayout
+layout: ../_core/GraphQLJSLayout
 category: GraphQL.js Tutorial
 permalink: /graphql-js/authentication-and-express-middleware/
 next: /graphql-js/constructing-types/

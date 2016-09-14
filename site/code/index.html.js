@@ -9,27 +9,25 @@
 var React = require('react');
 var Site = require('../_core/Site');
 var Marked = require('../_core/Marked');
-var DocsSidebar = require('../_core/DocsSidebar');
 
 var Code = React.createClass({
   render: function() {
     var page = this.props.page;
     var site = this.props.site;
-    var firstURL = '/graphql-js/getting-started/';
     return (
       <Site section="code" title="Code">
 
-        <section className="content documentationContent nosidebar">
-          <DocsSidebar site={site} page={page} firstURL={firstURL} />
-          <div className="inner-content">
-            <h1>Code</h1>
-            <Marked>{`
+        <section>
+          <div className="documentationContent">
+            <div className="inner-content">
+              <h1>Code</h1>
+              <Marked>{`
 
 Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, and other useful stuff.
 
 ## GraphQL Server Libraries
 
-  - [GraphQL.js](/graphql-js/getting-started/) ([github](https://github.com/graphql/graphql-js/)) ([npm](https://www.npmjs.com/package/graphql)): The reference implementation of the GraphQL specification, designed for running a GraphQL server in a Node.js environment.
+  - [GraphQL.js](/graphql-js/) ([github](https://github.com/graphql/graphql-js/)) ([npm](https://www.npmjs.com/package/graphql)): The reference implementation of the GraphQL specification, designed for running a GraphQL server in a Node.js environment.
   - [express-graphql](/graphql-js/running-an-express-graphql-server/) ([github](https://github.com/graphql/express-graphql)) ([npm](https://www.npmjs.com/package/express-graphql)): The reference implementation of a GraphQL API server over an Express webserver. You can use this to run GraphQL in conjunction with a regular Express webserver, or as a standalone GraphQL server.
   - [Graphene](http://graphene-python.org/) ([github](https://github.com/graphql-python/graphene)): A Python library for building GraphQL APIs. Built-in support for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
   - [graphql-ruby](https://github.com/rmosolgo/graphql-ruby): A Ruby library for building GraphQL APIs. Built-in support for Relay and Rails.
@@ -53,8 +51,9 @@ Many different programming languages support GraphQL. This list contains some of
 
   - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 
-            `}</Marked>
+              `}</Marked>
 
+            </div>
           </div>
         </section>
 

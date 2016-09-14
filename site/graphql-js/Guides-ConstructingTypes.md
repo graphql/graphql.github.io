@@ -1,6 +1,6 @@
 ---
 title: Constructing Types
-layout: ../_core/CodeLayout
+layout: ../_core/GraphQLJSLayout
 category: Advanced Guides
 permalink: /graphql-js/constructing-types/
 next: /docs/api-reference-express-graphql/

@@ -1,5 +1,6 @@
 ---
-title: Introduction
+title: Introduction to GraphQL
+sidebarTitle: Introduction
 layout: ../_core/DocsLayout
 category: Learn
 permalink: /learn/
@@ -71,11 +72,15 @@ Start here to get a solid understanding of GraphQL and how it works.
 
 Ready to start using GraphQL? Follow these guidelines to get a better understanding of how to approach common topics.
 
+  - [GraphQL Best Practices](/learn/best-practices/)
   - [Thinking in Graphs](/learn/thinking-in-graphs/)
   - [Serving Over HTTP](/learn/serving-over-http/)
   - [Authorization](/learn/authorization/)
+
+<!--
   - Domain Modeling
   - Pagination
   - Versioning
   - Performance
   - Security
+-->

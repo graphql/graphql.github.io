@@ -83,7 +83,7 @@ module.exports = class MiniGraphiQL extends React.Component {
       this.state.query,
       this.props.rootValue,
       null, // context
-      this.state.variables && JSON.parse(this.state.variables),
+      this.state.variables && JSON.parse(this.state.variables)
     ).then(result => {
       if (result.errors) {
         result.errors = result.errors.map(formatError);

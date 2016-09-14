@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2015, Facebook, Inc.
+ * Copyright (c) 2016, Facebook, Inc.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
@@ -13,7 +13,7 @@ var Marked = require('./Marked');
 var DocsSidebar = require('./DocsSidebar');
 
 export default ({ page, site }) =>
-  <Site section="docs" title={page.title}>
+  <Site title={page.title} category="GraphQL.js">
     <section>
       <div className="documentationContent">
         <div className="inner-content">

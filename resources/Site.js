@@ -40,6 +40,19 @@ async function readSite(siteRoot) {
     });
   });
 
+  // Cross-link all prev/next pages
+  var pageByUrl = Object.create(null);
+  for (var i = 0; i < site.files.length; i++) {
+    pageByUrl[path.resolve(site.files[i].url)] = site.files[i];
+  }
+
+  for (var i = 0; i < site.files.length; i++) {
+    var page = site.files[i];
+    if (page.next) {
+      page.nextPage = pageByUrl[path.resolve(page.url, page.next)];
+    }
+  }
+
   return site;
 }
 

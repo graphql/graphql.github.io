@@ -54,23 +54,23 @@ var Site = React.createClass({
             <section className="sitemap">
               <a href="/" className="nav-home" />
               <div>
-                <h5><a href="/learn">Learn</a></h5>
-                <a>Introduction</a>
-                <a>Query Language</a>
-                <a>Type System</a>
-                <a>How GraphQL Works</a>
-                <a>Best Practices</a>
+                <h5><a href="/learn/">Learn</a></h5>
+                <a href="/learn/">Introduction</a>
+                <a href="/learn/query/">Query Language</a>
+                <a href="/learn/schema/">Type System</a>
+                <a href="/learn/execution/">Execution</a>
+                <a href="/learn/best-practices/">Best Practices</a>
               </div>
               <div>
                 <h5><a href="/code">Code</a></h5>
-                <a>Servers</a>
-                <a>Clients</a>
-                <a>Tools</a>
+                <a href="/code/#graphql-server-libraries">Servers</a>
+                <a href="/code/#graphql-clients">Clients</a>
+                <a href="/code/#tools">Tools</a>
               </div>
               <div>
                 <h5><a href="/community">Community</a></h5>
-                <a>Upcoming Events</a>
-                <a>Conference Talks</a>
+                <a href="/community/upcoming-events/">Upcoming Events</a>
+                <a href="/community/#videos">Conference Talks</a>
                 <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank">Stack Overflow</a>
                 <a href="https://twitter.com/GraphQL" target="_blank">Twitter</a>
               </div>
