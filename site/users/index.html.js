@@ -56,7 +56,9 @@ module.exports = ({ page }) =>
       </div>
 
       <div className="logos">
-        {logos.map(logo =>
+        {logos.sort((a, b) =>
+          a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
+        ).map(logo =>
           <a href={logo.link} target="_blank">
             <img src={'/users/logos/' + logo.img} title={logo.name} className={logo.isRound ? 'round' : null} />
           </a>
