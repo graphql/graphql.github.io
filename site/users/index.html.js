@@ -57,7 +57,12 @@ var logos = [
     name: 'Apollo',
     img: 'apollo.png',
     link: 'http://www.apollostack.com/'
-  }
+  },
+  {
+    name: 'Shopify',
+    img: 'shopify.png',
+    link: 'https://www.shopify.com/'
+  },
 ];
 
 module.exports = ({ page }) =>
