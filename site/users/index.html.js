@@ -38,6 +38,11 @@ var logos = [
     img: 'coursera.png',
     link: 'https://www.coursera.org/'
   },
+  {
+    name: 'Hudl',
+    img: 'hudl.png',
+    link: 'https://www.hudl.com/'
+  },
 ];
 
 module.exports = ({ page }) =>
