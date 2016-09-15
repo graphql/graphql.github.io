@@ -74,9 +74,15 @@ var logos = [
     img: 'loggi.png',
     link: 'https://www.loggi.com/'
   },
+  {
     name: 'Restorando',
     img: 'restorando.png',
     link: 'https://www.restorando.com/'
+  },
+  {
+    name: 'Wishlife',
+    img: 'wishlife.png',
+    link: 'http://www.wishlife.com'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
