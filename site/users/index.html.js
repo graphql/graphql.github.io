@@ -60,30 +60,10 @@ var logos = [
     link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
   {
-    name: 'Brewery Buddy',
-    img: 'brewerybuddy.png',
-    link: 'http://brewerybuddy.co'
+    name: 'Curio',
+    img: 'https://s3.amazonaws.com/curio-public/Curio_wordmark_Gradient1.jpg',
+    link: 'https://curio.org'
   },
-  {
-    name: 'Loggi',
-    img: 'loggi.png',
-    link: 'https://www.loggi.com/'
-  },
-  {
-    name: 'Wishlife',
-    img: 'wishlife.png',
-    link: 'http://www.wishlife.com'
-  },
-  {
-    name: 'Project September',
-    img: 'project-september.png',
-    link: 'https://www.projectseptember.com/'
-  },
-  // Adding your logo?
-  // Add it to the /users/logos/ directory and then append an entry above this comment.
-  //
-  // Please include logos with transparent backgrounds with no extra margin in the image.
-  // If your logo is round, include `isRound: true` in your entry.
 ];
 
 module.exports = ({ page }) =>
