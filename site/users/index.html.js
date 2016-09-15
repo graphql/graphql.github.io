@@ -75,10 +75,35 @@ var logos = [
     link: 'https://www.loggi.com/'
   },
   {
+    name: 'Restorando',
+    img: 'restorando.png',
+    link: 'https://www.restorando.com/'
+  },
+  {
+    name: 'Wishlife',
+    img: 'wishlife.png',
+    link: 'http://www.wishlife.com'
+  },
+  {
+    name: 'Project September',
+    img: 'project-september.png',
+    link: 'https://www.projectseptember.com/'
+  },
+  {
+    name: 'Curio',
+    img: 'curio.png',
+    link: 'https://curio.org'
+  },
+  {
+    name: 'Persado',
+    img: 'persado.png',
+    link: 'http://persado.com/platform/persado-go/'
+  },
+  {
     name: 'Bazinga',
     img: 'bazinga.png',
     link: 'https://www.mybazinga.com/'
-  },
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
