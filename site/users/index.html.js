@@ -10,11 +10,11 @@ var React = require('react');
 var Site = require('../_core/Site');
 
 /**
- * Adding your logo? Add it to the /whos-using/logos/ directory and then append
+ * Adding your logo? Add it to the /users/logos/ directory and then append
  * an entry to this list.
  *
- * Please include logos with transparent backgrounds with no margins. If your
- * logo is round, include `isRound: true` in your entry.
+ * Please include logos with transparent backgrounds with no extra margin in the image.
+ * If your logo is round, include `isRound: true` in your entry.
  */
 var logos = [
   {
@@ -64,6 +64,11 @@ var logos = [
     img: 'brewerybuddy.png',
     link: 'http://brewerybuddy.co'
   },
+  // Adding your logo?
+  // Add it to the /users/logos/ directory and then append an entry above this comment.
+  //
+  // Please include logos with transparent backgrounds with no extra margin in the image.
+  // If your logo is round, include `isRound: true` in your entry.
 ];
 
 module.exports = ({ page }) =>
