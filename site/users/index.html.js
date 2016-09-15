@@ -51,6 +51,7 @@ var logos = [
   {
     name: 'Shopify',
     img: 'shopify.png',
+    isRound: true,
     link: 'https://www.shopify.com/'
   },
 ];
