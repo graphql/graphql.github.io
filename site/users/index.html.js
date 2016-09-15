@@ -64,6 +64,11 @@ var logos = [
     img: 'attendify.png',
     link: 'https://attendify.com/'
   },
+  {
+    name: 'Brewery Buddy',
+    img: 'brewerybuddy.png',
+    link: 'http://brewerybuddy.co/'
+  },
 ];
 
 module.exports = ({ page }) =>
