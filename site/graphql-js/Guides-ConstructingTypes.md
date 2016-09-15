@@ -95,7 +95,7 @@ var queryType = new graphql.GraphQLObjectType({
         id: { type: graphql.GraphQLString }
       },
       resolve: function (_, {id}) {
-        return fakeDatabase[args.id];
+        return fakeDatabase[id];
       }
     }
   }
