@@ -99,6 +99,11 @@ var logos = [
     img: 'persado.png',
     link: 'http://persado.com/platform/persado-go/'
   },
+  {
+    name: 'Bazinga',
+    img: 'bazinga.png',
+    link: 'https://www.mybazinga.com/'
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
