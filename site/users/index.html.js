@@ -61,7 +61,7 @@ var logos = [
   },
   {
     name: 'Curio',
-    img: 'https://s3.amazonaws.com/curio-public/Curio_wordmark_Gradient1.jpg',
+    img: 'curio.png',
     link: 'https://curio.org'
   },
 ];
