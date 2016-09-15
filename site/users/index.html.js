@@ -94,6 +94,11 @@ var logos = [
     img: 'curio.png',
     link: 'https://curio.org'
   },
+  {
+    name: 'Persado',
+    img: 'persado.png',
+    link: 'http://persado.com/platform/persado-go/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
