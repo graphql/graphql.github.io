@@ -74,6 +74,11 @@ var logos = [
     img: 'wishlife.png',
     link: 'http://www.wishlife.com'
   },
+  {
+    name: 'Project September',
+    img: 'project-september.png',
+    link: 'https://www.projectseptember.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
