@@ -562,7 +562,7 @@ public class Character {
             </a>
           </div>
 
-          <a className="button" href="/users/">
+          <a className="button" href="/users/index.html">
             More GraphQL Users
           </a>
 
