@@ -73,12 +73,18 @@ var logos = [
     name: 'Loggi',
     img: 'loggi.png',
     link: 'https://www.loggi.com/'
-  },{
+  },
+  {
     name: 'Restorando',
     img: 'restorando.png',
     link: 'https://www.restorando.com/'
   },
-  ,{
+  {
+    name: 'Wishlife',
+    img: 'wishlife.png',
+    link: 'http://www.wishlife.com'
+  },
+  {
     name: 'Project September',
     img: 'project-september.png',
     link: 'https://www.projectseptember.com/'
