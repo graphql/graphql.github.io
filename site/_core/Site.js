@@ -78,7 +78,7 @@ var Site = React.createClass({
                 <a href="/blog">GraphQL Team Blog</a>
                 <a href="http://facebook.github.io/graphql/" target="_blank">Read the Spec</a>
                 <a href="https://github.com/graphql" target="_blank">GitHub</a>
-                {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank">&#x270E; Edit this page</a>}
+                {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank">Edit this page &#x270E;</a>}
               </div>
             </section>
             <a href="https://code.facebook.com/projects/" target="_blank" className="fbOpenSource">
