@@ -61,7 +61,7 @@ As our applications grow larger and our models and views become more and more co
 - **Date:** October 26, 2016
 - **Location:** San Francisco, CA, USA
 - **Speakers:** Lee Byron, Joe Savona, Sashko Stubailo, James Baxley, Brandon Black
-- **Link:** http://graphqlsumit.com
+- **Link:** http://graphqlsummit.com
 
 
 ## Meetups
