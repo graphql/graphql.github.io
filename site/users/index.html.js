@@ -34,7 +34,7 @@ var logos = [
     link: 'https://www.intuit.com/'
   },
   {
-    name: 'Coursea',
+    name: 'Coursera',
     img: 'coursera.png',
     link: 'https://www.coursera.org/'
   },
@@ -43,7 +43,12 @@ var logos = [
     img: 'hudl.png',
     link: 'https://www.hudl.com/'
   },
+    name: 'Reindex',
+    img: 'reindex.png',
+    link: 'https://www.reindex.io/'
+  },
   {
+
     name: 'Meteor',
     img: 'meteor.png',
     link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.sls7hdvud'
