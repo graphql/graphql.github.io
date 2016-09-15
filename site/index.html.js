@@ -85,7 +85,7 @@ var index = React.createClass({
             developer&nbsp;tools.</p>
         </section>
 
-        <section className="point1">
+        <section className="point1" id="predictable-results">
           <div className="prose">
             <h2>Ask for what you need,<br />get exactly that</h2>
             {/*[Illustration: just a simple query and response?]*/}
@@ -181,7 +181,7 @@ var index = React.createClass({
         </section>
 
         <div className="grayWash">
-          <section className="point2">
+          <section className="point2" id="single-request">
             <div className="prose">
               <h2>Get many resources<br />in a single request</h2>
               {/*Illustration: a query 2 or 3 levels deep]*/}
@@ -227,7 +227,7 @@ var index = React.createClass({
           </section>
         </div>
 
-        <section className="point3">
+        <section className="point3" id="type-system">
           <div className="prose">
             <h2>Describe what&rsquo;s possible<br />with a type system</h2>
             {/*Illustration of a type IDL following a query by line]*/}
@@ -308,7 +308,7 @@ type Species {
         </section>
 
         <div className="darkWash">
-        <section className="point4">
+        <section className="point4" id="powerful-tools">
           <div className="prose">
             <h2>Move faster with<br />powerful developer tools</h2>
             {/*Illustration of GraphiQL validation error and typeahead, animated?]*/}
@@ -328,7 +328,7 @@ type Species {
         </div>
 
         <div className="grayWash">
-        <section className="point5">
+        <section className="point5" id="without-versions">
           <div className="prose">
             <h2>Evolve your API<br />without versions</h2>
             {/*Illustration showing more legs added to a graph? Or a type evolving over time?]*/}
@@ -437,7 +437,7 @@ type Person {
         </section>
         </div>
 
-        <section className="point6">
+        <section className="point6" id="bring-your-own-code">
           <div className="prose">
             <h2>Bring your own<br />data and code</h2>
             {/*Illustration of each field becoming a function?]*/}
@@ -525,7 +525,7 @@ public class Character {
           </div>
         </section>
 
-        <section className="powered-by">
+        <section className="powered-by" id="whos-using">
           <div className="prose">
             <h2>Who&rsquo;s using GraphQL?</h2>
             <p>
