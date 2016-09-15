@@ -53,6 +53,11 @@ var logos = [
     img: 'shopify.png',
     link: 'https://www.shopify.com/'
   },
+  {
+    name: 'Loggi',
+    img: 'loggi.png',
+    link: 'https://www.loggi.com/'
+  },
 ];
 
 module.exports = ({ page }) =>
