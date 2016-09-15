@@ -43,6 +43,11 @@ var logos = [
     img: 'hudl.png',
     link: 'https://www.hudl.com/'
   },
+  {
+    name: 'Reindex',
+    img: 'reindex.png',
+    link: 'https://www.reindex.io/'
+  },
 ];
 
 module.exports = ({ page }) =>
