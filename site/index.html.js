@@ -536,31 +536,36 @@ public class Character {
           <div className="logos">
             {/* Waiting for permission from some of the below */}
             <a href="https://www.facebook.com/" target="_blank">
-              <img src="/img/logos/facebook.png" title="Facebook" />
+              <img src="/users/logos/facebook.png" title="Facebook" />
             </a>
             {/** /}
             <a href="https://twitter.com/" target="_blank">
-              <img src="/img/logos/twitter.png" title="Twitter" className="round" />
+              <img src="/users/logos/twitter.png" title="Twitter" className="round" />
             </a>
             {/**/}
             <a href="https://developer.github.com/early-access/graphql" target="_blank">
-              <img src="/img/logos/github.png" title="GitHub" className="round" />
+              <img src="/users/logos/github.png" title="GitHub" className="round" />
             </a>
             {/** /}
             <a href="https://www.pinterest.com/" target="_blank">
-              <img src="/img/logos/pinterest.png" title="Pinterest" className="round" />
+              <img src="/users/logos/pinterest.png" title="Pinterest" className="round" />
             </a>
             <a href="https://www.airbnb.com/" target="_blank">
-              <img src="/img/logos/airbnb.png" title="Airbnb" className="round" />
+              <img src="/users/logos/airbnb.png" title="Airbnb" className="round" />
             </a>
             {/**/}
             <a href="https://www.intuit.com/" target="_blank">
-              <img src="/img/logos/intuit.png" title="Intuit" />
+              <img src="/users/logos/intuit.png" title="Intuit" />
             </a>
             <a href="https://www.coursera.org/" target="_blank">
-              <img src="/img/logos/coursera.png" title="Coursera" />
+              <img src="/users/logos/coursera.png" title="Coursera" />
             </a>
           </div>
+
+          <a className="button" href="/users/">
+            More GraphQL Users
+          </a>
+
         </section>
 
       </Site>
