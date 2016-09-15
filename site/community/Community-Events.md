@@ -28,6 +28,14 @@ DataLoader is the missing piece in the React-Relay-GraphQL stack, a utility for 
 
 Uri Goldshtein works at Meteor Development group at the Apollo team and is the creator of the angular-meteor and angular2-apollo libraries. In this talk you will learn what GraphQL is, why it is great for Angular and how easy it is to integrate with your current Applications. GraphQL has many benefits comparing to REST like better performance over the network and maintainability. Use this opportunity to ask him questions about this topic before his talk at AngularConnect!
 
+### Leverage GraphQL to Efficiently Query Data Relationships
+
+- **Event:** Dreamforce
+- **Date:** October 6, 2016
+- **Location:** San Francisco, CA
+- **Speakers:** Pierre-Marie Dartus & Robin Ricard
+- **Link:** https://success.salesforce.com/Sessions?eventId=a1Q3000000qQOd9#/session/a2q3A000000LBekQAG
+
 ### From REST to GraphQL
 
 - **Event:** Full Stack Toronto
