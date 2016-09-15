@@ -749,6 +749,11 @@ body.index {
     }
 
     .logos {
+      align-items: center;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
       img {
         height: 100px;
         padding: 14px;
@@ -765,6 +770,26 @@ body.index {
             padding: 16px;
           }
         }
+      }
+    }
+
+    .button {
+      display: inline-block;
+      .headline-font(@size: 17px, @color: @text-color);
+      border: solid 1px fadeout(black, 60%);
+      border-radius: 6px;
+      line-height: 1.0;
+      transition: border 0.1s ease-out, background 0.1s ease-out, color 0.1s ease-out;
+      padding: 0.65em 1.6em 0.6em;
+      margin: 2em;
+      display: inline-block;
+      text-decoration: none;
+
+      &:hover, &:focus, &:active {
+        color: white;
+        background: @rhodamine-color;
+        border-color: @rhodamine-color;
+        text-decoration: none;
       }
     }
   }
