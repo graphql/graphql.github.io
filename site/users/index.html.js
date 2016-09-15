@@ -69,6 +69,11 @@ var logos = [
     img: 'brewerybuddy.png',
     link: 'http://brewerybuddy.co/'
   },
+  {
+    name: 'Loggi',
+    img: 'loggi.png',
+    link: 'https://www.loggi.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
