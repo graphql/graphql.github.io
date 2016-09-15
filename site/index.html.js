@@ -560,6 +560,9 @@ public class Character {
             <a href="https://www.coursera.org/" target="_blank">
               <img src="/users/logos/coursera.png" title="Coursera" />
             </a>
+            <a href="https://www.shopify.com/" target="_blank">
+              <img src="/users/logos/shopify.png" title="Shopify" className="round" />
+            </a>
           </div>
 
           <a className="button" href="/users/">
