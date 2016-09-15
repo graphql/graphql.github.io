@@ -1,7 +1,3 @@
-# WORK IN PROGRESS
-
-This new-source branch represents a work in progress improvement to graphql.org
-
 # Contributing
 
 Organization gh-pages deploy the `master` branch, so active development occurs
