@@ -48,6 +48,11 @@ var logos = [
     img: 'reindex.png',
     link: 'https://www.reindex.io/'
   },
+  {
+    name: 'Shopify',
+    img: 'shopify.png',
+    link: 'https://www.shopify.com/'
+  },
 ];
 
 module.exports = ({ page }) =>
