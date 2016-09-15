@@ -60,9 +60,9 @@ var logos = [
     link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
   {
-    name: 'Curio',
-    img: 'curio.png',
-    link: 'https://curio.org'
+    name: 'Persado',
+    img: 'persado.png',
+    link: 'http://persado.com/platform/persado-go/'
   },
 ];
 
