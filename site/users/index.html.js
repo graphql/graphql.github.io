@@ -60,9 +60,9 @@ var logos = [
     link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
   {
-    name: 'Attendify',
-    img: 'attendify.png',
-    link: 'https://attendify.com/'
+    name: 'Brewery Buddy',
+    img: 'brewerybuddy.png',
+    link: 'http://brewerybuddy.co'
   },
 ];
 
