@@ -34,7 +34,7 @@ var logos = [
     link: 'https://www.intuit.com/'
   },
   {
-    name: 'Coursea',
+    name: 'Coursera',
     img: 'coursera.png',
     link: 'https://www.coursera.org/'
   },
@@ -42,6 +42,11 @@ var logos = [
     name: 'Hudl',
     img: 'hudl.png',
     link: 'https://www.hudl.com/'
+  },
+  {
+    name: 'Reindex',
+    img: 'reindex.png',
+    link: 'https://www.reindex.io/'
   },
 ];
 
