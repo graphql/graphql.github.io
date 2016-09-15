@@ -43,6 +43,16 @@ var logos = [
     img: 'hudl.png',
     link: 'https://www.hudl.com/'
   },
+  {
+    name: 'Meteor',
+    img: 'meteor.png',
+    link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.sls7hdvud'
+  },
+  {
+    name: 'Apollo',
+    img: 'apollo.png',
+    link: 'http://www.apollostack.com/'
+  }
 ];
 
 module.exports = ({ page }) =>
