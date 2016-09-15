@@ -12,7 +12,7 @@ Let's say we have a “message of the day” server, where anyone can update the
 
 ```javascript
 type Mutation {
-  setMessage(message: String): Boolean
+  setMessage(message: String): String
 }
 
 type Query {
@@ -20,7 +20,7 @@ type Query {
 }
 ```
 
-Since `setMessage` doesn't need to return anything useful, we can just return a `Boolean`.
+It's often convenient to have a mutation that maps to a database create or update operation, like `setMessage`, return the same thing that the server stored. That way, if you modify the data on the server, the client can learn about those modifications.
 
 Both mutations and queries can be handled by root resolvers, so the root that implements this schema can simply be:
 
@@ -29,7 +29,7 @@ var fakeDatabase = {};
 var root = {
   setMessage: function ({message}) {
     fakeDatabase.message = message;
-    return true;
+    return message;
   }
   getMessage: function () {
     return fakeDatabase.message;
@@ -39,7 +39,7 @@ var root = {
 
 You don't need anything more than this to implement mutations. But in many cases, you will find a number of different mutations that all accept the same input parameters. A common example is that creating an object in a database and updating an object in a database often take the same parameters. To make your schema simpler, you can use “input types” for this, by using the `input` keyword instead of the `type` keyword.
 
-For example, instead of a single message of the day, let's say we have many messages, indexed in a database by an `ID`, and each message has both a `content` string and an `author` string. We want a mutation API both for creating a new message and for updating an old message. We could use the schema:
+For example, instead of a single message of the day, let's say we have many messages, indexed in a database by the `id` field, and each message has both a `content` string and an `author` string. We want a mutation API both for creating a new message and for updating an old message. We could use the schema:
 
 ```javascript
 input MessageInput {
