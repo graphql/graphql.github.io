@@ -51,7 +51,7 @@ var logos = [
   {
     name: 'Meteor',
     img: 'meteor.png',
-    link: 'http://meteor.com'
+    link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
   {
     name: 'Shopify',
