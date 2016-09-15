@@ -89,6 +89,11 @@ var logos = [
     img: 'project-september.png',
     link: 'https://www.projectseptember.com/'
   },
+  {
+    name: 'Curio',
+    img: 'curio.png',
+    link: 'https://curio.org'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
