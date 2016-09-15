@@ -59,6 +59,11 @@ var logos = [
     img: 'meteor.png',
     link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
+  {
+    name: 'Project September',
+    img: 'project-september.png',
+    link: 'https://www.projectseptember.com/'
+  },
 ];
 
 module.exports = ({ page }) =>
