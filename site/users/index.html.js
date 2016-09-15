@@ -59,6 +59,11 @@ var logos = [
     img: 'meteor.png',
     link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
+  {
+    name: 'Curio',
+    img: 'https://s3.amazonaws.com/curio-public/Curio_wordmark_Gradient1.jpg',
+    link: 'https://curio.org'
+  },
 ];
 
 module.exports = ({ page }) =>
