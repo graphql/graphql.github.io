@@ -34,7 +34,7 @@ var logos = [
     link: 'https://www.intuit.com/'
   },
   {
-    name: 'Coursea',
+    name: 'Coursera',
     img: 'coursera.png',
     link: 'https://www.coursera.org/'
   },
