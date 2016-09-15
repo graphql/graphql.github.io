@@ -201,7 +201,25 @@ There are also nice bindings for [Relay](https://facebook.github.io/relay/), Dja
 
 ### Scala
 
-  - [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria)): A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
+#### [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria)): A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
+
+An example of a hello world GraphQL schema and query with \`sangria\`:
+
+\`\`\`scala
+import sangria.schema._
+import sangria.execution._
+import sangria.macros._
+
+val QueryType = ObjectType("Query", fields[Unit, Unit](
+  Field("hello", StringType, resolve = _ ⇒ "Hello world!")
+))
+
+val schema = Schema(QueryType)
+
+val query = graphql"{ hello }"
+
+Executor.execute(schema, query) map println
+\`\`\`
 
 ### Java
 
