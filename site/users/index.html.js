@@ -68,6 +68,11 @@ var logos = [
     name: 'Bazinga',
     img: 'bazinga.png',
     link: 'https://www.mybazinga.com/'
+  },
+  {
+    name: 'OK GROW!',
+    img: 'okgrow.png',
+    link: 'https://www.okgrow.com/graphql'
   }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
