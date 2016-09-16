@@ -110,7 +110,7 @@ var logos = [
     link: 'https://www.okgrow.com/graphql'
   },
   {
-    name: 'Redbubble,
+    name: 'Redbubble',
     img: 'redbubble.png',
     link: 'https://www.redbubble.com/'
   }
