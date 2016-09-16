@@ -108,6 +108,11 @@ var logos = [
     name: 'OK GROW!',
     img: 'okgrow.png',
     link: 'https://www.okgrow.com/graphql'
+  },
+  {
+    name: '20 Minutes',
+    img: '20minutes.png',
+    link: 'http://www.20minutes.fr'
   }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
