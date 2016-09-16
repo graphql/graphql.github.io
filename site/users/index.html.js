@@ -119,7 +119,13 @@ var logos = [
     name: 'Redbubble',
     img: 'redbubble.png',
     link: 'https://www.redbubble.com/'
-  }
+  },
+  {
+    name: 'Commercetools',
+    img: 'commercetools.png',
+    isRound: true,
+    link: 'https://commercetools.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
