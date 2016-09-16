@@ -131,6 +131,11 @@ var logos = [
     img: '20minutes.png',
     link: 'http://www.20minutes.fr'
   },
+  {
+    name: 'AlloCiné',
+    img: 'allocine.png',
+    link: 'http://www.allocine.fr'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
