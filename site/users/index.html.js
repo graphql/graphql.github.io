@@ -39,6 +39,12 @@ var logos = [
     link: 'https://www.coursera.org/'
   },
   {
+    name: 'Pinterest',
+    img: 'pinterest.png',
+    isRound: true,
+    link: 'https://www.pinterest.com/'
+  },
+  {
     name: 'Hudl',
     img: 'hudl.png',
     link: 'https://www.hudl.com/'
@@ -135,7 +141,7 @@ module.exports = ({ page }) =>
         {logos.sort((a, b) =>
           a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
         ).map(logo =>
-          <a href={logo.link} target="_blank">
+          <a href={logo.link} target="_blank" key={logo.name}>
             <img src={'/users/logos/' + logo.img} title={logo.name} className={logo.isRound ? 'round' : null} />
           </a>
         )}
