@@ -54,6 +54,14 @@ As our applications grow larger and our models and views become more and more co
 - **Speaker:** Martjin Walraven
 - **Link:** https://reactiveconf.com/
 
+### GraphQL - a type system for your API
+
+- **Event:** Scala.IO
+- **Date:** October 27 - 28, 2016
+- **Location:** Lyon, France
+- **Speaker:** Oleg Ilyenko
+- **Link:** http://scala.io/talks.html#/#PLO-4469
+
 
 ## Events
 
@@ -70,14 +78,6 @@ As our applications grow larger and our models and views become more and more co
 - **Location:** San Francisco, CA, USA
 - **Speakers:** Lee Byron, Joe Savona, Sashko Stubailo, James Baxley, Brandon Black
 - **Link:** http://graphqlsummit.com
-
-### GraphQL - a type system for your API
-
-- **Event:** Scala.IO
-- **Date:** October 27 - 28, 2016
-- **Location:** Lyon, France
-- **Speaker:** Oleg Ilyenko
-- **Link:** http://scala.io/talks.html#/#PLO-4469
 
 
 ## Meetups
