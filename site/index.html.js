@@ -546,10 +546,10 @@ public class Character {
             <a href="https://developer.github.com/early-access/graphql" target="_blank">
               <img src="/users/logos/github.png" title="GitHub" className="round" />
             </a>
-            {/** /}
             <a href="https://www.pinterest.com/" target="_blank">
               <img src="/users/logos/pinterest.png" title="Pinterest" className="round" />
             </a>
+            {/** /}
             <a href="https://www.airbnb.com/" target="_blank">
               <img src="/users/logos/airbnb.png" title="Airbnb" className="round" />
             </a>
