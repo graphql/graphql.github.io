@@ -108,6 +108,11 @@ var logos = [
     name: 'OK GROW!',
     img: 'okgrow.png',
     link: 'https://www.okgrow.com/graphql'
+  },
+  {
+    name: 'Commercetools',
+    img: 'commercetools.png',
+    link: 'https://commercetools.com/'
   }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
