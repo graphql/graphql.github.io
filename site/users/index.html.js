@@ -136,6 +136,11 @@ var logos = [
     img: 'allocine.png',
     link: 'http://www.allocine.fr'
   },
+  {
+    name: 'Inerva',
+    img: 'inerva.png',
+    link: 'http://www.inerva.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
