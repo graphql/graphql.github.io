@@ -136,6 +136,11 @@ var logos = [
     img: 'allocine.png',
     link: 'http://www.allocine.fr'
   },
+  {
+    name: 'NewSpring',
+    img: 'newspring.png',
+    link: 'http://www.newspring.cc'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
