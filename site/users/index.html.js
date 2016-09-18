@@ -164,7 +164,7 @@ var logos = [
   {
     name: 'NewSpring',
     img: 'newspring.png',
-    link: 'http://www.newspring.cc'
+    link: 'https://github.com/NewSpring'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
