@@ -141,6 +141,11 @@ var logos = [
     img: 'easycarros.png',
     link: 'http://www.easycarros.com'
   },
+  {
+    name: 'Graphcool',
+    img: 'graphcool.png',
+    link: 'https://graph.cool'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
