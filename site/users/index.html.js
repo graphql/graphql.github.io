@@ -161,6 +161,11 @@ var logos = [
     img: 'serverless.png',
     link: 'https://serverless.com/'
   },
+  {
+    name: 'NewSpring',
+    img: 'newspring.png',
+    link: 'http://www.newspring.cc'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
