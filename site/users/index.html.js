@@ -171,6 +171,11 @@ var logos = [
     img: 'buildkite.png',
     link: 'https://buildkite.com'
   },
+  {
+    name: 'LeanIX',
+    img: 'leanix.png',
+    link: 'https://www.leanix.net'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
