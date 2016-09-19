@@ -34,6 +34,10 @@ Here are some helpful accounts to follow:
 - [@apollostack](https://twitter.com/apollostack)
 - [@graphcool](https://twitter.com/graphcool)
 
+### Facebook
+
+Join the [Facebook Group](https://www.facebook.com/groups/795330550572866/) for more discussions and knowledge sharing.
+
 ## Blogs
 
 Here are a list of notable blog posts to help you better understand GraphQL:
