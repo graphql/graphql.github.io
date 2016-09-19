@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Community
 permalink: /community/
 next: /community/upcoming-events/
-sublinks: Connect,Blogs,Videos
+sublinks: Blogs,Videos
 ---
 
 ## Stack Overflow
