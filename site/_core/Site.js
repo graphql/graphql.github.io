@@ -69,8 +69,8 @@ var Site = React.createClass({
               <div>
                 <h5><a href="/community">Community</a></h5>
                 <a href="/community/upcoming-events/">Upcoming Events</a>
-                <a href="/community/#videos">Conference Talks</a>
                 <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank">Stack Overflow</a>
+                <a href="https://www.facebook.com/groups/graphql.community/" target="_blank">Facebook Group</a>
                 <a href="https://twitter.com/GraphQL" target="_blank">Twitter</a>
               </div>
               <div>

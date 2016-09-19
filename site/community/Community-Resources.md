@@ -9,18 +9,13 @@ sublinks: Connect,Blogs,Videos
 
 ## Connect
 
-### Slack
-
-Many developers and users idle on Slack in [**#general** on GraphQL](https://graphql.slack.com/messages/general/). [Get your invite here!](https://graphql-slack.herokuapp.com/)
-
-Other helpful Slack communities:
-- [Apollo Slack](http://apollostack.com/#slack)
-- [Reindex Slack](http://slack.reindex.io/)
-- [Graph.cool Slack](https://slack.graph.cool/)
-
 ### Stack Overflow
 
 Many members of the community use Stack Overflow to ask questions. [Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
+
+### Facebook Group
+
+Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) for questions, discussion, and sharing.
 
 ### Twitter
 
@@ -34,9 +29,19 @@ Here are some helpful accounts to follow:
 - [@apollostack](https://twitter.com/apollostack)
 - [@graphcool](https://twitter.com/graphcool)
 
-### Facebook
+### Slack & Discord
 
-Join the [Facebook Group](https://www.facebook.com/groups/795330550572866/) for more discussions and knowledge sharing.
+Many GraphQL developers idle in the Discord and Slack groups for live
+communication and quick questions.
+
+Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
+
+Slack Communities:
+
+- [**#general** on GraphQL](https://graphql.slack.com/messages/general/). [Get your invite here!](https://graphql-slack.herokuapp.com/)
+- [Apollo Slack](http://apollostack.com/#slack)
+- [Reindex Slack](http://slack.reindex.io/)
+- [Graph.cool Slack](https://slack.graph.cool/)
 
 ## Blogs
 
