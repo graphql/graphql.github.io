@@ -130,6 +130,11 @@ var logos = [
     img: 'leanix.png',
     link: 'https://www.leanix.net'
   },
+  {
+    name: 'Quri',
+    img: 'quri.png',
+    link: 'http://www.quri.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
