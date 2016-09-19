@@ -120,6 +120,11 @@ var logos = [
     img: 'newspring.png',
     link: 'https://github.com/NewSpring'
   },
+  {
+    name: 'Buildkite',
+    img: 'buildkite.png',
+    link: 'https://buildkite.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
