@@ -2,9 +2,9 @@
 title: graphql
 layout: ../_core/GraphQLJSLayout
 category: API Reference
-permalink: /docs/api-reference-graphql/
+permalink: /graphql-js/graphql/
 sublinks: graphql
-next: /docs/api-reference-errors/
+next: /graphql-js/error/
 ---
 
 The `graphql` module exports a core subset of GraphQL functionality for creation
@@ -32,7 +32,7 @@ var { graphql } = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="../api-reference-type-system/#graphqlschema">
+    <a href="../type/#graphqlschema">
       <pre>class GraphQLSchema</pre>
       A representation of the capabilities of a GraphQL Server.
     </a>
@@ -43,49 +43,49 @@ var { graphql } = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="../api-reference-type-system/#graphqlscalartype">
+    <a href="../type/#graphqlscalartype">
       <pre>class GraphQLScalarType</pre>
       A scalar type within GraphQL.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlobjecttype">
+    <a href="../type/#graphqlobjecttype">
       <pre>class GraphQLObjectType</pre>
       An object type within GraphQL that contains fields.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlinterfacetype">
+    <a href="../type/#graphqlinterfacetype">
       <pre>class GraphQLInterfaceType</pre>
       An interface type within GraphQL that defines fields implementations will contain.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqluniontype">
+    <a href="../type/#graphqluniontype">
       <pre>class GraphQLUnionType</pre>
       A union type within GraphQL that defines a list of implementations.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlenumtype">
+    <a href="../type/#graphqlenumtype">
       <pre>class GraphQLEnumType</pre>
       An enum type within GraphQL that defines a list of valid values.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlinputobjecttype">
+    <a href="../type/#graphqlinputobjecttype">
       <pre>class GraphQLInputObjectType</pre>
       An input object type within GraphQL that represents structured inputs.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqllist">
+    <a href="../type/#graphqllist">
       <pre>class GraphQLList</pre>
       A type wrapper around other types that represents a list of those types.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlnonnull">
+    <a href="../type/#graphqlnonnull">
       <pre>class GraphQLNonNull</pre>
       A type wrapper around other types that represents a non-null version of those types.
     </a>
@@ -96,31 +96,31 @@ var { graphql } = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="../api-reference-type-system/#graphqlint">
+    <a href="../type/#graphqlint">
       <pre>var GraphQLInt</pre>
       A scalar type representing integers.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlfloat">
+    <a href="../type/#graphqlfloat">
       <pre>var GraphQLFloat</pre>
       A scalar type representing floats.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlstring">
+    <a href="../type/#graphqlstring">
       <pre>var GraphQLString</pre>
       A scalar type representing strings.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlboolean">
+    <a href="../type/#graphqlboolean">
       <pre>var GraphQLBoolean</pre>
       A scalar type representing booleans.
     </a>
   </li>
   <li>
-    <a href="../api-reference-type-system/#graphqlid">
+    <a href="../type/#graphqlid">
       <pre>var GraphQLID</pre>
       A scalar type representing IDs.
     </a>
@@ -131,7 +131,7 @@ var { graphql } = require('graphql'); // CommonJS
 
 <ul class="apiIndex">
   <li>
-    <a href="../api-reference-errors/#formaterror">
+    <a href="../error/#formaterror">
       <pre>function formatError</pre>
       Format an error according to the rules described by the Response Format.
     </a>
@@ -164,16 +164,16 @@ to specify which operation in `requestString` will be run, in cases where
 
 ## Schema
 
-See the [Type System API Reference](../api-reference-type-system#schema).
+See the [Type System API Reference](../type#schema).
 
 ## Type Definitions
 
-See the [Type System API Reference](../api-reference-type-system#definitions).
+See the [Type System API Reference](../type#definitions).
 
 ## Scalars
 
-See the [Type System API Reference](../api-reference-type-system#scalars).
+See the [Type System API Reference](../type#scalars).
 
 ## Errors
 
-See the [Errors API Reference](../api-reference-errors)
+See the [Errors API Reference](../error)

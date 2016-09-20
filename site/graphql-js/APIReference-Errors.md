@@ -2,9 +2,9 @@
 title: graphql/error
 layout: ../_core/GraphQLJSLayout
 category: API Reference
-permalink: /docs/api-reference-errors/
+permalink: /graphql-js/error/
 sublinks: formatError,GraphQLError,locatedError,syntaxError
-next: /docs/api-reference-execution/
+next: /graphql-js/execution/
 ---
 
 The `graphql/error` module is responsible for creating and formatting

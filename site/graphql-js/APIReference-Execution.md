@@ -2,9 +2,9 @@
 title: graphql/execution
 layout: ../_core/GraphQLJSLayout
 category: API Reference
-permalink: /docs/api-reference-execution/
+permalink: /graphql-js/execution/
 sublinks: execute
-next: /docs/api-reference-language/
+next: /graphql-js/language/
 ---
 
 The `graphql/execution` module is responsible for the execution phase of

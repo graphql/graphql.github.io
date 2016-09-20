@@ -2,9 +2,9 @@
 title: express-graphql
 layout: ../_core/GraphQLJSLayout
 category: API Reference
-permalink: /docs/api-reference-express-graphql/
+permalink: /graphql-js/express-graphql/
 sublinks: graphqlHTTP
-next: /docs/api-reference-graphql/
+next: /graphql-js/graphql/
 ---
 
 The `express-graphql` module provides a simple way to create an [Express](https://expressjs.com/) server that runs a GraphQL API.

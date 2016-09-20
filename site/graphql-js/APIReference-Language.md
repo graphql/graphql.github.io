@@ -2,9 +2,9 @@
 title: graphql/language
 layout: ../_core/GraphQLJSLayout
 category: API Reference
-permalink: /docs/api-reference-language/
+permalink: /graphql-js/language/
 sublinks: BREAK,getLocation,Kind,lex,parse,parseValue,printSource,visit
-next: /docs/api-reference-type-system/
+next: /graphql-js/type/
 ---
 
 The `graphql/language` module is responsible for parsing and operating on the GraphQL language. You can import either from the `graphql/language` module, or from the root `graphql` module. For example:
