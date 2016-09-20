@@ -135,6 +135,11 @@ var logos = [
     img: 'quri.png',
     link: 'http://www.quri.com'
   },
+  {
+    name: 'Make School',
+    img: 'make-school.png',
+    link: 'http://www.makeschool.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
