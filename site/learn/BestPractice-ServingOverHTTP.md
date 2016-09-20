@@ -45,7 +45,7 @@ A standard GraphQL POST request should use the `application/json` content type, 
 {
   "query": "...",
   "operationName": "...",
-  "variables": { variable1: value, ... }
+  "variables": { "variable1": value, ... }
 }
 ```
 
