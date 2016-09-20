@@ -2,9 +2,9 @@
 title: graphql/utilities
 layout: ../_core/GraphQLJSLayout
 category: API Reference
-permalink: /docs/api-reference-utilities/
+permalink: /graphql-js/utilities/
 sublinks: astFromValue,buildASTSchema,buildClientSchema,buildSchema,introspectionQuery,isValidJSValue,isValidLiteralValue,printIntrospectionSchema,printSchema,typeFromAST,TypeInfo
-next: /docs/api-reference-validation/
+next: /graphql-js/validation/
 ---
 
 The `graphql/utilities` module contains common useful computations to use with

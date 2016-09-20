@@ -2,9 +2,9 @@
 title: graphql/types
 layout: ../_core/GraphQLJSLayout
 category: API Reference
-permalink: /docs/api-reference-type-system/
+permalink: /graphql-js/type/
 sublinks: getNamedType,getNullableType,GraphQLBoolean,GraphQLEnumType,GraphQLFloat,GraphQLID,GraphQLInputObjectType,GraphQLInt,GraphQLInterfaceType,GraphQLList,GraphQLNonNull,GraphQLObjectType,GraphQLScalarType,GraphQLSchema,GraphQLString,GraphQLUnionType,isAbstractType,isCompositeType,isInputType,isLeafType,isOutputType
-next: /docs/api-reference-utilities/
+next: /graphql-js/utilities/
 ---
 
 The `graphql/type` module is responsible for defining GraphQL types and schema. You can import either from the `graphql/type` module, or from the root `graphql` module. For example:
