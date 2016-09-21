@@ -98,6 +98,10 @@ As our applications grow larger and our models and views become more and more co
 
 - [GraphQL Melbourne](http://graphql.melbourne/)
 
+### Asia
+
+- [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
+
 ### Remote
 
 - [GraphQL Remote](https://www.meetup.com/GraphQL-Remote-Meetup/)
