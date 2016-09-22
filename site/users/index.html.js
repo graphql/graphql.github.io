@@ -196,6 +196,11 @@ var logos = [
     img: 'ovos.png',
     link: 'http://www.ovos.at/'
   },
+  {
+    name: 'Icon Systems',
+    img: 'icon-systems.png',
+    link: 'https://www.iconcmo.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
