@@ -140,6 +140,11 @@ var logos = [
     img: 'make-school.png',
     link: 'http://www.makeschool.com'
   },
+  {
+    name: 'Drift',
+    img: 'drift.png',
+    link: 'https://www.drift.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
