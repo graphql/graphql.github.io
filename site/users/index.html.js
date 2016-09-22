@@ -191,6 +191,11 @@ var logos = [
     img: 'drift.png',
     link: 'https://www.drift.com/'
   },
+  {
+    name: 'Icon Systems',
+    img: 'icon-systems.png',
+    link: 'https://www.iconcmo.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
