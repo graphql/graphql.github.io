@@ -291,7 +291,7 @@ query HeroForEpisode($ep: Episode!) {
 }
 ```
 
-Learn more about this in the [inline fragments](XXX) section in the query guide.
+Learn more about this in the [inline fragments](/learn/queries/#inline-fragments) section in the query guide.
 
 ### Union types
 
