@@ -54,7 +54,7 @@ When designing a GraphQL schema, it's important to keep in mind all the problems
 
 ### Pagination
 
-The GraphQL type system allows for some fields to return [lists of values](/learn/schema/#lists-and-non-null) however leaves the pagination of longer lists of values up to the API designer. There are a wide range of possible API designs for pagination, which of which has pros and cons.
+The GraphQL type system allows for some fields to return [lists of values](/learn/schema/#lists-and-non-null) however leaves the pagination of longer lists of values up to the API designer. There are a wide range of possible API designs for pagination, each of which has pros and cons.
 
 Typically fields that could return long lists accept arguments "first" and "after" to allow for specifying a specific region of a list, where "after" is a unique identifier of each of the values in the list.
 
