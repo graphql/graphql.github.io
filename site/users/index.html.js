@@ -160,6 +160,11 @@ var logos = [
     img: 'graphcms.png',
     link: 'https://graphcms.com'
   },
+  {
+    name: 'Credit Karma',
+    img: 'creditkarma.png',
+    link: 'https://www.creditkarma.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
