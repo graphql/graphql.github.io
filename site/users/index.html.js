@@ -165,6 +165,11 @@ var logos = [
     img: 'creditkarma.png',
     link: 'https://www.creditkarma.com/'
   },
+  {
+    name: 'The Hunt',
+    img: 'huntlogo.png',
+    link: 'https://www.thehunt.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
