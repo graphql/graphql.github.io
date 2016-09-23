@@ -196,6 +196,11 @@ var logos = [
     img: 'icon-systems.png',
     link: 'https://www.iconcmo.com/'
   },
+  {
+    name: 'Credit Karma',
+    img: 'creditkarma.png',
+    link: 'https://www.creditkarma.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
