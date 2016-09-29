@@ -221,6 +221,11 @@ var logos = [
     img: 'Syzygy_logo.png',
     link: 'https://www.syzygy.net'
   },
+  {
+    name: 'UST Global',
+    img: 'ustglobal.png',
+    link: 'http://www.ust-global.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
