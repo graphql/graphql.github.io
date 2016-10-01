@@ -46,6 +46,17 @@ Uri Goldshtein works at Meteor Development group at the Apollo team and is the c
 
 As our applications grow larger and our models and views become more and more complex, data fetching can become a real problem. This talk explores REST APIs pain points and how GraphQL can solve data fetching problems easily, using a declarative and hierarchical query language.
 
+### Introduction to GraphQL
+
+- **Event:** AngularBeers Meetup
+- **Date:** October 20, 2016
+- **Location:** Barcelona, Spain
+- **Speaker:** Kamil Kisiela
+- **Link:** http://www.meetup.com/AngularJS-Beers/events/234353768/
+
+Kamil is a front-end engineer from Warszawa and a member of the angular-meteor team. He helped build Angular 2 integration for ApolloStack. He is passionate about learning new stuff and developing new things. He loves a journey called Life. Based in Warsaw, Poland.
+Use this opportunity to ask him questions about this topic and a good excuse to visit Barcelona☀️!
+
 ### Building better mobile apps with GraphQL
 
 - **Event:** Reactive Conf
@@ -71,6 +82,13 @@ As our applications grow larger and our models and views become more and more co
 - **Location:** San Francisco, CA, USA
 - **Speakers:** Samer Buna, Armand Aquino, Kyle Matthews
 - **Link:** http://www.meetup.com/Declarative-Programmers/events/233430457/
+
+### [Workshop] Working with GraphQL on Angular application
+
+- **Date:** October 22, 2016
+- **Location:** Barcelona, Catalonia, Spain
+- **Speakers:** Samer Buna, Armand Aquino, Kyle Matthews
+- **Link:** http://www.meetup.com/AngularJS-Beers/events/234354326/
 
 ### GraphQL Summit
 
