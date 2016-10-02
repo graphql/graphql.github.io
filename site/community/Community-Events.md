@@ -87,7 +87,7 @@ Use this opportunity to ask him questions about this topic and a good excuse to 
 
 - **Date:** October 22, 2016
 - **Location:** Barcelona, Catalonia, Spain
-- **Speakers:** Samer Buna, Armand Aquino, Kyle Matthews
+- **Speakers:** Kamil Kisiela
 - **Link:** http://www.meetup.com/AngularJS-Beers/events/234354326/
 
 ### GraphQL Summit
