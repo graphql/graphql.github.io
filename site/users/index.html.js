@@ -226,6 +226,16 @@ var logos = [
     img: 'ustglobal.png',
     link: 'http://www.ust-global.com/'
   },
+  {
+    name: 'Sale Stock',
+    img: 'salestock.png',
+    link: 'https://www.salestockindonesia.com'
+  },
+  {
+    name: 'IndonesiaX',
+    img: 'indonesiax.png',
+    link: 'https://www.indonesiax.co.id'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
