@@ -222,6 +222,11 @@ var logos = [
     link: 'https://www.syzygy.net'
   },
   {
+    name: 'UST Global',
+    img: 'ustglobal.png',
+    link: 'http://www.ust-global.com/'
+  },
+  {
     name: 'Sale Stock',
     img: 'salestock.png',
     link: 'https://www.salestockindonesia.com'
