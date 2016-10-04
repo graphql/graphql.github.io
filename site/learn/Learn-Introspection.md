@@ -45,9 +45,9 @@ Wow, that's a lot of types! What are they? Let's group them:
 defined in our type system.
  - **String, Boolean** - These are built-in scalars that the type system
 provided.
- - **__Schema, __Type, __TypeKind, __Field, __InputValue, __EnumValue,
-__Directive** - These all are preceded with a double underscore, indicating
-that they are part of the introspection system.
+ - **\_\_Schema, \_\_Type, \_\_TypeKind, \_\_Field, \_\_InputValue,
+\_\_EnumValue, \_\_Directive** - These all are preceded with a double
+underscore, indicating that they are part of the introspection system.
 
 Now, let's try and figure out a good place to start exploring what queries are
 available. When we designed our type system, we specified what type all queries
