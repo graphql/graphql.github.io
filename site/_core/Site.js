@@ -25,8 +25,19 @@ var Site = React.createClass({
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <title>{pageTitle}</title>
           <meta name="viewport" content="width=640" />
+          <meta property="og:title" content="GraphQL: A query language for APIs." />
+          <meta property="og:description" content="GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://graphql.org/" />
+          <meta property="og:image" content="/img/og_image.png" />
+          <meta property="og:image:type" content="image/png" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@graphql" />
+          <meta name="twitter:title" content="GraphQL: A query language for APIs." />
+          <meta name="twitter:description" content="GraphQL gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools." />
+          <meta name="twitter:image" content="/img/twitter_image.png" />
           <link rel="shortcut icon" href="/img/favicon.png" />
           <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog" />
           <link rel="stylesheet" href="/style.css" />
