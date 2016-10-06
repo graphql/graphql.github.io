@@ -241,6 +241,11 @@ var logos = [
     img: 'arangodb.png',
     link: 'https://www.arangodb.com'
   },
+  {
+    name: 'Wayfair',
+    img: 'wayfair.png',
+    link: 'https://www.wayfair.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
