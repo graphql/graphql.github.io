@@ -39,7 +39,7 @@ If the backend uses something like UUIDs for identifiers, then exposing this glo
 
 One concern with using the `id` field for this purpose is how a client using the GraphQL API would work with existing APIs. For example, if our existing API accepted a type-specific ID, but our GraphQL API uses globally unique IDs, then using both at once can be tricky.
 
-In these cases, the GraphQL API can expose the previous API's IDs is a separate field. This gives us the best of both worlds:
+In these cases, the GraphQL API can expose the previous API's IDs in a separate field. This gives us the best of both worlds:
 
  - GraphQL clients can continue to rely on a consistent mechanism for getting a globally unique ID.
  - Clients that need to work with our previous API can also fetch `previousApiId` from the object, and use that.
