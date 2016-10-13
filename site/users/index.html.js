@@ -246,6 +246,11 @@ var logos = [
     img: 'wayfair.png',
     link: 'https://www.wayfair.com/'
   },
+  {
+    name: 'SevOne',
+    img: 'sevone.png',
+    link: 'https://www.sevone.com/'
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
