@@ -200,6 +200,11 @@ var logos = [
     img: 'wayfair.png',
     link: 'https://www.wayfair.com/'
   },
+  {
+    name: 'BlenderBottle',
+    img: 'blenderbottle.png',
+    link: 'https://www.blenderbottle.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
