@@ -52,7 +52,7 @@ The language is pretty readable, but let's go over it so that we can have a shar
 - `name` and `appearsIn` are _fields_ on the `Character` type. That means that `name` and `appearsIn` are the only fields that can appear in any part of a GraphQL query that operates on the `Character` type.
 - `String` is one of the built-in _scalar_ types - these are types that resolve to a single scalar object, and can't have sub-selections in the query. We'll go over scalar types more later.
 - `String!` means that the field is _non-nullable_, meaning that the GraphQL service promises to always give you a value when you query this field. In the type language, we'll represent those with an exclamation mark.
-- `[Episode]` represents an _array_ of `Episode` objects. This means that you can always expect an array, with zero or more items, when you query the `appearsIn` field.
+- `[Episode]!` represents an _array_ of `Episode` objects. Since it is also _non-nullable_, you can always expect an array (with zero or more items) when you query the `appearsIn` field.
 
 Now you know what a GraphQL object type looks like, and how to read the basics of the GraphQL type language.
 
