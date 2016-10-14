@@ -262,6 +262,34 @@ public class HelloWorld {
 
 See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for more information on setup.
 
+### Clojure
+
+#### [graphql-clj](https://github.com/tendant/graphql-clj)
+
+A Clojure library that provides a GraphQL implementation.
+
+Code that executes a hello world GraphQL query with \`graphql-clj\`:
+
+\`\`\`clojure
+(require '[graphql-clj.parser :as parser])
+(require '[graphql-clj.type :as type])
+
+(def parsed-schema (parser/parse "type Query {
+    hello: String
+  }"))
+
+(def type-schema (type/create-schema parsed-schema))
+
+(defn resolver-fn [type-name field-name]
+  (cond
+    (and (= "Query" type-name) (= "hello" field-name)) (fn [context parent & rest]
+                                                         "Hello world!")))
+
+(require '[graphql-clj.executor :as executor])
+
+(executor/execute nil type-schema resolver-fn "{ hello }")
+\`\`\`
+
 ### Go
 
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
