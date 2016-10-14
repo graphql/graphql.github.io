@@ -266,7 +266,7 @@ See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for mo
 
 #### [graphql-clj](https://github.com/tendant/graphql-clj)
 
-A Clojure library designed to provide GraphQL implementation.
+A Clojure library that provides a GraphQL implementation.
 
 Code that executes a hello world GraphQL query with \`graphql-clj\`:
 
