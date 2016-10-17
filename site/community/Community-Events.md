@@ -110,6 +110,7 @@ Use this opportunity to ask him questions about this topic and a good excuse to 
 ### Europe
 
 - [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/)
+- [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
 
 ### Australia
@@ -119,7 +120,3 @@ Use this opportunity to ask him questions about this topic and a good excuse to 
 ### Asia
 
 - [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
-
-### Remote
-
-- [GraphQL Remote](https://www.meetup.com/GraphQL-Remote-Meetup/)
