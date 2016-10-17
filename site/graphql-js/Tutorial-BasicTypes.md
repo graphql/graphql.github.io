@@ -14,7 +14,7 @@ By default, every type is nullable - it's legitimate to return `null` as any of 
 
 To use a list type, surround the type in square brackets, so `[Int]` is a list of integers.
 
-Each of these types maps straightforwardly to JavaScript, so you can just return plain old JavaScript objects in APIs that return these types. Here's an example that shows how to some of these basic types:
+Each of these types maps straightforwardly to JavaScript, so you can just return plain old JavaScript objects in APIs that return these types. Here's an example that shows how to use some of these basic types:
 
 ```javascript
 var express = require('express');
