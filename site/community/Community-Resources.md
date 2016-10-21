@@ -9,11 +9,11 @@ sublinks: Blogs,Videos
 
 ## Stack Overflow
 
-Many members of the community use Stack Overflow to ask questions. [Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
+Many members of the community use Stack Overflow to ask and answer questions. [Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
 
 ## Facebook Group
 
-Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) for questions, discussion, and sharing.
+Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) for questions, discussion, and sharing. The GraphQL Facebook group is the preferred venue for announcements and broader discussion.
 
 ## Twitter
 
@@ -27,9 +27,13 @@ Here are some helpful accounts to follow:
 - [@apollostack](https://twitter.com/apollostack)
 - [@graphcool](https://twitter.com/graphcool)
 
+## IRC
+
+Chat with GraphQL developers on IRC at the [https://freenode.net/](freenode) server on the #graphql channel.
+
 ## Slack & Discord
 
-Many GraphQL developers idle in the Discord and Slack groups for live
+Many GraphQL developers idle in Discord and Slack chatrooms for live
 communication and quick questions.
 
 Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
