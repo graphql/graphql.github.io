@@ -261,6 +261,11 @@ var logos = [
     img: 'mojilala.png',
     link: 'https://www.mojilala.com/'
   },
+  {
+    name: 'Bright',
+    img: 'bright.png',
+    link: 'https://www.thinkbright.mx/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
