@@ -11,21 +11,12 @@ var Site = require('./Site');
 var BlogSidebar = require('./BlogSidebar');
 var BlogPost = require('./BlogPost');
 
-var BlogLayout = React.createClass({
-  render: function() {
-    var page = this.props.page;
-    var site = this.props.site;
-    return (
-      <Site section="blog" title={page.title} page={page}>
-        <section>
-          <div className="documentationContent">
-            <BlogPost post={page} isPermalink={true} />
-            <BlogSidebar site={site} page={page} />
-          </div>
-        </section>
-      </Site>
-    );
-  }
-});
-
-module.exports = BlogLayout;
+module.exports = ({ page, site }) =>
+  <Site section="blog" title={page.title} page={page}>
+    <section>
+      <div className="documentationContent">
+        <BlogPost post={page} isPermalink={true} />
+        <BlogSidebar site={site} page={page} />
+      </div>
+    </section>
+  </Site>
