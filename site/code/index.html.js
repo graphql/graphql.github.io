@@ -10,18 +10,14 @@ var React = require('react');
 var Site = require('../_core/Site');
 var Marked = require('../_core/Marked');
 
-var Code = React.createClass({
-  render: function() {
-    var page = this.props.page;
-    var site = this.props.site;
-    return (
-      <Site section="code" title="Code" page={page}>
+export default ({ page, site }) =>
+  <Site section="code" title="Code" page={page}>
 
-        <section>
-          <div className="documentationContent">
-            <div className="inner-content">
-              <h1>Code</h1>
-              <Marked>{`
+    <section>
+      <div className="documentationContent">
+        <div className="inner-content">
+          <h1>Code</h1>
+          <Marked>{`
 
 Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, and other useful stuff.
 
@@ -333,15 +329,10 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 
   - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 
-              `}</Marked>
+          `}</Marked>
 
-            </div>
-          </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-      </Site>
-    );
-  }
-});
-
-module.exports = Code;
+  </Site>

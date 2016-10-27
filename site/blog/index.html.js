@@ -13,28 +13,19 @@ var Marked = require('../_core/Marked');
 var BlogSidebar = require('../_core/BlogSidebar');
 var BlogPost = require('../_core/BlogPost');
 
-var BlogIndex = React.createClass({
-  render: function() {
-    var page = this.props.page;
-    var site = this.props.site;
-    var posts = site.files.blog
-      .filter(file => !file.draft && path.extname(file.relPath) === '.md')
-      .sort((a, b) => a.date < b.date);
-    return (
-      <Site section="blog" title="Blog">
-        <section>
-          <div className="documentationContent">
-            <div>
-            {posts.map(post =>
+export default ({ page, site }) =>
+  <Site section="blog" title="Blog">
+    <section>
+      <div className="documentationContent">
+        <div>
+          {site.files.blog
+            .filter(file => !file.draft && path.extname(file.relPath) === '.md')
+            .sort((a, b) => a.date < b.date)
+            .map(post =>
               <BlogPost post={post} isPermalink={false} key={post.permalink} />
-            )}
-            </div>
-            <BlogSidebar site={site} />
-          </div>
-        </section>
-      </Site>
-    );
-  }
-});
-
-module.exports = BlogIndex;
+          )}
+        </div>
+        <BlogSidebar site={site} />
+      </div>
+    </section>
+  </Site>
