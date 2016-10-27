@@ -262,10 +262,15 @@ var logos = [
     link: 'https://www.mojilala.com/'
   },
   {
+    name: 'Ningensoft',
+    img: 'ningensoft.png',
+    link: 'https://www.ningensoft.com/'
+  },
+  {
     name: 'Appier',
     img: 'appier.png',
     link: 'https://www.appier.com/'
-  },
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
