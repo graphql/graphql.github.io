@@ -264,7 +264,7 @@ var logos = [
   {
     name: 'Ningensoft',
     img: 'ningensoft.png',
-    link: 'https://www.ningensoft.com/'
+    link: 'http://www.ningensoft.com/'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
