@@ -78,19 +78,19 @@ var Site = React.createClass({
               <div>
                 <h5><a href="/community">Community</a></h5>
                 <a href="/community/upcoming-events/">Upcoming Events</a>
-                <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank">Stack Overflow</a>
-                <a href="https://www.facebook.com/groups/graphql.community/" target="_blank">Facebook Group</a>
-                <a href="https://twitter.com/GraphQL" target="_blank">Twitter</a>
+                <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank" rel="noopener noreferrer">Stack Overflow</a>
+                <a href="https://www.facebook.com/groups/graphql.community/" target="_blank" rel="noopener noreferrer">Facebook Group</a>
+                <a href="https://twitter.com/GraphQL" target="_blank" rel="noopener noreferrer">Twitter</a>
               </div>
               <div>
                 <h5>More</h5>
                 <a href="/blog">GraphQL Team Blog</a>
-                <a href="http://facebook.github.io/graphql/" target="_blank">Read the Spec</a>
-                <a href="https://github.com/graphql" target="_blank">GitHub</a>
-                {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank">Edit this page &#x270E;</a>}
+                <a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Read the Spec</a>
+                <a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GitHub</a>
+                {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank" rel="noopener noreferrer">Edit this page &#x270E;</a>}
               </div>
             </section>
-            <a href="https://code.facebook.com/projects/" target="_blank" className="fbOpenSource">
+            <a href="https://code.facebook.com/projects/" target="_blank" rel="noopener noreferrer" className="fbOpenSource">
               <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
             </a>
             <section className="copyright">

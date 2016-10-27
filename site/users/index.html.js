@@ -292,7 +292,7 @@ module.exports = ({ page }) =>
         {logos.sort((a, b) =>
           a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
         ).map(logo =>
-          <a href={logo.link} target="_blank" key={logo.name}>
+          <a href={logo.link} target="_blank" rel="noopener noreferrer" key={logo.name}>
             <img src={'/users/logos/' + logo.img} title={logo.name} className={logo.isRound ? 'round' : null} />
           </a>
         )}
