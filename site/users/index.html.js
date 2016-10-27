@@ -229,7 +229,12 @@ var logos = [
     name: 'Appier',
     img: 'appier.png',
     link: 'https://www.appier.com/'
-  }
+  },
+  {
+    name: 'Bright',
+    img: 'bright.png',
+    link: 'https://www.thinkbright.mx/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
