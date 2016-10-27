@@ -266,6 +266,11 @@ var logos = [
     img: 'ningensoft.png',
     link: 'https://www.ningensoft.com/'
   },
+  {
+    name: 'Eastview',
+    img: 'eastview.png',
+    link: 'http://eastview.church/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
