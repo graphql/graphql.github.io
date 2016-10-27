@@ -16,21 +16,16 @@ const links = [
   { section: 'spec', text: 'Spec', href: 'http://facebook.github.io/graphql/' },
 ];
 
-var HeaderLinks = React.createClass({
-  render: function() {
-    return <nav>
-      {links.map(link =>
-        <a
-          key={link.section}
-          href={link.href}
-          target={link.href.slice(0, 4) === 'http' ? '_blank' : null}
-          rel={link.href.slice(0, 4) === 'http' ? 'noopener noreferrer' : null}
-          className={link.section === this.props.section ? 'active' : null}>
-          {link.text}
-        </a>
-      )}
-    </nav>;
-  }
-});
-
-module.exports = HeaderLinks;
+export default ({ section }) =>
+  <nav>
+    {links.map(link =>
+      <a
+        key={link.section}
+        href={link.href}
+        target={link.href.slice(0, 4) === 'http' ? '_blank' : null}
+        rel={link.href.slice(0, 4) === 'http' ? 'noopener noreferrer' : null}
+        className={link.section === section ? 'active' : null}>
+        {link.text}
+      </a>
+    )}
+  </nav>
