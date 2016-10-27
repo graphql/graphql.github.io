@@ -266,6 +266,11 @@ var logos = [
     img: 'ningensoft.png',
     link: 'https://www.ningensoft.com/'
   },
+  {
+    name: 'zlyde',
+    img: 'zlyde.png',
+    link: 'http://www.zyde.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
