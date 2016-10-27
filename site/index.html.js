@@ -535,32 +535,32 @@ public class Character {
           </div>
           <div className="logos">
             {/* Waiting for permission from some of the below */}
-            <a href="https://www.facebook.com/" target="_blank">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/facebook.png" title="Facebook" />
             </a>
             {/** /}
-            <a href="https://twitter.com/" target="_blank">
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/twitter.png" title="Twitter" className="round" />
             </a>
             {/**/}
-            <a href="https://developer.github.com/early-access/graphql" target="_blank">
+            <a href="https://developer.github.com/early-access/graphql" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/github.png" title="GitHub" className="round" />
             </a>
-            <a href="https://www.pinterest.com/" target="_blank">
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/pinterest.png" title="Pinterest" className="round" />
             </a>
             {/** /}
-            <a href="https://www.airbnb.com/" target="_blank">
+            <a href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/airbnb.png" title="Airbnb" className="round" />
             </a>
             {/**/}
-            <a href="https://www.intuit.com/" target="_blank">
+            <a href="https://www.intuit.com/" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/intuit.png" title="Intuit" />
             </a>
-            <a href="https://www.coursera.org/" target="_blank">
+            <a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/coursera.png" title="Coursera" />
             </a>
-            <a href="https://www.shopify.com/" target="_blank">
+            <a href="https://www.shopify.com/" target="_blank" rel="noopener noreferrer">
               <img src="/users/logos/shopify.png" title="Shopify" className="round" />
             </a>
           </div>

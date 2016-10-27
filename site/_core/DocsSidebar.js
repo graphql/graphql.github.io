@@ -14,14 +14,18 @@ import { toSlug } from './Header';
 function sidebarForCategory(thisPageID, category) {
   var listItems = [];
   for (var page of category.links) {
-    var target = page.url.match(/^https?:/) && '_blank';
+
+    const shouldOpenInNewWindow = page.url.slice(0, 4) === 'http';
+    const target = shouldOpenInNewWindow ? '_blank' : null;
+    const rel = shouldOpenInNewWindow ? 'noopener noreferrer' : null;
+
     var marginLeft = page.indent ? 20 : 0;
 
     // Sublinks to any page sub-parts
     var sublinkUL = page.sublinks &&
       <ul>{page.sublinks.split(',').map(sublink =>
         <li key={sublink}>
-          <a target={target} href={page.url + '#' + toSlug(sublink)}>
+          <a target={target} rel={rel} href={page.url + '#' + toSlug(sublink)}>
             {sublink}
           </a>
         </li>
@@ -32,6 +36,7 @@ function sidebarForCategory(thisPageID, category) {
       <li key={page.permalink}>
         <a
           target={target}
+          rel={rel}
           style={{marginLeft: marginLeft}}
           className={page.id === thisPageID ? 'active' : ''}
           href={page.url}>
