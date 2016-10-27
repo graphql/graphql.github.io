@@ -10,19 +10,11 @@ var React = require('react');
 var Site = require('./Site');
 var Marked = require('./Marked');
 
-var support = React.createClass({
-  render: function() {
-    var page = this.props.page;
-    return (
-      <Site section={page.section}>
-        <section className="content documentationContent nosidebar">
-          <div className="inner-content">
-            <Marked>{page.content}</Marked>
-          </div>
-        </section>
-      </Site>
-    );
-  }
-});
-
-module.exports = support;
+export default ({ page }) =>
+  <Site section={page.section}>
+    <section className="content documentationContent nosidebar">
+      <div className="inner-content">
+        <Marked>{page.content}</Marked>
+      </div>
+    </section>
+  </Site>
