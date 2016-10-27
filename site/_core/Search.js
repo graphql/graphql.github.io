@@ -8,8 +8,7 @@
 
 var React = require('react');
 
-export default function Search() {
-  return <div className="algolia-search-wrapper">
+export default () =>
+  <div className="algolia-search-wrapper">
     <input id="algolia-search-input" type="text" placeholder="Search docs..." />
-  </div>;
-}
+  </div>
