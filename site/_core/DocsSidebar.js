@@ -9,61 +9,54 @@
 var React = require('react');
 import { toSlug } from './Header';
 
-// thisPageID is the id of the rendering page
-// category is the category object to render a sidebar for
-function sidebarForCategory(thisPageID, category) {
-  var listItems = [];
-  for (var page of category.links) {
+export default ({ site, page, firstURL }) =>
+  <div className="nav-docs">
+    {getCategories(site, page.dir, firstURL).map(category =>
+      <SidebarForCategory pageID={page.id} category={category} key={category.name} />
+    )}
+  </div>
 
+// pageID is the id of the rendering page
+// category is the category object to render a sidebar for
+function SidebarForCategory({ pageID, category }) {
+  const listItems = category.links.map(page => {
     const shouldOpenInNewWindow = page.url.slice(0, 4) === 'http';
     const target = shouldOpenInNewWindow ? '_blank' : null;
     const rel = shouldOpenInNewWindow ? 'noopener noreferrer' : null;
 
-    var marginLeft = page.indent ? 20 : 0;
-
-    // Sublinks to any page sub-parts
-    var sublinkUL = page.sublinks &&
-      <ul>{page.sublinks.split(',').map(sublink =>
-        <li key={sublink}>
-          <a target={target} rel={rel} href={page.url + '#' + toSlug(sublink)}>
-            {sublink}
-          </a>
-        </li>
-      )}</ul>;
-
     // Link for the main page overall
-    listItems.push(
+    return (
       <li key={page.permalink}>
         <a
           target={target}
           rel={rel}
-          style={{marginLeft: marginLeft}}
-          className={page.id === thisPageID ? 'active' : ''}
+          style={{ marginLeft: page.indent ? 20 : 0 }}
+          className={page.id === pageID ? 'active' : null}
           href={page.url}>
           {page.sidebarTitle || page.title}
         </a>
-        {sublinkUL}
+        {page.sublinks && // Sublinks to any page sub-parts
+          <ul>
+            {page.sublinks.split(',').map(sublink =>
+              <li key={sublink}>
+                <a target={target} rel={rel} href={page.url + '#' + toSlug(sublink)}>
+                  {sublink}
+                </a>
+              </li>
+            )}
+          </ul>
+        }
       </li>
     );
-  }
+  });
 
   return (
-    <div key={category.name}>
+    <div>
       <h3>{category.name}</h3>
       <ul>{listItems}</ul>
     </div>
   );
 }
-
-var DocsSidebar = React.createClass({
-  render: function() {
-    return <div className="nav-docs">
-      {getCategories(this.props.site, this.props.page.dir, this.props.firstURL).map((category) =>
-        sidebarForCategory(this.props.page.id, category)
-      )}
-    </div>;
-  }
-});
 
 // If firstURL is provided, it's the URL (starting with /) of the
 // first page to put on the sidebar.
@@ -127,5 +120,3 @@ function getCategories(site, dir, firstURL) {
 
   return categories;
 }
-
-module.exports = DocsSidebar;
