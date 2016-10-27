@@ -9,22 +9,13 @@
 var React = require('react');
 var Marked = require('./Marked');
 
-var BlogPost = React.createClass({
-  render: function() {
-    var post = this.props.post;
-    var isPermalink = this.props.isPermalink;
-    return (
-      <div className="inner-content">
-        <h1>{isPermalink ? post.title : <a href={post.url}>{post.title}</a>}</h1>
-        <p>{new Date(post.date).toLocaleDateString()} by {post.byline}</p>
-        {post.guestBio ? null : <hr />}
-        {post.guestBio && <p className="guestBio">{
-          `This guest article contributed by ${post.byline}, ${post.guestBio}.`
-        }</p>}
-        <Marked>{post.content}</Marked>
-      </div>
-    );
-  }
-});
-
-module.exports = BlogPost;
+module.exports = ({ post, isPermalink }) =>
+  <div className="inner-content">
+    <h1>{isPermalink ? post.title : <a href={post.url}>{post.title}</a>}</h1>
+    <p>{new Date(post.date).toLocaleDateString()} by {post.byline}</p>
+    {post.guestBio ? null : <hr />}
+    {post.guestBio && <p className="guestBio">{
+      `This guest article contributed by ${post.byline}, ${post.guestBio}.`
+    }</p>}
+    <Marked>{post.content}</Marked>
+  </div>
