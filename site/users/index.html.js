@@ -224,6 +224,11 @@ var logos = [
     name: 'Whitescape',
     img: 'whitescape.png',
     link: 'http://whitescape.com'
+  },
+  {
+    name: 'Appier',
+    img: 'appier.png',
+    link: 'https://www.appier.com/'
   }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
