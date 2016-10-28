@@ -244,29 +244,9 @@ var logos = [
     link: 'http://eastview.church/'
   },
   {
-    name: 'Nova-Ideo',
-    img: 'nova-ideo.png',
-    link: 'https://www.nova-ideo.com/'
-  },
-  {
-    name: 'Wirtualna Polska',
-    img: 'wirtualnapolska.png',
-    link: 'http://www.wp.pl/'
-  },
-  {
-    name: 'Club Med',
-    img: 'clubmed.png',
-    link: 'https://www.clubmed.com/'
-  },
-  {
-    name: 'Swapcard',
-    img: 'swapcard.png',
-    link: 'https://www.swapcard.com/'
-  },
-  {
-    name: 'Taller',
-    img: 'taller.png',
-    link: 'http://www.taller.net.br/'
+    name: 'WaitlessQ',
+    img: 'waitlessq.png',
+    link: 'http://waitlessq.com/'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
