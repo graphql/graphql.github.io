@@ -1,0 +1,142 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><title>graphql | API Reference</title><meta name="viewport" content="width=640"/><meta property="og:title" content="GraphQL: A query language for APIs."/><meta property="og:description" content="GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools."/><meta property="og:type" content="website"/><meta property="og:url" content="http://graphql.org/"/><meta property="og:image" content="/img/og_image.png"/><meta property="og:image:type" content="image/png"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@graphql"/><meta name="twitter:title" content="GraphQL: A query language for APIs."/><meta name="twitter:description" content="GraphQL gives clients the power to ask for exactly what they need and nothing more, making it easier to evolve APIs over time."/><meta name="twitter:image" content="/img/twitter_image.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog"/><link rel="stylesheet" href="/style.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,600"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/></head><body><header><section><a class="nav-home" href="/"><img class="nav-logo" src="/img/logo.svg" width="30" height="30"/>GraphQL</a><nav><a href="/learn/">Learn</a><a href="/code/">Code</a><a href="/community/">Community</a><a href="/blog/">Blog</a><a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Spec</a></nav><div class="algolia-search-wrapper"><input type="text" id="algolia-search-input" placeholder="Search docs..."/></div></section></header><section><div class="documentationContent"><div class="inner-content"><h1>graphql</h1><div><p>The <code>graphql</code> module exports a core subset of GraphQL functionality for creation
+of GraphQL type systems and servers.</p><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span> graphql <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql&#x27;</span><span class="punctuation">;</span> <span spellcheck="true" class="comment">// ES6</span>
+<span class="keyword">var</span> <span class="punctuation">{</span> graphql <span class="punctuation">}</span> <span class="operator">=</span> <span class="function">require</span><span class="punctuation">(</span><span class="string">&#x27;graphql&#x27;</span><span class="punctuation">)</span><span class="punctuation">;</span> <span spellcheck="true" class="comment">// CommonJS</span></pre><h2><a class="anchor" name="overview"></a>Overview <a class="hash-link" href="#overview">#</a></h2><p><em>Entry Point</em></p><div><ul class="apiIndex">
+  <li>
+    <a href="#graphql">
+      <pre>function graphql</pre>
+      Lexes, parses, validates, and executes a GraphQL request on a schema.
+    </a>
+  </li>
+</ul>
+
+</div><p><em>Schema</em></p><div><ul class="apiIndex">
+  <li>
+    <a href="../type/#graphqlschema">
+      <pre>class GraphQLSchema</pre>
+      A representation of the capabilities of a GraphQL Server.
+    </a>
+  </li>
+</ul>
+
+</div><p><em>Type Definitions</em></p><div><ul class="apiIndex">
+  <li>
+    <a href="../type/#graphqlscalartype">
+      <pre>class GraphQLScalarType</pre>
+      A scalar type within GraphQL.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlobjecttype">
+      <pre>class GraphQLObjectType</pre>
+      An object type within GraphQL that contains fields.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlinterfacetype">
+      <pre>class GraphQLInterfaceType</pre>
+      An interface type within GraphQL that defines fields implementations will contain.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqluniontype">
+      <pre>class GraphQLUnionType</pre>
+      A union type within GraphQL that defines a list of implementations.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlenumtype">
+      <pre>class GraphQLEnumType</pre>
+      An enum type within GraphQL that defines a list of valid values.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlinputobjecttype">
+      <pre>class GraphQLInputObjectType</pre>
+      An input object type within GraphQL that represents structured inputs.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqllist">
+      <pre>class GraphQLList</pre>
+      A type wrapper around other types that represents a list of those types.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlnonnull">
+      <pre>class GraphQLNonNull</pre>
+      A type wrapper around other types that represents a non-null version of those types.
+    </a>
+  </li>
+</ul>
+
+</div><p><em>Scalars</em></p><div><ul class="apiIndex">
+  <li>
+    <a href="../type/#graphqlint">
+      <pre>var GraphQLInt</pre>
+      A scalar type representing integers.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlfloat">
+      <pre>var GraphQLFloat</pre>
+      A scalar type representing floats.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlstring">
+      <pre>var GraphQLString</pre>
+      A scalar type representing strings.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlboolean">
+      <pre>var GraphQLBoolean</pre>
+      A scalar type representing booleans.
+    </a>
+  </li>
+  <li>
+    <a href="../type/#graphqlid">
+      <pre>var GraphQLID</pre>
+      A scalar type representing IDs.
+    </a>
+  </li>
+</ul>
+
+</div><p><em>Errors</em></p><div><ul class="apiIndex">
+  <li>
+    <a href="../error/#formaterror">
+      <pre>function formatError</pre>
+      Format an error according to the rules described by the Response Format.
+    </a>
+  </li>
+</ul>
+
+</div><h2><a class="anchor" name="entry-point"></a>Entry Point <a class="hash-link" href="#entry-point">#</a></h2><h3><a class="anchor" name="graphql"></a>graphql <a class="hash-link" href="#graphql">#</a></h3><pre class="prism language-js"><span class="function">graphql</span><span class="punctuation">(</span>
+  schema<span class="punctuation">:</span> GraphQLSchema<span class="punctuation">,</span>
+  requestString<span class="punctuation">:</span> string<span class="punctuation">,</span>
+  rootValue<span class="operator">?</span><span class="punctuation">:</span> <span class="operator">?</span>any<span class="punctuation">,</span>
+  contextValue<span class="operator">?</span><span class="punctuation">:</span> <span class="operator">?</span>any<span class="punctuation">,</span>
+  variableValues<span class="operator">?</span><span class="punctuation">:</span> <span class="operator">?</span><span class="punctuation">{</span><span class="punctuation">[</span>key<span class="punctuation">:</span> string<span class="punctuation">]</span><span class="punctuation">:</span> any<span class="punctuation">}</span><span class="punctuation">,</span>
+  operationName<span class="operator">?</span><span class="punctuation">:</span> <span class="operator">?</span>string
+<span class="punctuation">)</span><span class="punctuation">:</span> Promise<span class="operator">&lt;</span>GraphQLResult<span class="operator">&gt;</span></pre><p>The <code>graphql</code> function lexes, parses, validates and executes a GraphQL request.
+It requires a <code>schema</code> and a <code>requestString</code>. Optional arguments include a
+<code>rootValue</code>, which will get passed as the root value to the executor, a <code>contextValue</code>,
+which will get passed to all resolve functions,
+<code>variableValues</code>, which will get passed to the executor to provide values for
+any variables in <code>requestString</code>, and <code>operationName</code>, which allows the caller
+to specify which operation in <code>requestString</code> will be run, in cases where
+<code>requestString</code> contains multiple top-level operations.</p><h2><a class="anchor" name="schema"></a>Schema <a class="hash-link" href="#schema">#</a></h2><p>See the <a href="../type#schema" target="_blank" rel="noopener noreferrer">Type System API Reference</a>.</p><h2><a class="anchor" name="type-definitions"></a>Type Definitions <a class="hash-link" href="#type-definitions">#</a></h2><p>See the <a href="../type#definitions" target="_blank" rel="noopener noreferrer">Type System API Reference</a>.</p><h2><a class="anchor" name="scalars"></a>Scalars <a class="hash-link" href="#scalars">#</a></h2><p>See the <a href="../type#scalars" target="_blank" rel="noopener noreferrer">Type System API Reference</a>.</p><h2><a class="anchor" name="errors"></a>Errors <a class="hash-link" href="#errors">#</a></h2><p>See the <a href="../error" target="_blank" rel="noopener noreferrer">Errors API Reference</a></p></div><a class="read-next" href="/graphql-js/error"><span class="read-next-continue">Continue Reading →</span><span class="read-next-title">graphql/error</span></a></div><div class="nav-docs"><div><h3>GraphQL.js Tutorial</h3><ul><li><a style="margin-left:0;" class="active" href="/graphql-js/">Getting Started</a></li><li><a style="margin-left:0;" class="active" href="/graphql-js/running-an-express-graphql-server/">Running Express + GraphQL</a></li><li><a style="margin-left:0;" class="active" href="/graphql-js/graphql-clients/">GraphQL Clients</a></li><li><a style="margin-left:0;" class="active" href="/graphql-js/basic-types/">Basic Types</a></li><li><a style="margin-left:0;" class="active" href="/graphql-js/passing-arguments/">Passing Arguments</a></li><li><a style="margin-left:0;" class="active" href="/graphql-js/object-types/">Object Types</a></li><li><a style="margin-left:0;" class="active" href="/graphql-js/mutations-and-input-types/">Mutations and Input Types</a></li><li><a style="margin-left:0;" class="active" href="/graphql-js/authentication-and-express-middleware/">Authentication &amp; Middleware</a></li></ul></div><div><h3>Advanced Guides</h3><ul><li><a style="margin-left:0;" class="active" href="/graphql-js/constructing-types/">Constructing Types</a></li></ul></div><div><h3>API Reference</h3><ul><li><a style="margin-left:0;" class="active" href="/graphql-js/express-graphql/">express-graphql</a><ul><li><a href="/graphql-js/express-graphql/#graphqlhttp">graphqlHTTP</a></li></ul></li><li><a style="margin-left:0;" class="active" href="/graphql-js/graphql/">graphql</a><ul><li><a href="/graphql-js/graphql/#graphql">graphql</a></li></ul></li><li><a style="margin-left:0;" class="active" href="/graphql-js/error/">graphql/error</a><ul><li><a href="/graphql-js/error/#formaterror">formatError</a></li><li><a href="/graphql-js/error/#graphqlerror">GraphQLError</a></li><li><a href="/graphql-js/error/#locatederror">locatedError</a></li><li><a href="/graphql-js/error/#syntaxerror">syntaxError</a></li></ul></li><li><a style="margin-left:0;" class="active" href="/graphql-js/execution/">graphql/execution</a><ul><li><a href="/graphql-js/execution/#execute">execute</a></li></ul></li><li><a style="margin-left:0;" class="active" href="/graphql-js/language/">graphql/language</a><ul><li><a href="/graphql-js/language/#break">BREAK</a></li><li><a href="/graphql-js/language/#getlocation">getLocation</a></li><li><a href="/graphql-js/language/#kind">Kind</a></li><li><a href="/graphql-js/language/#lex">lex</a></li><li><a href="/graphql-js/language/#parse">parse</a></li><li><a href="/graphql-js/language/#parsevalue">parseValue</a></li><li><a href="/graphql-js/language/#printsource">printSource</a></li><li><a href="/graphql-js/language/#visit">visit</a></li></ul></li><li><a style="margin-left:0;" class="active" href="/graphql-js/type/">graphql/types</a><ul><li><a href="/graphql-js/type/#getnamedtype">getNamedType</a></li><li><a href="/graphql-js/type/#getnullabletype">getNullableType</a></li><li><a href="/graphql-js/type/#graphqlboolean">GraphQLBoolean</a></li><li><a href="/graphql-js/type/#graphqlenumtype">GraphQLEnumType</a></li><li><a href="/graphql-js/type/#graphqlfloat">GraphQLFloat</a></li><li><a href="/graphql-js/type/#graphqlid">GraphQLID</a></li><li><a href="/graphql-js/type/#graphqlinputobjecttype">GraphQLInputObjectType</a></li><li><a href="/graphql-js/type/#graphqlint">GraphQLInt</a></li><li><a href="/graphql-js/type/#graphqlinterfacetype">GraphQLInterfaceType</a></li><li><a href="/graphql-js/type/#graphqllist">GraphQLList</a></li><li><a href="/graphql-js/type/#graphqlnonnull">GraphQLNonNull</a></li><li><a href="/graphql-js/type/#graphqlobjecttype">GraphQLObjectType</a></li><li><a href="/graphql-js/type/#graphqlscalartype">GraphQLScalarType</a></li><li><a href="/graphql-js/type/#graphqlschema">GraphQLSchema</a></li><li><a href="/graphql-js/type/#graphqlstring">GraphQLString</a></li><li><a href="/graphql-js/type/#graphqluniontype">GraphQLUnionType</a></li><li><a href="/graphql-js/type/#isabstracttype">isAbstractType</a></li><li><a href="/graphql-js/type/#iscompositetype">isCompositeType</a></li><li><a href="/graphql-js/type/#isinputtype">isInputType</a></li><li><a href="/graphql-js/type/#isleaftype">isLeafType</a></li><li><a href="/graphql-js/type/#isoutputtype">isOutputType</a></li></ul></li><li><a style="margin-left:0;" class="active" href="/graphql-js/utilities/">graphql/utilities</a><ul><li><a href="/graphql-js/utilities/#astfromvalue">astFromValue</a></li><li><a href="/graphql-js/utilities/#buildastschema">buildASTSchema</a></li><li><a href="/graphql-js/utilities/#buildclientschema">buildClientSchema</a></li><li><a href="/graphql-js/utilities/#buildschema">buildSchema</a></li><li><a href="/graphql-js/utilities/#introspectionquery">introspectionQuery</a></li><li><a href="/graphql-js/utilities/#isvalidjsvalue">isValidJSValue</a></li><li><a href="/graphql-js/utilities/#isvalidliteralvalue">isValidLiteralValue</a></li><li><a href="/graphql-js/utilities/#printintrospectionschema">printIntrospectionSchema</a></li><li><a href="/graphql-js/utilities/#printschema">printSchema</a></li><li><a href="/graphql-js/utilities/#typefromast">typeFromAST</a></li><li><a href="/graphql-js/utilities/#typeinfo">TypeInfo</a></li></ul></li><li><a style="margin-left:0;" class="active" href="/graphql-js/validation/">graphql/validation</a><ul><li><a href="/graphql-js/validation/#specifiedrules">specifiedRules</a></li><li><a href="/graphql-js/validation/#validate">validate</a></li></ul></li></ul></div></div></div></section><footer><section class="sitemap"><a href="/" class="nav-home"></a><div><h5><a href="/learn/">Learn</a></h5><a href="/learn/">Introduction</a><a href="/learn/queries/">Query Language</a><a href="/learn/schema/">Type System</a><a href="/learn/execution/">Execution</a><a href="/learn/best-practices/">Best Practices</a></div><div><h5><a href="/code">Code</a></h5><a href="/code/#graphql-server-libraries">Servers</a><a href="/code/#graphql-clients">Clients</a><a href="/code/#tools">Tools</a></div><div><h5><a href="/community">Community</a></h5><a href="/community/upcoming-events/">Upcoming Events</a><a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank" rel="noopener noreferrer">Stack Overflow</a><a href="https://www.facebook.com/groups/graphql.community/" target="_blank" rel="noopener noreferrer">Facebook Group</a><a href="https://twitter.com/GraphQL" target="_blank" rel="noopener noreferrer">Twitter</a></div><div><h5>More</h5><a href="/blog">GraphQL Team Blog</a><a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Read the Spec</a><a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://github.com/graphql/graphql.github.io/edit/source/site/graphql-js/APIReference-GraphQL.md" target="_blank" rel="noopener noreferrer">Edit this page ✎</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noopener noreferrer" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause.</section></footer><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+        docsearch({
+          apiKey: 'd103541f3e6041148aade2e746ed4d61',
+          indexName: 'graphql',
+          inputSelector: '#algolia-search-input'
+        });
+      </script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44373548-16', 'auto');
+ga('send', 'pageview');
+      </script></body></html>
