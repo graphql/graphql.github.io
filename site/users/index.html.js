@@ -291,6 +291,11 @@ var logos = [
     img: 'zlyde.png',
     link: 'http://www.zlyde.com/'
   },
+  {
+    name: 'Artsy',
+    img: 'artsy.png',
+    link: 'https://artsy.github.io/series/react-native-at-artsy/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
