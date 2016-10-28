@@ -136,8 +136,8 @@ Those are our fields that we defined on `Droid`!
 
 `id` looks a bit weird there, it has no name for the type. That's
 because it's a "wrapper" type of kind `NON_NULL`. If we queried for
-`ofType` on that field's type, we would find the `String` type there,
-telling us that this is a non-null String.
+`ofType` on that field's type, we would find the `ID` type there,
+telling us that this is a non-null ID.
 
 Similarly, both `friends` and `appearsIn` have no name, since they are the
 `LIST` wrapper type. We can query for `ofType` on those types, which will
