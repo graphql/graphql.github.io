@@ -286,6 +286,11 @@ var logos = [
     img: 'eastview.png',
     link: 'http://eastview.church/'
   },
+  {
+    name: 'WaitlessQ',
+    img: 'waitlessq.png',
+    link: 'http://waitlessq.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
