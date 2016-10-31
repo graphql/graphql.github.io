@@ -259,7 +259,7 @@ type Droid implements Character {
 }
 ```
 
-You can see that both of these types have all of the fields from the `Character` interface, but also bring in extra fields, `homePlanet` and `primaryFunction`, that are specific to that particular type of character.
+You can see that both of these types have all of the fields from the `Character` interface, but also bring in extra fields, `totalCredits`, `starships` and `primaryFunction`, that are specific to that particular type of character.
 
 Interfaces are useful when you want to return an object or set of objects, but those might be of several different types.
 
