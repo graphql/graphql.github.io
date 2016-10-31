@@ -296,6 +296,11 @@ var logos = [
     img: 'artsy.png',
     link: 'https://artsy.github.io/series/react-native-at-artsy/'
   },
+  {
+    name: 'Scaphold.io',
+    img: 'scaphold.png',
+    link: 'https://scaphold.io/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
