@@ -296,6 +296,11 @@ var logos = [
     img: 'artsy.png',
     link: 'https://artsy.github.io/series/react-native-at-artsy/'
   },
+  {
+    name: 'M1 Finance',
+    img: 'm1finance.png',
+    link: 'https://www.m1finance.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
