@@ -301,6 +301,11 @@ var logos = [
     img: 'stem.png',
     link: 'https://stem.is'
   },
+  {
+    name: 'M1 Finance',
+    img: 'm1finance.png',
+    link: 'https://www.m1finance.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
