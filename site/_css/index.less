@@ -94,6 +94,9 @@ body.index {
         margin-top: -3%;
         flex-direction: row;
       }
+      @media screen and (max-width: 480px) {
+        padding: 0;
+      }
     }
 
     .named-logo {
@@ -101,6 +104,9 @@ body.index {
       animation: fade 1.2s ease-in-out;
       animation-fill-mode: both;
       margin-right: 18px;
+      @media screen and (max-width: 480px) {
+        margin: 20px 0;
+      }
 
       h1 {
         color: @rhodamine-color;
@@ -129,6 +135,9 @@ body.index {
       @media screen and (max-width: 1019px) {
         text-align: center;
       }
+      @media screen and (max-width: 480px) {
+        margin: 20px 0;
+      }
 
       h3 {
         color: white;
@@ -143,6 +152,9 @@ body.index {
         color: white;
         @media screen and (max-width: 1019px) {
           display: inline-block;
+        }
+        @media screen and (max-width: 480px) {
+          width: 100%;
         }
       }
 
@@ -216,6 +228,10 @@ body.index {
     text-align: center;
     max-width: 760px;
     padding-top: 6em;
+    @media screen and (max-width: 480px) {
+      .body-font(18px);
+      padding-top: 2em;
+    }
   }
 
   .grayWash {
@@ -292,6 +308,9 @@ body.index {
       display: flex;
       flex-direction: column;
       pointer-events: none;
+      @media screen and (max-width: 480px) {
+         width: 100%;
+      }
 
       .query, .response {
         flex: 1;
@@ -340,6 +359,9 @@ body.index {
       height: 500px;
       position: relative;
       pointer-events: none;
+      @media screen and (max-width: 480px) {
+        width: 100%;
+      }
 
       margin: -35px -10px;
       @media screen and (max-width: 1019px) {
@@ -350,6 +372,9 @@ body.index {
         position: absolute;
         left: 0;
         right: 0;
+        @media screen and (max-width: 480px) {
+          width: 100%;
+        }
       }
 
       .phone {
@@ -367,6 +392,9 @@ body.index {
       .query {
         animation: query-up 6s 0s infinite ease-in both;
         left: 175px;
+        @media screen and (max-width: 480px) {
+          left: 120px;
+        }
 
         @keyframes query-up {
           from {
@@ -392,6 +420,9 @@ body.index {
       .response {
         animation: response-down 6s 2.3s infinite ease-in both;
         left: 135px;
+        @media screen and (max-width: 480px) {
+          left: 70px;
+        }
 
         @keyframes response-down {
           0% {
@@ -430,6 +461,9 @@ body.index {
       width: 480px;
       display: flex;
       pointer-events: none;
+      @media screen and (max-width: 480px) {
+        width: 100%;
+      }
 
       .type-system, .query {
         background: white;
@@ -519,6 +553,9 @@ body.index {
       width: 2 * @pane-width - 1;
       pointer-events: none;
       overflow-x: hidden;
+      @media screen and (max-width: 480px) {
+        width: 100%;
+      }
 
       .add {
         .code-font(@color: darken(#eaffea, 75%));
@@ -685,6 +722,9 @@ body.index {
       @pane-width: 520px;
       width: @pane-width;
       overflow-y: hidden;
+      @media screen and (max-width: 480px) {
+        width: 100%;
+      }
 
       #leverageCodeView {
         display: flex;
@@ -762,6 +802,9 @@ body.index {
           height: 150px;
           padding: 20px;
         }
+        @media screen and (max-width: 480px) {
+          height: 75px;
+        }
 
         &.round {
           height: 106px;
@@ -769,6 +812,9 @@ body.index {
           @media screen and (min-width: 1020px) {
             height: 158px;
             padding: 16px;
+          }
+          @media screen and (max-width: 480px) {
+            height: 75px;
           }
         }
       }

@@ -21,7 +21,7 @@ export default ({ page, category, title, section, className, noSearch, children 
           `${title} | ${category || 'GraphQL'}` :
           `GraphQL | ${SiteData.description}`}
       </title>
-      <meta name="viewport" content="width=640" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
       <meta property="og:title" content="GraphQL: A query language for APIs." />
       <meta property="og:description" content="GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools." />
       <meta property="og:type" content="website" />
@@ -80,7 +80,7 @@ export default ({ page, category, title, section, className, noSearch, children 
             <a href="https://twitter.com/GraphQL" target="_blank" rel="noopener noreferrer">Twitter</a>
           </div>
           <div>
-            <h5>More</h5>
+            <h5><a href="#">More</a></h5>
             <a href="/blog">GraphQL Team Blog</a>
             <a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Read the Spec</a>
             <a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GitHub</a>
