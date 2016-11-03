@@ -14,6 +14,7 @@ var Site = require('../_core/Site');
  * Add it to the /users/logos/ directory and then append an entry to this list.
  *
  * Please include logos with transparent backgrounds with no extra margin in the image.
+ * Images should be around 400px in the larger dimension.
  * If your logo is round, include `isRound: true` in your entry.
  *
  * Please leave a trailing comma after your entry to avoid merge conflicts.
@@ -312,6 +313,7 @@ var logos = [
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
   // Please include logos with transparent backgrounds with no extra margin in the image.
+  // Images should be around 400px in the larger dimension.
   // If your logo is round, include `isRound: true` in your entry.
   //
   // Please leave a trailing comma after your entry to avoid merge conflicts.
