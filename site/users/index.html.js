@@ -264,6 +264,11 @@ var logos = [
     link: 'https://www.nova-ideo.com/'
 >>>>>>> 5069a5e (Add Nova-ideo to users)
   },
+  {
+    name: 'Wirtualna Polska',
+    img: 'wirtualnapolska.png',
+    link: 'http://www.wp.pl/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
