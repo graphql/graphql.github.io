@@ -15,6 +15,8 @@ var Site = require('../_core/Site');
  *
  * Please include logos with transparent backgrounds with no extra margin in the image.
  * If your logo is round, include `isRound: true` in your entry.
+ *
+ * Please leave a trailing comma after your entry to avoid merge conflicts.
  */
 var logos = [
   {
@@ -311,6 +313,8 @@ var logos = [
   //
   // Please include logos with transparent backgrounds with no extra margin in the image.
   // If your logo is round, include `isRound: true` in your entry.
+  //
+  // Please leave a trailing comma after your entry to avoid merge conflicts.
 ];
 
 module.exports = ({ page }) =>
