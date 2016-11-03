@@ -309,6 +309,11 @@ var logos = [
     img: 'm1finance.png',
     link: 'https://www.m1finance.com/'
   },
+  {
+    name: 'Nova-Ideo',
+    img: 'nova-ideo.png',
+    link: 'https://www.nova-ideo.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
