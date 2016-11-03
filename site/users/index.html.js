@@ -314,6 +314,11 @@ var logos = [
     img: 'nova-ideo.png',
     link: 'https://www.nova-ideo.com/'
   },
+  {
+    name: 'Wirtualna Polska',
+    img: 'wirtualnapolska.png',
+    link: 'http://www.wp.pl/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
