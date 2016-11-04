@@ -289,7 +289,7 @@ var logos = [
   {
     name: 'Realty Advisors Elite',
     img: 'realty-advisors-elite.jpg',
-    link: 'https://www.realtyadvisorselite.com/'
+    link: 'https://www.realtyadvisorselite.com'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
