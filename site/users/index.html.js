@@ -319,6 +319,11 @@ var logos = [
     img: 'wirtualnapolska.png',
     link: 'http://www.wp.pl/'
   },
+  {
+    name: 'Intellect Design - iGTB',
+    img: 'intellect-design-igtb.png',
+    link: 'http://www.igtb.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
