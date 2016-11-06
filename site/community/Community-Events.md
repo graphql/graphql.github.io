@@ -36,6 +36,18 @@ Uri Goldshtein works at Meteor Development group at the Apollo team and is the c
 - **Speakers:** Pierre-Marie Dartus & Robin Ricard
 - **Link:** https://success.salesforce.com/Sessions?eventId=a1Q3000000qQOd9#/session/a2q3A000000LBekQAG
 
+### Angular 2 meets GraphQL and Apollo Client
+
+- **Event:** AngularJS Madrid Meetup
+- **Date:** October 10, 2016
+- **Location:** Madrid, Spain
+- **Speaker:** Gerard Sans
+- **Link:** http://www.meetup.com/Angular_Madrid/events/234297481/
+
+GraphQL was developed internally at Facebook in 2012. Its main goal was to allow Native Mobile teams to quickly build new products and collaborate within the large Facebook ecosystem without disrupting existing Data Services. 
+
+In this talk we are going to introduce GraphQL and how we can use it together with the Apollo Client in Angular 2.
+
 ### From REST to GraphQL
 
 - **Event:** Full Stack Toronto
@@ -57,6 +69,20 @@ As our applications grow larger and our models and views become more and more co
 Kamil is a front-end engineer from Warszawa and a member of the angular-meteor team. He helped build Angular 2 integration for ApolloStack. He is passionate about learning new stuff and developing new things. He loves a journey called Life. Based in Warsaw, Poland.
 Use this opportunity to ask him questions about this topic and a good excuse to visit Barcelona☀️!
 
+### Angular 2 love at first sight with GraphQL
+
+- **Event:** ng-europe 2016
+- **Date:** October 25, 2016
+- **Location:** Paris, France
+- **Speaker:** Gerard Sans
+- **Link:** https://ngeurope.org
+- **Video:** https://youtu.be/8lBepXJWfb0
+
+GraphQL was developed internally at Facebook in 2012. Its main goal was to allow Native Mobile teams to quickly build new products and collaborate within the large Facebook ecosystem without disrupting existing Data Services. 
+
+In this talk we are going to introduce GraphQL and how we can use it together with the Apollo Client in Angular 2.
+
+
 ### Building better mobile apps with GraphQL
 
 - **Event:** Reactive Conf
@@ -72,6 +98,16 @@ Use this opportunity to ask him questions about this topic and a good excuse to 
 - **Location:** Lyon, France
 - **Speaker:** Oleg Ilyenko
 - **Link:** http://scala.io/talks.html#/#PLO-4469
+
+### The amazing GraphQL
+
+- **Event:** React London Meetup
+- **Date:** November 7, 2016
+- **Location:** London, UK
+- **Speaker:** Gerard Sans
+- **Link:** https://meetup.react.london
+
+GraphQL is awesome! After only a year it has got a lot of attention from the community. Many implementations have emerged and it’s just getting better. Is GraphQL right for you? Is it a query language or runtime? In this talk I am going to take you from 0 to hero. ;)
 
 
 ## Events
