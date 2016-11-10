@@ -324,6 +324,11 @@ var logos = [
     img: 'clubmed.png',
     link: 'https://www.clubmed.com/'
   },
+  {
+   name: 'Waldo Photos',
+   img: 'waldo-photos.png',
+   link: 'https://www.waldophotos.com/'
+ },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
