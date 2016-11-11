@@ -56,6 +56,7 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [Building the f8 App: Using GraphQL & Relay](http://makeitopen.com/tutorials/building-the-f8-app/relay/)
 - [Your First GraphQL Server](https://medium.com/the-graphqlhub/your-first-graphql-server-3c766ab4f0a2#.ovn0y19k4) - Clay Allsopp
 - [Tutorial: How to Build a GraphQL Server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035#.bu6sdnst4) - Jonas Helfer
+- [How to Rapidly Build Realtime Apps with GraphQL Subscriptions](https://scaphold.io/blog/2016/11/09/build-realtime-apps-with-subs.html) - Michael Paris
 
 ## Videos
 
