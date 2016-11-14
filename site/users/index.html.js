@@ -274,6 +274,11 @@ var logos = [
     img: 'clubmed.png',
     link: 'https://www.clubmed.com/'
   },
+  {
+    name: 'Swapcard',
+    img: 'swapcard.png',
+    link: 'https://www.swapcard.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
