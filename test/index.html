@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><title>Test | GraphQL</title><meta name="viewport" content="width=640"/><meta property="og:title" content="GraphQL: A query language for APIs."/><meta property="og:description" content="GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools."/><meta property="og:type" content="website"/><meta property="og:url" content="http://graphql.org/"/><meta property="og:image" content="/img/og_image.png"/><meta property="og:image:type" content="image/png"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@graphql"/><meta name="twitter:title" content="GraphQL: A query language for APIs."/><meta name="twitter:description" content="GraphQL gives clients the power to ask for exactly what they need and nothing more, making it easier to evolve APIs over time."/><meta name="twitter:image" content="/img/twitter_image.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog"/><link rel="stylesheet" href="/style.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,600"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/></head><body><header><section><a class="nav-home" href="/"><img class="nav-logo" src="/img/logo.svg" width="30" height="30"/>GraphQL</a><nav><a href="/learn/">Learn</a><a href="/code/">Code</a><a href="/community/">Community</a><a href="/blog/">Blog</a><a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Spec</a></nav><div class="algolia-search-wrapper"><input type="text" id="algolia-search-input" placeholder="Search docs..."/></div></section></header><section><div class="documentationContent"><div class="inner-content"><h1>Test</h1><div><pre class="prism language-graphql"><span spellcheck="true" class="comment"># Copyright (c) 2015, Facebook, Inc.</span>
+<span spellcheck="true" class="comment"># All rights reserved.</span>
+<span spellcheck="true" class="comment">#</span>
+<span spellcheck="true" class="comment"># This source code is licensed under the BSD-style license found in the</span>
+<span spellcheck="true" class="comment"># LICENSE file in the root directory of this source tree. An additional grant</span>
+<span spellcheck="true" class="comment"># of patent rights can be found in the PATENTS file in the same directory.</span>
+
+<span class="keyword">query</span> queryName<span class="punctuation">(</span><span class="variable">$foo</span><span class="punctuation">:</span> ComplexType<span class="punctuation">,</span> <span class="variable">$site</span><span class="punctuation">:</span> Site <span class="operator">=</span> MOBILE<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="attr-name">whoever123is</span><span class="punctuation">:</span> node<span class="punctuation">(</span><span class="attr-name">id</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="number">123</span><span class="punctuation">,</span> <span class="number">456</span><span class="punctuation">]</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    id <span class="punctuation">,</span>
+    <span class="operator">...</span> <span class="keyword">on</span> User <span class="directive"><span class="function">@defer</span></span> <span class="punctuation">{</span>
+      field2 <span class="punctuation">{</span>
+        id <span class="punctuation">,</span>
+        <span class="attr-name">alias</span><span class="punctuation">:</span> field1<span class="punctuation">(</span><span class="attr-name">first</span><span class="punctuation">:</span><span class="number">10</span><span class="punctuation">,</span> <span class="attr-name">after</span><span class="punctuation">:</span><span class="variable">$foo</span><span class="punctuation">,</span><span class="punctuation">)</span> <span class="directive"><span class="function">@include</span><span class="args"><span class="punctuation">(</span><span class="arg">if</span><span class="punctuation">:</span> <span class="variable">$foo</span><span class="punctuation">)</span></span></span> <span class="punctuation">{</span>
+          id<span class="punctuation">,</span>
+          <span class="operator">...</span>frag
+        <span class="punctuation">}</span>
+      <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+    <span class="operator">...</span> <span class="directive"><span class="function">@skip</span><span class="args"><span class="punctuation">(</span><span class="arg">unless</span><span class="punctuation">:</span> <span class="variable">$foo</span><span class="punctuation">)</span></span></span> <span class="punctuation">{</span>
+      id
+    <span class="punctuation">}</span>
+    <span class="operator">...</span> <span class="punctuation">{</span>
+      id
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">mutation</span> likeStory <span class="punctuation">{</span>
+  like<span class="punctuation">(</span><span class="attr-name">story</span><span class="punctuation">:</span> <span class="number">123</span><span class="punctuation">)</span> <span class="directive"><span class="function">@defer</span></span> <span class="punctuation">{</span>
+    story <span class="punctuation">{</span>
+      id
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">subscription</span> StoryLikeSubscription<span class="punctuation">(</span><span class="variable">$input</span><span class="punctuation">:</span> StoryLikeSubscribeInput<span class="punctuation">)</span> <span class="punctuation">{</span>
+  storyLikeSubscribe<span class="punctuation">(</span>input<span class="punctuation">:</span> <span class="variable">$input</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    story <span class="punctuation">{</span>
+      likers <span class="punctuation">{</span>
+        count
+      <span class="punctuation">}</span>
+      likeSentence <span class="punctuation">{</span>
+        text
+      <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">fragment</span> frag <span class="keyword">on</span> Friend <span class="punctuation">{</span>
+  foo<span class="punctuation">(</span><span class="attr-name">size</span><span class="punctuation">:</span> <span class="variable">$size</span><span class="punctuation">,</span> <span class="attr-name">bar</span><span class="punctuation">:</span> <span class="variable">$b</span><span class="punctuation">,</span> <span class="attr-name">obj</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="attr-name">key</span><span class="punctuation">:</span> <span class="string">&quot;value&quot;</span><span class="punctuation">}</span><span class="punctuation">)</span>
+<span class="punctuation">}</span>
+
+<span class="punctuation">{</span>
+  unnamed<span class="punctuation">(</span><span class="attr-name">truthy</span><span class="punctuation">:</span> <span class="boolean">true</span><span class="punctuation">,</span> <span class="attr-name">falsey</span><span class="punctuation">:</span> <span class="boolean">false</span><span class="punctuation">)</span><span class="punctuation">,</span>
+  <span class="keyword">query</span>
+<span class="punctuation">}</span>
+
+<span spellcheck="true" class="comment"># Copyright (c) 2015, Facebook, Inc.</span>
+<span spellcheck="true" class="comment"># All rights reserved.</span>
+<span spellcheck="true" class="comment">#</span>
+<span spellcheck="true" class="comment"># This source code is licensed under the BSD-style license found in the</span>
+<span spellcheck="true" class="comment"># LICENSE file in the root directory of this source tree. An additional grant</span>
+<span spellcheck="true" class="comment"># of patent rights can be found in the PATENTS file in the same directory.</span>
+
+<span class="schema-def"><span class="keyword">schema</span> <span class="punctuation">{</span>
+  <span class="keyword">query</span><span class="punctuation">:</span> <span class="type-name">QueryType</span>
+  <span class="keyword">mutation</span><span class="punctuation">:</span> <span class="type-name">MutationType</span>
+<span class="punctuation">}</span></span>
+
+<span class="type-def"><span class="keyword">type</span> Foo <span class="keyword">implements</span> Bar <span class="fields"><span class="punctuation">{</span>
+  <span class="attr-name">one</span><span class="punctuation">:</span> <span class="type-name">Type</span>
+  <span class="attr-name">two</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">argument</span><span class="punctuation">:</span> <span class="type-name">InputType</span><span class="operator">!</span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">Type</span>
+  <span class="attr-name">three</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">argument</span><span class="punctuation">:</span> <span class="type-name">InputType</span><span class="punctuation">,</span> <span class="attr-name">other</span><span class="punctuation">:</span> <span class="type-name">String</span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">Int</span>
+  <span class="attr-name">four</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">argument</span><span class="punctuation">:</span> <span class="type-name">String</span> <span class="operator">=</span> <span class="string">&quot;string&quot;</span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">String</span>
+  <span class="attr-name">five</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">argument</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="type-name">String</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="string">&quot;string&quot;</span><span class="punctuation">,</span> <span class="string">&quot;string&quot;</span><span class="punctuation">]</span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">String</span>
+  <span class="attr-name">six</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">argument</span><span class="punctuation">:</span> <span class="type-name">InputType</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="attr-name">key</span><span class="punctuation">:</span> <span class="string">&quot;value&quot;</span><span class="punctuation">}</span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">Type</span>
+<span class="punctuation">}</span></span></span>
+
+<span class="type-def"><span class="keyword">type</span> AnnotatedObject <span class="directive"><span class="function">@onObject</span><span class="args"><span class="punctuation">(</span><span class="arg">arg</span><span class="punctuation">:</span> <span class="string">&quot;value&quot;</span><span class="punctuation">)</span></span></span> <span class="fields"><span class="punctuation">{</span>
+  <span class="attr-name">annotatedField</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">arg</span><span class="punctuation">:</span> <span class="type-name">Type</span> <span class="operator">=</span> <span class="string">&quot;default&quot;</span> <span class="directive"><span class="function">@onArg</span></span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">Type</span> <span class="directive"><span class="function">@onField</span></span>
+<span class="punctuation">}</span></span></span>
+
+<span class="type-def"><span class="keyword">interface</span> Bar <span class="fields"><span class="punctuation">{</span>
+  <span class="attr-name">one</span><span class="punctuation">:</span> <span class="type-name">Type</span>
+  <span class="attr-name">four</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">argument</span><span class="punctuation">:</span> <span class="type-name">String</span> <span class="operator">=</span> <span class="string">&quot;string&quot;</span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">String</span>
+<span class="punctuation">}</span></span></span>
+
+<span class="type-def"><span class="keyword">interface</span> AnnotatedInterface <span class="directive"><span class="function">@onInterface</span></span> <span class="fields"><span class="punctuation">{</span>
+  <span class="attr-name">annotatedField</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">arg</span><span class="punctuation">:</span> <span class="type-name">Type</span> <span class="directive"><span class="function">@onArg</span></span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">Type</span> <span class="directive"><span class="function">@onField</span></span>
+<span class="punctuation">}</span></span></span>
+
+<span class="union-def"><span class="keyword">union</span> Feed <span class="punctuation">=</span> <span class="type-name">Story</span> <span class="punctuation">|</span> <span class="type-name">Article</span> <span class="punctuation">|</span> <span class="type-name">Advert</span></span>
+
+<span class="union-def"><span class="keyword">union</span> AnnotatedUnion <span class="directive"><span class="function">@onUnion</span></span> <span class="punctuation">=</span> <span class="type-name">A</span> <span class="punctuation">|</span> <span class="type-name">B</span></span>
+
+<span class="keyword">scalar</span> CustomScalar
+
+<span class="keyword">scalar</span> AnnotatedScalar <span class="directive"><span class="function">@onScalar</span></span>
+
+<span class="type-def"><span class="keyword">enum</span> Site <span class="fields"><span class="punctuation">{</span>
+  DESKTOP
+  MOBILE
+<span class="punctuation">}</span></span></span>
+
+<span class="type-def"><span class="keyword">enum</span> AnnotatedEnum <span class="directive"><span class="function">@onEnum</span></span> <span class="fields"><span class="punctuation">{</span>
+  ANNOTATED_VALUE <span class="directive"><span class="function">@onEnumValue</span></span>
+  OTHER_VALUE
+<span class="punctuation">}</span></span></span>
+
+<span class="type-def"><span class="keyword">input</span> InputType <span class="fields"><span class="punctuation">{</span>
+  <span class="attr-name">key</span><span class="punctuation">:</span> <span class="type-name">String</span><span class="punctuation">!</span>
+  <span class="attr-name">answer</span><span class="punctuation">:</span> <span class="type-name">Int</span> <span class="punctuation">=</span> 42
+<span class="punctuation">}</span></span></span>
+
+<span class="type-def"><span class="keyword">input</span> AnnotatedInput <span class="directive"><span class="function">@onInputObjectType</span></span> <span class="fields"><span class="punctuation">{</span>
+  <span class="attr-name">annotatedField</span><span class="punctuation">:</span> <span class="type-name">Type</span> <span class="directive"><span class="function">@onField</span></span>
+<span class="punctuation">}</span></span></span>
+
+<span class="keyword">extend</span> <span class="type-def"><span class="keyword">type</span> Foo <span class="fields"><span class="punctuation">{</span>
+  <span class="attr-name">seven</span><span class="argDefs"><span class="punctuation">(</span><span class="attr-name">argument</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="type-name">String</span><span class="punctuation">]</span><span class="punctuation">)</span></span><span class="punctuation">:</span> <span class="type-name">Type</span>
+<span class="punctuation">}</span></span></span>
+
+<span class="keyword">extend</span> <span class="type-def"><span class="keyword">type</span> Foo <span class="directive"><span class="function">@onType</span></span> <span class="fields"><span class="punctuation">{</span><span class="punctuation">}</span></span></span>
+
+<span class="type-def"><span class="keyword">type</span> NoFields <span class="fields"><span class="punctuation">{</span><span class="punctuation">}</span></span></span>
+
+directive <span class="directive"><span class="function">@skip</span><span class="args"><span class="punctuation">(</span><span class="arg">if</span><span class="punctuation">:</span> Boolean<span class="operator">!</span><span class="punctuation">)</span></span></span> on FIELD <span class="punctuation">|</span> FRAGMENT_SPREAD <span class="punctuation">|</span> INLINE_FRAGMENT
+
+directive <span class="directive"><span class="function">@include</span><span class="args"><span class="punctuation">(</span><span class="arg">if</span><span class="punctuation">:</span> Boolean<span class="operator">!</span><span class="punctuation">)</span></span></span>
+  on FIELD
+   <span class="punctuation">|</span> FRAGMENT_SPREAD
+   <span class="punctuation">|</span> INLINE_FRAGMENT</pre></div></div><div class="nav-docs"><div><h3></h3><ul><li><a style="margin-left:0;" class="active" href="/docs/api-reference-errors/"></a></li></ul></div></div></div></section><footer><section class="sitemap"><a href="/" class="nav-home"></a><div><h5><a href="/learn/">Learn</a></h5><a href="/learn/">Introduction</a><a href="/learn/queries/">Query Language</a><a href="/learn/schema/">Type System</a><a href="/learn/execution/">Execution</a><a href="/learn/best-practices/">Best Practices</a></div><div><h5><a href="/code">Code</a></h5><a href="/code/#graphql-server-libraries">Servers</a><a href="/code/#graphql-clients">Clients</a><a href="/code/#tools">Tools</a></div><div><h5><a href="/community">Community</a></h5><a href="/community/upcoming-events/">Upcoming Events</a><a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank" rel="noopener noreferrer">Stack Overflow</a><a href="https://www.facebook.com/groups/graphql.community/" target="_blank" rel="noopener noreferrer">Facebook Group</a><a href="https://twitter.com/GraphQL" target="_blank" rel="noopener noreferrer">Twitter</a></div><div><h5>More</h5><a href="/blog">GraphQL Team Blog</a><a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Read the Spec</a><a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://github.com/graphql/graphql.github.io/edit/source/site/test.md" target="_blank" rel="noopener noreferrer">Edit this page ✎</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noopener noreferrer" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause.</section></footer><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+        docsearch({
+          apiKey: 'd103541f3e6041148aade2e746ed4d61',
+          indexName: 'graphql',
+          inputSelector: '#algolia-search-input'
+        });
+      </script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44373548-16', 'auto');
+ga('send', 'pageview');
+      </script></body></html>
