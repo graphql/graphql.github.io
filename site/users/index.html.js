@@ -329,6 +329,11 @@ var logos = [
     img: 'swapcard.png',
     link: 'https://www.swapcard.com/'
   },
+  {
+    name: 'Taller',
+    img: 'taller.png',
+    link: 'http://www.taller.net.br/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
