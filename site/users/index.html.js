@@ -244,25 +244,9 @@ var logos = [
     link: 'http://eastview.church/'
   },
   {
-<<<<<<< HEAD
-    name: 'zlyde',
-    img: 'zlyde.png',
-    link: 'http://www.zlyde.com/'
-  },
-  {
-    name: 'Artsy',
-    img: 'artsy.png',
-    link: 'https://artsy.github.io/series/react-native-at-artsy/'
-  },
-  {
-    name: 'M1 Finance',
-    img: 'm1finance.png',
-    link: 'https://www.m1finance.com/'
-=======
     name: 'Nova-Ideo',
     img: 'nova-ideo.png',
     link: 'https://www.nova-ideo.com/'
->>>>>>> 5069a5e (Add Nova-ideo to users)
   },
   {
     name: 'Wirtualna Polska',
@@ -280,14 +264,9 @@ var logos = [
     link: 'https://www.swapcard.com/'
   },
   {
-    name: 'Scaphold.io',
-    img: 'scaphold.png',
-    link: 'https://scaphold.io/'
-  },
-  {
-    name: 'Waldo Photos',
-    img: 'waldo-photos.png',
-    link: 'https://waldo.photos'
+    name: 'Taller',
+    img: 'taller.png',
+    link: 'http://www.taller.net.br/'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
