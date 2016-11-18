@@ -370,10 +370,12 @@ class GraphQLUnionType {
 
 type GraphQLUnionTypeConfig = {
   name: string,
-  types: Array<GraphQLObjectType>,
+  types: GraphQLObjectsThunk | Array<GraphQLObjectType>,
   resolveType?: (value: any, info?: GraphQLResolveInfo) => ?GraphQLObjectType;
   description?: ?string;
 };
+
+type GraphQLObjectsThunk = () => Array<GraphQLObjectType>;
 ```
 
 When a field can return one of a heterogeneous set of types, a Union type
