@@ -26,6 +26,7 @@ Here are some helpful accounts to follow:
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollostack](https://twitter.com/apollostack)
 - [@graphcool](https://twitter.com/graphcool)
+- [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
 
 ## IRC
 
@@ -44,6 +45,7 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 - [Apollo Slack](http://apollostack.com/#slack)
 - [Reindex Slack](http://slack.reindex.io/)
 - [Graph.cool Slack](https://slack.graph.cool/)
+- [Scaphold.io Slack](https://scapholdslackin.herokuapp.com)
 
 ## Blogs
 
@@ -76,6 +78,8 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [GraphQL server tutorial for Node.js with SQL, MongoDB and REST ](https://www.youtube.com/watch?v=PHabPhgRUuU) - Jonas Helfer
 - [Building Native Mobile Apps with GraphQL](https://www.youtube.com/watch?v=z5rz3saDPJ8) - Martjin Walraven, React Europe 2016
 - [GraphQL in native applications](https://atscaleconference.com/videos/graphql-in-native-applications-at-scale/) - Igor Canadi & Alex Langenfeld, @Scale 2016
+- [Build a Full GraphQL Backend in Under 5 Minutes](https://www.youtube.com/watch?v=bJ8pnYd6jPQ) - Michael Paris
+- [GraphQL in Production: Backend as a Service](https://www.youtube.com/watch?v=U2NKoStGBvE) - Michael Paris & Vince Ning, GraphQL in Production Meetup SF August 2016
 
 ## More Resources
 
