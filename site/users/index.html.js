@@ -333,7 +333,12 @@ var logos = [
     name: 'Scaphold.io',
     img: 'scaphold.png',
     link: 'https://scaphold.io/'
-  }
+  },
+  {
+    name: 'Waldo Photos',
+    img: 'waldo-photos.png',
+    link: 'https://waldo.photos'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
