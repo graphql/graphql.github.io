@@ -244,6 +244,61 @@ var logos = [
     link: 'http://eastview.church/'
   },
   {
+    name: 'zlyde',
+    img: 'zlyde.png',
+    link: 'http://www.zlyde.com/'
+  },
+  {
+    name: 'Artsy',
+    img: 'artsy.png',
+    link: 'https://artsy.github.io/series/react-native-at-artsy/'
+  },
+  {
+    name: 'Stem Disintermedia',
+    img: 'stem.png',
+    link: 'https://stem.is'
+  },
+  {
+    name: 'M1 Finance',
+    img: 'm1finance.png',
+    link: 'https://www.m1finance.com/'
+  },
+  {
+    name: 'Nova-Ideo',
+    img: 'nova-ideo.png',
+    link: 'https://www.nova-ideo.com/'
+  },
+  {
+    name: 'Wirtualna Polska',
+    img: 'wirtualnapolska.png',
+    link: 'http://www.wp.pl/'
+  },
+  {
+    name: 'Club Med',
+    img: 'clubmed.png',
+    link: 'https://www.clubmed.com/'
+  },
+  {
+    name: 'Swapcard',
+    img: 'swapcard.png',
+    link: 'https://www.swapcard.com/'
+  },
+  {
+    name: 'Scaphold.io',
+    img: 'scaphold.png',
+    link: 'https://scaphold.io/'
+  },
+  {
+    name: 'Waldo Photos',
+    img: 'waldo-photos.png',
+    link: 'https://waldo.photos'
+  },
+  {
+    name: 'Taller',
+    img: 'taller.png',
+    link: 'http://www.taller.net.br/'
+  },
+  {
     name: 'WaitlessQ',
     img: 'waitlessq.png',
     link: 'http://waitlessq.com/'
