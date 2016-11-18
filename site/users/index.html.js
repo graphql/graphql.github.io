@@ -290,6 +290,7 @@ var logos = [
     link: 'http://eastview.church/'
   },
   {
+<<<<<<< HEAD
     name: 'zlyde',
     img: 'zlyde.png',
     link: 'http://www.zlyde.com/'
@@ -343,6 +344,11 @@ var logos = [
     name: 'Taller',
     img: 'taller.png',
     link: 'http://www.taller.net.br/'
+  },
+  {
+    name: 'WaitlessQ',
+    img: 'waitlessq.png',
+    link: 'http://waitlessq.com/'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
