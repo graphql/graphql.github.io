@@ -290,7 +290,6 @@ var logos = [
     link: 'http://eastview.church/'
   },
   {
-<<<<<<< HEAD
     name: 'zlyde',
     img: 'zlyde.png',
     link: 'http://www.zlyde.com/'
