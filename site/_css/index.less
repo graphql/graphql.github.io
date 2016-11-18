@@ -40,6 +40,15 @@ body.index {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    &::before {
+      background: url("/img/graph-wash.png") repeat center center;
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
     header {
       background: linear-gradient(
         fadeout(@dark-color, 20%),
@@ -69,6 +78,7 @@ body.index {
     }
 
     .abs {
+      position: relative;
       @media screen and (min-width: 1020px) {
         position: absolute;
         top: 0;
@@ -123,7 +133,6 @@ body.index {
       padding: 0 18px;
       margin: 20px 18px;
       @media screen and (min-width: 1020px) {
-        border-left: solid 1px rgba(255,255,255,0.15);
         margin: 3px 18px;
       }
       @media screen and (max-width: 1019px) {
@@ -175,7 +184,7 @@ body.index {
     .buttons-unit {
       animation: fade 1.1s 3.2s ease-in-out both;
       width: 100%;
-      
+
       @media screen and (min-width: 1020px) {
         position: absolute;
         top: ~"calc(75%)";
