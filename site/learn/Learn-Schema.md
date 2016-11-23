@@ -35,19 +35,25 @@ Every GraphQL service defines a set of types which completely describe the set o
 
 GraphQL services can be written in any language. Since we can't rely on a specific programming language syntax, like JavaScript, to talk about GraphQL schemas, we'll define our own simple language. We'll use the "GraphQL schema language" - it's similar to the query language, and allows us to talk about GraphQL schemas in a language-agnostic way.
 
+In addition, some tools (including the [reference implementation](http://graphql.org/graphql-js/)) can [generate a schema from the GraphQL schema language](http://graphql.org/graphql-js/utilities/#buildschema).
+
 ### Object types and fields
 
 The most basic components of a GraphQL schema are object types, which just represent a kind of object you can fetch from your service, and what fields it has. In the GraphQL schema language, we might represent it like this:
 
 ```graphql
+# A character in the Star Wars trilogy
 type Character {
+  # The name of the character
   name: String!
+  # The episodes this character appears in
   appearsIn: [Episode]!
 }
 ```
 
 The language is pretty readable, but let's go over it so that we can have a shared vocabulary:
 
+- Any declaration may be preceded by a _comment_ (lines beginning with `#`). Supporting tools use this comment block as a documentation, which can be seen in IDEs such as [GraphiQL](https://github.com/graphql/graphiql).
 - `Character` is a _GraphQL Object Type_, meaning it's a type with some fields. Most of the types in your schema will be object types.
 - `name` and `appearsIn` are _fields_ on the `Character` type. That means that `name` and `appearsIn` are the only fields that can appear in any part of a GraphQL query that operates on the `Character` type.
 - `String` is one of the built-in _scalar_ types - these are types that resolve to a single scalar object, and can't have sub-selections in the query. We'll go over scalar types more later.
