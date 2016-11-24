@@ -88,6 +88,11 @@ var logos = [
     img: 'restorando.png',
     link: 'https://www.restorando.com/'
   },
+  
+  { name: 'Prowl',
+    img:  'prowl.png'
+    link: 'http://www.getprowl.com
+  
   {
     name: 'Wishlife',
     img: 'wishlife.png',
