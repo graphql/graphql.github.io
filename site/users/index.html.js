@@ -349,6 +349,11 @@ var logos = [
     img: 'waitlessq.png',
     link: 'http://waitlessq.com/'
   },
+  {
+    name: 'Adayroi.com',
+    img: 'adayroi.png',
+    link: 'https://www.adayroi.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
