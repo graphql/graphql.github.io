@@ -299,8 +299,82 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 
 ### C# / .NET
 
-  - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
-  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQuerable
+[graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet)
+
+A .NET library that provides a GraphQL implementation with .NET Core support.
+
+Code that executes a hello world GraphQL query with \`graphql-dotnet\`:
+
+\`\`\`csharp
+namespace ConsoleApplication
+{
+  using System;
+  using System.Threading.Tasks;
+  using GraphQL;
+  using GraphQL.Http;
+  using GraphQL.Types;
+
+  public class Program
+  {
+    public static void Main(string[] args)
+    {
+      Run();
+    }
+
+    private static async void Run()
+    {
+      Console.WriteLine("Hello GraphQL!");
+
+      var schema = new Schema { Query = new StarWarsQuery() };
+
+      var result = await new DocumentExecuter().ExecuteAsync( _ =>
+      {
+        _.Schema = schema;
+        _.Query = @"
+            query {
+              hero {
+                id
+                name
+              }
+            }
+          ";
+      }).ConfigureAwait(false);
+
+      var json = new DocumentWriter(indent: true).Write(result);
+
+      Console.WriteLine(json);
+    }
+  }
+
+  public class Droid
+  {
+    public string Id { get; set; }
+    public string Name { get; set; }
+  }
+
+  public class DroidType : ObjectGraphType<Droid>
+  {
+    public DroidType()
+    {
+      Field(x => x.Id).Description("The Id of the Droid.");
+      Field(x => x.Name, nullable: true).Description("The name of the Droid.");
+    }
+  }
+
+  public class StarWarsQuery : ObjectGraphType
+  {
+    public StarWarsQuery()
+    {
+      Field<DroidType>(
+        "hero",
+        resolve: context => new Droid { Id = "1", Name = "R2-D2" }
+      );
+    }
+  }
+}
+\`\`\`
+
+[graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQuerable
 
 ### Elixir
 
