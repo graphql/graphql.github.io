@@ -349,6 +349,11 @@ var logos = [
     img: 'waitlessq.png',
     link: 'http://waitlessq.com/'
   },
+  {
+    name: 'Startups.co',
+    img: 'startupsco.png',
+    link: 'https://www.startups.co/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
