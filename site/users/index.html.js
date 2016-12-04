@@ -349,7 +349,7 @@ var logos = [
     img: 'waitlessq.png',
     link: 'http://waitlessq.com/'
   },
-    {
+  {
     name: 'WOW air',
     img: 'wowair.png',
     isRound: true,
