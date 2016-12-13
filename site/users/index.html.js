@@ -354,6 +354,17 @@ var logos = [
     img: 'adayroi.png',
     link: 'https://www.adayroi.com/'
   },
+  {
+    name: 'Startups.co',
+    img: 'startupsco.png',
+    link: 'https://www.startups.co/'
+  },
+  {
+    name: 'WOW air',
+    img: 'wowair.png',
+    isRound: true,
+    link: 'https://wowair.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //

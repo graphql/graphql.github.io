@@ -8,15 +8,15 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### Building better apps with GraphQL
+### Unleashing the power of GraphQL using Angular 2
 
-- **Event:** GraphQL London #1 Meetup
-- **Date:** November 29, 2016
-- **Location:** London, UK
-- **Speaker:** Martijn Walraven
-- **Link:** https://www.meetup.com/GraphQL-London/events/235489110/
+- **Event:** NG-BE 2016 Conference
+- **Date:** December 9, 2016
+- **Location:** Ghent, Belgium
+- **Speaker:** Gerard Sans
+- **Link:** https://ng-be.org
 
-Martijn Walraven is a developer on the Apollo Open Source team at Meteor, where he focuses on bringing GraphQL to mobile developers. He created a strongly typed GraphQL client for iOS written in Swift, and is working on doing the same for Android. He'll briefly introduce GraphQL and how it is a product-developer-friendly and efficient method for fetching structured data from a server, designed to be an alternative to REST. In this talk, he’ll explain why GraphQL was developed, how it works, and how you can use it in your own apps, whether you are a React (Native), Angular, or native iOS or Android developer.
+Gerard is a Computer Science Engineer & Google Developer Expert. As an Angular fanboy and community activist he is fighting for the JavaScript revolution. Having lived and worked for all sorts of companies over the whole world, he is always up for a good challenge. He likes running AngularZone and GraphQL London, mentoring students & participating in the community. In this talk he is going to introduce GraphQL and how we can use it together with Apollo Client in Angular 2.
 
 
 ## Meetups
