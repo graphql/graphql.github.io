@@ -350,6 +350,11 @@ var logos = [
     link: 'http://waitlessq.com/'
   },
   {
+    name: 'Startups.co',
+    img: 'startupsco.png',
+    link: 'https://www.startups.co/'
+  },
+  {
     name: 'WOW air',
     img: 'wowair.png',
     isRound: true,
