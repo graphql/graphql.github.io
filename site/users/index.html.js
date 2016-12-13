@@ -304,6 +304,11 @@ var logos = [
     link: 'http://waitlessq.com/'
   },
   {
+    name: 'Adayroi.com',
+    img: 'adayroi.png',
+    link: 'https://www.adayroi.com/'
+  },
+  {
     name: 'Startups.co',
     img: 'startupsco.png',
     link: 'https://www.startups.co/'
