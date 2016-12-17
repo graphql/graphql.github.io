@@ -360,6 +360,11 @@ var logos = [
     isRound: true,
     link: 'https://wowair.com/'
   },
+  {
+    name: 'Unigraph',
+    img: 'unigraph.png',
+    link: 'https://unigraph.io/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
