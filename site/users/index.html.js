@@ -66,7 +66,7 @@ var logos = [
   {
     name: 'Meteor',
     img: 'meteor.png',
-    link: 'https://medium.com/apollo-stack/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
+    link: 'https://dev-blog.apollodata.com/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
   {
     name: 'Attendify',
@@ -94,6 +94,12 @@ var logos = [
     link: 'http://www.wishlife.com'
   },
   {
+    name: 'Prowl',
+    img: 'prowl.png',
+    link: 'http://getprowl.com'
+  },
+  {
+    
     name: 'Project September',
     img: 'project-september.png',
     link: 'https://www.projectseptember.com/'
@@ -348,6 +354,22 @@ var logos = [
     name: 'WaitlessQ',
     img: 'waitlessq.png',
     link: 'http://waitlessq.com/'
+  },
+  {
+    name: 'Adayroi.com',
+    img: 'adayroi.png',
+    link: 'https://www.adayroi.com/'
+  },
+  {
+    name: 'Startups.co',
+    img: 'startupsco.png',
+    link: 'https://www.startups.co/'
+  },
+  {
+    name: 'WOW air',
+    img: 'wowair.png',
+    isRound: true,
+    link: 'https://wowair.com/'
   },
   {
     name: 'Unigraph',
