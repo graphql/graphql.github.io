@@ -94,6 +94,12 @@ var logos = [
     link: 'http://www.wishlife.com'
   },
   {
+    name: 'Prowl',
+    img: 'prowl.png',
+    link: 'http://getprowl.com'
+  },
+  {
+    
     name: 'Project September',
     img: 'project-september.png',
     link: 'https://www.projectseptember.com/'
