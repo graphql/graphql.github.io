@@ -1,1 +1,2 @@
-<img src="http://getprowl.com/images/logo.png">
+img: 'logo.png',
+      link: 'http://www.getprowl.com/images'
