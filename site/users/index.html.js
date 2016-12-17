@@ -96,7 +96,7 @@ var logos = [
   {
     name: 'Prowl',
     img: 'prowl.png',
-    link: 'http://getprowl.com.com'
+    link: 'http://getprowl.com'
   },
   {
     
