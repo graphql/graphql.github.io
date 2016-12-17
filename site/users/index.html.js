@@ -69,6 +69,47 @@ var logos = [
     link: 'https://dev-blog.apollodata.com/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
   {
+    name: 'Attendify',
+    img: 'attendify.png',
+    link: 'https://attendify.com/'
+  },
+  {
+    name: 'Brewery Buddy',
+    img: 'brewerybuddy.png',
+    link: 'http://brewerybuddy.co/'
+  },
+  {
+    name: 'Loggi',
+    img: 'loggi.png',
+    link: 'https://www.loggi.com/'
+  },
+  {
+    name: 'Restorando',
+    img: 'restorando.png',
+    link: 'https://www.restorando.com/'
+  },
+  {
+    name: 'Wishlife',
+    img: 'wishlife.png',
+    link: 'http://www.wishlife.com'
+  },
+  {
+    name: 'Prowl',
+    img: 'prowl.png',
+    link: 'http://getprowl.com'
+  },
+  {
+    
+    name: 'Project September',
+    img: 'project-september.png',
+    link: 'https://www.projectseptember.com/'
+  },
+  {
+    name: 'Curio',
+    img: 'curio.png',
+    link: 'https://curio.org'
+  },
+  {
     name: 'Persado',
     img: 'persado.png',
     link: 'http://persado.com/platform/persado-go/'
