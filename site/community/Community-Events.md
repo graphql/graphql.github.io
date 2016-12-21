@@ -8,16 +8,15 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### Unleashing the power of GraphQL using Angular 2
+### How to write effective GraphQL 
 
-- **Event:** NG-BE 2016 Conference
-- **Date:** December 9, 2016
-- **Location:** Ghent, Belgium
-- **Speaker:** Gerard Sans
-- **Link:** https://ng-be.org
+- **Event:** GraphQL London #2
+- **Date:** January 23, 2017
+- **Location:** London, UK
+- **Speaker:** Lin Cheng
+- **Link:** https://www.meetup.com/GraphQL-London/events/236238432
 
-Gerard is a Computer Science Engineer & Google Developer Expert. As an Angular fanboy and community activist he is fighting for the JavaScript revolution. Having lived and worked for all sorts of companies over the whole world, he is always up for a good challenge. He likes running AngularZone and GraphQL London, mentoring students & participating in the community. In this talk he is going to introduce GraphQL and how we can use it together with Apollo Client in Angular 2.
-
+Lin Cheng is a Software Engineer at Facebook working on a team making GraphQL usage more efficient. This talk is about some of the best practices of writing effective GraphQL, including tips of how to avoid potential over-fetching issues. GraphQL is a very flexible data-fetching language. The queries are easy to learn and write. However, when it gets used heavily, some small differences of writing can cause big influences too. This talk will first provide the basic context about GraphQL such as how it was developed, and then explain to you step by step what the common patterns are, how you could write better queries and later save time for the refactoring. In the meantime, gives you some confidence about how a complex business critical infrastructure could be built on top of it.
 
 ## Meetups
 
