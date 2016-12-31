@@ -87,14 +87,14 @@ app.use('/graphql', graphqlHTTP({
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
 \`\`\`
 
-#### [Apollo Server](http://dev.apollodata.com/tools/apollo-server/index.html) ([github](https://github.com/apollostack/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server))
+#### [GraphQL Server](http://dev.apollodata.com/tools/graphql-server/index.html) ([github](https://github.com/apollostack/graphql-server)) ([npm](https://www.npmjs.com/package/graphql-server))
 
 A GraphQL server that works with Node.js.
 
 To run a hello world server with Apollo Server:
 
 \`\`\`bash
-npm install apollo-server body-parser express graphql graphql-tools
+npm install graphql-server-express body-parser express graphql graphql-tools
 \`\`\`
 
 Then run \`node server.js\` with this code in \`server.js\`:
@@ -102,7 +102,7 @@ Then run \`node server.js\` with this code in \`server.js\`:
 \`\`\`js
 var express = require('express');
 var bodyParser = require('body-parser');
-var { apolloExpress, graphiqlExpress } = require('apollo-server');
+var { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
 var { makeExecutableSchema } = require('graphql-tools');
 
 var typeDefs = [\`
@@ -124,12 +124,12 @@ var resolvers = {
 
 var schema = makeExecutableSchema({typeDefs, resolvers});
 var app = express();
-app.use('/graphql', bodyParser.json(), apolloExpress({schema}));
+app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
 app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
 \`\`\`
 
-Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+GraphQL Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
 
 ### Ruby
 
