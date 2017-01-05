@@ -91,7 +91,7 @@ app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
 
 A GraphQL server that works with Node.js.
 
-To run a hello world server with Apollo Server:
+To run a hello world server with GraphQL Server:
 
 \`\`\`bash
 npm install graphql-server-express body-parser express graphql graphql-tools
