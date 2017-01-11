@@ -45,7 +45,7 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 - [Apollo Slack](http://apollostack.com/#slack)
 - [Reindex Slack](http://slack.reindex.io/)
 - [Graph.cool Slack](https://slack.graph.cool/)
-- [Scaphold.io Slack](https://scapholdslackin.herokuapp.com)
+- [Scaphold.io Slack](http://slack.scaphold.io/)
 
 ## Blogs
 
