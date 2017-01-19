@@ -88,3 +88,7 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Building Apollo](https://medium.com/apollo-stack)
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
+
+## Books
+
+- [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
