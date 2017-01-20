@@ -81,6 +81,10 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Build a Full GraphQL Backend in Under 5 Minutes](https://www.youtube.com/watch?v=bJ8pnYd6jPQ) - Michael Paris
 - [GraphQL in Production: Backend as a Service](https://www.youtube.com/watch?v=U2NKoStGBvE) - Michael Paris & Vince Ning, GraphQL in Production Meetup SF August 2016
 
+## Books
+
+- [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
+
 ## More Resources
 
 To explore other community-developed resources and content about GraphQL, take a look at these sites:
@@ -88,7 +92,3 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Building Apollo](https://medium.com/apollo-stack)
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
-
-## Books
-
-- [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
