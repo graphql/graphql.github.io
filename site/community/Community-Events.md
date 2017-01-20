@@ -16,7 +16,7 @@ sublinks: Upcoming Events,Meetups
 - **Speaker:** Lin Cheng
 - **Link:** https://www.meetup.com/GraphQL-London/events/236238432
 
-Lin Cheng is a Software Engineer at Facebook working on a team making GraphQL usage more efficient. This talk is about some of the best practices of writing effective GraphQL, including tips of how to avoid potential over-fetching issues. GraphQL is a very flexible data-fetching language. The queries are easy to learn and write. However, when it gets used heavily, some small differences of writing can cause big influences too. This talk will first provide the basic context about GraphQL such as how it was developed, and then explain to you step by step what the common patterns are, how you could write better queries and later save time for the refactoring. In the meantime, gives you some confidence about how a complex business critical infrastructure could be built on top of it.
+Lin Cheng is a Software Engineer at Facebook working on a team making GraphQL usage more efficient. This talk is about some of the best practices for writing effective GraphQL, including tips on how to avoid potential over-fetching issues. GraphQL is a very flexible data-fetching language. The queries are easy to learn and write. However, when it gets used heavily, some small differences in writing can cause big influences too. This talk will first provide the basic context about GraphQL such as how it was developed, and then explain to you step by step what the common patterns are, how you could write better queries and later save time for refactoring. In the meantime, it gives you some confidence about how a complex business critical infrastructure could be built on top of it.
 
 ## Meetups
 
