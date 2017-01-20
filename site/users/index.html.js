@@ -99,7 +99,6 @@ var logos = [
     link: 'http://getprowl.com'
   },
   {
-    
     name: 'Project September',
     img: 'project-september.png',
     link: 'https://www.projectseptember.com/'
@@ -375,6 +374,11 @@ var logos = [
     name: 'Unigraph',
     img: 'unigraph.png',
     link: 'https://unigraph.io/'
+  },
+  {
+    name: 'Smarkets',
+    img: 'smarkets.png',
+    link: 'https://smarkets.com/'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
