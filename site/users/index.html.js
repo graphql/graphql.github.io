@@ -380,6 +380,11 @@ var logos = [
     img: 'smarkets.png',
     link: 'https://smarkets.com/'
   },
+  {
+    name: 'Lelivrescolaire.fr',
+    img: 'lelivrescolaire.png',
+    link: 'http://www.lelivrescolaire.fr/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
