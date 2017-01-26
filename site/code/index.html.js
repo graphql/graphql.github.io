@@ -87,11 +87,11 @@ app.use('/graphql', graphqlHTTP({
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
 \`\`\`
 
-#### [GraphQL Server](http://dev.apollodata.com/tools/graphql-server/index.html) ([github](https://github.com/apollostack/graphql-server)) ([npm](https://www.npmjs.com/package/graphql-server))
+#### [graphql-server](http://dev.apollodata.com/tools/graphql-server/index.html) ([github](https://github.com/apollostack/graphql-server)) ([npm](https://www.npmjs.com/package/graphql-server))
 
-A GraphQL server that works with Node.js.
+A set of GraphQL server packages from Apollo that work with various Node.js HTTP frameworks (Express, Connect, Hapi, Koa etc).
 
-To run a hello world server with GraphQL Server:
+To run a hello world server with graphql-server-express:
 
 \`\`\`bash
 npm install graphql-server-express body-parser express graphql graphql-tools
