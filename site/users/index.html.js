@@ -382,7 +382,7 @@ var logos = [
   {
     name: 'Zzish',
     img: 'zzish.png',
-    link: 'https://www.zzish.com'
+    link: 'https://www.zzish.com/'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
