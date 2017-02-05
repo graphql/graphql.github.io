@@ -384,6 +384,11 @@ var logos = [
     img: 'zzish.png',
     link: 'https://www.zzish.com/'
   },
+  {
+    name: 'Product Hunt',
+    img: 'product-hunt.png',
+    link: 'https://www.producthunt.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
