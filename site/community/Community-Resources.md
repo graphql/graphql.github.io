@@ -44,7 +44,7 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 - [**#general** on GraphQL](https://graphql.slack.com/messages/general/). [Get your invite here!](https://graphql-slack.herokuapp.com/)
 - [Apollo Slack](http://apollostack.com/#slack)
 - [Reindex Slack](http://slack.reindex.io/)
-- [Graph.cool Slack](https://slack.graph.cool/)
+- [Graphcool Slack](https://slack.graph.cool/)
 - [Scaphold.io Slack](http://slack.scaphold.io/)
 
 ## Blogs
@@ -58,6 +58,7 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [Building the f8 App: Using GraphQL & Relay](http://makeitopen.com/tutorials/building-the-f8-app/relay/)
 - [Your First GraphQL Server](https://medium.com/the-graphqlhub/your-first-graphql-server-3c766ab4f0a2#.ovn0y19k4) - Clay Allsopp
 - [Tutorial: How to Build a GraphQL Server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035#.bu6sdnst4) - Jonas Helfer
+- [Designing Powerful APIs with GraphQL Query Parameters](https://www.graph.cool/docs/tutorials/designing-powerful-apis-with-graphql-query-parameters-aing7uech3/) - Johannes Schickling
 
 ## Videos
 
@@ -93,3 +94,6 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 - [graphql-apis](https://github.com/APIs-guru/graphql-apis): A collective list of public GraphQL APIs.
+- [Graphcool Blog](https://www.graph.cool/blog/)
+- [Learn Apollo](https://www.learnapollo.com/): A hands-on tutorial for Apollo GraphQL Client (for React, ReactNative, Exponent, Angular, Vue & iOS)
+- [Learn Relay](https://www.learnrelay.org): A comprehensive introduction to Relay (includes video tutorials)
