@@ -90,7 +90,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 
 To explore other community-developed resources and content about GraphQL, take a look at these sites:
 
-- [Building Apollo](https://medium.com/apollo-stack)
+- [Building Apollo](https://dev-blog.apollodata.com/)
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 - [graphql-apis](https://github.com/APIs-guru/graphql-apis): A collective list of public GraphQL APIs.
