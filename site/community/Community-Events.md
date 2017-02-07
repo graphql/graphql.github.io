@@ -16,7 +16,7 @@ sublinks: Upcoming Events,Meetups
 - **Speaker:** Johannes Schickling
 - **Link:** https://cinemajs.tech
 
-Johannes Schickling is a Berlin/SF-based entrepreneur and founder of Graphcool, a flexible backend platform combining GraphQL+ AWS Lambda. He previously built and sold the VR company “Optonaut”. Johannes studied computer science at KIT, Germany and loves cutting-edge mobile/web technologies.
+Johannes Schickling is a Berlin/SF-based entrepreneur and founder of Graphcool, a flexible backend platform combining GraphQL and AWS Lambda. He previously built and sold the VR company "Optonaut". Johannes studied computer science at KIT, Germany and loves cutting-edge mobile/web technologies.
 
 ## Meetups
 
