@@ -389,6 +389,11 @@ var logos = [
     img: 'product-hunt.png',
     link: 'https://www.producthunt.com/'
   },
+  {
+    name: 'WorkflowGen',
+    img: 'workflowgen-logo.png',
+    link: 'https://www.workflowgen.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
