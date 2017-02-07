@@ -8,15 +8,15 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### How to write effective GraphQL 
+### GraphQL for frontend developers
 
-- **Event:** GraphQL London #2
-- **Date:** January 23, 2017
-- **Location:** London, UK
-- **Speaker:** Lin Cheng
-- **Link:** https://www.meetup.com/GraphQL-London/events/236238432
+- **Event:** CinemaJS: JavaScript event in the cinema
+- **Date:** Feb 23, 2017
+- **Location:** Barcelona, Catalunya, Spain
+- **Speaker:** Johannes Schickling
+- **Link:** https://cinemajs.tech
 
-Lin Cheng is a Software Engineer at Facebook working on a team making GraphQL usage more efficient. This talk is about some of the best practices for writing effective GraphQL, including tips on how to avoid potential over-fetching issues. GraphQL is a very flexible data-fetching language. The queries are easy to learn and write. However, when it gets used heavily, some small differences in writing can cause big influences too. This talk will first provide the basic context about GraphQL such as how it was developed, and then explain to you step by step what the common patterns are, how you could write better queries and later save time for refactoring. In the meantime, it gives you some confidence about how a complex business critical infrastructure could be built on top of it.
+Johannes Schickling is a Berlin/SF-based entrepreneur and founder of Graphcool, a flexible backend platform combining GraphQL+ AWS Lambda. He previously built and sold the VR company “Optonaut”. Johannes studied computer science at KIT, Germany and loves cutting-edge mobile/web technologies.
 
 ## Meetups
 
