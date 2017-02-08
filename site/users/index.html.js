@@ -221,12 +221,12 @@ var logos = [
   },
   {
     name: 'The Hunt',
-    img: 'huntlogo.png',
+    img: 'thehunt.png',
     link: 'https://www.thehunt.com/'
   },
   {
     name: 'SYZYGY',
-    img: 'Syzygy_logo.png',
+    img: 'syzygy.png',
     link: 'https://www.syzygy.net'
   },
   {
@@ -402,7 +402,7 @@ var logos = [
   },
   {
     name: 'WorkflowGen',
-    img: 'workflowgen-logo.png',
+    img: 'workflowgen.png',
     link: 'https://www.workflowgen.com/'
   },
   // Adding your logo?
