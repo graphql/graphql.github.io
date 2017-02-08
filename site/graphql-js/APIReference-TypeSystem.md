@@ -457,33 +457,33 @@ class GraphQLInputObjectType {
   constructor(config: GraphQLInputObjectTypeConfig)
 }
 
-type InputObjectConfig = {
+type GraphQLInputObjectConfig = {
   name: string;
-  fields: InputObjectConfigFieldMapThunk | InputObjectConfigFieldMap;
+  fields: GraphQLInputObjectConfigFieldMapThunk | GraphQLInputObjectConfigFieldMap;
   description?: ?string;
 }
 
-type InputObjectConfigFieldMapThunk = () => InputObjectConfigFieldMap;
+type GraphQLInputObjectConfigFieldMapThunk = () => GraphQLInputObjectConfigFieldMap;
 
-type InputObjectFieldConfig = {
+type GraphQLInputObjectFieldConfig = {
   type: GraphQLInputType;
   defaultValue?: any;
   description?: ?string;
 }
 
-type InputObjectConfigFieldMap = {
-  [fieldName: string]: InputObjectFieldConfig;
+type GraphQLInputObjectConfigFieldMap = {
+  [fieldName: string]: GraphQLInputObjectFieldConfig;
 };
 
-type InputObjectField = {
+type GraphQLInputObjectField = {
   name: string;
   type: GraphQLInputType;
   defaultValue?: any;
   description?: ?string;
 }
 
-type InputObjectFieldMap = {
-  [fieldName: string]: InputObjectField;
+type GraphQLInputObjectFieldMap = {
+  [fieldName: string]: GraphQLInputObjectField;
 };
 ```
 
