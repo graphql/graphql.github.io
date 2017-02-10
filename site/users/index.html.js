@@ -405,6 +405,11 @@ var logos = [
     img: 'workflowgen.png',
     link: 'https://www.workflowgen.com/'
   },
+  {
+    name: 'Unruly',
+    img: 'unruly.png',
+    link: 'https://www.unruly.co/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
