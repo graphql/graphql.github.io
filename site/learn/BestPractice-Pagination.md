@@ -42,7 +42,7 @@ Quickly, though, we realize that there are additional behaviors a client might w
 }
 ```
 
-But if we just fetched the first two, we might want to paginate through the list as well; once the client fetches the first two friends, they might want to send a second request to ask for the next two friends. How can we enable that behavior.
+But if we just fetched the first two, we might want to paginate through the list as well; once the client fetches the first two friends, they might want to send a second request to ask for the next two friends. How can we enable that behavior?
 
 ## Pagination and Edges
 
