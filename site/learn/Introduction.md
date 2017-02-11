@@ -11,7 +11,7 @@ next: /learn/queries/
 
 GraphQL is a query language for your API, and a server-side runtime for executing queries by using a type system you define for your data. GraphQL isn't tied to any specific database or storage engine and is instead backed by your existing code and data.
 
-A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type. For example, a GraphQL service that tells us who the logged in user is (`me`) as well as that User's name might look something like this:
+A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type. For example, a GraphQL service that tells us who the logged in user is (`me`) as well as that user's name might look something like this:
 
 ```graphql
 type Query {
@@ -58,4 +58,4 @@ Could produce the JSON result:
 }
 ```
 
-Learn more about GraphQL: the query language, type system, how the GraphQL service works, and as well as best practices for using GraphQL to solve common problems in the articles written in this section.
+Learn more about GraphQL&mdash;the query language, type system, how the GraphQL service works, as well as best practices for using GraphQL to solve common problems&mdash;in the articles written in this section.
