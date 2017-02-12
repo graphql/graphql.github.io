@@ -50,6 +50,12 @@ enum Episode {
 
   # Star Wars Episode VI: Return of the Jedi, released in 1983.
   JEDI
+
+  # Star Wars: The Force Awakens, released in 2015.
+  FORCE
+
+  # Rogue One: A Star Wars Story, released in 2016.
+  ROGUE
 }
 
 # A character from the Star Wars universe
