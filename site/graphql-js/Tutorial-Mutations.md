@@ -6,7 +6,7 @@ permalink: /graphql-js/mutations-and-input-types/
 next: /graphql-js/authentication-and-express-middleware/
 ---
 
-If you have an API endpoint that alters data, like inserting data into a database or altering data already in a database, you should make this endpoint a `Mutation` rather than a `Query`. This is a simple as making the API endpoint part of the top-level `Mutation` type instead of the top-level `Query` type.
+If you have an API endpoint that alters data, like inserting data into a database or altering data already in a database, you should make this endpoint a `Mutation` rather than a `Query`. This is as simple as making the API endpoint part of the top-level `Mutation` type instead of the top-level `Query` type.
 
 Let's say we have a “message of the day” server, where anyone can update the message of the day, and anyone can read the current one. The GraphQL schema for this is simply:
 
