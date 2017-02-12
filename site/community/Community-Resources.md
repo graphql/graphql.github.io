@@ -81,6 +81,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [GraphQL in native applications](https://atscaleconference.com/videos/graphql-in-native-applications-at-scale/) - Igor Canadi & Alex Langenfeld, @Scale 2016
 - [Build a Full GraphQL Backend in Under 5 Minutes](https://www.youtube.com/watch?v=bJ8pnYd6jPQ) - Michael Paris
 - [GraphQL in Production: Backend as a Service](https://www.youtube.com/watch?v=U2NKoStGBvE) - Michael Paris & Vince Ning, GraphQL in Production Meetup SF August 2016
+- [Development of real-time apps with GraphQL Node.js](https://youtu.be/yh_A6CEqsSM) - Vince Ning & Michael Paris, SF Node Meetup February 2017
 
 ## Books
 
@@ -97,3 +98,4 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Graphcool Blog](https://www.graph.cool/blog/)
 - [Learn Apollo](https://www.learnapollo.com/): A hands-on tutorial for Apollo GraphQL Client (for React, ReactNative, Exponent, Angular, Vue & iOS)
 - [Learn Relay](https://www.learnrelay.org): A comprehensive introduction to Relay (includes video tutorials)
+- [Scaphold Community](https://scaphold.io/community/): Resources to help you launch a production app with GraphQL
