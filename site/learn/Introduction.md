@@ -58,4 +58,4 @@ Could produce the JSON result:
 }
 ```
 
-Learn more about GraphQL&mdash;the query language, type system, how the GraphQL service works, as well as best practices for using GraphQL to solve common problems&mdash;in the articles written in this section.
+Learn more about GraphQL—the query language, type system, how the GraphQL service works, as well as best practices for using GraphQL to solve common problems—in the articles written in this section.
