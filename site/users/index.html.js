@@ -394,6 +394,11 @@ var logos = [
     img: 'workflowgen.png',
     link: 'https://www.workflowgen.com/'
   },
+  {
+    name: 'Directlyrics',
+    img: 'directlyrics.png',
+    link: 'http://www.directlyrics.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
