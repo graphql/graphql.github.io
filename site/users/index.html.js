@@ -399,6 +399,11 @@ var logos = [
     img: 'directlyrics.png',
     link: 'http://www.directlyrics.com/'
   },
+  {
+    name: 'Mixcloud',
+    img: 'mixcloud.png',
+    link: 'https://www.mixcloud.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
