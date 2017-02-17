@@ -242,7 +242,7 @@ public class HelloWorld {
                         .field(newFieldDefinition()
                                 .type(GraphQLString)
                                 .name("hello")
-                                .staticValue("Hello world!"))
+                                .staticValue("world"))
                         .build();
 
         GraphQLSchema schema = GraphQLSchema.newSchema()
