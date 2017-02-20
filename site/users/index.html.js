@@ -415,6 +415,11 @@ var logos = [
     img: 'mixcloud.png',
     link: 'https://www.mixcloud.com/'
   },
+  {
+    name: 'HIJUP',
+    img: 'hijup.png',
+    link: 'https://www.hijup.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
