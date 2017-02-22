@@ -83,7 +83,7 @@ When building event-based subscriptions, the problem of determining what should 
 
 ## What’s next?
 
-We’re actively building out the event-based subscription approach described above. We’ve built out live liking and commenting features on our iOS and Android apps using that approach, and are continuing to flush out its functionality and API. While its current implementation at Facebook is coupled to Facebook’s infrastructure, we’re certainly looking forward to open sourcing our progress here as soon as we can.
+We’re actively building out the event-based subscription approach described above. We’ve built out live liking and commenting features on our iOS and Android apps using that approach, and are continuing to flesh out its functionality and API. While its current implementation at Facebook is coupled to Facebook’s infrastructure, we’re certainly looking forward to open sourcing our progress here as soon as we can.
 
 Because our backend and schema don’t offer easy support for live queries, we don’t have any plans to develop them at Facebook. At the same time, it’s clear that there are backends and schemas for which live queries are feasible, and that they offer a lot of value in those situations. The discussion in the community on this topic has been fantastic, and we’re excited to see what kind of live query proposals emerge from it!
 
