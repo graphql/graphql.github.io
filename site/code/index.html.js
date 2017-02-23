@@ -300,7 +300,7 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 ### C# / .NET
 
   - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
-  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQuerable
+  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
 
 ### Elixir
 
