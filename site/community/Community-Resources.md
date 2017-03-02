@@ -59,6 +59,7 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [Your First GraphQL Server](https://medium.com/the-graphqlhub/your-first-graphql-server-3c766ab4f0a2#.ovn0y19k4) - Clay Allsopp
 - [Tutorial: How to Build a GraphQL Server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035#.bu6sdnst4) - Jonas Helfer
 - [Designing Powerful APIs with GraphQL Query Parameters](https://www.graph.cool/docs/tutorials/designing-powerful-apis-with-graphql-query-parameters-aing7uech3/) - Johannes Schickling
+- [GraphQL and the amazing Apollo Client](https://medium.com/google-developer-experts/graphql-and-the-amazing-apollo-client-fe57e162a70c) - Gerard Sans
 
 ## Videos
 
@@ -82,6 +83,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Build a Full GraphQL Backend in Under 5 Minutes](https://www.youtube.com/watch?v=bJ8pnYd6jPQ) - Michael Paris
 - [GraphQL in Production: Backend as a Service](https://www.youtube.com/watch?v=U2NKoStGBvE) - Michael Paris & Vince Ning, GraphQL in Production Meetup SF August 2016
 - [Development of real-time apps with GraphQL Node.js](https://youtu.be/yh_A6CEqsSM) - Vince Ning & Michael Paris, SF Node Meetup February 2017
+- [Unleashing the power of GraphQL using Angular 2](https://www.youtube.com/watch?v=VYpJ9pfugM8) - Gerard Sans, NG-BE 2016
 
 ## Books
 
