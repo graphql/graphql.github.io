@@ -425,6 +425,11 @@ var logos = [
     img: 'vanilaio.png',
     link: 'https://vanila.io/'
   },
+  {
+    name: 'ANTS',
+    img: 'ants.png',
+    link: 'http://ants.vn/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
