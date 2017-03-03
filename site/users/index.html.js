@@ -409,6 +409,11 @@ var logos = [
     img: 'hijup.png',
     link: 'https://www.hijup.com/'
   },
+  {
+    name: 'ANTS',
+    img: 'ants.png',
+    link: 'http://ants.vn/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
