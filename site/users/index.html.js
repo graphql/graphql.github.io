@@ -420,6 +420,11 @@ var logos = [
     img: 'hijup.png',
     link: 'https://www.hijup.com/'
   },
+  {
+    name: 'Vanila.io',
+    img: 'vanilaio.png',
+    link: 'https://vanila.io/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
