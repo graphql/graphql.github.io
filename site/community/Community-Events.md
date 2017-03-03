@@ -8,15 +8,26 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL for frontend developers
+### Using GraphQL subscriptions with Apollo 
 
-- **Event:** CinemaJS: JavaScript event in the cinema
-- **Date:** Feb 23, 2017
-- **Location:** Barcelona, Catalunya, Spain
+- **Event:** GraphQL London #3
+- **Date:** 27th March, 2017
+- **Location:** London, UK
 - **Speaker:** Johannes Schickling
-- **Link:** https://cinemajs.tech
+- **Link:** https://www.meetup.com/GraphQL-London/events/238027448
 
-Johannes Schickling is a Berlin/SF-based entrepreneur and founder of Graphcool, a flexible backend platform combining GraphQL and AWS Lambda. He previously built and sold the VR company "Optonaut". Johannes studied computer science at KIT, Germany and loves cutting-edge mobile/web technologies.
+Johannes Schickling is the co-founder of @graphcool. Graduated from Entrepreneur First 15/16. His personality type is ENTJ. He is also a tuts+ author and passionate about open source, algorithms, math and technology. 
+
+### Workshop - Building a React Native App with Exponent & Apollo Client
+
+- **Event:** GraphQL London
+- **Date:** 29th March, 2017
+- **Location:** London, UK
+- **Duration:** 3 hours
+- **Instructors:** Johannes Schickling, Gerard Sans
+- **Link:** https://www.meetup.com/GraphQL-London/events/238058466
+
+In this workshop you will learn how to use Apollo Client in combination with Exponent to build React Native apps. Throughout the workshop you will build a fully-functional Pokedex app while learning about all necessary concepts and tools. (To focus as much as possible on getting started with Apollo Client, we assume you’re already familiar with React and know the basics of GraphQL and Exponent.)
 
 ## Meetups
 

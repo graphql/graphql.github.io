@@ -421,6 +421,11 @@ var logos = [
     link: 'https://www.hijup.com/'
   },
   {
+    name: 'Vanila.io',
+    img: 'vanilaio.png',
+    link: 'https://vanila.io/'
+  },
+  {
     name: 'ANTS',
     img: 'ants.png',
     link: 'http://ants.vn/'
