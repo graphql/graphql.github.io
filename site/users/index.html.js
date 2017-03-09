@@ -430,6 +430,11 @@ var logos = [
     img: 'ants.png',
     link: 'http://ants.vn/'
   },
+  {
+    name: 'GraphQL World',
+    img: 'graphql-world.png',
+    link: 'https://graphql-world.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
