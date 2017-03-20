@@ -29,6 +29,14 @@ Johannes Schickling is the co-founder of @graphcool. Graduated from Entrepreneur
 
 In this workshop you will learn how to use Apollo Client in combination with Exponent to build React Native apps. Throughout the workshop you will build a fully-functional Pokedex app while learning about all necessary concepts and tools. (To focus as much as possible on getting started with Apollo Client, we assume you’re already familiar with React and know the basics of GraphQL and Exponent.)
 
+### GraphQL-Europe Conference
+
+- **Date:** 21st May, 2017
+- **Location:** Berlin, Germany
+- **Link:** https://graphql-europe.org
+
+GraphQL-Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community.
+
 ## Meetups
 
 ### North America
