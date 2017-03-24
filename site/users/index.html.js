@@ -430,6 +430,11 @@ var logos = [
     img: 'ants.png',
     link: 'http://ants.vn/'
   },
+  {
+    name: 'Ediket',
+    img: 'ediket.png',
+    link: 'https://ediket.com/'
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
