@@ -431,6 +431,11 @@ var logos = [
     link: 'http://ants.vn/'
   },
   {
+    name: 'Ediket',
+    img: 'ediket.png',
+    link: 'https://ediket.com/'
+  },
+  {
     name: 'HousingAnywhere',
     img: 'housinganywhere.png',
     link: 'https://housinganywhere.com/'
