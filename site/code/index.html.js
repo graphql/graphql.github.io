@@ -262,7 +262,7 @@ See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for mo
 
 #### [alumbra](https://github.com/alumbra/alumbra)
 
-A set of reuasable GraphQL components for Clojure conforming to the data structures given in [alumbra.spec](https://github.com/alumbra/alumbra.spec).
+A set of reusable GraphQL components for Clojure conforming to the data structures given in [alumbra.spec](https://github.com/alumbra/alumbra.spec).
 
 \`\`\`clojure
 (require '[alumbra.core :as alumbra]
