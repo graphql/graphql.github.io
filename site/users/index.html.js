@@ -440,6 +440,11 @@ var logos = [
     img: 'housinganywhere.png',
     link: 'https://housinganywhere.com/'
   },
+  {
+    name: 'Magic',
+    img: 'magic.png',
+    link: 'https://getmagic.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
