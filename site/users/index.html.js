@@ -424,6 +424,11 @@ var logos = [
     img: 'housinganywhere.png',
     link: 'https://housinganywhere.com/'
   },
+  {
+    name: 'SkyArch Networks Inc.',
+    img: 'skyarchnetworks.png',
+    link: 'https://www.skyarch.net/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
