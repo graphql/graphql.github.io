@@ -429,6 +429,11 @@ var logos = [
     img: 'skyarchnetworks.png',
     link: 'https://www.skyarch.net/'
   },
+  {
+    name: 'Idobata',
+    img: 'idobata.png',
+    link: 'https://idobata.io/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
