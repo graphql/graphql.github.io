@@ -165,6 +165,24 @@ Variable definitions can be optional or required. In the case above, since there
 To learn more about the syntax for these variable definitions, it's useful to learn the GraphQL schema language. The schema language is explained in detail on the Schema page.
 
 
+### Default Variables
+
+Default values can also be assigned to the variables in the query by adding the default value after the type declaration. 
+
+```graphql
+query HeroNameAndFriends($episode: Episode = "JEDI") {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}
+
+```
+When adding a default value, it is not necessary to provide any additional variables unless those values differ from the default value provided.
+
+
 ## Operation name
 
 One thing we also saw in the example above is that our query has acquired an _operation name_. Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
