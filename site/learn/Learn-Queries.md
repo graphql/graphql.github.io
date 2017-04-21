@@ -165,7 +165,7 @@ Variable definitions can be optional or required. In the case above, since there
 To learn more about the syntax for these variable definitions, it's useful to learn the GraphQL schema language. The schema language is explained in detail on the Schema page.
 
 
-### Default Variables
+### Default variables
 
 Default values can also be assigned to the variables in the query by adding the default value after the type declaration. 
 
@@ -180,7 +180,7 @@ query HeroNameAndFriends($episode: Episode = "JEDI") {
 }
 ```
 
-When a default value is provided, additional variable definitions are not necessary. The query will use the default value, unless a new value is declared. 
+When default values are provided for all variables, you can call the query without passing any variables. If any variables are passed as part of the variables dictionary, they will override the defaults. 
 
 ## Operation name
 
