@@ -178,10 +178,9 @@ query HeroNameAndFriends($episode: Episode = "JEDI") {
     }
   }
 }
-
 ```
-When adding a default value, it is not necessary to provide any additional variables unless those values differ from the default value provided.
 
+When a default value is provided, additional variable definitions are not necessary. The query will use the default value, unless a new value is declared. 
 
 ## Operation name
 
