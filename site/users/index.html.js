@@ -195,6 +195,11 @@ var logos = [
     link: 'http://www.makeschool.com'
   },
   {
+    name: 'Prowl',
+    img: 'prowl.png',
+    link: 'http://www.getprowl.com/'
+  },
+  {
     name: 'Drift',
     img: 'drift.png',
     link: 'https://www.drift.com/'
