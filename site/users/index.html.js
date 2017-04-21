@@ -123,6 +123,11 @@ var logos = [
     img: 'okgrow.png',
     link: 'https://www.okgrow.com/graphql'
   },
+   {
+    name: 'Prowl!',
+    img: 'prowl.png',
+    link: 'http://www.getprowl.com'
+  },
   {
     name: 'Redbubble',
     img: 'redbubble.png',
