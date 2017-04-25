@@ -52,6 +52,7 @@ GraphQL-Europe is a non-profit GraphQL conference in Europe with speakers from a
 - [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
+- [GraphQL Istanbul](https://www.meetup.com/GraphQL-Istanbul/)
 
 ### Australia
 
