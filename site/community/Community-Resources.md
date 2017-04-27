@@ -27,7 +27,6 @@ Here are some helpful accounts to follow:
 - [@apollostack](https://twitter.com/apollostack)
 - [@graphcool](https://twitter.com/graphcool)
 - [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
-- [@GraphQLWorld](https://twitter.com/GraphQLWorld)
 
 ## IRC
 
@@ -103,4 +102,4 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Learn Apollo](https://www.learnapollo.com/): A hands-on tutorial for Apollo GraphQL Client (for React, ReactNative, Exponent, Angular, Vue & iOS)
 - [Learn Relay](https://www.learnrelay.org): A comprehensive introduction to Relay (includes video tutorials)
 - [Scaphold Community](https://scaphold.io/community/): Resources to help you launch a production app with GraphQL
-- [GraphQL World](https://graphql-world.com) - The fastest growing community of GraphQL developers
+- [GraphQL World](https://graphql-world.com): Global community of GraphQL developers and events
