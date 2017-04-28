@@ -434,6 +434,11 @@ var logos = [
     img: 'idobata.png',
     link: 'https://idobata.io/'
   },
+  {
+    name: 'Trove',
+    img: 'trove.png'
+    link: 'https://www.mytrove.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
