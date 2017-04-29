@@ -436,7 +436,7 @@ var logos = [
   },
   {
     name: 'Trove',
-    img: 'trove.png'
+    img: 'trove.png',
     link: 'https://www.mytrove.com/'
   },
   // Adding your logo?
