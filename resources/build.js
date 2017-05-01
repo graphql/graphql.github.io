@@ -32,5 +32,8 @@ async function build(filter) {
 }
 
 if (require.main === module) {
-  build().catch(error => console.error(error.stack || error));
+  build().catch(error => {
+    console.error(error.stack || error)
+    process.exit(1);
+  });
 }
