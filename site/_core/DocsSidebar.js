@@ -12,7 +12,7 @@ import { toSlug } from './Header';
 export default ({ site, page, firstURL }) =>
   <div className="nav-docs">
     {getCategories(site, page.dir, firstURL).map(category =>
-      <SidebarForCategory pageID={page.id} category={category} key={category.name} />
+      <SidebarForCategory pageID={page.id} category={category} />
     )}
   </div>
 
