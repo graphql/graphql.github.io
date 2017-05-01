@@ -30,7 +30,7 @@ var root = {
   setMessage: function ({message}) {
     fakeDatabase.message = message;
     return message;
-  }
+  },
   getMessage: function () {
     return fakeDatabase.message;
   }
