@@ -455,6 +455,11 @@ var logos = [
     img: 'trove.png',
     link: 'https://www.mytrove.com/'
   },
+  {
+    name: 'Yelp',
+    img: 'yelp.png',
+    link: 'https://www.yelp.com/developers/graphql/guides/intro'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
