@@ -19,15 +19,15 @@
     "build": "./build"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-core": "^5.8.23",
-    "babel-loader": "^5.3.2",
-    "babel-runtime": "^5.8.20",
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-runtime": "^6.18.0",
     "express": "^4.13.3",
     "js-yaml": "^3.4.0",
     "less": "^2.7.1",
-    "react": "15.3.1",
-    "react-dom": "15.3.1",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
     "sane": "^1.2.0",
     "webpack": "^1.12.1"
   },
@@ -35,7 +35,7 @@
     "codemirror": "^5.6.0",
     "codemirror-graphql": "^0.5.7",
     "graphql": "^0.7.0",
-    "graphql-tools": "^0.6.6",
+    "graphql-tools": "^0.8.0",
     "marked": "^0.3.5"
   }
 }
