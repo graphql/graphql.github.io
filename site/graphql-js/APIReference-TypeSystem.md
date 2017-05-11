@@ -264,7 +264,7 @@ type GraphQLFieldResolveFn = (
 
 type GraphQLResolveInfo = {
   fieldName: string,
-  fieldASTs: Array<Field>,
+  fieldNodes: Array<Field>,
   returnType: GraphQLOutputType,
   parentType: GraphQLCompositeType,
   schema: GraphQLSchema,
