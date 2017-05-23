@@ -80,6 +80,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [GraphQL server tutorial for Node.js with SQL, MongoDB and REST ](https://www.youtube.com/watch?v=PHabPhgRUuU) - Jonas Helfer
 - [Building Native Mobile Apps with GraphQL](https://www.youtube.com/watch?v=z5rz3saDPJ8) - Martjin Walraven, React Europe 2016
 - [GraphQL in native applications](https://atscaleconference.com/videos/graphql-in-native-applications-at-scale/) - Igor Canadi & Alex Langenfeld, @Scale 2016
+- [Build a GraphQL Backend with the Serverless Framework](https://acloud.guru/learn/serverless-with-graphql) - Ryan Brown
 - [Build a Full GraphQL Backend in Under 5 Minutes](https://www.youtube.com/watch?v=bJ8pnYd6jPQ) - Michael Paris
 - [GraphQL in Production: Backend as a Service](https://www.youtube.com/watch?v=U2NKoStGBvE) - Michael Paris & Vince Ning, GraphQL in Production Meetup SF August 2016
 - [Development of real-time apps with GraphQL Node.js](https://youtu.be/yh_A6CEqsSM) - Vince Ning & Michael Paris, SF Node Meetup February 2017
