@@ -50,6 +50,12 @@ enum Episode {
 
   # Star Wars Episode VI: Return of the Jedi, released in 1983.
   JEDI
+
+  # Star Wars: The Force Awakens, released in 2015.
+  FORCE
+
+  # Rogue One: A Star Wars Story, released in 2016.
+  ROGUE
 }
 
 # A character from the Star Wars universe
@@ -203,7 +209,7 @@ const humans = [
     id: '1000',
     name: 'Luke Skywalker',
     friends: [ '1002', '1003', '2000', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI', 'FORCE' ],
     height: 1.72,
     mass: 77,
     starships: [ '3001', '3003' ],
@@ -212,7 +218,7 @@ const humans = [
     id: '1001',
     name: 'Darth Vader',
     friends: [ '1004' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI', 'ROGUE' ],
     height: 2.02,
     mass: 136,
     starships: [ '3002' ],
@@ -221,7 +227,7 @@ const humans = [
     id: '1002',
     name: 'Han Solo',
     friends: [ '1000', '1003', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI', 'FORCE' ],
     height: 1.8,
     mass: 80,
     starships: [ '3000', '3003' ],
@@ -230,7 +236,7 @@ const humans = [
     id: '1003',
     name: 'Leia Organa',
     friends: [ '1000', '1002', '2000', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI', 'FORCE', 'ROGUE' ],
     height: 1.5,
     mass: 49,
     starships: [],
@@ -239,11 +245,20 @@ const humans = [
     id: '1004',
     name: 'Wilhuff Tarkin',
     friends: [ '1001' ],
-    appearsIn: [ 'NEWHOPE' ],
+    appearsIn: [ 'NEWHOPE', 'ROGUE' ],
     height: 1.8,
     mass: null,
     starships: [],
   },
+  {
+    id: '1005',
+    name: 'Ray',
+    friends: [ '1002', '2002'],
+    appearsIn: [ 'FORCE' ],
+    height: 1.7,
+    mass: 55,
+    starships: [ '3000' ]
+  }
 ];
 
 const humanData = {};
@@ -256,16 +271,23 @@ const droids = [
     id: '2000',
     name: 'C-3PO',
     friends: [ '1000', '1002', '1003', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI', 'FORCE', 'ROGUE' ],
     primaryFunction: 'Protocol',
   },
   {
     id: '2001',
     name: 'R2-D2',
     friends: [ '1000', '1002', '1003' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI', 'FORCE', 'ROGUE' ],
     primaryFunction: 'Astromech',
   },
+  {
+    id: '2002',
+    name: 'BB-8',
+    friends: [ '1005' ],
+    appearsIn: [ 'FORCE' ],
+    primaryFunction: 'Astromech',
+  }
 ];
 
 const droidData = {};
