@@ -324,7 +324,13 @@ var logos = [
     img: 'wirtualnapolska.png',
     link: 'http://www.wp.pl/'
   },
+     {
+    name: 'Prowl',
+    img: 'prowl.png',
+    link: 'http://getprowl.com'
+  },
   {
+    
     name: 'Club Med',
     img: 'clubmed.png',
     link: 'https://www.clubmed.com/'
