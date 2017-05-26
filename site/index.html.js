@@ -1,8 +1,6 @@
 var React = require('react');
 var Site = require('./_core/Site');
-var SiteData = require('./_core/SiteData');
 var HeaderLinks = require('./_core/HeaderLinks');
-var Marked = require('./_core/Marked');
 var Prism = require('./_core/Prism');
 var Search = require('./_core/Search');
 
