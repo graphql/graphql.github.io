@@ -449,6 +449,11 @@ var logos = [
     img: 'yelp.png',
     link: 'https://www.yelp.com/developers/graphql/guides/intro'
   },
+  {
+    name: 'The New York Times',
+    img: 'nyt.png',
+    link: 'https://www.nytimes.com',
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
