@@ -30,7 +30,7 @@ Here are some helpful accounts to follow:
 
 ## IRC
 
-Chat with GraphQL developers on IRC at the [https://freenode.net/](freenode) server on the #graphql channel.
+Chat with GraphQL developers on IRC at the [freenode](https://freenode.net/) server on the #graphql channel.
 
 ## Slack & Discord
 

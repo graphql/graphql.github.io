@@ -97,7 +97,7 @@ When you call this API, you have to pass each argument by name. So for the serve
 }
 ```
 
-If you run this code with `node server.js` and browse to [http://localhost:4000/graphql](http://localhost:4000/graphql) you can try out this API.
+If you run this code with `node server.js` and browse to http://localhost:4000/graphql you can try out this API.
 
 When you're passing arguments in code, it's generally better to avoid constructing the whole query string yourself. Instead, you can use `$` syntax to define variables in your query, and pass the variables as a separate map.
 
