@@ -76,7 +76,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Relay 2 - simpler, faster, and more predictable](https://www.youtube.com/watch?v=OEfUBN9dAI8) - Greg Hurrell
 - [Build a GraphQL server for Node.js, using PostgreSQL/MySQL](https://www.youtube.com/watch?v=DNPVqK_woRQ) - Lee Benson
 - [A GraphQL Framework for Non-JS Servers](https://www.youtube.com/watch?v=RNoyPSrQyPs) - Syrus Akbary
-- [Modernize Your Angular App with GraphQL](https://www.youtube.com/watch?v=qpGnPbpkcZM) - Uri Goldshtein, Angular Camp 2016
+- [Modernize Your Angular App with GraphQL](https://www.youtube.com/watch?v=E8feZBidZcs) - Uri Goldshtein, AngularCamp 2016
 - [GraphQL server tutorial for Node.js with SQL, MongoDB and REST ](https://www.youtube.com/watch?v=PHabPhgRUuU) - Jonas Helfer
 - [Building Native Mobile Apps with GraphQL](https://www.youtube.com/watch?v=z5rz3saDPJ8) - Martjin Walraven, React Europe 2016
 - [GraphQL in native applications](https://atscaleconference.com/videos/graphql-in-native-applications-at-scale/) - Igor Canadi & Alex Langenfeld, @Scale 2016
