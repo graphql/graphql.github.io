@@ -470,6 +470,11 @@ var logos = [
     img: 'nyt.png',
     link: 'https://www.nytimes.com',
   },
+  {
+    name: 'TeselaGen Biotechnology',
+    img: 'teselagen_logo.png',
+    link: 'https://www.teselagen.com/',
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
