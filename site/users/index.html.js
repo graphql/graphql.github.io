@@ -29,7 +29,7 @@ var logos = [
     name: 'GitHub',
     img: 'github.png',
     isRound: true,
-    link: 'https://developer.github.com/early-access/graphql'
+    link: 'https://developer.github.com/v4/'
   },
   {
     name: 'Intuit',
