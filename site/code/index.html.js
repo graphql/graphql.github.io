@@ -383,9 +383,10 @@ Executor.execute(schema, query) map println
   - [Apollo Client](http://dev.apollodata.com/react/) ([github](https://github.com/apollostack/apollo-client)): A powerful JavaScript GraphQL client, designed to work well with React, React Native, Angular 2, or just plain JavaScript.
   - [Lokka](https://github.com/kadirahq/lokka): A simple JavaScript GraphQL client that works in all JavaScript environments - the browser, Node.js, and React Native.
 
-### Swift / iOS
+### Swift / Objective-C iOS 
 
   - [Apollo iOS](http://dev.apollodata.com/ios/) ([github](https://github.com/apollostack/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
+  - [GraphQL iOS]([github](https://github.com/funcompany/graphql-ios)): An Objective-C GraphQL client for iOS.
 
 ## Tools
 
