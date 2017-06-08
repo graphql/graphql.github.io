@@ -465,9 +465,9 @@ var logos = [
     link: 'https://www.circlehd.com/',
   },
   {
-    name: 'Alembic',
-    img: 'alembic.png',
-    link: 'http://alembic.com.au',
+    name: 'Protel',
+    img: 'protel.png',
+    link: 'https://protel.com.tr/',
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
