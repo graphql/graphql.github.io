@@ -8,6 +8,16 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
+#### GraphQL - The People's Query Language 
+
+- **Date:** 21st June, 2017
+- **Location:** Denver, Colorado, USA
+- **Link:** https://www.meetup.com/Node-js-Denver-Boulder/events/240482998/
+
+In this talk, we'll discuss the history and purpose of GraphQL, common misconceptions about GraphQL, and setting up GraphQL in a Node/Express back-end. We'll also take a look at GraphQL's development tool GraphiQL and how it self-documents your resources. If you're curious about GraphQL and how to make working with relational data a breeze, join us! 
+
+## Past Events
+
 ### GraphQL-Europe Conference
 
 - **Date:** 21st May, 2017
