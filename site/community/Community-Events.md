@@ -61,3 +61,4 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 ### Asia
 
 - [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
+- [GraphQL Tokyo](https://www.meetup.com/GraphQL-Tokyo/)
