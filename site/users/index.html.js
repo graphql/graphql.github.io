@@ -480,6 +480,11 @@ var logos = [
     img: 'circlehd.png',
     link: 'https://www.circlehd.com/',
   },
+  {
+    name: 'Digitransit',
+    img: 'digitransit.png',
+    link: 'https://digitransit.fi/',
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
