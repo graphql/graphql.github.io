@@ -481,6 +481,16 @@ var logos = [
     link: 'https://www.circlehd.com/',
   },
   {
+    name: 'Helsinki Regional Transport Authority HSL',
+    img: 'hsl.png',
+    link: 'https://www.hsl.fi/',
+  },
+  {
+    name: 'Digitransit',
+    img: 'digitransit.png',
+    link: 'https://digitransit.fi/',
+  },
+  {
     name: 'MyHeritage',
     img: 'myheritage.png',
     link: 'https://www.myheritage.com',
