@@ -500,6 +500,11 @@ var logos = [
     img: 'protel.png',
     link: 'https://protel.com.tr/',
   },
+  {
+    name: 'Alembic',
+    img: 'alembic.png',
+    link: 'http://alembic.com.au',
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
