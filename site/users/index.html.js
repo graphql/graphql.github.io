@@ -495,6 +495,11 @@ var logos = [
     img: 'myheritage.png',
     link: 'https://www.myheritage.com',
   },
+  {
+    name: 'Protel',
+    img: 'protel.png',
+    link: 'https://protel.com.tr/',
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
