@@ -490,6 +490,11 @@ var logos = [
     img: 'digitransit.png',
     link: 'https://digitransit.fi/',
   },
+  {
+    name: 'MyHeritage',
+    img: 'myheritage.png',
+    link: 'https://www.myheritage.com',
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
