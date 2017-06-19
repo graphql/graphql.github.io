@@ -539,7 +539,7 @@ public class Character {
           <img src="/users/logos/twitter.png" title="Twitter" className="round" />
         </a>
         {/**/}
-        <a href="https://developer.github.com/early-access/graphql" target="_blank" rel="noopener noreferrer">
+        <a href="https://developer.github.com/v4/" target="_blank" rel="noopener noreferrer">
           <img src="/users/logos/github.png" title="GitHub" className="round" />
         </a>
         <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
