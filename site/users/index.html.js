@@ -480,6 +480,11 @@ var logos = [
     img: 'circlehd.png',
     link: 'https://www.circlehd.com/',
   },
+  {
+    name: 'Helsinki Regional Transport Authority HSL',
+    img: 'hsl.png',
+    link: 'https://www.hsl.fi/',
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
