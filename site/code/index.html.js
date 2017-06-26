@@ -344,6 +344,9 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
   - [absinthe](https://github.com/absinthe-graphql/absinthe): GraphQL implementation for Elixir.
   - [graphql-elixir](https://github.com/graphql-elixir/graphql): An Elixir implementation of Facebook's GraphQL.
 
+### Erlang
+
+  - [graphql-erlang](https://github.com/shopgun/graphql-erlang): GraphQL implementation in Erlang.
 
 ## GraphQL Clients
 
