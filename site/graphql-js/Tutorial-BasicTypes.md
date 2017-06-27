@@ -6,7 +6,7 @@ permalink: /graphql-js/basic-types/
 next: /graphql-js/passing-arguments/
 ---
 
-In most situations, all you need to do is to specify the types for your API is the GraphQL schema language, taken as an argument to the `buildSchema` function.
+In most situations, all you need to do is to specify the types for your API using the GraphQL schema language, taken as an argument to the `buildSchema` function.
 
 The GraphQL schema language supports the scalar types of `String`, `Int`, `Float`, `Boolean`, and `ID`, so you can use these directly in the schema you pass to `buildSchema`.
 
