@@ -61,10 +61,12 @@ That leads us to a problem; though; how do we get the cursor from the object? We
   hero {
     name
     friends(first:2) {
-      node {
-        name
+      edges {
+        node {
+          name
+        }
+        cursor
       }
-      cursor
     }
   }
 }
