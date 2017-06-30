@@ -15,7 +15,7 @@ sublinks: Upcoming Events,Meetups
 - **Location:** Odessa, Ukraine
 - **Link:** http://odessajs.org/index_en.html
 
-GraphQL is awesome! After only a year it has got a lot of attention from the community. Many implementations have emerged and it’s just getting better. Is GraphQL right for you? Is it a query language or runtime? In this talk I am going to take you from 0 to hero. ;) 
+GraphQL is awesome! After only a year it has got a lot of attention from the community. Many implementations have emerged and it's just getting better. Is GraphQL right for you? Is it a query language or runtime? In this talk I am going to take you from 0 to hero. ;) 
 
 
 ## Past Events
