@@ -8,7 +8,19 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-#### GraphQL - The People's Query Language 
+### Unleashing the power of GraphQL and React
+
+- **Conference:** OdessaJS 2017
+- **Date:** 1st July, 2017
+- **Location:** Odessa, Ukraine
+- **Link:** http://odessajs.org/index_en.html
+
+GraphQL is awesome! After only a year it has got a lot of attention from the community. Many implementations have emerged and it's just getting better. Is GraphQL right for you? Is it a query language or runtime? In this talk I am going to take you from 0 to hero. ;) 
+
+
+## Past Events
+
+### GraphQL - The People's Query Language 
 
 - **Date:** 21st June, 2017
 - **Location:** Denver, Colorado, USA
@@ -16,7 +28,6 @@ sublinks: Upcoming Events,Meetups
 
 In this talk, we'll discuss the history and purpose of GraphQL, common misconceptions about GraphQL, and setting up GraphQL in a Node/Express back-end. We'll also take a look at GraphQL's development tool GraphiQL and how it self-documents your resources. If you're curious about GraphQL and how to make working with relational data a breeze, join us! 
 
-## Past Events
 
 ### GraphQL-Europe Conference
 
