@@ -386,7 +386,7 @@ Executor.execute(schema, query) map println
 ### Swift / Objective-C iOS
 
   - [Apollo iOS](http://dev.apollodata.com/ios/) ([github](https://github.com/apollostack/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
-  - [GraphQL iOS]([github](https://github.com/funcompany/graphql-ios)): An Objective-C GraphQL client for iOS.
+  - [GraphQL iOS](https://github.com/funcompany/graphql-ios): An Objective-C GraphQL client for iOS.
 
 ## Tools
 
