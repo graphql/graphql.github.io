@@ -367,7 +367,7 @@ Executor.execute(schema, query) map println
 - [C# / .NET](#c-net-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
-- [Swift / iOS](#swift-ios)
+- [Swift / Objective-C iOS](#swift-objective-c-ios)
 
 ### C# / .NET
 
