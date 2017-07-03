@@ -51,6 +51,7 @@ Each field will consist of a return type, optional argument definitions, and a J
 
 ```js
 import {
+  GraphQLList,
   GraphQLObjectType,
   GraphQLString,
 } from 'graphql';
