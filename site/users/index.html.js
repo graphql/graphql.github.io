@@ -505,6 +505,11 @@ var logos = [
     img: 'alembic.png',
     link: 'http://alembic.com.au',
   },
+  {
+    name: 'Twitter',
+    img: 'twitter.png',
+    link: 'https://twitter.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
