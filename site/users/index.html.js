@@ -469,6 +469,34 @@ var logos = [
     img: 'hsl.png',
     link: 'https://www.hsl.fi/',
   },
+<<<<<<< HEAD
+=======
+  {
+    name: 'Digitransit',
+    img: 'digitransit.png',
+    link: 'https://digitransit.fi/',
+  },
+  {
+    name: 'MyHeritage',
+    img: 'myheritage.png',
+    link: 'https://www.myheritage.com',
+  },
+  {
+    name: 'Protel',
+    img: 'protel.png',
+    link: 'https://protel.com.tr/',
+  },
+  {
+    name: 'Alembic',
+    img: 'alembic.png',
+    link: 'http://alembic.com.au',
+  },
+  {
+    name: 'Twitter',
+    img: 'twitter.png',
+    link: 'https://twitter.com'
+  },
+>>>>>>> e174932 (Add Twitter to users page (#341))
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
