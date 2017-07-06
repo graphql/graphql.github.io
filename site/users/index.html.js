@@ -510,6 +510,12 @@ var logos = [
     img: 'twitter.png',
     link: 'https://twitter.com'
   },
+  {
+    name: 'EtMDB',
+    img: 'etmdb.png',
+    isRound: true,
+    link: 'https://etmdb.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
