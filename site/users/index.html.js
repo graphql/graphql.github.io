@@ -469,8 +469,6 @@ var logos = [
     img: 'hsl.png',
     link: 'https://www.hsl.fi/',
   },
-<<<<<<< HEAD
-=======
   {
     name: 'Digitransit',
     img: 'digitransit.png',
@@ -496,7 +494,6 @@ var logos = [
     img: 'twitter.png',
     link: 'https://twitter.com'
   },
->>>>>>> e174932 (Add Twitter to users page (#341))
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
