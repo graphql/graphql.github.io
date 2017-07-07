@@ -495,11 +495,6 @@ var logos = [
     link: 'https://twitter.com'
   },
   {
-    name: 'LendUp',
-    img: 'lendup.png',
-    link: 'https://lendup.com'
-  },
-  {
     name: 'EtMDB',
     img: 'etmdb.png',
     isRound: true,
