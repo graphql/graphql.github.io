@@ -87,6 +87,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Development of real-time apps with GraphQL Node.js](https://youtu.be/yh_A6CEqsSM) - Vince Ning & Michael Paris, SF Node Meetup February 2017
 - [Unleashing the power of GraphQL using Angular 2](https://www.youtube.com/watch?v=VYpJ9pfugM8) - Gerard Sans, NG-BE 2016
 - [Webinar Series: GraphQL Around The World](https://graphql-world.com/webinar) - Vince Ning & Michael Paris
+- [All Talks from GraphQL Europe](https://www.youtube.com/playlist?list=PLn2e1F9Rfr6n_WFm9fPE-_wYPrYvSTySt) - Lee Byron, Sashko Stubailo, Dan Schafer, Johannes Schickling and many more
 
 ## Books
 
@@ -96,6 +97,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 
 To explore other community-developed resources and content about GraphQL, take a look at these sites:
 
+- [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
 - [Building Apollo](https://dev-blog.apollodata.com/)
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
@@ -104,4 +106,6 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Learn Apollo](https://www.learnapollo.com/): A hands-on tutorial for Apollo GraphQL Client (for React, ReactNative, Exponent, Angular, Vue & iOS)
 - [Learn Relay](https://www.learnrelay.org): A comprehensive introduction to Relay (includes video tutorials)
 - [Scaphold Community](https://scaphold.io/community/): Resources to help you launch a production app with GraphQL
-- [GraphQL World](https://graphql-world.com): The fastest growing community of GraphQL developers
+- [GraphQL World](https://graphql-world.com): Global community of GraphQL developers and events
+- [GraphQL Talks](https://www.graph.cool/talks/): Find & Watch the best GraphQL Talks
+
