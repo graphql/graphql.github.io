@@ -370,6 +370,7 @@ Executor.execute(schema, query) map println
 ## GraphQL Clients
 
 - [C# / .NET](#c-net-1)
+- [Go](#go-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
@@ -377,6 +378,10 @@ Executor.execute(schema, query) map println
 ### C# / .NET
 
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
+
+### Go
+
+  - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
 
 ### Java / Android
 
