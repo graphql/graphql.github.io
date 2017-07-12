@@ -714,7 +714,7 @@ InlineLexer.prototype.outputLink = function(cap, link) {
       href: this.sanitizeUrl(link.href),
       title: link.title,
       target: shouldOpenInNewWindow ? '_blank' : null,
-      rel: shouldOpenInNewWindow ? 'noopener noreferrer' : null
+      rel: shouldOpenInNewWindow ? 'nofollow noopener noreferrer' : null
     }, this.output(cap[1]));
   } else {
     return React.DOM.img({
