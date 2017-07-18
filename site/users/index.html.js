@@ -500,6 +500,11 @@ var logos = [
     isRound: true,
     link: 'https://etmdb.com'
   },
+  {
+    name: 'GetNinjas',
+    img: 'getninjas.png',
+    link: 'https://labs.getninjas.com.br/tagged/graphql'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
