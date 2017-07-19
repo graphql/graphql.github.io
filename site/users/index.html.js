@@ -521,6 +521,11 @@ var logos = [
     img: 'getninjas.png',
     link: 'https://labs.getninjas.com.br/tagged/graphql'
   },
+  {
+    name: 'Dailymotion',
+    img: 'dailymotion.png',
+    link: 'https://developer.dailymotion.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
