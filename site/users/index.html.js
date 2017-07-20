@@ -526,6 +526,11 @@ var logos = [
     img: 'dailymotion.png',
     link: 'https://developer.dailymotion.com/'
   },
+  {
+    name: 'Myntra',
+    img: 'myntra.png',
+    link: 'https://www.myntra.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
