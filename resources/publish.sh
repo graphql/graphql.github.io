@@ -23,4 +23,4 @@ git config user.name "Travis CI"
 git config user.email "travis@travis-ci.org"
 git add .
 git commit -a -m "Auto-deploy by Travis CI"
-git push --force --quiet "https://${GH_TOKEN}@github.com/graphql/graphql.github.io.git" master:master
+git push --force --quiet "https://${GH_TOKEN}@github.com/xitu/graphql.github.io.git" master:master
