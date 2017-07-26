@@ -19,11 +19,11 @@ export default ({ page, site }) =>
           <h1>Code</h1>
           <Marked>{`
 
-Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, and other useful stuff.
+GraphQL 已有多种编程语言支持。下表包含一些流行的服务端框架、客户端库和其他有用的内容。
 
-## Server Libraries
+## 服务端库
 
-In addition to the GraphQL [reference implementations in JavaScript](#javascript), server libraries include:
+除了 GraphQL [JavaScript 参考实现](#javascript)，还有其他服务端库：
 
 - [C# / .NET](#c-net)
 - [Clojure](#clojure)
@@ -39,14 +39,14 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
 ### C# / .NET
 
-  - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
-  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
+  - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet)：.NET 的 GraphQL 实现
+  - [graphql-net](https://github.com/ckimes89/graphql-net)：转换 GraphQL 到 IQueryable
 
 ### Clojure
 
 #### [alumbra](https://github.com/alumbra/alumbra)
 
-A set of reusable GraphQL components for Clojure conforming to the data structures given in [alumbra.spec](https://github.com/alumbra/alumbra.spec).
+一套 Clojure 的 GraphQL 可复用组件，满足 [alumbra.spec](https://github.com/alumbra/alumbra.spec) 规范要求的数据结构。
 
 \`\`\`clojure
 (require '[alumbra.core :as alumbra]
@@ -85,9 +85,9 @@ $ curl -XPOST "http://0:3000" -H'Content-Type: application/json' -d'{
 
 #### [graphql-clj](https://github.com/tendant/graphql-clj)
 
-A Clojure library that provides a GraphQL implementation.
+一个提供 GraphQL 实现的 Clojure 库。
 
-Code that executes a hello world GraphQL query with \`graphql-clj\`:
+可以执行一个 \`hello world\` GraphQL 查询的 \`graphql-clj\` 代码如下：
 
 \`\`\`clojure
 
@@ -105,30 +105,30 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 (executor/execute nil schema resolver-fn "{ hello }")
 \`\`\`
 
-  - [lacinia](https://github.com/walmartlabs/lacinia): A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
+  - [lacinia](https://github.com/walmartlabs/lacinia)：一套 GraphQL 规范的完整实现，致力于维护对规范的外部兼容。
 
 ### Elixir
 
-  - [absinthe](https://github.com/absinthe-graphql/absinthe): GraphQL implementation for Elixir.
-  - [graphql-elixir](https://github.com/graphql-elixir/graphql): An Elixir implementation of Facebook's GraphQL.
+  - [absinthe](https://github.com/absinthe-graphql/absinthe)：Elixir 的 GraphQL 实现。
+  - [graphql-elixir](https://github.com/graphql-elixir/graphql): 一个 Facebook GraphQL 的 Elixir 实现。
 
 ### Erlang
 
-  - [graphql-erlang](https://github.com/shopgun/graphql-erlang): GraphQL implementation in Erlang.
+  - [graphql-erlang](https://github.com/shopgun/graphql-erlang)：Erlang 的 GraphQL 实现。
 
 ### Go
 
-  - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
-  - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
-  - [neelance/graphql-go](https://github.com/neelance/graphql-go): An active implementation of GraphQL in Golang.
+  - [graphql-go](https://github.com/graphql-go/graphql): 一个 Go/Golang 的 GraphQL 实现。
+  - [graphql-relay-go](https://github.com/graphql-go/relay): 一个用于帮助构建 graphql-go 服务器的 Go/Golang 库，支持 react-relay 。
+  - [neelance/graphql-go](https://github.com/neelance/graphql-go)：一个活跃的 Golang GraphQL 实现。
 
 ### Java
 
 #### [graphql-java](https://github.com/graphql-java/graphql-java)
 
-A Java library for building GraphQL APIs.
+一个用于构建 GraphQL API 的 Java 库。
 
-Code that executes a hello world GraphQL query with \`graphql-java\`:
+可以执行一个 \`hello world\` GraphQL 查询的 \`graphql-java\` 代码如下：
 
 \`\`\`java
 import graphql.ExecutionResult;
@@ -166,21 +166,21 @@ public class HelloWorld {
 }
 \`\`\`
 
-See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for more information on setup.
+查看 [graphql-java 文档](https://github.com/graphql-java/graphql-java) 以了解更多信息。
 
 ### JavaScript
 
 #### [GraphQL.js](/graphql-js/) ([github](https://github.com/graphql/graphql-js/)) ([npm](https://www.npmjs.com/package/graphql))
 
-The reference implementation of the GraphQL specification, designed for running GraphQL in a Node.js environment.
+GraphQL 规范的参考实现，设计用于在 Node.js 环境中运行。
 
-To run a \`GraphQL.js\` hello world script from the command line:
+如果要在命令行中运行一个 \`GraphQL.js\` 的 \`hello world\` 脚本：
 
 \`\`\`bash
 npm install graphql
 \`\`\`
 
-Then run \`node hello.js\` with this code in \`hello.js\`:
+然后使用 \`node hello.js\` 以运行 \`hello.js\` 中的代码：
 
 \`\`\`js
 var { graphql, buildSchema } = require('graphql');
@@ -200,15 +200,15 @@ graphql(schema, '{ hello }', root).then((response) => {
 
 #### [express-graphql](/graphql-js/running-an-express-graphql-server/) ([github](https://github.com/graphql/express-graphql)) ([npm](https://www.npmjs.com/package/express-graphql))
 
-The reference implementation of a GraphQL API server over an Express webserver. You can use this to run GraphQL in conjunction with a regular Express webserver, or as a standalone GraphQL server.
+基于 Express webserver 服务器的一个 GraphQL API 服务端参考实现，你可以用它结合常规 Express webserver 来运行 GraphQL，也可以作为独立 GraphQL 服务器。
 
-To run an \`express-graphql\` hello world server:
+如果要运行 \`express-graphql\` 的 hello world 服务器：
 
 \`\`\`bash
 npm install express express-graphql graphql
 \`\`\`
 
-Then run \`node server.js\` with this code in \`server.js\`:
+然后使用 \`node server.js\` 以运行 \`server.js\` 中的代码：
 
 \`\`\`js
 var express = require('express');
@@ -234,15 +234,15 @@ app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
 
 #### [graphql-server](http://dev.apollodata.com/tools/graphql-server/index.html) ([github](https://github.com/apollostack/graphql-server)) ([npm](https://www.npmjs.com/package/graphql-server-express))
 
-A set of GraphQL server packages from Apollo that work with various Node.js HTTP frameworks (Express, Connect, Hapi, Koa etc).
+来自于 Apollo 的一套 GraphQL server 包，可用于多种 Node.js HTTP 框架（Express，Connect，Hapi，Koa 等）。
 
-To run a hello world server with graphql-server-express:
+如果要运行 \`graphql-server-express\` 的 hello world 服务器：
 
 \`\`\`bash
 npm install graphql-server-express body-parser express graphql graphql-tools
 \`\`\`
 
-Then run \`node server.js\` with this code in \`server.js\`:
+然后使用 \`node server.js\` 以运行 \`server.js\` 中的代码：
 
 \`\`\`js
 var express = require('express');
@@ -274,26 +274,26 @@ app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
 \`\`\`
 
-GraphQL Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+GraphQL Server 也支持所有的 Node.js HTTP 服务器框架：Express、Connect、HAPI 和 Koa。
 
 ### PHP
 
-  - [graphql-php](https://github.com/webonyx/graphql-php): A PHP port of GraphQL reference implementation
-  - [graphql-relay-php](https://github.com/ivome/graphql-relay-php): A library to help construct a graphql-php server supporting react-relay.
+  - [graphql-php](https://github.com/webonyx/graphql-php)：GraphQL 参考实现的 PHP 移植版本。
+  - [graphql-relay-php](https://github.com/ivome/graphql-relay-php)：一个用于辅助构建 graphql-php 服务器的库，支持 react-relay。
 
 ### Python
 
 #### [Graphene](http://graphene-python.org/) ([github](https://github.com/graphql-python/graphene))
 
-A Python library for building GraphQL APIs.
+一个用于构建 GraphQL API 的 Python 库。
 
-To run a Graphene hello world script:
+如果要运行一个 Graphene hello world 脚本：
 
 \`\`\`bash
 pip install graphene
 \`\`\`
 
-Then run \`python hello.py\` with this code in \`hello.py\`:
+然后使用 \`python hello.py\` 以运行 \`hello.py\` 中的代码：
 
 \`\`\`python
 import graphene
@@ -309,21 +309,21 @@ result = schema.execute('{ hello }')
 print(result.data['hello'])
 \`\`\`
 
-There are also nice bindings for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
+其也有对 [Relay](https://facebook.github.io/relay/)、Django、SQLAlchemy 和 Google App Engine 的良好绑定。
 
 ### Ruby
 
 #### [graphql-ruby](https://github.com/rmosolgo/graphql-ruby)
 
-A Ruby library for building GraphQL APIs.
+一个用于构建 GraphQL API 的 Ruby 库。
 
-To run a hello world script with \`graphql-ruby\`:
+如果要使用 \`graphql-ruby\` 运行一个 hello world 脚本：
 
 \`\`\`bash
 gem install graphql
 \`\`\`
 
-Then run \`ruby hello.rb\` with this code in \`hello.rb\`:
+然后使用 \`ruby hello.rb\` 运行 \`hello.rb\` 中的代码：
 
 \`\`\`ruby
 require 'graphql'
@@ -343,13 +343,13 @@ end
 puts Schema.execute('{ hello }')
 \`\`\`
 
-There are also nice bindings for Relay and Rails.
+其也有对于 Relay 和 Rails 的良好绑定。
 
 ### Scala
 
-#### [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria)): A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
+#### [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria))：支持 [Relay](https://facebook.github.io/relay/) 的一个 Scala GraphQL 库。
 
-An example of a hello world GraphQL schema and query with \`sangria\`:
+使用的 \`sangria\` 的一个 GraphQL schema 以及 hello world 查询：
 
 \`\`\`scala
 import sangria.schema._
@@ -367,7 +367,7 @@ val query = graphql"{ hello }"
 Executor.execute(schema, query) map println
 \`\`\`
 
-## GraphQL Clients
+## GraphQL 客户端
 
 - [C# / .NET](#c-net-1)
 - [Go](#go-1)
@@ -377,37 +377,37 @@ Executor.execute(schema, query) map println
 
 ### C# / .NET
 
-  - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
+  - [graphql-net-client](https://github.com/bkniffler/graphql-net-client)：基于 .Net 的 GraphQL 客户端基本样例。
 
 ### Go
 
-  - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
+  - [graphql](https://github.com/shurcooL/graphql#readme): 一个使用 Go 编写的 GraphQL 客户端实现。
 
 ### Java / Android
 
-  - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
+  - [Apollo Android](https://github.com/apollographql/apollo-android)：一个用于 Android 的 GraphQL 客户端，强类型、带缓存功能，使用 Java 编写。
 
 ### JavaScript
 
-  - [Relay](https://facebook.github.io/relay/) ([github](https://github.com/facebook/relay)) ([npm](https://www.npmjs.com/package/react-relay)): Facebook's framework for building React applications that talk to a GraphQL backend.
-  - [Apollo Client](http://dev.apollodata.com/react/) ([github](https://github.com/apollostack/apollo-client)): A powerful JavaScript GraphQL client, designed to work well with React, React Native, Angular 2, or just plain JavaScript.
-  - [graphql-request](https://github.com/graphcool/graphql-request): A simple and flexible JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native) - basically a lightweight wrapper around \`fetch\`.
-  - [Lokka](https://github.com/kadirahq/lokka): A simple JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native).
+  - [Relay](https://facebook.github.io/relay/) ([github](https://github.com/facebook/relay)) ([npm](https://www.npmjs.com/package/react-relay))：Facebook 的框架，用于构建与 GraphQL 后端交流的 React 应用。
+  - [Apollo Client](http://dev.apollodata.com/react/) ([github](https://github.com/apollostack/apollo-client))：一个强大的 JavaScript GraphQL 客户端，设计用于与 React、React Native、Angular 2 或者原生 JavaScript 一同工作。
+  - [graphql-request](https://github.com/graphcool/graphql-request)：个简单的弹性的 JavaScript GraphQL 客户端，可以运行于所有的 JavaScript 环境（浏览器，Node.js 和 React Native）—— 基本上是 \`fetch\` 的轻度封装。
+  - [Lokka](https://github.com/kadirahq/lokka)：一个简单的 JavaScript GraphQL 客户端，可以运行于所有的 JavaScript 环境 —— 浏览器，Node.js 和 React Native。
 
 ### Swift / Objective-C iOS
 
-  - [Apollo iOS](http://dev.apollodata.com/ios/) ([github](https://github.com/apollostack/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
-  - [GraphQL iOS](https://github.com/funcompany/graphql-ios): An Objective-C GraphQL client for iOS.
+  - [Apollo iOS](http://dev.apollodata.com/ios/) ([github](https://github.com/apollostack/apollo-ios))：一个用于 iOS 的 GraphQL 客户端，返回查询特定的 Swift 类型，与 Xcode 集成后可以分屏显示你的 Swift 源代码和 GraphQL，并能在行内展示验证错误。
+  - [GraphQL iOS](https://github.com/funcompany/graphql-ios): 一个用于 iOS 的  Objective-C GraphQL 客户端。
 
-## Tools
+## 工具
 
-  - [graphiql](https://github.com/graphql/graphiql) ([npm](https://www.npmjs.com/package/graphiql)): An interactive in-browser GraphQL IDE.
-  - [libgraphqlparser](https://github.com/graphql/libgraphqlparser): A GraphQL query language parser in C++ with C and C++ APIs.
-  - [Graphql Language Service](https://github.com/graphql/graphql-language-service): An interface for building GraphQL language services for IDEs (diagnostics, autocomplete etc).
+  - [graphiql](https://github.com/graphql/graphiql) ([npm](https://www.npmjs.com/package/graphiql))：一个交互式的运行于浏览器中的 GraphQL IDE.
+  - [libgraphqlparser](https://github.com/graphql/libgraphqlparser)：一个 C++ 版 GraphQL 查询语言分析器，提供 C 和 C++ API。
+  - [Graphql Language Service](https://github.com/graphql/graphql-language-service)：一个用于构建 IDE 的 GraphQL 语言服务（诊断、自动完成等）的接口。
 
-## More Stuff
+## 更多内容
 
-  - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
+  - [awesome-graphql](https://github.com/chentsulin/awesome-graphql)：一个神奇的社区，维护一系列库、资源等。
 
           `}</Marked>
 
