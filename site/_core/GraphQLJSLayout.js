@@ -21,7 +21,7 @@ export default ({ page, site }) =>
           <Marked>{page.content}</Marked>
           {page.next &&
             <a className="read-next" href={path.resolve(page.url, page.next)}>
-              <span className="read-next-continue">Continue Reading &rarr;</span>
+              <span className="read-next-continue">继续阅读 &rarr;</span>
               <span className="read-next-title">{page.nextPage.title}</span>
             </a>}
         </div>

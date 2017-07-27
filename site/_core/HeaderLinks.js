@@ -9,11 +9,11 @@
 var React = require('react');
 
 const links = [
-  { section: 'learn', text: 'Learn', href: '/learn/' },
-  { section: 'code', text: 'Code', href: '/code/' },
-  { section: 'community', text: 'Community', href: '/community/' },
-  { section: 'blog', text: 'Blog', href: '/blog/' },
-  { section: 'spec', text: 'Spec', href: 'http://facebook.github.io/graphql/' },
+  { section: 'learn', text: '学习', href: '/learn/' },
+  { section: 'code', text: '代码', href: '/code/' },
+  { section: 'community', text: '社区', href: '/community/' },
+  { section: 'blog', text: '博客', href: '/blog/' },
+  { section: 'spec', text: '规范', href: 'http://facebook.github.io/graphql/' },
 ];
 
 export default ({ section }) =>
