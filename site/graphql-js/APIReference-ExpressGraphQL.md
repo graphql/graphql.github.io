@@ -7,7 +7,7 @@ sublinks: graphqlHTTP
 next: /graphql-js/graphql/
 ---
 
-The `express-graphql` module provides a simple way to create an [Express](https://expressjs.com/) server that runs a GraphQL API.
+`express-graphql` 模块提供了一个创建 [Express](https://expressjs.com/) 服务的简单方法来运行 GraphQL API。
 
 ```js
 import graphqlHTTP from 'express-graphql'; // ES6
@@ -28,8 +28,8 @@ graphqlHTTP({
 }): Middleware
 ```
 
-Constructs an Express application based on a GraphQL schema.
+上面的代码是基于 GraphQL schema 构建了一个 Express 应用。
 
-See the [express-graphql tutorial](/graphql-js/running-an-express-graphql-server/) for sample usage.
+在 [express-graphql 指南](/graphql-js/running-an-express-graphql-server/) 上查看范例的使用。
 
-See the [GitHub README](https://github.com/graphql/express-graphql) for more extensive documentation of the details of this method.
+在 [GitHub README](https://github.com/graphql/express-graphql) 上查看更多关于这个方法的详细文档。
