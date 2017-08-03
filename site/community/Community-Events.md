@@ -17,6 +17,13 @@ sublinks: Upcoming Events,Meetups
 
 GraphQL is awesome! After only a year it has got a lot of attention from the community. Many implementations have emerged and it's just getting better. Is GraphQL right for you? Is it a query language or runtime? In this talk I am going to take you from 0 to hero. ;) 
 
+### GraphQL Summit 2017
+
+- **Date:** 25-26 October, 2017
+- **Location:** San Francisco, CA, USA
+- **Link:** http://summit.graphql.com
+
+GraphQL Summit is a conference dedicated entirely to the GraphQL developer community. Speakers from all around the world will talk about GraphQL best practices, design patterns, adoption stories, GraphQL in production, and the open source ecosystem. This year there will be one track of talks over two days, as well as an afterparty and workshops. The CFP closes August 14, 2017 12:00AM PST.
 
 ## Past Events
 
