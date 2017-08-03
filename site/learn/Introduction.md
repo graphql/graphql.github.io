@@ -7,7 +7,7 @@ permalink: /learn/
 next: /learn/queries/
 ---
 
-> Learn about GraphQL, how it works, and how to use it in this series of articles. Looking for documentation on how to build a GraphQL service? There are libraries to help you implement GraphQL in [many different languages](/code/).
+> Learn about GraphQL, how it works, and how to use it in this series of articles. Looking for documentation on how to build a GraphQL service? There are libraries to help you implement GraphQL in [many different languages](/code/). For an in-depth learning experience with practical tutorials, visit the [How to GraphQL](https://www.howtographql.com) fullstack tutorial website.
 
 GraphQL is a query language for your API, and a server-side runtime for executing queries by using a type system you define for your data. GraphQL isn't tied to any specific database or storage engine and is instead backed by your existing code and data.
 
