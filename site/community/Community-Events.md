@@ -35,7 +35,6 @@ GraphQL Summit is a conference dedicated entirely to the GraphQL developer commu
 
 In this talk, we'll discuss the history and purpose of GraphQL, common misconceptions about GraphQL, and setting up GraphQL in a Node/Express back-end. We'll also take a look at GraphQL's development tool GraphiQL and how it self-documents your resources. If you're curious about GraphQL and how to make working with relational data a breeze, join us! 
 
-
 ### GraphQL-Europe Conference
 
 - **Date:** 21st May, 2017
@@ -77,7 +76,7 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
 - [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
-- [GraphQL Barcelona](https://www.meetup.com/GraphQL-Munich/)
+- [GraphQL Barcelona](https://www.meetup.com/GraphQL-Barcelona/)
 - [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
 
