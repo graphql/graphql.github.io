@@ -133,7 +133,7 @@ var root = {
     fakeDatabase[id] = input;
     return new Message(id, input);
   },
-}
+};
 
 var app = express();
 app.use('/graphql', graphqlHTTP({
