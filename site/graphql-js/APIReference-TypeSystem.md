@@ -255,6 +255,7 @@ type GraphQLInterfacesThunk = () => Array<GraphQLInterfaceType>;
 
 type GraphQLFieldConfigMapThunk = () => GraphQLFieldConfigMap;
 
+// See below about resolver functions.
 type GraphQLFieldResolveFn = (
   source?: any,
   args?: {[argName: string]: any},
@@ -303,6 +304,12 @@ have a name, but most importantly describe their fields.
 When two types need to refer to each other, or a type needs to refer to
 itself in a field, you can use a function expression (aka a closure or a
 thunk) to supply the fields lazily.
+
+Note that resolver functions are provided the `source` object as the first parameter. 
+However, if a resolver function is not provided, then the default resolver is
+used, which looks for a method on `source` of the same name as the field. If found,
+the method is called with `(args, context, info)`. Since it is a method on `source`,
+that value can always be referenced with `this`.
 
 #### Examples
 
