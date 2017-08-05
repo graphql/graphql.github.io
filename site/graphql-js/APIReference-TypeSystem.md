@@ -1,5 +1,5 @@
 ---
-title: graphql/types
+title: graphql/type
 layout: ../_core/GraphQLJSLayout
 category: API Reference
 permalink: /graphql-js/type/
