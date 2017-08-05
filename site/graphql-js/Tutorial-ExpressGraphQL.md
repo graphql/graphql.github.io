@@ -1,33 +1,33 @@
 ---
-title: Running an Express GraphQL Server
-sidebarTitle: Running Express + GraphQL
+title: 运行一个 Express GraphQL 服务器
+sidebarTitle: Express + GraphQL
 layout: ../_core/GraphQLJSLayout
-category: GraphQL.js Tutorial
+category: GraphQL.js 教程
 permalink: /graphql-js/running-an-express-graphql-server/
 next: /graphql-js/graphql-clients/
 ---
 
-The simplest way to run an GraphQL API server is to use [Express](https://expressjs.com), a popular web application framework for Node.js. You will need to install two additional dependencies:
+运行 GraphQL 最简单的方法是使用 [Express](https://expressjs.com)（一个 Node.js 上流行的 web 应用框架）。你需要安装两个依赖库：
 
 ```bash
 npm install express express-graphql graphql --save
 ```
 
-Let's modify our “hello world” example so that it's an API server rather than a script that runs a single query. We can use the 'express' module to run a webserver, and instead of executing a query directly with the `graphql` function, we can use the `express-graphql` library to mount a GraphQL API server on the “/graphql” HTTP endpoint:
+现在我们来改进 “hello world” 示例，把它从一个只能使用一个查询的简单的脚本变成一个 API 服务器。使用 `express` 模块来运行一个服务器，然后不再直接调用 `graphql` 函数进行查询，而是使用 `express-graphql` 库来构建 GraphQL API 服务器，响应入口端点为 “/graphql” 的 HTTP 请求。
 
 ```javascript
 var express = require('express');
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
 
-// Construct a schema, using GraphQL schema language
+// 使用 GraphQL Schema Language 创建一个 schema
 var schema = buildSchema(`
   type Query {
     hello: String
   }
 `);
 
-// The root provides a resolver function for each API endpoint
+// root 提供所有 API 入口端点相应的解析器函数
 var root = {
   hello: () => {
     return 'Hello world!';
@@ -44,16 +44,16 @@ app.listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
 ```
 
-You can run this GraphQL server with:
+用以下命令启动该 GraphQL 服务器：
 
 ```bash
 node server.js
 ```
 
-Since we configured `graphqlHTTP` with `graphiql: true`, you can use the GraphiQL tool to manually issue GraphQL queries. If you navigate in a web browser to `http://localhost:4000/graphql`, you should see an interface that lets you enter queries. It should look like:
+由于我们对 `graphqlHTTP` 设置 `graphiql: true`，你可以使用 GraphiQL 工具来手动执行 GraphQL 查询。若使用浏览器浏览 `http://localhost:4000/graphql`，你会看到一个界面能让你输入查询语句。它看起来是这样的：
 
 ![hello world graphql example](/img/hello.png)
 
-This screen shot shows the GraphQL query `{ hello }` being issued and giving a result of `{ data: { hello: 'Hello world!' } }`. GraphiQL is a great tool for debugging and inspecting a server, so we recommend running it whenever your application is in development mode.
+截图显示，向 GraphQL 查询 `{ hello }`，返回结果为 `{ data: { hello: 'Hello world!' } }`。GraphiQL 是一个调试和检测服务器的一个绝佳工具，我们推荐应用在开发阶段时一直使用它。
 
-At this point you have learned how to run a GraphQL server and how to use GraphiQL interface to issue queries. The next step is to learn how to [issue GraphQL queries from client code](/graphql-js/graphql-clients/).
+看到这里，你已学到了如何运行一个 GraphQL 服务器，以及使用 GraphiQL 界面执行查询。接下来学习 [从客户端代码中发起 GraphQL 查询](/graphql-js/graphql-clients/)。
