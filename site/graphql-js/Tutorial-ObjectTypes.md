@@ -1,14 +1,14 @@
 ---
-title: Object Types
+title: 对象类型
 layout: ../_core/GraphQLJSLayout
-category: GraphQL.js Tutorial
+category: GraphQL.js 教程
 permalink: /graphql-js/object-types/
 next: /graphql-js/mutations-and-input-types/
 ---
 
-In many cases, you don't want to return a number or a string from an API. You want to return an object that has its own complex behavior. GraphQL is a perfect fit for this.
+很多情况下，你可能不想让 API 返回一个数字或字符串。你可能会期望它返回一个带有复杂行为的对象。GraphQL 刚好可以完美地契合你的这个要求。
 
-In GraphQL schema language, the way you define a new object type is the same way we have been defining the `Query` type in our examples. Each object can have fields that return a particular type, and methods that take arguments. For example, in the [Passing Arguments](/graphql-js/passing-arguments/) documentation, we had a method to roll some random dice:
+在 GraphQL schema 语言中，定义一个新的对象类型就和我们在示例中定义的 `Query` 类型一样。每个对象可以有返回指定类型的的字段，或者带有参数的方法。例如，在 [参数传递](/graphql-js/passing-arguments/) 中，我们有一个掷骰子的方法：
 
 ```javascript
 type Query {
@@ -16,7 +16,7 @@ type Query {
 }
 ```
 
-If we wanted to have more and more methods based on a random die over time, we could implement this with a `RandomDie` object type instead.
+如果随着时间的推移我们想要有越来越多的基于随机骰子的方法，我们可以实现一个 `RandomDie` 的对象类型来替代。
 
 ```javascript
 type RandomDie {
@@ -28,7 +28,7 @@ type Query {
 }
 ```
 
-Instead of a root-level resolver for the `RandomDie` type, we can instead use an ES6 class, where the resolvers are instance methods. This code shows how the `RandomDie` schema above can be implemented:
+取而代之的是一个值为 `RandomDie` 类型的根级别解析器，我们可以用 ES6 的 class 语法来替代，这样的话这些解析器就是这个类的实例方法了。下面的代码展示了如何使用 ES6 的 class 语法来实现上面的 `RandomDie` 对象类型：
 
 ```javascript
 class RandomDie {
@@ -56,7 +56,7 @@ var root = {
 }
 ```
 
-For fields that don't use any arguments, you can use either properties on the object or instance methods. So for the example code above, both `numSides` and `rollOnce` can actually be used to implement GraphQL fields, so that code also implements the schema of:
+对于那些不使用任何参数的字段来说，你可以使用对象属性或实例方法来表示。对于上面的示例方法，不论是 `numSides` 还是 `rollOnce` 实际上都可以被用来实现 GraphQL 的字段，所以上面的代码同样可以以 schema 的方式来实现:
 
 ```javascript
 type RandomDie {
@@ -70,7 +70,7 @@ type Query {
 }
 ```
 
-Putting this all together, here is some sample code that runs a server with this GraphQL API:
+最后把这些代码都整到一起，这里是一些运行了用了该 GraphQL API 的示例代码：
 
 ```javascript
 var express = require('express');
@@ -126,7 +126,7 @@ app.listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
 ```
 
-When you issue a GraphQL query against an API that returns object types, you can call multiple methods on the object at once by nesting the GraphQL field names. For example, if you wanted to call both `rollOnce` to roll a die once, and `roll` to roll a die three times, you could do it with this query:
+当你对一个 API 发出一个 GraphQL 查询时它会返回一个对象类型，你可以通过嵌套 GraphQL 字段名来调用对象上的多个方法。例如，如果你想在调用一次 `rollOnce` 方法的同时也调用 `roll` 方法来掷 3 次骰子的话，你可以这么做：
 
 ```javascript
 {
@@ -137,8 +137,8 @@ When you issue a GraphQL query against an API that returns object types, you can
 }
 ```
 
-If you run this code with `node server.js` and browse to http://localhost:4000/graphql you can try out these APIs with GraphiQL.
+如果你用 `node server.js` 命令来运行这些代码并且访问 http://localhost:4000/graphql 的话，你可以用 GraphQL 试一下这些 API。
 
-This way of defining object types often provides advantages over a traditional REST API. Instead of doing one API request to get basic information about an object, and then multiple subsequent API requests to find out more information about that object, you can get all of that information in one API request. That saves bandwidth, makes your app run faster, and simplifies your client-side logic.
+这种定义对象类型的方式通常会比传统的 REST 风格的 API 会带来更多的好处。取而代之的是只需要请求一次 API 就可以获得一个对象的相关基本信息，或者可以通过多个附带的 API 请求来获取更多关于该对象的信息，当然你也可以通过一次请求来获取该对象的所有信息。这样不仅节省了带宽、让你的应用跑得更快，同时也简化了你客户端应用的逻辑。
 
-So far, every API we've looked at is designed for returning data. In order to modify stored data or handle complex input, it helps to [learn about mutations and input types](/graphql-js/mutations-and-input-types/).
+到目前为止，我们所看到的每个 API 都是为返回数据而设计的。为了修改存储的数据或处理复杂的输入，它有助于学习 [mutations 和 input types](/graphql-js/mutations-and-input-types/)。
