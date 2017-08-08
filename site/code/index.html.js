@@ -19,7 +19,7 @@ export default ({ page, site }) =>
           <h1>Code</h1>
           <Marked>{`
 
-Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, and other useful stuff.
+Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, services, and other useful stuff.
 
 ## Server Libraries
 
@@ -405,6 +405,14 @@ Executor.execute(schema, query) map println
   - [graphiql](https://github.com/graphql/graphiql) ([npm](https://www.npmjs.com/package/graphiql)): An interactive in-browser GraphQL IDE.
   - [libgraphqlparser](https://github.com/graphql/libgraphqlparser): A GraphQL query language parser in C++ with C and C++ APIs.
   - [Graphql Language Service](https://github.com/graphql/graphql-language-service): An interface for building GraphQL language services for IDEs (diagnostics, autocomplete etc).
+
+## Services
+
+  - [Apollo Optics](http://www.apollodata.com/optics/): A service for monitoring the performance and usage of your GraphQL backend.
+  - [GraphCMS](https://graphcms.com/): A BaaS (Backend as a Service) that sets you up with a GraphQL backend as well as tools for content editors to work with the stored data.
+  - [Graphcool](https://www.graph.cool) ([github](https://github.com/graphcool)): A BaaS (Backend as a Service) providing a GraphQL backend for your applications with a powerful web ui for managing your database and stored data.
+  - [Reindex](https://www.reindex.io/baas/) ([github](https://github.com/reindexio/reindex-js)): A BaaS (Backend as a Service) that sets you up with a GraphQL backend targeted at applications using React and Relay.
+  - [Scaphold](https://scaphold.io) ([github](https://github.com/scaphold-io)): A BaaS (Backend as a Service) that sets you up with a GraphQL backend for your applications with many different integrations.
 
 ## More Stuff
 
