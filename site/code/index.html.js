@@ -19,7 +19,7 @@ export default ({ page, site }) =>
           <h1>Code</h1>
           <Marked>{`
 
-Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, and other useful stuff.
+Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, services, and other useful stuff.
 
 ## Server Libraries
 
