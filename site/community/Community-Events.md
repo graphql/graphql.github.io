@@ -8,14 +8,14 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### Unleashing the power of GraphQL and React
+### Relay Modern or Apollo?
 
-- **Conference:** OdessaJS 2017
-- **Date:** 1st July, 2017
-- **Location:** Odessa, Ukraine
-- **Link:** http://odessajs.org/index_en.html
+- **Conference:** ReactNext 2017
+- **Date:** 10th September, 2017
+- **Location:** Tel Aviv, Israel
+- **Link:** http://react-next.com
 
-GraphQL is awesome! After only a year it has got a lot of attention from the community. Many implementations have emerged and it's just getting better. Is GraphQL right for you? Is it a query language or runtime? In this talk I am going to take you from 0 to hero. ;) 
+New project starts. Everyone is excited. GraphQL is on the stack. Yay! Life is good! Suddenly someone pops the question. So which GraphQL Client should we use? What do you mean? Oh, nooo! =) Don’t worry I’ve got your back. In this talk I am going to put these two under the microscope and find out what are they best at, what features they share and, most importantly, what are their key differences! You can relax.
 
 ### GraphQL Summit 2017
 
@@ -26,6 +26,15 @@ GraphQL is awesome! After only a year it has got a lot of attention from the com
 GraphQL Summit is a conference dedicated entirely to the GraphQL developer community. Speakers from all around the world will talk about GraphQL best practices, design patterns, adoption stories, GraphQL in production, and the open source ecosystem. This year there will be one track of talks over two days, as well as an afterparty and workshops. The CFP closes August 14, 2017 12:00AM PST.
 
 ## Past Events
+
+### Unleashing the power of GraphQL and React
+
+- **Conference:** OdessaJS 2017
+- **Date:** 1st July, 2017
+- **Location:** Odessa, Ukraine
+- **Link:** http://odessajs.org/index_en.html
+
+GraphQL is awesome! After only a year it has got a lot of attention from the community. Many implementations have emerged and it's just getting better. Is GraphQL right for you? Is it a query language or runtime? In this talk I am going to take you from 0 to hero. ;) 
 
 ### GraphQL - The People's Query Language 
 
