@@ -536,6 +536,11 @@ var logos = [
     img: 'conduit.png',
     link: 'https://conduithq.com/'
   },
+  {
+    name: 'Medallia',
+    img: 'medallia.png',
+    link: 'https://www.medallia.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
