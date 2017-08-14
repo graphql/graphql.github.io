@@ -525,6 +525,11 @@ var logos = [
     img: 'medallia.png',
     link: 'https://www.medallia.com/'
   },
+  {
+    name: 'Colectica',
+    img: 'colectica.png',
+    link: 'http://www.colectica.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
