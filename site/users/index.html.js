@@ -542,6 +542,11 @@ var logos = [
     link: 'https://www.medallia.com/'
   },
   {
+    name: 'Colectica',
+    img: 'colectica.png',
+    link: 'http://www.colectica.com/'
+  },
+  {    
     name: 'Neo4j',
     img: 'neo4j_logo.png',
     link: 'https://www.neo4j.com/developer/graphql/'
