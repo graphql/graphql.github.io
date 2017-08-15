@@ -530,6 +530,11 @@ var logos = [
     img: 'colectica.png',
     link: 'http://www.colectica.com/'
   },
+  {    
+    name: 'Neo4j',
+    img: 'neo4j_logo.png',
+    link: 'https://www.neo4j.com/developer/graphql/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
