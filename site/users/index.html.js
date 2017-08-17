@@ -535,6 +535,11 @@ var logos = [
     img: 'neo4j_logo.png',
     link: 'https://www.neo4j.com/developer/graphql/'
   },
+  {
+    name: 'ComparaOnline',
+    img: 'comparaonline.png',
+    link: 'https://www.comparaonline.com'
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
