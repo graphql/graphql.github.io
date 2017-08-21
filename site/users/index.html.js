@@ -530,7 +530,7 @@ var logos = [
     img: 'colectica.png',
     link: 'http://www.colectica.com/'
   },
-  {    
+  {
     name: 'Neo4j',
     img: 'neo4j_logo.png',
     link: 'https://www.neo4j.com/developer/graphql/'
@@ -539,7 +539,12 @@ var logos = [
     name: 'ComparaOnline',
     img: 'comparaonline.png',
     link: 'https://www.comparaonline.com'
-  }
+  },
+  {
+    name: 'Goalify.plus',
+    img: 'goalify.png',
+    link: 'https://goalify.plus'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
