@@ -545,6 +545,11 @@ var logos = [
     img: 'goalify.png',
     link: 'https://goalify.plus'
   },
+  {
+    name: 'Teachers Pay Teachers',
+    img: 'teacherspayteachers.png',
+    link: 'https://teacherspayteachers.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
