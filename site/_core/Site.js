@@ -91,7 +91,10 @@ export default ({ page, category, title, section, className, noSearch, children 
           <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
         </a>
         <section className="copyright">
-          Copyright &copy; 2016 Facebook Inc. The contents of this page are licensed BSD-3-Clause.
+          Copyright &copy;
+          <span><script>document.write(new Date().getFullYear())</script> </span>
+          <noscript>2017 </noscript>
+          Facebook Inc. The contents of this page are licensed BSD-3-Clause.
         </section>
       </footer>
 
