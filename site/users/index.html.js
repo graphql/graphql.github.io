@@ -550,6 +550,11 @@ var logos = [
     img: 'teacherspayteachers.png',
     link: 'https://teacherspayteachers.com'
   },
+  {
+    name: '1stdibs',
+    img: '1stdibs.png',
+    link: 'https://www.1stdibs.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
