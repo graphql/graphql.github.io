@@ -555,6 +555,11 @@ var logos = [
     img: '1stdibs.png',
     link: 'https://www.1stdibs.com/'
   },
+  {
+    name: 'Hackages',
+    img: 'hackages.png',
+    link: 'https://hackages.io/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
