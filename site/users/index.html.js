@@ -26,6 +26,11 @@ var logos = [
     link: 'https://www.facebook.com/'
   },
   {
+    name: 'xgqfrms',
+    img: 'xgqfrms.png',
+    link: 'https://www.xgqfrms.xyz/'
+  },
+  {
     name: 'GitHub',
     img: 'github.png',
     isRound: true,
