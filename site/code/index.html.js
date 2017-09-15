@@ -30,6 +30,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Elixir](#elixir)
 - [Erlang](#erlang)
 - [Go](#go)
+- [Groovy](#groovy)
 - [Java](#java)
 - [JavaScript](#javascript)
 - [PHP](#php)
