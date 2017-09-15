@@ -560,6 +560,11 @@ var logos = [
     img: 'hackages.png',
     link: 'https://hackages.io/'
   },
+  {
+    name: 'Fairfax Media',
+    img: 'fairfaxmedia.png',
+    link: 'https://www.fairfaxmedia.com.au'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
