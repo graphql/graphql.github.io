@@ -140,8 +140,6 @@ See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index
 
 ### Java
 
-
-
 #### [graphql-java](https://github.com/graphql-java/graphql-java)
 
 A Java library for building GraphQL APIs.
