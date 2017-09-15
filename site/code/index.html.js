@@ -127,11 +127,11 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 
 #### [gorm-graphql](https://github.com/grails/gorm-graphql/)
 
-**Core Library** The GORM GraphQL library provides functionality to generate a GraphQL schema based on your GORM entities. In addition to mapping domain classes to a GraphQL schema, the core library also provides default implementations of "data fetchers" to query, update, and delete data through executions of the schema.
+**Core Library** - The GORM GraphQL library provides functionality to generate a GraphQL schema based on your GORM entities. In addition to mapping domain classes to a GraphQL schema, the core library also provides default implementations of "data fetchers" to query, update, and delete data through executions of the schema.
 
-**Grails Plugin** In a addition to the Core Library, the GORM GraphQL Grails Plugin: 
+**Grails Plugin** - In a addition to the Core Library, the GORM GraphQL Grails Plugin: 
 
-- Provides A controller to receive and respond to GraphQL requests through HTTP, based on their guidelines.
+- Provides a controller to receive and respond to GraphQL requests through HTTP, based on their guidelines.
 - Generates the schema at startup with spring bean configuration to make it easy to extend.
 - Includes a [GraphiQL](https://github.com/graphql/graphiql) browser enabled by default in development. The browser is accessible at /graphql/browser.
 - Overrides the default data binder to use the data binding provided by Grails
