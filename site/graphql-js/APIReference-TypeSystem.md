@@ -442,7 +442,7 @@ Enum values as strings, however internally Enums can be represented by any
 kind of type, often integers.
 
 Note: If a value is not provided in a definition, the name of the enum value
-will be used as it's internal value.
+will be used as its internal value.
 
 #### Example
 
