@@ -139,6 +139,10 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 
 See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index.html) for more information.
 
+#### [GQL](https://grooviter.github.io/gql/) 
+
+GQL is a Groovy library for GraphQL
+
 ### Java
 
 #### [graphql-java](https://github.com/graphql-java/graphql-java)
