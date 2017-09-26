@@ -565,6 +565,11 @@ var logos = [
     img: 'fairfaxmedia.png',
     link: 'https://www.fairfaxmedia.com.au'
   },
+  {
+    name: 'Amplitude',
+    img: 'amplitude.png',
+    link: 'https://amplitude.com/engineering'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
