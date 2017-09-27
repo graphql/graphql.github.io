@@ -8,14 +8,13 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### Relay Modern or Apollo?
+### GraphQL in production: KLM & Bynder cases
 
-- **Conference:** ReactNext 2017
-- **Date:** 10th September, 2017
-- **Location:** Tel Aviv, Israel
-- **Link:** http://react-next.com
+- **Date:** 10th October, 2017
+- **Location:** Amsterdam, The Netherlands
+- **Link:** https://www.meetup.com/Bynder-JS-Guild/events/242414878/
 
-New project starts. Everyone is excited. GraphQL is on the stack. Yay! Life is good! Suddenly someone pops the question. So which GraphQL Client should we use? What do you mean? Oh, nooo! =) Don’t worry I’ve got your back. In this talk I am going to put these two under the microscope and find out what are they best at, what features they share and, most importantly, what are their key differences! You can relax.
+We'd like to share KLM and Bynder experience working on GraphQL based applications that thousands of people are using every day. Beyond basics we'll discuss: persistent queries (query whitelisting and reduced bandwidth usage); optimistic UI (make the interface respond faster); connecting React components to GraphQL with wrappers (improvements beyond default Apollo frontend implementation)... and the cherry on the cake: GraphQL Subscriptions.
 
 ### GraphQL Summit 2017
 
@@ -26,6 +25,15 @@ New project starts. Everyone is excited. GraphQL is on the stack. Yay! Life is g
 GraphQL Summit is a conference dedicated entirely to the GraphQL developer community. Speakers from all around the world will talk about GraphQL best practices, design patterns, adoption stories, GraphQL in production, and the open source ecosystem. This year there will be one track of talks over two days, as well as an afterparty and workshops. The CFP closes August 14, 2017 12:00AM PST.
 
 ## Past Events
+
+### Relay Modern or Apollo?
+
+- **Conference:** ReactNext 2017
+- **Date:** 10th September, 2017
+- **Location:** Tel Aviv, Israel
+- **Link:** http://react-next.com
+
+New project starts. Everyone is excited. GraphQL is on the stack. Yay! Life is good! Suddenly someone pops the question. So which GraphQL Client should we use? What do you mean? Oh, nooo! =) Don’t worry I’ve got your back. In this talk I am going to put these two under the microscope and find out what are they best at, what features they share and, most importantly, what are their key differences! You can relax.
 
 ### Unleashing the power of GraphQL and React
 
