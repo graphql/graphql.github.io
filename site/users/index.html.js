@@ -570,6 +570,11 @@ var logos = [
     img: 'amplitude.png',
     link: 'https://amplitude.com/engineering'
   },
+  {
+    name: 'Gentux',
+    img: 'gentux.png',
+    link: 'https://www.generationtux.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
