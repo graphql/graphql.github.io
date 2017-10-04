@@ -109,3 +109,4 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Scaphold Community](https://scaphold.io/community/): Resources to help you launch a production app with GraphQL
 - [GraphQL World](https://graphql-world.com): Global community of GraphQL developers and events
 - [GraphQL Talks](https://www.graph.cool/talks/): Find & Watch the best GraphQL Talks
+- [Basically, Full-stack GraphQL](https://github.com/TejasQ/basically-fullstack-graphql): A code-based introduction to working with GraphQL on the client _and_ server in plain English
