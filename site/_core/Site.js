@@ -69,8 +69,9 @@ export default ({ page, category, title, section, className, noSearch, children 
           <div>
             <h5><a href="/code">Code</a></h5>
             <a href="/code/#server-libraries">Servers</a>
-            <a href="/code/#graphql-clients">Clients</a>
-            <a href="/code/#tools">Tools</a>
+            <a href="/code/clients/">Clients</a>
+            <a href="/code/services/">Services</a>
+            <a href="/code/tools">Tools</a>
           </div>
           <div>
             <h5><a href="/community">Community</a></h5>
