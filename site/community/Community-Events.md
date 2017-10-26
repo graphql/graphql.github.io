@@ -100,7 +100,7 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 ### Australia
 
 - [GraphQL Melbourne](http://graphql.melbourne/)
-- [GraphQL Sydney](https://www.meetup.com/GraphQL-Sydney/)
+- [GraphQL Sydney](http://graphql.sydney/)
 
 ### Asia
 
