@@ -596,6 +596,11 @@ var logos = [
     img: 'bynder.png',
     link: 'https://www.bynder.com'
   },
+  {
+    name: 'KLM Royal Dutch Airlines',
+    img: 'klm.png',
+    link: 'https://www.klm.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
