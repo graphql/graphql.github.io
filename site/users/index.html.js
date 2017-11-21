@@ -596,6 +596,11 @@ var logos = [
     img: 'bynder.png',
     link: 'https://www.bynder.com'
   },
+  {
+    name: 'Code Chrysalis',
+    img: 'codechrysalis.png',
+    link: 'https://www.codechrysalis.io'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
