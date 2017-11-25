@@ -16,6 +16,7 @@ type Query {
 }
 
 type Human {
+  id: ID!
   name: String
   appearsIn: [Episode]
   starships: [Starship]
@@ -28,6 +29,7 @@ enum Episode {
 }
 
 type Starship {
+  id: ID!
   name: String
 }
 ```
@@ -47,7 +49,7 @@ In order to describe what happens when a query is executed, let's use an example
 }
 ```
 
-You can think of each field in a GraphQL query as a function or method of the previous type which returns the next type. In fact, this is exactly how GraphQL works. Each field on each type is backed by a function called the *resolver* which is provided by the GraphQL server developer. When a field is executed, the corresponding *resolver* is called to produce the next value.
+You can think of each field in a GraphQL query as a function or method of the previous type which returns the next type (or a subset of the next type, see **Providing extra data in a resolver** section). In fact, this is exactly how GraphQL works. Each field on each type is backed by a function called the *resolver* which is provided by the GraphQL server developer. When a field is executed, the corresponding *resolver* is called to produce the next value.
 
 If a field produces a scalar value like a string or number, then the execution completes. However if a field produces an object value then the query will contain another selection of fields which apply to that object. This continues until scalar values are reached. GraphQL queries always end at scalar values.
 
@@ -56,7 +58,9 @@ If a field produces a scalar value like a string or number, then the execution c
 
 At the top level of every GraphQL server is a type that represents all of the possible entry points into the GraphQL API, it's often called the *Root* type or the *Query* type.
 
-In this example, our Query type provides a field called `human` which accepts the argument `id`. The resolver function for this field likely accesses a database and then constructs and returns a `Human` object.
+In this example, our Query type provides a field called `human` which accepts the argument `id`. The resolver function for this field likely accesses a database and then constructs and returns a `Human` object. 
+
+Notice that you can also return extra properties that are not part of the instance `Human`, so deeper resolvers in your query resolution tree could take these extra data and use it to help resolve nested information (see **Providing extra data in a resolver** section).
 
 ```js
 Query: {
@@ -70,7 +74,7 @@ Query: {
 
 This example is written in JavaScript, however GraphQL servers can be built in [many different languages](/code/). A resolver function receives three arguments:
 
-- `obj` The previous object, which for a field on the root Query type is often not used.
+- `obj` The previous object (also called `RootValue`), which for a field on the root Query type is often not used.
 - `args` The arguments provided to the field in the GraphQL query.
 - `context` A value which is provided to every resolver and holds important contextual information like the currently logged in user, or access to a database.
 
@@ -87,7 +91,7 @@ human(obj, args, context) {
 }
 ```
 
-The `context` is used to provide access to a database which is used to load the data for a user by the `id` provided as an argument in the GraphQL query. Since loading from a database is an asynchronous operation, this returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). In JavaScript Promises are used to work with asynchronous values, but the same concept exists in many languages, often called *Futures*, *Tasks* or *Deferred*. When the database returns, we can construct and return a new `Human` object.
+The `context` is used to provide access to a database which is used to load the data for a user by the `id` provided as an argument in the GraphQL query. Since loading from a database is an asynchronous operation, this returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). In JavaScript Promises are used to work with asynchronous values, but the same concept exists in many languages, often called *Futures*, *Tasks* or *Deferred*. When the database returns, we can construct and return a new `Human` object. Notice that you can also return extra properties that are not part of the instance `Human`, so deeper resolvers in your query resolution tree could take these extra data and use it to help resolve nested information (see **Providing extra data in a resolver** section).
 
 Notice that while the resolver function needs to be aware of Promises, the GraphQL query does not. It simply expects the `human` field to return something which it can then ask the `name` of. During execution, GraphQL will wait for Promises, Futures, and Tasks to complete before continuing and will do so with optimal concurrency.
 
@@ -147,6 +151,52 @@ Human: {
 The resolver for this field is not just returning a Promise, it's returning a *list* of Promises. The `Human` object had a list of ids of the `Starships` they piloted, but we need to go load all of those ids to get real Starship objects.
 
 GraphQL will wait for all of these Promises concurrently before continuing, and when left with a list of objects, it will concurrently continue yet again to load the `name` field on each of these items.
+
+
+## Providing extra data in a resolver
+
+The resolver returns next reducer's root value. Traditionnaly, this root value would match the instance of the Type resolved.
+
+```js
+Query: {
+  human(obj, args, context) {
+    return context.db.loadHumanByID(args.id).then(
+      userData => new Human(userData)
+    )
+  }
+}
+```
+
+But nothing prevent you for returning extra elements.
+For instance, returning in a reducer a pointer to its parent may be usefull.
+
+```js
+Human: {
+  starships(obj, args, context) {
+    return obj.starshipIDs.map(
+      id => context.db.loadStarshipByID(id).then(
+        shipData => {
+          const starship = new Starship(shipData)
+          starship._human = obj.id
+          return startship;
+        }
+      )
+    )
+  }
+}
+```
+
+That information can be used on a nested field of `Starship` resolver.
+
+```js
+Starship: {
+  timeSpendInside(obj, args, context) {
+    return context.db.loadTimeSpendInsideByStarthipIdAndPiloteId(obj.id, obj._human)
+  }
+}
+```
+
+Even if doing this is a possibility, tryy to avoid relying to much on it as it increase the coupling of your API.
 
 
 ## Producing the result
