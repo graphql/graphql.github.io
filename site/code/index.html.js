@@ -395,6 +395,7 @@ Executor.execute(schema, query) map println
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
+- [Python](#python-1)
 
 ### C# / .NET
 
@@ -420,6 +421,10 @@ Executor.execute(schema, query) map println
 
   - [Apollo iOS](https://www.apollographql.com/docs/ios/) ([github](https://github.com/apollographql/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
   - [GraphQL iOS](https://github.com/funcompany/graphql-ios): An Objective-C GraphQL client for iOS.
+
+### Python
+
+  - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
 
 ## Tools
 
