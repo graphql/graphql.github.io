@@ -487,7 +487,7 @@ var logos = [
   {
     name: 'Alembic',
     img: 'alembic.png',
-    link: 'http://alembic.com.au',
+    link: 'https://alembic.com.au',
   },
   {
     name: 'Twitter',
