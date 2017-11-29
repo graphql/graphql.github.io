@@ -84,6 +84,7 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 - [GraphQL Austin](https://www.meetup.com/ATX-GraphQL/)
 - [GraphQL Miami](https://www.meetup.com/Miami-GraphQL/)
 - [GraphQL Los Angeles](https://www.meetup.com/Los-Angeles-GraphQL-Meetup/)
+- [GraphQL Dallas-Fort Worth](https://www.meetup.com/DFW-GraphQL-Meetup/)
 
 ### Europe
 
