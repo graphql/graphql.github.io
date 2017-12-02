@@ -197,7 +197,7 @@ To learn more about the syntax for these variable definitions, it's useful to le
 Default values can also be assigned to the variables in the query by adding the default value after the type declaration. 
 
 ```graphql
-query HeroNameAndFriends($episode: Episode = "JEDI") {
+query HeroNameAndFriends($episode: Episode = JEDI) {
   hero(episode: $episode) {
     name
     friends {
