@@ -122,6 +122,7 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
   - [neelance/graphql-go](https://github.com/neelance/graphql-go): An active implementation of GraphQL in Golang.
+  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
 
 ### Groovy 
 
