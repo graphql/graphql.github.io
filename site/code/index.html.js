@@ -399,6 +399,7 @@ Executor.execute(schema, query) map println
 
 ### C# / .NET
 
+  - [GraphQL.Client](https://github.com/deinok/GraphQL.Client): A GraphQL Client for .NET.
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
 
 ### Go
