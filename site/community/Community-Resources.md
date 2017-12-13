@@ -89,6 +89,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Unleashing the power of GraphQL using Angular 2](https://www.youtube.com/watch?v=VYpJ9pfugM8) - Gerard Sans, NG-BE 2016
 - [Webinar Series: GraphQL Around The World](https://graphql-world.com/webinar) - Vince Ning & Michael Paris
 - [All Talks from GraphQL Europe](https://www.youtube.com/playlist?list=PLn2e1F9Rfr6n_WFm9fPE-_wYPrYvSTySt) - Lee Byron, Sashko Stubailo, Dan Schafer, Johannes Schickling and many more
+- [Learning GraphQL with React and Relay](https://www.packtpub.com/application-development/learning-graphql-react-and-relay-video) by Divyendu Singh
 
 ## Books
 
