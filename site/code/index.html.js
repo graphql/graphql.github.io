@@ -431,6 +431,7 @@ Executor.execute(schema, query) map println
   - [graphiql](https://github.com/graphql/graphiql) ([npm](https://www.npmjs.com/package/graphiql)): An interactive in-browser GraphQL IDE.
   - [libgraphqlparser](https://github.com/graphql/libgraphqlparser): A GraphQL query language parser in C++ with C and C++ APIs.
   - [Graphql Language Service](https://github.com/graphql/graphql-language-service): An interface for building GraphQL language services for IDEs (diagnostics, autocomplete etc).
+  - [quicktype](https://quicktype.io) ([github](https://github.com/quicktype/quicktype)): Generate types for GraphQL queries in TypeScript, Swift, golang, C#, C++, and more.
 
 ## Services
 
