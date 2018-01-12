@@ -400,6 +400,7 @@ Executor.execute(schema, query) map println
 ### C# / .NET
 
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
+  - [SAHB.GraphQLClient](https://github.com/sahb1239/SAHB.GraphQLClient): GraphQL client which supports generating queries from C# classes
 
 ### Go
 
