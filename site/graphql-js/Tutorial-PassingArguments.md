@@ -38,16 +38,12 @@ var root = {
 };
 ```
 
-It's convenient to use [ES6 destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) for these parameters, since you know what format they will be. So we can also write `rollDice` as
+It's convenient to use [ES6 destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) for these parameters, since you know what format they will be, and [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from). So we can also write `rollDice` as
 
 ```javascript
 var root = {
-  rollDice: function ({numDice, numSides}) {
-    var output = [];
-    for (var i = 0; i < numDice; i++) {
-      output.push(1 + Math.floor(Math.random() * (numSides || 6)));
-    }
-    return output;
+  rollDice: function ({numDice, numSides = 6}) {
+    return Array.from({ length: numDice }, () => 1 + Math.floor(Math.random() * numSides));
   }
 };
 ```
@@ -70,12 +66,8 @@ var schema = buildSchema(`
 
 // The root provides a resolver function for each API endpoint
 var root = {
-  rollDice: function ({numDice, numSides}) {
-    var output = [];
-    for (var i = 0; i < numDice; i++) {
-      output.push(1 + Math.floor(Math.random() * (numSides || 6)));
-    }
-    return output;
+  rollDice: function ({numDice, numSides = 6}) {
+    return Array.from({ length: numDice }, () => 1 + Math.floor(Math.random() * numSides));
   }
 };
 

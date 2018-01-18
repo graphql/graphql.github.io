@@ -41,11 +41,7 @@ class RandomDie {
   }
 
   roll({numRolls}) {
-    var output = [];
-    for (var i = 0; i < numRolls; i++) {
-      output.push(this.rollOnce());
-    }
-    return output;
+    return Array.from({ length: numRolls }, () => this.rollOnce());
   }
 }
 
@@ -101,11 +97,7 @@ class RandomDie {
   }
 
   roll({numRolls}) {
-    var output = [];
-    for (var i = 0; i < numRolls; i++) {
-      output.push(this.rollOnce());
-    }
-    return output;
+    return Array.from({ length: numRolls }, () => this.rollOnce());
   }
 }
 
