@@ -8,13 +8,23 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL in production: KLM & Bynder cases
+### GraphQL in production: Lifely
 
-- **Date:** 10th October, 2017
+- **Date:** 24th January, 2018
 - **Location:** Amsterdam, The Netherlands
-- **Link:** https://www.meetup.com/Bynder-JS-Guild/events/242414878/
+- **Link:** https://www.meetup.com/Bynder-JS-Guild/events/245146188/
 
-We'd like to share KLM and Bynder experience working on GraphQL based applications that thousands of people are using every day. Beyond basics we'll discuss: persistent queries (query whitelisting and reduced bandwidth usage); optimistic UI (make the interface respond faster); connecting React components to GraphQL with wrappers (improvements beyond default Apollo frontend implementation)... and the cherry on the cake: GraphQL Subscriptions.
+We'll share experiences switching from REST to GraphQL, explain the different ways of using GraphQL in our projects and tell more about the challenges we faced and how we solved them. Also the flexibility of GraphQL subqueries can have a negative impact on query performance, we'll share some of the problems and solutions for optimizing subqueries, using GraphQL query AST parsing to pre-emptively join/aggregate data on the database level.
+
+### GraphQL-Europe Conference
+
+- **Date:** 15th June, 2018
+- **Location:** Berlin, Germany
+- **Link:** https://graphql-europe.org/
+
+GraphQL-Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community.
+
+## Past Events
 
 ### GraphQL Summit 2017
 
@@ -24,7 +34,13 @@ We'd like to share KLM and Bynder experience working on GraphQL based applicatio
 
 GraphQL Summit is a conference dedicated entirely to the GraphQL developer community. Speakers from all around the world will talk about GraphQL best practices, design patterns, adoption stories, GraphQL in production, and the open source ecosystem. This year there will be one track of talks over two days, as well as an afterparty and workshops. The CFP closes August 14, 2017 12:00AM PST.
 
-## Past Events
+### GraphQL in production: KLM & Bynder cases
+
+- **Date:** 10th October, 2017
+- **Location:** Amsterdam, The Netherlands
+- **Link:** https://www.meetup.com/Bynder-JS-Guild/events/242414878/
+
+We'd like to share KLM and Bynder experience working on GraphQL based applications that thousands of people are using every day. Beyond basics we'll discuss: persistent queries (query whitelisting and reduced bandwidth usage); optimistic UI (make the interface respond faster); connecting React components to GraphQL with wrappers (improvements beyond default Apollo frontend implementation)... and the cherry on the cake: GraphQL Subscriptions.
 
 ### Relay Modern or Apollo?
 
