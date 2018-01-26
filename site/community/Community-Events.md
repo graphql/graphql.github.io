@@ -90,7 +90,6 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 
 - [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/)
 - [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
-- [GraphQL Istanbul](https://www.meetup.com/GraphQL-Istanbul/)
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
 - [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
