@@ -192,6 +192,17 @@ public class HelloWorld {
 
 See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for more information on setup.
 
+#### [elide](http://elide.io)
+
+Stand up an _opinionated_ GraphQL web service (batteries included) backed by JPA annotated
+models in three simple steps:
+
+- _Define a Model_ - Define a JPA annotated model including relationships to other models using Java, Kotlin, Groovy, and other JVM languages.
+- _Secure It_ - Control access to fields and entities through a declarative, intuitive permission syntax.
+- _Expose It_ - Make instances of your new model accessible through a top level collection or restrict access only through relationships to other models.
+
+Elide’s GraphQL schema is fully featured supporting complex graph mutations, filters, pagination, sorting, and transaction control.
+
 ### JavaScript
 
 #### [GraphQL.js](/graphql-js/) ([github](https://github.com/graphql/graphql-js/)) ([npm](https://www.npmjs.com/package/graphql))
