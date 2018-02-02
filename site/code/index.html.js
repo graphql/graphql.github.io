@@ -302,7 +302,7 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
   - [graphql-php](https://github.com/webonyx/graphql-php): A PHP port of GraphQL reference implementation
   - [graphql-relay-php](https://github.com/ivome/graphql-relay-php): A library to help construct a graphql-php server supporting react-relay.
 
-#### [Siler](https://siler.leocavalcante.com/graphql/)
+#### [Siler](https://siler.leocavalcante.com/graphql/) ([github](https://github.com/leocavalcante/siler))
 
 Siler is a PHP library powered with high-level abstractions to work with GraphQL.
 
@@ -310,7 +310,7 @@ To run a Siler hello world script:
 
 \`\`\`graphql
 type Query {
-  foo: String
+  hello: String
 }
 \`\`\`
 
@@ -326,7 +326,7 @@ use Siler\Http;
 $typeDefs = file_get_contents(__DIR__.'/schema.graphql');
 $resolvers = [
     'Query' => [
-        'foo' => 'bar',
+        'hello' => 'world',
     ],
 ];
 $schema = Graphql\schema($typeDefs, $resolvers);
