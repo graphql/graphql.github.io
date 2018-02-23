@@ -8,6 +8,16 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
+### GraphQL Server: Best Practices by Johannes Schickling
+
+- **Date:** 23rd January, 2018
+- **Location:** London, UK
+- **Link:** https://www.meetup.com/GraphQL-London/events/246442469/
+
+In this talk, we're going to draw a picture of the GraphQL ecosystem today and provide some perspective on the various components and tools required for building modern GraphQL servers. This includes best practices for topics like authentication & permissions, file handling, schema stitching and databases.
+
+## Past Events
+
 ### GraphQL in production: KLM & Bynder cases
 
 - **Date:** 10th October, 2017
@@ -23,8 +33,6 @@ We'd like to share KLM and Bynder experience working on GraphQL based applicatio
 - **Link:** http://summit.graphql.com
 
 GraphQL Summit is a conference dedicated entirely to the GraphQL developer community. Speakers from all around the world will talk about GraphQL best practices, design patterns, adoption stories, GraphQL in production, and the open source ecosystem. This year there will be one track of talks over two days, as well as an afterparty and workshops. The CFP closes August 14, 2017 12:00AM PST.
-
-## Past Events
 
 ### Relay Modern or Apollo?
 
