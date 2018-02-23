@@ -85,6 +85,17 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 - [GraphQL Miami](https://www.meetup.com/Miami-GraphQL/)
 - [GraphQL Los Angeles](https://www.meetup.com/Los-Angeles-GraphQL-Meetup/)
 - [GraphQL Dallas-Fort Worth](https://www.meetup.com/DFW-GraphQL-Meetup/)
+- [GraphQL Ottawa](https://www.meetup.com/GraphQL-Ottawa/)
+- [GraphQL Columbus](https://www.meetup.com/GraphQL-Columbus/)
+- [GraphQL Vancouver](https://www.meetup.com/GraphQL-Vancouver/)
+- [GraphQL Minneapolis](https://www.meetup.com/GraphQL-MN/)
+- [GraphQL Denver/Boulder](https://www.meetup.com/GraphQL-Denver-Boulder-Meetup/)
+- [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
+
+### South America
+
+- [GraphQL São Paulo](https://www.meetup.com/Apollo-GraphQL/)
+- [GraphQL Buenos Aires](https://www.meetup.com/GraphQL-BA/)
 
 ### Europe
 
@@ -97,6 +108,8 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 - [GraphQL Barcelona](https://www.meetup.com/GraphQL-Barcelona/)
 - [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
+- [GraphQL Lisbon](https://www.meetup.com/GraphQL-Lisbon/)
+- [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
 
 ### Australia
 
@@ -107,3 +120,4 @@ Everyone is excited about Subscriptions, the new real-time GraphQL feature. Curi
 
 - [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
 - [GraphQL Tokyo](https://www.meetup.com/GraphQL-Tokyo/)
+- [GraphQL Meetup (Bangalore)](https://www.meetup.com/GraphQL-Meetup/)
