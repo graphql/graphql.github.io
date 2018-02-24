@@ -416,6 +416,7 @@ Executor.execute(schema, query) map println
   - [graphql-request](https://github.com/graphcool/graphql-request): A simple and flexible JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native) - basically a lightweight wrapper around \`fetch\`.
   - [Lokka](https://github.com/kadirahq/lokka): A simple JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native).
   - [nanogql](https://github.com/yoshuawuyts/nanogql): Tiny GraphQL client library using template strings.
+  - [gq-loader](https://github.com/Houfeng/gq-loader): A simple JavaScript GraphQL client，Let the `*.gql` file be used as a module through webpack loader.
 
 ### Swift / Objective-C iOS
 
