@@ -596,6 +596,11 @@ var logos = [
     img: 'bynder.png',
     link: 'https://www.bynder.com'
   },
+  {
+    name: 'Staple',
+    img: 'staple.png',
+    link: 'https://staple.jp'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
