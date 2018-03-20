@@ -320,14 +320,14 @@ Then run \`python hello.py\` with this code in \`hello.py\`:
 import graphene
 
 class Query(graphene.ObjectType):
-  hello = graphene.String()
+  hello = graphene.String(name=graphene.String(default_value="World"))
 
-  def resolve_hello(self, args, context, info):
-    return 'Hello world!'
+    def resolve_hello(self, info, name):
+        return 'Hello ' + name
 
 schema = graphene.Schema(query=Query)
 result = schema.execute('{ hello }')
-print(result.data['hello'])
+print(result.data['hello']) # "Hello World"
 \`\`\`
 
 There are also nice bindings for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
