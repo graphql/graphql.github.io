@@ -69,6 +69,11 @@ var logos = [
     link: 'https://dev-blog.apollodata.com/snappier-uis-with-apollo-client-graphql-bffab0b52b79#.fr92aru2y'
   },
   {
+    name: 'Feedier',
+    img: 'feedier.png',
+    link: 'https://feedier.com/'
+  },
+  {
     name: 'Attendify',
     img: 'attendify.png',
     link: 'https://attendify.com/'
