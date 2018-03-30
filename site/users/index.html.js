@@ -596,6 +596,11 @@ var logos = [
     img: 'bynder.png',
     link: 'https://www.bynder.com'
   },
+  {
+    name: 'Metric.ai',
+    img: 'metric-ai.png',
+    link: 'https://www.metric.ai'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
