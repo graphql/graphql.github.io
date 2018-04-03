@@ -597,6 +597,11 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'Universe',
+    img: 'universe.png',
+    link: 'https://www.universe.com'
+  },
+  {
     name: 'Metric.ai',
     img: 'metric-ai.png',
     link: 'https://www.metric.ai'
