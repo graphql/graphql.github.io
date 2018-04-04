@@ -55,8 +55,8 @@ class GraphQLError extends Error {
    nodes?: Array<any>,
    stack?: ?string,
    source?: Source,
-   positions?: Array<number>
-   originalError?: ?Error
+   positions?: Array<number>,
+   originalError?: ?Error,
    extensions?: ?{ [key: string]: mixed }
  )
 }
