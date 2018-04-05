@@ -597,9 +597,14 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
-      name: 'PHZ Full Stack',
-      img: 'phz.png',
-      link: 'https://phz.fi'
+    name: 'Universe',
+    img: 'universe.png',
+    link: 'https://www.universe.com'
+  },
+  {
+    name: 'PHZ Full Stack',
+    img: 'phz.png',
+    link: 'https://phz.fi'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
