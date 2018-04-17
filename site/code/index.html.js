@@ -361,7 +361,7 @@ Schema = GraphQL::Schema.define do
   query QueryType
 end
 
-puts Schema.execute('{ hello }')
+p Schema.execute('{ hello }')
 \`\`\`
 
 There are also nice bindings for Relay and Rails.
