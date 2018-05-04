@@ -601,6 +601,11 @@ var logos = [
     img: 'universe.png',
     link: 'https://www.universe.com'
   },
+  {
+    name: 'Agile Factory',
+    img: 'agile-factory.png',
+    link: 'https://www.agilefactory.it'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
