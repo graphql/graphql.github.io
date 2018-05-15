@@ -155,7 +155,7 @@ GraphQL will wait for all of these Promises concurrently before continuing, and 
 
 ## Providing extra data in a resolver
 
-The resolver returns next reducer's root value. Traditionnaly, this root value would match the instance of the Type resolved.
+The resolver returns next reducer's root value. Traditionally, this root value would match the instance of the Type resolved.
 
 ```js
 Query: {
@@ -167,7 +167,7 @@ Query: {
 }
 ```
 
-But nothing prevent you for returning extra elements.
+But nothing prevents you for returning extra elements.
 For instance, returning in a reducer a pointer to its parent may be usefull.
 
 ```js
