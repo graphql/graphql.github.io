@@ -196,7 +196,7 @@ Starship: {
 }
 ```
 
-Even if doing this is a possibility, tryy to avoid relying to much on it as it increase the coupling of your API.
+Even if doing this is a possibility, try to avoid relying to much on it as it increase the coupling of your API.
 
 
 ## Producing the result
