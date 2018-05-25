@@ -597,10 +597,15 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'Universe',
+    img: 'universe.png',
+    link: 'https://www.universe.com'
+  },
+  {
     name: 'Reezocar',
     img: 'reezocar.png',
     link: 'https://www.reezocar.com/'
-  },
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
