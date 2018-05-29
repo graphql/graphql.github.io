@@ -503,7 +503,7 @@ var logos = [
   {
     name: 'Alembic',
     img: 'alembic.png',
-    link: 'http://alembic.com.au',
+    link: 'https://alembic.com.au',
   },
   {
     name: 'Twitter',
@@ -595,6 +595,11 @@ var logos = [
     name: 'Bynder',
     img: 'bynder.png',
     link: 'https://www.bynder.com'
+  },
+  {
+    name: 'Universe',
+    img: 'universe.png',
+    link: 'https://www.universe.com'
   },
   {
     name: 'Jusbrasil',
