@@ -601,6 +601,11 @@ var logos = [
     img: 'universe.png',
     link: 'https://www.universe.com'
   },
+  {
+    name: 'PayPal',
+    img: 'paypal.png',
+    link: 'https://www.paypal.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
