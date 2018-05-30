@@ -408,6 +408,7 @@ Executor.execute(schema, query) map println
 ### Java / Android
 
   - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
+  - [Nodes](https://github.com/americanexpress/nodes): A GraphQL JVM Client - Java, Kotlin, Scala, etc.
 
 ### JavaScript
 
