@@ -137,7 +137,7 @@ var logos = [
   {
     name: '20 Minutes',
     img: '20minutes.png',
-    link: 'http://www.20minutes.fr'
+    link: 'https://www.20minutes.fr'
   },
   {
     name: 'AlloCiné',
