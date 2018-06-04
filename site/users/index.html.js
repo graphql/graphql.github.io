@@ -601,6 +601,11 @@ var logos = [
     img: 'universe.png',
     link: 'https://www.universe.com'
   },
+  {
+    name: 'Shoemondo',
+    img: 'shoemondo.png',
+    link: 'https://www.shoemondo.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
