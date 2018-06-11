@@ -44,19 +44,45 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 #### [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
 #### [Hot Chocolate](https://hotchocolate.io) is a GraphQL Server for .net core and .net classic 
 
-To run a hello world server with hot chocolate:
+To run a hello world server with Hot Chocolate:
 
 \`\`\`bash
-mkdir graphql-demo
-cd graphql-demo
+mkdir GraphQLDemp
+cd GraphQLDemp
 dotnet new web  
 dotnet add package hotchocolate -v 0.5.0
 dotnet restore
 \`\`\`
 
-Add the following code to your startup.cs:
+Replace your startup.cs code with the following:
 
 \`\`\`csharp
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using HotChocolate;
+using HotChocolate.Types;
+
+namespace GraphQLDemp
+{
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddGraphQL(c => Schema.Create(c => c.RegisterType<ObjectType<Query>>()));
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            app.UseGraphQL();
+        }
+    }
+
+    public class Query
+    {
+        public string Hello() => "world";
+    }
+}
 \`\`\`
 
 Then run your dotnet server:
