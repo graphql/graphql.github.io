@@ -95,6 +95,9 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 
 ## Books
 
+- [The GraphQL Guide](https://graphql.guide) by John Resig and Loren Sands-Ramshaw
+- [Learning GraphQL](https://www.amazon.com/Learning-GraphQL-Declarative-Fetching-Modern/dp/1492030716/) by Eve Porcello and Alex Banks
+- [Fullstack GraphQL](https://www.graphql.college/fullstack-graphql) by Julian Mayorga
 - [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
 
 ## More Resources
