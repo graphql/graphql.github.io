@@ -40,8 +40,31 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
 ### C# / .NET
 
-  - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
-  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
+#### [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
+#### [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
+#### [Hot Chocolate](https://hotchocolate.io) is a GraphQL Server for .net core and .net classic 
+
+To run a hello world server with hot chocolate:
+
+\`\`\`bash
+mkdir graphql-demo
+cd graphql-demo
+dotnet new web  
+dotnet add package hotchocolate -v 0.5.0
+dotnet restore
+\`\`\`
+
+Add the following code to your startup.cs:
+
+\`\`\`csharp
+\`\`\`
+
+Then run your dotnet server:
+
+\`\`\`bash
+dotnet run
+\`\`\`
+
 
 ### Clojure
 
