@@ -8,13 +8,13 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL-Europe Conference
+### GraphQL Europe Conference
 
 - **Date:** June 15, 2018
 - **Location:** Berlin, Germany
 - **Link:** https://graphql-europe.org
 
-GraphQL-Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community.
+GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
 
 ## Meetups
 

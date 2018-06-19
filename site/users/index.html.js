@@ -597,6 +597,12 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'Universe',
+    img: 'universe.png',
+    link: 'https://www.universe.com'
+  },
+  {
+    
     name: 'Avvo',
     img: 'avvo.png',
     link: 'https://www.avvo.com'
