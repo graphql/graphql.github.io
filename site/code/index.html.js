@@ -50,7 +50,7 @@ To run a hello world server with Hot Chocolate:
 mkdir GraphQLDemp
 cd GraphQLDemp
 dotnet new web  
-dotnet add package hotchocolate -v 0.5.0
+dotnet add package hotchocolate -v 0.1.0
 dotnet restore
 \`\`\`
 
