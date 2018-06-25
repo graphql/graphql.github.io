@@ -42,15 +42,15 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
 #### [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
 #### [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
-#### [Hot Chocolate](https://hotchocolate.io) is a GraphQL Server for .net core and .net classic 
+#### [Hot Chocolate](https://github.com/ChilliCream/hotchocolate) is a GraphQL Server for .net core and .net classic 
 
 To run a hello world server with Hot Chocolate:
 
 \`\`\`bash
-mkdir GraphQLDemp
-cd GraphQLDemp
+mkdir GraphQLDemo
+cd GraphQLDemo
 dotnet new web  
-dotnet add package hotchocolate -v 0.1.0
+dotnet add package hotchocolate.AspNetCore -v 0.1.0
 dotnet restore
 \`\`\`
 
@@ -63,13 +63,13 @@ using Microsoft.Extensions.DependencyInjection;
 using HotChocolate;
 using HotChocolate.Types;
 
-namespace GraphQLDemp
+namespace GraphQLDemo
 {
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGraphQL(c => Schema.Create(c => c.RegisterType<ObjectType<Query>>()));
+            services.AddGraphQL(c => c.RegisterType<ObjectType<Query>>());
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
