@@ -13,7 +13,7 @@ Many members of the community use Stack Overflow to ask and answer questions. [R
 
 ## Facebook Group
 
-Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) for questions, discussion, and sharing. The GraphQL Facebook group is the preferred venue for announcements and broader discussion.
+Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) sharing and discovering new content. The GraphQL Facebook group is the preferred venue for announcements and broader discussion.
 
 ## Twitter
 
