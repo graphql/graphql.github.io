@@ -143,7 +143,7 @@ query HeroNameAndFriends {
 }
 ```
 
-The _operation type_ is either _query_, _mutation_, or _subscription_ and describes what type of operation you're intending to do.
+The _operation type_ is either _query_ or _mutation_ and describes what type of operation you're intending to do.
 
 The _operation name_ is a meaningful and explicit name for your operation. It can be very useful for debugging and server-side logging reasons. 
 When something goes wrong either in your network logs or your GraphQL server, it is easier to identify a query in your codebase by name instead of trying to decipher the contents.
