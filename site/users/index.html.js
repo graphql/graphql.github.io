@@ -581,6 +581,11 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'Atlassian',
+    img: 'atlassian.png',
+    link: 'https://www.atlassian.com'
+  },
+  {
     name: 'Lets.events',
     img: 'letsevents.png',
     link: 'https://lets.events'
