@@ -194,12 +194,62 @@ See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for mo
 
 #### [elide](http://elide.io)
 
-Stand up an _opinionated_ GraphQL web service (batteries included) backed by JPA annotated
-models in three simple steps:
+Stand up an _opinionated_ GraphQL web service backed by JPA annotated models in three simple steps:
 
 - _Define a Model_ - Define a JPA annotated model including relationships to other models using Java, Kotlin, Groovy, and other JVM languages.
 - _Secure It_ - Control access to fields and entities through a declarative, intuitive permission syntax.
 - _Expose It_ - Make instances of your new model accessible through a top level collection or restrict access only through relationships to other models.
+
+An example model:
+
+\`\`\`java
+import com.yahoo.elide.annotation.*;
+import javax.persistence.*
+import java.util.*;
+import lombok.Setter;
+
+//Exposes this JPA entity through your API at the root of the entity graph
+@Include(rootLevel = true)
+@Entity
+
+//DSL that limits which API clients can read this entity
+@ReadPermission(expression = "user is book author OR user is admin")
+public class Book {
+    @Setter long id;
+    @Setter String title;
+    @Setter Set<Author> authors = new HashSet<>();
+
+    @Id
+    public long getId() {
+        return id;
+    }
+
+    //DSL that limits which API clients can update the title
+    @UpdatePermission(expression = "User is admin")
+    public String getTitle() {
+        return title;
+    }
+	
+    @ManyToMany
+    //Relationship to another entity
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    @Transient
+    @ComputedAttribute
+    public long getCurrentPrice() {
+        //This attribute is exposed in your API but not persisted.
+        //The value is computed in this function.
+    }
+
+    @OnUpdatePreCommit(value = "title")
+    public void titlePreSecurity(RequestScope scope) {
+        //Do some business logic whenever the title is changed 
+        //immediately prior to committing the transaction that wraps the request.
+    }
+}
+\`\`\`
 
 Elide’s GraphQL schema is fully featured supporting complex graph mutations, filters, pagination, sorting, and transaction control.
 
