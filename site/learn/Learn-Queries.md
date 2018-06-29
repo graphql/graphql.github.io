@@ -122,7 +122,35 @@ fragment comparisonFields on Character {
 }
 ```
 
-You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch. Much like other `type` declarations, `fragment`s can use [variables](learn/queries/#variables).
+You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
+
+### Fragments with arguments
+
+It is possible for fragments to access variables declared in the query or mutation. See [variables](learn/queries/#variables).
+
+```graphql
+# { "graphiql": true }
+query HeroComparison($first: Int = 3) {
+  leftComparison: hero(episode: EMPIRE) {
+    ...comparisonFields
+  }
+  rightComparison: hero(episode: JEDI) {
+    ...comparisonFields
+  }
+}
+
+fragment comparisonFields on Character {
+  name
+  friendsConnection(first: $first) {
+    totalCount
+    edges {
+      node {
+        name
+      }
+    }
+  }
+}
+```
 
 ## Operation name
 
