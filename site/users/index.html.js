@@ -597,6 +597,11 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'Hasura',
+    img: 'hasura.png',
+    link: 'https://hasura.io'
+  },
+  {
     name: 'Atlassian',
     img: 'atlassian.png',
     link: 'https://www.atlassian.com'
