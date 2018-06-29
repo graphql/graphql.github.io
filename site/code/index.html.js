@@ -361,8 +361,7 @@ Schema = GraphQL::Schema.define do
   query QueryType
 end
 
-result = Schema.execute('{ hello }')
-puts result.to_json
+puts Schema.execute('{ hello }').to_json
 \`\`\`
 
 There are also nice bindings for Relay and Rails.
