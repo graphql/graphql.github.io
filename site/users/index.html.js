@@ -32,6 +32,12 @@ var logos = [
     link: 'https://developer.github.com/v4/'
   },
   {
+    name: 'KunYue',
+    img: 'logo.ef86f94.png',
+    isRound: true,
+    link: 'http://cosweb.qianjiang.kunyueyun.com/static/img/'
+  },
+  {
     name: 'Intuit',
     img: 'intuit.png',
     link: 'https://www.intuit.com/'
