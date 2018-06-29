@@ -602,6 +602,11 @@ var logos = [
     link: 'https://www.universe.com'
   },
   {
+    name: 'PayPal',
+    img: 'paypal.png',
+    link: 'https://www.paypal.com/'
+  },
+  {
     name: 'Cheddar',
     img: 'cheddar.png',
     link: 'https://cheddar.com'
