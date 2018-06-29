@@ -55,7 +55,7 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [From REST to GraphQL](https://0x2a.sh/from-rest-to-graphql-b4e95e94c26b#.tag7nzkrb) - Jacob Gillespie
 - [GraphQL Explained](https://medium.com/apollo-stack/graphql-explained-5844742f195e#.zdykxos6i) - Jonas Helfer
 - [GraphQL Concepts Visualized](https://medium.com/apollo-stack/the-concepts-of-graphql-bc68bd819be3#.hfczgtdsj) - Dhaivat Pandya
-- [Building the f8 App: Using GraphQL & Relay](http://makeitopen.com/tutorials/building-the-f8-app/relay/)
+- [Building the f8 App: Using GraphQL & Relay](http://makeitopen.com/docs/en/1-A2-relay.html)
 - [Your First GraphQL Server](https://medium.com/the-graphqlhub/your-first-graphql-server-3c766ab4f0a2#.ovn0y19k4) - Clay Allsopp
 - [Tutorial: Kick start a JS API with Apollo-server, Dataloader and Knex](https://bamtech.gitbooks.io/dev-standards/content/backend/graphql-js/getting-started-with-apollo-server-dataloader-knex.mo.html) - Thomas Pucci
 - [Tutorial: How to Build a GraphQL Server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035#.bu6sdnst4) - Jonas Helfer
