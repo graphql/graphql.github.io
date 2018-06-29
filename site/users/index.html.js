@@ -602,6 +602,11 @@ var logos = [
     link: 'https://www.universe.com'
   },
   {
+    name: 'Cheddar',
+    img: 'cheddar.png',
+    link: 'https://cheddar.com'
+  },
+  {
     name: 'UC Trends',
     img: 'uctrends.png',
     link: 'https://trends.ucweb.com'
