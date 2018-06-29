@@ -581,6 +581,11 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'KLM Royal Dutch Airlines',
+    img: 'klm.png',
+    link: 'https://www.klm.com'
+  },
+  {
     name: 'Universe',
     img: 'universe.png',
     link: 'https://www.universe.com'
