@@ -83,7 +83,7 @@ schema {
 }
 ```
 
-Every GraphQL service has a `query` type and may or may not have a `mutation` type. These types are the same as a regular object type, but they are special because they define the _entry point_ of every GraphQL query. So if you see a query that looks like:
+Every GraphQL service has a `Query` type and may or may not have a `Mutation` type. These types are the same as a regular object type, but they are special because they define the _entry point_ of every GraphQL query. So if you see a query that looks like:
 
 ```graphql
 # { "graphiql": true }
