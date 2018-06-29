@@ -606,6 +606,11 @@ var logos = [
     link: 'https://www.universe.com'
   },
   {
+    name: 'StackShare',
+    img: 'stackshare.png',
+    link: 'https://stackshare.io'
+  },
+  {
     name: 'Metric.ai',
     img: 'metric-ai.png',
     link: 'https://www.metric.ai'
