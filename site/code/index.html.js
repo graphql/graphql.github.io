@@ -42,6 +42,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
   - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
   - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
+  - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Service for .net core and .net classic
 
 ### Clojure
 
@@ -122,6 +123,7 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
   - [neelance/graphql-go](https://github.com/neelance/graphql-go): An active implementation of GraphQL in Golang.
+  - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
 
 ### Groovy 
 
@@ -253,14 +255,14 @@ app.use('/graphql', graphqlHTTP({
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
 \`\`\`
 
-#### [graphql-server](http://dev.apollodata.com/tools/graphql-server/index.html) ([github](https://github.com/apollostack/graphql-server)) ([npm](https://www.npmjs.com/package/graphql-server-express))
+#### [apollo-server](https://www.apollographql.com/docs/apollo-server/) ([github](https://github.com/apollographql/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server-express))
 
 A set of GraphQL server packages from Apollo that work with various Node.js HTTP frameworks (Express, Connect, Hapi, Koa etc).
 
-To run a hello world server with graphql-server-express:
+To run a hello world server with apollo-server-express:
 
 \`\`\`bash
-npm install graphql-server-express body-parser express graphql graphql-tools
+npm install apollo-server-express body-parser express graphql graphql-tools
 \`\`\`
 
 Then run \`node server.js\` with this code in \`server.js\`:
@@ -268,7 +270,7 @@ Then run \`node server.js\` with this code in \`server.js\`:
 \`\`\`js
 var express = require('express');
 var bodyParser = require('body-parser');
-var { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
+var { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 var { makeExecutableSchema } = require('graphql-tools');
 
 var typeDefs = [\`
@@ -295,7 +297,7 @@ app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
 \`\`\`
 
-GraphQL Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
 
 ### PHP
 
@@ -320,14 +322,14 @@ Then run \`python hello.py\` with this code in \`hello.py\`:
 import graphene
 
 class Query(graphene.ObjectType):
-  hello = graphene.String()
+  hello = graphene.String(name=graphene.String(default_value="World"))
 
-  def resolve_hello(self, args, context, info):
-    return 'Hello world!'
+  def resolve_hello(self, info, name):
+    return 'Hello ' + name
 
 schema = graphene.Schema(query=Query)
 result = schema.execute('{ hello }')
-print(result.data['hello'])
+print(result.data['hello']) # "Hello World"
 \`\`\`
 
 There are also nice bindings for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
@@ -361,7 +363,7 @@ Schema = GraphQL::Schema.define do
   query QueryType
 end
 
-puts Schema.execute('{ hello }')
+puts Schema.execute('{ hello }').to_json
 \`\`\`
 
 There are also nice bindings for Relay and Rails.
@@ -391,14 +393,20 @@ Executor.execute(schema, query) map println
 ## GraphQL Clients
 
 - [C# / .NET](#c-net-1)
+- [Clojurescript](#clojurescript-1)
 - [Go](#go-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
+- [Python](#python-1)
 
 ### C# / .NET
 
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
+
+### Clojurescript
+
+  - [re-graph](https://github.com/oliyh/re-graph/): A GraphQL client implemented in Clojurescript with support for websockets.
 
 ### Go
 
@@ -408,18 +416,27 @@ Executor.execute(schema, query) map println
 
   - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
 
+  - [Nodes](https://github.com/americanexpress/nodes): A GraphQL JVM Client designed for constructing queries from standard model definitions. By American Express.
+
 ### JavaScript
 
   - [Relay](https://facebook.github.io/relay/) ([github](https://github.com/facebook/relay)) ([npm](https://www.npmjs.com/package/react-relay)): Facebook's framework for building React applications that talk to a GraphQL backend.
-  - [Apollo Client](http://dev.apollodata.com/react/) ([github](https://github.com/apollostack/apollo-client)): A powerful JavaScript GraphQL client, designed to work well with React, React Native, Angular 2, or just plain JavaScript.
+  - [Apollo Client](http://apollographql.com/client/) ([github](https://github.com/apollographql/apollo-client)): A powerful JavaScript GraphQL client, designed to work well with React, React Native, Angular 2, or just plain JavaScript.
   - [graphql-request](https://github.com/graphcool/graphql-request): A simple and flexible JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native) - basically a lightweight wrapper around \`fetch\`.
   - [Lokka](https://github.com/kadirahq/lokka): A simple JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native).
   - [nanogql](https://github.com/yoshuawuyts/nanogql): Tiny GraphQL client library using template strings.
+  - [AWS Amplify](https://aws.github.io/aws-amplify): A JavaScript library for application development using cloud services, which supports GraphQL backend and React components for working with GraphQL data.
+
 
 ### Swift / Objective-C iOS
 
-  - [Apollo iOS](http://dev.apollodata.com/ios/) ([github](https://github.com/apollostack/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
+  - [Apollo iOS](https://www.apollographql.com/docs/ios/) ([github](https://github.com/apollographql/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
   - [GraphQL iOS](https://github.com/funcompany/graphql-ios): An Objective-C GraphQL client for iOS.
+
+### Python
+
+  - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
+  - [sgqlc](https://github.com/profusion/sgqlc): A simple Python GraphQL client. Supports generating code generation for types defined in a GraphQL schema.
 
 ## Tools
 
@@ -429,11 +446,13 @@ Executor.execute(schema, query) map println
 
 ## Services
 
-  - [Apollo Optics](http://www.apollodata.com/optics/): A service for monitoring the performance and usage of your GraphQL backend.
+  - [Apollo Engine](http://www.apollographql.com/engine/): A service for monitoring the performance and usage of your GraphQL backend.
   - [GraphCMS](https://graphcms.com/): A BaaS (Backend as a Service) that sets you up with a GraphQL backend as well as tools for content editors to work with the stored data.
   - [Graphcool](https://www.graph.cool) ([github](https://github.com/graphcool)): A BaaS (Backend as a Service) providing a GraphQL backend for your applications with a powerful web ui for managing your database and stored data.
   - [Reindex](https://www.reindex.io/baas/) ([github](https://github.com/reindexio/reindex-js)): A BaaS (Backend as a Service) that sets you up with a GraphQL backend targeted at applications using React and Relay.
   - [Scaphold](https://scaphold.io) ([github](https://github.com/scaphold-io)): A BaaS (Backend as a Service) that sets you up with a GraphQL backend for your applications with many different integrations.
+  - [Tipe](https://tipe.io) ([github](https://github.com/tipeio)): A SaaS (Software as a Service) content management system that allows you to create your content with powerful editing tools and access it from anywhere with a GraphQL or REST API.
+  - [AWS AppSync](https://aws.amazon.com/appsync/): Fully managed GraphQL service with realtime subscriptions, offline programming & synchronization, and enterprise security features as well as fine grained authorization controls.
 
 ## More Stuff
 
