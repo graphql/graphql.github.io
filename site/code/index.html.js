@@ -393,6 +393,7 @@ Executor.execute(schema, query) map println
 ## GraphQL Clients
 
 - [C# / .NET](#c-net-1)
+- [Clojurescript](#clojurescript-1)
 - [Go](#go-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
@@ -402,6 +403,10 @@ Executor.execute(schema, query) map println
 ### C# / .NET
 
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
+
+### Clojurescript
+
+  - [re-graph](https://github.com/oliyh/re-graph/): A GraphQL client implemented in Clojurescript with support for websockets.
 
 ### Go
 
