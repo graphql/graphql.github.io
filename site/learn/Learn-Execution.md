@@ -60,7 +60,7 @@ In this example, our Query type provides a field called `human` which accepts th
 
 ```js
 Query: {
-  human(obj, args, context) {
+  human(obj, args, context, info) {
     return context.db.loadHumanByID(args.id).then(
       userData => new Human(userData)
     )
@@ -68,19 +68,19 @@ Query: {
 }
 ```
 
-This example is written in JavaScript, however GraphQL servers can be built in [many different languages](/code/). A resolver function receives three arguments:
+This example is written in JavaScript, however GraphQL servers can be built in [many different languages](/code/). A resolver function receives four arguments:
 
 - `obj` The previous object, which for a field on the root Query type is often not used.
 - `args` The arguments provided to the field in the GraphQL query.
 - `context` A value which is provided to every resolver and holds important contextual information like the currently logged in user, or access to a database.
-
+- `info` A value which holds field-specific information relevant to the current query as well as the schema details, also [refer type GraphQLResolveInfo for more details](/graphql-js/type/#graphqlobjecttype).
 
 ## Asynchronous resolvers
 
 Let's take a closer look at what's happening in this resolver function.
 
 ```js
-human(obj, args, context) {
+human(obj, args, context, info) {
   return context.db.loadHumanByID(args.id).then(
     userData => new Human(userData)
   )
@@ -98,7 +98,7 @@ Now that a `Human` object is available, GraphQL execution can continue with the 
 
 ```js
 Human: {
-  name(obj, args, context) {
+  name(obj, args, context, info) {
     return obj.name
   }
 }
@@ -134,7 +134,7 @@ We've already seen a bit of what happens when a field returns a list of things w
 
 ```js
 Human: {
-  starships(obj, args, context) {
+  starships(obj, args, context, info) {
     return obj.starshipIDs.map(
       id => context.db.loadStarshipByID(id).then(
         shipData => new Starship(shipData)

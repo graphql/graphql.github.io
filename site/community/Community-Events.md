@@ -35,7 +35,6 @@ GraphQL Finland is a community-organized GraphQL conference. The first of its ki
 - [GraphQL NYC](https://www.meetup.com/GraphQL-NYC/)
 - [GraphQL Atlanta](https://www.meetup.com/GraphQL-Atlanta/)
 - [GraphQL Austin](https://www.meetup.com/ATX-GraphQL/)
-- [GraphQL Miami](https://www.meetup.com/Miami-GraphQL/)
 - [GraphQL Los Angeles](https://www.meetup.com/Los-Angeles-GraphQL-Meetup/)
 - [GraphQL Dallas-Fort Worth](https://www.meetup.com/DFW-GraphQL-Meetup/)
 - [GraphQL Ottawa](https://www.meetup.com/GraphQL-Ottawa/)
@@ -54,7 +53,6 @@ GraphQL Finland is a community-organized GraphQL conference. The first of its ki
 
 - [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/)
 - [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
-- [GraphQL Istanbul](https://www.meetup.com/GraphQL-Istanbul/)
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
 - [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)

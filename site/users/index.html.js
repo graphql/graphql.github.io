@@ -602,9 +602,29 @@ var logos = [
     link: 'https://hasura.io'
   },
   {
+    name: 'Atlassian',
+    img: 'atlassian.png',
+    link: 'https://www.atlassian.com'
+  },
+  {
+    name: 'Lets.events',
+    img: 'letsevents.png',
+    link: 'https://lets.events'
+  },
+  {
+    name: 'KLM Royal Dutch Airlines',
+    img: 'klm.png',
+    link: 'https://www.klm.com'
+  },
+  {
     name: 'Universe',
     img: 'universe.png',
     link: 'https://www.universe.com'
+  },
+  {
+    name: 'Jusbrasil',
+    img: 'jusbrasil.png',
+    link: 'https://www.jusbrasil.com.br'
   },
   {
     name: 'NBC News Digital',
