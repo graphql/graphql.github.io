@@ -122,7 +122,7 @@ fragment comparisonFields on Character {
 }
 ```
 
-You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
+You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch. Much like other `type` declarations, `fragment`s can use [variables](learn/queries/#variables).
 
 ## Operation name
 
