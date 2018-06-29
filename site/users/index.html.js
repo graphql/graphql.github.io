@@ -607,6 +607,11 @@ var logos = [
     link: 'https://www.universe.com'
   },
   {
+    name: 'Jusbrasil',
+    img: 'jusbrasil.png',
+    link: 'https://www.jusbrasil.com.br'
+  },
+  {
     name: 'NBC News Digital',
     img: 'nbc-news-digital.png',
     link: 'https://www.nbcnews.com'
