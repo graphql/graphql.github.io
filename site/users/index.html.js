@@ -137,7 +137,7 @@ var logos = [
   {
     name: '20 Minutes',
     img: '20minutes.png',
-    link: 'http://www.20minutes.fr'
+    link: 'https://www.20minutes.fr'
   },
   {
     name: 'AlloCiné',
@@ -597,6 +597,11 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'KLM Royal Dutch Airlines',
+    img: 'klm.png',
+    link: 'https://www.klm.com'
+  },
+  {
     name: 'Universe',
     img: 'universe.png',
     link: 'https://www.universe.com'
@@ -606,6 +611,26 @@ var logos = [
     img: 'jusbrasil.png',
     link: 'https://www.jusbrasil.com.br'
   },
+  {
+    name: 'NBC News Digital',
+    img: 'nbc-news-digital.png',
+    link: 'https://www.nbcnews.com'
+  },
+  {
+    name: 'PayPal',
+    img: 'paypal.png',
+    link: 'https://www.paypal.com/'
+  },
+  {
+    name: 'Cheddar',
+    img: 'cheddar.png',
+    link: 'https://cheddar.com'
+  },
+  {
+    name: 'UC Trends',
+    img: 'uctrends.png',
+    link: 'https://trends.ucweb.com'
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //

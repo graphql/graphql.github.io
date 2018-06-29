@@ -42,6 +42,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
   - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
   - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
+  - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Service for .net core and .net classic
 
 ### Clojure
 
@@ -122,6 +123,7 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
   - [neelance/graphql-go](https://github.com/neelance/graphql-go): An active implementation of GraphQL in Golang.
+  - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
 
 ### Groovy 
 
@@ -320,14 +322,14 @@ Then run \`python hello.py\` with this code in \`hello.py\`:
 import graphene
 
 class Query(graphene.ObjectType):
-  hello = graphene.String()
+  hello = graphene.String(name=graphene.String(default_value="World"))
 
-  def resolve_hello(self, args, context, info):
-    return 'Hello world!'
+  def resolve_hello(self, info, name):
+    return 'Hello ' + name
 
 schema = graphene.Schema(query=Query)
 result = schema.execute('{ hello }')
-print(result.data['hello'])
+print(result.data['hello']) # "Hello World"
 \`\`\`
 
 There are also nice bindings for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
@@ -361,7 +363,7 @@ Schema = GraphQL::Schema.define do
   query QueryType
 end
 
-puts Schema.execute('{ hello }')
+puts Schema.execute('{ hello }').to_json
 \`\`\`
 
 There are also nice bindings for Relay and Rails.
@@ -391,6 +393,7 @@ Executor.execute(schema, query) map println
 ## GraphQL Clients
 
 - [C# / .NET](#c-net-1)
+- [Clojurescript](#clojurescript-1)
 - [Go](#go-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
@@ -401,6 +404,10 @@ Executor.execute(schema, query) map println
 
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
 
+### Clojurescript
+
+  - [re-graph](https://github.com/oliyh/re-graph/): A GraphQL client implemented in Clojurescript with support for websockets.
+
 ### Go
 
   - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
@@ -409,6 +416,8 @@ Executor.execute(schema, query) map println
 
   - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
 
+  - [Nodes](https://github.com/americanexpress/nodes): A GraphQL JVM Client designed for constructing queries from standard model definitions. By American Express.
+
 ### JavaScript
 
   - [Relay](https://facebook.github.io/relay/) ([github](https://github.com/facebook/relay)) ([npm](https://www.npmjs.com/package/react-relay)): Facebook's framework for building React applications that talk to a GraphQL backend.
@@ -416,6 +425,8 @@ Executor.execute(schema, query) map println
   - [graphql-request](https://github.com/graphcool/graphql-request): A simple and flexible JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native) - basically a lightweight wrapper around \`fetch\`.
   - [Lokka](https://github.com/kadirahq/lokka): A simple JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native).
   - [nanogql](https://github.com/yoshuawuyts/nanogql): Tiny GraphQL client library using template strings.
+  - [AWS Amplify](https://aws.github.io/aws-amplify): A JavaScript library for application development using cloud services, which supports GraphQL backend and React components for working with GraphQL data.
+
 
 ### Swift / Objective-C iOS
 
@@ -425,6 +436,7 @@ Executor.execute(schema, query) map println
 ### Python
 
   - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
+  - [sgqlc](https://github.com/profusion/sgqlc): A simple Python GraphQL client. Supports generating code generation for types defined in a GraphQL schema.
 
 ## Tools
 
