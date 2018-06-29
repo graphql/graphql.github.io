@@ -304,6 +304,47 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
   - [graphql-php](https://github.com/webonyx/graphql-php): A PHP port of GraphQL reference implementation
   - [graphql-relay-php](https://github.com/ivome/graphql-relay-php): A library to help construct a graphql-php server supporting react-relay.
 
+#### [Siler](https://siler.leocavalcante.com/graphql/) ([github](https://github.com/leocavalcante/siler))
+
+Siler is a PHP library powered with high-level abstractions to work with GraphQL.
+
+To run a Siler hello world script:
+
+\`\`\`graphql
+type Query {
+  hello: String
+}
+\`\`\`
+
+\`\`\`php
+<?php
+declare(strict_types=1);
+require_once '/path/to/vendor/autoload.php';
+
+use Siler\Diactoros;
+use Siler\Graphql;
+use Siler\Http;
+
+$typeDefs = file_get_contents(__DIR__.'/schema.graphql');
+$resolvers = [
+    'Query' => [
+        'hello' => 'world',
+    ],
+];
+$schema = Graphql\schema($typeDefs, $resolvers);
+
+echo "Server running at http://127.0.0.1:8080\n";
+Http\server(Graphql\psr7($schema), function (\Throwable $err) {
+    var_dump($err);
+    return Diactoros\json([
+        'error'   => true,
+        'message' => $err->getMessage(),
+    ]);
+})()->run();
+\`\`\`
+
+It also provides functionality for the construction of a WebSocket Subscriptions Server based on how Apollo works.
+
 ### Python
 
 #### [Graphene](http://graphene-python.org/) ([github](https://github.com/graphql-python/graphene))
