@@ -38,7 +38,9 @@ export function execute(
   contextValue?: mixed,
   variableValues?: ?{[key: string]: mixed},
   operationName?: ?string
-): Promise<ExecutionResult>
+): MaybePromise<ExecutionResult>
+
+type MaybePromise<T> = Promise<T> | T;
 
 type ExecutionResult = {
   data: ?Object;

@@ -23,18 +23,21 @@ You should see the output returned as JSON:
 {"data":{"hello":"Hello world!"}}
 ```
 
+If you prefer to use a graphical user interface to send a test query, you can use clients such as [GraphiQL](https://github.com/graphql/graphiql) and [Insomnia](https://github.com/getinsomnia/insomnia).
+
 It's also simple to send GraphQL from the browser. Open up http://localhost:4000, open a developer console, and paste in:
 
 ```javascript
-var xhr = new XMLHttpRequest();
-xhr.responseType = 'json';
-xhr.open("POST", "/graphql");
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Accept", "application/json");
-xhr.onload = function () {
-  console.log('data returned:', xhr.response);
-}
-xhr.send(JSON.stringify({query: "{ hello }"}));
+fetch('/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+  body: JSON.stringify({query: "{ hello }"})
+})
+  .then(r => r.json())
+  .then(data => console.log('data returned:', data));
 ```
 
 You should see the data returned, logged in the console:
@@ -58,21 +61,23 @@ You could access this from JavaScript with the code:
 ```javascript
 var dice = 3;
 var sides = 6;
-var xhr = new XMLHttpRequest();
-xhr.responseType = 'json';
-xhr.open("POST", "/graphql");
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Accept", "application/json");
-xhr.onload = function () {
-  console.log('data returned:', xhr.response);
-}
 var query = `query RollDice($dice: Int!, $sides: Int) {
   rollDice(numDice: $dice, numSides: $sides)
 }`;
-xhr.send(JSON.stringify({
-  query: query,
-  variables: { dice: dice, sides: sides },
-}));
+
+fetch('/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+  body: JSON.stringify({
+    query,
+    variables: { dice, sides },
+  })
+})
+  .then(r => r.json())
+  .then(data => console.log('data returned:', data));
 ```
 
 Using this syntax for variables is a good idea because it automatically prevents bugs due to escaping, and it makes it easier to monitor your server.
