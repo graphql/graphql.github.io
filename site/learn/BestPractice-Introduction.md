@@ -40,7 +40,7 @@ While there's nothing that prevents a GraphQL service from being versioned just 
 
 Why do most APIs version? When there's limited control over the data that's returned from an API endpoint, *any change* can be considered a breaking change, and breaking changes require a new version. If adding new features to an API requires a new version, then a tradeoff emerges between releasing often and having many incremental versions versus the understandability and maintainability of the API.
 
-In contrast, GraphQL only returns the data that's explicitly requested, so new capabilities can be added via new types and new fields on those types without creating a breaking change. This has lead to a common practice of always avoiding breaking changes and serving a versionless API.
+In contrast, GraphQL only returns the data that's explicitly requested, so new capabilities can be added via new types and new fields on those types without creating a breaking change. This has led to a common practice of always avoiding breaking changes and serving a versionless API.
 
 
 ### Nullability
