@@ -52,7 +52,7 @@ var { introspectionQuery } = require('graphql'); // CommonJS
   <li>
     <a href="#printintrospectionschema">
       <pre>function printIntrospectionSchema</pre>
-      Prints the introspections featurs of the schema in a standard format.
+      Prints the introspection features of the schema in a standard format.
     </a>
   </li>
   <li>
