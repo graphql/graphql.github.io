@@ -312,6 +312,44 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
   - [graphql-relay-php](https://github.com/ivome/graphql-relay-php): A library to help construct a graphql-php server supporting react-relay.
   - [Railt](https://github.com/railt/railt): A PHP GraphQL Framework.
 
+#### [API Platform](https://api-platform.com) ([github](https://github.com/api-platform/api-platform))
+
+API Platform is a fully-featured, flexible and extensible API framework built on top of Symfony.
+The following class is enough to create both a Relay-compatible GraphQL server and a hypermedia API supporting modern REST formats (JSON-LD, JSONAPI...):
+
+\`\`\`php
+<?php
+
+namespace App\Entity;
+
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Greet someone!
+ *
+ * @ApiResource
+ * @ORM\Entity
+ */
+class Greeting
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="guid")
+     */
+    public $id;
+
+    /**
+     * @var string Your nice message
+     *
+     * @ORM\Column
+     */
+    public $hello;
+}
+\`\`\`
+
+Other API Platform features include data validation, authentication, authorization, deprecations, cache and GraphiQL integration.
+
 #### [Siler](https://siler.leocavalcante.com/graphql/) ([github](https://github.com/leocavalcante/siler))
 
 Siler is a PHP library powered with high-level abstractions to work with GraphQL.
