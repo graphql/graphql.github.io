@@ -72,3 +72,4 @@ GraphQL Finland is a community-organized GraphQL conference. The first of its ki
 - [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
 - [GraphQL Tokyo](https://www.meetup.com/GraphQL-Tokyo/)
 - [GraphQL Meetup (Bangalore)](https://www.meetup.com/GraphQL-Meetup/)
+- [GraphQL Meetup (Bangkok)](https://www.meetup.com/GraphQL-Bangkok/)
