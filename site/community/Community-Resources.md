@@ -28,6 +28,10 @@ Here are some helpful accounts to follow:
 - [@graphcool](https://twitter.com/graphcool)
 - [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
 
+## DEV Community
+
+[DEV's GraphQL tag](https://dev.to/t/graphql) is a place to share GraphQL projects, articles and tutorials as well as start discussions and ask for feedback on GraphQL-related topics. Developers of all skill-levels are welcome to take part.
+
 ## IRC
 
 Chat with GraphQL developers on IRC at the [freenode](https://freenode.net/) server on the #graphql channel.
