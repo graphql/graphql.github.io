@@ -114,7 +114,7 @@ It's important to remember that other than the special status of being the "entr
 
 A GraphQL object type has a name and fields, but at some point those fields have to resolve to some concrete data. That's where the scalar types come in: they represent the leaves of the query.
 
-In the following query, the `name` and `appearsIn` will resolve to scalar types:
+In the following query, the `name` and `appearsIn` fields will resolve to scalar types:
 
 ```graphql
 # { "graphiql": true }

@@ -126,8 +126,7 @@ You can see how the above query would be pretty repetitive if the fields were re
 
 ## Operation name
 
-Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous. 
-You'll need these optional parts to a GraphQL operation if you want to execute something other than a query or pass dynamic variables.
+Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
 
 Here’s an example that includes the keyword `query` as _operation type_ and `HeroNameAndFriends` as _operation name_ :
 
@@ -143,9 +142,9 @@ query HeroNameAndFriends {
 }
 ```
 
-The _operation type_ is either _query_, _mutation_, or _subscription_ and describes what type of operation you're intending to do.
+The _operation type_ is either _query_, _mutation_, or _subscription_ and describes what type of operation you're intending to do. The operation type is required unless you're using the query shorthand syntax, in which case you can't supply a name or variable definitions for your operation.
 
-The _operation name_ is a meaningful and explicit name for your operation. It can be very useful for debugging and server-side logging reasons. 
+The _operation name_ is a meaningful and explicit name for your operation. It is only required in multi-operation documents, but its use is encouraged because it is very helpful for debugging and server-side logging. 
 When something goes wrong either in your network logs or your GraphQL server, it is easier to identify a query in your codebase by name instead of trying to decipher the contents.
 Think of this just like a function name in your favorite programming language. 
 For example, in JavaScript we can easily work only with anonymous functions, but when we give a function a name, it's easier to track it down, debug our code, 
@@ -197,7 +196,7 @@ To learn more about the syntax for these variable definitions, it's useful to le
 Default values can also be assigned to the variables in the query by adding the default value after the type declaration. 
 
 ```graphql
-query HeroNameAndFriends($episode: Episode = "JEDI") {
+query HeroNameAndFriends($episode: Episode = JEDI) {
   hero(episode: $episode) {
     name
     friends {
