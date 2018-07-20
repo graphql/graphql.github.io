@@ -655,6 +655,11 @@ var logos = [
     name: 'UC Trends',
     img: 'uctrends.png',
     link: 'https://trends.ucweb.com'
+  },
+  {
+    name: 'Entria',
+    img: 'entria.png',
+    link: 'https://github.com/entria'
   }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
