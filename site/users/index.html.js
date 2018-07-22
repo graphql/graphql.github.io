@@ -626,6 +626,7 @@ var logos = [
     img: 'joor.png',
     link: 'https://jooraccess.com/'
   },
+  {
     name: 'StackShare',
     img: 'stackshare.png',
     link: 'https://stackshare.io'
