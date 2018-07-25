@@ -626,6 +626,7 @@ var logos = [
     img: 'travelgatex.png',
     link: 'https://www.travelgatex.com'
   },
+  {
     name: 'StackShare',
     img: 'stackshare.png',
     link: 'https://stackshare.io'
