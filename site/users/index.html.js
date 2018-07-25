@@ -137,7 +137,7 @@ var logos = [
   {
     name: '20 Minutes',
     img: '20minutes.png',
-    link: 'http://www.20minutes.fr'
+    link: 'https://www.20minutes.fr'
   },
   {
     name: 'AlloCiné',
@@ -597,6 +597,26 @@ var logos = [
     link: 'https://www.bynder.com'
   },
   {
+    name: 'Hasura',
+    img: 'hasura.png',
+    link: 'https://hasura.io'
+  },
+  {
+    name: 'Atlassian',
+    img: 'atlassian.png',
+    link: 'https://www.atlassian.com'
+  },
+  {
+    name: 'Lets.events',
+    img: 'letsevents.png',
+    link: 'https://lets.events'
+  },
+  {
+    name: 'KLM Royal Dutch Airlines',
+    img: 'klm.png',
+    link: 'https://www.klm.com'
+  },
+  {
     name: 'Universe',
     img: 'universe.png',
     link: 'https://www.universe.com'
@@ -606,6 +626,40 @@ var logos = [
     img: 'travelgatex.png',
     link: 'https://www.travelgatex.com'
   },
+    name: 'StackShare',
+    img: 'stackshare.png',
+    link: 'https://stackshare.io'
+  },
+  {
+    name: 'Metric.ai',
+    img: 'metric-ai.png',
+    link: 'https://www.metric.ai'
+  },
+  {
+    name: 'Jusbrasil',
+    img: 'jusbrasil.png',
+    link: 'https://www.jusbrasil.com.br'
+  },
+  {
+    name: 'NBC News Digital',
+    img: 'nbc-news-digital.png',
+    link: 'https://www.nbcnews.com'
+  },
+  {
+    name: 'PayPal',
+    img: 'paypal.png',
+    link: 'https://www.paypal.com/'
+  },
+  {
+    name: 'Cheddar',
+    img: 'cheddar.png',
+    link: 'https://cheddar.com'
+  },
+  {
+    name: 'UC Trends',
+    img: 'uctrends.png',
+    link: 'https://trends.ucweb.com'
+  }
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
