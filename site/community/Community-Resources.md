@@ -27,6 +27,7 @@ Here are some helpful accounts to follow:
 - [@apollographql](https://twitter.com/apollographql)
 - [@graphcool](https://twitter.com/graphcool)
 - [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
+- [@HasuraHQ](https://twitter.com/HasuraHQ)
 
 ## IRC
 
@@ -47,6 +48,10 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 - [Graphcool Slack](https://slack.graph.cool/)
 - [Scaphold.io Slack](http://slack.scaphold.io/)
 
+### Discord Communities:
+
+- [Hasura Discord](https://discord.gg/vBPpJkS)
+
 ## Blogs
 
 Here are a list of notable blog posts to help you better understand GraphQL:
@@ -64,6 +69,8 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [GraphQL Server Basics (Part I): The Schema](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e) - Nikolas Burk
 - [GraphQL Server Basics (Part II): The Network Layer](https://blog.graph.cool/graphql-server-basics-the-network-layer-51d97d21861) - Nikolas Burk
 - [GraphQL Server Basics (Part III): Demystifying the `info` argument in GraphQL resolvers](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) - Nikolas Burk
+- [Client-side GraphQL schema resolving and schema-stitching](https://blog.hasura.io/client-side-graphql-schema-resolving-and-schema-stitching-f4d8bccc42d2) - Tanmai Gopal
+- [Architecture of a high performance GraphQL to SQL engine](https://blog.hasura.io/architecture-of-a-high-performance-graphql-to-sql-server-58d9944b8a87) - Hasura
 
 ## Videos
 
@@ -94,6 +101,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [All Talks from GraphQL Europe](https://www.youtube.com/playlist?list=PLn2e1F9Rfr6n_WFm9fPE-_wYPrYvSTySt) - Lee Byron, Sashko Stubailo, Dan Schafer, Johannes Schickling and many more
 - [Learning GraphQL with React and Relay](https://www.packtpub.com/application-development/learning-graphql-react-and-relay-video) by Divyendu Singh
 - [Hands-on GraphQL for Better RESTful Web Services (Video)](https://www.packtpub.com/application-development/hands-graphql-better-restful-web-services-video) by Ashwin Hegde
+- [A PostgreSQL backed GraphQL BaaS](https://www.youtube.com/watch?v=neIZcc8y3B0) by Tanmai Gopal
 
 ## Books
 
