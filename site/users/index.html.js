@@ -601,6 +601,7 @@ var logos = [
     img: 'digia.png',
     link: 'https://digiaonline.github.io'
   },
+  {
     name: 'Hasura',
     img: 'hasura.png',
     link: 'https://hasura.io'
