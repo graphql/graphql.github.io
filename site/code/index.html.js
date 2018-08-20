@@ -123,6 +123,7 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
   - [neelance/graphql-go](https://github.com/neelance/graphql-go): An active implementation of GraphQL in Golang.
+  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
 
 ### Groovy 
@@ -443,6 +444,7 @@ Executor.execute(schema, query) map println
 
 ### C# / .NET
 
+  - [GraphQL.Client](https://github.com/graphql-dotnet/graphql-client): A GraphQL Client for .NET.
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
   - [SAHB.GraphQLClient](https://github.com/sahb1239/SAHB.GraphQLClient): GraphQL client which supports generating queries from C# classes
 
@@ -478,6 +480,7 @@ Executor.execute(schema, query) map println
 ### Python
 
   - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
+  - [python-graphql-client](https://github.com/graphcool/python-graphql-client): Simple GraphQL client for Python 2.7+.
   - [sgqlc](https://github.com/profusion/sgqlc): A simple Python GraphQL client. Supports generating code generation for types defined in a GraphQL schema.
 
 ## Tools
@@ -485,6 +488,7 @@ Executor.execute(schema, query) map println
   - [graphiql](https://github.com/graphql/graphiql) ([npm](https://www.npmjs.com/package/graphiql)): An interactive in-browser GraphQL IDE.
   - [libgraphqlparser](https://github.com/graphql/libgraphqlparser): A GraphQL query language parser in C++ with C and C++ APIs.
   - [Graphql Language Service](https://github.com/graphql/graphql-language-service): An interface for building GraphQL language services for IDEs (diagnostics, autocomplete etc).
+  - [quicktype](https://quicktype.io) ([github](https://github.com/quicktype/quicktype)): Generate types for GraphQL queries in TypeScript, Swift, golang, C#, C++, and more.
 
 ## Services
 

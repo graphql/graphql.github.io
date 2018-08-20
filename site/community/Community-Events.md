@@ -65,7 +65,7 @@ GraphQL Finland is a community-organized GraphQL conference. The first of its ki
 ### Australia
 
 - [GraphQL Melbourne](http://graphql.melbourne/)
-- [GraphQL Sydney](http://graphql.sydney/)
+- [GraphQL Sydney](https://graphql.sydney/)
 
 ### Asia
 
