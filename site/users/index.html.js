@@ -26,6 +26,11 @@ var logos = [
     link: 'https://www.facebook.com/'
   },
   {
+    name: 'Tech Kunja',
+    img: 'techkunja.png',
+    link: 'http://techkunja.com.np/'
+  },
+  {
     name: 'GitHub',
     img: 'github.png',
     isRound: true,
