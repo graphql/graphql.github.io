@@ -655,7 +655,12 @@ var logos = [
     name: 'UC Trends',
     img: 'uctrends.png',
     link: 'https://trends.ucweb.com'
-  }
+  },
+  {
+    name: '99designs',
+    img: '99designs.png',
+    link: 'https://99designs.com/open-source'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
