@@ -16,7 +16,7 @@ Following are brief descriptions of some of the more common best practices and o
 
 ### HTTP
 
-GraphQL is typically served over HTTP via a single endpoint which expresses the full set of capabilities of the service. This is in contrast to REST APIs which expose a suite of URLs each of which expose a single resource. While GraphQL could be used alongside a suite of resource URLs, this can make it harder to use with tools like GraphiQL.
+GraphQL is typically served over HTTP via a single endpoint which expresses the full set of capabilities of the service. This is in contrast to REST APIs which expose a suite of URLs each of which expose a single resource. While GraphQL could be used alongside a suite of resource URLs, this can make it harder to use with tools like GraphQL.
 
 Read more about this in [Serving over HTTP](/learn/serving-over-http/).
 
