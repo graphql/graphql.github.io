@@ -12,7 +12,7 @@ A common use case in GraphQL is traversing the relationship between sets of obje
 
 ## Plurals
 
-The most simple way to expose a connection between objects is with a field that returns a plural type. For example, if we wanted to get a list of R2-D2's friends, we could just ask for all of them:
+The simplest way to expose a connection between objects is with a field that returns a plural type. For example, if we wanted to get a list of R2-D2's friends, we could just ask for all of them:
 
 ```graphql
 # { "graphiql": true }
