@@ -125,6 +125,7 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
   - [neelance/graphql-go](https://github.com/neelance/graphql-go): An active implementation of GraphQL in Golang.
   - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
+  - [99designs/gqlgen](https://github.com/99designs/gqlgen): A schema first GraphQL server generation. 
 
 ### Groovy 
 
