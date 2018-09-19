@@ -174,7 +174,7 @@ public class HelloWorld {
         SchemaParser schemaParser = new SchemaParser();
         TypeDefinitionRegistry typeDefinitionRegistry = schemaParser.parse(schema);
 
-        RuntimeWiring runtimeWiring = newRuntimeWiring()
+        RuntimeWiring runtimeWiring = new RuntimeWiring()
                 .type("Query", builder -> builder.dataFetcher("hello", new StaticDataFetcher("world")))
                 .build();
 
