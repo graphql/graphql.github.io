@@ -16,7 +16,7 @@ Following are brief descriptions of some of the more common best practices and o
 
 ### HTTP
 
-GraphQL is typically served over HTTP via a single endpoint which expresses the full set of capabilities of the service. This is in contrast to REST APIs which expose a suite of URLs each of which expose a single resource. While GraphQL could be used alongside a suite of resource URLs, this can make it harder to use with tools like GraphiQL.
+GraphQL is typically served over HTTP via a single endpoint which expresses the full set of capabilities of the service. This is in contrast to REST APIs which expose a suite of URLs each of which expose a single resource. While GraphQL could be used alongside a suite of resource URLs, this can make it harder to use with tools like [GraphiQL](https://github.com/graphql/graphiql).
 
 Read more about this in [Serving over HTTP](/learn/serving-over-http/).
 
@@ -45,7 +45,7 @@ In contrast, GraphQL only returns the data that's explicitly requested, so new c
 
 ### Nullability
 
-Most type systems which recognise "null" provide both the common type, and the *nullable* version of that type, where by default types do not include "null" unless explicitly declared. However in a GraphQL type system, every field is *nullable* by default. This is because there are many things which can go awry in a networked service backed by databases and other services. A database could go down, an asynchronous action could fail, an exception could be thrown. Beyond simply system failures, authorization can often be granular, where individual fields within a request can have different authorization rules.
+Most type systems which recognise "null" provide both the common type, and the *nullable* version of that type, whereby default types do not include "null" unless explicitly declared. However in a GraphQL type system, every field is *nullable* by default. This is because there are many things which can go awry in a networked service backed by databases and other services. A database could go down, an asynchronous action could fail, an exception could be thrown. Beyond simply system failures, authorization can often be granular, where individual fields within a request can have different authorization rules.
 
 By defaulting every field to *nullable*, any of these reasons may result in just that field returned "null" rather than having a complete failure for the request. Instead, GraphQL provides [non-null](/learn/schema/#lists-and-non-null) variants of types which make a guarantee to clients that if requested, the field will never return "null". Instead, if an error occurs, the previous parent field will be "null" instead.
 
@@ -54,7 +54,7 @@ When designing a GraphQL schema, it's important to keep in mind all the problems
 
 ### Pagination
 
-The GraphQL type system allows for some fields to return [lists of values](/learn/schema/#lists-and-non-null) however leaves the pagination of longer lists of values up to the API designer. There are a wide range of possible API designs for pagination, each of which has pros and cons.
+The GraphQL type system allows for some fields to return [lists of values](/learn/schema/#lists-and-non-null), but leaves the pagination of longer lists of values up to the API designer. There are a wide range of possible API designs for pagination, each of which has pros and cons.
 
 Typically fields that could return long lists accept arguments "first" and "after" to allow for specifying a specific region of a list, where "after" is a unique identifier of each of the values in the list.
 
