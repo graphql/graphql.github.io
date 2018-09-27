@@ -263,7 +263,7 @@ A set of GraphQL server packages from Apollo that work with various Node.js HTTP
 To run a hello world server with apollo-server-express:
 
 \`\`\`bash
-npm install apollo-server-express body-parser express graphql graphql-tools
+npm install apollo-server-express@1 body-parser express graphql graphql-tools
 \`\`\`
 
 Then run \`node server.js\` with this code in \`server.js\`:
