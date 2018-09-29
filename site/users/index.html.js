@@ -655,7 +655,12 @@ var logos = [
     name: 'UC Trends',
     img: 'uctrends.png',
     link: 'https://trends.ucweb.com'
-  }
+  },
+  {
+    name: 'Chauffeur Privé',
+    img: 'chauffeur-prive.png',
+    link: 'https://chauffeur-prive.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
