@@ -658,7 +658,7 @@ var logos = [
   },
   {
     name: 'Braintree',
-    img: 'braintree-paypal-logo-black.png',
+    img: 'braintree.png',
     link: 'https://www.braintreepayments.com/'
   }
   // Adding your logo?
