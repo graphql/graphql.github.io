@@ -334,7 +334,8 @@ $resolvers = [
 ];
 $schema = Graphql\schema($typeDefs, $resolvers);
 
-echo "Server running at http://127.0.0.1:8080\n";
+echo "Server running at http://127.0.0.1:8080";
+
 Http\server(Graphql\psr7($schema), function (\Throwable $err) {
     var_dump($err);
     return Diactoros\json([
