@@ -14,7 +14,13 @@ sublinks: Upcoming Events,Meetups
 - **Location:** Berlin, Germany
 - **Link:** https://graphql-europe.org
 
-GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
+### GraphQL Conf 
+
+- **Date:** June 20-21, 2019
+- **Location:** Berlin, Germany
+- **Link:** https://www.graphqlconf.org/
+
+GraphQL Conf is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
 
 ## Meetups
 
