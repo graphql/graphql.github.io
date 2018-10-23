@@ -14,15 +14,13 @@ sublinks: Upcoming Events,Meetups
 - **Location:** Berlin, Germany
 - **Link:** https://graphql-europe.org
 
-GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
+### GraphQL Conf 
 
-### GraphQL Finland Conference
+- **Date:** June 20-21, 2019
+- **Location:** Berlin, Germany
+- **Link:** https://www.graphqlconf.org/
 
-- **Date:** October 18-19, 2018
-- **Location:** Helsinki, Finland
-- **Link:** https://graphql-finland.fi/
-
-GraphQL Finland is a community-organized GraphQL conference. The first of its kind in Finland, the event consists of a workshop day and a day of talks around the topic. GraphQL Finland is organized by the same team that brought you React Finland.
+GraphQL Conf is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
 
 ## Meetups
 
