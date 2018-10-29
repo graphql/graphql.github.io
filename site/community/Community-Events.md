@@ -8,13 +8,15 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL Europe Conference
+### GraphQL Summit
 
-- **Date:** June 15, 2018
-- **Location:** Berlin, Germany
-- **Link:** https://graphql-europe.org
+- **Date:** November 7-8, 2018
+- **Location:** San Francisco, U.S.A.
+- **Link:** https://summit.graphql.com
 
-### GraphQL Conf 
+World's largest conference dedicated to GraphQL.
+
+### GraphQL Conf Berlin 2019
 
 - **Date:** June 20-21, 2019
 - **Location:** Berlin, Germany
