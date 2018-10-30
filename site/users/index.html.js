@@ -666,6 +666,12 @@ var logos = [
     img: 'cloverleaf.png',
     link: 'https://cloverleaf.me/'
   },
+  {
+    name: 'Tour-360',
+    img: 'tour360.png',
+    link: 'https://tour-360.ru',
+    isRound: true
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
