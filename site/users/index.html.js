@@ -652,6 +652,11 @@ var logos = [
     link: 'https://cheddar.com'
   },
   {
+    name: '8base',
+    img: '8base.png',
+    link: 'https://www.8base.com/'
+  },  
+  {
     name: 'UC Trends',
     img: 'uctrends.png',
     link: 'https://trends.ucweb.com'
