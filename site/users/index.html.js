@@ -655,7 +655,12 @@ var logos = [
     name: 'UC Trends',
     img: 'uctrends.png',
     link: 'https://trends.ucweb.com'
-  }
+  },
+  {
+    name: 'Expert360',
+    img: 'expert360.png',
+    link: 'https://expert360.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
