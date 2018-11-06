@@ -51,6 +51,12 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 
 Here are a list of notable blog posts to help you better understand GraphQL:
 
+- [GraphQL: A data query language](/blog/graphql-a-query-language/) - Lee Byron
+- [Subscriptions in GraphQL and Relay](/blog/subscriptions-in-graphql-and-relay/) - Dan Schafer and Laney Kuenzel
+- [Mocking your server is easy with GraphQL](/blog/mocking-with-graphql/) - Jonas Helfer
+- [Wrapping a REST API in GraphQL](/blog/rest-api-graphql-wrapper/) - Steven Luscher
+- [Leaving technical preview](/blog/production-ready/) - Lee Byron
+- [Relicensing the GraphQL specification](https://medium.com/@leeb/relicensing-the-graphql-specification-e7d07a52301b) - Lee Byron
 - [GraphQL Introduction](https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html) - Nick Schrock
 - [From REST to GraphQL](https://0x2a.sh/from-rest-to-graphql-b4e95e94c26b#.tag7nzkrb) - Jacob Gillespie
 - [GraphQL Explained](https://medium.com/apollo-stack/graphql-explained-5844742f195e#.zdykxos6i) - Jonas Helfer
