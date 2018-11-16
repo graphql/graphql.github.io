@@ -107,7 +107,9 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 (executor/execute nil schema resolver-fn "{ hello }")
 \`\`\`
 
-  - [lacinia](https://github.com/walmartlabs/lacinia): A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
+#### [lacinia](https://github.com/walmartlabs/lacinia)
+
+A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
 
 ### Elixir
 
