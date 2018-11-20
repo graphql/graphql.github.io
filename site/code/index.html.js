@@ -107,7 +107,9 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 (executor/execute nil schema resolver-fn "{ hello }")
 \`\`\`
 
-  - [lacinia](https://github.com/walmartlabs/lacinia): A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
+#### [lacinia](https://github.com/walmartlabs/lacinia)
+
+A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
 
 ### Elixir
 
@@ -335,7 +337,8 @@ $resolvers = [
 ];
 $schema = Graphql\schema($typeDefs, $resolvers);
 
-echo "Server running at http://127.0.0.1:8080\n";
+echo "Server running at http://127.0.0.1:8080";
+
 Http\server(Graphql\psr7($schema), function (\Throwable $err) {
     var_dump($err);
     return Diactoros\json([

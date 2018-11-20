@@ -657,6 +657,16 @@ var logos = [
     link: 'https://trends.ucweb.com'
   },
   {
+    name: 'Expert360',
+    img: 'expert360.png',
+    link: 'https://expert360.com'
+  },
+  {
+    name: 'Cloverleaf',
+    img: 'cloverleaf.png',
+    link: 'https://cloverleaf.me/'
+  },
+  {
     name: 'AAF',
     img: 'aaf.png',
     link: 'https://aaf.com/'
