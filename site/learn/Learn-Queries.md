@@ -126,7 +126,7 @@ You can see how the above query would be pretty repetitive if the fields were re
 
 ### Using variables inside fragments
 
-It is possible for fragments to access variables declared in the query or mutation. See [variables](learn/queries/#variables).
+It is possible for fragments to access variables declared in the query or mutation. See [variables](#variables).
 
 ```graphql
 # { "graphiql": true }
