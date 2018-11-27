@@ -124,6 +124,34 @@ fragment comparisonFields on Character {
 
 You can see how the above query would be pretty repetitive if the fields were repeated. The concept of fragments is frequently used to split complicated application data requirements into smaller chunks, especially when you need to combine lots of UI components with different fragments into one initial data fetch.
 
+### Using variables inside fragments
+
+It is possible for fragments to access variables declared in the query or mutation. See [variables](#variables).
+
+```graphql
+# { "graphiql": true }
+query HeroComparison($first: Int = 3) {
+  leftComparison: hero(episode: EMPIRE) {
+    ...comparisonFields
+  }
+  rightComparison: hero(episode: JEDI) {
+    ...comparisonFields
+  }
+}
+
+fragment comparisonFields on Character {
+  name
+  friendsConnection(first: $first) {
+    totalCount
+    edges {
+      node {
+        name
+      }
+    }
+  }
+}
+```
+
 ## Operation name
 
 Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
