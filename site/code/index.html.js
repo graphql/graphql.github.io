@@ -405,15 +405,15 @@ Then run \`ruby hello.rb\` with this code in \`hello.rb\`:
 \`\`\`ruby
 require 'graphql'
 
-QueryType = GraphQL::ObjectType.define do
-  name 'Query'
+class QueryType < GraphQL::Schema::Object
+  graphql_name 'Query'
   field :hello do
     type types.String
     resolve -> (obj, args, ctx) { 'Hello world!' }
   end
 end
 
-Schema = GraphQL::Schema.define do
+class Schema < GraphQL::Schema
   query QueryType
 end
 
