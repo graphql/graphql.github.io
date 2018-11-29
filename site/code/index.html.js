@@ -43,6 +43,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
   - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
   - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
   - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Server for .net core and .net classic
+  - [Entity GraphQL](https://github.com/lukemurray/EntityGraphQL): .NET Core GraphQL library. Compiles to IQueryable to easily expose a schema from an exsiting data model
 
 ### Clojure
 
