@@ -73,7 +73,7 @@ This example is written in JavaScript, however GraphQL servers can be built in [
 - `obj` The previous object, which for a field on the root Query type is often not used.
 - `args` The arguments provided to the field in the GraphQL query.
 - `context` A value which is provided to every resolver and holds important contextual information like the currently logged in user, or access to a database.
-- `info` A value which holds field-specific information relevant to the current query as well as the schema details, also [refer type GraphQLResolveInfo for more details](/graphql-js/type/#graphqlobjecttype).
+- `info` A value which holds field-specific information relevant to the current query as well as the schema details, also refer to [type GraphQLResolveInfo for more details](/graphql-js/type/#graphqlobjecttype).
 
 ## Asynchronous resolvers
 
