@@ -24,6 +24,14 @@ World's largest conference dedicated to GraphQL.
 
 GraphQL Conf is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
 
+### GraphQL Asia 2019
+
+- **Date:** April 12-13, 2019
+- **Location:** Bangalore, India
+- **Link:** https://www.graphql-asia.org/
+
+First GraphQL Conference in Asia 
+
 ## Meetups
 
 ### North America
