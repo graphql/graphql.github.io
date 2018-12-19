@@ -666,6 +666,11 @@ var logos = [
     img: 'cloverleaf.png',
     link: 'https://cloverleaf.me/'
   },
+  {
+    name: 'Devlob',
+    img: 'devlob.png',
+    link: 'https://devlob.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
