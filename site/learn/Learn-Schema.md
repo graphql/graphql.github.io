@@ -328,7 +328,9 @@ In this case, if you query a field that returns the `SearchResult` union type, y
 }
 ```
 
-In this case, since `Human` and `Droid` share a common interface (`Character`), you can query their common fields in one place rather than having to repeat the same fields across multiple types:
+The `__typename` field resolves to a `String` which lets you differentiate different data types from each other on the client.
+
+Also, in this case, since `Human` and `Droid` share a common interface (`Character`), you can query their common fields in one place rather than having to repeat the same fields across multiple types:
 
 ```graphql
 {
