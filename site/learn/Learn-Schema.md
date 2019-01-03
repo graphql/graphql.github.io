@@ -311,6 +311,7 @@ In this case, if you query a field that returns the `SearchResult` union type, y
 # { "graphiql": true}
 {
   search(text: "an") {
+    __typename
     ... on Human {
       name
       height
@@ -326,6 +327,33 @@ In this case, if you query a field that returns the `SearchResult` union type, y
   }
 }
 ```
+
+The `__typename` field resolves to a `String` which lets you differentiate different data types from each other on the client.
+
+Also, in this case, since `Human` and `Droid` share a common interface (`Character`), you can query their common fields in one place rather than having to repeat the same fields across multiple types:
+
+```graphql
+{
+  search(text: "an") {
+    __typename
+    ... on Character {
+      name
+    }
+    ... on Human {
+      height
+    }
+    ... on Droid {
+      primaryFunction
+    }
+    ... on Starship {
+      name
+      length
+    }
+  }
+}
+```
+
+Note that `name` is still specified on `Starship` because otherwise it wouldn't show up in the results given that `Starship` is not a `Character`!
 
 ### Input types
 
