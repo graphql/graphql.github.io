@@ -1,0 +1,344 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><title>Wrapping a REST API in GraphQL | GraphQL</title><meta name="viewport" content="width=640"/><meta property="og:title" content="GraphQL: A query language for APIs."/><meta property="og:description" content="GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools."/><meta property="og:type" content="website"/><meta property="og:url" content="http://graphql.org/"/><meta property="og:image" content="/img/og_image.png"/><meta property="og:image:type" content="image/png"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@graphql"/><meta name="twitter:title" content="GraphQL: A query language for APIs."/><meta name="twitter:description" content="GraphQL gives clients the power to ask for exactly what they need and nothing more, making it easier to evolve APIs over time."/><meta name="twitter:image" content="/img/twitter_image.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog"/><link rel="stylesheet" href="/style.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,600"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/></head><body><header><section><a class="nav-home" href="/"><img class="nav-logo" src="/img/logo.svg" width="30" height="30"/>GraphQL</a><nav><a href="/learn/">Learn</a><a href="/code/">Code</a><a href="/community/">Community</a><a href="https://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Spec</a><a href="https://foundation.graphql.org/" target="_blank" rel="noopener noreferrer">Foundation</a></nav><div class="algolia-search-wrapper"><input type="text" id="algolia-search-input" placeholder="Search docs..."/></div></section></header><section><div class="documentationContent"><div class="inner-content"><h1>Wrapping a REST API in GraphQL</h1><p>5/5/2016 by Steven Luscher</p><hr/><div><p>Time and time again I hear the same aspiration from front-end web and mobile developers: they&#x27;re eager to reap the developer efficiency gains offered by new technologies like Relay and GraphQL, but they have years of momentum behind their existing REST API. Without data that clearly demonstrates the benefits of switching, they find it hard to justify an additional investment in GraphQL infrastructure.</p><p>In this post I will outline a rapid, low-investment method that you can use to stand up a GraphQL endpoint atop an existing REST API, using JavaScript alone. No backend developers will be harmed during the making of this blog post.</p><h2><a class="anchor" name="a-client-side-rest-wrapper"></a>A client-side REST wrapper <a class="hash-link" href="#a-client-side-rest-wrapper">#</a></h2><p>We&#x27;re going to create a <em>GraphQL schema</em> – a type system that describes your universe of data – that wraps calls to your existing REST API. This schema will receive and resolve GraphQL queries all on the client side. This architecture features some inherent performance flaws, but is fast to implement and requires no server changes.</p><p>Imagine a REST API that exposes a <code>/people/</code> endpoint through which you can browse <code>Person</code> models and their associated friends.</p><p><img src="/img/blog/20160502-rest-api-graphql-wrapper/rest-api-people.png" alt="A REST API that exposes an index of people" title="A REST API that exposes an index of people"/></p><p>We will build a GraphQL schema that models people and their attributes (like <code>first_name</code> and <code>email</code>) as well as their association to other people through friendships.</p><h3><a class="anchor" name="installation"></a>Installation <a class="hash-link" href="#installation">#</a></h3><p>First we&#x27;ll need a set of schema building tools.</p><pre class="prism language-undefined">npm install <span class="operator">--</span>save graphql</pre><h3><a class="anchor" name="building-the-graphql-schema"></a>Building the GraphQL Schema <a class="hash-link" href="#building-the-graphql-schema">#</a></h3><p>Ultimately we will want to export a <code>GraphQLSchema</code> that we can use to resolve queries.</p><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span> GraphQLSchema <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="class-name">GraphQLSchema</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  query<span class="punctuation">:</span> QueryType<span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span></pre><p>At the root of all GraphQL schemas is a type called <code>query</code> whose definition we provide, and have specified here as <code>QueryType</code>. Let&#x27;s build <code>QueryType</code> now – a type on which we will define all the possible things one might want to fetch.</p><p>To replicate all of the functionality of our REST API, let&#x27;s expose two fields on <code>QueryType</code>:</p><ul><li>an <code>allPeople</code> field – analogous to <code>/people/</code></li><li>a <code>person(id: String)</code> field – analogous to <code>/people/{ID}/</code></li></ul><p>Each field will consist of a return type, optional argument definitions, and a JavaScript method that resolves the data being queried for.</p><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span>
+  GraphQLList<span class="punctuation">,</span>
+  GraphQLObjectType<span class="punctuation">,</span>
+  GraphQLString<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> QueryType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  name<span class="punctuation">:</span> <span class="string">&#x27;Query&#x27;</span><span class="punctuation">,</span>
+  description<span class="punctuation">:</span> <span class="string">&#x27;The root of all... queries&#x27;</span><span class="punctuation">,</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    allPeople<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> root <span class="operator">=</span><span class="operator">&gt;</span> <span spellcheck="true" class="comment">// Fetch the index of people from the REST API,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    person<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> PersonType<span class="punctuation">,</span>
+      args<span class="punctuation">:</span> <span class="punctuation">{</span>
+        id<span class="punctuation">:</span> <span class="punctuation">{</span> type<span class="punctuation">:</span> GraphQLString <span class="punctuation">}</span><span class="punctuation">,</span>
+      <span class="punctuation">}</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> <span class="punctuation">(</span>root<span class="punctuation">,</span> args<span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span spellcheck="true" class="comment">// Fetch the person with ID `args.id`,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span></pre><p>Let&#x27;s leave the resolvers as a sketch for now, and move on to defining <code>PersonType</code>.</p><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span>
+  GraphQLList<span class="punctuation">,</span>
+  GraphQLObjectType<span class="punctuation">,</span>
+  GraphQLString<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> PersonType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  name<span class="punctuation">:</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">,</span>
+  description<span class="punctuation">:</span> <span class="string">&#x27;Somebody that you used to know&#x27;</span><span class="punctuation">,</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    firstName<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> GraphQLString<span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>first_name<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    lastName<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> GraphQLString<span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>last_name<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    email<span class="punctuation">:</span> <span class="punctuation">{</span>type<span class="punctuation">:</span> GraphQLString<span class="punctuation">}</span><span class="punctuation">,</span>
+    id<span class="punctuation">:</span> <span class="punctuation">{</span>type<span class="punctuation">:</span> GraphQLString<span class="punctuation">}</span><span class="punctuation">,</span>
+    username<span class="punctuation">:</span> <span class="punctuation">{</span>type<span class="punctuation">:</span> GraphQLString<span class="punctuation">}</span><span class="punctuation">,</span>
+    friends<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> <span spellcheck="true" class="comment">// Fetch the friends with the URLs `person.friends`,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span></pre><p>Note two things about the definition of <code>PersonType</code>. Firstly, we have not supplied a resolver for <code>email</code>, <code>id</code>, or <code>username</code>. The default resolver simply accesses the property of the <code>person</code> object that has the same name as the field. This works everywhere except where the property names do not match the field name (eg. the field <code>firstName</code> does not match the <code>first_name</code> property of the response object from the REST API) or where accessing the property would not yield the object that we want (eg. we want a list of person objects for the <code>friends</code> field, not a list of URLs).</p><p>Now, let&#x27;s write resolvers that fetch people from the REST API. Because we need to load from the network, we won&#x27;t be able to return a value right away. Luckily for us, <code>resolve()</code> can return either a value or a <code>Promise</code> for a value. We&#x27;re going to take advantage of this to fire off an HTTP request to the REST API that eventually resolves to a JavaScript object that conforms to <code>PersonType</code>.</p><p>And here we have it – a complete first-pass at the schema:</p><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span>
+  GraphQLList<span class="punctuation">,</span>
+  GraphQLObjectType<span class="punctuation">,</span>
+  GraphQLSchema<span class="punctuation">,</span>
+  GraphQLString<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> BASE_URL <span class="operator">=</span> <span class="string">&#x27;https://myapp.com/&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">function</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetch</span><span class="punctuation">(</span><span class="template-string"><span class="string">`</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>BASE_URL<span class="interpolation-punctuation punctuation">}</span></span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>relativeURL<span class="interpolation-punctuation punctuation">}</span></span><span class="string">`</span></span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>res <span class="operator">=</span><span class="operator">&gt;</span> res<span class="punctuation">.</span><span class="function">json</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span class="function">fetchPeople</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span><span class="string">&#x27;/people/&#x27;</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>json <span class="operator">=</span><span class="operator">&gt;</span> json<span class="punctuation">.</span>people<span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span class="function">fetchPersonByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>json <span class="operator">=</span><span class="operator">&gt;</span> json<span class="punctuation">.</span>person<span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">const</span> PersonType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  <span spellcheck="true" class="comment">/* ... */</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    <span spellcheck="true" class="comment">/* ... */</span>
+    friends<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>friends<span class="punctuation">.</span><span class="function">map</span><span class="punctuation">(</span>fetchPersonByURL<span class="punctuation">)</span><span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> QueryType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  <span spellcheck="true" class="comment">/* ... */</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    allPeople<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> fetchPeople<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    person<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> PersonType<span class="punctuation">,</span>
+      args<span class="punctuation">:</span> <span class="punctuation">{</span>
+        id<span class="punctuation">:</span> <span class="punctuation">{</span> type<span class="punctuation">:</span> GraphQLString <span class="punctuation">}</span><span class="punctuation">,</span>
+      <span class="punctuation">}</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> <span class="punctuation">(</span>root<span class="punctuation">,</span> args<span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="function">fetchPersonByURL</span><span class="punctuation">(</span><span class="template-string"><span class="string">`/people/</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>args<span class="punctuation">.</span>id<span class="interpolation-punctuation punctuation">}</span></span><span class="string">/`</span></span><span class="punctuation">)</span><span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="class-name">GraphQLSchema</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  query<span class="punctuation">:</span> QueryType<span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span><div class="line-highlight" style="height:21px;top:459px;"></div><div class="line-highlight" style="height:21px;top:629px;"></div><div class="line-highlight" style="height:21px;top:748px;"></div></pre><h3><a class="anchor" name="using-a-client-side-schema-with-relay"></a>Using a client-side schema with Relay <a class="hash-link" href="#using-a-client-side-schema-with-relay">#</a></h3><p>Normally, Relay will send its GraphQL queries to a server over HTTP. We can inject <a href="https://github.com/taion/" target="_blank" rel="nofollow noopener noreferrer">@taion</a>&#x27;s custom <code>relay-local-schema</code> network layer to resolve queries using the schema we just built. Put this code wherever it&#x27;s guaranteed to be executed before you mount your Relay app.</p><pre class="prism language-undefined">npm install <span class="operator">--</span>save relay<span class="operator">-</span>local<span class="operator">-</span>schema</pre><pre class="prism language-undefined"><span class="keyword">import</span> RelayLocalSchema <span class="keyword">from</span> <span class="string">&#x27;relay-local-schema&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">import</span> schema <span class="keyword">from</span> <span class="string">&#x27;./schema&#x27;</span><span class="punctuation">;</span>
+
+Relay<span class="punctuation">.</span><span class="function">injectNetworkLayer</span><span class="punctuation">(</span>
+  <span class="keyword">new</span> <span class="class-name">RelayLocalSchema<span class="punctuation">.</span>NetworkLayer</span><span class="punctuation">(</span><span class="punctuation">{</span> schema <span class="punctuation">}</span><span class="punctuation">)</span>
+<span class="punctuation">)</span><span class="punctuation">;</span></pre><p>And that&#x27;s that. Relay will send all of its queries to your custom client-resident schema, which will in turn resolve them by making calls to your existing REST API.</p><h2><a class="anchor" name="a-server-side-rest-wrapper"></a>A server-side REST wrapper <a class="hash-link" href="#a-server-side-rest-wrapper">#</a></h2><p>The client-side REST API wrapper demonstrated above should help you get up and running quickly so that you can try out a Relay version of your app (or part of your app).</p><p>However, as we mentioned before, this architecture features some inherent performance flaws because of how GraphQL is still calling your underlying REST API which can be very network intensive. A good next step is to move the schema from the client side to the server side to minimize latency on the network and to give you more power to cache responses.</p><p>Take the next 10 minutes to watch me build a server side version of the GraphQL wrapper above using Node and Express.</p><div><iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="https://www.youtube.com/embed/UBGzsb2UkeY?autoplay=0&origin=http://graphql.org&start=900"
+  frameborder="0"></iframe>
+
+</div><h2><a class="anchor" name="bonus-round-a-truly-relay-compliant-schema"></a>Bonus round: A truly Relay compliant schema <a class="hash-link" href="#bonus-round-a-truly-relay-compliant-schema">#</a></h2><p>The schema we developed above will work for Relay up until a certain point – the point at which you ask Relay to refetch data for records you&#x27;ve already downloaded. Relay&#x27;s refetching subsystem relies on your GraphQL schema exposing a special field that can fetch any entity in your data universe by GUID. We call this the <em>node interface</em>.</p><p>To expose a node interface requires that you do two things: offer a <code>node(id: String!)</code> field at the root of the query, and switch all of your ids over to GUIDs (globally-unique ids).</p><p>The <code>graphql-relay</code> package contains some helper functions to make this easy to do.</p><pre class="prism language-undefined">npm install <span class="operator">--</span>save graphql<span class="operator">-</span>relay</pre><h4><a class="anchor" name="global-ids"></a>Global ids <a class="hash-link" href="#global-ids">#</a></h4><p>First, let&#x27;s change the <code>id</code> field of <code>PersonType</code> into a GUID. To do this, we&#x27;ll use the <code>globalIdField</code> helper from <code>graphql-relay</code>.</p><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span>
+  globalIdField<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql-relay&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> PersonType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  name<span class="punctuation">:</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">,</span>
+  description<span class="punctuation">:</span> <span class="string">&#x27;Somebody that you used to know&#x27;</span><span class="punctuation">,</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    id<span class="punctuation">:</span> <span class="function">globalIdField</span><span class="punctuation">(</span><span class="string">&#x27;Person&#x27;</span><span class="punctuation">)</span><span class="punctuation">,</span>
+    <span spellcheck="true" class="comment">/* ... */</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span></pre><p>Behind the scenes <code>globalIdField</code> returns a field definition that resolves <code>id</code> to a <code>GraphQLString</code> by hashing together the typename <code>&#x27;Person&#x27;</code> and the id returned by the REST API. We can later use <code>fromGlobalId</code> to convert the result of this field back into <code>&#x27;Person&#x27;</code> and the REST API&#x27;s id.</p><h4><a class="anchor" name="the-node-field"></a>The node field <a class="hash-link" href="#the-node-field">#</a></h4><p>Another set of helpers from <code>graphql-relay</code> will give us a hand developing the node field. Your job is to supply the helper two functions:</p><ul><li>One function that can resolve an object given a GUID.</li><li>One function that can resolve a typename given an object.</li></ul><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span>
+  fromGlobalId<span class="punctuation">,</span>
+  nodeDefinitions<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql-relay&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> <span class="punctuation">{</span> nodeInterface<span class="punctuation">,</span> nodeField <span class="punctuation">}</span> <span class="operator">=</span> <span class="function">nodeDefinitions</span><span class="punctuation">(</span>
+  globalId <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span class="punctuation">{</span> type<span class="punctuation">,</span> id <span class="punctuation">}</span> <span class="operator">=</span> <span class="function">fromGlobalId</span><span class="punctuation">(</span>globalId<span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span>type <span class="operator">===</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">return</span> <span class="function">fetchPersonByURL</span><span class="punctuation">(</span><span class="template-string"><span class="string">`/people/</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>id<span class="interpolation-punctuation punctuation">}</span></span><span class="string">/`</span></span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span><span class="punctuation">,</span>
+  object <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span>object<span class="punctuation">.</span><span class="function">hasOwnProperty</span><span class="punctuation">(</span><span class="string">&#x27;username&#x27;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">return</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span><span class="punctuation">,</span>
+<span class="punctuation">)</span><span class="punctuation">;</span></pre><p>The object-to-typename resolver above is no marvel of engineering, but you get the idea.</p><p>Next, we simply need to add the <code>nodeInterface</code> and the <code>nodeField</code> to our schema. A complete example follows:</p><pre class="prism language-js"><span class="keyword">import</span> <span class="punctuation">{</span>
+  GraphQLList<span class="punctuation">,</span>
+  GraphQLObjectType<span class="punctuation">,</span>
+  GraphQLSchema<span class="punctuation">,</span>
+  GraphQLString<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql&#x27;</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="punctuation">{</span>
+  fromGlobalId<span class="punctuation">,</span>
+  globalIdField<span class="punctuation">,</span>
+  nodeDefinitions<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql-relay&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> BASE_URL <span class="operator">=</span> <span class="string">&#x27;https://myapp.com/&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">function</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetch</span><span class="punctuation">(</span><span class="template-string"><span class="string">`</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>BASE_URL<span class="interpolation-punctuation punctuation">}</span></span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>relativeURL<span class="interpolation-punctuation punctuation">}</span></span><span class="string">`</span></span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>res <span class="operator">=</span><span class="operator">&gt;</span> res<span class="punctuation">.</span><span class="function">json</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span class="function">fetchPeople</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span><span class="string">&#x27;/people/&#x27;</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>json <span class="operator">=</span><span class="operator">&gt;</span> json<span class="punctuation">.</span>people<span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span class="function">fetchPersonByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>json <span class="operator">=</span><span class="operator">&gt;</span> json<span class="punctuation">.</span>person<span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">const</span> <span class="punctuation">{</span> nodeInterface<span class="punctuation">,</span> nodeField <span class="punctuation">}</span> <span class="operator">=</span> <span class="function">nodeDefinitions</span><span class="punctuation">(</span>
+  globalId <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span class="punctuation">{</span> type<span class="punctuation">,</span> id <span class="punctuation">}</span> <span class="operator">=</span> <span class="function">fromGlobalId</span><span class="punctuation">(</span>globalId<span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span>type <span class="operator">===</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">return</span> <span class="function">fetchPersonByURL</span><span class="punctuation">(</span><span class="template-string"><span class="string">`/people/</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>id<span class="interpolation-punctuation punctuation">}</span></span><span class="string">/`</span></span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span><span class="punctuation">,</span>
+  object <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span>object<span class="punctuation">.</span><span class="function">hasOwnProperty</span><span class="punctuation">(</span><span class="string">&#x27;username&#x27;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">return</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span><span class="punctuation">,</span>
+<span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> PersonType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  name<span class="punctuation">:</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">,</span>
+  description<span class="punctuation">:</span> <span class="string">&#x27;Somebody that you used to know&#x27;</span><span class="punctuation">,</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    firstName<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> GraphQLString<span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>first_name<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    lastName<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> GraphQLString<span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>last_name<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    email<span class="punctuation">:</span> <span class="punctuation">{</span>type<span class="punctuation">:</span> GraphQLString<span class="punctuation">}</span><span class="punctuation">,</span>
+    id<span class="punctuation">:</span> <span class="function">globalIdField</span><span class="punctuation">(</span><span class="string">&#x27;Person&#x27;</span><span class="punctuation">)</span><span class="punctuation">,</span>
+    username<span class="punctuation">:</span> <span class="punctuation">{</span>type<span class="punctuation">:</span> GraphQLString<span class="punctuation">}</span><span class="punctuation">,</span>
+    friends<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>friends<span class="punctuation">.</span><span class="function">map</span><span class="punctuation">(</span>fetchPersonByURL<span class="punctuation">)</span><span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+  interfaces<span class="punctuation">:</span> <span class="punctuation">[</span> nodeInterface <span class="punctuation">]</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> QueryType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  name<span class="punctuation">:</span> <span class="string">&#x27;Query&#x27;</span><span class="punctuation">,</span>
+  description<span class="punctuation">:</span> <span class="string">&#x27;The root of all... queries&#x27;</span><span class="punctuation">,</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    allPeople<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> fetchPeople<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    node<span class="punctuation">:</span> nodeField<span class="punctuation">,</span>
+    person<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> PersonType<span class="punctuation">,</span>
+      args<span class="punctuation">:</span> <span class="punctuation">{</span>
+        id<span class="punctuation">:</span> <span class="punctuation">{</span> type<span class="punctuation">:</span> GraphQLString <span class="punctuation">}</span><span class="punctuation">,</span>
+      <span class="punctuation">}</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> <span class="punctuation">(</span>root<span class="punctuation">,</span> args<span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="function">fetchPersonByURL</span><span class="punctuation">(</span><span class="template-string"><span class="string">`/people/</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>args<span class="punctuation">.</span>id<span class="interpolation-punctuation punctuation">}</span></span><span class="string">/`</span></span><span class="punctuation">)</span><span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="class-name">GraphQLSchema</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  query<span class="punctuation">:</span> QueryType<span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span><div class="line-highlight" style="height:21px;top:442px;"></div><div class="line-highlight" style="height:21px;top:459px;"></div><div class="line-highlight" style="height:21px;top:476px;"></div><div class="line-highlight" style="height:21px;top:493px;"></div><div class="line-highlight" style="height:21px;top:510px;"></div><div class="line-highlight" style="height:21px;top:527px;"></div><div class="line-highlight" style="height:21px;top:544px;"></div><div class="line-highlight" style="height:21px;top:561px;"></div><div class="line-highlight" style="height:21px;top:578px;"></div><div class="line-highlight" style="height:21px;top:595px;"></div><div class="line-highlight" style="height:21px;top:612px;"></div><div class="line-highlight" style="height:21px;top:629px;"></div><div class="line-highlight" style="height:21px;top:646px;"></div><div class="line-highlight" style="height:21px;top:901px;"></div><div class="line-highlight" style="height:21px;top:1020px;"></div><div class="line-highlight" style="height:21px;top:1207px;"></div></pre><h2><a class="anchor" name="taming-pathological-queries"></a>Taming pathological queries <a class="hash-link" href="#taming-pathological-queries">#</a></h2><p>Consider the following friends-of-friends-of-friends query:</p><pre class="prism language-graphql"><span class="keyword">query</span> <span class="punctuation">{</span>
+  person<span class="punctuation">(</span><span class="attr-name">id</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+    firstName
+    friends <span class="punctuation">{</span>
+      firstName
+      friends <span class="punctuation">{</span>
+        firstName
+        friends <span class="punctuation">{</span>
+          firstName
+        <span class="punctuation">}</span>
+      <span class="punctuation">}</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span></pre><p>The schema we created above will generate multiple round trips to the REST API for the same data.</p><p><img src="/img/blog/20160502-rest-api-graphql-wrapper/pathological-query.png" alt="Duplicate queries to the REST API" title="Duplicate queries to the REST API"/></p><p>This is obviously something we would like to avoid! At the very least, we need a way to cache the result of these requests.</p><p>We created a library called DataLoader to help tame these sorts of queries.</p><pre class="prism language-undefined">npm install <span class="operator">--</span>save dataloader</pre><p>As a special note, make sure that your runtime offers native or polyfilled versions of <code>Promise</code> and <code>Map</code>. Read more <a href="https://github.com/facebook/dataloader#getting-started" target="_blank" rel="nofollow noopener noreferrer">at the DataLoader site</a>.</p><h4><a class="anchor" name="creating-a-data-loader"></a>Creating a data loader <a class="hash-link" href="#creating-a-data-loader">#</a></h4><p>To create a <code>DataLoader</code> you supply a method that can resolve a list of objects given a list of keys. In our example, the keys are URLs at which we access our REST API.</p><pre class="prism language-js"><span class="keyword">const</span> personLoader <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">DataLoader</span><span class="punctuation">(</span>
+  urls <span class="operator">=</span><span class="operator">&gt;</span> Promise<span class="punctuation">.</span><span class="function">all</span><span class="punctuation">(</span>urls<span class="punctuation">.</span><span class="function">map</span><span class="punctuation">(</span>fetchPersonByURL<span class="punctuation">)</span><span class="punctuation">)</span>
+<span class="punctuation">)</span><span class="punctuation">;</span></pre><p>If this data loader sees a key more than once in its lifetime, it will return a memoized (cached) version of the response.</p><h4><a class="anchor" name="loading-data"></a>Loading data <a class="hash-link" href="#loading-data">#</a></h4><p>We can make use of the <code>load()</code> and <code>loadMany()</code> methods on <code>personLoader</code> to load URLs without fear of hitting the REST API more than once per URL. A complete example follows:</p><pre class="prism language-js"><span class="keyword">import</span> DataLoader <span class="keyword">from</span> <span class="string">&#x27;dataloader&#x27;</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="punctuation">{</span>
+  GraphQLList<span class="punctuation">,</span>
+  GraphQLObjectType<span class="punctuation">,</span>
+  GraphQLSchema<span class="punctuation">,</span>
+  GraphQLString<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql&#x27;</span><span class="punctuation">;</span>
+<span class="keyword">import</span> <span class="punctuation">{</span>
+  fromGlobalId<span class="punctuation">,</span>
+  globalIdField<span class="punctuation">,</span>
+  nodeDefinitions<span class="punctuation">,</span>
+<span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">&#x27;graphql-relay&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> BASE_URL <span class="operator">=</span> <span class="string">&#x27;https://myapp.com/&#x27;</span><span class="punctuation">;</span>
+
+<span class="keyword">function</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetch</span><span class="punctuation">(</span><span class="template-string"><span class="string">`</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>BASE_URL<span class="interpolation-punctuation punctuation">}</span></span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>relativeURL<span class="interpolation-punctuation punctuation">}</span></span><span class="string">`</span></span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>res <span class="operator">=</span><span class="operator">&gt;</span> res<span class="punctuation">.</span><span class="function">json</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span class="function">fetchPeople</span><span class="punctuation">(</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span><span class="string">&#x27;/people/&#x27;</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>json <span class="operator">=</span><span class="operator">&gt;</span> json<span class="punctuation">.</span>people<span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">function</span> <span class="function">fetchPersonByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="function">fetchResponseByURL</span><span class="punctuation">(</span>relativeURL<span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>json <span class="operator">=</span><span class="operator">&gt;</span> json<span class="punctuation">.</span>person<span class="punctuation">)</span><span class="punctuation">;</span>
+<span class="punctuation">}</span>
+
+<span class="keyword">const</span> personLoader <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">DataLoader</span><span class="punctuation">(</span>
+  urls <span class="operator">=</span><span class="operator">&gt;</span> Promise<span class="punctuation">.</span><span class="function">all</span><span class="punctuation">(</span>urls<span class="punctuation">.</span><span class="function">map</span><span class="punctuation">(</span>fetchPersonByURL<span class="punctuation">)</span><span class="punctuation">)</span>
+<span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> <span class="punctuation">{</span> nodeInterface<span class="punctuation">,</span> nodeField <span class="punctuation">}</span> <span class="operator">=</span> <span class="function">nodeDefinitions</span><span class="punctuation">(</span>
+  globalId <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span class="punctuation">{</span>type<span class="punctuation">,</span> id<span class="punctuation">}</span> <span class="operator">=</span> <span class="function">fromGlobalId</span><span class="punctuation">(</span>globalId<span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span>type <span class="operator">===</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">return</span> personLoader<span class="punctuation">.</span><span class="function">load</span><span class="punctuation">(</span><span class="template-string"><span class="string">`/people/</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>id<span class="interpolation-punctuation punctuation">}</span></span><span class="string">/`</span></span><span class="punctuation">)</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span><span class="punctuation">,</span>
+  object <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">{</span>
+    <span class="keyword">if</span> <span class="punctuation">(</span>object<span class="punctuation">.</span><span class="function">hasOwnProperty</span><span class="punctuation">(</span><span class="string">&#x27;username&#x27;</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="punctuation">{</span>
+      <span class="keyword">return</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">;</span>
+    <span class="punctuation">}</span>
+  <span class="punctuation">}</span><span class="punctuation">,</span>
+<span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> PersonType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  name<span class="punctuation">:</span> <span class="string">&#x27;Person&#x27;</span><span class="punctuation">,</span>
+  description<span class="punctuation">:</span> <span class="string">&#x27;Somebody that you used to know&#x27;</span><span class="punctuation">,</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    firstName<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> GraphQLString<span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>first_name<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    lastName<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> GraphQLString<span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> person<span class="punctuation">.</span>last_name<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    email<span class="punctuation">:</span> <span class="punctuation">{</span>type<span class="punctuation">:</span> GraphQLString<span class="punctuation">}</span><span class="punctuation">,</span>
+    id<span class="punctuation">:</span> <span class="function">globalIdField</span><span class="punctuation">(</span><span class="string">&#x27;Person&#x27;</span><span class="punctuation">)</span><span class="punctuation">,</span>
+    username<span class="punctuation">:</span> <span class="punctuation">{</span>type<span class="punctuation">:</span> GraphQLString<span class="punctuation">}</span><span class="punctuation">,</span>
+    friends<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> person <span class="operator">=</span><span class="operator">&gt;</span> personLoader<span class="punctuation">.</span><span class="function">loadMany</span><span class="punctuation">(</span>person<span class="punctuation">.</span>friends<span class="punctuation">)</span><span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+  interfaces<span class="punctuation">:</span> <span class="punctuation">[</span>nodeInterface<span class="punctuation">]</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">const</span> QueryType <span class="operator">=</span> <span class="keyword">new</span> <span class="class-name">GraphQLObjectType</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  name<span class="punctuation">:</span> <span class="string">&#x27;Query&#x27;</span><span class="punctuation">,</span>
+  description<span class="punctuation">:</span> <span class="string">&#x27;The root of all... queries&#x27;</span><span class="punctuation">,</span>
+  fields<span class="punctuation">:</span> <span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> <span class="punctuation">(</span><span class="punctuation">{</span>
+    allPeople<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> <span class="keyword">new</span> <span class="class-name">GraphQLList</span><span class="punctuation">(</span>PersonType<span class="punctuation">)</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> fetchPeople<span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+    node<span class="punctuation">:</span> nodeField<span class="punctuation">,</span>
+    person<span class="punctuation">:</span> <span class="punctuation">{</span>
+      type<span class="punctuation">:</span> PersonType<span class="punctuation">,</span>
+      args<span class="punctuation">:</span> <span class="punctuation">{</span>
+        id<span class="punctuation">:</span> <span class="punctuation">{</span> type<span class="punctuation">:</span> GraphQLString <span class="punctuation">}</span><span class="punctuation">,</span>
+      <span class="punctuation">}</span><span class="punctuation">,</span>
+      resolve<span class="punctuation">:</span> <span class="punctuation">(</span>root<span class="punctuation">,</span> args<span class="punctuation">)</span> <span class="operator">=</span><span class="operator">&gt;</span> personLoader<span class="punctuation">.</span><span class="function">load</span><span class="punctuation">(</span><span class="template-string"><span class="string">`/people/</span><span class="interpolation"><span class="interpolation-punctuation punctuation">${</span>args<span class="punctuation">.</span>id<span class="interpolation-punctuation punctuation">}</span></span><span class="string">/`</span></span><span class="punctuation">)</span><span class="punctuation">,</span>
+    <span class="punctuation">}</span><span class="punctuation">,</span>
+  <span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+
+<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="class-name">GraphQLSchema</span><span class="punctuation">(</span><span class="punctuation">{</span>
+  query<span class="punctuation">:</span> QueryType<span class="punctuation">,</span>
+<span class="punctuation">}</span><span class="punctuation">)</span><span class="punctuation">;</span><div class="line-highlight" style="height:21px;top:595px;"></div><div class="line-highlight" style="height:21px;top:1054px;"></div><div class="line-highlight" style="height:21px;top:1394px;"></div></pre><p>Now, our pathological query produces the following nicely de-duped set of requests to the REST API:</p><p><img src="/img/blog/20160502-rest-api-graphql-wrapper/dataloader-query.png" alt="De-duped queries to the REST API" title="De-duped queries to the REST API"/></p><h3><a class="anchor" name="query-planning-and-beyond"></a>Query planning and beyond <a class="hash-link" href="#query-planning-and-beyond">#</a></h3><p>Consider that your REST API might already offer configuration offers that let you eagerly load associations. Maybe to load a person and all of their direct friends you might hit the URL <code>/people/1/?include_friends</code>. To take advantage of this in your GraphQL schema you will need the ability to develop a resolution plan based on the structure of the query itself (eg. whether the <code>friends</code> field is part of the query or not).</p><p>For those interested in the current thinking around advanced resolution strategies, keep an eye on <a href="https://github.com/graphql/graphql-js/pull/304" target="_blank" rel="nofollow noopener noreferrer">pull request #304</a>.</p><h2><a class="anchor" name="thanks-for-reading"></a>Thanks for reading <a class="hash-link" href="#thanks-for-reading">#</a></h2><p>I hope that this demonstration has torn down some of the barriers between you and a functional GraphQL endpoint, and has inspired you to experiment with GraphQL and Relay on an existing project.</p></div></div><div class="nav-docs"><div class="nav-docs-section"><h3>Subscribe</h3><a rel="home" type="application/rss+xml" href="/blog/rss.xml">RSS</a></div><div class="nav-docs-section"><h3>Recent Posts</h3><ul><li><a href="/blog/production-ready/">Leaving technical preview</a></li><li>Wrapping a REST API in GraphQL</li><li><a href="/blog/mocking-with-graphql/">Mocking your server is easy with GraphQL</a></li><li><a href="/blog/subscriptions-in-graphql-and-relay/">Subscriptions in GraphQL and Relay</a></li><li><a href="/blog/graphql-a-query-language/">GraphQL: A data query language</a></li></ul></div></div></div></section><footer><section class="sitemap"><a href="/" class="nav-home"></a><div><h5><a href="/learn/">Learn</a></h5><a href="/learn/">Introduction</a><a href="/learn/queries/">Query Language</a><a href="/learn/schema/">Type System</a><a href="/learn/execution/">Execution</a><a href="/learn/best-practices/">Best Practices</a></div><div><h5><a href="/code">Code</a></h5><a href="/code/#server-libraries">Servers</a><a href="/code/#graphql-clients">Clients</a><a href="/code/#tools">Tools</a></div><div><h5><a href="/community">Community</a></h5><a href="/community/upcoming-events/">Upcoming Events</a><a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank" rel="noopener noreferrer">Stack Overflow</a><a href="https://www.facebook.com/groups/graphql.community/" target="_blank" rel="noopener noreferrer">Facebook Group</a><a href="https://twitter.com/GraphQL" target="_blank" rel="noopener noreferrer">Twitter</a></div><div><h5>More</h5><a href="https://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">GraphQL Specification</a><a href="https://foundation.graphql.org/" target="_blank" rel="noopener noreferrer">GraphQL Foundation</a><a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GraphQL GitHub</a><a href="https://github.com/graphql/graphql.github.io/edit/source/site/blog/20160502-rest-api-graphql-wrapper.md" target="_blank" rel="noopener noreferrer">Edit this page ✎</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noopener noreferrer" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright ©<span><script>document.write(new Date().getFullYear())</script> </span><noscript>2017 </noscript>Facebook Inc. The contents of this page are licensed BSD-3-Clause.</section></footer><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+        docsearch({
+          apiKey: 'd103541f3e6041148aade2e746ed4d61',
+          indexName: 'graphql',
+          inputSelector: '#algolia-search-input'
+        });
+      </script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44373548-16', 'auto');
+ga('send', 'pageview');
+      </script></body></html>
