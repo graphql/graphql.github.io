@@ -27,11 +27,11 @@ Both mutations and queries can be handled by root resolvers, so the root that im
 ```javascript
 var fakeDatabase = {};
 var root = {
-  setMessage: function ({message}) {
+  setMessage: ({message}) => {
     fakeDatabase.message = message;
     return message;
   },
-  getMessage: function () {
+  getMessage: () => {
     return fakeDatabase.message;
   }
 };
@@ -112,20 +112,20 @@ class Message {
 var fakeDatabase = {};
 
 var root = {
-  getMessage: function ({id}) {
+  getMessage: ({id}) => {
     if (!fakeDatabase[id]) {
       throw new Error('no message exists with id ' + id);
     }
     return new Message(id, fakeDatabase[id]);
   },
-  createMessage: function ({input}) {
+  createMessage: ({input}) => {
     // Create a random id for our "database".
     var id = require('crypto').randomBytes(10).toString('hex');
 
     fakeDatabase[id] = input;
     return new Message(id, input);
   },
-  updateMessage: function ({id, input}) {
+  updateMessage: ({id, input}) => {
     if (!fakeDatabase[id]) {
       throw new Error('no message exists with id ' + id);
     }
