@@ -46,6 +46,9 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 - [Graphcool Slack](https://slack.graph.cool/)
 - [Scaphold.io Slack](http://slack.scaphold.io/)
 
+## Reddit Community:
+- [r/Nestjs_framework] (https://www.reddit.com/r/Nestjs_framework/)
+
 ## Blogs
 
 Here are a list of notable blog posts to help you better understand GraphQL:
