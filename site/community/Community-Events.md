@@ -8,6 +8,14 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
+### GraphQL Day Toronto
+
+- **Date:** February 28, 2019
+- **Location:** Toronto, Canada
+- **Link:** https://www.graphqlday.org/
+
+GraphQL Day Toronto is a single-day conference focusing on all things GraphQL. Learn more about what GraphQL can do, hear from a lineup of thought leaders in the space, and meet other decision makers with similar issues that can be solved with GraphQL.
+
 ### GraphQL Summit
 
 - **Date:** November 7-8, 2018
