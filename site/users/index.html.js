@@ -666,6 +666,11 @@ var logos = [
     img: 'cloverleaf.png',
     link: 'https://cloverleaf.me/'
   },
+  {
+    name: 'TravelgateX',
+    img: 'travelgatex.png',
+    link: 'https://www.travelgatex.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
