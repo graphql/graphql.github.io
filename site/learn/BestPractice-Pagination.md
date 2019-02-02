@@ -3,7 +3,7 @@ title: Pagination
 layout: ../_core/DocsLayout
 category: Best Practices
 permalink: /learn/pagination/
-next: /learn/caching/
+next: /learn/global-object-identification/
 ---
 
 > Different pagination models enable different client capabilities
