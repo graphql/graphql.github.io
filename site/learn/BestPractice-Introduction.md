@@ -16,7 +16,7 @@ Following are brief descriptions of some of the more common best practices and o
 
 ### HTTP
 
-GraphQL is typically served over HTTP via a single endpoint which expresses the full set of capabilities of the service. This is in contrast to REST APIs which expose a suite of URLs each of which expose a single resource. While GraphQL could be used alongside a suite of resource URLs, this can make it harder to use with tools like GraphiQL.
+GraphQL is typically served over HTTP via a single endpoint which expresses the full set of capabilities of the service. This is in contrast to REST APIs which expose a suite of URLs each of which expose a single resource. While GraphQL could be used alongside a suite of resource URLs, this can make it harder to use with tools like [GraphiQL](https://github.com/graphql/graphiql).
 
 Read more about this in [Serving over HTTP](/learn/serving-over-http/).
 
@@ -40,7 +40,7 @@ While there's nothing that prevents a GraphQL service from being versioned just 
 
 Why do most APIs version? When there's limited control over the data that's returned from an API endpoint, *any change* can be considered a breaking change, and breaking changes require a new version. If adding new features to an API requires a new version, then a tradeoff emerges between releasing often and having many incremental versions versus the understandability and maintainability of the API.
 
-In contrast, GraphQL only returns the data that's explicitly requested, so new capabilities can be added via new types and new fields on those types without creating a breaking change. This has lead to a common practice of always avoiding breaking changes and serving a versionless API.
+In contrast, GraphQL only returns the data that's explicitly requested, so new capabilities can be added via new types and new fields on those types without creating a breaking change. This has led to a common practice of always avoiding breaking changes and serving a versionless API.
 
 
 ### Nullability

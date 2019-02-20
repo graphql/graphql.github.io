@@ -42,7 +42,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
   - [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
   - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
-  - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Service for .net core and .net classic
+  - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Server for .net core and .net classic
 
 ### Clojure
 
@@ -107,7 +107,9 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 (executor/execute nil schema resolver-fn "{ hello }")
 \`\`\`
 
-  - [lacinia](https://github.com/walmartlabs/lacinia): A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
+#### [lacinia](https://github.com/walmartlabs/lacinia)
+
+A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
 
 ### Elixir
 
@@ -121,8 +123,9 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 ### Go
 
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
+  - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go): An active implementation of GraphQL in Golang (was https://github.com/neelance/graphql-go).
+  - [GQLGen](https://github.com/99designs/gqlgen) - Go generate based graphql server library.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
-  - [neelance/graphql-go](https://github.com/neelance/graphql-go): An active implementation of GraphQL in Golang.
   - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
 
@@ -334,7 +337,8 @@ $resolvers = [
 ];
 $schema = Graphql\schema($typeDefs, $resolvers);
 
-echo "Server running at http://127.0.0.1:8080\n";
+echo "Server running at http://127.0.0.1:8080";
+
 Http\server(Graphql\psr7($schema), function (\Throwable $err) {
     var_dump($err);
     return Diactoros\json([
