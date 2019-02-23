@@ -67,8 +67,8 @@ would start at; let's ask the introspection system about that!
 And that matches what we said in the type system section, that
 the `Query` type is where we will start! Note that the naming here
 was just by convention; we could have named our `Query` type anything
-else, and it still would have been returned here had we specified it
-was the starting type for queries. Naming it `Query`, though, is a useful
+else, and it still would have been returned it here had we specified that
+as the starting type for queries. Naming it `Query`, though, is a useful
 convention.
 
 It is often useful to examine one specific type. Let's take a look at
