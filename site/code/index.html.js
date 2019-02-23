@@ -31,7 +31,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Erlang](#erlang)
 - [Go](#go)
 - [Groovy](#groovy)
-- [Java](#java)
+- [Java / Kotlin](#java-kotlin)
 - [JavaScript](#javascript)
 - [PHP](#php)
 - [Python](#python)
@@ -149,7 +149,7 @@ See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index
 
 GQL is a Groovy library for GraphQL
 
-### Java
+### Java / Kotlin
 
 #### [graphql-java](https://github.com/graphql-java/graphql-java)
 
@@ -460,7 +460,7 @@ Executor.execute(schema, query) map println
 
   - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
 
-### Java / Android
+### Java / Kotlin / Android
 
   - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
 
