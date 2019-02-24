@@ -137,3 +137,6 @@ To see this in action, there's an additional field in the example schema, called
 }
 ```
 
+## Connection Specification
+
+To ensure a consistent implementation of this pattern, the Relay project has a formal [specification](https://facebook.github.io/relay/graphql/connections.htm) you can follow for building GraphQL APIs which use a cursor based connection pattern.
