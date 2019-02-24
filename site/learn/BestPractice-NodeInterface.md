@@ -17,7 +17,7 @@ request an object by ID. Then, in the response, the schema will need to provide 
 standard way of providing these IDs.
 
 Because little is known about the object other than its ID, we call these
-objects "nodes." An example of a query for a  node is the following query:
+objects "nodes." Here is an example query for a node:
 
 ```graphql
 {
@@ -29,9 +29,30 @@ objects "nodes." An example of a query for a  node is the following query:
   }
 ```
 
-- This API allows refetching the object via the `node` field on the root query object.
-- The ID to be used for refetching is provided in an `id` field on the result.
-- By using an [Interface](/learn/schema/#interfaces) for the node you can extract out underlying type and data
+- The GraphQL schema is formatted to allow fetching any object via the `node` field on the root query object. This
+  returns objects which conform to a "Node" [interface](/learn/schema/#interfaces).
+- The `id` field can be extracted out of the response safely, and can be stored for re-use via caching and refetching.
+- Clients can use interface fragments to extract additional information specific to the type which conform to the node interface. In this case a "User".
+
+The Node interface looks like:
+
+```graphql
+# An object with a Globally Unique ID
+interface Node {
+  # The ID of the object.
+  id: ID!
+}
+```
+
+With a User conforming via:
+
+```graphql
+type User implements Node {
+  id: ID!
+  # Full name
+  name: String!
+}
+```
 
 # Specification
 
