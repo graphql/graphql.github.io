@@ -657,6 +657,11 @@ var logos = [
     link: 'https://trends.ucweb.com'
   },
   {
+    name: 'ener|xess GmbH',
+    img: 'enerxess.png',
+    link: 'https://meet.enerxess.com/'
+  },
+  {
     name: 'Expert360',
     img: 'expert360.png',
     link: 'https://expert360.com'
