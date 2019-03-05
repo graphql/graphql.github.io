@@ -360,6 +360,11 @@ var logos = [
     link: 'https://www.adayroi.com/'
   },
   {
+    name: 'Chosogia.com',
+    img: 'main-logo2.svg',
+    link: 'https://chosogia.com/'
+  },
+  {
     name: 'Startups.co',
     img: 'startupsco.png',
     link: 'https://www.startups.co/'
