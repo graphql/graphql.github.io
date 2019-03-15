@@ -13,7 +13,7 @@ Many members of the community use Stack Overflow to ask and answer questions. [R
 
 ## Facebook Group
 
-Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) for questions, discussion, and sharing. The GraphQL Facebook group is the preferred venue for announcements and broader discussion.
+Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) sharing and discovering new content. The GraphQL Facebook group is the preferred venue for announcements and broader discussion.
 
 ## Twitter
 
@@ -22,7 +22,6 @@ Use the [**#graphql** hashtag](https://twitter.com/search?q=%23GraphQL&src=tyah)
 Here are some helpful accounts to follow:
 - [@GraphQL](https://twitter.com/GraphQL)
 - [@graphqlweekly](https://twitter.com/graphqlweekly)
-- [@graphqlnews](https://twitter.com/graphqlnews)
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollographql](https://twitter.com/apollographql)
 - [@graphcool](https://twitter.com/graphcool)
@@ -51,13 +50,19 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 
 Here are a list of notable blog posts to help you better understand GraphQL:
 
+- [GraphQL: A data query language](/blog/graphql-a-query-language/) - Lee Byron
+- [Subscriptions in GraphQL and Relay](/blog/subscriptions-in-graphql-and-relay/) - Dan Schafer and Laney Kuenzel
+- [Mocking your server is easy with GraphQL](/blog/mocking-with-graphql/) - Jonas Helfer
+- [Wrapping a REST API in GraphQL](/blog/rest-api-graphql-wrapper/) - Steven Luscher
+- [Leaving technical preview](/blog/production-ready/) - Lee Byron
+- [Relicensing the GraphQL specification](https://medium.com/@leeb/relicensing-the-graphql-specification-e7d07a52301b) - Lee Byron
 - [GraphQL Introduction](https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html) - Nick Schrock
 - [From REST to GraphQL](https://0x2a.sh/from-rest-to-graphql-b4e95e94c26b#.tag7nzkrb) - Jacob Gillespie
 - [GraphQL Explained](https://medium.com/apollo-stack/graphql-explained-5844742f195e#.zdykxos6i) - Jonas Helfer
 - [GraphQL Concepts Visualized](https://medium.com/apollo-stack/the-concepts-of-graphql-bc68bd819be3#.hfczgtdsj) - Dhaivat Pandya
-- [Building the f8 App: Using GraphQL & Relay](http://makeitopen.com/tutorials/building-the-f8-app/relay/)
+- [Building the f8 App: Using GraphQL & Relay](http://makeitopen.com/docs/en/1-A2-relay.html)
 - [Your First GraphQL Server](https://medium.com/the-graphqlhub/your-first-graphql-server-3c766ab4f0a2#.ovn0y19k4) - Clay Allsopp
-- [Tutorial: Kick start a JS API with Apollo-server, Dataloader and Knex](https://bamtech.gitbooks.io/dev-standards/content/backend/graphql-js/getting-started-with-apollo-server-dataloader-knex.mo.html) - Thomas Pucci
+- [Tutorial: Kick start a JS API with Apollo-server, Dataloader and Knex](https://bamtech.gitbook.io/dev-standards/backend/graphql-js/getting-started-with-apollo-server-dataloader-knex.mo) - Thomas Pucci
 - [Tutorial: How to Build a GraphQL Server](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035#.bu6sdnst4) - Jonas Helfer
 - [Designing Powerful APIs with GraphQL Query Parameters](https://www.graph.cool/docs/tutorials/designing-powerful-apis-with-graphql-query-parameters-aing7uech3/) - Johannes Schickling
 - [GraphQL and the amazing Apollo Client](https://medium.com/google-developer-experts/graphql-and-the-amazing-apollo-client-fe57e162a70c) - Gerard Sans
@@ -92,9 +97,15 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Unleashing the power of GraphQL using Angular 2](https://www.youtube.com/watch?v=VYpJ9pfugM8) - Gerard Sans, NG-BE 2016
 - [Webinar Series: GraphQL Around The World](https://graphql-world.com/webinar) - Vince Ning & Michael Paris
 - [All Talks from GraphQL Europe](https://www.youtube.com/playlist?list=PLn2e1F9Rfr6n_WFm9fPE-_wYPrYvSTySt) - Lee Byron, Sashko Stubailo, Dan Schafer, Johannes Schickling and many more
+- [Learning GraphQL with React and Relay](https://www.packtpub.com/application-development/learning-graphql-react-and-relay-video) by Divyendu Singh
+- [Hands-on GraphQL for Better RESTful Web Services (Video)](https://www.packtpub.com/application-development/hands-graphql-better-restful-web-services-video) by Ashwin Hegde
 
 ## Books
 
+- [The GraphQL Guide](https://graphql.guide) by John Resig and Loren Sands-Ramshaw
+- [Learning GraphQL](https://www.amazon.com/Learning-GraphQL-Declarative-Fetching-Modern/dp/1492030716/) by Eve Porcello and Alex Banks
+- [Fullstack GraphQL](https://www.graphql.college/fullstack-graphql) by Julian Mayorga
+- [Craft GraphQL APIs in Elixir with Absinthe](https://pragprog.com/book/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe) by Bruce Williams and Ben Wilson
 - [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
 
 ## More Resources

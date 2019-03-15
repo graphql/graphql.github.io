@@ -141,7 +141,7 @@ const PersonType = new GraphQLObjectType({
     /* ... */
     friends: {
       type: new GraphQLList(PersonType),
-      resolve: person => person.friends.map(getPersonByURL),
+      resolve: person => person.friends.map(fetchPersonByURL),
     },
   }),
 });
@@ -198,7 +198,7 @@ However, as we mentioned before, this architecture features some inherent perfor
 Take the next 10 minutes to watch me build a server side version of the GraphQL wrapper above using Node and Express.
 
 <iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/UBGzsb2UkeY?autoplay=0&origin=http://graphql.org&start=900"
+  src="https://www.youtube.com/embed/UBGzsb2UkeY?autoplay=0&origin=http://graphql.org&start=900"
   frameborder="0"></iframe>
 
 ## Bonus round: A truly Relay compliant schema
@@ -395,7 +395,7 @@ To create a `DataLoader` you supply a method that can resolve a list of objects 
 
 ```js
 const personLoader = new DataLoader(
-  urls => Promise.all(urls.map(getPersonByURL))
+  urls => Promise.all(urls.map(fetchPersonByURL))
 );
 ```
 
