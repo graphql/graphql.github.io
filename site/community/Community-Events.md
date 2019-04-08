@@ -61,6 +61,7 @@ GraphQL Conf is a non-profit GraphQL conference in Europe with speakers from all
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
 - [GraphQL Lisbon](https://www.meetup.com/GraphQL-Lisbon/)
 - [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
+- [GraphQL Milano](https://www.meetup.com/GraphQL-Milano/)
 
 ### Australia
 
