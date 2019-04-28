@@ -465,7 +465,6 @@ Executor.execute(schema, query) map println
 
   - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
 
-
 ### Java / Android
 
   - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
