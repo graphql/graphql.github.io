@@ -29,6 +29,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Clojure](#clojure)
 - [Elixir](#elixir)
 - [Erlang](#erlang)
+- [Flutter](#flutter)
 - [Go](#go)
 - [Groovy](#groovy)
 - [Java](#java)
@@ -117,6 +118,10 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 ### Erlang
 
   - [graphql-erlang](https://github.com/shopgun/graphql-erlang): GraphQL implementation in Erlang.
+
+### Flutter
+
+  - [graphql-flutter](https://github.com/zino-app/graphql-flutter): GraphQL implementation in Flutter.
 
 ### Go
 
