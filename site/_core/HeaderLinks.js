@@ -12,8 +12,9 @@ const links = [
   { section: 'learn', text: 'Learn', href: '/learn/' },
   { section: 'code', text: 'Code', href: '/code/' },
   { section: 'community', text: 'Community', href: '/community/' },
-  { section: 'blog', text: 'Blog', href: '/blog/' },
-  { section: 'spec', text: 'Spec', href: 'http://facebook.github.io/graphql/' },
+  { section: 'spec', text: 'Spec', href: 'https://facebook.github.io/graphql/' },
+  { section: 'codeofconduct', text: 'Code of Conduct', href: '/codeofconduct/' },
+  { section: 'foundation', text: 'Foundation', href: 'https://foundation.graphql.org/' },
 ];
 
 export default ({ section }) =>

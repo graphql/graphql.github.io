@@ -8,13 +8,21 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL Europe Conference
+### GraphQL Summit
 
-- **Date:** June 15, 2018
+- **Date:** November 7-8, 2018
+- **Location:** San Francisco, U.S.A.
+- **Link:** https://summit.graphql.com
+
+World's largest conference dedicated to GraphQL.
+
+### GraphQL Conf Berlin 2019
+
+- **Date:** June 20-21, 2019
 - **Location:** Berlin, Germany
-- **Link:** https://graphql-europe.org
+- **Link:** https://www.graphqlconf.org/
 
-GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
+GraphQL Conf is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
 
 ## Meetups
 
@@ -27,7 +35,6 @@ GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from a
 - [GraphQL NYC](https://www.meetup.com/GraphQL-NYC/)
 - [GraphQL Atlanta](https://www.meetup.com/GraphQL-Atlanta/)
 - [GraphQL Austin](https://www.meetup.com/ATX-GraphQL/)
-- [GraphQL Miami](https://www.meetup.com/Miami-GraphQL/)
 - [GraphQL Los Angeles](https://www.meetup.com/Los-Angeles-GraphQL-Meetup/)
 - [GraphQL Dallas-Fort Worth](https://www.meetup.com/DFW-GraphQL-Meetup/)
 - [GraphQL Ottawa](https://www.meetup.com/GraphQL-Ottawa/)
@@ -46,7 +53,6 @@ GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from a
 
 - [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/)
 - [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
-- [GraphQL Istanbul](https://www.meetup.com/GraphQL-Istanbul/)
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
 - [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
@@ -59,10 +65,11 @@ GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from a
 ### Australia
 
 - [GraphQL Melbourne](http://graphql.melbourne/)
-- [GraphQL Sydney](http://graphql.sydney/)
+- [GraphQL Sydney](https://graphql.sydney/)
 
 ### Asia
 
 - [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
 - [GraphQL Tokyo](https://www.meetup.com/GraphQL-Tokyo/)
 - [GraphQL Meetup (Bangalore)](https://www.meetup.com/GraphQL-Meetup/)
+- [GraphQL Meetup (Bangkok)](https://www.meetup.com/GraphQL-Bangkok/)

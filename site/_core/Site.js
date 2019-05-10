@@ -81,9 +81,9 @@ export default ({ page, category, title, section, className, noSearch, children 
           </div>
           <div>
             <h5>More</h5>
-            <a href="/blog">GraphQL Team Blog</a>
-            <a href="http://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">Read the Spec</a>
-            <a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://facebook.github.io/graphql/" target="_blank" rel="noopener noreferrer">GraphQL Specification</a>
+            <a href="https://foundation.graphql.org/" target="_blank" rel="noopener noreferrer">GraphQL Foundation</a>
+            <a href="https://github.com/graphql" target="_blank" rel="noopener noreferrer">GraphQL GitHub</a>
             {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank" rel="noopener noreferrer">Edit this page &#x270E;</a>}
           </div>
         </section>
@@ -91,10 +91,7 @@ export default ({ page, category, title, section, className, noSearch, children 
           <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
         </a>
         <section className="copyright">
-          Copyright &copy;
-          <span><script>document.write(new Date().getFullYear())</script> </span>
-          <noscript>2017 </noscript>
-          Facebook Inc. The contents of this page are licensed BSD-3-Clause.
+          The contents of this page are licensed BSD-3-Clause.
         </section>
       </footer>
 
