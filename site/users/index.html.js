@@ -666,6 +666,11 @@ var logos = [
     img: 'cloverleaf.png',
     link: 'https://cloverleaf.me/'
   },
+  {
+    name: 'Contentful',
+    img: 'contentful.png',
+    link: 'https://www.contentful.com/features/graphql/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
