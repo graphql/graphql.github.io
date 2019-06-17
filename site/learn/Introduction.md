@@ -36,7 +36,7 @@ function User_name(user) {
 }
 ```
 
-Once a GraphQL service is running (typically at a URL on a web service), it can be sent GraphQL queries to validate and execute. A received query is first checked to ensure it only refers to the types and fields defined, then runs the provided functions to produce a result.
+Once a GraphQL service is running (typically at a URL on a web service), it can send GraphQL queries to validate and execute. A received query is first checked to ensure it only refers to the types and fields defined, then runs the provided functions to produce a result.
 
 For example the query:
 
@@ -58,4 +58,4 @@ Could produce the JSON result:
 }
 ```
 
-Learn more about GraphQL—the query language, type system, how the GraphQL service works, as well as best practices for using GraphQL to solve common problems—in the articles written in this section.
+Learn more about GraphQL — the query language, type system, how the GraphQL service works, as well as best practices for using GraphQL in the articles written in this section; they help to solve common problems.
