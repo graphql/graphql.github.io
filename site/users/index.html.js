@@ -666,6 +666,11 @@ var logos = [
     img: 'cloverleaf.png',
     link: 'https://cloverleaf.me/'
   },
+  {
+    name: 'Vazco',
+    img: 'vazco.png',
+    link: 'https://www.vazco.eu/graphql'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
