@@ -666,6 +666,12 @@ var logos = [
     img: 'cloverleaf.png',
     link: 'https://cloverleaf.me/'
   },
+  {
+    name: 'Funcional Health Tech',
+    img: 'funcionallogo.png',
+    link: 'https://www.funcionalcorp.com.br/'
+  },
+
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
