@@ -8,13 +8,13 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL Conf Berlin
+### GraphQL Day Bodensee
 
-- **Date:** June 20-21, 2019
-- **Location:** Berlin, Germany
-- **Link:** https://www.graphqlconf.org/
+- **Date:** September 6, 2019
+- **Location:** Konstanz, Germany
+- **Link:** https://www.graphqlday.org/bodensee
 
-GraphQL Conf Berlin is the world's biggest GraphQL community conference. It's a non-profit conference with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community.
+GraphQL Day Bodensee is a single-day conference focusing on adopting GraphQL and getting the most out of it in production. Learn from a lineup of thought leaders and connect with other forward-thinking local developers and technical leaders.
 
 ### GraphQL Summit
 
