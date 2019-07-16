@@ -8,13 +8,13 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL Conf Berlin
+### GraphQL Workshops Prague
 
-- **Date:** June 20-21, 2019
-- **Location:** Berlin, Germany
-- **Link:** https://www.graphqlconf.org/
+- **Date:** July 27-28, 2019
+- **Location:** Prague, Czech Republic
+- **Link:** https://www.eventbrite.com/e/praguejs-summer-workshops-2019-tickets-64847578854
 
-GraphQL Conf Berlin is the world's biggest GraphQL community conference. It's a non-profit conference with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community.
+GraphQL workshops organized by PragueJS community.
 
 ### GraphQL Summit
 
