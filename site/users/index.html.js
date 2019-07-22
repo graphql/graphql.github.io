@@ -669,7 +669,7 @@ var logos = [
   {
     name: 'Junte',
     img: 'junte.png',
-    link: 'https://www.junte.it'
+    link: 'https://www.junte.it/en/'
   },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
