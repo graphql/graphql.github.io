@@ -666,6 +666,21 @@ var logos = [
     img: 'cloverleaf.png',
     link: 'https://cloverleaf.me/'
   },
+  {
+    name: 'Otto Group',
+    img: 'otto.png',
+    link: 'https://www.otto.de'
+  },
+  {
+    name: 'Witt Gruppe',
+    img: 'wittgruppe.png',
+    link: 'https://www.witt-gruppe.eu'
+  },
+  {
+    name: 'Sebastian Software',
+    img: 'sebastiansoftware.png',
+    link: 'http://sebastian-software.de'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
