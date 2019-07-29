@@ -567,6 +567,11 @@ var logos = [
     link: 'https://teacherspayteachers.com'
   },
   {
+    name: 'Cherre Connected Real Estate Data',
+    img: 'cherre.png',
+    link: 'https://cherre.com'
+  },
+  {
     name: '1stdibs',
     img: '1stdibs.png',
     link: 'https://www.1stdibs.com/'
