@@ -31,6 +31,14 @@ var logos = [
     isRound: true,
     link: 'https://developer.github.com/v4/'
   },
+  
+  {
+    name: 'Quillionz',
+    img: 'QuillionzPro.jpg',
+    isRound: true,
+    link: 'https://www.quillionz.com/img/'
+  },
+ 
   {
     name: 'Intuit',
     img: 'intuit.png',
