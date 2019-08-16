@@ -33,8 +33,10 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Groovy](#groovy)
 - [Java](#java)
 - [JavaScript](#javascript)
+- [Julia](#julia)
 - [PHP](#php)
 - [Python](#python)
+- [R](#r)
 - [Scala](#scala)
 - [Ruby](#ruby)
 
@@ -129,13 +131,13 @@ A full implementation of the GraphQL specification that aims to maintain externa
   - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
 
-### Groovy 
+### Groovy
 
 #### [gorm-graphql](https://github.com/grails/gorm-graphql/)
 
 **Core Library** - The GORM GraphQL library provides functionality to generate a GraphQL schema based on your GORM entities. In addition to mapping domain classes to a GraphQL schema, the core library also provides default implementations of "data fetchers" to query, update, and delete data through executions of the schema.
 
-**Grails Plugin** - In a addition to the Core Library, the GORM GraphQL Grails Plugin: 
+**Grails Plugin** - In a addition to the Core Library, the GORM GraphQL Grails Plugin:
 
 - Provides a controller to receive and respond to GraphQL requests through HTTP, based on their guidelines.
 - Generates the schema at startup with spring bean configuration to make it easy to extend.
@@ -145,7 +147,7 @@ A full implementation of the GraphQL specification that aims to maintain externa
 
 See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index.html) for more information.
 
-#### [GQL](https://grooviter.github.io/gql/) 
+#### [GQL](https://grooviter.github.io/gql/)
 
 GQL is a Groovy library for GraphQL
 
@@ -443,8 +445,10 @@ Executor.execute(schema, query) map println
 - [Go](#go-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
+- [Julia](#julia)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
 - [Python](#python-1)
+- [R](#r)
 
 ### C# / .NET
 
@@ -477,6 +481,10 @@ Executor.execute(schema, query) map println
   - [AWS Amplify](https://aws.github.io/aws-amplify): A JavaScript library for application development using cloud services, which supports GraphQL backend and React components for working with GraphQL data.
   - [Grafoo](https://github.com/grafoojs/grafoo): An all purpose GraphQL client with view layer integrations for multiple frameworks in just 1.6kb.
 
+### Julia
+
+  - [Diana.jl](https://github.com/codeneomatrix/Diana.jl): A Julia GraphQL server implementation.
+
 ### Swift / Objective-C iOS
 
   - [Apollo iOS](https://www.apollographql.com/docs/ios/) ([github](https://github.com/apollographql/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
@@ -487,6 +495,10 @@ Executor.execute(schema, query) map println
   - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
   - [python-graphql-client](https://github.com/graphcool/python-graphql-client): Simple GraphQL client for Python 2.7+.
   - [sgqlc](https://github.com/profusion/sgqlc): A simple Python GraphQL client. Supports generating code generation for types defined in a GraphQL schema.
+
+### R
+
+  - [ghql](https://github.com/ropensci/ghql): General purpose GraphQL R client.
 
 ## Tools
 
