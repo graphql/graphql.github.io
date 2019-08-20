@@ -88,7 +88,7 @@ export default ({ page, category, title, section, className, noSearch, children 
           </div>
         </section>
         <section className="copyright">
-         Copyright © 2019 GraphQL a Series of LF Projects, LLC. For web site terms of use, trademark policy and other project policies please see https://lfprojects.org.  
+          Copyright © 2019 GraphQL a Series of LF Projects, LLC. For web site terms of use, trademark policy and other project policies please see https://lfprojects.org.  
         </section>
       </footer>
 
