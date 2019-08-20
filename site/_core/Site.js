@@ -87,11 +87,8 @@ export default ({ page, category, title, section, className, noSearch, children 
             {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank" rel="noopener noreferrer">Edit this page &#x270E;</a>}
           </div>
         </section>
-        <a href="https://code.facebook.com/projects/" target="_blank" rel="noopener noreferrer" className="fbOpenSource">
-          <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
-        </a>
         <section className="copyright">
-          The contents of this page are licensed BSD-3-Clause.
+         Copyright © 2019 GraphQL a Series of LF Projects, LLC. For web site terms of use, trademark policy and other project policies please see https://lfprojects.org.  
         </section>
       </footer>
 
