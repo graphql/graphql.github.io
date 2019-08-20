@@ -87,11 +87,8 @@ export default ({ page, category, title, section, className, noSearch, children 
             {page && <a href={'https://github.com/graphql/graphql.github.io/edit/source/site/' + page.relPath} target="_blank" rel="noopener noreferrer">Edit this page &#x270E;</a>}
           </div>
         </section>
-        <a href="https://code.facebook.com/projects/" target="_blank" rel="noopener noreferrer" className="fbOpenSource">
-          <img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45" />
-        </a>
         <section className="copyright">
-          The contents of this page are licensed BSD-3-Clause.
+           Copyright © 2019 The GraphQL Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds. <a href="http://www.linuxfoundation.org/privacy">Privacy Policy</a> and <a href="http://www.linuxfoundation.org/terms">Terms of Use</a>.
         </section>
       </footer>
 
