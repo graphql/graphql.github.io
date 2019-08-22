@@ -505,6 +505,7 @@ Executor.execute(schema, query) map println
   - [Tipe](https://tipe.io) ([github](https://github.com/tipeio)): A SaaS (Software as a Service) content management system that allows you to create your content with powerful editing tools and access it from anywhere with a GraphQL or REST API.
   - [AWS AppSync](https://aws.amazon.com/appsync/): Fully managed GraphQL service with realtime subscriptions, offline programming & synchronization, and enterprise security features as well as fine grained authorization controls.
   - [Hasura](https://hasura.io): A BaaS (Backend as a Service) that lets you create tables, define permissions on Postgres and query and manipulate using a GraphQL interface.
+  - [Elide](https://elide.io): A Java library that can expose a JPA annotated data model as a GraphQL service over any relational database. 
 
 ## More Stuff
 
