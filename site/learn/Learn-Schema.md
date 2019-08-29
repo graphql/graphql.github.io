@@ -233,8 +233,8 @@ For example, you could have an interface `Character` that represents any charact
 interface Character {
   id: ID!
   name: String!
-  friends: [Character]
-  appearsIn: [Episode]!
+  friends: [Character!]
+  appearsIn: [Episode!]!
 }
 ```
 
@@ -246,17 +246,17 @@ For example, here are some types that might implement `Character`:
 type Human implements Character {
   id: ID!
   name: String!
-  friends: [Character]
-  appearsIn: [Episode]!
-  starships: [Starship]
+  friends: [Character!]
+  appearsIn: [Episode!]!
+  starships: [Starship!]
   totalCredits: Int
 }
 
 type Droid implements Character {
   id: ID!
   name: String!
-  friends: [Character]
-  appearsIn: [Episode]!
+  friends: [Character!]
+  appearsIn: [Episode!]!
   primaryFunction: String
 }
 ```
