@@ -53,13 +53,14 @@ GraphQL conference organized by Apollo.
 
 - [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/)
 - [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
-- [GraphQL London](https://www.meetup.com/GraphQL-London)
-- [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
-- [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
 - [GraphQL Barcelona](https://www.meetup.com/GraphQL-Barcelona/)
-- [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
 - [GraphQL Lisbon](https://www.meetup.com/GraphQL-Lisbon/)
+- [GraphQL London](https://www.meetup.com/GraphQL-London)
+- [GraphQL Luxembourg](https://www.meetup.com/GraphQL-Luxembourg/)
+- [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
+- [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
+- [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
 
 ### Australia
