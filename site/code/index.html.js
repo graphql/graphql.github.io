@@ -259,49 +259,41 @@ app.use('/graphql', graphqlHTTP({
 app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
 \`\`\`
 
-#### [apollo-server](https://www.apollographql.com/docs/apollo-server/) ([github](https://github.com/apollographql/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server-express))
+#### [apollo-server](https://www.apollographql.com/docs/apollo-server/) ([github](https://github.com/apollographql/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server))
 
-A set of GraphQL server packages from Apollo that work with various Node.js HTTP frameworks (Express, Connect, Hapi, Koa etc).
+The reference implementation of a spec-compliant Apollo GraphQL server that works stand-alone or with various Node.js HTTP frameworks like Express, Connect, Hapi and Koa.
 
-To run a hello world server with apollo-server-express:
+To run a hello world server with apollo-server:
 
 \`\`\`bash
-npm install apollo-server-express body-parser express graphql graphql-tools
+npm install apollo-server graphql
 \`\`\`
 
 Then run \`node server.js\` with this code in \`server.js\`:
 
 \`\`\`js
-var express = require('express');
-var bodyParser = require('body-parser');
-var { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
-var { makeExecutableSchema } = require('graphql-tools');
+const { ApolloServer, gql } = require('apollo-server');
 
-var typeDefs = [\`
-type Query {
-  hello: String
-}
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`;
 
-schema {
-  query: Query
-}\`];
-
-var resolvers = {
+const resolvers = {
   Query: {
-    hello(root) {
+    hello: () => {
       return 'world';
     }
   }
 };
 
-var schema = makeExecutableSchema({typeDefs, resolvers});
-var app = express();
-app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
-app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
-app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
-\`\`\`
+const server = new ApolloServer({ typeDefs, resolvers });
 
-Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+server.listen().then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`);
+});
+\`\`\`
 
 ### PHP
 
