@@ -696,7 +696,27 @@ module.exports = ({ page }) =>
           a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
         ).map(logo =>
           <a href={logo.link} target="_blank" rel="noopener noreferrer nofollow" key={logo.name}>
-            <img src={'/users/logos/' + logo.img} title={logo.name} className={logo.isRound ? 'round' : null} />
+            <picture>
+              <source
+                media="(min-width: 1020px)"
+                srcset={
+                  "https://graphql.5gcdn.net/ext/resize_230x110shrink,auto?src=" +
+                  encodeURIComponent(
+                    "https://graphql.github.io/users/logos/" + logo.img
+                  )
+                }
+              />
+              <img
+                src={
+                  "https://graphql.5gcdn.net/ext/resize_148x72shrink,auto?src=" +
+                  encodeURIComponent(
+                    "https://graphql.github.io/users/logos/" + logo.img
+                  )
+                }
+                title={logo.name}
+                className={logo.isRound ? "round" : null}
+              />
+            </picture>
           </a>
         )}
       </div>
