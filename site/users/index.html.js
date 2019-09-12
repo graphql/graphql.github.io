@@ -671,6 +671,11 @@ var logos = [
     img: 'filejet.png',
     link: 'https://filejet.io/'
   },
+  {
+    name: 'Configure One',
+    img: 'configureone.png',
+    link: 'https://www.configureone.com/'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
