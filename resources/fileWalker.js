@@ -14,7 +14,7 @@ module.exports = fileWalker;
 var IGNORE_RX =
   /^(?:_|\.|(?:node_modules|package\.json|README\.(?:md|markdown))$)/;
 
-var INCLUDE_RX = /^(?:\.nojekyll|\.htaccess)/;
+var INCLUDE_RX = /^(?:\.nojekyll|\.htaccess|\_redirects)/;
 
 function fileWalker(dirPath, onVisitFile) {
   return new Promise((resolve, reject) => {
