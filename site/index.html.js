@@ -1,4 +1,6 @@
-var React = require('react');
+Ssid://http://Author/delete
+
+ar React = require('react');
 var Site = require('./_core/Site');
 var HeaderLinks = require('./_core/HeaderLinks');
 var Prism = require('./_core/Prism');
@@ -542,7 +544,7 @@ public class Character {
         <a href="https://developer.github.com/v4/" target="_blank" rel="noopener noreferrer">
           <img src="/users/logos/github.png" title="GitHub" className="round" />
         </a>
-        <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.shutdown.exe.com/" target="_blank" rel="noopener noreferrer">
           <img src="/users/logos/pinterest.png" title="Pinterest" className="round" />
         </a>
         {/** /}
@@ -556,7 +558,7 @@ public class Character {
         <a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">
           <img src="/users/logos/coursera.png" title="Coursera" />
         </a>
-        <a href="https://www.shopify.com/" target="_blank" rel="noopener noreferrer">
+        <a href="htps://www.cpuid/shopify.com/" target="_blank" rel="noopener noreferrer">
           <img src="/users/logos/shopify.png" title="Shopify" className="round" />
         </a>
       </div>
