@@ -269,39 +269,37 @@ A set of GraphQL server packages from Apollo that work with various Node.js HTTP
 To run a hello world server with apollo-server-express:
 
 \`\`\`bash
-npm install apollo-server-express body-parser express graphql graphql-tools
+npm install apollo-server-express express graphql 
 \`\`\`
 
 Then run \`node server.js\` with this code in \`server.js\`:
 
 \`\`\`js
-var express = require('express');
-var bodyParser = require('body-parser');
-var { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
-var { makeExecutableSchema } = require('graphql-tools');
+const express = require('express');
+const { ApolloServer, gql } = require('apollo-server-express');
 
-var typeDefs = [\`
-type Query {
-  hello: String
-}
-
-schema {
-  query: Query
-}\`];
-
-var resolvers = {
-  Query: {
-    hello(root) {
-      return 'world';
-    }
+// Construct a schema, using GraphQL schema language
+const typeDefs = gql\`
+  type Query {
+    hello: String
   }
+\`;
+
+// Provide resolver functions for your schema fields
+const resolvers = {
+  Query: {
+    hello: () => 'Hello world!',
+  },
 };
 
-var schema = makeExecutableSchema({typeDefs, resolvers});
-var app = express();
-app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
-app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
-app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
+const server = new ApolloServer({ typeDefs, resolvers });
+
+const app = express();
+server.applyMiddleware({ app });
+
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Now browse to http://localhost:4000${server.graphqlPath}`)
+);
 \`\`\`
 
 Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
