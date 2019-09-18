@@ -266,7 +266,7 @@ A set of GraphQL server packages from Apollo that work with various Node.js HTTP
 To run a hello world server with apollo-server-express:
 
 \`\`\`bash
-npm install apollo-server-express express graphql 
+npm install apollo-server-express express 
 \`\`\`
 
 Then run \`node server.js\` with this code in \`server.js\`:
@@ -275,14 +275,12 @@ Then run \`node server.js\` with this code in \`server.js\`:
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 
-// Construct a schema, using GraphQL schema language
 const typeDefs = gql\`
   type Query {
     hello: String
   }
 \`;
 
-// Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
     hello: () => 'Hello world!',
@@ -295,7 +293,7 @@ const app = express();
 server.applyMiddleware({ app });
 
 app.listen({ port: 4000 }, () =>
-  console.log(\`🚀 Now browse to http://localhost:4000${server.graphqlPath}\`)
+  console.log('Now browse to http://localhost:4000' + server.graphqlPath)
 );
 \`\`\`
 
