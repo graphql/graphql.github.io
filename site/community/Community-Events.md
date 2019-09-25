@@ -61,6 +61,7 @@ GraphQL conference organized by Apollo.
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
 - [GraphQL Lisbon](https://www.meetup.com/GraphQL-Lisbon/)
 - [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
+- [GraphQL Edinburgh](https://www.meetup.com/GraphQL-Edinburgh/)
 
 ### Australia
 
