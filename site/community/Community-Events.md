@@ -54,7 +54,7 @@ GraphQL conference organized by Apollo.
 - [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/)
 - [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
-- [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
+- [GraphQL Paris](https://www.meetup.com/fr-FR/parisgraphql/)
 - [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
 - [GraphQL Barcelona](https://www.meetup.com/GraphQL-Barcelona/)
 - [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
