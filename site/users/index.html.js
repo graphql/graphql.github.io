@@ -26,6 +26,11 @@ var logos = [
     link: 'https://www.facebook.com/'
   },
   {
+    name: 'Quench Poverty',
+    img: 'Quench_Logo.png',
+    link: 'https://www.quenchpoverty.org/'
+  },
+  {
     name: 'GitHub',
     img: 'github.png',
     isRound: true,
