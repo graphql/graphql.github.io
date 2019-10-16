@@ -671,6 +671,11 @@ var logos = [
     img: 'filejet.png',
     link: 'https://filejet.io/'
   },
+  {
+    name: 'BaseFX',
+    img: 'basefx.png',
+    link: 'http://base-fx.com'
+  },
   // Adding your logo?
   // Add it to the /users/logos/ directory and then append an entry above this comment.
   //
