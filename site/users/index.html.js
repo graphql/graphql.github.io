@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2015, Facebook, Inc.
+ * Copyright (c) 2015, GraphQL Contributors
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
@@ -9,11 +9,10 @@
 var React = require('react');
 var Site = require('../_core/Site');
 
-const iframe = '<iframe frameBorder="0" id="landscape" scrolling="no" style="width: 1px; min-width: 100%" src="https://landscape.graphql.org/category=graph-ql-adopter&format=card-mode&grouping=no&format=logo-mode&embed=yes"></iframe>';
+const iframe = '<iframe frameBorder="0" id="landscape" scrolling="no" style="width: 1px; min-width: 100%" src="https://landscape.graphql.org/category=graph-ql-adopter&format=card-mode&grouping=no&embed=yes"></iframe>';
 
 function Iframe(props) {
   return (<div dangerouslySetInnerHTML={ {__html:  props.iframe?props.iframe:""}} />);
-}
 
 module.exports = ({ page }) =>
   <Site title="Who's Using" page={page}>
