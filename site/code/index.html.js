@@ -33,6 +33,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Groovy](#groovy)
 - [Java](#java)
 - [JavaScript](#javascript)
+- [Julia](#julia)
 - [PHP](#php)
 - [Python](#python)
 - [Scala](#scala)
@@ -302,6 +303,51 @@ app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
 \`\`\`
 
 Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+
+## Julia
+
+#### [Diana.jl](https://github.com/codeneomatrix/Diana.jl)
+
+A Julia GraphQL client/server implementation.
+
+Here is one example for you to get started:
+
+\`\`\`julia
+using Diana
+
+ schema= """
+ type Query{
+  hello: String
+  goodbye: String
+}
+ schema {
+  query: Query
+}
+"""
+
+resolvers=Dict(
+    "Query"=>Dict(
+        "hello" => (root,args,ctx,info)->(return "Hello World!")
+        ,"goodbye" => (root,args,ctx,info)->(return "Goodbye World")
+    )
+)
+
+my_schema = Schema(schema, resolvers)
+
+query= """
+query{
+  hello
+}
+"""
+
+result = my_schema.execute(query)
+
+println(result)
+# {"data":{"hello":"Hello World!"}}
+
+\`\`\`
+
+See [the Diana.jl docs](https://codeneomatrix.github.io/Diana.jl/stable/) for more information on setup.
 
 ### PHP
 
