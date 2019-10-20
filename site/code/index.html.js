@@ -36,9 +36,8 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Kotlin](#kotlin)
 - [PHP](#php)
 - [Python](#python)
-- [Scala](#scala)
-- [Swift](#swift)
 - [Ruby](#ruby)
+- [Scala](#scala)
 
 ### C# / .NET
 
@@ -132,13 +131,13 @@ A full implementation of the GraphQL specification that aims to maintain externa
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
   - [99designs/gqlgen](https://github.com/99designs/gqlgen): A schema first GraphQL server generation. 
 
-### Groovy 
+### Groovy
 
 #### [gorm-graphql](https://github.com/grails/gorm-graphql/)
 
 **Core Library** - The GORM GraphQL library provides functionality to generate a GraphQL schema based on your GORM entities. In addition to mapping domain classes to a GraphQL schema, the core library also provides default implementations of "data fetchers" to query, update, and delete data through executions of the schema.
 
-**Grails Plugin** - In a addition to the Core Library, the GORM GraphQL Grails Plugin: 
+**Grails Plugin** - In a addition to the Core Library, the GORM GraphQL Grails Plugin:
 
 - Provides a controller to receive and respond to GraphQL requests through HTTP, based on their guidelines.
 - Generates the schema at startup with spring bean configuration to make it easy to extend.
@@ -148,7 +147,7 @@ A full implementation of the GraphQL specification that aims to maintain externa
 
 See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index.html) for more information.
 
-#### [GQL](https://grooviter.github.io/gql/) 
+#### [GQL](https://grooviter.github.io/gql/)
 
 GQL is a Groovy library for GraphQL
 
