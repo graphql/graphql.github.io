@@ -20,7 +20,7 @@ GraphQL Conf Berlin is the world's biggest GraphQL community conference. It's a 
 
 - **Date:** October 29-31, 2019
 - **Location:** San Francisco, USA
-- **Link:** https://www.graphqlconf.org/
+- **Link:** https://summit.graphql.com/
 
 GraphQL conference organized by Apollo.
 
