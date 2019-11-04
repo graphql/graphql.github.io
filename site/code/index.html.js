@@ -33,6 +33,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Groovy](#groovy)
 - [Java](#java)
 - [JavaScript](#javascript)
+- [Kotlin](#kotlin)
 - [PHP](#php)
 - [Python](#python)
 - [Scala](#scala)
@@ -302,6 +303,10 @@ app.listen(4000, () => console.log('Now browse to localhost:4000/graphiql'));
 \`\`\`
 
 Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+
+### Kotlin
+
+  - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of libraries for running GraphQL server in Kotlin.
 
 ### PHP
 
