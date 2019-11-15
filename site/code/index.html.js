@@ -419,7 +419,7 @@ There are also nice bindings for Relay and Rails.
 
 ### Rust
 
-#### [graphql-rust/juniper](https://github.com/graphql-rust/juniper): GraphQL server library for Rust
+ - [graphql-rust/juniper](https://github.com/graphql-rust/juniper): GraphQL server library for Rust
 
 ### Scala
 
