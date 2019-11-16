@@ -37,6 +37,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [PHP](#php)
 - [Python](#python)
 - [Ruby](#ruby)
+- [Rust](#rust)
 - [Scala](#scala)
 
 ### C# / .NET
@@ -415,6 +416,10 @@ puts Schema.execute('{ hello }').to_json
 \`\`\`
 
 There are also nice bindings for Relay and Rails.
+
+### Rust
+
+ - [graphql-rust/juniper](https://github.com/graphql-rust/juniper): GraphQL server library for Rust
 
 ### Scala
 
