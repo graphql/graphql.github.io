@@ -39,6 +39,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Ruby](#ruby)
 - [Rust](#rust)
 - [Scala](#scala)
+- [Swift](#swift)
 
 ### C# / .NET
 
