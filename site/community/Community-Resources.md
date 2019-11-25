@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Community
 permalink: /community/
 next: /community/upcoming-events/
-sublinks: Blogs,Videos
+sublinks: Blogs,Videos,Books,More Resources
 ---
 
 ## Stack Overflow
@@ -24,7 +24,7 @@ Here are some helpful accounts to follow:
 - [@graphqlweekly](https://twitter.com/graphqlweekly)
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollographql](https://twitter.com/apollographql)
-- [@graphcool](https://twitter.com/graphcool)
+- [@prisma](https://twitter.com/prisma)
 - [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
 
 ## IRC
@@ -107,6 +107,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Fullstack GraphQL](https://www.graphql.college/fullstack-graphql) by Julian Mayorga
 - [Craft GraphQL APIs in Elixir with Absinthe](https://pragprog.com/book/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe) by Bruce Williams and Ben Wilson
 - [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
+- [The Road to GraphQL](https://www.robinwieruch.de/the-road-to-graphql-book/) by Robin Wieruch
 
 ## More Resources
 

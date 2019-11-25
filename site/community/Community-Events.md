@@ -10,19 +10,11 @@ sublinks: Upcoming Events,Meetups
 
 ### GraphQL Summit
 
-- **Date:** November 7-8, 2018
-- **Location:** San Francisco, U.S.A.
-- **Link:** https://summit.graphql.com
+- **Date:** October 29-31, 2019
+- **Location:** San Francisco, USA
+- **Link:** https://summit.graphql.com/
 
-World's largest conference dedicated to GraphQL.
-
-### GraphQL Conf Berlin 2019
-
-- **Date:** June 20-21, 2019
-- **Location:** Berlin, Germany
-- **Link:** https://www.graphqlconf.org/
-
-GraphQL Conf is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
+GraphQL conference organized by Apollo.
 
 ## Meetups
 
@@ -41,7 +33,7 @@ GraphQL Conf is a non-profit GraphQL conference in Europe with speakers from all
 - [GraphQL Columbus](https://www.meetup.com/GraphQL-Columbus/)
 - [GraphQL Vancouver](https://www.meetup.com/GraphQL-Vancouver/)
 - [GraphQL Minneapolis](https://www.meetup.com/GraphQL-MN/)
-- [GraphQL Denver/Boulder](https://www.meetup.com/GraphQL-Denver-Boulder-Meetup/)
+- [GraphQL Denver](https://www.meetup.com/graphql-denver)
 - [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
 
 ### South America
