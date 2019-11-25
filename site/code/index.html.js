@@ -39,6 +39,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Ruby](#ruby)
 - [Rust](#rust)
 - [Scala](#scala)
+- [Swift](#swift)
 
 ### C# / .NET
 
@@ -421,6 +422,10 @@ Http\server(Graphql\psr7($schema), function (\Throwable $err) {
 \`\`\`
 
 It also provides functionality for the construction of a WebSocket Subscriptions Server based on how Apollo works.
+
+### Swift
+
+  - [Graphiti](https://github.com/GraphQLSwift/Graphiti): Swift library for building GraphQL schemas/types fast, safely and easily.
 
 ### Python
 
