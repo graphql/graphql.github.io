@@ -8,21 +8,13 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL Europe Conference
+### GraphQL Summit
 
-- **Date:** June 15, 2018
-- **Location:** Berlin, Germany
-- **Link:** https://graphql-europe.org
+- **Date:** October 29-31, 2019
+- **Location:** San Francisco, USA
+- **Link:** https://summit.graphql.com/
 
-GraphQL Europe is a non-profit GraphQL conference in Europe with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community. 
-
-### GraphQL Finland Conference
-
-- **Date:** October 18-19, 2018
-- **Location:** Helsinki, Finland
-- **Link:** https://graphql-finland.fi/
-
-GraphQL Finland is a community-organized GraphQL conference. The first of its kind in Finland, the event consists of a workshop day and a day of talks around the topic. GraphQL Finland is organized by the same team that brought you React Finland.
+GraphQL conference organized by Apollo.
 
 ## Meetups
 
@@ -41,7 +33,7 @@ GraphQL Finland is a community-organized GraphQL conference. The first of its ki
 - [GraphQL Columbus](https://www.meetup.com/GraphQL-Columbus/)
 - [GraphQL Vancouver](https://www.meetup.com/GraphQL-Vancouver/)
 - [GraphQL Minneapolis](https://www.meetup.com/GraphQL-MN/)
-- [GraphQL Denver/Boulder](https://www.meetup.com/GraphQL-Denver-Boulder-Meetup/)
+- [GraphQL Denver](https://www.meetup.com/graphql-denver)
 - [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
 
 ### South America
@@ -72,3 +64,4 @@ GraphQL Finland is a community-organized GraphQL conference. The first of its ki
 - [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
 - [GraphQL Tokyo](https://www.meetup.com/GraphQL-Tokyo/)
 - [GraphQL Meetup (Bangalore)](https://www.meetup.com/GraphQL-Meetup/)
+- [GraphQL Meetup (Bangkok)](https://www.meetup.com/GraphQL-Bangkok/)

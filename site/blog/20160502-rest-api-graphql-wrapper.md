@@ -141,7 +141,7 @@ const PersonType = new GraphQLObjectType({
     /* ... */
     friends: {
       type: new GraphQLList(PersonType),
-      resolve: person => person.friends.map(getPersonByURL),
+      resolve: person => person.friends.map(fetchPersonByURL),
     },
   }),
 });
@@ -395,7 +395,7 @@ To create a `DataLoader` you supply a method that can resolve a list of objects 
 
 ```js
 const personLoader = new DataLoader(
-  urls => Promise.all(urls.map(getPersonByURL))
+  urls => Promise.all(urls.map(fetchPersonByURL))
 );
 ```
 
