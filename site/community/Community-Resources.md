@@ -69,6 +69,7 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [GraphQL Server Basics (Part I): The Schema](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e) - Nikolas Burk
 - [GraphQL Server Basics (Part II): The Network Layer](https://blog.graph.cool/graphql-server-basics-the-network-layer-51d97d21861) - Nikolas Burk
 - [GraphQL Server Basics (Part III): Demystifying the `info` argument in GraphQL resolvers](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) - Nikolas Burk
+- [A Beginner’s Guide to GraphQL](https://www.freecodecamp.org/news/a-beginners-guide-to-graphql-86f849ce1bec/) - Leonardo Maldonado
 
 ## Videos
 
