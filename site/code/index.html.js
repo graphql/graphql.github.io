@@ -343,6 +343,43 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
   - [Lighthouse](https://github.com/nuwave/lighthouse): A GraphQL server for Laravel
   - [GraphQLBundle](https://github.com/overblog/GraphQLBundle): A GraphQL server for Symfony
 
+#### [GraphQLite](https://graphqlite.thecodingmachine.io) ([github](https://github.com/thecodingmachine/graphqlite))
+
+GraphQLite is a library that offers an annotations-based syntax for GraphQL schema definition.
+It is framework agnostic with bindings available for Symfony and Laravel.
+
+This code declares a "product" query and a "Product" Type:
+
+\`\`\`php
+class ProductController
+{
+    /**
+     * @Query()
+     */
+    public function product(string $id): Product
+    {
+        // Some code that looks for a product and returns it.
+    }
+}
+
+/**
+ * @Type()
+ */
+class Product
+{
+    /**
+     * @Field()
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+    // ...
+}
+\`\`\`
+
+Other GraphQLite features include validation, security, error handling, loading via data-loader pattern...
+
 #### [Siler](https://siler.leocavalcante.com/graphql/) ([github](https://github.com/leocavalcante/siler))
 
 Siler is a PHP library powered with high-level abstractions to work with GraphQL.
