@@ -114,6 +114,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 
 To explore other community-developed resources and content about GraphQL, take a look at these sites:
 
+- [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course
 - [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
 - [Building Apollo](https://dev-blog.apollodata.com/)
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)
