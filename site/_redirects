@@ -1,3 +1,5 @@
 /swapi-graphql  https://swapi-graphql.netlify.com   200
 /swapi-graphql/* https://swapi-graphql.netlify.com/:splat   200
+
 /swapi-graphql/graphql https://swapi-graphql.netlify.com/.netlify/functions/index 200
+/swapi-graphql/graphql/* https://swapi-graphql.netlify.com/.netlify/functions/index/:splat 200
