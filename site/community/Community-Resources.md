@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Community
 permalink: /community/
 next: /community/upcoming-events/
-sublinks: Blogs,Videos
+sublinks: Blogs,Videos,Books,More Resources
 ---
 
 ## Stack Overflow
@@ -24,7 +24,7 @@ Here are some helpful accounts to follow:
 - [@graphqlweekly](https://twitter.com/graphqlweekly)
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollographql](https://twitter.com/apollographql)
-- [@graphcool](https://twitter.com/graphcool)
+- [@prisma](https://twitter.com/prisma)
 - [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
 
 ## IRC
@@ -69,6 +69,7 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [GraphQL Server Basics (Part I): The Schema](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e) - Nikolas Burk
 - [GraphQL Server Basics (Part II): The Network Layer](https://blog.graph.cool/graphql-server-basics-the-network-layer-51d97d21861) - Nikolas Burk
 - [GraphQL Server Basics (Part III): Demystifying the `info` argument in GraphQL resolvers](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) - Nikolas Burk
+- [A Beginner’s Guide to GraphQL](https://www.freecodecamp.org/news/a-beginners-guide-to-graphql-86f849ce1bec/) - Leonardo Maldonado
 
 ## Videos
 
@@ -107,11 +108,13 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Fullstack GraphQL](https://www.graphql.college/fullstack-graphql) by Julian Mayorga
 - [Craft GraphQL APIs in Elixir with Absinthe](https://pragprog.com/book/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe) by Bruce Williams and Ben Wilson
 - [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
+- [The Road to GraphQL](https://www.robinwieruch.de/the-road-to-graphql-book/) by Robin Wieruch
 
 ## More Resources
 
 To explore other community-developed resources and content about GraphQL, take a look at these sites:
 
+- [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course
 - [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
 - [Building Apollo](https://dev-blog.apollodata.com/)
 - [Learn GraphQL](https://learngraphql.com/basics/introduction)

@@ -8,19 +8,11 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL Conf Berlin
-
-- **Date:** June 20-21, 2019
-- **Location:** Berlin, Germany
-- **Link:** https://www.graphqlconf.org/
-
-GraphQL Conf Berlin is the world's biggest GraphQL community conference. It's a non-profit conference with speakers from all around the world. Learn about GraphQL best practices from industry experts and become part of the thriving GraphQL community.
-
 ### GraphQL Summit
 
 - **Date:** October 29-31, 2019
 - **Location:** San Francisco, USA
-- **Link:** https://www.graphqlconf.org/
+- **Link:** https://summit.graphql.com/
 
 GraphQL conference organized by Apollo.
 
