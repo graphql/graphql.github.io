@@ -8,13 +8,13 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### GraphQL Summit
+### GraphQL Asia
 
-- **Date:** October 29-31, 2019
-- **Location:** San Francisco, USA
-- **Link:** https://summit.graphql.com/
+- **Date:** February 20-22, 2020
+- **Location:** Bangalore, India
+- **Link:** https://graphql.asia
 
-GraphQL conference organized by Apollo.
+GraphQL conference organized by Hasura
 
 ## Meetups
 
@@ -63,5 +63,5 @@ GraphQL conference organized by Apollo.
 
 - [GraphQL Tel Aviv](https://www.meetup.com/GraphQL-TLV/)
 - [GraphQL Tokyo](https://www.meetup.com/GraphQL-Tokyo/)
-- [GraphQL Meetup (Bangalore)](https://www.meetup.com/GraphQL-Meetup/)
+- [GraphQL Meetup (Bangalore)](https://www.meetup.com/graphql-bangalore/)
 - [GraphQL Meetup (Bangkok)](https://www.meetup.com/GraphQL-Bangkok/)
