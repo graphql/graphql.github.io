@@ -30,13 +30,6 @@ are available.
     }
   }
 }
-
-
-
-
-
-
-
 ```
 
 Wow, that's a lot of types! What are they? Let's group them:
