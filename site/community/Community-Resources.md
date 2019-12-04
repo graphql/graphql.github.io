@@ -25,8 +25,6 @@ Here are some helpful accounts to follow:
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollographql](https://twitter.com/apollographql)
 - [@prisma](https://twitter.com/prisma)
-- [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
-- [@HasuraHQ](https://twitter.com/HasuraHQ)
 
 ## IRC
 
@@ -43,9 +41,7 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 
 - [**#general** on GraphQL](https://graphql.slack.com/messages/general/). [Get your invite here!](https://graphql-slack.herokuapp.com/)
 - [Apollo Slack](http://apollostack.com/#slack)
-- [Reindex Slack](http://slack.reindex.io/)
 - [Graphcool Slack](https://slack.graph.cool/)
-- [Scaphold.io Slack](http://slack.scaphold.io/)
 
 ## Blogs
 
@@ -119,14 +115,7 @@ To explore other community-developed resources and content about GraphQL, take a
 
 - [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course
 - [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
-- [Building Apollo](https://dev-blog.apollodata.com/)
-- [Learn GraphQL](https://learngraphql.com/basics/introduction)
+- [Building Apollo](https://blog.apollographql.com)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 - [graphql-apis](https://github.com/APIs-guru/graphql-apis): A collective list of public GraphQL APIs.
-- [Graphcool Blog](https://www.graph.cool/blog/)
-- [Learn Apollo](https://www.learnapollo.com/): A hands-on tutorial for Apollo GraphQL Client (for React, ReactNative, Exponent, Angular, Vue & iOS)
-- [Learn Relay](https://www.learnrelay.org): A comprehensive introduction to Relay (includes video tutorials)
-- [Scaphold Community](https://scaphold.io/community/): Resources to help you launch a production app with GraphQL
-- [GraphQL World](https://graphql-world.com): Global community of GraphQL developers and events
-- [GraphQL Talks](https://www.graph.cool/talks/): Find & Watch the best GraphQL Talks
 - [Basically, Full-stack GraphQL](https://github.com/TejasQ/basically-fullstack-graphql): A code-based introduction to working with GraphQL on the client _and_ server in plain English
