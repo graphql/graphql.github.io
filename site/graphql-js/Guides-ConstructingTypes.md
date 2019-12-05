@@ -41,7 +41,7 @@ var fakeDatabase = {
 };
 
 var root = {
-  user: function ({id}) {
+  user: ({id}) => {
     return fakeDatabase[id];
   }
 };
@@ -94,7 +94,7 @@ var queryType = new graphql.GraphQLObjectType({
       args: {
         id: { type: graphql.GraphQLString }
       },
-      resolve: function (_, {id}) {
+      resolve: (_, {id}) => {
         return fakeDatabase[id];
       }
     }
