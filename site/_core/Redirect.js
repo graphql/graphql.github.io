@@ -9,7 +9,7 @@
 var React = require('react');
 
 export default ({ to }) =>
-  <html>
+  <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <meta http-equiv="refresh" content={'1;url=' + to} />
