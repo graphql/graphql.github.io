@@ -20,7 +20,7 @@ module.exports = ({ page, section }) =>
 
         <section className="intro">
           <div className="named-logo">
-            <img src="/img/logo.svg" />
+            <img src="/img/logo.svg" alt="GraphQL Logo" />
             <h1>GraphQL</h1>
           </div>
 
@@ -312,7 +312,7 @@ type Species {
           Know exactly what data you can request from your API without
           leaving your editor, highlight potential issues before sending a
           query, and take advantage of improved code intelligence. GraphQL
-          makes it easy to build powerful tools like <a href="https://github.com/graphql/graphiql" target="_blank">Graph<em>i</em>QL</a> by
+          makes it easy to build powerful tools like <a href="https://github.com/graphql/graphiql" target="_blank" rel="noopener">Graph<em>i</em>QL</a> by
           leveraging your API&rsquo;s type system.</p>
       </div>
       <div className="graphiqlVid" dangerouslySetInnerHTML={{__html: `
