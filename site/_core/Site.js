@@ -12,7 +12,7 @@ var Search = require('./Search');
 var SiteData = require('./SiteData');
 
 export default ({ page, category, title, section, className, noSearch, children }) =>
-  <html>
+  <html lang="en">
     <head>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -22,6 +22,7 @@ export default ({ page, category, title, section, className, noSearch, children 
           `GraphQL | ${SiteData.description}`}
       </title>
       <meta name="viewport" content="width=640" />
+      <meta name="description" content="GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools." />
       <meta property="og:title" content="GraphQL: A query language for APIs." />
       <meta property="og:description" content="GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools." />
       <meta property="og:type" content="website" />
@@ -45,7 +46,7 @@ export default ({ page, category, title, section, className, noSearch, children 
       <header>
         <section>
           <a className="nav-home" href="/">
-            <img className="nav-logo" src="/img/logo.svg" width="30" height="30" />
+            <img className="nav-logo" src="/img/logo.svg" alt="GraphQL Logo" width="30" height="30" />
             GraphQL
           </a>
           <HeaderLinks section={section} />
@@ -57,7 +58,7 @@ export default ({ page, category, title, section, className, noSearch, children 
 
       <footer>
         <section className="sitemap">
-          <a href="/" className="nav-home" />
+          <a href="/" className="nav-home" aria-label="Homepage" />
           <div>
             <h5><a href="/learn/">Learn</a></h5>
             <a href="/learn/">Introduction</a>
