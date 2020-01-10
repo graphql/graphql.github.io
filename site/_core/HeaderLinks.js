@@ -12,7 +12,7 @@ const links = [
   { section: 'learn', text: 'Learn', href: '/learn/' },
   { section: 'code', text: 'Code', href: '/code/' },
   { section: 'community', text: 'Community', href: '/community/' },
-  { section: 'spec', text: 'Spec', href: 'https://facebook.github.io/graphql/' },
+  { section: 'spec', text: 'Spec', href: 'https://graphql.github.io/graphql-spec/' },
   { section: 'codeofconduct', text: 'Code of Conduct', href: '/codeofconduct/' },
   { section: 'foundation', text: 'Foundation', href: 'https://foundation.graphql.org/' },
   { section: 'landscape', text: 'Landscape', href: 'https://l.graphql.org/' },
