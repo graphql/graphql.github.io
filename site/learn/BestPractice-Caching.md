@@ -35,7 +35,7 @@ This is a powerful tool to hand to client developers. In the same way that the U
 
 If the backend uses something like UUIDs for identifiers, then exposing this globally unique ID may be very straightforward! If the backend doesn't have a globally unique ID for every object already, the GraphQL layer might have to construct this. Oftentimes, that's as simple as appending the name of the type to the ID and using that as the identifier; the server might then make that ID opaque by base64-encoding it. 
 
-Optionally, this ID can then be used to work with the [Global Object Identification](learn/global-object-identification/)'s `node` pattern.
+Optionally, this ID can then be used to work with the [Global Object Identification](/learn/global-object-identification)'s `node` pattern.
 
 ## Compatibility with existing APIs
 
