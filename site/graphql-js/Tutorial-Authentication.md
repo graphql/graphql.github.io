@@ -24,7 +24,7 @@ var schema = buildSchema(`
   }
 `);
 
-function loggingMiddleware(req, res, next) {
+const loggingMiddleware = (req, res, next) => {
   console.log('ip:', req.ip);
   next();
 }

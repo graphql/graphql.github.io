@@ -530,8 +530,8 @@ an object type.
 var PersonType = new GraphQLObjectType({
   name: 'Person',
   fields: () => ({
-    parents: { type: new GraphQLList(Person) },
-    children: { type: new GraphQLList(Person) },
+    parents: { type: new GraphQLList(PersonType) },
+    children: { type: new GraphQLList(PersonType) },
   })
 });
 ```
