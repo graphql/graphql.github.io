@@ -74,3 +74,5 @@ GraphQL conference organized by Hasura
 - [GraphQL Tokyo](https://www.meetup.com/GraphQL-Tokyo/)
 - [GraphQL Meetup (Bangalore)](https://www.meetup.com/graphql-bangalore/)
 - [GraphQL Meetup (Bangkok)](https://www.meetup.com/GraphQL-Bangkok/)
+- [GraphQL Meetup (Singapore)](https://www.meetup.com/GraphQL-SG/)
+- [GraphQL Meetup (Hong Kong)](https://www.meetup.com/GraphQLHongKong/)
