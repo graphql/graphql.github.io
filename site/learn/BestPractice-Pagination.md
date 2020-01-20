@@ -3,7 +3,7 @@ title: Pagination
 layout: ../_core/DocsLayout
 category: Best Practices
 permalink: /learn/pagination/
-next: /learn/caching/
+next: /learn/global-object-identification/
 ---
 
 > Different pagination models enable different client capabilities
@@ -12,7 +12,7 @@ A common use case in GraphQL is traversing the relationship between sets of obje
 
 ## Plurals
 
-The most simple way to expose a connection between objects is with a field that returns a plural type. For example, if we wanted to get a list of R2-D2's friends, we could just ask for all of them:
+The simplest way to expose a connection between objects is with a field that returns a plural type. For example, if we wanted to get a list of R2-D2's friends, we could just ask for all of them:
 
 ```graphql
 # { "graphiql": true }
@@ -137,3 +137,6 @@ To see this in action, there's an additional field in the example schema, called
 }
 ```
 
+## Connection Specification
+
+To ensure a consistent implementation of this pattern, the Relay project has a formal [specification](https://facebook.github.io/relay/graphql/connections.htm) you can follow for building GraphQL APIs which use a cursor based connection pattern.
