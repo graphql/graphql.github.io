@@ -331,7 +331,7 @@ app.listen({ port: 4000 }, () =>
 );
 \`\`\`
 
-Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI and Koa.
+Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI, Koa and NestJs.
 
 ### Kotlin
 
