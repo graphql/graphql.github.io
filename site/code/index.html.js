@@ -594,6 +594,7 @@ Executor.execute(schema, query) map println
 
 - [C# / .NET](#c-net-1)
 - [Clojurescript](#clojurescript-1)
+- [Elm](#elm)
 - [Flutter](#flutter)
 - [Go](#go-1)
 - [Java / Android](#java-android)
