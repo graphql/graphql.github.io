@@ -34,6 +34,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Java](#java)
 - [JavaScript](#javascript)
 - [Kotlin](#kotlin)
+- [Perl](#perl)
 - [PHP](#php)
 - [Python](#python)
 - [Ruby](#ruby)
@@ -334,6 +335,14 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
 ### Kotlin
 
   - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of libraries for running GraphQL server in Kotlin.
+
+### Perl
+
+  - [graphql-perl](https://github.com/graphql-perl/graphql-perl): A Perl port of GraphQL reference implementation
+    - [MetaCPAN documentation](https://metacpan.org/pod/GraphQL)
+    - [Mojolicious-Plugin-GraphQL](https://github.com/graphql-perl/Mojolicious-Plugin-GraphQL) - connect your GraphQL service to a Mojolicious app
+    - [GraphQL-Plugin-Convert-DBIC](https://github.com/graphql-perl/GraphQL-Plugin-Convert-DBIC) - automatically connect your DBIx::Class schema to GraphQL
+    - [GraphQL-Plugin-Convert-OpenAPI](https://github.com/graphql-perl/GraphQL-Plugin-Convert-OpenAPI) - automatically connect any OpenAPI service (either local Mojolicious one, or remote) to GraphQL
 
 ### PHP
 
