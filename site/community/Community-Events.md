@@ -45,7 +45,7 @@ GraphQL conference organized by Hasura
 - [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
 
 ### South America
-
+- [GraphQL Florianópolis](https://www.meetup.com/GraphQL-Floripa/)
 - [GraphQL São Paulo](https://www.meetup.com/Apollo-GraphQL/)
 - [GraphQL Buenos Aires](https://www.meetup.com/GraphQL-BA/)
 
