@@ -157,11 +157,10 @@ A full implementation of the GraphQL specification that aims to maintain externa
 
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
   - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go): An active implementation of GraphQL in Golang (was https://github.com/neelance/graphql-go).
-  - [GQLGen](https://github.com/99designs/gqlgen) - Go generate based graphql server library.
+  - [99designs/gqlgen](https://github.com/99designs/gqlgen) - Go generate based graphql server library.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
   - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
-  - [99designs/gqlgen](https://github.com/99designs/gqlgen): A schema first GraphQL server generation. 
   - [appointy/jaal](https://github.com/appointy/jaal): Develop spec compliant GraphQL servers in Go.
 
 ### Groovy
