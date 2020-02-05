@@ -33,10 +33,12 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Groovy](#groovy)
 - [Java](#java)
 - [JavaScript](#javascript)
+- [Julia](#julia)
 - [Kotlin](#kotlin)
 - [Perl](#perl)
 - [PHP](#php)
 - [Python](#python)
+- [R](#r)
 - [Ruby](#ruby)
 - [Rust](#rust)
 - [Scala](#scala)
@@ -607,8 +609,10 @@ Executor.execute(schema, query) map println
 - [Go](#go-1)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
+- [Julia](#julia)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
 - [Python](#python-1)
+- [R](#r)
 
 ### C# / .NET
 
@@ -651,6 +655,10 @@ Executor.execute(schema, query) map println
   - [urql](https://formidable.com/open-source/urql/) ([github](https://github.com/FormidableLabs/urql)): A highly customizable and versatile GraphQL client for React.
   - [graphqurl](https://github.com/hasura/graphqurl) ([npm](https://www.npmjs.com/package/graphqurl)): curl for GraphQL with autocomplete, subscriptions and GraphiQL. Also a dead-simple universal javascript GraphQL client.
 
+### Julia
+
+  - [Diana.jl](https://github.com/codeneomatrix/Diana.jl): A Julia GraphQL server implementation.
+
 ### Swift / Objective-C iOS
 
   - [Apollo iOS](https://www.apollographql.com/docs/ios/) ([github](https://github.com/apollographql/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
@@ -661,6 +669,10 @@ Executor.execute(schema, query) map println
   - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
   - [python-graphql-client](https://github.com/prisma/python-graphql-client): Simple GraphQL client for Python 2.7+.
   - [sgqlc](https://github.com/profusion/sgqlc): A simple Python GraphQL client. Supports generating code generation for types defined in a GraphQL schema.
+
+### R
+
+  - [ghql](https://github.com/ropensci/ghql): General purpose GraphQL R client.
 
 ## Tools
 
