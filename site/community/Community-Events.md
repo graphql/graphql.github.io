@@ -55,6 +55,7 @@ GraphQL conference organized by Hasura
 - [GraphQL Berlin](https://www.meetup.com/graphql-berlin/)
 - [GraphQL Barcelona](https://www.meetup.com/GraphQL-Barcelona/)
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
+- [GraphQL Copenhagen](https://www.meetup.com/Copenhagen-GraphQL-Meetup-Group/)
 - [GraphQL Edinburgh](https://www.meetup.com/GraphQL-Edinburgh/)
 - [GraphQL Lisbon](https://www.meetup.com/GraphQL-Lisbon/)
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
@@ -65,7 +66,6 @@ GraphQL conference organized by Hasura
 - [GraphQL Paris 2](https://www.meetup.com/fr-FR/parisgraphql/)
 - [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
-- [GraphQL Copenhagen](https://www.meetup.com/Copenhagen-GraphQL-Meetup-Group/)
 
 ### Australia
 
