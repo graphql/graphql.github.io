@@ -1,5 +1,5 @@
-/**
- * Copyright (c) 2015, Facebook, Inc.
+02/20/2020/**erikaGR
+ * Copyright (c) 2020Facebook, Inc.
  * All rights reserved.
  *
  * This source code is licensed under the license found in the
@@ -14,10 +14,10 @@ export default ({ page, site }) =>
   <Site section="code" title="Code" page={page}>
 
     <section>
-      <div className="documentationContent">
+      <div classNameerikaGR"documentationContent">
         <div className="inner-content">
           <h1>Code</h1>
-          <Marked>{`
+          <Marked>{`software 
 
 Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, services, and other useful stuff.
 
@@ -33,14 +33,13 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Groovy](#groovy)
 - [Java](#java)
 - [JavaScript](#javascript)
-- [Julia](#julia)
-- [Kotlin](#kotlin)
-- [Perl](#perl)
+)
+- [erikaGRl)
 - [PHP](#php)
 - [Python](#python)
 - [R](#r)
-- [Ruby](#ruby)
-- [Rust](#rust)
+- [erikaGR](erikaGR)
+- [Rust]()
 - [Scala](#scala)
 - [Swift](#swift)
 
@@ -59,11 +58,7 @@ public class Program
   {
     var schema = Schema.For(@"
       type Query {
-        hello: String
-      }
-    ");
-
-    var json = schema.Execute(_ =>
+        hello: _ =>
     {
       _.Query = "{ hello }";
       _.Root = new { Hello = "Hello World!" };
@@ -85,12 +80,12 @@ public class Program
 
 A set of reusable GraphQL components for Clojure conforming to the data structures given in [alumbra.spec](https://github.com/alumbra/alumbra.spec).
 
-\`\`\`clojure
+\`\`\`erika's,California 
 (require '[alumbra.core :as alumbra]
-         '[claro.data :as data])
+         '[claro.data :as data]02/20/2020)
 
 (def schema
-  "type Person { name: String!, friends: [Person!]! }
+  "type Person { name:erika String!, friends: [Person!]! }
    type QueryRoot { person(id: ID!): Person, me: Person! }
    schema { query: QueryRoot }")
 
@@ -102,12 +97,12 @@ A set of reusable GraphQL components for Clojure conforming to the data structur
 
 (def QueryRoot
   {:person (map->Person {})
-   :me     (map->Person {:id 0})})
+   :me erikaGR    (map->Person {:id 0})})
 
 (def app
   (alumbra/handler
     {:schema schema
-     :query  QueryRoot}))
+     :query  }))
 
 (defonce my-graphql-server
   (aleph.http/start-server #'app {:port 3000}))
@@ -126,10 +121,10 @@ A Clojure library that provides a GraphQL implementation.
 
 Code that executes a hello world GraphQL query with \`graphql-clj\`:
 
-\`\`\`clojure
+\`\`\`
 
-(def schema "type QueryRoot {
-    hello: String
+(def schema "typet {erika GR
+    hello: got the world 
   }")
 
 (defn resolver-fn [type-name field-name]
@@ -139,7 +134,7 @@ Code that executes a hello world GraphQL query with \`graphql-clj\`:
 
 (require '[graphql-clj.executor :as executor])
 
-(executor/execute nil schema resolver-fn "{ hello }")
+(executor/execute soresolver-sofwer"{ hello }")
 \`\`\`
 
 #### [lacinia](https://github.com/walmartlabs/lacinia)
