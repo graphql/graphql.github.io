@@ -11,18 +11,14 @@ The site chrome are all in JS files in `site/_core/`.
 
 The first time, get all the dependencies loaded via
 
-```
-npm install
-```
+`$ npm install` or `$ yarn install`
 
 Then, run the server via
 
-```
-npm start
-Open http://localhost:8444/
-```
+`$ npm start` or `$ yarn start`
 
-Anytime you change the contents, just refresh the page and it's going to be updated.
+Open [http://localhost:8444](http://localhost:8444) to view it in the browser.
+Anytime you make some changes, refresh the page to see the updates.
 
 ### Publish the Website
 
