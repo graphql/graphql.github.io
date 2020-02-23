@@ -42,7 +42,7 @@ body.index {
 
     &::before {
       background: url("/img/graph-wash.png") repeat center center;
-      content: "";
+      content: '';
       height: 100%;
       position: absolute;
       top: 0;
@@ -65,8 +65,7 @@ body.index {
       nav > a {
         text-shadow: 0 1px 1px @dark-color, 0 0 3px @dark-color;
 
-        &:hover,
-        &:focus {
+        &:hover, &:focus {
           color: white;
         }
 
@@ -112,10 +111,6 @@ body.index {
       animation: fade 1.2s ease-in-out;
       animation-fill-mode: both;
       margin-right: 18px;
-
-      @media screen and (max-width: 768px) {
-        margin-top: 3rem;
-      }
 
       h1 {
         color: @rhodamine-color;
@@ -168,10 +163,9 @@ body.index {
     }
 
     .fadein-cols(4);
-    .fadein-cols(@n) when (@n > 1) {
-      .fadein-cols(@n - 1);
+    .fadein-cols(@n) when (@n > 1) { .fadein-cols(@n - 1);
       .marketing-col:nth-child(@{n}) {
-        animation: fade 1s 0.5s * @n ease-in-out both;
+        animation: fade 1.0s 0.5s * @n ease-in-out both;
       }
     }
 
@@ -205,16 +199,14 @@ body.index {
         .headline-font(@size: 17px, @color: white);
         border: solid 1px fadeout(white, 60%);
         border-radius: 6px;
-        line-height: 1;
+        line-height: 1.0;
         transition: background 0.1s ease-out, color 0.1s ease-out;
         padding: 0.6em 1.6em;
         margin: 0 0.8em;
         display: inline-block;
         text-decoration: none;
 
-        &:hover,
-        &:focus,
-        &:active {
+        &:hover, &:focus, &:active {
           color: @text-color;
           background: white;
           text-decoration: none;
@@ -242,8 +234,9 @@ body.index {
 
   .darkWash {
     background: #3d464f;
-    box-shadow: inset 0 30px 30px -30px rgba(0, 0, 0, 0.35),
-      inset 0 -20px 30px -30px rgba(0, 0, 0, 0.35);
+    box-shadow:
+      inset 0 30px 30px -30px rgba(0,0,0,0.35),
+      inset 0 -20px 30px -30px rgba(0,0,0,0.35);
     overflow: hidden;
     position: relative;
   }
@@ -251,7 +244,7 @@ body.index {
   .window {
     background: white;
     border-radius: 6px 6px 0 0;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 8px 32px rgba(0,0,0,0.12);
     margin: 0 -15px;
     overflow: hidden;
     padding-top: 26px;
@@ -260,8 +253,8 @@ body.index {
     &::before {
       background: linear-gradient(#f0f0f0, #dedede);
       border-radius: 6px 6px 0 0;
-      box-shadow: inset 0 2px 2px -2px white, 0 1px rgba(0, 0, 0, 0.4);
-      content: " ";
+      box-shadow: inset 0 2px 2px -2px white, 0 1px rgba(0,0,0,0.4);
+      content: ' ';
       display: block;
       height: 25px;
       position: absolute;
@@ -311,8 +304,7 @@ body.index {
       flex-direction: column;
       pointer-events: none;
 
-      .query,
-      .response {
+      .query, .response {
         flex: 1;
       }
 
@@ -329,12 +321,10 @@ body.index {
         animation: cursor-blink 0.5s infinite linear both alternate;
 
         @keyframes cursor-blink {
-          0%,
-          30% {
+          0%, 30% {
             opacity: 0;
           }
-          70%,
-          100% {
+          70%, 100% {
             opacity: 1;
           }
         }
@@ -367,8 +357,7 @@ body.index {
         margin-top: 0;
       }
 
-      .phone,
-      .server {
+      .phone, .server {
         position: absolute;
         left: 0;
         right: 0;
@@ -382,8 +371,7 @@ body.index {
         top: 0;
       }
 
-      .query,
-      .response {
+      .query, .response {
         position: absolute;
       }
 
@@ -397,8 +385,7 @@ body.index {
             top: 230px;
           }
 
-          5%,
-          25% {
+          5%, 25% {
             opacity: 1;
           }
 
@@ -406,8 +393,7 @@ body.index {
             opacity: 0;
           }
 
-          50%,
-          100% {
+          50%, 100% {
             top: 150px;
             opacity: 0;
           }
@@ -428,13 +414,11 @@ body.index {
             opacity: 0;
           }
 
-          25%,
-          45% {
+          25%, 45% {
             opacity: 1;
           }
 
-          50%,
-          100% {
+          50%, 100% {
             opacity: 0;
             top: 200px;
           }
@@ -458,8 +442,7 @@ body.index {
       display: flex;
       pointer-events: none;
 
-      .type-system,
-      .query {
+      .type-system, .query {
         background: white;
         flex: 1;
         position: relative;
@@ -512,7 +495,9 @@ body.index {
     .graphiqlVid {
       background: white;
       border-radius: 6px 6px 0 0;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 16px 64px rgba(0, 0, 0, 0.6);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.2),
+        0 16px 64px rgba(0, 0, 0, 0.6);
       margin: 3em -10px 0;
       overflow: hidden;
       padding-top: 40%;
@@ -549,7 +534,7 @@ body.index {
       .add {
         .code-font(@color: darken(#eaffea, 75%));
         &::before {
-          content: "+";
+          content: '+';
         }
         background: #eaffea;
         border-left: solid 1px darken(#eaffea, 10%);
@@ -558,14 +543,13 @@ body.index {
       .remove {
         .code-font(@color: darken(#ffecec, 75%));
         &::before {
-          content: "-";
+          content: '-';
         }
         background: #ffecec;
         border-left: solid 1px darken(#ffecec, 10%);
       }
 
-      .add,
-      .remove {
+      .add, .remove {
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
         position: absolute;
@@ -582,17 +566,14 @@ body.index {
         position: relative;
         width: 5 * @pane-width;
 
-        .v1,
-        .v2,
-        .v3,
-        .v4,
-        .v5 {
+        .v1, .v2, .v3, .v4, .v5 {
           border-left: solid 1px #eee;
           flex: 1;
           padding: 4px 6px 18px;
           position: relative;
           width: @pane-width;
         }
+
 
         &.step0 {
           .v2 {
@@ -734,11 +715,12 @@ body.index {
           transition: none;
         }
 
-        &.step1,
-        &.step2 {
+        &.step1, &.step2 {
           & > pre:first-child {
             line-height: 4 * 17px;
-            transition: top 0.5s ease-in-out, line-height 0.5s ease-in-out;
+            transition:
+              top 0.5s ease-in-out,
+              line-height 0.5s ease-in-out;
 
             &:first-line {
               line-height: 17px;
@@ -808,17 +790,14 @@ body.index {
       .headline-font(@size: 17px, @color: @text-color);
       border: solid 1px fadeout(black, 60%);
       border-radius: 6px;
-      line-height: 1;
-      transition: border 0.1s ease-out, background 0.1s ease-out,
-        color 0.1s ease-out;
+      line-height: 1.0;
+      transition: border 0.1s ease-out, background 0.1s ease-out, color 0.1s ease-out;
       padding: 0.65em 1.6em 0.6em;
       margin: 2em;
       display: inline-block;
       text-decoration: none;
 
-      &:hover,
-      &:focus,
-      &:active {
+      &:hover, &:focus, &:active {
         color: white;
         background: @rhodamine-color;
         border-color: @rhodamine-color;
