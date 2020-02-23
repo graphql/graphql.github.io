@@ -25,9 +25,17 @@
     padding: 0 10px 0 35px;
     width: 180px;
     transition: width 0.2s ease-out;
+    float: right;
 
-    &:focus {
-      width: 300px;
+    @media screen and (min-width: 1021px) and (max-width: 1065px){
+      &:focus {
+        width: 180px
+      }
+    }
+    @media screen and (min-width: 1065px){
+      &:focus {
+        width: 100%;
+      }
     }
   }
 
