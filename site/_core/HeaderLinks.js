@@ -20,13 +20,14 @@ const links = [
 
 export default ({ section }) =>
   <nav>
-    {links.map(link =>
+    {links.map((link, i) =>
       <a
         key={link.section}
         href={link.href}
         target={link.href.slice(0, 4) === 'http' ? '_blank' : null}
         rel={link.href.slice(0, 4) === 'http' ? 'noopener noreferrer' : null}
-        className={link.section === section ? 'active' : null}>
+        className={link.section === section ? 'active' : null}
+        key={i}>
         {link.text}
       </a>
     )}
