@@ -1,4 +1,5 @@
 var React = require('react');
+var DOM = require('react-dom-factories');
 
 export default function PrismComponent(props) {
   const lines = [];
@@ -520,7 +521,7 @@ Token.reactify = function(o, language, parent, key) {
 
   env.attributes.className = env.classes.join(' ');
 
-  return React.DOM[env.tag](env.attributes, env.content);
+  return DOM[env.tag](env.attributes, env.content);
 };
 
 Prism.languages.markup = {

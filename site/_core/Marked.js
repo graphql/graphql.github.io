@@ -5,6 +5,7 @@
 */
 
 var React = require('react');
+var DOM = require('react-dom-factories');
 var Prism = require('./Prism');
 import Header from './Header';
 
@@ -583,7 +584,7 @@ InlineLexer.prototype.output = function(src) {
         text = cap[1];
         href = text;
       }
-      out.push(React.DOM.a({href: this.sanitizeUrl(href)}, text));
+      out.push(DOM.a({href: this.sanitizeUrl(href)}, text));
       continue;
     }
 
@@ -592,7 +593,7 @@ InlineLexer.prototype.output = function(src) {
       src = src.substring(cap[0].length);
       text = cap[1];
       href = text;
-      out.push(React.DOM.a({href: this.sanitizeUrl(href)}, text));
+      out.push(DOM.a({href: this.sanitizeUrl(href)}, text));
       continue;
     }
 
@@ -632,35 +633,35 @@ InlineLexer.prototype.output = function(src) {
     // strong
     if (cap = this.rules.strong.exec(src)) {
       src = src.substring(cap[0].length);
-      out.push(React.DOM.strong(null, this.output(cap[2] || cap[1])));
+      out.push(DOM.strong(null, this.output(cap[2] || cap[1])));
       continue;
     }
 
     // em
     if (cap = this.rules.em.exec(src)) {
       src = src.substring(cap[0].length);
-      out.push(React.DOM.em(null, this.output(cap[2] || cap[1])));
+      out.push(DOM.em(null, this.output(cap[2] || cap[1])));
       continue;
     }
 
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      out.push(React.DOM.code(null, cap[2]));
+      out.push(DOM.code(null, cap[2]));
       continue;
     }
 
     // br
     if (cap = this.rules.br.exec(src)) {
       src = src.substring(cap[0].length);
-      out.push(React.DOM.br(null, null));
+      out.push(DOM.br(null, null));
       continue;
     }
 
     // del (gfm)
     if (cap = this.rules.del.exec(src)) {
       src = src.substring(cap[0].length);
-      out.push(React.DOM.del(null, this.output(cap[1])));
+      out.push(DOM.del(null, this.output(cap[1])));
       continue;
     }
 
@@ -710,14 +711,14 @@ InlineLexer.prototype.outputLink = function(cap, link) {
       link.href.charAt(0) !== '/'
       && link.href.charAt(0) !== '#';
 
-    return React.DOM.a({
+    return DOM.a({
       href: this.sanitizeUrl(link.href),
       title: link.title,
       target: shouldOpenInNewWindow ? '_blank' : null,
       rel: shouldOpenInNewWindow ? 'nofollow noopener noreferrer' : null
     }, this.output(cap[1]));
   } else {
-    return React.DOM.img({
+    return DOM.img({
       src: this.sanitizeUrl(link.href),
       alt: cap[1],
       title: link.title
@@ -814,7 +815,7 @@ Parser.prototype.tok = function() {
       return [];
     }
     case 'hr': {
-      return React.DOM.hr(null, null);
+      return DOM.hr(null, null);
     }
     case 'heading': {
       return (
@@ -860,32 +861,32 @@ Parser.prototype.tok = function() {
       // header
       for (i = 0; i < this.token.header.length; i++) {
         heading = this.inline.output(this.token.header[i]);
-        row.push(React.DOM.th(
+        row.push(DOM.th(
           this.token.align[i]
             ? {style: {textAlign: this.token.align[i]}}
             : null,
           heading
         ));
       }
-      table.push(React.DOM.thead(null, React.DOM.tr(null, row)));
+      table.push(DOM.thead(null, DOM.tr(null, row)));
 
       // body
       for (i = 0; i < this.token.cells.length; i++) {
         row = [];
         cells = this.token.cells[i];
         for (j = 0; j < cells.length; j++) {
-          row.push(React.DOM.td(
+          row.push(DOM.td(
             this.token.align[j]
               ? {style: {textAlign: this.token.align[j]}}
               : null,
             this.inline.output(cells[j])
           ));
         }
-        body.push(React.DOM.tr(null, row));
+        body.push(DOM.tr(null, row));
       }
-      table.push(React.DOM.thead(null, body));
+      table.push(DOM.thead(null, body));
 
-      return React.DOM.table(null, table);
+      return DOM.table(null, table);
     }
     case 'blockquote_start': {
       var body = [];
@@ -894,7 +895,7 @@ Parser.prototype.tok = function() {
         body.push(this.tok());
       }
 
-      return React.DOM.blockquote(null, body);
+      return DOM.blockquote(null, body);
     }
     case 'list_start': {
       var type = this.token.ordered ? 'ol' : 'ul'
@@ -904,7 +905,7 @@ Parser.prototype.tok = function() {
         body.push(this.tok());
       }
 
-      return React.DOM[type](null, body);
+      return DOM[type](null, body);
     }
     case 'list_item_start': {
       var body = [];
@@ -915,7 +916,7 @@ Parser.prototype.tok = function() {
           : this.tok());
       }
 
-      return React.DOM.li(null, body);
+      return DOM.li(null, body);
     }
     case 'loose_item_start': {
       var body = [];
@@ -924,10 +925,10 @@ Parser.prototype.tok = function() {
         body.push(this.tok());
       }
 
-      return React.DOM.li(null, body);
+      return DOM.li(null, body);
     }
     case 'html': {
-      return React.DOM.div({
+      return DOM.div({
         dangerouslySetInnerHTML: {
           __html: this.token.text
         }
@@ -936,12 +937,12 @@ Parser.prototype.tok = function() {
     case 'paragraph': {
       return this.options.paragraphFn
         ? this.options.paragraphFn.call(null, this.inline.output(this.token.text))
-        : React.DOM.p(null, this.inline.output(this.token.text));
+        : DOM.p(null, this.inline.output(this.token.text));
     }
     case 'text': {
       return this.options.paragraphFn
         ? this.options.paragraphFn.call(null, this.parseText())
-        : React.DOM.p(null, this.parseText());
+        : DOM.p(null, this.parseText());
     }
   }
 };
@@ -1067,8 +1068,8 @@ function marked(src, opt, callback) {
   } catch (e) {
     e.message += '\nPlease report this to https://github.com/chjj/marked.';
     if ((opt || marked.defaults).silent) {
-      return [React.DOM.p(null, "An error occurred:"),
-        React.DOM.pre(null, e.message)];
+      return [DOM.p(null, "An error occurred:"),
+        DOM.pre(null, e.message)];
     }
     throw e;
   }
