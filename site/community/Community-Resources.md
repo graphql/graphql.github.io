@@ -100,6 +100,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Learning GraphQL with React and Relay](https://www.packtpub.com/application-development/learning-graphql-react-and-relay-video) by Divyendu Singh
 - [Hands-on GraphQL for Better RESTful Web Services (Video)](https://www.packtpub.com/application-development/hands-graphql-better-restful-web-services-video) by Ashwin Hegde
 - [A PostgreSQL backed GraphQL BaaS](https://www.youtube.com/watch?v=neIZcc8y3B0) by Tanmai Gopal
+- [Five years of GraphQL](https://www.youtube.com/watch?v=s8meG38iZAM) by Hasura
 
 ## Books
 
