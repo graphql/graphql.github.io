@@ -108,6 +108,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Craft GraphQL APIs in Elixir with Absinthe](https://pragprog.com/book/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe) by Bruce Williams and Ben Wilson
 - [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
 - [The Road to GraphQL](https://www.robinwieruch.de/the-road-to-graphql-book/) by Robin Wieruch
+- [Production Ready GraphQL](https://book.productionreadygraphql.com/) by Marc-Andre Giroux
 
 ## More Resources
 
