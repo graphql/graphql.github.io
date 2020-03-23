@@ -110,6 +110,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
 - [Hands-on Full-Stack Web Development with GraphQL and React](https://www.packtpub.com/web-development/hands-full-stack-web-development-graphql-and-react) by Sebastian Grebe
 - [The Road to GraphQL](https://www.robinwieruch.de/the-road-to-graphql-book/) by Robin Wieruch
+- [Production Ready GraphQL](https://book.productionreadygraphql.com/) by Marc-Andre Giroux
 
 ## More Resources
 
