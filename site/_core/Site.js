@@ -49,7 +49,7 @@ export default ({ page, category, title, section, className, noSearch, children 
             <img className="nav-logo" src="/img/logo.svg" alt="GraphQL Logo" width="30" height="30" />
             GraphQL
           </a>
-          <HeaderLinks section={section} />
+          <HeaderLinks section={section} activeUrl={page.permalink} />
           {noSearch || <Search />}
         </section>
       </header>

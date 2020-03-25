@@ -18,7 +18,7 @@ const links = [
   { section: 'landscape', text: 'Landscape', href: 'https://l.graphql.org/' },
 ];
 
-export default ({ section }) =>
+export default ({ section, activeUrl }) => {
   <nav>
     {links.map(link =>
       <a
@@ -26,8 +26,10 @@ export default ({ section }) =>
         href={link.href}
         target={link.href.slice(0, 4) === 'http' ? '_blank' : null}
         rel={link.href.slice(0, 4) === 'http' ? 'noopener noreferrer' : null}
-        className={link.section === section ? 'active' : null}>
+        className={(link.section === section || activeUrl && activeUrl.startsWith(link.href)) ? 'active' : null}
+      >
         {link.text}
       </a>
     )}
   </nav>
+}
