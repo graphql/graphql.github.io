@@ -476,6 +476,7 @@ It also provides functionality for the construction of a WebSocket Subscriptions
 ### Swift
 
   - [Graphiti](https://github.com/GraphQLSwift/Graphiti): Swift library for building GraphQL schemas/types fast, safely and easily.
+  - [GraphZahl](https://github.com/nerdsupremacist/GraphZahl): Swift library for writing Declarative, Type-Safe GraphQL APIs with Zero Boilerplate.
 
 ### Python
 
