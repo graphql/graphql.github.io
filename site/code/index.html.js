@@ -578,6 +578,7 @@ sleep
 ### Rust
 
  - [graphql-rust/juniper](https://github.com/graphql-rust/juniper): GraphQL server library for Rust
+ - [async-graphql](https://github.com/async-graphql/async-graphql): The GraphQL server library implemented by rust
 
 ### Scala
 
