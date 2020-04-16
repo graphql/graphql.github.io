@@ -25,7 +25,7 @@ module.exports = ({ page, section }) =>
           </div>
 
           <div className="marketing-col">
-            <h3>Describe your data</h3>
+            <h3>Describe your data mengcan</h3>
             <Prism language="graphql">
               {`type Project {
   name: String
