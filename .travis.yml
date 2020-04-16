@@ -10,4 +10,4 @@ deploy:
   provider: script
   script: ./resources/publish.sh
   on:
-    branch: source
+    branch: cn
