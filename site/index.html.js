@@ -21,7 +21,7 @@ module.exports = ({ page, section }) =>
         <section className="intro">
           <div className="named-logo">
             <img src="/img/logo.svg" alt="GraphQL Logo" />
-            <h1>GraphQL</h1>
+            <h1>GraphQL fff</h1>
           </div>
 
           <div className="marketing-col">
