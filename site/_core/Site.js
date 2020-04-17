@@ -90,7 +90,7 @@ export default ({ page, category, title, section, className, noSearch, children 
         </section>
         <section className="copyright">
           Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds. <a href="http://www.linuxfoundation.org/privacy">Privacy Policy</a> and <a href="http://www.linuxfoundation.org/terms">Terms of Use</a>.
-          <div style={{color:"#E10098", fontSize:"large"}}>翻译：忠孝东路走九遍</div>
+          <div style={{color:"#E10098", fontSize:"large", marginTop: "8px"}}>翻译：忠孝东路走九遍</div>
         </section>
       </footer>
 
