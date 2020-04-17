@@ -59,10 +59,10 @@ module.exports = ({ page, section }) =>
         </section>
 
         <div className="buttons-unit">
-          <a className="button" href="/code/">
+          <a className="button" href="./code/">
             Get Started
           </a>
-          <a className="button" href="/learn/">
+          <a className="button" href="./learn/">
             Learn More
           </a>
         </div>
@@ -190,7 +190,7 @@ module.exports = ({ page, section }) =>
             network&nbsp;connections.</p>
         </div>
         <div className="app-to-server" aria-hidden>
-          <img src="/img/phone.svg" width="496" height="440" className="phone" />
+          <img src="./img/phone.svg" width="496" height="440" className="phone" />
           <div className="query">
           <Prism language="graphql">
             {`{
@@ -218,7 +218,7 @@ module.exports = ({ page, section }) =>
 }`}
           </Prism>
           </div>
-          <img src="/img/server.svg" width="496" height="440" className="server" />
+          <img src="./img/server.svg" width="496" height="440" className="server" />
         </div>
       </section>
     </div>
@@ -317,7 +317,7 @@ type Species {
       </div>
       <div className="graphiqlVid" dangerouslySetInnerHTML={{__html: `
         <video autoplay loop playsinline>
-          <source src="/img/graphiql.mp4?x" type="video/mp4" />
+          <source src="./img/graphiql.mp4?x" type="video/mp4" />
         </video>
       `}} />
     </section>
@@ -532,7 +532,7 @@ public class Character {
       <div className="logos">
         {/* Waiting for permission from some of the below */}
         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/users/logos/facebook.png" title="Facebook" />
+          <img src="./users/logos/facebook.png" title="Facebook" />
         </a>
         {/** /}
         <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
@@ -540,10 +540,10 @@ public class Character {
         </a>
         {/**/}
         <a href="https://developer.github.com/v4/" target="_blank" rel="noopener noreferrer">
-          <img src="/users/logos/github.png" title="GitHub" className="round" />
+          <img src="./users/logos/github.png" title="GitHub" className="round" />
         </a>
         <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/users/logos/pinterest.png" title="Pinterest" className="round" />
+          <img src="./users/logos/pinterest.png" title="Pinterest" className="round" />
         </a>
         {/** /}
         <a href="https://www.airbnb.com/" target="_blank" rel="noopener noreferrer">
@@ -551,17 +551,17 @@ public class Character {
         </a>
         {/**/}
         <a href="https://www.intuit.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/users/logos/intuit.png" title="Intuit" />
+          <img src="./users/logos/intuit.png" title="Intuit" />
         </a>
         <a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">
-          <img src="/users/logos/coursera.png" title="Coursera" />
+          <img src="./users/logos/coursera.png" title="Coursera" />
         </a>
         <a href="https://www.shopify.com/" target="_blank" rel="noopener noreferrer">
-          <img src="/users/logos/shopify.png" title="Shopify" className="round" />
+          <img src="./users/logos/shopify.png" title="Shopify" className="round" />
         </a>
       </div>
 
-      <a className="button" href="/users/">
+      <a className="button" href="./users/">
         More GraphQL Users
       </a>
 
