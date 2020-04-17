@@ -36,7 +36,7 @@ export default ({ page, category, title, section, className, noSearch, children 
       <meta name="twitter:image" content="/img/twitter_image.png" />
       <link rel="shortcut icon" href="/img/favicon.png" />
       <link rel="home" type="application/rss+xml" href="/blog/rss.xml" title="GraphQL Team Blog" />
-      <link rel="stylesheet" href="/style.css" />
+      <link rel="stylesheet" href="./style.css" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300|Roboto:300" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,600" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
@@ -45,7 +45,7 @@ export default ({ page, category, title, section, className, noSearch, children 
 
       <header>
         <section>
-          <a className="nav-home" href="/">
+          <a className="nav-home" href="./">
             <img className="nav-logo" src="/img/logo.svg" alt="GraphQL Logo" width="30" height="30" />
             GraphQL
           </a>
@@ -58,24 +58,24 @@ export default ({ page, category, title, section, className, noSearch, children 
 
       <footer>
         <section className="sitemap">
-          <a href="/" className="nav-home" aria-label="Homepage" />
+          <a href="./" className="nav-home" aria-label="Homepage" />
           <div>
-            <h5><a href="/learn/">Learn</a></h5>
-            <a href="/learn/">Introduction</a>
-            <a href="/learn/queries/">Query Language</a>
-            <a href="/learn/schema/">Type System</a>
-            <a href="/learn/execution/">Execution</a>
-            <a href="/learn/best-practices/">Best Practices</a>
+            <h5><a href="./learn/">Learn</a></h5>
+            <a href="./learn/">Introduction</a>
+            <a href="./learn/queries/">Query Language</a>
+            <a href="./learn/schema/">Type System</a>
+            <a href="./learn/execution/">Execution</a>
+            <a href="./learn/best-practices/">Best Practices</a>
           </div>
           <div>
-            <h5><a href="/code">Code</a></h5>
-            <a href="/code/#server-libraries">Servers</a>
-            <a href="/code/#graphql-clients">Clients</a>
-            <a href="/code/#tools">Tools</a>
+            <h5><a href="./code">Code</a></h5>
+            <a href="./code/#server-libraries">Servers</a>
+            <a href="./code/#graphql-clients">Clients</a>
+            <a href="./code/#tools">Tools</a>
           </div>
           <div>
-            <h5><a href="/community">Community</a></h5>
-            <a href="/community/upcoming-events/">Upcoming Events</a>
+            <h5><a href="./community">Community</a></h5>
+            <a href="./community/upcoming-events/">Upcoming Events</a>
             <a href="http://stackoverflow.com/questions/tagged/graphql" target="_blank" rel="noopener noreferrer">Stack Overflow</a>
             <a href="https://www.facebook.com/groups/graphql.community/" target="_blank" rel="noopener noreferrer">Facebook Group</a>
             <a href="https://twitter.com/GraphQL" target="_blank" rel="noopener noreferrer">Twitter</a>
