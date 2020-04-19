@@ -60,10 +60,10 @@ module.exports = ({ page, section }) =>
 
         <div className="buttons-unit">
           <a className="button" href="./code/">
-            Get Started
+            开始学习
           </a>
           <a className="button" href="./learn/">
-            Learn More
+            学习更多
           </a>
         </div>
 
