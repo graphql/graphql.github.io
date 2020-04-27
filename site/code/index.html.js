@@ -601,6 +601,8 @@ val query = graphql"{ hello }"
 Executor.execute(schema, query) map println
 \`\`\`
 
+#### [Caliban](https://ghostdogpr.github.io/caliban/) ([github](https://github.com/ghostdogpr/caliban)): Functional GraphQL library for Scala with minimal boilerplate.
+
 ## GraphQL Clients
 
 - [C# / .NET](#c-net-1)
@@ -614,6 +616,7 @@ Executor.execute(schema, query) map println
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
 - [Python](#python-1)
 - [R](#r)
+- [Scala](#scala)
 
 ### C# / .NET
 
@@ -675,6 +678,10 @@ Executor.execute(schema, query) map println
 ### R
 
   - [ghql](https://github.com/ropensci/ghql): General purpose GraphQL R client.
+
+### Scala
+
+  - [Caliban](https://ghostdogpr.github.io/caliban/): Functional GraphQL library for Scala, with client code generation and type-safe queries.
 
 ## Tools
 
