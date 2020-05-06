@@ -25,6 +25,8 @@ Here are some helpful accounts to follow:
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollographql](https://twitter.com/apollographql)
 - [@prisma](https://twitter.com/prisma)
+- [@HasuraHQ](https://twitter.com/HasuraHQ)
+- [@TheGuildDev](https://twitter.com/TheGuildDev)
 
 ## IRC
 
