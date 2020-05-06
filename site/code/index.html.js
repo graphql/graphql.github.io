@@ -43,6 +43,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Rust](#rust)
 - [Scala](#scala)
 - [Swift](#swift)
+- [OCaml / Reason](#ocaml-reason)
 
 ### C# / .NET
 
@@ -600,6 +601,10 @@ val query = graphql"{ hello }"
 
 Executor.execute(schema, query) map println
 \`\`\`
+
+### OCaml / Reason
+
+#### [ocaml-graphql-server](https://github.com/andreas/ocaml-graphql-server): GraphQL server library for OCaml and Reason
 
 ## GraphQL Clients
 
