@@ -26,6 +26,7 @@ Here are some helpful accounts to follow:
 - [@apollographql](https://twitter.com/apollographql)
 - [@prisma](https://twitter.com/prisma)
 - [@HasuraHQ](https://twitter.com/HasuraHQ)
+- [@TheGuildDev](https://twitter.com/TheGuildDev)
 
 ## IRC
 
