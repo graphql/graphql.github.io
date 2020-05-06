@@ -122,3 +122,4 @@ To explore other community-developed resources and content about GraphQL, take a
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 - [graphql-apis](https://github.com/APIs-guru/graphql-apis): A collective list of public GraphQL APIs.
 - [Basically, Full-stack GraphQL](https://github.com/TejasQ/basically-fullstack-graphql): A code-based introduction to working with GraphQL on the client _and_ server in plain English
+- [GraphQL WhatsApp Clone Tutorial](https://www.tortilla.academy/Urigo/WhatsApp-Clone-Tutorial/): A full stack tutorial to create a fully functional WhatsApp clone using GraphQL, React, Typescript and Postgres.
