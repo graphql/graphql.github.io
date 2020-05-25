@@ -22,7 +22,7 @@ type Query {
 }
 ```
 
-The exclamation point in `Int!` indicates that `numDice` can't be null, which means we can skip a bit of validation logic to make our server code simpler. We can let `numSides` be null and assume that by default a die has 6 sides.
+The exclamation point in `Int!` indicates that `numDice` can't be null, which means we can skip a bit of validation logic to make our server code simpler. We can let `numSides` be null and assume that by default a dice has 6 sides.
 
 So far, our resolver functions took no arguments. When a resolver takes arguments, they are passed as one “args” object, as the first argument to the function. So rollDice could be implemented as:
 
