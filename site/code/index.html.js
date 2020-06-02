@@ -616,6 +616,7 @@ Executor.execute(schema, query) map println
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Julia](#julia)
+- [Kotlin](#kotlin)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
 - [Python](#python-1)
 - [R](#r)
@@ -664,6 +665,10 @@ Executor.execute(schema, query) map println
 ### Julia
 
   - [Diana.jl](https://github.com/codeneomatrix/Diana.jl): A Julia GraphQL server implementation.
+
+### Kotlin
+
+  - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of GraphQL libraries that includes a lightweight, typesafe GraphQL HTTP client.
 
 ### Swift / Objective-C iOS
 
