@@ -10,6 +10,8 @@ var React = require('react');
 var Site = require('../_core/Site');
 var Marked = require('../_core/Marked');
 
+// import React, { Component } from "react";
+
 export default ({ page, site }) =>
   <Site section="code" title="Code" page={page}>
 
@@ -19,12 +21,81 @@ export default ({ page, site }) =>
           <h1>Code</h1>
           <Marked>{`
 
+
 Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, services, and other useful stuff.
 
+## Categories
+`}</Marked>
+
+{/* ### Server Libraries
+This page is
+### GraphQL Clients
+### Tools
+### Services
+### More Stuff */}
+
+<Marked>{`
 ## Server Libraries
 
 In addition to the GraphQL [reference implementations in JavaScript](#javascript), server libraries include:
 
+`}</Marked>
+
+      <div className="main-block-blog">
+        <div className="container-bl">
+					<div className="column">
+            <div className="article">
+              <a href="#c-net">
+                <h3 className="article_category">
+                  <img src="../img/csharp.svg" style={{width: 92, height: 92}} />
+                </h3>
+                <h2 className="article_title">C# / .NET</h2>
+              </a>
+            </div>
+					</div>
+					<div className="column">
+            <div className="article">
+              <a href="#clojure">
+                <h3 className="article_category">
+                    <img src="../img/clojure.svg" style={{width: 92, height: 92}} />
+                </h3>
+                <h2 className="article_title">Clojure</h2>
+              </a>
+            </div>
+					</div>
+					<div className="column">
+            <div className="article">
+              <a href="#elixir">
+                <h3 className="article_category">
+                    <img src="../img/elixir.svg" style={{width: 92, height: 92}} />
+                </h3>
+                <h2 className="article_title">Elixir</h2>
+              </a>
+            </div>
+					</div> 
+          <div className="column">
+            <div className="article">
+              <a href="#erlang">
+                <h3 className="article_category">
+                    <img src="../img/erlang.svg" style={{width: 92, height: 92}} />
+                </h3>
+                <h2 className="article_title">Erlang</h2>
+              </a>
+            </div>
+					</div> 
+          
+				</div>
+    
+      </div>
+
+    {/* <div className="container-bl">
+
+      <div className="column" >
+        <h1>Hi</h1>
+      </div>
+
+    </div> */}
+{/* Hii
 - [C# / .NET](#c-net)
 - [Clojure](#clojure)
 - [Elixir](#elixir)
@@ -43,8 +114,9 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Rust](#rust)
 - [Scala](#scala)
 - [Swift](#swift)
-- [OCaml / Reason](#ocaml-reason)
+- [OCaml / Reason](#ocaml-reason) */}
 
+<Marked>{`
 ### C# / .NET
 
 #### [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
@@ -162,6 +234,7 @@ A full implementation of the GraphQL specification that aims to maintain externa
   - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go): An active implementation of GraphQL in Golang (was https://github.com/neelance/graphql-go).
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - Go generate based graphql server library.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
+  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
   - [appointy/jaal](https://github.com/appointy/jaal): Develop spec compliant GraphQL servers in Go.
 
@@ -615,7 +688,6 @@ Executor.execute(schema, query) map println
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Julia](#julia)
-- [Kotlin](#kotlin)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
 - [Python](#python-1)
 - [R](#r)
@@ -641,11 +713,10 @@ Executor.execute(schema, query) map println
 ### Go
 
   - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
-  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
 
 ### Java / Android
 
-  - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for the JVM, Android and Kotlin native.
+  - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
 
   - [Nodes](https://github.com/americanexpress/nodes): A GraphQL JVM Client designed for constructing queries from standard model definitions. By American Express.
 
@@ -665,10 +736,6 @@ Executor.execute(schema, query) map println
 ### Julia
 
   - [Diana.jl](https://github.com/codeneomatrix/Diana.jl): A Julia GraphQL server implementation.
-
-### Kotlin
-
-  - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of GraphQL libraries that includes a lightweight, typesafe GraphQL HTTP client.
 
 ### Swift / Objective-C iOS
 
@@ -710,7 +777,6 @@ Executor.execute(schema, query) map println
   - [Elide](https://elide.io): A Java library that can expose a JPA annotated data model as a GraphQL service over any relational database. 
   - [Hasura](https://hasura.io) ([github](https://github.com/hasura)): Hasura connects to your databases & microservices and instantly gives you a production-ready GraphQL API.
   - [FaunaDB](https://docs.fauna.com/fauna/current/graphql): Create an instant GraphQL backend by importing a gql schema. The database will create relations and indexes for you, so you'll be ready to query in seconds, without writing any database code. Serverless pricing, free to get started.
-  - [Back4App](https://www.back4app.com/docs/parse-graphql/graphql-getting-started): Back4App is a Backend as a Service Platform that helps you Build and Scale modern applications based on GraphQL.
 
 ## More Stuff
 
