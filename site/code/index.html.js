@@ -111,9 +111,53 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
             </a>
           </div>
         </div> 
-        
       </div>
-  
+
+      <br />
+
+      <div className="container-bl">
+        <div className="column"  >
+          <div className="article">
+            <a href="#go">
+              <h3 className="article_category">
+                  <img src="../img/golang.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Go</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#groovy">
+              <h3 className="article_category">
+                  <img src="../img/groovy.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Groovy</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#java">
+              <h3 className="article_category">
+                  <img src="../img/java.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Java</h2>
+            </a>
+          </div>
+        </div> 
+        <div className="column">
+          <div className="article">
+            <a href="#javascript">
+              <h3 className="article_category">
+                  <img src="../img/node.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">JavaScript</h2>
+            </a>
+          </div>
+        </div> 
+      </div>
+      
     </div>
 
     {/* <div className="container-bl">
