@@ -55,13 +55,6 @@ Many different programming languages support GraphQL. This list contains some of
       </div>
     </div>
 
-{/* ### Server Libraries
-This page is
-### GraphQL Clients
-### Tools
-### Services
-### More Stuff */}
-
 <Marked>{`
 ## Server Libraries
 
@@ -157,17 +150,100 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
           </div>
         </div> 
       </div>
-      
-    </div>
 
-    {/* <div className="container-bl">
+      <br />
 
-      <div className="column" >
-        <h1>Hi</h1>
+      <div className="container-bl">
+        <div className="column"  >
+          <div className="article">
+            <a href="#julia">
+              <h3 className="article_category">
+                  <img src="../img/julia.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Julia</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#kotlin">
+              <h3 className="article_category">
+                  <img src="../img/kotlin.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Kotlin</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#perl">
+              <h3 className="article_category">
+                  <img src="../img/perl.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Perl</h2>
+            </a>
+          </div>
+        </div> 
+        <div className="column">
+          <div className="article">
+            <a href="#php">
+              <h3 className="article_category">
+                  <img src="../img/php.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">PHP</h2>
+            </a>
+          </div>
+        </div> 
       </div>
 
-    </div> */}
-{/* Hii
+      <br />
+
+      <div className="container-bl">
+        <div className="column"  >
+          <div className="article">
+            <a href="#python">
+              <h3 className="article_category">
+                  <img src="../img/python.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Python</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#r">
+              <h3 className="article_category">
+                  <img src="../img/r.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">R</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#ruby">
+              <h3 className="article_category">
+                  <img src="../img/ruby.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Ruby</h2>
+            </a>
+          </div>
+        </div> 
+        <div className="column">
+          <div className="article">
+            <a href="#rust">
+              <h3 className="article_category">
+                  <img src="../img/rust.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Rust</h2>
+            </a>
+          </div>
+        </div> 
+      </div>
+
+    </div>
+
+{/* 
 - [C# / .NET](#c-net)
 - [Clojure](#clojure)
 - [Elixir](#elixir)
