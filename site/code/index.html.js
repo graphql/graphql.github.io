@@ -27,6 +27,34 @@ Many different programming languages support GraphQL. This list contains some of
 ## Categories
 `}</Marked>
 
+    <div className="container-bl1">
+      <div className="column">
+        <a href="#server-libraries">
+          <h3>Server Libraries</h3>
+        </a>
+      </div>
+      <div className="column">
+        <a href="#graphql-clients">
+          <h3>GraphQL Clients</h3>
+        </a>
+      </div>
+      <div className="column">
+        <a href="#tools">
+          <h3>Tools</h3>
+        </a>
+      </div>
+      <div className="column">
+        <a href="#services">
+          <h3>Services</h3>
+        </a>
+      </div>
+      <div className="column">
+        <a href="#more-stuff">
+          <h3>More Stuff</h3>
+        </a>
+      </div>
+    </div>
+
 {/* ### Server Libraries
 This page is
 ### GraphQL Clients
@@ -41,52 +69,52 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
 `}</Marked>
 
-      <div className="main-block-blog">
-        <div className="container-bl">
-					<div className="column">
-            <div className="article">
-              <a href="#c-net">
-                <h3 className="article_category">
-                  <img src="../img/csharp.svg" style={{width: 92, height: 92}} />
-                </h3>
-                <h2 className="article_title">C# / .NET</h2>
-              </a>
-            </div>
-					</div>
-					<div className="column">
-            <div className="article">
-              <a href="#clojure">
-                <h3 className="article_category">
-                    <img src="../img/clojure.svg" style={{width: 92, height: 92}} />
-                </h3>
-                <h2 className="article_title">Clojure</h2>
-              </a>
-            </div>
-					</div>
-					<div className="column">
-            <div className="article">
-              <a href="#elixir">
-                <h3 className="article_category">
-                    <img src="../img/elixir.svg" style={{width: 92, height: 92}} />
-                </h3>
-                <h2 className="article_title">Elixir</h2>
-              </a>
-            </div>
-					</div> 
-          <div className="column">
-            <div className="article">
-              <a href="#erlang">
-                <h3 className="article_category">
-                    <img src="../img/erlang.svg" style={{width: 92, height: 92}} />
-                </h3>
-                <h2 className="article_title">Erlang</h2>
-              </a>
-            </div>
-					</div> 
-          
-				</div>
-    
+    <div className="main-block-blog">
+      <div className="container-bl">
+        <div className="column">
+          <div className="article">
+            <a href="#c-net">
+              <h3 className="article_category">
+                <img src="../img/csharp.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">C# / .NET</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#clojure">
+              <h3 className="article_category">
+                  <img src="../img/clojure.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Clojure</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#elixir">
+              <h3 className="article_category">
+                  <img src="../img/elixir.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Elixir</h2>
+            </a>
+          </div>
+        </div> 
+        <div className="column">
+          <div className="article">
+            <a href="#erlang">
+              <h3 className="article_category">
+                  <img src="../img/erlang.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Erlang</h2>
+            </a>
+          </div>
+        </div> 
+        
       </div>
+  
+    </div>
 
     {/* <div className="container-bl">
 
