@@ -241,6 +241,41 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
         </div> 
       </div>
 
+      <br />
+
+      <div className="container-bl">
+        <div className="column"  >
+          <div className="article">
+            <a href="#scala">
+              <h3 className="article_category">
+                  <img src="../img/scala.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Scala</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#swift">
+              <h3 className="article_category">
+                  <img src="../img/swift.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">Swift</h2>
+            </a>
+          </div>
+        </div>
+        <div className="column">
+          <div className="article">
+            <a href="#ocaml-reason">
+              <h3 className="article_category">
+                  <img src="../img/ocaml.svg" style={{width: 92, height: 92}} />
+              </h3>
+              <h2 className="article_title">OCaml</h2>
+            </a>
+          </div>
+        </div>  
+      </div>
+
     </div>
 
 {/* 
