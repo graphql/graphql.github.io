@@ -43,6 +43,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Rust](#rust)
 - [Scala](#scala)
 - [Swift](#swift)
+- [OCaml / Reason](#ocaml-reason)
 
 ### C# / .NET
 
@@ -161,7 +162,6 @@ A full implementation of the GraphQL specification that aims to maintain externa
   - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go): An active implementation of GraphQL in Golang (was https://github.com/neelance/graphql-go).
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - Go generate based graphql server library.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
-  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
   - [appointy/jaal](https://github.com/appointy/jaal): Develop spec compliant GraphQL servers in Go.
 
@@ -603,6 +603,10 @@ Executor.execute(schema, query) map println
 
 #### [Caliban](https://ghostdogpr.github.io/caliban/) ([github](https://github.com/ghostdogpr/caliban)): Functional GraphQL library for Scala with minimal boilerplate.
 
+### OCaml / Reason
+
+#### [ocaml-graphql-server](https://github.com/andreas/ocaml-graphql-server): GraphQL server library for OCaml and Reason
+
 ## GraphQL Clients
 
 - [C# / .NET](#c-net-1)
@@ -613,6 +617,7 @@ Executor.execute(schema, query) map println
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Julia](#julia)
+- [Kotlin](#kotlin)
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
 - [Python](#python-1)
 - [R](#r)
@@ -639,10 +644,11 @@ Executor.execute(schema, query) map println
 ### Go
 
   - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
+  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
 
 ### Java / Android
 
-  - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
+  - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for the JVM, Android and Kotlin native.
 
   - [Nodes](https://github.com/americanexpress/nodes): A GraphQL JVM Client designed for constructing queries from standard model definitions. By American Express.
 
@@ -662,6 +668,10 @@ Executor.execute(schema, query) map println
 ### Julia
 
   - [Diana.jl](https://github.com/codeneomatrix/Diana.jl): A Julia GraphQL server implementation.
+
+### Kotlin
+
+  - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of GraphQL libraries that includes a lightweight, typesafe GraphQL HTTP client.
 
 ### Swift / Objective-C iOS
 
@@ -707,6 +717,7 @@ Executor.execute(schema, query) map println
   - [Elide](https://elide.io): A Java library that can expose a JPA annotated data model as a GraphQL service over any relational database. 
   - [Hasura](https://hasura.io) ([github](https://github.com/hasura)): Hasura connects to your databases & microservices and instantly gives you a production-ready GraphQL API.
   - [FaunaDB](https://docs.fauna.com/fauna/current/graphql): Create an instant GraphQL backend by importing a gql schema. The database will create relations and indexes for you, so you'll be ready to query in seconds, without writing any database code. Serverless pricing, free to get started.
+  - [Back4App](https://www.back4app.com/docs/parse-graphql/graphql-getting-started): Back4App is a Backend as a Service Platform that helps you Build and Scale modern applications based on GraphQL.
 
 ## More Stuff
 

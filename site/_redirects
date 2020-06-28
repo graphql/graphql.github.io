@@ -8,7 +8,7 @@
 # https://www.netlify.com/docs/redirects/#http-status-codes
 
 /docs/api-reference-errors            /graphql-js/error/                301
-/docs/api-reference-execution         /graphql-js/exection/             301
+/docs/api-reference-execution         /graphql-js/execution/             301
 /docs/api-reference-express-graphql   /graphql-js/express-graphql/      301
 /docs/api-reference-graphql           /graphql-js/graphql/              301
 /docs/api-reference-language          /graphql-js/language/             301
