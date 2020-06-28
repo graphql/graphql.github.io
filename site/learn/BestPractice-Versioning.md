@@ -67,3 +67,12 @@ query {
 
 We can define the versions in the schema and query can be written as above to access the fields of different versions.
 
+### Some tools
+There are many tools which are used for schema validation and tracking schema versions. Some of the tools are `Apollo Graph Manager` and `GraphQL Inspector`. Schema can be validated using these tools and you can track all the schema changes. 
+
+Using [Apollo Graph Manager](https://www.apollographql.com/docs/graph-manager/), you will be able to validate the schema and get the changes done in schema. For example : you will get to know which field is deprecated, for what reason and which fields are added new, etc. You will be able to validate the schema and check if anything is breaking or not. And you will also be able to know some detailed schema changes provided by this tool. 
+
+Using [GraphQL Inspector](https://graphql-inspector.com/), you can detect the changes which can be breaking changes for the current schema. You are able to know the restriction changes in fields as well as addition/subtraction in fields. A complete difference is provided between old schema and new schema. And by that you can get to know the differences in form of non-breaking change, dangerous change and breaking change.  
+
+### Conclusion
+By this way we can version the GraphQL APIs and just move to the game of managing fields instead of versioning. It’s as simple as if you don’t want any field, then just drop it and add necessary fields with appropriate roles.
