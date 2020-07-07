@@ -254,7 +254,7 @@ api :: ByteString -> IO ByteString
 api = interpreter rootResolver
 \`\`\`
 
-See [morpheus-graphql-examples](https://github.com/morpheusgraphql/morpheus-graphql) for more sopthisticated APIs.
+See [morpheus-graphql-examples](https://github.com/morpheusgraphql/morpheus-graphql) for more sophisticated APIs.
 
 
 ### Java
