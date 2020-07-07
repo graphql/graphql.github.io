@@ -6,14 +6,15 @@ import Footer from './Footer'
 import SEO from './Seo'
 
 const Layout = ( { children, title, section, className, noSearch } ) => (
-  <div className={className}>
+  // Temporarily added (need to find a way around this)
+  <body className={className}>
     <SEO title={title} />
     <Header section={section} noSearch={noSearch} />
 
     {children}
 
     <Footer />
-  </div>
+  </body>
 )
 
 Layout.propTypes = {
