@@ -1,42 +1,33 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
+import { Link } from 'gatsby'
+import { string, bool } from 'prop-types'
 
-const Header = ( { siteTitle } ) => (
-  <header
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+import logo from '../img/logo.svg'
+import Search from './Search'
+import HeaderLink from './HeaderLink'
+
+const Header = ( { section, noSearch } ) => (
+  <header>
+
+    <section>
+
+      <Link className="nav-home" to="/">
+        <img className="nav-logo" src={logo} alt="GraphQL Logo" width="30" height="30" />
+        GraphQL
+      </Link>
+
+      <HeaderLink section={section} />
+
+      {noSearch || <Search />}
+
+    </section>
+
   </header>
 )
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: '',
+  section: string.isRequired,
+  noSearch: bool.isRequired,
 }
 
 export default Header
