@@ -16,12 +16,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        printRejected: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'graphql-docs',
