@@ -1,35 +1,33 @@
 import React from 'react'
-import { node } from 'prop-types'
-import { useSiteMetadata } from '../hooks'
+import { node, string, bool } from 'prop-types'
 
 import Header from './Header'
+import Footer from './Footer'
+import SEO from './Seo'
 
-const Layout = ( { children } ) => {
-  const { title } = useSiteMetadata()
+const Layout = ( { children, title, section, className, noSearch } ) => (
+  <div className={className}>
+    <SEO title={title} />
+    <Header section={section} noSearch={noSearch} />
 
-  return (
-    <>
-      <Header siteTitle={title} />
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '0 1.0875rem 1.45rem',
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+    {children}
+
+    <Footer />
+  </div>
+)
 
 Layout.propTypes = {
   children: node.isRequired,
+  className: string,
+  noSearch: bool,
+  section: string,
+  title: string.isRequired,
+}
+
+Layout.defaultProps = {
+  className: null,
+  noSearch: false,
+  section: null,
 }
 
 export default Layout

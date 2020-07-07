@@ -2,14 +2,15 @@ import React from 'react'
 
 import Layout from '../components/Layout'
 
-import SEO from '../components/Seo'
-
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+  <Layout className="index" title="Home" noSearch>
+
+    <div className="hero" style={{ textAlign: 'center', paddingBottom: '20vh' }}>
+
+      <h1>Work in Progress</h1>
+
+    </div>
+
   </Layout>
 )
 
