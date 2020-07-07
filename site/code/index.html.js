@@ -164,6 +164,8 @@ A full implementation of the GraphQL specification that aims to maintain externa
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
   - [appointy/jaal](https://github.com/appointy/jaal): Develop spec compliant GraphQL servers in Go.
+  - [Super Graph](https://supergraph.dev/docs/home): Fetch data without code! Super Graph gives you a high performance GraphQL API without you having to write any code. GraphQL is automagically compiled into an efficient SQL query. Use it either as a library or a standalone service.
+  
 
 ### Groovy
 
