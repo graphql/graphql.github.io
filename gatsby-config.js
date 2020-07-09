@@ -13,6 +13,13 @@ module.exports = {
         path: `${__dirname}/src/img`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/src/content`,
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -23,6 +30,9 @@ module.exports = {
         start_url: '/',
         icon: 'src/img/favicon.png',
       },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
     },
   ],
 }
