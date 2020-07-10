@@ -275,7 +275,7 @@ Then run \`node server.js\` with this code in \`server.js\`:
 
 \`\`\`js
 var express = require('express');
-var graphqlHTTP = require('express-graphql');
+var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 
 var schema = buildSchema(\`
