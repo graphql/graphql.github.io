@@ -49,9 +49,6 @@ Here we have added the middleName parameter which is mandatory and have changed 
 
 * The best practice is to use “@deprecated(reason)” defined in the schema. By using this the client can know which filed to use and which one is deprecated. This will not define the version number as the semantic versioning does. The deprecated fields will be shown by the GraphQL Explorer.
 
-### Example of Shopify
-Shopify versioned their GraphQL APIs using the url versioning approach and made their graphql endpoint such as “/api/{ version }/graphql.json”. [Here](https://shopify.dev/concepts/about-apis/versioning#the-api-version-release-schedule) is the document of shopify. They deprecate the fields and instead name the new variable as newVariablev2.
-
 
 ### More info on Versioning
 There are few other best practices for versioning GraphQL APIs.
@@ -66,6 +63,43 @@ query {
 ```
 
 We can define the versions in the schema and query can be written as above to access the fields of different versions.
+
+### Evolution of Schema
+This is definitely different from versioning, but this will be helpful to build schemas which can be evolved with time without making breaking changes. Schema can be evolved by making changes such as adding/removing fields, structures, types, etc. While making these changes, there can be some points which will restrict the schema while evolving and then @deprecated needs to be used as a last resort. For example there is a schema :
+```graphql
+type  User{
+	id: String!
+	name: String!
+	Username : String!
+	birthDate : DateTime!
+	lastLoginHistory : [DateTime]!
+}
+
+```
+In the above schema we have one field named lastLoginHistory which stores the DateTime fields as a list. Now there needs some changes in the schema and some additional data needs to be added in lastLoginHistory. For that we need to add another field to the User schema. These changes will add many fields and this could make the schema lengthier and worse.
+
+But rather than this, we can build a schema for storing lastLoginHistory data and we can use that schema referenced to the User schema.
+```graphql
+type NewDateTime : {
+	lastLoginTime : DateTime!
+	lastLoginPeriodLength : Time!
+}
+```
+``` graphql
+type User{
+	id: String!
+	name: String!
+	Username : String!
+	birthDate : DateTime!
+	lastLoginHistory : NewDateTime!
+}
+```
+This way schemas can be evolved and can be maintained in a better way. Non-required fields should be deprecated but also the new fields should be introduced in that period and the old fields should be removed in such a way that no breaking changes occur.
+
+
+
+### Example of Shopify
+Shopify versioned their GraphQL APIs using the url versioning approach and made their graphql endpoint such as “/api/{ version }/graphql.json”. [Here](https://shopify.dev/concepts/about-apis/versioning#the-api-version-release-schedule) is the document of shopify. They deprecate the fields and instead name the new variable as newVariablev2.
 
 ### Some tools
 There are many tools which are used for schema validation and tracking schema versions. Some of the tools are `Apollo Graph Manager` and `GraphQL Inspector`. Schema can be validated using these tools and you can track all the schema changes. 
