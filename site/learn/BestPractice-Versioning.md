@@ -97,16 +97,19 @@ type User{
 This way schemas can be evolved and can be maintained in a better way. Non-required fields should be deprecated but also the new fields should be introduced in that period and the old fields should be removed in such a way that no breaking changes occur.
 
 
-
 ### Example of Shopify
 Shopify versioned their GraphQL APIs using the url versioning approach and made their graphql endpoint such as “/api/{ version }/graphql.json”. [Here](https://shopify.dev/concepts/about-apis/versioning#the-api-version-release-schedule) is the document of shopify. They deprecate the fields and instead name the new variable as newVariablev2.
 
-### Some tools
-There are many tools which are used for schema validation and tracking schema versions. Some of the tools are `Apollo Graph Manager` and `GraphQL Inspector`. Schema can be validated using these tools and you can track all the schema changes. 
+### Some tools for managing schemas 
+There are some tools which are used for schema validation, tracking schema versions, identifying unused types and many more. Some of the tools are `Apollo Graph Manager` and `GraphQL Inspector`. Schema can be validated using these tools and you can track all the schema changes. 
 
 Using [Apollo Graph Manager](https://www.apollographql.com/docs/graph-manager/), you will be able to validate the schema and get the changes done in schema. For example : you will get to know which field is deprecated, for what reason and which fields are added new, etc. You will be able to validate the schema and check if anything is breaking or not. And you will also be able to know some detailed schema changes provided by this tool. 
+Apollo schema registry can track the changes of the schema and also gives the option to create variants of the schema. Also you can trace your GraphQL server by getting the report of which operations are being executed, which clients are executing which operations, which parts of schema are most used and which of the resolvers are used most.
 
-Using [GraphQL Inspector](https://graphql-inspector.com/), you can detect the changes which can be breaking changes for the current schema. You are able to know the restriction changes in fields as well as addition/subtraction in fields. A complete difference is provided between old schema and new schema. And by that you can get to know the differences in form of non-breaking change, dangerous change and breaking change.  
+Now let’s have a look at GraphQL Inspector which also provides some similar functionalities.
+
+Using [GraphQL Inspector](https://graphql-inspector.com/), you can detect the changes which can be breaking changes for the current schema. You are able to know the restriction changes in fields as well as addition/subtraction in fields. A complete difference is provided between old schema and new schema. And by that you can get to know the differences in form of non-breaking change, dangerous change and breaking change. 
+In addition you can get the idea of coverage of the schema and can track which part of the schema is used, and by how many times. If any of the fields are deprecated, then the usage of those fields as well as checking of errors can be done using GraphQL Inspector.
 
 ### Conclusion
 By this way we can version the GraphQL APIs and just move to the game of managing fields instead of versioning. It’s as simple as if you don’t want any field, then just drop it and add necessary fields with appropriate roles.
