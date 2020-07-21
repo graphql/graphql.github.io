@@ -14,7 +14,7 @@ Graphs are powerful tools for modeling many real-world phenomena because they re
 ## Shared Language
 > Naming things is a hard but important part of building intuitive APIs
 
-Think of your GraphQL schema as an expressive shared language for your team and your users. To build a good schema, examine the everyday language you use to describe your business. For example, let's try to describe an email app in plain english:
+Think of your GraphQL schema as an expressive shared language for your team and your users. To build a good schema, examine the everyday language you use to describe your business. For example, let's try to describe an email app in plain English:
 
 * A user can have multiple email accounts
 * Each email account has an address, inbox, drafts, deleted items, and sent items
