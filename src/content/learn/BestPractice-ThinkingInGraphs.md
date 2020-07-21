@@ -1,6 +1,6 @@
 ---
 title: Thinking in Graphs
-layout: DocsLayout
+layout: LearnLayout
 category: Best Practices
 permalink: /learn/thinking-in-graphs/
 next: /learn/serving-over-http/

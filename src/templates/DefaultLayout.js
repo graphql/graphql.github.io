@@ -4,13 +4,13 @@ import { shape } from 'prop-types'
 
 import Layout from '../components/Layout'
 
-const DocsLayout = ( { data: {
+const DefaultLayout = ( { data: {
   markdownRemark: {
     html,
     frontmatter: { title, next },
   },
 } } ) => (
-  <Layout section="docs" title="title">
+  <Layout section="docs" title={title}>
     <section>
       <div className="documentationContent">
         <div className="inner-content">
@@ -30,19 +30,19 @@ const DocsLayout = ( { data: {
   </Layout>
 )
 
-DocsLayout.propTypes = {
+DefaultLayout.propTypes = {
   data: shape( { markdownRemark: shape( {} ).isRequired } ).isRequired,
 }
 
 export const query = graphql`
-query AllContentPages($id: String ) {
-  markdownRemark(id: { eq: $id }, frontmatter: { layout: { eq:"DocsLayout" } }) {
-    html
-    frontmatter {
-      title
-      next
+  query DefaultPagesLayout($id: String ) {
+    markdownRemark(id: { eq: $id }, frontmatter: { layout: { eq:"DefaultLayout" } }) {
+      html
+      frontmatter {
+        title
+        next
+      }
     }
   }
-}
 `
-export default DocsLayout
+export default DefaultLayout

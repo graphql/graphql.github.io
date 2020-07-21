@@ -1,6 +1,6 @@
 ---
 title: Authorization
-layout: DocsLayout
+layout: LearnLayout
 category: Best Practices
 permalink: /learn/authorization/
 next: /learn/pagination/

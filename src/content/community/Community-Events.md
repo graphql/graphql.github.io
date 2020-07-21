@@ -1,6 +1,6 @@
 ---
 title: Upcoming Events
-layout: DocsLayout
+layout: CommunityLayout
 category: Community
 permalink: /community/upcoming-events/
 sublinks: Upcoming Events,Meetups

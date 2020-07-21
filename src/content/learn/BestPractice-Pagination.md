@@ -1,6 +1,6 @@
 ---
 title: Pagination
-layout: DocsLayout
+layout: LearnLayout
 category: Best Practices
 permalink: /learn/pagination/
 next: /learn/global-object-identification/

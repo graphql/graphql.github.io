@@ -1,6 +1,6 @@
 ---
 title: Schemas and Types
-layout: DocsLayout
+layout: LearnLayout
 category: Learn
 permalink: /learn/schema/
 next: /learn/validation/

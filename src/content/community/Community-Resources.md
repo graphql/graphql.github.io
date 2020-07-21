@@ -1,6 +1,6 @@
 ---
 title: Community Resources
-layout: DocsLayout
+layout: CommunityLayout
 category: Community
 permalink: /community/
 next: /community/upcoming-events/

@@ -1,6 +1,6 @@
 ---
 title: Serving over HTTP
-layout: DocsLayout
+layout: LearnLayout
 category: Best Practices
 permalink: /learn/serving-over-http/
 next: /learn/authorization/
