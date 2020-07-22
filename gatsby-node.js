@@ -25,6 +25,7 @@ exports.createPages = async ( { actions, graphql, reporter } ) => {
 
   // Call `createPage` for each page
   pages
+    .filter( ( { node: { frontmatter: { layout } } } ) => layout )
     .forEach( ( { node: {
       id,
       frontmatter: { layout, permalink },
