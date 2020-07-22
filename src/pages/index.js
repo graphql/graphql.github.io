@@ -124,7 +124,7 @@ const IndexPage = () => {
       }
     }
     setTimeout( type, 2000 )
-  } )
+  }, [] )
 
   // Illustration of a type IDL following a query by line
   useEffect( () => {
@@ -143,7 +143,7 @@ const IndexPage = () => {
     }
 
     highlightLine()
-  } )
+  }, [] )
 
   // Illustration showing more legs added to a graph? Or a type evolving over time?
   useEffect( () => {
@@ -155,7 +155,7 @@ const IndexPage = () => {
       i = ( i + 1 ) % 7
       inView.className = `step${i}`
     }, 2200 )
-  } )
+  }, [] )
 
   // Illustration of each field becoming a function?
   useEffect( () => {
@@ -168,7 +168,7 @@ const IndexPage = () => {
       setTimeout( step, delayBefore[ i ] )
     }
     step()
-  } )
+  }, [] )
 
   return (
     <Layout className="index" title="Home" noSearch>
