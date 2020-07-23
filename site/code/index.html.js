@@ -47,7 +47,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
 ### C# / .NET
 
-#### [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
+#### [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET.
 
 \`\`\`csharp
 using System;
@@ -75,10 +75,10 @@ public class Program
 }                   
 \`\`\`
 
-  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
-  - [Entity GraphQL](https://github.com/lukemurray/EntityGraphQL): .NET Core GraphQL library. Compiles to IQueryable to easily expose a schema from an existing data model (E.g. from an Entity Framework data model)
-  - [DotNetGraphQLQueryGen](https://github.com/lukemurray/DotNetGraphQLQueryGen): .NET Core library to generate classes from a GraphQL schema for type-safe querying in dotnet
-  - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Server for .NET core and .NET classic
+  - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable.
+  - [Entity GraphQL](https://github.com/lukemurray/EntityGraphQL): .NET Core GraphQL library. Compiles to IQueryable to easily expose a schema from an existing data model (E.g. from an Entity Framework data model).
+  - [DotNetGraphQLQueryGen](https://github.com/lukemurray/DotNetGraphQLQueryGen): .NET Core library to generate classes from a GraphQL schema for type-safe querying in dotnet.
+  - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Server for .NET core and .NET classic.
 
 ### Clojure
 
@@ -176,14 +176,14 @@ A full implementation of the GraphQL specification that aims to maintain externa
 - Provides a controller to receive and respond to GraphQL requests through HTTP, based on their guidelines.
 - Generates the schema at startup with spring bean configuration to make it easy to extend.
 - Includes a [GraphiQL](https://github.com/graphql/graphiql) browser enabled by default in development. The browser is accessible at /graphql/browser.
-- Overrides the default data binder to use the data binding provided by Grails
-- Provides a [trait](https://grails.github.io/gorm-graphql/latest/api/org/grails/gorm/graphql/plugin/testing/GraphQLSpec.html) to make integration testing of your GraphQL endpoints easier
+- Overrides the default data binder to use the data binding provided by Grails.
+- Provides a [trait](https://grails.github.io/gorm-graphql/latest/api/org/grails/gorm/graphql/plugin/testing/GraphQLSpec.html) to make integration testing of your GraphQL endpoints easier.
 
 See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index.html) for more information.
 
 #### [GQL](https://grooviter.github.io/gql/)
 
-GQL is a Groovy library for GraphQL
+GQL is a Groovy library for GraphQL.
 
 ### Java
 
@@ -349,11 +349,11 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
 
 ### PHP
 
-  - [graphql-php](https://github.com/webonyx/graphql-php): A PHP port of GraphQL reference implementation
+  - [graphql-php](https://github.com/webonyx/graphql-php): A PHP port of GraphQL reference implementation.
   - [graphql-relay-php](https://github.com/ivome/graphql-relay-php): A library to help construct a graphql-php server supporting react-relay.
   - [Railt](https://github.com/railt/railt): A PHP GraphQL Framework.
-  - [Lighthouse](https://github.com/nuwave/lighthouse): A GraphQL server for Laravel
-  - [GraphQLBundle](https://github.com/overblog/GraphQLBundle): A GraphQL server for Symfony
+  - [Lighthouse](https://github.com/nuwave/lighthouse): A GraphQL server for Laravel.
+  - [GraphQLBundle](https://github.com/overblog/GraphQLBundle): A GraphQL server for Symfony.
   - [WPGraphQL](https://github.com/wp-graphql/wp-graphql): A free, open-source WordPress plugin that provides an extendable GraphQL schema and API for any WordPress site 
 
 #### [API Platform](https://api-platform.com) ([github](https://github.com/api-platform/api-platform))
@@ -577,7 +577,7 @@ sleep
 
 ### Rust
 
- - [graphql-rust/juniper](https://github.com/graphql-rust/juniper): GraphQL server library for Rust
+ - [graphql-rust/juniper](https://github.com/graphql-rust/juniper): GraphQL server library for Rust.
 
 ### Scala
 
@@ -624,7 +624,7 @@ Executor.execute(schema, query) map println
 
   - [GraphQL.Client](https://github.com/graphql-dotnet/graphql-client): A GraphQL Client for .NET.
   - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
-  - [SAHB.GraphQLClient](https://github.com/sahb1239/SAHB.GraphQLClient): GraphQL client which supports generating queries from C# classes
+  - [SAHB.GraphQLClient](https://github.com/sahb1239/SAHB.GraphQLClient): GraphQL client which supports generating queries from C# classes.
 
 ### Clojurescript
 
