@@ -43,6 +43,12 @@ module.exports = {
               classPrefix: 'prism language-',
             },
           },
+          {
+            resolve: 'gatsby-remark-images-anywhere',
+            options: {
+              staticDir: 'src/img',
+            },
+          },
         ],
       },
     },

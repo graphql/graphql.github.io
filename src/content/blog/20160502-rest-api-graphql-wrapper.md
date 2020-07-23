@@ -16,7 +16,7 @@ We're going to create a _GraphQL schema_ – a type system that describes your u
 
 Imagine a REST API that exposes a `/people/` endpoint through which you can browse `Person` models and their associated friends.
 
-![A REST API that exposes an index of people][rest-api-people]
+![A REST API that exposes an index of people](/blog/20160502-rest-api-graphql-wrapper/rest-api-people.png)
 
 We will build a GraphQL schema that models people and their attributes (like `first_name` and `email`) as well as their association to other people through friendships.
 
@@ -377,7 +377,7 @@ query {
 
 The schema we created above will generate multiple round trips to the REST API for the same data.
 
-![Duplicate queries to the REST API][pathological-query]
+![Duplicate queries to the REST API](/blog/20160502-rest-api-graphql-wrapper/pathological-query.png)
 
 This is obviously something we would like to avoid! At the very least, we need a way to cache the result of these requests.
 
@@ -500,7 +500,7 @@ export default new GraphQLSchema({
 
 Now, our pathological query produces the following nicely de-duped set of requests to the REST API:
 
-![De-duped queries to the REST API][dataloader-query]
+![De-duped queries to the REST API](/blog/20160502-rest-api-graphql-wrapper/dataloader-query.png)
 
 ### Query planning and beyond
 
