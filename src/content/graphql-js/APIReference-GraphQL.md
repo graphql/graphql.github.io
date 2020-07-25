@@ -1,6 +1,7 @@
 ---
 title: graphql
 layout: GraphQlJsLayout
+sidebarOrder: 2
 category: API Reference
 permalink: /graphql-js/graphql/
 sublinks: graphql

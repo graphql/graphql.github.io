@@ -1,6 +1,7 @@
 ---
 title: Mutations and Input Types
 layout: GraphQlJsLayout
+sidebarOrder: 7
 category: GraphQL.js Tutorial
 permalink: /graphql-js/mutations-and-input-types/
 next: /graphql-js/authentication-and-express-middleware/

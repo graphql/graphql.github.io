@@ -1,6 +1,7 @@
 ---
 title: GraphQL Clients
 layout: GraphQlJsLayout
+sidebarOrder: 2
 category: GraphQL.js Tutorial
 permalink: /graphql-js/graphql-clients/
 next: /graphql-js/basic-types/

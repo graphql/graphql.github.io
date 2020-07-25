@@ -2,6 +2,7 @@
 title: GraphQL Best Practices
 sidebarTitle: Introduction
 layout: LearnLayout
+sidebarOrder: 1
 category: Best Practices
 permalink: /learn/best-practices/
 next: /learn/thinking-in-graphs/

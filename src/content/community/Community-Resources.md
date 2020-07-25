@@ -2,6 +2,7 @@
 title: Community Resources
 layout: CommunityLayout
 category: Community
+sidebarOrder: 1
 permalink: /community/
 next: /community/upcoming-events/
 sublinks: Blogs,Videos,Books,More Resources

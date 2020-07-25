@@ -2,6 +2,7 @@
 title: Basic Types
 layout: GraphQlJsLayout
 category: GraphQL.js Tutorial
+sidebarOrder: 4
 permalink: /graphql-js/basic-types/
 next: /graphql-js/passing-arguments/
 ---

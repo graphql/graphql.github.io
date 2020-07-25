@@ -1,6 +1,7 @@
 ---
 title: Queries and Mutations
 layout: LearnLayout
+sidebarOrder: 2
 category: Learn
 permalink: /learn/queries/
 next: /learn/schema/

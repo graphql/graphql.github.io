@@ -6,7 +6,10 @@ import Sidebar from './Sidebar'
 const LearnSidebar = () => {
   const { allMarkdownRemark: { edges: data } } = useStaticQuery( graphql`
     query DocsSidebar {
-        allMarkdownRemark(filter: {frontmatter: {permalink: {regex: "/learn/"}}}) {
+        allMarkdownRemark(
+            filter: {frontmatter: {permalink: {regex: "/learn/"}}},
+            sort: {fields: frontmatter___sidebarOrder}
+            ) {
             edges {
                 node {
                     id

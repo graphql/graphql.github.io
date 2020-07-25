@@ -1,6 +1,7 @@
 ---
 title: Authorization
 layout: LearnLayout
+sidebarOrder: 4
 category: Best Practices
 permalink: /learn/authorization/
 next: /learn/pagination/

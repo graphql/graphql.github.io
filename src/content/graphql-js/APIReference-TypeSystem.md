@@ -1,6 +1,7 @@
 ---
 title: graphql/type
 layout: GraphQlJsLayout
+sidebarOrder: 6
 category: API Reference
 permalink: /graphql-js/type/
 sublinks: getNamedType,getNullableType,GraphQLBoolean,GraphQLEnumType,GraphQLFloat,GraphQLID,GraphQLInputObjectType,GraphQLInt,GraphQLInterfaceType,GraphQLList,GraphQLNonNull,GraphQLObjectType,GraphQLScalarType,GraphQLSchema,GraphQLString,GraphQLUnionType,isAbstractType,isCompositeType,isInputType,isLeafType,isOutputType

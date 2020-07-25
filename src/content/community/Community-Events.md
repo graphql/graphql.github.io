@@ -1,6 +1,7 @@
 ---
 title: Upcoming Events
 layout: CommunityLayout
+sidebarOrder: 2
 category: Community
 permalink: /community/upcoming-events/
 sublinks: Upcoming Events,Meetups

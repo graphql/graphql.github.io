@@ -1,6 +1,7 @@
 ---
 title: graphql/execution
 layout: GraphQlJsLayout
+sidebarOrder: 4
 category: API Reference
 permalink: /graphql-js/execution/
 sublinks: execute

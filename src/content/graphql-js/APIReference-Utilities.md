@@ -1,6 +1,7 @@
 ---
 title: graphql/utilities
 layout: GraphQlJsLayout
+sidebarOrder: 7
 category: API Reference
 permalink: /graphql-js/utilities/
 sublinks: astFromValue,buildASTSchema,buildClientSchema,buildSchema,introspectionQuery,isValidJSValue,isValidLiteralValue,printIntrospectionSchema,printSchema,typeFromAST,TypeInfo

@@ -1,6 +1,7 @@
 ---
 title: graphql/language
 layout: GraphQlJsLayout
+sidebarOrder: 5
 category: API Reference
 permalink: /graphql-js/language/
 sublinks: BREAK,getLocation,Kind,lex,parse,parseValue,printSource,visit

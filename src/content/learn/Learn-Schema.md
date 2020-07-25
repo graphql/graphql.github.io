@@ -1,6 +1,7 @@
 ---
 title: Schemas and Types
 layout: LearnLayout
+sidebarOrder: 3
 category: Learn
 permalink: /learn/schema/
 next: /learn/validation/

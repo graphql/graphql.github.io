@@ -1,6 +1,7 @@
 ---
 title: Caching
 layout: LearnLayout
+sidebarOrder: 7
 category: Best Practices
 permalink: /learn/caching/
 ---

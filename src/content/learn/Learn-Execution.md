@@ -1,6 +1,7 @@
 ---
 title: Execution
 layout: LearnLayout
+sidebarOrder: 5
 category: Learn
 permalink: /learn/execution/
 next: /learn/introspection/

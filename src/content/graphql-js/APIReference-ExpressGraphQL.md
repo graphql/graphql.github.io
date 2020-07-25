@@ -1,6 +1,7 @@
 ---
 title: express-graphql
 layout: GraphQlJsLayout
+sidebarOrder: 1
 category: API Reference
 permalink: /graphql-js/express-graphql/
 sublinks: graphqlHTTP

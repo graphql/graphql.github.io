@@ -1,6 +1,7 @@
 ---
 title: Constructing Types
 layout: GraphQlJsLayout
+sidebarOrder: 1
 category: Advanced Guides
 permalink: /graphql-js/constructing-types/
 next: /graphql-js/express-graphql/

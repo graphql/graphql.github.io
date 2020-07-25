@@ -1,6 +1,7 @@
 ---
 title: Object Types
 layout: GraphQlJsLayout
+sidebarOrder: 6
 category: GraphQL.js Tutorial
 permalink: /graphql-js/object-types/
 next: /graphql-js/mutations-and-input-types/

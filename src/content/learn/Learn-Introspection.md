@@ -1,6 +1,7 @@
 ---
 title: Introspection
 layout: LearnLayout
+sidebarOrder: 6
 category: Learn
 permalink: /learn/introspection/
 next: /learn/best-practices/

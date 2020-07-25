@@ -1,6 +1,7 @@
 ---
 title: Serving over HTTP
 layout: LearnLayout
+sidebarOrder: 3
 category: Best Practices
 permalink: /learn/serving-over-http/
 next: /learn/authorization/

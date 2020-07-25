@@ -1,6 +1,7 @@
 ---
 title: Pagination
 layout: LearnLayout
+sidebarOrder: 5
 category: Best Practices
 permalink: /learn/pagination/
 next: /learn/global-object-identification/

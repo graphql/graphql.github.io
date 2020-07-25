@@ -6,7 +6,10 @@ import Sidebar from './Sidebar'
 const CommunitySidebar = () => {
   const { allMarkdownRemark: { edges: data } } = useStaticQuery( graphql`
     query CommunityPagesSidebar {
-        allMarkdownRemark(filter: {frontmatter: {permalink: {regex: "/community/"}}}) {
+        allMarkdownRemark(
+            filter: {frontmatter: {permalink: {regex: "/community/"}}},
+            sort: {fields: frontmatter___sidebarOrder}
+            ) {
             edges {
                 node {
                     id

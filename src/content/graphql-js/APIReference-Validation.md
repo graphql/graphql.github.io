@@ -1,6 +1,7 @@
 ---
 title: graphql/validation
 layout: GraphQlJsLayout
+sidebarOrder: 8
 category: API Reference
 permalink: /graphql-js/validation/
 sublinks: specifiedRules,validate
