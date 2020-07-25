@@ -8,7 +8,7 @@ import { toSlug } from '../../lib/utils'
 const SidebarForCategory = ( { data, category } ) => {
   const listItems = data.map( ( { node: {
     id,
-    frontmatter: { title, sublinks, category: pageCategory, permalink },
+    frontmatter: { title, sidebarTitle, sublinks, category: pageCategory, permalink },
   } } ) => {
     if ( category !== pageCategory ) return null
 
@@ -17,7 +17,7 @@ const SidebarForCategory = ( { data, category } ) => {
 
         <li>
           <Link to={permalink} className="active">
-            {title}
+            {sidebarTitle || title}
           </Link>
         </li>
 
