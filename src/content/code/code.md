@@ -398,6 +398,7 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
 ### Kotlin
 
   - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of libraries for running GraphQL server in Kotlin.
+  - [KGraphQL](https://github.com/aPureBase/KGraphQL): Pure Kotlin implementation to setup a GraphQL server.
 
 ### Perl
 
