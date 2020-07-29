@@ -26,9 +26,9 @@ Layout.propTypes = {
 }
 
 Layout.defaultProps = {
-  className: null,
+  className: undefined,
   noSearch: false,
-  section: null,
+  section: undefined,
 }
 
 export default Layout

@@ -46,7 +46,7 @@ HeaderLink.propTypes = {
 }
 
 HeaderLink.defaultProps = {
-  section: null,
+  section: undefined,
 }
 
 export default HeaderLink

@@ -26,8 +26,12 @@ const Header = ( { section, noSearch } ) => (
 )
 
 Header.propTypes = {
-  section: string.isRequired,
+  section: string,
   noSearch: bool.isRequired,
+}
+
+Header.defaultProps = {
+  section: undefined,
 }
 
 export default Header
