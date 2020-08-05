@@ -158,6 +158,7 @@ A full implementation of the GraphQL specification that aims to maintain externa
 
 ### Go
 
+  - [super-graph](https://github.com/dosco/super-graph): An instant GraphQL to SQL compiler. Use as a standalone service or a Go library
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
   - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go): An active implementation of GraphQL in Golang (was https://github.com/neelance/graphql-go).
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - Go generate based graphql server library.
