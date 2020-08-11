@@ -10,7 +10,7 @@ next: /learn/global-object-identification/
 
 A common use case in GraphQL is traversing the relationship between sets of objects. There are a number of different ways that these relationships can be exposed in GraphQL, giving a varying set of capabilities to the client developer.
 
-## Plurals
+## Plurals/vijay
 
 The simplest way to expose a connection between objects is with a field that returns a plural type. For example, if we wanted to get a list of R2-D2's friends, we could just ask for all of them:
 
