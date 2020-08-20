@@ -15,7 +15,7 @@ For example, let's say we wanted our server to log the IP address of every reque
 
 ```javascript
 var express = require('express');
-var graphqlHTTP = require('express-graphql');
+var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 
 var schema = buildSchema(`
@@ -24,7 +24,7 @@ var schema = buildSchema(`
   }
 `);
 
-function loggingMiddleware(req, res, next) {
+const loggingMiddleware = (req, res, next) => {
   console.log('ip:', req.ip);
   next();
 }

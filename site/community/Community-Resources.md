@@ -4,7 +4,7 @@ layout: ../_core/DocsLayout
 category: Community
 permalink: /community/
 next: /community/upcoming-events/
-sublinks: Blogs,Videos
+sublinks: Blogs,Videos,Books,More Resources
 ---
 
 ## Stack Overflow
@@ -24,8 +24,9 @@ Here are some helpful accounts to follow:
 - [@graphqlweekly](https://twitter.com/graphqlweekly)
 - [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollographql](https://twitter.com/apollographql)
-- [@graphcool](https://twitter.com/graphcool)
-- [@ScapholdDotIO](https://twitter.com/ScapholdDotIO)
+- [@prisma](https://twitter.com/prisma)
+- [@HasuraHQ](https://twitter.com/HasuraHQ)
+- [@TheGuildDev](https://twitter.com/TheGuildDev)
 
 ## IRC
 
@@ -42,9 +43,7 @@ Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
 
 - [**#general** on GraphQL](https://graphql.slack.com/messages/general/). [Get your invite here!](https://graphql-slack.herokuapp.com/)
 - [Apollo Slack](http://apollostack.com/#slack)
-- [Reindex Slack](http://slack.reindex.io/)
 - [Graphcool Slack](https://slack.graph.cool/)
-- [Scaphold.io Slack](http://slack.scaphold.io/)
 
 ## Blogs
 
@@ -69,6 +68,8 @@ Here are a list of notable blog posts to help you better understand GraphQL:
 - [GraphQL Server Basics (Part I): The Schema](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e) - Nikolas Burk
 - [GraphQL Server Basics (Part II): The Network Layer](https://blog.graph.cool/graphql-server-basics-the-network-layer-51d97d21861) - Nikolas Burk
 - [GraphQL Server Basics (Part III): Demystifying the `info` argument in GraphQL resolvers](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) - Nikolas Burk
+- [A Beginner’s Guide to GraphQL](https://www.freecodecamp.org/news/a-beginners-guide-to-graphql-86f849ce1bec/) - Leonardo Maldonado
+- [Architecture of a high performance GraphQL to SQL engine](https://blog.hasura.io/architecture-of-a-high-performance-graphql-to-sql-server-58d9944b8a87) - Hasura
 
 ## Videos
 
@@ -99,6 +100,7 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [All Talks from GraphQL Europe](https://www.youtube.com/playlist?list=PLn2e1F9Rfr6n_WFm9fPE-_wYPrYvSTySt) - Lee Byron, Sashko Stubailo, Dan Schafer, Johannes Schickling and many more
 - [Learning GraphQL with React and Relay](https://www.packtpub.com/application-development/learning-graphql-react-and-relay-video) by Divyendu Singh
 - [Hands-on GraphQL for Better RESTful Web Services (Video)](https://www.packtpub.com/application-development/hands-graphql-better-restful-web-services-video) by Ashwin Hegde
+- [A PostgreSQL backed GraphQL BaaS](https://www.youtube.com/watch?v=neIZcc8y3B0) by Tanmai Gopal
 
 ## Books
 
@@ -107,20 +109,17 @@ Developers inside and outside of Facebook have given talks about GraphQL at conf
 - [Fullstack GraphQL](https://www.graphql.college/fullstack-graphql) by Julian Mayorga
 - [Craft GraphQL APIs in Elixir with Absinthe](https://pragprog.com/book/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe) by Bruce Williams and Ben Wilson
 - [Learning GraphQL and Relay](https://www.packtpub.com/web-development/learning-graphql-and-relay) by Samer Buna
+- [Hands-on Full-Stack Web Development with GraphQL and React](https://www.packtpub.com/web-development/hands-full-stack-web-development-graphql-and-react) by Sebastian Grebe
+- [The Road to GraphQL](https://www.robinwieruch.de/the-road-to-graphql-book/) by Robin Wieruch
+- [Production Ready GraphQL](https://book.productionreadygraphql.com/) by Marc-Andre Giroux
 
 ## More Resources
 
 To explore other community-developed resources and content about GraphQL, take a look at these sites:
 
+- [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course
 - [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
-- [Building Apollo](https://dev-blog.apollodata.com/)
-- [Learn GraphQL](https://learngraphql.com/basics/introduction)
+- [Building Apollo](https://blog.apollographql.com)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 - [graphql-apis](https://github.com/APIs-guru/graphql-apis): A collective list of public GraphQL APIs.
-- [Graphcool Blog](https://www.graph.cool/blog/)
-- [Learn Apollo](https://www.learnapollo.com/): A hands-on tutorial for Apollo GraphQL Client (for React, ReactNative, Exponent, Angular, Vue & iOS)
-- [Learn Relay](https://www.learnrelay.org): A comprehensive introduction to Relay (includes video tutorials)
-- [Scaphold Community](https://scaphold.io/community/): Resources to help you launch a production app with GraphQL
-- [GraphQL World](https://graphql-world.com): Global community of GraphQL developers and events
-- [GraphQL Talks](https://www.graph.cool/talks/): Find & Watch the best GraphQL Talks
 - [Basically, Full-stack GraphQL](https://github.com/TejasQ/basically-fullstack-graphql): A code-based introduction to working with GraphQL on the client _and_ server in plain English
