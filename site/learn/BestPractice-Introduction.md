@@ -45,7 +45,7 @@ In contrast, GraphQL only returns the data that's explicitly requested, so new c
 
 ### Nullability
 
-Most type systems which recognise "null" provide both the common type, and the *nullable* version of that type, whereby default types do not include "null" unless explicitly declared. However, in a GraphQL type system, every field is *nullable* by default. This is because there are many things which can go awry in a networked service backed by databases and other services. A database could go down, an asynchronous action could fail, an exception could be thrown. Beyond simply system failures, authorization can often be granular, where individual fields within a request can have different authorization rules.
+Most type systems which recognise "null" provide both the common type and the *nullable* version of that type, whereby default types do not include "null" unless explicitly declared. However, in a GraphQL type system, every field is *nullable* by default. This is because there are many things that can go awry in a networked service backed by databases and other services. A database could go down, an asynchronous action could fail, an exception could be thrown. Beyond simply system failures, authorization can often be granular, where individual fields within a request can have different authorization rules.
 
 By defaulting every field to *nullable*, any of these reasons may result in just that field returned "null" rather than having a complete failure for the request. Instead, GraphQL provides [non-null](/learn/schema/#lists-and-non-null) variants of types which make a guarantee to clients that if requested, the field will never return "null". Instead, if an error occurs, the previous parent field will be "null" instead.
 
