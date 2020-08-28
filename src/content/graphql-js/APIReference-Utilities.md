@@ -190,7 +190,7 @@ corresponding GraphQLType from that schema.
 ```js
 function astFromValue(
   value: any,
-  type?: ?GraphQLType
+  type: GraphQLInputType
 ): ?Value
 ```
 Produces a GraphQL Input Value AST given a JavaScript value.

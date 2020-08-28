@@ -713,7 +713,7 @@ public class Character {
           <img src="/users/logos/twitter.png" title="Twitter" className="round" />
         </a> */}
 
-          <a href="https://developer.github.com/v4/" target="_blank" rel="noopener noreferrer">
+          <a href="https://docs.github.com/en/graphql" target="_blank" rel="noopener noreferrer">
             <Img
               fixed={githubLogo.childImageSharp.fixed}
               title={title( githubLogo.name )}
