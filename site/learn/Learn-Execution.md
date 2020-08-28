@@ -151,7 +151,7 @@ GraphQL will wait for all of these Promises concurrently before continuing, and 
 
 ## Producing the result
 
-As each field is resolved, the resulting value is placed into a key-value map with the field name (or alias) as the key and the resolved value as the value, this continues from the bottom leaf fields of the query all the way back up to the original field on the root Query type. Collectively these produce a structure that mirrors the original query which can then be sent (typically as JSON) to the client which requested it.
+As each field is resolved, the resulting value is placed into a key-value map with the field name (or alias) as the key and the resolved value as the value. This continues from the bottom leaf fields of the query all the way back up to the original field on the root Query type. Collectively these produce a structure that mirrors the original query which can then be sent (typically as JSON) to the client which requested it.
 
 Let's take one last look at the original query to see how all these resolving functions produce a result:
 
