@@ -24,7 +24,7 @@ Read more about this in [Serving over HTTP](/learn/serving-over-http/).
 
 ### JSON (with GZIP)
 
-GraphQL services typically respond using JSON, however the GraphQL spec [does not require it](http://facebook.github.io/graphql/#sec-Serialization-Format). JSON may seem like an odd choice for an API layer promising better network performance, however because it is mostly text, it compresses exceptionally well with GZIP.
+GraphQL services typically respond using JSON, however the GraphQL spec [does not require it](http://spec.graphql.org/draft/#sec-Serialization-Format). JSON may seem like an odd choice for an API layer promising better network performance, however because it is mostly text, it compresses exceptionally well with GZIP.
 
 It's encouraged that any production GraphQL services enable GZIP and encourage their clients to send the header:
 
