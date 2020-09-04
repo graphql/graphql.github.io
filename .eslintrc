@@ -1,0 +1,54 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb"],
+  "parser": "babel-eslint",
+  "rules": {
+    "array-bracket-spacing": ["error","always"],
+    "computed-property-spacing": ["error","always"],
+    "func-names": ["error","never"],
+    "semi": ["error","never"],
+    "semi-style": ["error","first"],
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "import/no-extraneous-dependencies": 0,
+    "linebreak-style": 0,
+    "no-await-in-loop": 0,
+    "no-loop-func": 0,
+    "no-restricted-syntax": 0,
+    "no-shadow": 0,
+    "no-unused-vars": 1,
+    "react/jsx-filename-extension": 0,
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/sort-comp": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "space-in-parens": [
+      "error",
+      "always",
+      {
+        "exceptions": [
+          "empty"
+        ]
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "consistent": true
+      }
+    ],
+    "arrow-parens": [
+      "error",
+      "as-needed",
+      {
+        "requireForBlockBody": false
+      }
+      ]
+    }
+}
