@@ -2,7 +2,6 @@
   "name": "graphql-docs-site",
   "description": "GraphQL Docs Site",
   "version": "0.1.0",
-  "author": "Saihajpreet Singh <saihajpreet.singh@gmail.com>",
   "dependencies": {
     "gatsby": "^2.23.12",
     "gatsby-background-image": "^1.1.1",
