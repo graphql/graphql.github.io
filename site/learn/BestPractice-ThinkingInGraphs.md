@@ -64,7 +64,7 @@ In the diagram above, all entry points (REST, GraphQL, and RPC) into the system 
 
 Sometimes, you will find yourself working with legacy data sources that do not perfectly reflect how clients consume the data. In these cases, prefer building a GraphQL schema that describes how clients use the data, rather than mirroring the legacy database schema.
 
-Build your GraphQL schema to express "what" rather than "how". Then you can improve your implementation details without breaking the interface with older clients.
+Build your GraphQL schema to express "how" rather than "what". Then you can improve your implementation details without breaking the interface with older clients.
 
 ## One Step at a time
 > Get validation and feedback more frequently
