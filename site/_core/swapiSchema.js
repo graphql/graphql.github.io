@@ -262,7 +262,7 @@ const droids = [
   {
     id: '2001',
     name: 'R2-D2',
-    friends: [ '1000', '1002', '1003' ],
+    friends: [ '1000', '1002', '1003', '2000' ],
     appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
     primaryFunction: 'Astromech',
   },
@@ -399,7 +399,7 @@ const resolvers = {
     friends: ({ friends }) => friends.map(getCharacter),
     friendsConnection: ({ friends }, { first, after }) => {
       first = first || friends.length;
-      after = after ? parseInt(fromCursor(after), 10) : 0; 
+      after = after ? parseInt(fromCursor(after), 10) : 0;
       const edges = friends.map((friend, i) => ({
         cursor: toCursor(i+1),
         node: getCharacter(friend)
@@ -423,7 +423,7 @@ const resolvers = {
     friends: ({ friends }) => friends.map(getCharacter),
     friendsConnection: ({ friends }, { first, after }) => {
       first = first || friends.length;
-      after = after ? parseInt(fromCursor(after), 10) : 0; 
+      after = after ? parseInt(fromCursor(after), 10) : 0;
       const edges = friends.map((friend, i) => ({
         cursor: toCursor(i+1),
         node: getCharacter(friend)
