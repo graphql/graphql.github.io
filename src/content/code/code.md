@@ -594,6 +594,7 @@ Executor.execute(schema, query) map println
 
 - [C# / .NET](#c-net-1)
 - [Clojurescript](#clojurescript-1)
+- [Elixir](#elixir-1)
 - [Elm](#elm)
 - [Flutter](#flutter)
 - [Go](#go-1)
@@ -614,6 +615,11 @@ Executor.execute(schema, query) map println
 ### Clojurescript
 
   - [re-graph](https://github.com/oliyh/re-graph/): A GraphQL client implemented in Clojurescript with support for websockets.
+
+### Elixir
+  
+  - [Neuron](https://github.com/uesteibar/neuron): A GraphQL client for Elixir
+  - [common_graphql_client](https://github.com/annkissam/common_graphql_client): Elixir GraphQL Client with HTTP and WebSocket support
 
 ### Elm
   
