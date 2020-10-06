@@ -8,21 +8,14 @@ sublinks: Upcoming Events,Meetups
 
 ## Upcoming Events
 
-### Byteconf GraphQL
+### Enterprise GraphQL Conf
 
-- **Date:** January 31, 2020
+- **Date:** October 21-22, 2020
 - **Location:** Streamed online
-- **Link:** https://www.bytesized.xyz/graphql-2020
+- **Link:** https://hasura.io/enterprisegraphql/
 
-Free GraphQL conference live-streamed on YouTube
-
-### GraphQL Asia
-
-- **Date:** February 20-22, 2020
-- **Location:** Bangalore, India
-- **Link:** https://graphql.asia
-
-GraphQL conference organized by Hasura
+A conference about the role of GraphQL in unlocking data and modernizing data access to accelerate product delivery in organizations.
+Curated for enterprise developers & teams.
 
 ## Meetups
 
