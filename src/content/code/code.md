@@ -646,6 +646,7 @@ for {
 - [Swift / Objective-C iOS](#swift-objective-c-ios)
 - [Python](#python-1)
 - [R](#r)
+- [Scala](#scala) 
 
 ### C# / .NET
 
