@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/graphql/graphql.github.io)
+
 # Contributing
 
 Organization gh-pages deploy the `master` branch, so active development occurs
@@ -8,6 +10,14 @@ The site is written in JS and Markdown files in `site/`.
 The site chrome are all in JS files in `site/_core/`.
 
 ### Making changes
+
+#### Automatic
+
+Open it in Gitpod everything is ready for you!
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/graphql/graphql.github.io)
+
+#### Manual
 
 The first time, get all the dependencies loaded via
 
