@@ -6,6 +6,7 @@ const links = [
   { section: 'learn', text: 'Learn', href: '/learn/' },
   { section: 'code', text: 'Code', href: '/code/' },
   { section: 'community', text: 'Community', href: '/community/' },
+  { section: 'faq', text: 'FAQ', href: '/faq/' },
   { section: 'spec', text: 'Spec', href: 'https://graphql.github.io/graphql-spec/', outsideDomain: true },
   { section: 'codeofconduct', text: 'Code of Conduct', href: '/codeofconduct/' },
   { section: 'foundation', text: 'Foundation', href: 'https://foundation.graphql.org/', outsideDomain: true },
