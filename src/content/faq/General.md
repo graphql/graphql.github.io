@@ -21,39 +21,31 @@ Sugar plum gummies donut cheesecake marshmallow donut caramels. Chocolate cake j
 
 ## Does GraphQL replace REST?
 
-<!-- TODO -->
+No, not necessarily. They both handle APIs and [serve the same purpose](/learn/thinking-in-graphs/#business-logic-layer) from a business perspective. GraphQL is considered an alternative to REST, but it’s not a definitive replacement.
 
-Jelly-o cupcake marshmallow marshmallow. Lemon drops cake caramels donut halvah cupcake topping tootsie roll. Jelly cotton candy candy cheesecake danish [jelly-o icing bonbon]().
+GraphQL and REST can actually co-exist in your stack. For example, you can abstract REST APIs behind a [GraphQL server](/code/#server-libraries) or mask your REST endpoint into a GraphQL endpoint using [resolvers](/learn/execution/#root-fields-resolvers). For an opinionated perspective on how GraphQL compares to REST, check out [How To GraphQL](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/).
 
 ## How can I learn GraphQL?
 
-<!-- TODO -->
+There are many resources available to help you learn GraphQL, including this website. In [our documentation](/learn/), you’ll find a series of articles that explain essential GraphQL concepts and how they work. Our [Community page](/community) is full of resources to reference and groups to join.
 
-[Gummies lollipop chocolate dragée liquorice.]() Pastry marzipan pie sugar plum halvah topping halvah soufflé marzipan. Biscuit liquorice marshmallow.
-
-Pie gummies apple pie marzipan halvah cotton candy toffee tootsie roll oat cake. Brownie pudding pastry candy chupa chups liquorice bear claw pudding jujubes. Pie jelly liquorice dessert sweet roll bonbon. Danish macaroon cupcake jelly beans liquorice brownie dessert muffin candy canes.
+For more practical guides, you can visit the [How to GraphQL](https://www.howtographql.com/) fullstack tutorial website. We also have a free online course with edX, [Exploring GraphQL: A Query Language for APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis). 
 
 ## Is GraphQL frontend or backend?
 
-<!-- TODO -->
-
-Brownie candy jelly candy wafer cake macaroon I love. Pastry I love jelly beans powder carrot cake wafer chocolate gingerbread soufflé. I love dragée I love macaroon sugar plum topping icing cotton candy. Chupa chups [powder wafer]().
+Neither. Instead, it’s [how you can exchange information between the two](https://www.howtographql.com/basics/3-big-picture/). Both the client and the server should understand and communicate through the GraphQL specification.
 
 ## Does GraphQL replace Redux or other state management libraries?
 
-<!-- TODO -->
+No, GraphQL isn’t a state management library - but it can reduce the need for one.
 
-Sweet roll candy danish cupcake bonbon biscuit. Jelly-o soufflé chocolate cake fruitcake cookie croissant ice cream tart.
-
-Cupcake soufflé sweet roll cake fruitcake caramels pastry pie. Dragée donut icing pudding ice cream cake cheesecake lemon drops. Apple pie icing tart topping jelly beans sweet marshmallow. Oat cake chocolate lollipop brownie sesame snaps croissant cupcake. Gummies jelly-o chocolate cake chocolate bar. Oat cake sweet powder jelly.
+One benefit of state management libraries like Redux is that they can manipulate API responses into a format that your application understands. With GraphQL, you have control over [what data you request](/learn/queries/#fields) and [how that data is formatted](/learn/execution/). So this benefit is already built-in. Many [client libraries](https://graphql.org/code/#graphql-clients) can also be used to manage state and have features like caching built-in. You may still decide to implement a state management library, but using it to format response data won’t be necessary.
 
 ## Is GraphQL only for React or JavaScript developers?
 
-<!-- TODO -->
+No, not at all. [GraphQL services can be written in any language](/learn/schema/#type-language). Our [Code page](/code/) contains a long list of libraries available to help with that.
 
-Jelly pastry pudding jelly beans candy canes. Carrot cake sesame snaps chocolate cake topping cotton candy sesame snaps cake. Tart cheesecake gummies. Sugar plum apple pie ice cream danish tootsie roll. Chocolate brownie cake lemon drops lemon drops. Brownie chupa chups caramels pastry. Donut bear claw chocolate cake. Candy canes jujubes cake apple pie pudding gummies tootsie roll tootsie roll. [Jujubes cake liquorice.]() Pastry apple pie chocolate icing cake jelly-o. Cookie [cheesecake soufflé]() cake cheesecake tart liquorice. Cake donut jelly beans [bonbon soufflé croissant](). Soufflé tart chocolate cake cake jelly-o dessert.
-
-Candy danish cupcake topping donut jujubes dragée dessert cotton candy. Sweet roll lollipop tootsie roll gummi bears. Fruitcake powder dessert gummies. Icing I love danish pudding cake.
+It’s understandable why you’d think this, though. GraphQL was introduced at a [React conference](https://www.youtube.com/watch?v=9sc8Pyc51uU) and [GraphQL.js](/graphql-js/) is one of the most widely used reference implementations to date. We know this can be confusing, so we’re working to improve our documentation and add more code samples that aren’t written in JavaScript.
 
 ## What is a GraphQL client and why would I use one?
 
@@ -63,16 +55,10 @@ Powder powder chocolate cake cookie bear claw. Marshmallow gummi bears sweet rol
 
 ## What is the GraphQL Foundation?
 
-<!-- TODO -->
+The [GraphQL Foundation](https://foundation.graphql.org/faq/) provides governance for GraphQL as well as vendor-neutral oversight of funding, events, operations resources, and more. It was formed in 2018 by [various tech companies](https://landscape.graphql.org/category=graph-ql-foundation-member&format=logo-mode) and hosted under the [Linux Foundation](https://www.linuxfoundation.org/). The idea is that it’s an open, neutral home for the GraphQL community.
 
-[Chupa chups gummies I love.]()
-
-Gummies marzipan dessert lemon drops muffin. Chocolate chocolate bar fruitcake toffee powder I love gummies. Donut tart cheesecake. Lollipop sweet roll apple pie I love. Pie candy canes jelly macaroon. Biscuit sugar plum chocolate bar cupcake pudding cake sugar plum bear claw. Cheesecake chocolate I love jelly beans I love tiramisu. Chocolate cake biscuit caramels halvah cotton candy pie. Gingerbread powder candy carrot cake jelly I love. Dessert I love chupa chups caramels lollipop candy canes gingerbread I love gummi bears. 
-
-Fruitcake lollipop danish cheesecake liquorice cookie cheesecake toffee oat cake.
+You can find out more by visiting [foundation.graphql.org](https://foundation.graphql.org/).
 
 ## How can I contribute to the GraphQL specification?
 
-<!-- TODO -->
-
-Carrot cake tootsie roll ice cream candy canes bonbon. Pudding macaroon I love danish dragée tart biscuit. [Biscuit cake wafer.]()
+GraphQL is still an evolving language and contributions are very welcome! The specification (including the [latest working draft](https://spec.graphql.org/)) is open source and [contributor guidelines](https://github.com/graphql/graphql-spec/blob/master/CONTRIBUTING.md) are available on GitHub.
