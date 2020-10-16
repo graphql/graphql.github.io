@@ -189,7 +189,7 @@ validator and executor.
 
 ```js
 var MyAppSchema = new GraphQLSchema({
-  query: MyAppQueryRootType
+  query: MyAppQueryRootType,
   mutation: MyAppMutationRootType
 });
 ```
