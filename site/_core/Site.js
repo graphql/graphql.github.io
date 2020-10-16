@@ -112,5 +112,20 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-44373548-16', 'auto');
 ga('send', 'pageview');
       `}} />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function(){
+              document.addEventListener("keypress", e => {
+                const slashKey = e.key === "/" || e.which === 191 || e.keyCode === 191;
+                if (!slashKey) {
+                  return;
+                }
+                e.preventDefault();
+                const searchInput = document.querySelector('.algolia-search-wrapper input');
+                searchInput.focus();
+              });
+        })()`,
+        }}
+      />
     </body>
   </html>
