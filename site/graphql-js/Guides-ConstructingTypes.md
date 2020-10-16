@@ -14,7 +14,7 @@ For example, let's say we are building a simple API that lets you fetch user dat
 
 ```javascript
 var express = require('express');
-var graphqlHTTP = require('express-graphql');
+var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 
 var schema = buildSchema(`
@@ -60,7 +60,7 @@ We can implement this same API without using GraphQL schema language:
 
 ```javascript
 var express = require('express');
-var graphqlHTTP = require('express-graphql');
+var { graphqlHTTP } = require('express-graphql');
 var graphql = require('graphql');
 
 // Maps id to User object
