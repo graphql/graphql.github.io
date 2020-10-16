@@ -1,0 +1,25 @@
+# 200 = reverse proxy rules 
+# https://www.netlify.com/docs/redirects/#rewrites-and-proxying
+
+/swapi-graphql        https://graphql.github.io/swapi-graphql/          200
+/swapi-graphql/*      https://graphql.github.io/swapi-graphql/:splat    200
+
+# 301 = permanent redirects
+# https://www.netlify.com/docs/redirects/#http-status-codes
+
+/docs/api-reference-errors            /graphql-js/error/                301
+/docs/api-reference-execution         /graphql-js/execution/             301
+/docs/api-reference-express-graphql   /graphql-js/express-graphql/      301
+/docs/api-reference-graphql           /graphql-js/graphql/              301
+/docs/api-reference-language          /graphql-js/language/             301
+/docs/api-reference-type-system       /graphql-js/type/                 301
+/docs/api-reference-type-utilities    /graphql-js/utilities/            301
+/docs/api-reference-type-validation   /graphql-js/validation/           301
+/docs/getting-started                 /learn/                           301
+/docs/intro                           /learn/                           301
+/docs/introspection                   /learn/introspection/             301
+/docs/queries                         /learn/queries/                   301
+/docs/typesystem                      /learn/schema/                    301
+/docs/validation                      /learn/validation/                301
+/docs/videos                          /community/#videos                301
+/help                                 /community/                       301
