@@ -88,6 +88,7 @@ const IndexPage = () => {
   useEffect( () => {
     let i = 0
     let forward = true
+    let timer
 
     const showResponse = num => {
       document.getElementById( 'r1' ).style.display = num === 1 ? 'block' : 'none'
@@ -104,12 +105,12 @@ const IndexPage = () => {
         if ( i === 20 ) {
           forward = false
           showResponse( 3 )
-          setTimeout( type, 1500 )
+          timer = setTimeout( type, 1500 )
         } else if ( i === 11 ) {
           showResponse( 2 )
-          setTimeout( type, 1500 )
+          timer = setTimeout( type, 1500 )
         } else {
-          setTimeout( type, Math.random() * 180 + 70 )
+          timer = setTimeout( type, Math.random() * 180 + 70 )
         }
       } else {
         i -= 1
@@ -117,13 +118,14 @@ const IndexPage = () => {
         if ( i === 0 ) {
           forward = true
           showResponse( 1 )
-          setTimeout( type, 2000 )
+          timer = setTimeout( type, 2000 )
         } else {
-          setTimeout( type, 80 )
+          timer = setTimeout( type, 80 )
         }
       }
     }
-    setTimeout( type, 2000 )
+    timer = setTimeout( type, 2000 )
+    return () => clearTimeout( timer )
   }, [] )
 
   // Illustration of a type IDL following a query by line
@@ -131,6 +133,7 @@ const IndexPage = () => {
     const typeHighlight = document.getElementById( 'type-highlight' )
     const queryHighlight = document.getElementById( 'query-highlight' )
     let line = 0
+    let timer
 
     const typeLines = [ 2, 6, 7, 6, 8, 13, 14, 9, 18, 19, 20, 13 ]
     const queryLines = [ 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14 ]
@@ -139,10 +142,11 @@ const IndexPage = () => {
       typeHighlight.style.top = `${17 * typeLines[ line ] - 9}px`
       queryHighlight.style.top = `${17 * queryLines[ line ] - 9}px`
       line = ( line + 1 ) % typeLines.length
-      setTimeout( highlightLine, 800 + Math.random() * 200 )
+      timer = setTimeout( highlightLine, 800 + Math.random() * 200 )
     }
 
     highlightLine()
+    return () => clearTimeout( timer )
   }, [] )
 
   // Illustration showing more legs added to a graph? Or a type evolving over time?
@@ -151,23 +155,26 @@ const IndexPage = () => {
     const inView = document.getElementById( 'typeEvolveView' )
     inView.className = `step${i}`
 
-    setInterval( () => {
+    const interval = setInterval( () => {
       i = ( i + 1 ) % 7
       inView.className = `step${i}`
     }, 2200 )
+    return () => clearInterval( interval )
   }, [] )
 
   // Illustration of each field becoming a function?
   useEffect( () => {
     let i = 0
+    let timer
     const inView = document.getElementById( 'leverageCodeView' )
     const delayBefore = [ 800, 1800, 1200, 3000, 3000, 3000 ]
     const step = () => {
       inView.className = `step${i}`
       i = ( i + 1 ) % 6
-      setTimeout( step, delayBefore[ i ] )
+      timer = setTimeout( step, delayBefore[ i ] )
     }
     step()
+    return () => clearTimeout( timer )
   }, [] )
 
   return (
