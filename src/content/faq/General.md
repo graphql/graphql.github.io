@@ -53,9 +53,11 @@ It’s understandable why you’d think this, though. GraphQL was introduced at 
 
 ## What is a GraphQL client and why would I use one?
 
-<!-- TODO -->
+GraphQL clients can help you handle [queries and mutations](https://graphql.org/learn/queries/) to a [GraphQL server](https://graphql.org/code/#server-libraries). This could be done manually, but it would require a lot of work depending on the amount of data you have. By utilizing the underlying structure of a GraphQL API, clients can abstract away some of these tedious processes. Features that can be automated include batching, caching, UI updates, build-time schema validation, and many more. 
 
-Powder powder chocolate cake cookie bear claw. Marshmallow gummi bears sweet roll. Apple pie fruitcake sweet roll tart candy canes chocolate. Gummi bears I love danish halvah tootsie roll sweet roll cupcake tootsie roll dessert. Gummies cake pastry tootsie roll. Carrot cake gingerbread marshmallow I love chocolate. 
+You can find a list of GraphQL clients in various languages on our [Code page](https://graphql.org/code/#graphql-clients). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
+
+It takes more time to implement a GraphQL client upfront, but it becomes worth it the more features you need. You might want to start out using HTTP requests as the underlying transport layer (here’s [an example in JavaScript](https://graphql.org/graphql-js/graphql-clients/)), then switch to a more intricate client service as your application grows in complexity.
 
 ## What is the GraphQL Foundation?
 
