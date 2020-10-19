@@ -15,7 +15,7 @@ Soufflé candy lollipop [dragée cake chocolate](). Marzipan lemon drops sweet r
 
 ## Is GraphQL a database language like SQL?
 
-No, but this is a common misconception. GraphQL is designed for APIs, not databases. It’s a specification for how to request data and it determines how that data is communicated between servers and clients.
+No, but this is a common misconception. GraphQL is designed for APIs, not databases. It’s a specification for how to request and modify data through an API layer. Then it determines how that data is communicated between servers and clients.
 
 GraphQL is frequently used for database interactions though. For example, it can be built into a wrapper around a database or a [GraphQL server](/code/#server-libraries) can query various databases. There are also [services](/code/#services) that implement the GraphQL specification and then allow clients to use GraphQL to query that data source. But it can also be used without a database at all.
 
@@ -25,7 +25,9 @@ For more information on how to get GraphQL to interact with your database, check
 
 No, not necessarily. They both handle APIs and [serve the same purpose](/learn/thinking-in-graphs/#business-logic-layer) from a business perspective. GraphQL is considered an alternative to REST, but it’s not a definitive replacement.
 
-GraphQL and REST can actually co-exist in your stack. For example, you can abstract REST APIs behind a [GraphQL server](/code/#server-libraries) or mask your REST endpoint into a GraphQL endpoint using [resolvers](/learn/execution/#root-fields-resolvers). For an opinionated perspective on how GraphQL compares to REST, check out [How To GraphQL](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/).
+GraphQL and REST can actually co-exist in your stack. For example, you can abstract REST APIs behind a [GraphQL server](/code/#server-libraries). This can be done by masking your REST endpoint into a GraphQL endpoint using [root resolvers](/learn/execution/#root-fields-resolvers). 
+
+For an opinionated perspective on how GraphQL compares to REST, check out [How To GraphQL](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/).
 
 ## How can I learn GraphQL?
 
