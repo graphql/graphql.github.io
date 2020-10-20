@@ -305,7 +305,7 @@ union SearchResult = Human | Droid | Starship
 
 Wherever we return a `SearchResult` type in our schema, we might get a `Human`, a `Droid`, or a `Starship`. Note that members of a union type need to be concrete object types; you can't create a union type out of interfaces or other unions.
 
-In this case, if you query a field that returns the `SearchResult` union type, you need to use a conditional fragment to be able to query any fields at all:
+In this case, if you query a field that returns the `SearchResult` union type, you need to use an inline fragment to be able to query any fields at all:
 
 ```graphql
 # { "graphiql": true}
