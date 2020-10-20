@@ -9,15 +9,24 @@ questions: Why should I use GraphQL?,Is GraphQL a database language like SQL?,Do
 
 ## Why should I use GraphQL?
 
-<!-- TODO -->
+It depends on your use case, but in general, GraphQL has a few key features that stand out. For example, GraphQL enables you to:
 
-Soufflé candy lollipop [dragée cake chocolate](). Marzipan lemon drops sweet roll I love cake ice cream muffin chupa chups gummi bears. Ice cream fruitcake I love sweet roll croissant ice cream. Gummi bears sesame snaps cake apple pie cake jelly. Gingerbread powder I love apple pie marzipan jelly beans sugar plum sesame snaps. Tiramisu chupa chups I love bear claw cake. Macaroon muffin topping ice cream bear claw cookie I love marshmallow. Pie gummies toffee candy pastry soufflé. Chupa chups toffee gummi bears I love cake lemon drops.
+* Improve performance and stability by [sending queries](/learn/queries/) for the exact data you need. 
+* Aggregate data from [multiple UI clients](/learn/queries/#fragments) in [a single request](/learn/best-practices/#server-side-batching-caching ).
+* Create a representation of your data that feels familiar and natural ([a graph](/learn/thinking-in-graphs/#it-s-graphs-all-the-way-down-https-en-wikipedia-org-wiki-turtles-all-the-way-down)).
+* Ensure that all of your data is [statically typed](/learn/schema/) and these types inform [what queries the schema supports](/learn/introspection/).
+* Examine queries and responses through community tools like [GraphiQL](https://github.com/graphql/graphiql).
+
+And many others! [Our homepage](/) outlines some more convincing reasons to use GraphQL.
+
+Additionally, it doesn’t take rewriting your entire application to try out GraphQL. You can even start with a single HTTP request that wraps an existing REST call, for instance. Your [GraphQL schema](/learn/thinking-in-graphs/#shared-language) and [business domain model](/learn/thinking-in-graphs/#business-logic-layer) can be expanded gradually, so we’d recommend focusing on one use case at first and only build the part of the schema you need for that to work. 
+
 
 ## Is GraphQL a database language like SQL?
 
 No, but this is a common misconception. GraphQL is designed for APIs, not databases. It’s a specification for how to request and modify data through an API layer. Then it determines how that data is communicated between servers and clients.
 
-GraphQL is frequently used for database interactions though. For example, it can be built into a wrapper around a database or a [GraphQL server](/code/#server-libraries) can query various databases. There are also [services](/code/#services) that implement the GraphQL specification and then allow clients to use GraphQL to query that data source. But it can also be used without a database at all.
+GraphQL is frequently used for database interactions though. For example, it can be built into a wrapper around a database or a [GraphQL server](https://www.howtographql.com/advanced/1-server/) can query various databases. There are also [services](/code/#services) that implement the GraphQL specification and then allow clients to use GraphQL to query that data source. But it can also be used without a database at all.
 
 For more information on how to get GraphQL to interact with your database, check out our [documentation on resolvers](/learn/execution/#root-fields-resolvers).
 
@@ -25,7 +34,7 @@ For more information on how to get GraphQL to interact with your database, check
 
 No, not necessarily. They both handle APIs and [serve the same purpose](/learn/thinking-in-graphs/#business-logic-layer) from a business perspective. GraphQL is considered an alternative to REST, but it’s not a definitive replacement.
 
-GraphQL and REST can actually co-exist in your stack. For example, you can abstract REST APIs behind a [GraphQL server](/code/#server-libraries). This can be done by masking your REST endpoint into a GraphQL endpoint using [root resolvers](/learn/execution/#root-fields-resolvers). 
+GraphQL and REST can actually co-exist in your stack. For example, you can abstract REST APIs behind a [GraphQL server](https://www.howtographql.com/advanced/1-server/). This can be done by masking your REST endpoint into a GraphQL endpoint using [root resolvers](/learn/execution/#root-fields-resolvers). 
 
 For an opinionated perspective on how GraphQL compares to REST, check out [How To GraphQL](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/).
 
@@ -53,11 +62,11 @@ It’s understandable why you’d think this, though. GraphQL was introduced at 
 
 ## What is a GraphQL client and why would I use one?
 
-GraphQL clients can help you handle [queries and mutations](https://graphql.org/learn/queries/) to a [GraphQL server](https://graphql.org/code/#server-libraries). This could be done manually, but it would require a lot of work depending on the amount of data you have. By utilizing the underlying structure of a GraphQL API, clients can abstract away some of these tedious processes. Features that can be automated include batching, caching, UI updates, build-time schema validation, and many more. 
+GraphQL clients can help you handle [queries and mutations](/learn/queries/) to a [GraphQL server](https://www.howtographql.com/advanced/1-server/). This could be done manually, but it would require a lot of work depending on the amount of data you have. By utilizing the underlying structure of a GraphQL API, clients can abstract away some of these tedious processes. Features that can be automated include batching, caching, UI updates, build-time schema validation, and many more. 
 
-You can find a list of GraphQL clients in various languages on our [Code page](https://graphql.org/code/#graphql-clients). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
+You can find a list of GraphQL clients in various languages on our [Code page](/code/#graphql-clients). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
-It takes more time to implement a GraphQL client upfront, but it becomes worth it the more features you need. You might want to start out [using HTTP requests](https://graphql.org/learn/serving-over-http/) as the underlying transport layer (here’s [an example in JavaScript](https://graphql.org/graphql-js/graphql-clients/)), then switch to a more intricate client service as your application grows in complexity.
+It takes more time to implement a GraphQL client upfront, but it becomes worth it the more features you need. You might want to start out [using HTTP requests](/learn/serving-over-http/) as the underlying transport layer (here’s [an example in JavaScript](/graphql-js/graphql-clients/)), then switch to a more intricate client service as your application grows in complexity.
 
 ## What is the GraphQL Foundation?
 
