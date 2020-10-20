@@ -57,7 +57,7 @@ GraphQL clients can help you handle [queries and mutations](https://graphql.org/
 
 You can find a list of GraphQL clients in various languages on our [Code page](https://graphql.org/code/#graphql-clients). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
-It takes more time to implement a GraphQL client upfront, but it becomes worth it the more features you need. You might want to start out using HTTP requests as the underlying transport layer (here’s [an example in JavaScript](https://graphql.org/graphql-js/graphql-clients/)), then switch to a more intricate client service as your application grows in complexity.
+It takes more time to implement a GraphQL client upfront, but it becomes worth it the more features you need. You might want to start out [using HTTP requests](https://graphql.org/learn/serving-over-http/) as the underlying transport layer (here’s [an example in JavaScript](https://graphql.org/graphql-js/graphql-clients/)), then switch to a more intricate client service as your application grows in complexity.
 
 ## What is the GraphQL Foundation?
 
