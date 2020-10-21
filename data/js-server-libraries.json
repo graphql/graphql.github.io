@@ -1,0 +1,26 @@
+[
+    {
+        "name": "GraphQL.js",
+        "description": "The reference implementation of the GraphQL specification, designed for running GraphQL in a Node.js environment.",
+        "howto": "To run a `GraphQL.js` hello world script from the command line:\n\n```bash\nnpm install graphql\n```\n\nThen run `node hello.js` with this code in `hello.js`:\n\n```js\nvar { graphql, buildSchema } = require('graphql');\n\nvar schema = buildSchema(`\n  type Query {\n    hello: String\n  }\n`);\n\nvar root = { hello: () => 'Hello world!' };\n\ngraphql(schema, '{ hello }', root).then((response) => {\n  console.log(response);\n});\n```",
+        "url": "/graphql-js/",
+        "npm": "graphql",
+        "github": "graphql/graphql-js"
+    },
+    {
+        "name": "Express GraphQL",
+        "description": "The reference implementation of a GraphQL API server over an Express webserver. You can use this to run GraphQL in conjunction with a regular Express webserver, or as a standalone GraphQL server.",
+        "howto": "To run an `express-graphql` hello world server:\n\n```bash\nnpm install express express-graphql graphql\n```\n\nThen run `node server.js` with this code in `server.js`:\n\n```js\nvar express = require('express');\nvar { graphqlHTTP } = require('express-graphql');\nvar { buildSchema } = require('graphql');\n\nvar schema = buildSchema(`\n  type Query {\n    hello: String\n  }\n`);\n\nvar root = { hello: () => 'Hello world!' };\n\nvar app = express();\napp.use('/graphql', graphqlHTTP({\n  schema: schema,\n  rootValue: root,\n  graphiql: true,\n}));\napp.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));\n```",
+        "url": "/graphql-js/running-an-express-graphql-server/",
+        "npm": "express-graphql",
+        "github": "graphql/express-graphql"
+    },
+    {
+        "name": "Apollo Server",
+        "description": "A set of GraphQL server packages from Apollo that work with various Node.js HTTP frameworks (Express, Connect, Hapi, Koa etc).",
+        "howto": "To run a hello world server with apollo-server-express:\n\n```bash\nnpm install apollo-server-express express \n```\n\nThen run `node server.js` with this code in `server.js`:\n\n```js\nconst express = require('express');\nconst { ApolloServer, gql } = require('apollo-server-express');\n\nconst typeDefs = gql`\n  type Query {\n    hello: String\n  }\n`;\n\nconst resolvers = {\n  Query: {\n    hello: () => 'Hello world!',\n  },\n};\n\nconst server = new ApolloServer({ typeDefs, resolvers });\n\nconst app = express();\nserver.applyMiddleware({ app });\n\napp.listen({ port: 4000 }, () =>\n  console.log('Now browse to http://localhost:4000' + server.graphqlPath)\n);\n```\n\nApollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI, Koa and NestJs.",
+        "url": "https://www.apollographql.com/docs/apollo-server/",
+        "npm": "apollo-server-express",
+        "github": "apollographql/apollo-server"
+    }
+]

@@ -1,14 +1,35 @@
 const path = require("path")
+const { readFileSync } = require("fs")
+const sortLibs = require("./scripts/sort-libraries")
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage } = actions
   deletePage(page)
+  let context = {
+    ...page.context,
+    sourcePath: path.relative(__dirname, page.componentPath),
+  }
+  if (page.path === "/code" || page.path === "/code/") {
+    const [jsGraphQLClients, jsServerLibraries, tools] = await Promise.all([
+      sortLibs(
+        JSON.parse(readFileSync("./data/js-graphql-clients.json", "utf8"))
+      ),
+      sortLibs(
+        JSON.parse(readFileSync("./data/js-server-libraries.json", "utf8"))
+      ),
+      sortLibs(JSON.parse(readFileSync("./data/tools.json", "utf8"))),
+    ])
+
+    context = {
+      ...context,
+      jsGraphQLClients,
+      jsServerLibraries,
+      tools,
+    }
+  }
   createPage({
     ...page,
-    context: {
-      ...page.context,
-      sourcePath: path.relative(__dirname, page.componentPath),
-    },
+    context,
   })
 }
 

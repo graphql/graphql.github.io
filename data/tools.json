@@ -1,0 +1,99 @@
+[
+    {
+        "name": "GraphiQL",
+        "description": "An interactive in-browser GraphQL IDE.",
+        "url": "https://github.com/graphql/graphiql",
+        "npm": "graphiql",
+        "github": "graphql/graphiql"
+    },
+    {
+        "name": "libgraphqlparser",
+        "description": "A GraphQL query language parser in C++ with C and C++ APIs.",
+        "url": "https://github.com/graphql/libgraphqlparser",
+        "github": "graphql/libgraphqlparser"
+    },
+    {
+        "name": "GraphQL Language Service",
+        "description": "An interface for building GraphQL language services for IDEs (diagnostics, autocomplete etc).",
+        "url": "https://github.com/graphql/graphql-language-service",
+        "npm": "graphql-language-service",
+        "github": "graphql/graphql-language-service"
+    },
+    {
+        "name": "quicktype",
+        "description": "Generate types for GraphQL queries in TypeScript, Swift, golang, C#, C++, and more.",
+        "url": "https://quicktype.io/",
+        "npm": "quicktype",
+        "github": "quicktype/quicktype"
+    },
+    {
+        "name": "GraphQL-ESLint",
+        "description": "GraphQL-ESLint integrates GraphQL AST in the ESLint core (as a parser).",
+        "url": "https://github.com/dotansimha/graphql-eslint/",
+        "npm": "@graphql-eslint/eslint-plugin",
+        "github": "dotansimha/graphql-eslint/"
+    },
+    {
+        "name": "GraphQL Modules",
+        "description": "GraphQL Modules lets you separate your backend implementation to small, reusable, easy-to-implement and easy-to-test pieces.",
+        "url": "https://graphql-modules.com",
+        "npm": "graphql-modules",
+        "github": "Urigo/graphql-modules"
+    },
+    {
+        "name": "GraphQL Tools",
+        "description": "A set of utils for faster development of GraphQL tools (Schema and documents loading, Schema merging and more).",
+        "url": "https://graphql-tools.com",
+        "npm": "graphql-tools",
+        "github": "ardatan/graphql-tools"
+    },
+    {
+        "name": "GraphQL Config",
+        "description": "One configuration for all your GraphQL tools (supported by most tools, editors & IDEs).",
+        "url": "https://graphql-config.com",
+        "npm": "graphql-config",
+        "github": "kamilkisiela/graphql-config"
+    },
+    {
+        "name": "GraphQL Mesh",
+        "description": "GraphQL Mesh allows you to use GraphQL query language to access data in remote APIs that don't run GraphQL (and also ones that do run GraphQL). It can be used as a gateway to other services, or run as a local GraphQL schema that aggregates data from remote APIs.",
+        "url": "https://graphql-mesh.com",
+        "npm": "@graphql-mesh/cli",
+        "github": "Urigo/graphql-mesh"
+    },
+    {
+        "name": "GraphQL Code Generator",
+        "description": "GraphQL code generator with flexible support for custom plugins and templates like Typescript (frontend and backend), React Hooks, resolvers signatures and more.",
+        "url": "https://graphql-code-generator.com",
+        "npm": "@graphql-codegen/cli",
+        "github": "dotansimha/graphql-code-generator"
+    },
+    {
+        "name": "GraphQL CLI",
+        "description": "A command line tool for common GraphQL development workflows.",
+        "url": "https://graphql-cli.com",
+        "npm": "graphql-cli",
+        "github": "Urigo/graphql-cli"
+    },
+    {
+        "name": "GraphQL Inspector",
+        "description": "Compare schemas, validate documents, find breaking changes, find similar types, schema coverage, and more.",
+        "url": "https://graphql-inspector.com/",
+        "npm": "@graphql-inspector/cli",
+        "github": "kamilkisiela/graphql-inspector"
+    },
+    {
+        "name": "GraphQL Scalars",
+        "description": "A library of custom GraphQL scalar types for creating precise, type-safe GraphQL schemas.",
+        "url": "https://github.com/Urigo/graphql-scalars",
+        "npm": "graphql-scalars",
+        "github": "Urigo/graphql-scalars"
+    },
+    {
+        "name": "SOFA",
+        "description": "Generate REST API from your GraphQL API.",
+        "url": "https://sofa-api.com/",
+        "npm": "sofa-api",
+        "github": "Urigo/SOFA"
+    }
+]

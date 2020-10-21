@@ -1,42 +1,365 @@
----
-title: Code
-layout: code
-permalink: /code/
----
+import React from "react"
+import Layout from "../components/Layout"
+import Marked from "../components/Marked"
 
-Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, services, and other useful stuff.
+export default ({ pageContext }) => {
+  return (
+    <Layout title="Code" className="code" pageContext={pageContext}>
+      <div className="code-hero">
+        <div className="code-hero-inner">
+          <h1>Code</h1>
+          <p>using GraphQL</p>
+        </div>
+      </div>
+      <section>
+        <div className="documentationContent">
+          <div className="inner-content">
+            <div className="intro-note">
+              <strong>
+                Because GraphQL is a communication pattern, there are many tools
+                to help you get started working which support GraphQL in all
+                sorts of languages.
+              </strong>{" "}
+              <div className="container-bl1">
+                <div className="column">
+                  <a href="#languages">
+                    <h3>Languages</h3>
+                  </a>
+                </div>
+                <div className="column">
+                  <a href="#tools">
+                    <h3>Tools</h3>
+                  </a>
+                </div>
+                <div className="column">
+                  <a href="#services">
+                    <h3>Services</h3>
+                  </a>
+                </div>
+                <div className="column">
+                  <a href="#more-stuff">
+                    <h3>More Stuff</h3>
+                  </a>
+                </div>
+              </div>
+              <Marked>{`
+## Languages
+`}</Marked>
+              <p>
+                This page will help you get started with GraphQL in languages
+                you are already using.
+              </p>
+            </div>
+            <div className="main-block-blog">
+              <div className="container-bl">
+                {/* C# */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#c-net">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/csharp.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">C# / .NET</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Clojure */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#clojure">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/clojure.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Clojure</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Elixir */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#elixir">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/elixir.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Elixir</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Elm */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#erlang">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/elm.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Elm</h2>
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-## Server Libraries
+              <br />
 
-In addition to the GraphQL [reference implementations in JavaScript](#javascript), server libraries include:
+              <div className="container-bl">
+                {/* Erlang */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#erlang">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/erlang.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Erlang</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Go */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#go">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/golang.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Go</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Groovy */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#groovy">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/groovy.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Groovy</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Java */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#java-android">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/java.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Java</h2>
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-- [C# / .NET](#c-net)
-- [Clojure](#clojure)
-- [D](#d)
-- [Elixir](#elixir)
-- [Erlang](#erlang)
-- [Go](#go)
-- [Groovy](#groovy)
-- [Haskell](#haskell)
-- [Java](#java)
-- [JavaScript](#javascript)
-- [Julia](#julia)
-- [Kotlin](#kotlin)
-- [Perl](#perl)
-- [PHP](#php)
-- [Python](#python)
-- [R](#r)
-- [Ruby](#ruby)
-- [Rust](#rust)
-- [Scala](#scala)
-- [Swift](#swift)
-- [OCaml / Reason](#ocaml-reason)
+              <br />
 
-### C# / .NET
+              <div className="container-bl">
+                {/* JavaScript */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#javascript">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/node.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">JavaScript</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Julia */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#julia">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/julia.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Julia</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Kotlin */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#kotlin">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/kotlin.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Kotlin</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* OCaml */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#ocaml-reason">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/ocaml.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">OCaml</h2>
+                    </a>
+                  </div>
+                </div>
+              </div>
 
+              <br />
+
+              <div className="container-bl">
+                {/* Perl */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#perl">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/perl.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Perl</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* PHP */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#php">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/php.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">PHP</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Python */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#python">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/python.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Python</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* R */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#r">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/r.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">R</h2>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <br />
+
+              <div className="container-bl">
+                {/* Ruby */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#ruby">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/ruby.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Ruby</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Rust */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#rust">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/rust.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Rust</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Scala */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#scala">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/scala.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Scala</h2>
+                    </a>
+                  </div>
+                </div>
+                {/* Swift */}
+                <div className="column">
+                  <div className="article">
+                    <a href="#swift-objective-c-ios">
+                      <h3 className="article_category">
+                        <img
+                          src="../img/swift.svg"
+                          style={{ width: 92, height: 92 }}
+                        />
+                      </h3>
+                      <h2 className="article_title">Swift</h2>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Marked>{`
+## C# / .NET
+### Server Libraries
 #### [graphql-dotnet](https://github.com/graphql-dotnet/graphql-dotnet): GraphQL for .NET
-
-```csharp
+\`\`\`csharp
 using System;
 using GraphQL;
 using GraphQL.Types;
@@ -59,22 +382,24 @@ public class Program
 
     Console.WriteLine(json);
   }
-}                   
-```
-
+}                       
+\`\`\`
   - [graphql-net](https://github.com/ckimes89/graphql-net): Convert GraphQL to IQueryable
   - [Entity GraphQL](https://github.com/lukemurray/EntityGraphQL): .NET Core GraphQL library. Compiles to IQueryable to easily expose a schema from an existing data model (E.g. from an Entity Framework data model)
   - [DotNetGraphQLQueryGen](https://github.com/lukemurray/DotNetGraphQLQueryGen): .NET Core library to generate classes from a GraphQL schema for type-safe querying in dotnet
   - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Server for .NET core and .NET classic
   - [NGraphQL](https://github.com/rivantsov/starwars): GraphQL Server for .NET Core and full framework
-  
-### Clojure
 
+### GraphQL Clients
+  - [GraphQL.Client](https://github.com/graphql-dotnet/graphql-client): A GraphQL Client for .NET.
+  - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
+  - [SAHB.GraphQLClient](https://github.com/sahb1239/SAHB.GraphQLClient): GraphQL client which supports generating queries from C# classes
+
+## Clojure
+### Server Libraries
 #### [alumbra](https://github.com/alumbra/alumbra)
-
 A set of reusable GraphQL components for Clojure conforming to the data structures given in [alumbra.spec](https://github.com/alumbra/alumbra.spec).
-
-```clojure
+\`\`\`clojure
 (require '[alumbra.core :as alumbra]
          '[claro.data :as data])
 
@@ -100,22 +425,19 @@ A set of reusable GraphQL components for Clojure conforming to the data structur
 
 (defonce my-graphql-server
   (aleph.http/start-server #'app {:port 3000}))
-```
+\`\`\`
 
-```bash
+\`\`\`bash
 $ curl -XPOST "http://0:3000" -H'Content-Type: application/json' -d'{
   "query": "{ me { name, friends { name } } }"
 }'
 {"data":{"me":{"name":"Person #0","friends":[{"name":"Person #1"},{"name":"Person #2"}]}}}
-```
+\`\`\`
 
 #### [graphql-clj](https://github.com/tendant/graphql-clj)
-
 A Clojure library that provides a GraphQL implementation.
-
-Code that executes a hello world GraphQL query with `graphql-clj`:
-
-```clojure
+Code that executes a hello world GraphQL query with \`graphql-clj\`:
+\`\`\`clojure
 
 (def schema "type QueryRoot {
     hello: String
@@ -129,52 +451,59 @@ Code that executes a hello world GraphQL query with `graphql-clj`:
 (require '[graphql-clj.executor :as executor])
 
 (executor/execute nil schema resolver-fn "{ hello }")
-```
-
+\`\`\`
 #### [lacinia](https://github.com/walmartlabs/lacinia)
-
 A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
+
+### GraphQL Clients
+  - [re-graph](https://github.com/oliyh/re-graph/): A GraphQL client implemented in Clojurescript with support for websockets.
 
 ### D
 
   - [graphqld](https://github.com/burner/graphqld): A GraphQL implementaiton for the D Programming Language. 
 
 ### Elixir
-
+### Server Libraries
   - [absinthe](https://github.com/absinthe-graphql/absinthe): GraphQL implementation for Elixir.
   - [graphql-elixir](https://github.com/graphql-elixir/graphql): An Elixir implementation of Facebook's GraphQL.
 
-### Erlang
+## Elm
+### GraphQL Clients
+  - [dillonkearns/elm-graphql](https://github.com/dillonkearns/elm-graphql): Library and command-line code generator to create type-safe Elm code for a GraphQL endpoint.
 
+## Erlang
+### Server Libraries
   - [graphql-erlang](https://github.com/shopgun/graphql-erlang): GraphQL implementation in Erlang.
 
-### Go
+## Flutter
+### GraphQL Clients
+  - [graphql](https://github.com/zino-app/graphql-flutter#readme): A GraphQL client implementation in Flutter.
 
+## Go
+### Server Libraries
   - [graphql-go](https://github.com/graphql-go/graphql): An implementation of GraphQL for Go / Golang.
   - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go): An active implementation of GraphQL in Golang (was https://github.com/neelance/graphql-go).
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - Go generate based graphql server library.
   - [graphql-relay-go](https://github.com/graphql-go/relay): A Go/Golang library to help construct a graphql-go server supporting react-relay.
+  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
   - [samsarahq/thunder](https://github.com/samsarahq/thunder): A GraphQL implementation with easy schema building, live queries, and batching.
   - [appointy/jaal](https://github.com/appointy/jaal): Develop spec compliant GraphQL servers in Go.
 
-### Groovy
+### GraphQL Clients
+  - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
 
+## Groovy
+### Server Libraries
 #### [gorm-graphql](https://github.com/grails/gorm-graphql/)
-
 **Core Library** - The GORM GraphQL library provides functionality to generate a GraphQL schema based on your GORM entities. In addition to mapping domain classes to a GraphQL schema, the core library also provides default implementations of "data fetchers" to query, update, and delete data through executions of the schema.
-
 **Grails Plugin** - In a addition to the Core Library, the GORM GraphQL Grails Plugin:
-
 - Provides a controller to receive and respond to GraphQL requests through HTTP, based on their guidelines.
 - Generates the schema at startup with spring bean configuration to make it easy to extend.
 - Includes a [GraphiQL](https://github.com/graphql/graphiql) browser enabled by default in development. The browser is accessible at /graphql/browser.
 - Overrides the default data binder to use the data binding provided by Grails
 - Provides a [trait](https://grails.github.io/gorm-graphql/latest/api/org/grails/gorm/graphql/plugin/testing/GraphQLSpec.html) to make integration testing of your GraphQL endpoints easier
-
 See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index.html) for more information.
-
 #### [GQL](https://grooviter.github.io/gql/)
-
 GQL is a Groovy library for GraphQL
 
 ### Haskell
@@ -244,16 +573,13 @@ api = interpreter rootResolver
 
 See [morpheus-graphql-examples](https://github.com/morpheusgraphql/morpheus-graphql) for more sophisticated APIs.
 
-
-### Java
-
+## Java / Android
+### Server Libraries
 #### [graphql-java](https://github.com/graphql-java/graphql-java)
-
 A Java library for building GraphQL APIs.
+Code that executes a hello world GraphQL query with \`graphql-java\`:
 
-Code that executes a hello world GraphQL query with `graphql-java`:
-
-```java
+\`\`\`java
 import graphql.ExecutionResult;
 import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
@@ -287,129 +613,53 @@ public class HelloWorld {
         // Prints: {hello=world}
     }
 }
-```
+\`\`\`
 
 See [the graphql-java docs](https://github.com/graphql-java/graphql-java) for more information on setup.
 
-### JavaScript
+### GraphQL Clients
+  - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for Android, written in Java.
+  - [Nodes](https://github.com/americanexpress/nodes): A GraphQL JVM Client designed for constructing queries from standard model definitions. By American Express.
 
-#### [GraphQL.js](/graphql-js/) ([github](https://github.com/graphql/graphql-js/)) ([npm](https://www.npmjs.com/package/graphql))
+## JavaScript
+### Server Libraries
+${pageContext.jsServerLibraries
+  .map(
+    (
+      library: any
+    ) => `#### [${library.name}](${library.url}) ([github](https://github.com/${library.github})) ([npm](https://www.npmjs.com/package/${library.npm}))
+${library.description}
+${library.howto}`
+  )
+  .join("\n")}
 
-The reference implementation of the GraphQL specification, designed for running GraphQL in a Node.js environment.
+### GraphQL Clients
+${pageContext.jsGraphQLClients
+  .map(
+    (library: any) =>
+      `- [${library.name}](${library.url}) ([github](https://github.com/${library.github})) ([npm](https://www.npmjs.com/package/${library.npm})): ${library.description}`
+  )
+  .join("\n")}
 
-To run a `GraphQL.js` hello world script from the command line:
+## Julia
+### GraphQL Clients
+  - [Diana.jl](https://github.com/codeneomatrix/Diana.jl): A Julia GraphQL server implementation.
 
-```bash
-npm install graphql
-```
-
-Then run `node hello.js` with this code in `hello.js`:
-
-```js
-var { graphql, buildSchema } = require('graphql');
-
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-var root = { hello: () => 'Hello world!' };
-
-graphql(schema, '{ hello }', root).then((response) => {
-  console.log(response);
-});
-```
-
-#### [express-graphql](/graphql-js/running-an-express-graphql-server/) ([github](https://github.com/graphql/express-graphql)) ([npm](https://www.npmjs.com/package/express-graphql))
-
-The reference implementation of a GraphQL API server over an Express webserver. You can use this to run GraphQL in conjunction with a regular Express webserver, or as a standalone GraphQL server.
-
-To run an `express-graphql` hello world server:
-
-```bash
-npm install express express-graphql graphql
-```
-
-Then run `node server.js` with this code in `server.js`:
-
-```js
-var express = require('express');
-var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
-
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-var root = { hello: () => 'Hello world!' };
-
-var app = express();
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
-app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
-```
-
-#### [apollo-server](https://www.apollographql.com/docs/apollo-server/) ([github](https://github.com/apollographql/apollo-server)) ([npm](https://www.npmjs.com/package/apollo-server-express))
-
-A set of GraphQL server packages from Apollo that work with various Node.js HTTP frameworks (Express, Connect, Hapi, Koa etc).
-
-To run a hello world server with apollo-server-express:
-
-```bash
-npm install apollo-server-express express 
-```
-
-Then run `node server.js` with this code in `server.js`:
-
-```js
-const express = require('express');
-const { ApolloServer, gql } = require('apollo-server-express');
-
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!',
-  },
-};
-
-const server = new ApolloServer({ typeDefs, resolvers });
-
-const app = express();
-server.applyMiddleware({ app });
-
-app.listen({ port: 4000 }, () =>
-  console.log('Now browse to http://localhost:4000' + server.graphqlPath)
-);
-```
-
-Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI, Koa and NestJs.
-
-### Kotlin
-
+## Kotlin
+### Server Libraries
   - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of libraries for running GraphQL server in Kotlin.
   - [KGraphQL](https://github.com/aPureBase/KGraphQL): Pure Kotlin implementation to setup a GraphQL server.
 
-### Perl
-
+## Perl
+### Server Libraries
   - [graphql-perl](https://github.com/graphql-perl/graphql-perl): A Perl port of GraphQL reference implementation
     - [MetaCPAN documentation](https://metacpan.org/pod/GraphQL)
     - [Mojolicious-Plugin-GraphQL](https://github.com/graphql-perl/Mojolicious-Plugin-GraphQL) - connect your GraphQL service to a Mojolicious app
     - [GraphQL-Plugin-Convert-DBIC](https://github.com/graphql-perl/GraphQL-Plugin-Convert-DBIC) - automatically connect your DBIx::Class schema to GraphQL
     - [GraphQL-Plugin-Convert-OpenAPI](https://github.com/graphql-perl/GraphQL-Plugin-Convert-OpenAPI) - automatically connect any OpenAPI service (either local Mojolicious one, or remote) to GraphQL
 
-### PHP
-
+## PHP
+### Server Libraries
   - [graphql-php](https://github.com/webonyx/graphql-php): A PHP port of GraphQL reference implementation
   - [graphql-relay-php](https://github.com/ivome/graphql-relay-php): A library to help construct a graphql-php server supporting react-relay.
   - [Railt](https://github.com/railt/railt): A PHP GraphQL Framework.
@@ -420,11 +670,10 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
   - [GraPHPinator](https://github.com/infinityloop-dev/graphpinator): A GraphQL implementation for modern PHP
 
 #### [API Platform](https://api-platform.com) ([github](https://github.com/api-platform/api-platform))
-
 API Platform is a fully-featured, flexible and extensible API framework built on top of Symfony.
 The following class is enough to create both a Relay-compatible GraphQL server and a hypermedia API supporting modern REST formats (JSON-LD, JSONAPI...):
 
-```php
+\`\`\`php
 <?php
 
 namespace App\Entity;
@@ -453,18 +702,13 @@ class Greeting
      */
     public $hello;
 }
-```
-
+\`\`\`
 Other API Platform features include data validation, authentication, authorization, deprecations, cache and GraphiQL integration.
-
 #### [GraphQLite](https://graphqlite.thecodingmachine.io) ([github](https://github.com/thecodingmachine/graphqlite))
-
 GraphQLite is a library that offers an annotations-based syntax for GraphQL schema definition.
 It is framework agnostic with bindings available for Symfony and Laravel.
-
 This code declares a "product" query and a "Product" Type:
-
-```php
+\`\`\`php
 class ProductController
 {
     /**
@@ -490,23 +734,18 @@ class Product
     }
     // ...
 }
-```
-
+\`\`\`
 Other GraphQLite features include validation, security, error handling, loading via data-loader pattern...
-
 #### [Siler](https://siler.leocavalcante.com/graphql/) ([github](https://github.com/leocavalcante/siler))
-
 Siler is a PHP library powered with high-level abstractions to work with GraphQL.
-
 To run a Siler hello world script:
-
-```graphql
+\`\`\`graphql
 type Query {
   hello: String
 }
-```
+\`\`\`
 
-```php
+\`\`\`php
 <?php
 declare(strict_types=1);
 require_once '/path/to/vendor/autoload.php';
@@ -532,29 +771,22 @@ Http\server(Graphql\psr7($schema), function (\Throwable $err) {
         'message' => $err->getMessage(),
     ]);
 })()->run();
-```
-
+\`\`\`
 It also provides functionality for the construction of a WebSocket Subscriptions Server based on how Apollo works.
 
-### Swift
-
-  - [Graphiti](https://github.com/GraphQLSwift/Graphiti): Swift library for building GraphQL schemas/types fast, safely and easily.
-
-### Python
-
+## Python
+### Server Libraries
 #### [Graphene](http://graphene-python.org/) ([github](https://github.com/graphql-python/graphene))
-
 A Python library for building GraphQL APIs.
-
 To run a Graphene hello world script:
 
-```bash
+\`\`\`bash
 pip install graphene
-```
+\`\`\`
 
-Then run `python hello.py` with this code in `hello.py`:
+Then run \`python hello.py\` with this code in \`hello.py\`:
 
-```python
+\`\`\`python
 import graphene
 
 class Query(graphene.ObjectType):
@@ -566,25 +798,31 @@ class Query(graphene.ObjectType):
 schema = graphene.Schema(query=Query)
 result = schema.execute('{ hello }')
 print(result.data['hello']) # "Hello World"
-```
+\`\`\`
 
 There are also nice bindings for [Relay](https://facebook.github.io/relay/), Django, SQLAlchemy, and Google App Engine.
+### GraphQL Clients
+  - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
+  - [python-graphql-client](https://github.com/prisma/python-graphql-client): Simple GraphQL client for Python 2.7+.
+  - [sgqlc](https://github.com/profusion/sgqlc): A simple Python GraphQL client. Supports generating code generation for types defined in a GraphQL schema.
 
-### Ruby
 
+## R
+### GraphQL Clients
+  - [ghql](https://github.com/ropensci/ghql): General purpose GraphQL R client.
+
+## Ruby
+### Server Libraries
 #### [graphql-ruby](https://github.com/rmosolgo/graphql-ruby)
-
 A Ruby library for building GraphQL APIs.
-
-To run a hello world script with `graphql-ruby`:
-
-```bash
+To run a hello world script with \`graphql-ruby\`:
+\`\`\`bash
 gem install graphql
-```
+\`\`\`
 
-Then run `ruby hello.rb` with this code in `hello.rb`:
+Then run \`ruby hello.rb\` with this code in \`hello.rb\`:
 
-```ruby
+\`\`\`ruby
 require 'graphql'
 
 class QueryType < GraphQL::Schema::Object
@@ -600,15 +838,11 @@ class Schema < GraphQL::Schema
 end
 
 puts Schema.execute('{ hello }').to_json
-```
-
+\`\`\`
 There are also nice bindings for Relay and Rails.
-
 #### [Agoo](https://github.com/ohler55/agoo)
-
 A high performance web server with support for GraphQL. Agoo strives for a simple, easy to use API for GraphQL.
-
-```ruby
+\`\`\`ruby
 require 'agoo'
 
 class Query
@@ -636,19 +870,17 @@ sleep
 # a URL of localhost:6464/graphql?query={hello}
 #
 # ruby hello.rb
-```
+\`\`\`
 
-### Rust
-
+## Rust
+### Server Libraries
  - [graphql-rust/juniper](https://github.com/graphql-rust/juniper): GraphQL server library for Rust
 
-### Scala
-
+## Scala
+### Server Libraries
 #### [Sangria](http://sangria-graphql.org/) ([github](https://github.com/sangria-graphql/sangria)): A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
-
-An example of a hello world GraphQL schema and query with `sangria`:
-
-```scala
+An example of a hello world GraphQL schema and query with \`sangria\`:
+\`\`\`scala
 import sangria.schema._
 import sangria.execution._
 import sangria.macros._
@@ -662,123 +894,30 @@ val schema = Schema(QueryType)
 val query = graphql"{ hello }"
 
 Executor.execute(schema, query) map println
-```
+\`\`\`
 
-### OCaml / Reason
-
+## OCaml / Reason
+### Server Libraries
 #### [ocaml-graphql-server](https://github.com/andreas/ocaml-graphql-server): GraphQL server library for OCaml and Reason
 
-## GraphQL Clients
-
-- [C# / .NET](#c-net-1)
-- [Clojurescript](#clojurescript-1)
-- [Elixir](#elixir-1)
-- [Elm](#elm)
-- [Flutter](#flutter)
-- [Go](#go-1)
-- [Haskell](#haskell)
-- [Java / Android](#java-android)
-- [JavaScript](#javascript-1)
-- [Julia](#julia)
-- [Kotlin](#kotlin)
-- [Swift / Objective-C iOS](#swift-objective-c-ios)
-- [Python](#python-1)
-- [R](#r)
-
-### C# / .NET
-
-  - [GraphQL.Client](https://github.com/graphql-dotnet/graphql-client): A GraphQL Client for .NET.
-  - [graphql-net-client](https://github.com/bkniffler/graphql-net-client): Basic example GraphQL client for .NET.
-  - [SAHB.GraphQLClient](https://github.com/sahb1239/SAHB.GraphQLClient): GraphQL client which supports generating queries from C# classes
-
-### Clojurescript
-
-  - [re-graph](https://github.com/oliyh/re-graph/): A GraphQL client implemented in Clojurescript with support for websockets.
-
-### Elixir
+## Swift / Objective-C iOS
+### Server Libraries
+  - [Graphiti](https://github.com/GraphQLSwift/Graphiti): Swift library for building GraphQL schemas/types fast, safely and easily.
   
-  - [Neuron](https://github.com/uesteibar/neuron): A GraphQL client for Elixir
-  - [common_graphql_client](https://github.com/annkissam/common_graphql_client): Elixir GraphQL Client with HTTP and WebSocket support
-
-### Elm
-  
-  - [dillonkearns/elm-graphql](https://github.com/dillonkearns/elm-graphql): Library and command-line code generator to create type-safe Elm code for a GraphQL endpoint.
-
-### Flutter
-
-  - [graphql](https://github.com/zino-app/graphql-flutter#readme): A GraphQL client implementation in Flutter.
-
-### Go
-
-  - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
-  - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
-
-### Haskell
-
-  - [morpheus-graphql-client](https://github.com/morpheusgraphql/morpheus-graphql): A strongly-typed GraphQL client implementation in Haksell.
-
-### Java / Android
-
-  - [Apollo Android](https://github.com/apollographql/apollo-android): A strongly-typed, caching GraphQL client for the JVM, Android and Kotlin native.
-
-  - [Nodes](https://github.com/americanexpress/nodes): A GraphQL JVM Client designed for constructing queries from standard model definitions. By American Express.
-
-### JavaScript
-
-  - [Relay](https://facebook.github.io/relay/) ([github](https://github.com/facebook/relay)) ([npm](https://www.npmjs.com/package/react-relay)): Facebook's framework for building React applications that talk to a GraphQL backend.
-  - [Apollo Client](http://apollographql.com/client/) ([github](https://github.com/apollographql/apollo-client)): A powerful JavaScript GraphQL client, designed to work well with React, React Native, Angular 2, or just plain JavaScript.
-  - [graphql-request](https://github.com/prisma/graphql-request): A simple and flexible JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native) - basically a lightweight wrapper around `fetch`.
-  - [Lokka](https://github.com/kadirahq/lokka): A simple JavaScript GraphQL client that works in all JavaScript environments (the browser, Node.js, and React Native).
-  - [nanogql](https://github.com/yoshuawuyts/nanogql): Tiny GraphQL client library using template strings.
-  - [gq-loader](https://github.com/Houfeng/gq-loader): A simple JavaScript GraphQL client，Let the *.gql file be used as a module through webpack loader.
-  - [AWS Amplify](https://aws.github.io/aws-amplify): A JavaScript library for application development using cloud services, which supports GraphQL backend and React components for working with GraphQL data.
-  - [Grafoo](https://github.com/grafoojs/grafoo): An all purpose GraphQL client with view layer integrations for multiple frameworks in just 1.6kb.
-  - [urql](https://formidable.com/open-source/urql/) ([github](https://github.com/FormidableLabs/urql)): A highly customizable and versatile GraphQL client for React.
-  - [graphqurl](https://github.com/hasura/graphqurl) ([npm](https://www.npmjs.com/package/graphqurl)): curl for GraphQL with autocomplete, subscriptions and GraphiQL. Also a dead-simple universal javascript GraphQL client.
-
-### Julia
-
-  - [Diana.jl](https://github.com/codeneomatrix/Diana.jl): A Julia GraphQL server implementation.
-
-### Kotlin
-
-  - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of GraphQL libraries that includes a lightweight, typesafe GraphQL HTTP client.
-
-### Swift / Objective-C iOS
-
+### GraphQL Clients
   - [Apollo iOS](https://www.apollographql.com/docs/ios/) ([github](https://github.com/apollographql/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
   - [GraphQL iOS](https://github.com/funcompany/graphql-ios): An Objective-C GraphQL client for iOS.
   - [Graphaello](https://github.com/nerdsupremacist/Graphaello): A Tool for Writing Declarative, Type-Safe and Data-Driven Applications in SwiftUI using GraphQL and Apollo
 
-### Python
-
-  - [GQL](https://github.com/graphql-python/gql): A GraphQL client in Python.
-  - [python-graphql-client](https://github.com/prisma/python-graphql-client): Simple GraphQL client for Python 2.7+.
-  - [sgqlc](https://github.com/profusion/sgqlc): A simple Python GraphQL client. Supports generating code generation for types defined in a GraphQL schema.
-
-### R
-
-  - [ghql](https://github.com/ropensci/ghql): General purpose GraphQL R client.
-
 ## Tools
-
-  - [graphiql](https://github.com/graphql/graphiql) ([npm](https://www.npmjs.com/package/graphiql)): An interactive in-browser GraphQL IDE.
-  - [libgraphqlparser](https://github.com/graphql/libgraphqlparser): A GraphQL query language parser in C++ with C and C++ APIs.
-  - [Graphql Language Service](https://github.com/graphql/graphql-language-service): An interface for building GraphQL language services for IDEs (diagnostics, autocomplete etc).
-  - [quicktype](https://quicktype.io) ([github](https://github.com/quicktype/quicktype)): Generate types for GraphQL queries in TypeScript, Swift, golang, C#, C++, and more.
-  - [GraphQL Code Generator](https://graphql-code-generator.com): GraphQL code generator with flexible support for custom plugins and templates like Typescript (frontend and backend), React Hooks, resolvers signatures and more.
-  - [GraphQL Inspector](https://www.graphql-inspector.com): Compare schemas, validate documents, find breaking changes, find similar types, schema coverage, and more.
-  - [GraphQL Config](https://www.graphql-config.com): One configuration for all your GraphQL tools (supported by most tools, editors & IDEs).
-  - [GraphQL CLI](https://www.graphql-cli.com): A command line tool for common GraphQL development workflows.
-  - [GraphQL Scalars](https://github.com/Urigo/graphql-scalars): A library of custom GraphQL scalar types for creating precise, type-safe GraphQL schemas.
-  - [GraphQL Tools](https://www.graphql-tools.com): A set of utils for faster development of GraphQL tools (Schema and documents loading, Schema merging and more).
-  - [SOFA](https://github.com/Urigo/sofa): Generate REST API from your GraphQL API.
-  - [GraphQL-ESLint](https://github.com/dotansimha/graphql-eslint): integrates GraphQL AST in the ESLint core (as a parser).
-  - [GraphQL Modules](https://www.graphql-modules.com): lets you separate your backend implementation to small, reusable, easy-to-implement and easy-to-test pieces.
-  - [GraphQL Mesh](https://www.graphql-mesh.com): allows you to use GraphQL query language to access data in remote APIs that don't run GraphQL (and also ones that do run GraphQL). It can be used as a gateway to other services, or run as a local GraphQL schema that aggregates data from remote APIs.
+${pageContext.tools
+  .map(
+    (library: any) =>
+      `- [${library.name}](${library.url}) ([github](https://github.com/${library.github})) ([npm](https://www.npmjs.com/package/${library.npm})): ${library.description}`
+  )
+  .join("\n")}
 
 ## Services
-
   - [Apollo Graph Manager](https://engine.apollographql.com): A cloud service for monitoring the performance and usage of your GraphQL backend.
   - [GraphCMS](https://graphcms.com/): A BaaS (Backend as a Service) that sets you up with a GraphQL backend as well as tools for content editors to work with the stored data.
   - [Prisma](https://www.prisma.io) ([github](https://github.com/prisma)): A BaaS (Backend as a Service) providing a GraphQL backend for your applications with a powerful web ui for managing your database and stored data.
@@ -787,9 +926,13 @@ Executor.execute(schema, query) map println
   - [Elide](https://elide.io): A Java library that can expose a JPA annotated data model as a GraphQL service over any relational database. 
   - [Hasura](https://hasura.io) ([github](https://github.com/hasura)): Hasura connects to your databases & microservices and instantly gives you a production-ready GraphQL API.
   - [FaunaDB](https://docs.fauna.com/fauna/current/graphql): Create an instant GraphQL backend by importing a gql schema. The database will create relations and indexes for you, so you'll be ready to query in seconds, without writing any database code. Serverless pricing, free to get started.
-  - [Back4App](https://www.back4app.com/docs/parse-graphql/graphql-getting-started): Back4App is a Backend as a Service Platform that helps you Build and Scale modern applications based on GraphQL.
 
 ## More Stuff
-
   - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
-
+          `}</Marked>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  )
+}
