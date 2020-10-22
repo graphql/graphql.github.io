@@ -14,7 +14,7 @@ const Iframe = props => {
 
 export default ({ pageContext }) => {
   return (
-    <Layout title="Who's Using" pageContext={pageContext}>
+    <Layout title="Who's Using | GraphQL" pageContext={pageContext}>
       <section className="whos-using-page">
         <div className="prose">
           <h1>Who&rsquo;s using GraphQL?</h1>

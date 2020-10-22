@@ -1,6 +1,6 @@
 ---
 title: Object Types
-layout: ../_core/GraphQLJSLayout
+layout: docs
 category: GraphQL.js Tutorial
 permalink: /graphql-js/object-types/
 next: /graphql-js/mutations-and-input-types/

@@ -1,6 +1,6 @@
 ---
 title: Global Object Identification
-layout: ../_core/DocsLayout
+layout: docs
 category: Best Practices
 permalink: /learn/global-object-identification/
 next: /learn/caching/

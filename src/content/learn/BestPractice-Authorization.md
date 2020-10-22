@@ -1,6 +1,6 @@
 ---
 title: Authorization
-layout: ../_core/DocsLayout
+layout: docs
 category: Best Practices
 permalink: /learn/authorization/
 next: /learn/pagination/

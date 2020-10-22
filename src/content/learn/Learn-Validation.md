@@ -1,6 +1,6 @@
 ---
 title: Validation
-layout: ../_core/DocsLayout
+layout: docs
 category: Learn
 permalink: /learn/validation/
 next: /learn/execution/

@@ -1,7 +1,7 @@
 ---
 title: Introduction to GraphQL
 sidebarTitle: Introduction
-layout: ../_core/DocsLayout
+layout: docs
 category: Learn
 permalink: /learn/
 next: /learn/queries/

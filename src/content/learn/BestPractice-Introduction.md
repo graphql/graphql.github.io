@@ -1,7 +1,7 @@
 ---
 title: GraphQL Best Practices
 sidebarTitle: Introduction
-layout: ../_core/DocsLayout
+layout: docs
 category: Best Practices
 permalink: /learn/best-practices/
 next: /learn/thinking-in-graphs/

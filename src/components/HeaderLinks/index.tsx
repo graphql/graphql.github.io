@@ -31,8 +31,8 @@ const links: LinkItem[] = [
 
 export default () => (
   <nav>
-    {links.map(link => (
-      <Link key={link.section} href={link.href}>
+    {links.map((link, i) => (
+      <Link key={i} href={link.href}>
         {link.text}
       </Link>
     ))}

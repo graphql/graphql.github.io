@@ -34,6 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
               category
               sublinks
               sidebarTitle
+              date
             }
             id
           }
@@ -89,29 +90,43 @@ exports.createPages = async ({ graphql, actions }) => {
   await Promise.all(Object.entries(pagesGroupedByFolder).map(async ([folder, pages]) => {
     let pagesByUrl = {}
     let previousPagesMap = {}
-
-    await Promise.all(pages.map(async (page) => {
-      const {
-        frontmatter: { permalink, next },
-      } = page
-      if (next) {
-        previousPagesMap[next] = permalink
+    let pagesByDate = pages.sort((a, b) => {
+      const aDate = new Date(a.frontmatter.date || Date.now())
+      const bDate = new Date(b.frontmatter.date || Date.now())
+      if (aDate > bDate) {
+        return -1;
+      } else if (aDate < bDate) {
+        return 1;
       }
-      pagesByUrl[permalink] = page
-    }))
+      return 0;
+    });
+
+    await Promise.all(
+      pagesByDate.map(async page => {
+        const {
+          frontmatter: { permalink, next },
+        } = page
+        if (next) {
+          previousPagesMap[next] = permalink
+        }
+        pagesByUrl[permalink] = page
+      })
+    )
 
     let firstPage = null
 
-    await Promise.all(pages.map(async (page) => {
-      const {
-        frontmatter: { permalink },
-      } = page
+    await Promise.all(
+      pagesByDate.map(async page => {
+        const {
+          frontmatter: { permalink },
+        } = page
 
-      if (!previousPagesMap[permalink]) {
-        firstPage = page
-        return
-      }
-    }))
+        if (!previousPagesMap[permalink] && !firstPage) {
+          firstPage = page
+          return
+        }
+      })
+    )
 
     if (!firstPage) {
       throw new Error(`First page not found in ${folder}`)
@@ -124,8 +139,10 @@ exports.createPages = async ({ graphql, actions }) => {
     let i = 0
     while (page && i++ < 1000) {
       const {
-        frontmatter: { category, next },
+        frontmatter,
       } = page
+      const { definedCategory, next: nextPage } = frontmatter;
+      let category = definedCategory || folder;
       if (!currentCategory || category !== currentCategory.name) {
         currentCategory && categories.push(currentCategory)
         currentCategory = {
@@ -134,13 +151,18 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       currentCategory.links.push(page)
-      page = pagesByUrl[next]
+      if (nextPage) {
+        page = pagesByUrl[nextPage]
+      } else {
+        page = pagesByDate[pagesByDate.indexOf(page) + 1];
+      }
     }
 
     categories.push(currentCategory)
 
     sideBardata[folder] = categories
   }))
+
 
   await Promise.all(allPages.map(async page => {
     createPage({

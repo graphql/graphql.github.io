@@ -11,14 +11,14 @@ interface Props {
   rawMarkdownBody: string
 }
 
-const index = ({ title, nextDoc, sideBarData,rawMarkdownBody }: Props) => {
+const index = ({ title, nextDoc, sideBarData, rawMarkdownBody }: Props) => {
   return (
     <section>
       <div className="documentationContent">
         <div className="inner-content">
           <h1>{title}</h1>
           <Marked>{rawMarkdownBody}</Marked>
-          {nextDoc && (
+          {nextDoc?.frontmatter?.permalink && (
             <Link className="read-next" to={nextDoc.frontmatter.permalink}>
               <span className="read-next-continue">
                 Continue Reading &rarr;

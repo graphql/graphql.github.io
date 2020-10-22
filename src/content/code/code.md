@@ -1,5 +1,7 @@
 ---
-page: code
+title: Code
+layout: code
+permalink: /code/
 ---
 
 Many different programming languages support GraphQL. This list contains some of the more popular server-side frameworks, client libraries, services, and other useful stuff.

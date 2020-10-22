@@ -1,6 +1,6 @@
 ---
 title: Introspection
-layout: ../_core/DocsLayout
+layout: docs
 category: Learn
 permalink: /learn/introspection/
 next: /learn/best-practices/

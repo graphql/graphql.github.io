@@ -1,6 +1,6 @@
 ---
 title: express-graphql
-layout: ../_core/GraphQLJSLayout
+layout: docs
 category: API Reference
 permalink: /graphql-js/express-graphql/
 sublinks: graphqlHTTP

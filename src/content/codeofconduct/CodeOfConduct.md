@@ -1,6 +1,6 @@
 ---
 title: Code of Conduct
-layout: ../_core/DocsLayout
+layout: docs
 category: Code Of Conduct
 permalink: /codeofconduct/
 ---

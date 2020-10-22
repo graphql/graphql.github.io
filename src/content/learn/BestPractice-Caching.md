@@ -1,6 +1,6 @@
 ---
 title: Caching
-layout: ../_core/DocsLayout
+layout: docs
 category: Best Practices
 permalink: /learn/caching/
 ---

@@ -6,11 +6,13 @@
  */
 
 import React from "react"
+import users from "../../pages/users"
 import Prism from "../Prism/index"
 import Header from "./Header"
 
 import MiniGraphiQL from "./MiniGraphiQL"
 import { StarWarsSchema } from "./swapiSchema"
+import { UsersSchema } from './usersSchema';
 
 export default function Marked(props) {
   return <div>{marked(props.children, props)}</div>
@@ -841,10 +843,14 @@ Parser.prototype.tok = function () {
             var variables = metaData.variables
               ? JSON.stringify(metaData.variables, null, 2)
               : ""
-
+            const schemaMap = {
+              StarWars: StarWarsSchema,
+              Users: UsersSchema,
+            }
+            const schema = schemaMap[metaData.schema || 'StarWars'];
             return (
               <MiniGraphiQL
-                schema={StarWarsSchema}
+                schema={schema}
                 query={query}
                 variables={variables}
               />

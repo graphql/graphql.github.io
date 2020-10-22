@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 import { toSlug } from "../../utils/slug"
 
 const SidebarForCategory = ({ category }: any) => {
-  const listItems = category.links.map((page: any) => {
+  const listItems = category.links.map((page: any, i) => {
     return (
-      <li key={page.frontmatter.permalink}>
+      <li key={i}>
         <Link
           style={{ marginLeft: page.indent ? 20 : 0 }}
           className="active"
@@ -15,8 +15,8 @@ const SidebarForCategory = ({ category }: any) => {
         </Link>
         {page.frontmatter.sublinks && (
           <ul>
-            {page.frontmatter.sublinks.split(",").map((sublink: any) => (
-              <li key={sublink}>
+            {page.frontmatter.sublinks.split(",").map((sublink: any, i) => (
+              <li key={i}>
                 <Link to={page.frontmatter.permalink + "#" + toSlug(sublink)}>
                   {sublink}
                 </Link>

@@ -1,6 +1,6 @@
 ---
 title: Execution
-layout: ../_core/DocsLayout
+layout: docs
 category: Learn
 permalink: /learn/execution/
 next: /learn/introspection/

@@ -1,6 +1,6 @@
 ---
 title: Queries and Mutations
-layout: ../_core/DocsLayout
+layout: docs
 category: Learn
 permalink: /learn/queries/
 next: /learn/schema/

@@ -7,19 +7,12 @@ module.exports = {
   },
 
   plugins: [
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "content",
         path: `${__dirname}/src/content`,
-        include: ["**/*.md"], // ignore files starting with a dot
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pagecontent",
-        path: `${__dirname}/src/pagecontent`,
         include: ["**/*.md"], // ignore files starting with a dot
       },
     },
@@ -51,6 +44,63 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-44373548-16",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-feed",
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map(
+                ({
+                  node: {
+                    excerpt,
+                    frontmatter: { title, date, permalink, byline },
+                  },
+                }) => ({
+                  title,
+                  date,
+                  url: site.siteMetadata.siteUrl + permalink,
+                  description: excerpt,
+                  author: byline,
+                })
+              ),
+            query: `
+              {
+                allMarkdownRemark(
+                  filter: {frontmatter: {layout: {eq: "blog"}}},
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      frontmatter {
+                        title
+                        date
+                        permalink
+                        byline
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/blog/rss.xml",
+            title: "Blog | GraphQL",
+            feed_url: "http://graphql.org/blog/rss.xml",
+            site_url: "http://graphql.org",
+          },
+        ],
       },
     },
   ],

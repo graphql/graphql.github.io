@@ -14,29 +14,29 @@ import WhosUsing from "../Containers/Sections/WhosUsing"
 
 export default ({ pageContext }) => {
   return (
-  <Layout className={"index"} pageContext={pageContext}>
-    <section className="fixedSearch">
-      <Search />
-    </section>
-    <Hero />
-    <section className="lead">
-      <h1>A query language for your API</h1>
-      <p>
-        GraphQL is a query language for APIs and a runtime for fulfilling those
-        queries with your existing data. GraphQL provides a complete and
-        understandable description of the data in your API, gives clients the
-        power to ask for exactly what they need and nothing more, makes it
-        easier to evolve APIs over time, and enables powerful
-        developer&nbsp;tools.
-      </p>
-    </section>
-    <PredictableResults />
-    <SingleRequest />
-    <TypeSystem />
-    <PowerFulTools />
-    <WithoutVersions />
-    <BringYourOwnData />
-    <WhosUsing />
-  </Layout>
-)
+    <Layout className={"index"} title="GraphQL | A query language for your API" pageContext={pageContext}>
+      <section className="fixedSearch">
+        <Search />
+      </section>
+      <Hero />
+      <section className="lead">
+        <h1>A query language for your API</h1>
+        <p>
+          GraphQL is a query language for APIs and a runtime for fulfilling
+          those queries with your existing data. GraphQL provides a complete and
+          understandable description of the data in your API, gives clients the
+          power to ask for exactly what they need and nothing more, makes it
+          easier to evolve APIs over time, and enables powerful
+          developer&nbsp;tools.
+        </p>
+      </section>
+      <PredictableResults />
+      <SingleRequest />
+      <TypeSystem />
+      <PowerFulTools />
+      <WithoutVersions />
+      <BringYourOwnData />
+      <WhosUsing />
+    </Layout>
+  )
   }
