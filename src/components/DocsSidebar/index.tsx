@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import { toSlug } from "../../utils/slug"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const SidebarForCategory = ({ category }: any) => {
-  const listItems = category.links.map((page: any, i) => {
+  const listItems = category.links.map((page: any, i: number) => {
     return (
       <li key={i}>
         <Link
@@ -15,11 +16,14 @@ const SidebarForCategory = ({ category }: any) => {
         </Link>
         {page.frontmatter.sublinks && (
           <ul>
-            {page.frontmatter.sublinks.split(",").map((sublink: any, i) => (
+            {page.frontmatter.sublinks.split(",").map((sublink: any, i: number) => (
               <li key={i}>
-                <Link to={page.frontmatter.permalink + "#" + toSlug(sublink)}>
+                <AnchorLink
+                  title={sublink}
+                  to={page.frontmatter.permalink + "#" + toSlug(sublink)}
+                >
                   {sublink}
-                </Link>
+                </AnchorLink>
               </li>
             ))}
           </ul>

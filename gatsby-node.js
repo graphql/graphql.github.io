@@ -145,7 +145,7 @@ exports.createPages = async ({ graphql, actions }) => {
       let i = 0
       while (page && i++ < 1000) {
         const { frontmatter } = page
-        const { definedCategory, next: definedNextPageUrl } = frontmatter
+        const { category: definedCategory, next: definedNextPageUrl } = frontmatter
         let category = definedCategory || folder
         if (!currentCategory || category !== currentCategory.name) {
           currentCategory && categories.push(currentCategory)

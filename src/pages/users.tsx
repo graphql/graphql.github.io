@@ -1,17 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
 
-const iframe =
-  '<iframe frameBorder="0" id="landscape" scrolling="no" style="width: 1px; min-width: 100%" src="https://landscape.graphql.org/category=graph-ql-adopter&format=card-mode&grouping=category&embed=yes"></iframe>'
-
-const Iframe = props => {
-  return (
-    <div
-      dangerouslySetInnerHTML={{ __html: props.iframe ? props.iframe : "" }}
-    />
-  )
-}
-
 export default ({ pageContext }) => {
   return (
     <Layout title="Who's Using | GraphQL" pageContext={pageContext}>
@@ -36,9 +25,20 @@ export default ({ pageContext }) => {
           </p>
         </div>
 
-        <Iframe iframe={iframe} />
-
-        <script src="https://landscape.cncf.io/iframeResizer.js"></script>
+        <iframe
+          frameBorder="0"
+          id="landscape"
+          scrolling="no"
+          style={{ width: "1px", minWidth: "100%" }}
+          src="https://landscape.graphql.org/category=graph-ql-adopter&format=card-mode&grouping=category&embed=yes"
+          onLoad={() => {
+            const scriptElem = document.createElement('script');
+            scriptElem.type = 'text/javascript';
+            scriptElem.src = "https://landscape.cncf.io/iframeResizer.js";
+            scriptElem.onload = () => (window as any)["iFrameResize"]();
+            document.body.appendChild(scriptElem);
+          }}
+        ></iframe>
       </section>
     </Layout>
   )
