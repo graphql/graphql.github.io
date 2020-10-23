@@ -813,64 +813,15 @@ There are also nice bindings for [Relay](https://facebook.github.io/relay/), Dja
 
 ## Ruby
 ### Server Libraries
-#### [graphql-ruby](https://github.com/rmosolgo/graphql-ruby)
-A Ruby library for building GraphQL APIs.
-To run a hello world script with \`graphql-ruby\`:
-\`\`\`bash
-gem install graphql
-\`\`\`
-
-Then run \`ruby hello.rb\` with this code in \`hello.rb\`:
-
-\`\`\`ruby
-require 'graphql'
-
-class QueryType < GraphQL::Schema::Object
-  graphql_name 'Query'
-  field :hello do
-    type types.String
-    resolve -> (obj, args, ctx) { 'Hello world!' }
-  end
-end
-
-class Schema < GraphQL::Schema
-  query QueryType
-end
-
-puts Schema.execute('{ hello }').to_json
-\`\`\`
-There are also nice bindings for Relay and Rails.
-#### [Agoo](https://github.com/ohler55/agoo)
-A high performance web server with support for GraphQL. Agoo strives for a simple, easy to use API for GraphQL.
-\`\`\`ruby
-require 'agoo'
-
-class Query
-  def hello
-    'hello'
-  end
-end
-
-class Schema
-  attr_reader :query
-
-  def initialize
-    @query = Query.new()
-  end
-end
-
-Agoo::Server.init(6464, 'root', thread_count: 1, graphql: '/graphql')
-Agoo::Server.start()
-Agoo::GraphQL.schema(Schema.new) {
-  Agoo::GraphQL.load(%^type Query { hello: String }^)
-}
-sleep
-
-# To run this GraphQL example type the following then go to a browser and enter
-# a URL of localhost:6464/graphql?query={hello}
-#
-# ruby hello.rb
-\`\`\`
+${pageContext.rubyServerLibraries
+  .map(
+    (
+      library: any
+    ) => `#### [${library.name}](${library.url}) ([github](https://github.com/${library.github})) ([gem](https://rubygems.org/gems/${library.npm}))
+${library.description}
+${library.howto}`
+  )
+  .join("\n")}
 
 ## Rust
 ### Server Libraries

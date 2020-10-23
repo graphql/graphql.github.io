@@ -10,12 +10,15 @@ exports.onCreatePage = async ({ page, actions }) => {
     sourcePath: path.relative(__dirname, page.componentPath),
   }
   if (page.path === "/code" || page.path === "/code/") {
-    const [jsGraphQLClients, jsServerLibraries, tools] = await Promise.all([
+    const [jsGraphQLClients, jsServerLibraries, rubyServerLibraries, tools] = await Promise.all([
       sortLibs(
         JSON.parse(readFileSync("./data/js-graphql-clients.json", "utf8"))
       ),
       sortLibs(
         JSON.parse(readFileSync("./data/js-server-libraries.json", "utf8"))
+      ),
+      sortLibs(
+        JSON.parse(readFileSync("./data/ruby-server-libraries.json", "utf8"))
       ),
       sortLibs(JSON.parse(readFileSync("./data/tools.json", "utf8"))),
     ])
@@ -24,6 +27,7 @@ exports.onCreatePage = async ({ page, actions }) => {
       ...context,
       jsGraphQLClients,
       jsServerLibraries,
+      rubyServerLibraries,
       tools,
     }
   }

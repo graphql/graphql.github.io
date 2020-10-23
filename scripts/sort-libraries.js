@@ -91,11 +91,19 @@ const getNpmStats = async packageName => {
   return { downloadCount }
 }
 
+const getGemStats = async packageName => {
+  const response = await fetch(`https://rubygems.org/api/v1/gems/${encodeURIComponent(packageName)}.json`);
+  const responseJson = await response.json()
+  const downloadCount = responseJson.downloads
+  return { downloadCount }
+}
+
 const sortLibs = async libs => {
   const libsWithScores = await Promise.all(
     libs.map(async lib => {
       const [npmStats = {}, githubStats = {}] = await Promise.all([
         lib.npm && getNpmStats(lib.npm),
+        lib.gem && getGemStats(lib.gem),
         lib.github && getGitHubStats(lib.github),
       ])
       return {
