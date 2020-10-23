@@ -570,7 +570,7 @@ InlineLexer.prototype.output = function (src) {
         href = text
       }
 
-      out.push(React.createElement("a", { href: this.sanitizeUrl(href),key:href }, text))
+      out.push(React.createElement("a", { href: this.sanitizeUrl(href), key:href }, text))
       continue
     }
 
@@ -579,7 +579,7 @@ InlineLexer.prototype.output = function (src) {
       src = src.substring(cap[0].length)
       text = cap[1]
       href = text
-      out.push(React.createElement("a", { href: this.sanitizeUrl(href),key:href }, text))
+      out.push(React.createElement("a", { href: this.sanitizeUrl(href), key:href }, text))
       continue
     }
 
@@ -624,7 +624,11 @@ InlineLexer.prototype.output = function (src) {
     if ((cap = this.rules.strong.exec(src))) {
       src = src.substring(cap[0].length)
       out.push(
-        React.createElement("strong", null, this.output(cap[2] || cap[1]))
+        React.createElement(
+          "strong",
+          { key: src.length },
+          this.output(cap[2] || cap[1])
+        )
       )
       continue
     }
@@ -632,28 +636,36 @@ InlineLexer.prototype.output = function (src) {
     // em
     if ((cap = this.rules.em.exec(src))) {
       src = src.substring(cap[0].length)
-      out.push(React.createElement("em", null, this.output(cap[2] || cap[1])))
+      out.push(
+        React.createElement(
+          "em",
+          { key: src.length },
+          this.output(cap[2] || cap[1])
+        )
+      )
       continue
     }
 
     // code
     if ((cap = this.rules.code.exec(src))) {
       src = src.substring(cap[0].length)
-      out.push(React.createElement("code", null, cap[2]))
+      out.push(React.createElement("code", { key: src.length }, cap[2]))
       continue
     }
 
     // br
     if ((cap = this.rules.br.exec(src))) {
       src = src.substring(cap[0].length)
-      out.push(React.createElement("br", null, null))
+      out.push(React.createElement("br", { key: src.length }, null))
       continue
     }
 
     // del (gfm)
     if ((cap = this.rules.del.exec(src))) {
       src = src.substring(cap[0].length)
-      out.push(React.createElement("del", null, this.output(cap[1])))
+      out.push(
+        React.createElement("del", { key: src.length }, this.output(cap[1]))
+      )
       continue
     }
 
@@ -708,6 +720,7 @@ InlineLexer.prototype.outputLink = function (cap, link) {
         title: link.title,
         target: shouldOpenInNewWindow ? "_blank" : null,
         rel: shouldOpenInNewWindow ? "nofollow noopener noreferrer" : null,
+        key: link.href,
       },
       this.output(cap[1])
     )
@@ -718,6 +731,7 @@ InlineLexer.prototype.outputLink = function (cap, link) {
         src: this.sanitizeUrl(link.href),
         alt: cap[1],
         title: link.title,
+        key: link.href,
       },
       null
     )
@@ -813,7 +827,7 @@ Parser.prototype.tok = function () {
       return []
     }
     case "hr": {
-      return React.createElement("hr", null, null)
+      return React.createElement("hr", { key: this.tokens.length }, null)
     }
     case "heading": {
       return (
@@ -822,6 +836,7 @@ Parser.prototype.tok = function () {
           level={this.token.depth}
           toSlug={this.token.text}
           usedSlugs={this.usedSlugs}
+          key={this.tokens.length}
         >
           {this.inline.output(this.token.text)}
         </Header>
@@ -853,13 +868,20 @@ Parser.prototype.tok = function () {
                 schema={schema}
                 query={query}
                 variables={variables}
+                key={this.tokens.length}
               />
             )
           }
         }
       }
 
-      return <Prism language={this.token.lang} code={this.token.text} />
+      return (
+        <Prism
+          language={this.token.lang}
+          code={this.token.text}
+          key={this.tokens.length}
+        />
+      )
     }
     case "table": {
       var table = [],
@@ -884,7 +906,7 @@ Parser.prototype.tok = function () {
         )
       }
       table.push(
-        React.createElement("thead", null, React.createElement("tr", null, row))
+        React.createElement("thead", { key: this.tokens.length }, React.createElement("tr", null, row))
       )
 
       // body
@@ -915,7 +937,11 @@ Parser.prototype.tok = function () {
         body.push(this.tok())
       }
 
-      return React.createElement("blockquote", null, body)
+      return React.createElement(
+        "blockquote",
+        { key: this.tokens.length },
+        body
+      )
     }
     case "list_start": {
       var type = this.token.ordered ? "ol" : "ul",
@@ -925,7 +951,7 @@ Parser.prototype.tok = function () {
         body.push(this.tok())
       }
 
-      return React.createElement(type, null, body)
+      return React.createElement(type, { key: this.tokens.length }, body)
     }
     case "list_item_start": {
       var body = []
@@ -934,7 +960,7 @@ Parser.prototype.tok = function () {
         body.push(this.token.type === "text" ? this.parseText() : this.tok())
       }
 
-      return React.createElement("li", null, body)
+      return React.createElement("li", { key: this.tokens.length }, body)
     }
     case "loose_item_start": {
       var body = []
@@ -943,13 +969,14 @@ Parser.prototype.tok = function () {
         body.push(this.tok())
       }
 
-      return React.createElement("li", null, body)
+      return React.createElement("li", { key: this.tokens.length }, body)
     }
     case "html": {
       return React.createElement("div", {
         dangerouslySetInnerHTML: {
           __html: this.token.text,
         },
+        key: this.tokens.length,
       })
     }
     case "paragraph": {
@@ -958,12 +985,20 @@ Parser.prototype.tok = function () {
             null,
             this.inline.output(this.token.text)
           )
-        : React.createElement("p", null, this.inline.output(this.token.text))
+        : React.createElement(
+            "p",
+            { key: this.tokens.length },
+            this.inline.output(this.token.text)
+          )
     }
     case "text": {
       return this.options.paragraphFn
         ? this.options.paragraphFn.call(null, this.parseText())
-        : React.createElement("p", null, this.parseText())
+        : React.createElement(
+            "p",
+            { key: this.tokens.length },
+            this.parseText()
+          )
     }
   }
 }

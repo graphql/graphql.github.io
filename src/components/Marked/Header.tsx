@@ -15,12 +15,10 @@ export default (props) => {
     var url = props.url || '';
   
     //id is required for gatsby's anchor tags to work
-    return (
-      <Heading {...props}>
-        <a className="anchor" id={slug} name={slug}></a>
-        {props.children}
-        {' '}<a className="hash-link" href={url + '#' + slug}>#</a>
-      </Heading>
-    );
+    return React.createElement(Heading, null, [
+        <a className="anchor" id={slug} name={slug} key={0}></a>,
+        props.children,
+        <a className="hash-link" href={url + '#' + slug} key={1}>#</a>
+    ]);
   }
   
