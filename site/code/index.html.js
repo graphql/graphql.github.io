@@ -51,19 +51,14 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
 \`\`\`csharp
 using System;
+using System.Threading.Tasks;
 using GraphQL;
 using GraphQL.Types;
 using GraphQL.SystemTextJson;
 
-// You can use GraphQL.NewtonsoftJson with .NET Core 3+, just be aware it lacks async writing 
-// capabilities so writing to an ASP.NET Core 3.0 HttpResponse.Body will require you to set 
-// AllowSynchronousIO to true which isn't recommended.
-// using GraphQL.NewtonsoftJson;
-
-
 public class Program
 {
-  public static void Main(string[] args)
+  public static async Task Main(string[] args)
   {
     var schema = Schema.For(@"
       type Query {
@@ -71,13 +66,13 @@ public class Program
       }
     ");
 
-    var json = schema.ExecuteAsync(_ =>
+    var json = await schema.ExecuteAsync(_ =>
     {
       _.Query = "{ hello }";
       _.Root = new { Hello = "Hello World!" };
     });
 
-    Console.WriteLine(json.Result);
+    Console.WriteLine(json);
   }
 }                   
 \`\`\`
