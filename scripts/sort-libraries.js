@@ -2,9 +2,9 @@ const fetch = require(`node-fetch`)
 
 const getGitHubStats = async githubRepo => {
   const [owner, repoName] = githubRepo.split("/")
-  const accessToken = process.env.GITHUB_ACCESS_TOKEN;
+  const accessToken = process.env.GITHUB_ACCESS_TOKEN
   if (!accessToken) {
-    throw new Error(`You must have GITHUB_ACCESS_TOKEN env variable defined!`);
+    throw new Error(`You must have GITHUB_ACCESS_TOKEN env variable defined!`)
   }
   const query = /* GraphQL */ `
     fragment defaultBranchRef on Ref {
@@ -35,6 +35,9 @@ const getGitHubStats = async githubRepo => {
           masterRef: ref(qualifiedName: "master") {
             ...defaultBranchRef
           }
+          developRef: ref(qualifiedName: "develop") {
+            ...defaultBranchRef
+          }
           stargazers {
             totalCount
           }
@@ -48,8 +51,8 @@ const getGitHubStats = async githubRepo => {
       }
     }
   `
-  const lastMonth = new Date();
-  lastMonth.setMonth(lastMonth.getMonth() - 1);
+  const lastMonth = new Date()
+  lastMonth.setMonth(lastMonth.getMonth() - 1)
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
     body: JSON.stringify({
@@ -62,11 +65,26 @@ const getGitHubStats = async githubRepo => {
     },
   })
   const responseJson = await response.json()
-  const repo = responseJson.data.repositoryOwner.repository
+  if (!responseJson?.data) {
+    throw `GitHub returned empty response for ${owner}/${repoName}`
+  }
+  const { repositoryOwner } = responseJson.data
+  if (!repositoryOwner) {
+    throw `No GitHub user found for ${owner}/${repoName}`
+  }
+  const { repository: repo } = repositoryOwner
+  if (!repo) {
+    throw `No GitHub repo found ${owner}/${repoName}`
+  }
   const stars = repo.stargazers.totalCount
-  const commitHistory = (repo.mainRef || repo.sourceRef || repo.masterRef)
-    .target.history.edges
-  let commitCount = 0, daysWithCommitSet = new Set(), finalUpdatedTime;
+  const actualDefaultBranch =
+    repo.mainRef || repo.sourceRef || repo.developRef || repo.masterRef
+  if (!actualDefaultBranch) {
+    throw `No default branch found for ${owner}/${repoName}`
+  }
+  const commitHistory = actualDefaultBranch.target.history.edges
+  let commitCount = 0,
+    daysWithCommitSet = new Set()
   commitHistory.forEach(commit => {
     if (!commit.node.author.name.match(/bot/i)) {
       commitCount++
@@ -92,16 +110,21 @@ const getNpmStats = async packageName => {
 }
 
 const getGemStats = async packageName => {
-  const response = await fetch(`https://rubygems.org/api/v1/gems/${encodeURIComponent(packageName)}.json`);
+  const response = await fetch(
+    `https://rubygems.org/api/v1/gems/${encodeURIComponent(packageName)}.json`
+  )
   const responseJson = await response.json()
   const downloadCount = responseJson.downloads
   return { downloadCount }
 }
 
 const sortLibs = async libs => {
+  if (libs.length === 1) {
+    return libs;
+  }
   const libsWithScores = await Promise.all(
     libs.map(async lib => {
-      const [npmStats = {}, githubStats = {}] = await Promise.all([
+      const [npmStats = {}, gemStars = {}, githubStats = {}] = await Promise.all([
         lib.npm && getNpmStats(lib.npm),
         lib.gem && getGemStats(lib.gem),
         lib.github && getGitHubStats(lib.github),
@@ -118,9 +141,9 @@ const sortLibs = async libs => {
       bScore = 0
     if (a.npm && b.npm) {
       if (a.downloadCount > b.downloadCount) {
-        aScore += 40;
+        aScore += 40
       } else if (b.downloadCount > a.downloadCount) {
-        bScore += 40;
+        bScore += 40
       }
     }
     if (a.github && b.github) {
@@ -130,14 +153,14 @@ const sortLibs = async libs => {
         bScore += 20
       }
       if (a.commitCount > b.commitCount) {
-        aScore += 20;
+        aScore += 20
       } else if (a.commitCount < b.commitCount) {
-        bScore += 20;
+        bScore += 20
       }
       if (a.stars > b.stars) {
-        aScore += 30;
+        aScore += 30
       } else if (a.stars < b.stars) {
-        bScore += 30;
+        bScore += 30
       }
     }
     if (bScore > aScore) {

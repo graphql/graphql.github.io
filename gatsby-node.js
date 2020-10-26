@@ -10,25 +10,25 @@ exports.onCreatePage = async ({ page, actions }) => {
     sourcePath: path.relative(__dirname, page.componentPath),
   }
   if (page.path === "/code" || page.path === "/code/") {
-    const [jsGraphQLClients, jsServerLibraries, rubyServerLibraries, tools] = await Promise.all([
-      sortLibs(
-        JSON.parse(readFileSync("./data/js-graphql-clients.json", "utf8"))
-      ),
-      sortLibs(
-        JSON.parse(readFileSync("./data/js-server-libraries.json", "utf8"))
-      ),
-      sortLibs(
-        JSON.parse(readFileSync("./data/ruby-server-libraries.json", "utf8"))
-      ),
-      sortLibs(JSON.parse(readFileSync("./data/tools.json", "utf8"))),
+    const codeData = JSON.parse(readFileSync("./data/code.json", "utf8"));
+    await Promise.all([
+      Promise.all(Object.keys(codeData.Libraries).map(async languageName => {
+        const libraryCategoryMap = codeData.Libraries[languageName];
+        await Promise.all(
+          Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
+            const libraries = libraryCategoryMap[libraryCategoryName]
+            libraryCategoryMap[libraryCategoryName] = await sortLibs(libraries)
+          })
+        )
+      })),
+      sortLibs(codeData.Tools).then(sortedTools => {
+        codeData.Tools = sortedTools;
+      }),
     ])
 
     context = {
       ...context,
-      jsGraphQLClients,
-      jsServerLibraries,
-      rubyServerLibraries,
-      tools,
+      codeData,
     }
   }
   createPage({
