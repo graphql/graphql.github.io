@@ -54,7 +54,7 @@ using System;
 using System.Threading.Tasks;
 using GraphQL;
 using GraphQL.Types;
-using GraphQL.SystemTextJson;
+using GraphQL.SystemTextJson; // First add PackageReference to GraphQL.SystemTextJson
 
 public class Program
 {
