@@ -16,7 +16,7 @@ export default ({ pageContext }) => {
   return (
     <Layout className={"index"} title="GraphQL | A query language for your API" pageContext={pageContext}>
       <section className="fixedSearch">
-        <Search />
+        <Search searchID="hero-search-input" />
       </section>
       <Hero />
       <section className="lead">
