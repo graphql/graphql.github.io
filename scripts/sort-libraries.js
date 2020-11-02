@@ -65,7 +65,7 @@ const getGitHubStats = async githubRepo => {
     },
   })
   const responseJson = await response.json()
-  if (!responseJson?.data) {
+  if (!responseJson || !responseJson.data) {
     throw `GitHub returned empty response for ${owner}/${repoName}`
   }
   const { repositoryOwner } = responseJson.data
