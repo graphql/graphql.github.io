@@ -3,10 +3,7 @@ import { Link } from "gatsby"
 import HeaderLinks from "../HeaderLinks"
 import Search from "../Search"
 
-interface Props {
-  noSearch?: boolean
-}
-const Header = ({ noSearch }: Props) => {
+const Header = () => {
   return (
     <header>
       <section>
@@ -20,8 +17,8 @@ const Header = ({ noSearch }: Props) => {
           />
           GraphQL
         </Link>
-        <HeaderLinks section={"home"} />
-        {noSearch || <Search />}
+        <HeaderLinks/>
+        <Search />
       </section>
     </header>
   )

@@ -108,21 +108,6 @@ const Footer = ({sourcePath}: { sourcePath: string }) => {
         </section>
       </footer>
 
-      <script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"
-      ></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-        docsearch({
-          apiKey: 'd103541f3e6041148aade2e746ed4d61',
-          indexName: 'graphql',
-          inputSelector: '#algolia-search-input'
-        });
-      `,
-        }}
-      />
     </div>
   )
 }
