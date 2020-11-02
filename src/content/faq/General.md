@@ -12,9 +12,10 @@ questions: Why should I use GraphQL?,Is GraphQL a database language like SQL?,Do
 It depends on your use case, but in general, GraphQL has a few key features that stand out. For example, GraphQL enables you to:
 
 * Improve performance and stability by [sending queries](/learn/queries/) for the exact data you need. 
-* Aggregate data from [multiple UI clients](/learn/queries/#fragments) in [a single request](/learn/best-practices/#server-side-batching-caching ).
+* Aggregate data from [multiple UI components](/learn/queries/#fragments) in [a single request](/learn/best-practices/#server-side-batching-caching ).
 * Create a representation of your data that feels familiar and natural ([a graph](/learn/thinking-in-graphs/#it-s-graphs-all-the-way-down-https-en-wikipedia-org-wiki-turtles-all-the-way-down)).
 * Ensure that all of your data is [statically typed](/learn/schema/) and these types inform [what queries the schema supports](/learn/introspection/).
+* [Reduce the need for breaking changes](/learn/best-practices/#versioning), but utilize a [built-in mechanism for deprecations](https://spec.graphql.org/draft/#sec-Deprecation) when you need to.
 * Examine queries and responses through community tools like [GraphiQL](https://github.com/graphql/graphiql).
 
 And many others! [Our homepage](/) outlines some more convincing reasons to use GraphQL.
@@ -24,7 +25,9 @@ Additionally, it doesn’t take rewriting your entire application to try out Gra
 
 ## Is GraphQL a database language like SQL?
 
-No, but this is a common misconception. GraphQL is designed for APIs, not databases. It’s a specification for how to request and modify data through an API layer. Then it determines how that data is communicated between servers and clients.
+No, but this is a common misconception.
+
+GraphQL is a specification for how to request and modify data. That data can be provided by [arbitrary functions](/learn/) and those functions can call APIs, databases, [local cache](/learn/caching/) or any representation of data. The main and most common use case is calling APIs.
 
 GraphQL is frequently used for database interactions though. For example, it can be built into a wrapper around a database or a [GraphQL server](https://www.howtographql.com/advanced/1-server/) can query various databases. There are also [services](/code/#services) that implement the GraphQL specification and then allow clients to use GraphQL to query that data source. But it can also be used without a database at all.
 
@@ -62,7 +65,7 @@ It’s understandable why you’d think this, though. GraphQL was introduced at 
 
 ## What is a GraphQL client and why would I use one?
 
-GraphQL clients can help you handle [queries and mutations](/learn/queries/) to a [GraphQL server](https://www.howtographql.com/advanced/1-server/). This could be done manually, but it would require a lot of work depending on the amount of data you have. By utilizing the underlying structure of a GraphQL API, clients can abstract away some of these tedious processes. Features that can be automated include batching, caching, UI updates, build-time schema validation, and many more. 
+GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [subscriptions](https://spec.graphql.org/draft/#sec-Subscription) to a [GraphQL server](https://www.howtographql.com/advanced/1-server/). This could be done manually, but it would require a lot of work depending on the amount of data you have. By utilizing the underlying structure of a GraphQL API, clients can abstract away some of these tedious processes. Features that can be automated include batching, caching, UI updates, build-time schema validation, and many more. 
 
 You can find a list of GraphQL clients in various languages on our [Code page](/code/#graphql-clients). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
