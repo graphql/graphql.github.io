@@ -698,6 +698,10 @@ for {
 
   - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of GraphQL libraries that includes a lightweight, typesafe GraphQL HTTP client.
 
+### Scala
+
+   - [Caliban](https://ghostdogpr.github.io/caliban/): Functional GraphQL library for Scala, with client code generation and type-safe queries.
+
 ### Swift / Objective-C iOS
 
   - [Apollo iOS](https://www.apollographql.com/docs/ios/) ([github](https://github.com/apollographql/apollo-ios)): A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.
