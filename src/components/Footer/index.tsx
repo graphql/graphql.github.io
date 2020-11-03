@@ -27,11 +27,7 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
   {
     text: "Code",
     href: "/code",
-    subsections: [
-      { text: "Servers", href: "/code/#server-libraries" },
-      { text: "Clients", href: "/code/#graphql-clients" },
-      { text: "Tools", href: "/code/#tools" },
-    ],
+    subsections: [],
   },
   {
     text: "Community",

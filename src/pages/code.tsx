@@ -7,8 +7,8 @@ export function buildLanguagesMenu(pageContext: any) {
   let lastRow: string[]
   const rows: string[][] = []
   Object.keys(pageContext.codeData.Libraries).forEach((languageName, index) => {
-    if (index % 5 === 0) {
-      lastRow = []
+    if (index % 4 === 0) {
+      lastRow = [languageName]
       rows.push(lastRow)
     } else {
       lastRow.push(languageName)
@@ -31,7 +31,7 @@ export function buildLanguagesMenu(pageContext: any) {
                           style={{ width: 92, height: 92 }}
                         />
                       </h3>
-                      <h2 className="article_title">{languageName}</h2>
+                      <h2 className="article_title" style={{ whiteSpace: 'nowrap' }}>{languageName}</h2>
                     </a>
                   </div>
                 </div>
@@ -107,6 +107,10 @@ export function buildLanguagesContent(pageContext: any) {
       libraryCategories,
       "GraphQL Clients"
     )
+    markdown += buildLibraryCategoriesMarkdown(
+      libraryCategories,
+      "Tools"
+    )
   }
   return <Marked>{markdown}</Marked>
 }
@@ -136,11 +140,6 @@ export default ({ pageContext }) => {
                   </a>
                 </div>
                 <div className="column">
-                  <a href="#tools">
-                    <h3>Tools</h3>
-                  </a>
-                </div>
-                <div className="column">
                   <a href="#services">
                     <h3>Services</h3>
                   </a>
@@ -163,12 +162,6 @@ export default ({ pageContext }) => {
             {buildLanguagesMenu(pageContext)}
 
             {buildLanguagesContent(pageContext)}
-            <Marked>
-              {`
-## Tools
-${buildLibraryListMarkdown(pageContext.codeData.Tools)}
-`}
-            </Marked>
             <Marked>
               {`
 ## Services
