@@ -320,6 +320,43 @@ app.listen({ port: 4000 }, () =>
 
 Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI, Koa and NestJs.
 
+#### [graphql-yoga](https://github.com/prisma-labs/graphql-yoga) ([github](https://github.com/apollographql/apollo-server)) ([npm](https://www.npmjs.com/package/graphql-yoga))
+
+Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience
+
+- Sensible defaults & includes everything you need with minimal setup.
+- Built-in support for GraphQL subscriptions using WebSockets.
+- Works with all GraphQL clients (Apollo, Relay...) and fits seamless in your GraphQL workflow.
+
+To run a hello world server with graphql-yoga:
+
+```bash
+npm install graphql-yoga
+```
+
+Then run `node server.js` with this code in `server.js`:
+
+```js
+import { GraphQLServer } from 'graphql-yoga'
+// ... or using "require()"
+// const { GraphQLServer } = require('graphql-yoga')
+
+const typeDefs = `
+  type Query {
+    hello(name: String): String!
+  }
+`;
+
+const resolvers = {
+  Query: {
+    hello: (_, { name }) => `Hello \${name || 'World'}`,
+  },
+};
+
+const server = new GraphQLServer({ typeDefs, resolvers })
+server.start(() => console.log('Server is running on localhost:4000'))
+```
+
 ### Kotlin
 
   - [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin/): A set of libraries for running GraphQL server in Kotlin.
