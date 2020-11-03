@@ -50,7 +50,7 @@ You can find a [list of GraphQL clients on our Code page](/code/#graphql-clients
 
 ## How does authentication work with GraphQL?
 
-There’s nothing special about it within the specification, but you can implement authentication with common patterns, such as [OAuth](https://oauth.net/). Some [GraphQL libraries](/code/) include a specific protocol for authentication as well. Although if you’re working with a pipeline model, we recommend that [GraphQL should be placed after all authentication middleware](/learn/serving-over-http/#web-request-pipeline).
+There’s nothing special about it within the specification, but you can implement authentication with common patterns, such as [OAuth](https://oauth.net/) or [JWT](https://jwt.io/). Some [GraphQL libraries](/code/) include a specific protocol for authentication as well. Although if you’re working with a pipeline model, we recommend that [GraphQL should be placed after all authentication middleware](/learn/serving-over-http/#web-request-pipeline).
 
 If you’re using [GraphQL.js](/graphql-js/) to build your API server, we have documentation on [handling authentication with Express middleware](/graphql-js/authentication-and-express-middleware/).
 
@@ -66,7 +66,9 @@ For a more detailed explanation, go to our [Authorization documentation](/learn/
 
 ## How can I document my GraphQL API?
 
-One of the benefits of GraphQL is that it is inherently self-documenting. This means that when you use an interactive tool like [GraphiQL](https://github.com/graphql/graphiql), you’re able to explore what data is exposed by your GraphQL API. This includes the [fields](/learn/queries/#fields), [types](/learn/schema/#type-system), and more. For many, this provides sufficient API reference documentation. But it doesn’t reduce the need for other forms of documentation, such as guides that explain how the general concepts tie into your specific use case.
+One of the benefits of GraphQL is that it is inherently self-documenting. This means that when you use an interactive tool like [GraphiQL](https://github.com/graphql/graphiql), you’re able to explore what data is exposed by your GraphQL API. This includes the [fields](/learn/queries/#fields), [types](/learn/schema/#type-system), and more. You can also add a [`description` field](https://spec.graphql.org/draft/#sec-Documentation) to provide supplementary notes about your endpoint. 
+
+For many, this provides sufficient API reference documentation. But it doesn’t reduce the need for other forms of documentation, such as guides that explain how the general concepts tie into your specific use case.
 
 ## What’s the best way to follow specification releases?
 
@@ -78,6 +80,6 @@ No, GraphQL is a specification. It [doesn’t understand the concept of database
 
 ## Is GraphQL the right fit for designing a microservice architecture?
 
-Yes, there are many benefits to using GraphQL within a microservice architecture. Some of these benefits include [caching](/learn/caching/), request budgeting, and planning out query schedules.
+Yes, it can be. If you’re integrating GraphQL into your microservice architecture, we’d recommend having one GraphQL schema as an API gateway rather than having your client talk to multiple GraphQL services. This way, you can split your backend into microservices, but then still aggregate all of your data to the frontend from a single API.
 
-If you’re integrating GraphQL into your microservice architecture, we’d recommend having one GraphQL schema as an API gateway rather than having your client talk to multiple GraphQL services. This way, you can split your backend into microservices, but then still aggregate all of your data to the frontend from a single API.
+There are many ways to create an API gateway, but the benefit of using GraphQL is that you can take advantage of features like [caching](/learn/caching/), request budgeting, and planning out query schedules.
