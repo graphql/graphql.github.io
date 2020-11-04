@@ -759,8 +759,7 @@ function Parser(options) {
   this.tokens = []
   this.token = null
   this.options = options || marked.defaults
-  this.options.pageContext.usedSlugs = this.options.pageContext.usedSlugs || {}
-  this.usedSlugs = this.options.pageContext.usedSlugs
+  this.usedSlugs = {}
 }
 
 /**

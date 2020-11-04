@@ -4,7 +4,7 @@ import BlogPost from "../components/BlogPost"
 import BlogSidebar from "../components/BlogSidebar"
 import { graphql } from "gatsby"
 
-export default ({ pageContext, data }) => {
+export default ({ pageContext, data }: any) => {
   const posts = data.allMarkdownRemark.edges
     .map((e: any) => e.node)
     .sort((a: any, b: any) => {
@@ -39,6 +39,7 @@ export default ({ pageContext, data }) => {
                   guestBio={guestBio}
                   rawMarkdownBody={rawMarkdownBody}
                   isPermalink={false}
+                  pageContext={pageContext}
                 />
               )
             )}
