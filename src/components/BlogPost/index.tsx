@@ -9,6 +9,7 @@ interface Props {
   guestBio: string
   rawMarkdownBody: string
   isPermalink: boolean
+  pageContext: any
 }
 
 const BlogPost = ({
@@ -19,6 +20,7 @@ const BlogPost = ({
   guestBio,
   rawMarkdownBody,
   isPermalink,
+  pageContext
 }: Props) => (
   <div className="inner-content">
     <h1>{isPermalink ? title : <a href={permalink}>{title}</a>}</h1>
@@ -29,7 +31,7 @@ const BlogPost = ({
     {guestBio && (
       <p className="guestBio">{`This guest article contributed by ${byline}, ${guestBio}.`}</p>
     )}
-    <Marked>{rawMarkdownBody}</Marked>
+    <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>
   </div>
 )
 

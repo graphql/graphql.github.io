@@ -87,7 +87,7 @@ export function buildLibraryCategoriesMarkdown(
   let markdown = ""
   if (libraryCategoryName in libraryCategories) {
     markdown += `### ${libraryCategoryName}\n`
-    const libraries = libraryCategories[libraryCategoryName]
+    const libraries = libraryCategories[libraryCategoryName as any]
     markdown += buildLibraryListMarkdown(libraries)
     markdown += "\n"
   }
@@ -112,10 +112,10 @@ export function buildLanguagesContent(pageContext: any) {
       "Tools"
     )
   }
-  return <Marked>{markdown}</Marked>
+  return <Marked pageContext={pageContext}>{markdown}</Marked>
 }
 
-export default ({ pageContext }) => {
+export default ({ pageContext }: any) => {
   return (
     <Layout title="Code" className="code" pageContext={pageContext}>
       <div className="code-hero">
@@ -155,7 +155,7 @@ export default ({ pageContext }) => {
                   </a>
                 </div>
               </div>
-              <Marked>{`
+              <Marked pageContext={pageContext}>{`
 ## Languages
 `}</Marked>
               <p>
@@ -167,19 +167,19 @@ export default ({ pageContext }) => {
             {buildLanguagesMenu(pageContext)}
 
             {buildLanguagesContent(pageContext)}
-            <Marked>
+            <Marked pageContext={pageContext}>
               {`
 ## Tools
 ${buildLibraryListMarkdown(pageContext.codeData.Tools)}
 `}
             </Marked>
-            <Marked>
+            <Marked pageContext={pageContext}>
               {`
 ## Services
 ${buildLibraryListMarkdown(pageContext.codeData.Services)}
 `}
             </Marked>
-            <Marked>
+            <Marked pageContext={pageContext}>
               {`
 ## More Stuff
 ${buildLibraryListMarkdown(pageContext.codeData["More Stuff"])}

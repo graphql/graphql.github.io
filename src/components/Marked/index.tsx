@@ -14,7 +14,7 @@ import MiniGraphiQL from "./MiniGraphiQL"
 import { StarWarsSchema } from "./swapiSchema"
 import { UsersSchema } from './usersSchema';
 
-export default function Marked(props) {
+export default function Marked(props: { pageContext: any; children: any; }) {
   return <div>{marked(props.children, props)}</div>
 }
 
@@ -759,7 +759,8 @@ function Parser(options) {
   this.tokens = []
   this.token = null
   this.options = options || marked.defaults
-  this.usedSlugs = {}
+  this.options.pageContext.usedSlugs = this.options.pageContext.usedSlugs || {}
+  this.usedSlugs = this.options.pageContext.usedSlugs
 }
 
 /**
