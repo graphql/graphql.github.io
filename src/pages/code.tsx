@@ -140,7 +140,7 @@ export default ({ pageContext }: any) => {
                   </a>
                 </div>
                 <div className="column">
-                  <a href="#tools">
+                  <a href="#generic-tools">
                     <h3>Tools</h3>
                   </a>
                 </div>
@@ -165,11 +165,16 @@ export default ({ pageContext }: any) => {
             </div>
 
             {buildLanguagesMenu(pageContext)}
-
             {buildLanguagesContent(pageContext)}
+            <h2>
+              <a className="anchor" id="generic-tools" name="generic-tools"></a>
+              Tools
+              <a className="hash-link" href="#generic-tools">
+                #
+              </a>
+            </h2>
             <Marked pageContext={pageContext}>
               {`
-## Tools
 ${buildLibraryListMarkdown(pageContext.codeData.Tools)}
 `}
             </Marked>
