@@ -390,6 +390,13 @@
           "github": "graphql/graphql-language-service"
         },
         {
+          "name": "GraphQL Code Generator",
+          "description": "GraphQL code generator with flexible support for custom plugins and templates like Typescript (frontend and backend), React Hooks, resolvers signatures and more.",
+          "url": "https://graphql-code-generator.com",
+          "npm": "@graphql-codegen/cli",
+          "github": "dotansimha/graphql-code-generator"
+        },
+        {
           "name": "GraphQL-ESLint",
           "description": "GraphQL-ESLint integrates GraphQL AST in the ESLint core (as a parser).",
           "url": "https://github.com/dotansimha/graphql-eslint/",
