@@ -21,6 +21,9 @@ exports.onCreatePage = async ({ page, actions }) => {
           })
         )
       })),
+      sortLibs(codeData.Tools).then(sortedTools => {
+        codeData.Tools = sortedTools;
+      }),
     ])
 
     context = {

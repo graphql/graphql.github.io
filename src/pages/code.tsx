@@ -141,6 +141,11 @@ export default ({ pageContext }) => {
                 </div>
                 <div className="column">
                   <a href="#services">
+                    <h3>Tools</h3>
+                  </a>
+                </div>
+                <div className="column">
+                  <a href="#services">
                     <h3>Services</h3>
                   </a>
                 </div>
@@ -162,6 +167,12 @@ export default ({ pageContext }) => {
             {buildLanguagesMenu(pageContext)}
 
             {buildLanguagesContent(pageContext)}
+            <Marked>
+              {`
+## Tools
+${buildLibraryListMarkdown(pageContext.codeData.Tools)}
+`}
+            </Marked>
             <Marked>
               {`
 ## Services

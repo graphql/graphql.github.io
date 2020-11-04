@@ -390,13 +390,6 @@
           "github": "graphql/graphql-language-service"
         },
         {
-          "name": "quicktype",
-          "description": "Generate types for GraphQL queries in TypeScript, Swift, golang, C#, C++, and more.",
-          "url": "https://quicktype.io/",
-          "npm": "quicktype",
-          "github": "quicktype/quicktype"
-        },
-        {
           "name": "GraphQL-ESLint",
           "description": "GraphQL-ESLint integrates GraphQL AST in the ESLint core (as a parser).",
           "url": "https://github.com/dotansimha/graphql-eslint/",
@@ -430,13 +423,6 @@
           "url": "https://graphql-mesh.com",
           "npm": "@graphql-mesh/cli",
           "github": "Urigo/graphql-mesh"
-        },
-        {
-          "name": "GraphQL Code Generator",
-          "description": "GraphQL code generator with flexible support for custom plugins and templates like Typescript (frontend and backend), React Hooks, resolvers signatures and more.",
-          "url": "https://graphql-code-generator.com",
-          "npm": "@graphql-codegen/cli",
-          "github": "dotansimha/graphql-code-generator"
         },
         {
           "name": "GraphQL CLI",
@@ -694,6 +680,22 @@
       ]
     }
   },
+  "Tools": [
+    {
+      "name": "quicktype",
+      "description": "Generate types for GraphQL queries in TypeScript, Swift, golang, C#, C++, and more.",
+      "url": "https://quicktype.io/",
+      "npm": "quicktype",
+      "github": "quicktype/quicktype"
+    },
+    {
+      "name": "GraphQL Code Generator",
+      "description": "GraphQL code generator with flexible support for custom plugins and templates like Typescript (frontend and backend), React Hooks, resolvers signatures and more.",
+      "url": "https://graphql-code-generator.com",
+      "npm": "@graphql-codegen/cli",
+      "github": "dotansimha/graphql-code-generator"
+    }
+  ],
   "Services": [
     {
       "name": "Apollo Graph Manager",
