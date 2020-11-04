@@ -148,6 +148,9 @@ exports.createPages = async ({ graphql, actions }) => {
         const { category: definedCategory, next: definedNextPageUrl } = frontmatter
         let category = definedCategory || folder
         if (!currentCategory || category !== currentCategory.name) {
+          if (currentCategory) {
+            categories.push(currentCategory);
+          }
           currentCategory = {
             name: category,
             links: [],
