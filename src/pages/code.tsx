@@ -140,7 +140,7 @@ export default ({ pageContext }) => {
                   </a>
                 </div>
                 <div className="column">
-                  <a href="#services">
+                  <a href="#tools">
                     <h3>Tools</h3>
                   </a>
                 </div>
