@@ -179,7 +179,7 @@ A Haskell library for building GraphQL APIs.
 
 Hello world example with \`morpheus-graphql\`:
 
-\`\`\`graphql
+```graphql
 # schema.gql
 """
 Description for Deity
@@ -195,10 +195,10 @@ type Deity {
 type Query {
   deity(name: String! = "Morpheus"): Deity!
 }
-\`\`\`
+```
 
 
-\`\`\`haskell
+```haskell
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE FlexibleContexts #-}
@@ -237,7 +237,7 @@ rootResolver =
 
 api :: ByteString -> IO ByteString
 api = interpreter rootResolver
-\`\`\`
+```
 
 See [morpheus-graphql-examples](https://github.com/morpheusgraphql/morpheus-graphql) for more sophisticated APIs.
 
