@@ -182,14 +182,11 @@ Hello world example with `morpheus-graphql`:
 ```graphql
 # schema.gql
 """
-Description for Deity
+A supernatural being considered divine and sacred
 """
 type Deity {
-  """
-  Description for name
-  """
   name: String!
-  power: String @deprecated(reason: "some reason for")
+  power: String @deprecated(reason: "no more supported")
 }
 
 type Query {
