@@ -12,6 +12,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 
 - [C# / .NET](#c-net)
 - [Clojure](#clojure)
+- [D](#d)
 - [Elixir](#elixir)
 - [Erlang](#erlang)
 - [Go](#go)
@@ -133,6 +134,10 @@ Code that executes a hello world GraphQL query with `graphql-clj`:
 #### [lacinia](https://github.com/walmartlabs/lacinia)
 
 A full implementation of the GraphQL specification that aims to maintain external compliance with the specification.
+
+### D
+
+  - [graphqld](https://github.com/burner/graphqld): A GraphQL implementaiton for the D Programming Language. 
 
 ### Elixir
 
