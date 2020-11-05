@@ -177,7 +177,7 @@ GQL is a Groovy library for GraphQL
 
 A Haskell library for building GraphQL APIs.
 
-Hello world example with \`morpheus-graphql\`:
+Hello world example with `morpheus-graphql`:
 
 ```graphql
 # schema.gql
