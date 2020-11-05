@@ -16,6 +16,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Erlang](#erlang)
 - [Go](#go)
 - [Groovy](#groovy)
+- [Haskell](#haskell)
 - [Java](#java)
 - [JavaScript](#javascript)
 - [Julia](#julia)
@@ -169,6 +170,74 @@ See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index
 #### [GQL](https://grooviter.github.io/gql/)
 
 GQL is a Groovy library for GraphQL
+
+### Haskell
+
+#### [Morpheus GraphQL](https://github.com/morpheusgraphql/morpheus-graphql)
+
+A Haskell library for building GraphQL APIs.
+
+Hello world example with `morpheus-graphql`:
+
+```graphql
+# schema.gql
+"""
+A supernatural being considered divine and sacred
+"""
+type Deity {
+  name: String!
+  power: String @deprecated(reason: "no more supported")
+}
+
+type Query {
+  deity(name: String! = "Morpheus"): Deity!
+}
+```
+
+
+```haskell
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
+
+module API (api) where
+
+import Data.ByteString.Lazy.Char8 (ByteString)
+import Data.Morpheus (interpreter)
+import Data.Morpheus.Document (importGQLDocument)
+import Data.Morpheus.Types (RootResolver (..), Undefined (..))
+import Data.Text (Text)
+
+importGQLDocument "schema.gql"
+
+rootResolver :: RootResolver IO () Query Undefined Undefined
+rootResolver =
+  RootResolver
+    { queryResolver = Query {deity},
+      mutationResolver = Undefined,
+      subscriptionResolver = Undefined
+    }
+  where
+    deity DeityArgs {name} =
+      pure
+        Deity
+          { name = pure name,
+            power = pure (Just "Shapeshifting")
+          }
+
+api :: ByteString -> IO ByteString
+api = interpreter rootResolver
+```
+
+See [morpheus-graphql-examples](https://github.com/morpheusgraphql/morpheus-graphql) for more sophisticated APIs.
+
 
 ### Java
 
@@ -598,6 +667,7 @@ Executor.execute(schema, query) map println
 - [Elm](#elm)
 - [Flutter](#flutter)
 - [Go](#go-1)
+- [Haskell](#haskell)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Julia](#julia)
@@ -633,6 +703,10 @@ Executor.execute(schema, query) map println
 
   - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
   - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
+
+### Haskell
+
+  - [morpheus-graphql-client](https://github.com/morpheusgraphql/morpheus-graphql): A strongly-typed GraphQL client implementation in Haksell.
 
 ### Java / Android
 
