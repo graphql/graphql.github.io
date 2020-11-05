@@ -65,7 +65,8 @@ public class Program
   - [Entity GraphQL](https://github.com/lukemurray/EntityGraphQL): .NET Core GraphQL library. Compiles to IQueryable to easily expose a schema from an existing data model (E.g. from an Entity Framework data model)
   - [DotNetGraphQLQueryGen](https://github.com/lukemurray/DotNetGraphQLQueryGen): .NET Core library to generate classes from a GraphQL schema for type-safe querying in dotnet
   - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Server for .NET core and .NET classic
-
+  - [NGraphQL](https://github.com/rivantsov/starwars): GraphQL Server for .NET Core and full framework
+  
 ### Clojure
 
 #### [alumbra](https://github.com/alumbra/alumbra)
