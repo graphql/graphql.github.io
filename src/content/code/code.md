@@ -409,6 +409,7 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
   - [Lighthouse](https://github.com/nuwave/lighthouse): A GraphQL server for Laravel
   - [GraphQLBundle](https://github.com/overblog/GraphQLBundle): A GraphQL server for Symfony
   - [WPGraphQL](https://github.com/wp-graphql/wp-graphql): A free, open-source WordPress plugin that provides an extendable GraphQL schema and API for any WordPress site 
+  - [GraPHPinator](https://github.com/infinityloop-dev/graphpinator): A GraphQL implementation for modern PHP
 
 #### [API Platform](https://api-platform.com) ([github](https://github.com/api-platform/api-platform))
 
