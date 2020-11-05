@@ -138,17 +138,24 @@ exports.createPages = async ({ graphql, actions }) => {
         throw new Error(`First page not found in ${folder}`)
       }
 
-      let categories = []
+      let categoriesMap = {}
       let currentCategory = null
 
       let page = firstPage
       let i = 0
       while (page && i++ < 1000) {
         const { frontmatter } = page
-        const { category: definedCategory, next: definedNextPageUrl } = frontmatter
+        const {
+          category: definedCategory,
+          next: definedNextPageUrl,
+        } = frontmatter
         let category = definedCategory || folder
         if (!currentCategory || category !== currentCategory.name) {
-          currentCategory && categories.push(currentCategory)
+          if (currentCategory) {
+            if (!(currentCategory.name in categoriesMap)) {
+              categoriesMap[currentCategory.name] = currentCategory
+            }
+          }
           currentCategory = {
             name: category,
             links: [],
@@ -165,9 +172,11 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
 
-      categories.push(currentCategory)
+      if (!(currentCategory.name in categoriesMap)) {
+        categoriesMap[currentCategory.name] = currentCategory
+      }
 
-      sideBardata[folder] = categories
+      sideBardata[folder] = Object.values(categoriesMap);
     })
   )
 

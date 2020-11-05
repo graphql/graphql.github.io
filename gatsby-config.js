@@ -14,7 +14,6 @@ module.exports = {
       options: {
         name: "content",
         path: `${__dirname}/src/content`,
-        include: ["**/*.md"], // ignore files starting with a dot
       },
     },
     `gatsby-transformer-remark`,

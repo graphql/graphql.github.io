@@ -16,6 +16,7 @@ In addition to the GraphQL [reference implementations in JavaScript](#javascript
 - [Erlang](#erlang)
 - [Go](#go)
 - [Groovy](#groovy)
+- [Haskell](#haskell)
 - [Java](#java)
 - [JavaScript](#javascript)
 - [Julia](#julia)
@@ -64,7 +65,8 @@ public class Program
   - [Entity GraphQL](https://github.com/lukemurray/EntityGraphQL): .NET Core GraphQL library. Compiles to IQueryable to easily expose a schema from an existing data model (E.g. from an Entity Framework data model)
   - [DotNetGraphQLQueryGen](https://github.com/lukemurray/DotNetGraphQLQueryGen): .NET Core library to generate classes from a GraphQL schema for type-safe querying in dotnet
   - [Hot Chocolate](https://github.com/ChilliCream/hotchocolate): GraphQL Server for .NET core and .NET classic
-
+  - [NGraphQL](https://github.com/rivantsov/starwars): GraphQL Server for .NET Core and full framework
+  
 ### Clojure
 
 #### [alumbra](https://github.com/alumbra/alumbra)
@@ -169,6 +171,74 @@ See [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index
 #### [GQL](https://grooviter.github.io/gql/)
 
 GQL is a Groovy library for GraphQL
+
+### Haskell
+
+#### [Morpheus GraphQL](https://github.com/morpheusgraphql/morpheus-graphql)
+
+A Haskell library for building GraphQL APIs.
+
+Hello world example with `morpheus-graphql`:
+
+```graphql
+# schema.gql
+"""
+A supernatural being considered divine and sacred
+"""
+type Deity {
+  name: String!
+  power: String @deprecated(reason: "no more supported")
+}
+
+type Query {
+  deity(name: String! = "Morpheus"): Deity!
+}
+```
+
+
+```haskell
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
+
+module API (api) where
+
+import Data.ByteString.Lazy.Char8 (ByteString)
+import Data.Morpheus (interpreter)
+import Data.Morpheus.Document (importGQLDocument)
+import Data.Morpheus.Types (RootResolver (..), Undefined (..))
+import Data.Text (Text)
+
+importGQLDocument "schema.gql"
+
+rootResolver :: RootResolver IO () Query Undefined Undefined
+rootResolver =
+  RootResolver
+    { queryResolver = Query {deity},
+      mutationResolver = Undefined,
+      subscriptionResolver = Undefined
+    }
+  where
+    deity DeityArgs {name} =
+      pure
+        Deity
+          { name = pure name,
+            power = pure (Just "Shapeshifting")
+          }
+
+api :: ByteString -> IO ByteString
+api = interpreter rootResolver
+```
+
+See [morpheus-graphql-examples](https://github.com/morpheusgraphql/morpheus-graphql) for more sophisticated APIs.
+
 
 ### Java
 
@@ -341,6 +411,7 @@ Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect
   - [GraphQLBundle](https://github.com/overblog/GraphQLBundle): A GraphQL server for Symfony
   - [WPGraphQL](https://github.com/wp-graphql/wp-graphql): A free, open-source WordPress plugin that provides an extendable GraphQL schema and API for any WordPress site 
   - [GraphQL API for WordPress](https://github.com/GraphQLAPI/graphql-api-for-wp): A GraphQL server for WordPress
+  - [GraPHPinator](https://github.com/infinityloop-dev/graphpinator): A GraphQL implementation for modern PHP
 
 #### [API Platform](https://api-platform.com) ([github](https://github.com/api-platform/api-platform))
 
@@ -595,9 +666,11 @@ Executor.execute(schema, query) map println
 
 - [C# / .NET](#c-net-1)
 - [Clojurescript](#clojurescript-1)
+- [Elixir](#elixir-1)
 - [Elm](#elm)
 - [Flutter](#flutter)
 - [Go](#go-1)
+- [Haskell](#haskell)
 - [Java / Android](#java-android)
 - [JavaScript](#javascript-1)
 - [Julia](#julia)
@@ -616,6 +689,11 @@ Executor.execute(schema, query) map println
 
   - [re-graph](https://github.com/oliyh/re-graph/): A GraphQL client implemented in Clojurescript with support for websockets.
 
+### Elixir
+  
+  - [Neuron](https://github.com/uesteibar/neuron): A GraphQL client for Elixir
+  - [common_graphql_client](https://github.com/annkissam/common_graphql_client): Elixir GraphQL Client with HTTP and WebSocket support
+
 ### Elm
   
   - [dillonkearns/elm-graphql](https://github.com/dillonkearns/elm-graphql): Library and command-line code generator to create type-safe Elm code for a GraphQL endpoint.
@@ -628,6 +706,10 @@ Executor.execute(schema, query) map println
 
   - [graphql](https://github.com/shurcooL/graphql#readme): A GraphQL client implementation in Go.
   - [machinebox/graphql](https://github.com/machinebox/graphql): An elegant low-level HTTP client for GraphQL.
+
+### Haskell
+
+  - [morpheus-graphql-client](https://github.com/morpheusgraphql/morpheus-graphql): A strongly-typed GraphQL client implementation in Haksell.
 
 ### Java / Android
 
