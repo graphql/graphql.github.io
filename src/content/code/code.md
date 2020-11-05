@@ -778,15 +778,23 @@ Executor.execute(schema, query) map println
 
 ## Services
 
+### Development / Debugging 
+
   - [Apollo Graph Manager](https://engine.apollographql.com): A cloud service for monitoring the performance and usage of your GraphQL backend.
+  - [Moesif API Analytics](https://www.moesif.com/features/graphql-analytics): A modern GraphQL analytics and monitoring service to find performance issues and understand API usage. 
+  - [Elide](https://elide.io): A Java library that can expose a JPA annotated data model as a GraphQL service over any relational database. 
+  - [Postman](https://learning.postman.com/docs/sending-requests/supported-api-frameworks/graphql/): A HTTP Client that supports editing GraphQL queries.
+  - [Altair](https://altair.sirmuel.design/): An alternative to Postman that supports editing GraphQL queries directly and autoload your GraphQL schema.
+
+### BaaS / CMS
   - [GraphCMS](https://graphcms.com/): A BaaS (Backend as a Service) that sets you up with a GraphQL backend as well as tools for content editors to work with the stored data.
   - [Prisma](https://www.prisma.io) ([github](https://github.com/prisma)): A BaaS (Backend as a Service) providing a GraphQL backend for your applications with a powerful web ui for managing your database and stored data.
   - [Tipe](https://tipe.io) ([github](https://github.com/tipeio)): A SaaS (Software as a Service) content management system that allows you to create your content with powerful editing tools and access it from anywhere with a GraphQL or REST API.
   - [AWS AppSync](https://aws.amazon.com/appsync/): Fully managed GraphQL service with realtime subscriptions, offline programming & synchronization, and enterprise security features as well as fine grained authorization controls.
-  - [Elide](https://elide.io): A Java library that can expose a JPA annotated data model as a GraphQL service over any relational database. 
   - [Hasura](https://hasura.io) ([github](https://github.com/hasura)): Hasura connects to your databases & microservices and instantly gives you a production-ready GraphQL API.
   - [FaunaDB](https://docs.fauna.com/fauna/current/graphql): Create an instant GraphQL backend by importing a gql schema. The database will create relations and indexes for you, so you'll be ready to query in seconds, without writing any database code. Serverless pricing, free to get started.
   - [Back4App](https://www.back4app.com/docs/parse-graphql/graphql-getting-started): Back4App is a Backend as a Service Platform that helps you Build and Scale modern applications based on GraphQL.
+  - [Strapi](https://strapi.io/): An open-soruce and BaaS headless CMS to create instant GraphQL APIs
 
 ## More Stuff
 
