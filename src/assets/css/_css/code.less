@@ -1,0 +1,61 @@
+.code {
+  .code-hero {
+    background-color: #171e26;
+    position: relative;
+    min-height: 250px;
+    padding: 0;
+    margin-top: -5vh;
+    padding-top: 5px;
+    @media screen and (max-width: 600px) {
+      height: 20vh;
+    }
+    @media screen and (min-width: 992px) {
+      height: 35vh;
+    }
+    @media screen and (min-width: 1020px) {
+      max-height: 750px;
+      height: 40vh;
+      min-height: 400px;
+      padding-top: 50px;
+    }
+    width: 100%;
+    h1 {
+      color: #e10098;
+      font-weight: 800;
+      font-size: 100px;
+      @media screen and (min-width: 1020px) {
+        font-size: 140px;
+      }
+      line-height: 0.5;
+      margin-top: 100px;
+    }
+    p {
+      font-size: 32px;
+      @media screen and (min-width: 1020px) {
+        font-size: 48px;
+      }
+      color: white;
+    }
+    .code-hero-inner {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .code-hero::before {
+    background: url(/img/graph-wash.png) repeat center center;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .intro-note {
+    margin-top: 20px;
+  }
+  .inner-content {
+    max-width: 100%;
+  }
+}
