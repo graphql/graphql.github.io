@@ -10,7 +10,7 @@ questions: Why should I use GraphQL?,Is GraphQL a database language like SQL?,Do
 
 It depends on your use case, but in general, GraphQL has a few key features that stand out. For example, GraphQL enables you to:
 
-* Improve performance and stability by [sending queries](/learn/queries/) for the exact data you need. 
+* Improve performance by [sending queries](/learn/queries/) for the exact data you need. 
 * Aggregate data from [multiple UI components](/learn/queries/#fragments) in [a single request](/learn/best-practices/#server-side-batching-caching ).
 * Create a representation of your data that feels familiar and natural ([a graph](/learn/thinking-in-graphs/#it-s-graphs-all-the-way-down-https-en-wikipedia-org-wiki-turtles-all-the-way-down)).
 * Ensure that all of your data is [statically typed](/learn/schema/) and these types inform [what queries the schema supports](/learn/introspection/).
@@ -70,9 +70,15 @@ You can find a list of GraphQL clients in various languages on our [Code page](/
 
 It takes more time to implement a GraphQL client upfront, but it becomes worth it the more features you need. You might want to start out [using HTTP requests](/learn/serving-over-http/) as the underlying transport layer (here’s [an example in JavaScript](/graphql-js/graphql-clients/)), then switch to a more intricate client service as your application grows in complexity.
 
+## Is GraphQL owned by Facebook?
+
+No, GraphQL is governed by the [GraphQL Foundation](#what-is-the-graphql-foundation). 
+
+The specification was originally developed at Facebook, though, and [Facebook is a member](https://foundation.graphql.org/members/) of the GraphQL Foundation. Some of our [repositories on GitHub](https://github.com/graphql/) still have the license listed under Facebook Inc, but we're in the process of updating those.
+
 ## What is the GraphQL Foundation?
 
-The [GraphQL Foundation](https://foundation.graphql.org/faq/) provides governance for GraphQL as well as vendor-neutral oversight of funding, events, operations resources, and more. It was formed in 2018 by [various tech companies](https://landscape.graphql.org/category=graph-ql-foundation-member&format=logo-mode) and hosted under the [Linux Foundation](https://www.linuxfoundation.org/). The idea is that it’s an open, neutral home for the GraphQL community.
+The [GraphQL Foundation](https://foundation.graphql.org/faq/) provides governance for GraphQL as well as vendor-neutral oversight of funding, events, operations resources, and more. Formed in 2018, the GraphQL Foundation is hosted under the [Linux Foundation](https://www.linuxfoundation.org/) and is made up of [representatives from 20 different companies](https://foundation.graphql.org/members/). The idea is that it’s an open, neutral home for the GraphQL community.
 
 You can find out more by visiting [foundation.graphql.org](https://foundation.graphql.org/).
 
