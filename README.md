@@ -1,29 +1,35 @@
+# Source Repository for graphql.org
+This repository contains the source code of https://graphql.org website.
+
 # Contributing
 
 Organization gh-pages deploy the `master` branch, so active development occurs
 on this `source` branch.
 
-The site is written in JS and Markdown files in `site/`.
-
-The site chrome are all in JS files in `site/_core/`.
-
 ### Making changes
 
 The first time, get all the dependencies loaded via
 
-```
-npm install
-```
+`$ npm install` or `$ yarn install`
 
 Then, run the server via
 
-```
-npm start
-Open http://localhost:8444/
-```
+`$ npm start` or `$ yarn start`
 
-Anytime you change the contents, just refresh the page and it's going to be updated.
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+Anytime you make some changes, refresh the page to see the updates.
+
+### Folder structure
+
+- `static` folder contains the files that will be copied directly to `public` folder which will contain the output files to be served by a static HTTP server.
+
+- `src` folder contains markdown and TypeScript/JavaScript files used to generate the website;
+- - `assets` folder contains `less` files and those files contain stylesheets
+- - `components` and `Containers` folders contains React components that are used in layouts and pages
+- - `content` folder contains markdown files for the content of pages
+- - `templates` contains the layout templates
+- - `utils` contains helper functions
 
 ### Publish the Website
 
-Once pushed to the `source` branch, Travis CI will publish http://graphql.org
+Once pushed to the `source` branch, CI will publish http://graphql.org
