@@ -17,7 +17,7 @@ It depends on your use case, but in general, GraphQL has a few key features that
 * [Reduce the need for breaking changes](/learn/best-practices/#versioning), but utilize a [built-in mechanism for deprecations](https://spec.graphql.org/draft/#sec-Deprecation) when you need to.
 * Examine queries and responses through community tools like [GraphiQL](https://github.com/graphql/graphiql).
 
-And many others! [Our homepage](/) outlines some more convincing reasons to use GraphQL.
+[Our homepage](/) outlines even more reasons to use GraphQL.
 
 Additionally, it doesn’t take rewriting your entire application to try out GraphQL. You can even start with a single HTTP request that wraps an existing REST call, for instance. Your [GraphQL schema](/learn/thinking-in-graphs/#shared-language) and [business domain model](/learn/thinking-in-graphs/#business-logic-layer) can be expanded gradually, so we’d recommend focusing on one use case at first and only build the part of the schema you need for that to work. 
 
@@ -34,7 +34,7 @@ For more information on how to get GraphQL to interact with your database, check
 
 ## Does GraphQL replace REST?
 
-No, not necessarily. They both handle APIs and [serve the same purpose](/learn/thinking-in-graphs/#business-logic-layer) from a business perspective. GraphQL is considered an alternative to REST, but it’s not a definitive replacement.
+No, not necessarily. They both handle APIs and can [serve similar purposes](/learn/thinking-in-graphs/#business-logic-layer) from a business perspective. GraphQL is often considered an alternative to REST, but it’s not a definitive replacement.
 
 GraphQL and REST can actually co-exist in your stack. For example, you can abstract REST APIs behind a [GraphQL server](https://www.howtographql.com/advanced/1-server/). This can be done by masking your REST endpoint into a GraphQL endpoint using [root resolvers](/learn/execution/#root-fields-resolvers). 
 
@@ -60,7 +60,7 @@ One benefit of state management libraries like Redux is that they can manipulate
 
 No, not at all. [GraphQL services can be written in any language](/learn/schema/#type-language). Our [Code page](/code/) contains a long list of libraries in many different programming languages to help with that.
 
-It’s understandable why you’d think this, though. GraphQL was introduced at a [React conference](https://www.youtube.com/watch?v=9sc8Pyc51uU) and [GraphQL.js](/graphql-js/) is one of the most widely used reference implementations to date. We know this can be confusing, so we’re working to improve our documentation and add more code samples that aren’t written in JavaScript.
+It’s understandable why you’d think this, though. GraphQL was introduced at a [React conference](https://www.youtube.com/watch?v=9sc8Pyc51uU) and [GraphQL.js](/graphql-js/) is one of the most widely used implementations to date. We know this can be confusing, so we’re working to improve our documentation and add more code samples that aren’t written in JavaScript.
 
 ## What is a GraphQL client and why would I use one?
 
