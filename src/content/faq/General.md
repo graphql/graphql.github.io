@@ -12,7 +12,7 @@ It depends on your use case, but in general, GraphQL has a few key features that
 
 * Improve performance by [sending queries](/learn/queries/) for the exact data you need. 
 * Aggregate data from [multiple UI components](/learn/queries/#fragments) in [a single request](/learn/best-practices/#server-side-batching-caching ).
-* Create a representation of your data that feels familiar and natural ([a graph](/learn/thinking-in-graphs/#it-s-graphs-all-the-way-down-https-en-wikipedia-org-wiki-turtles-all-the-way-down)).
+* Create a representation of your data that feels familiar and natural ([a graph](/learn/thinking-in-graphs/#it-s-graphs-all-the-way-down)).
 * Ensure that all of your data is [statically typed](/learn/schema/) and these types inform [what queries the schema supports](/learn/introspection/).
 * [Reduce the need for breaking changes](/learn/best-practices/#versioning), but utilize a [built-in mechanism for deprecations](https://spec.graphql.org/draft/#sec-Deprecation) when you need to.
 * Examine queries and responses through community tools like [GraphiQL](https://github.com/graphql/graphiql).
@@ -25,13 +25,7 @@ You can try out GraphQL without rewriting your entire application. For example, 
 
 No, but this is a common misconception.
 
-GraphQL is a specification typically used for remote client-server communications and is agnostic to the data source(s) used to retrieve data or persist changes. Data access and manipulation is performed via arbitrary functions called [`resolvers`](/learn/execution/). GraphQL coordinates and aggregates the data from these resolver functions, returning the result to the client.
-
-Generally, these resolver functions should delegate to a [business logic layer](/learn/thinking-in-graphs/#business-logic-layer) responsible for communicating with the various underlying data sources. These data sources could be remote APIs, databases, [local cache](/learn/caching/), and nearly anything else your programming language can access.
-
-<!-- TODO -->
-
-GraphQL is frequently used for database interactions though. For example, it can be built into a wrapper around a database or a [GraphQL server](https://www.howtographql.com/advanced/1-server/) can query various databases. There are also [services](/code/#services) that implement the GraphQL specification and then allow clients to use GraphQL to query that data source. But it can also be used without a database at all.
+GraphQL is a specification typically used for remote client-server communications. Unlike SQL, GraphQL is agnostic to the data source(s) used to retrieve data and persist changes. Accessing and manipulating data is performed with arbitrary functions called [resolvers](/learn/execution/). GraphQL coordinates and aggregates the data from these resolver functions, then returns the result to the client. Generally, these resolver functions should delegate to a [business logic layer](/learn/thinking-in-graphs/#business-logic-layer) responsible for communicating with the various underlying data sources. These data sources could be remote APIs, databases, [local cache](/learn/caching/), and nearly anything else your programming language can access.
 
 For more information on how to get GraphQL to interact with your database, check out our [documentation on resolvers](/learn/execution/#root-fields-resolvers).
 
@@ -63,17 +57,11 @@ It’s understandable why you’d think this, though. GraphQL was introduced at 
 
 ## What is a GraphQL client and why would I use one?
 
-GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [subscriptions](https://spec.graphql.org/draft/#sec-Subscription) to a [GraphQL server](https://www.howtographql.com/advanced/1-server/). 
+GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [subscriptions](https://spec.graphql.org/draft/#sec-Subscription) to a [GraphQL server](https://www.howtographql.com/advanced/1-server/). They use the underlying structure of a GraphQL API to automate certain processes. This includes batching, UI updates, build-time schema validation, and more.
 
-You don't need a specific client to work with GraphQL 
+A [list of GraphQL clients](/code/#graphql-clients) in various languages is available on our Code page. There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
-<!-- TODO -->
-
-This could be done manually, but it would require a lot of work depending on the amount of data you have. By utilizing the underlying structure of a GraphQL API, clients can abstract away some of these tedious processes. Features that can be automated include batching, caching, UI updates, build-time schema validation, and many more. 
-
-You can find a list of GraphQL clients in various languages on our [Code page](/code/#graphql-clients). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
-
-You might want to start out by [issuing GraphQL results with a regular HTTP client](/learn/serving-over-http/) (here’s [an example in JavaScript](/graphql-js/graphql-clients/)), then later switch to a GraphQL-optimized client as your application grows in complexity.
+You don't need a specific client to work with GraphQL, though. You might want to start out by [issuing GraphQL results with a regular HTTP client](/learn/serving-over-http/). Then later switch to a GraphQL-optimized client as your application grows in complexity.
 
 ## Is GraphQL owned by Facebook?
 
