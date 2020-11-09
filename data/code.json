@@ -96,7 +96,7 @@
         {
           "name": "graphqld",
           "description": "A GraphQL implementaiton for the D Programming Language.",
-          "github": "https://github.com/burner/graphqld",
+          "github": "burner/graphqld",
           "url": "https://github.com/burner/graphqld"
         }
       ]
@@ -106,13 +106,13 @@
         {
           "name": "Neuron",
           "description": "A GraphQL client for Elixir",
-          "github": "https://github.com/uesteibar/neuron",
+          "github": "uesteibar/neuron",
           "url": "https://github.com/uesteibar/neuron"
         },
         {
           "name": "common_graphql_client",
           "description": "Elixir GraphQL Client with HTTP and WebSocket support",
-          "github": "https://github.com/annkissam/common_graphql_client",
+          "github": "annkissam/common_graphql_client",
           "url": "https://github.com/annkissam/common_graphql_client"
         }
       ],
@@ -238,7 +238,7 @@
           "description": "A Haskell library for building GraphQL APIs.",
           "howto": "\nHello world example with `morpheus-graphql`:\n\n```graphql\n# schema.gql\n\"\"\"\nA supernatural being considered divine and sacred\n\"\"\"\ntype Deity {\n  name: String!\n  power: String @deprecated(reason: \"no more supported\")\n}\ntype Query {\n  deity(name: String! = \"Morpheus\"): Deity!\n}\n```\n\n\n```haskell\n{-# LANGUAGE DeriveGeneric #-}\n{-# LANGUAGE DuplicateRecordFields #-}\n{-# LANGUAGE FlexibleContexts #-}\n{-# LANGUAGE FlexibleInstances #-}\n{-# LANGUAGE MultiParamTypeClasses #-}\n{-# LANGUAGE NamedFieldPuns #-}\n{-# LANGUAGE OverloadedStrings #-}\n{-# LANGUAGE ScopedTypeVariables #-}\n{-# LANGUAGE TemplateHaskell #-}\n{-# LANGUAGE TypeFamilies #-}\nmodule API (api) where\nimport Data.ByteString.Lazy.Char8 (ByteString)\nimport Data.Morpheus (interpreter)\nimport Data.Morpheus.Document (importGQLDocument)\nimport Data.Morpheus.Types (RootResolver (..), Undefined (..))\nimport Data.Text (Text)\nimportGQLDocument \"schema.gql\"\nrootResolver :: RootResolver IO () Query Undefined Undefined\nrootResolver =\n  RootResolver\n    { queryResolver = Query {deity},\n      mutationResolver = Undefined,\n      subscriptionResolver = Undefined\n    }\n  where\n    deity DeityArgs {name} =\n      pure\n        Deity\n          { name = pure name,\n            power = pure (Just \"Shapeshifting\")\n          }\napi :: ByteString -> IO ByteString\napi = interpreter rootResolver\n```\n\nSee [morpheus-graphql-examples](https://github.com/morpheusgraphql/morpheus-graphql) for more sophisticated APIs.\n",
           "url": "https://github.com/morpheusgraphql/morpheus-graphql",
-          "github": "https://github.com/morpheusgraphql/morpheus-graphql"
+          "github": "morpheusgraphql/morpheus-graphql"
         }
       ],
       "GraphQL Clients": [
@@ -246,7 +246,7 @@
           "name": "morpheus-graphql-client",
           "description": "A strongly-typed GraphQL client implementation in Haksell.",
           "url": "https://github.com/morpheusgraphql/morpheus-graphql",
-          "github": "https://github.com/morpheusgraphql/morpheus-graphql"
+          "github": "morpheusgraphql/morpheus-graphql"
         }
       ]
     },
@@ -554,13 +554,13 @@
         {
           "name": "GraphQL API for WordPress",
           "description": "A GraphQL server for WordPress",
-          "github": "https://github.com/GraphQLAPI/graphql-api-for-wp",
+          "github": "GraphQLAPI/graphql-api-for-wp",
           "url": "https://github.com/GraphQLAPI/graphql-api-for-wp"
         },
         {
           "name": "GraPHPinator",
           "description": "A GraphQL implementation for modern PHP",
-          "github": "https://github.com/infinityloop-dev/graphpinator",
+          "github": "infinityloop-dev/graphpinator",
           "url": "https://github.com/infinityloop-dev/graphpinator"
         }
       ]
