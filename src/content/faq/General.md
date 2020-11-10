@@ -10,12 +10,11 @@ questions: Why should I use GraphQL?,Is GraphQL a database language like SQL?,Do
 
 It depends on your use case, but in general, GraphQL has a few key features that stand out. For example, GraphQL enables you to:
 
-* Improve performance by [sending queries](/learn/queries/) for the exact data you need. 
-* Aggregate data from [multiple UI components](/learn/queries/#fragments) in [a single request](/learn/best-practices/#server-side-batching-caching ).
+* Aggregate data from [multiple UI components](/learn/queries/#fragments).
 * Create a representation of your data that feels familiar and natural ([a graph](/learn/thinking-in-graphs/#it-s-graphs-all-the-way-down)).
 * Ensure that all of your data is [statically typed](/learn/schema/) and these types inform [what queries the schema supports](/learn/introspection/).
 * [Reduce the need for breaking changes](/learn/best-practices/#versioning), but utilize a [built-in mechanism for deprecations](https://spec.graphql.org/draft/#sec-Deprecation) when you need to.
-* Examine queries and responses through community tools like [GraphiQL](https://github.com/graphql/graphiql).
+* Access to a [powerful tooling ecosystem](/code/#tools) with GUIs, editor integrations, code generation, linting, analytics, and more.
 
 [Our homepage](/) outlines even more reasons to use GraphQL.
 
@@ -45,9 +44,7 @@ For more practical guides, visit the [How to GraphQL](https://www.howtographql.c
 
 ## Is GraphQL frontend or backend?
 
-Neither. Instead, it’s [how you can exchange information between the two](https://www.howtographql.com/basics/3-big-picture/). Both the client and the server should understand and communicate through the GraphQL specification. 
-
-That said, GraphQL describes a specific way to [execute a query](/learn/execution/), which typically happens on the backend.
+Both. GraphQL specifies how you can [exchange information between client and server](https://www.howtographql.com/basics/3-big-picture/). This includes how the server can indicate [what data and operations are available](/learn/introspection/), how the client should [format requests](/learn/queries/), how the server should [execute these queries](/learn/execution/), and what the client will [receive in response](/learn/serving-over-http/#response).
 
 ## Is GraphQL only for React or JavaScript developers?
 
@@ -67,7 +64,7 @@ You don't need a specific client to work with GraphQL, though. You might want to
 
 No, GraphQL is governed by the [GraphQL Foundation](#what-is-the-graphql-foundation).
 
-That said, the specification was originally developed at Facebook and [Facebook is a member](https://foundation.graphql.org/members/) of the GraphQL Foundation. Some of our [repositories on GitHub](https://github.com/graphql/) still have the license listed under Facebook Inc, but we're updating those.
+That said, the specification was originally developed at Facebook and [Facebook is a member](https://foundation.graphql.org/members/) of the GraphQL Foundation. You might notice that some of our [GitHub repositories](https://github.com/graphql/) still have the license listed under Facebook Inc. We're updating those and have already converted major projects, like [GraphiQL](https://github.com/graphql/graphiql/blob/main/LICENSE) and [DataLoader](https://github.com/graphql/dataloader/blob/master/LICENSE), to the MIT License.
 
 ## What is the GraphQL Foundation?
 
