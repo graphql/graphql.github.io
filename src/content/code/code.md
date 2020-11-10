@@ -788,6 +788,7 @@ Executor.execute(schema, query) map println
   - [Hasura](https://hasura.io) ([github](https://github.com/hasura)): Hasura connects to your databases & microservices and instantly gives you a production-ready GraphQL API.
   - [FaunaDB](https://docs.fauna.com/fauna/current/graphql): Create an instant GraphQL backend by importing a gql schema. The database will create relations and indexes for you, so you'll be ready to query in seconds, without writing any database code. Serverless pricing, free to get started.
   - [Back4App](https://www.back4app.com/docs/parse-graphql/graphql-getting-started): Back4App is a Backend as a Service Platform that helps you Build and Scale modern applications based on GraphQL.
+  - [LexasCMS](https://www.lexascms.com): A headless CMS (Content Management System) that combines powerful content personalisation and scheduling capabilities with a modern content editing experience and a blazing fast GraphQL/REST content delivery API.
 
 ## More Stuff
 
