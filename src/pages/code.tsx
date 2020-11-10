@@ -23,7 +23,7 @@ export function buildLanguagesMenu(pageContext: any) {
               const slug = toSlug(languageName)
               return (
                 <div className="column">
-                  <div className="article">
+                  <div className="article language-box">
                     <a href={`#${slug}`}>
                       <h3 className="article_category">
                         <img
@@ -133,37 +133,29 @@ export default ({ pageContext }: any) => {
                 to help you get started working which support GraphQL in all
                 sorts of languages.
               </strong>{" "}
-              <div className="container-bl1">
-                <div className="column">
-                  <a href="#languages">
-                    <h3>Languages</h3>
-                  </a>
-                </div>
-                <div className="column">
+              <div className="goto-section">
+                <p>Go to</p>
+                <div className="sections">
                   <a href="#generic-tools">
                     <h3>Tools</h3>
                   </a>
-                </div>
-                <div className="column">
                   <a href="#services">
                     <h3>Services</h3>
                   </a>
-                </div>
-                <div className="column">
                   <a href="#more-stuff">
                     <h3>More Stuff</h3>
                   </a>
                 </div>
               </div>
-              <Marked pageContext={pageContext}>{`
-## Languages
-`}</Marked>
-              <p>
-                This page will help you get started with GraphQL in languages
-                you are already using.
-              </p>
             </div>
 
+            <Marked pageContext={pageContext}>{`
+## Language Support
+`}</Marked>
+            <p>
+              This page will help you get started with GraphQL in languages you
+              are already using.
+            </p>
             {buildLanguagesMenu(pageContext)}
             {buildLanguagesContent(pageContext)}
             <h2>

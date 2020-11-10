@@ -54,8 +54,46 @@
   }
   .intro-note {
     margin-top: 20px;
+    display: flex;
+    strong {
+      width: 50%;
+      margin-right: 5%;
+      font-size: 24px;
+      line-height: 36px;
+    }
+    .goto-section {
+      display: flex;
+      flex-direction: row;
+      width: 40%;
+      p {
+        width: 20%;
+        margin: 0;
+        color: #8C8C8C;
+        font-weight: bold;
+      }
+      .sections {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        a {
+          h3 {
+            margin: 0 0 14px 0;
+            border-left: 1px solid #B7B7B7;
+            font-weight: bold;
+            padding-left: 15px;
+          }
+        }
+      }
+    }
   }
   .inner-content {
     max-width: 100%;
+  }
+  .language-box {
+    border: 1px inset #979797;
+    .article_title {
+      text-align: left;
+      font-size: 24px;
+    }
   }
 }
