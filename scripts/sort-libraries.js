@@ -4,10 +4,10 @@ const getGitHubStats = async githubRepo => {
   const [owner, repoName] = githubRepo.split("/")
   const accessToken = process.env.GITHUB_ACCESS_TOKEN
   if (!accessToken) {
-    throw new Error(`You must have GITHUB_ACCESS_TOKEN env variable defined!`)
+    return {};
   }
   const query = /* GraphQL */ `
-    fragment defaultBranchRef on Ref {
+    fragment defaultBranchRefFragment on Ref {
       target {
         ... on Commit {
           history(since: $since) {
@@ -26,17 +26,8 @@ const getGitHubStats = async githubRepo => {
     query($owner: String!, $repoName: String!, $since: GitTimestamp!) {
       repositoryOwner(login: $owner) {
         repository(name: $repoName) {
-          mainRef: ref(qualifiedName: "main") {
-            ...defaultBranchRef
-          }
-          sourceRef: ref(qualifiedName: "source") {
-            ...defaultBranchRef
-          }
-          masterRef: ref(qualifiedName: "master") {
-            ...defaultBranchRef
-          }
-          developRef: ref(qualifiedName: "develop") {
-            ...defaultBranchRef
+          defaultBranchRef {
+            ...defaultBranchRefFragment
           }
           stargazers {
             totalCount
@@ -52,7 +43,7 @@ const getGitHubStats = async githubRepo => {
     }
   `
   const lastMonth = new Date()
-  lastMonth.setMonth(lastMonth.getMonth() - 1)
+  lastMonth.setMonth(lastMonth.getMonth() - 3)
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
     body: JSON.stringify({
@@ -77,23 +68,15 @@ const getGitHubStats = async githubRepo => {
     throw `No GitHub repo found ${owner}/${repoName}`
   }
   const stars = repo.stargazers.totalCount
-  const actualDefaultBranch =
-    repo.mainRef || repo.sourceRef || repo.developRef || repo.masterRef
-  if (!actualDefaultBranch) {
-    throw `No default branch found for ${owner}/${repoName}`
-  }
-  const commitHistory = actualDefaultBranch.target.history.edges
-  let commitCount = 0,
-    daysWithCommitSet = new Set()
+  const commitHistory = repo.defaultBranchRef.target.history.edges
+  let hasCommitsInLast3Months = false;
   commitHistory.forEach(commit => {
     if (!commit.node.author.name.match(/bot/i)) {
-      commitCount++
-      daysWithCommitSet.add(new Date(commit.node.pushedDate).getDate())
+      hasCommitsInLast3Months = true;
     }
   })
   return {
-    commitCount,
-    daysWithCommit: daysWithCommitSet.size,
+    hasCommitsInLast3Months,
     stars,
   }
 }
@@ -120,11 +103,15 @@ const getGemStats = async packageName => {
 
 const sortLibs = async libs => {
   if (libs.length === 1) {
-    return libs;
+    return libs
   }
   const libsWithScores = await Promise.all(
     libs.map(async lib => {
-      const [npmStats = {}, gemStars = {}, githubStats = {}] = await Promise.all([
+      const [
+        npmStats = {},
+        gemStars = {},
+        githubStats = {},
+      ] = await Promise.all([
         lib.npm && getNpmStats(lib.npm),
         lib.gem && getGemStats(lib.gem),
         lib.github && getGitHubStats(lib.github),
@@ -132,6 +119,7 @@ const sortLibs = async libs => {
       return {
         ...lib,
         ...npmStats,
+        ...gemStars,
         ...githubStats,
       }
     })
@@ -139,28 +127,24 @@ const sortLibs = async libs => {
   return libsWithScores.sort((a, b) => {
     let aScore = 0,
       bScore = 0
-    if (a.npm && b.npm) {
+    if ("downloadCount" in a && 'downloadCount' in b) {
       if (a.downloadCount > b.downloadCount) {
         aScore += 40
       } else if (b.downloadCount > a.downloadCount) {
         bScore += 40
       }
     }
-    if (a.github && b.github) {
-      if (a.daysWithCommit > b.daysWithCommit) {
-        aScore += 20
-      } else if (a.daysWithCommit < b.daysWithCommit) {
-        bScore += 20
-      }
-      if (a.commitCount > b.commitCount) {
-        aScore += 20
-      } else if (a.commitCount < b.commitCount) {
-        bScore += 20
-      }
+    if ("hasCommitsInLast3Months" in a && a.hasCommitsInLast3Months) {
+      aScore += 30
+    }
+    if ("hasCommitsInLast3Months" in b && b.hasCommitsInLast3Months) {
+      bScore += 30
+    }
+    if ('stars' in a && 'stars' in b) {
       if (a.stars > b.stars) {
-        aScore += 30
+        aScore += 40
       } else if (a.stars < b.stars) {
-        bScore += 30
+        bScore += 40
       }
     }
     if (bScore > aScore) {
