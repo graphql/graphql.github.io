@@ -136,6 +136,9 @@ export default ({ pageContext }: any) => {
               <div className="goto-section">
                 <p>Go to</p>
                 <div className="sections">
+                  <a href="#languages">
+                    <h3>Languages</h3>
+                  </a>
                   <a href="#generic-tools">
                     <h3>Tools</h3>
                   </a>
