@@ -42,7 +42,7 @@ There are many resources available to help you learn GraphQL, including this web
 
 For more practical guides, visit the [How to GraphQL](https://www.howtographql.com/) fullstack tutorial website. We also have a free online course with edX, [Exploring GraphQL: A Query Language for APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis). 
 
-Either way, we'd recommend that you know what an API is and how client-server communication generally works before diving in.
+ Before you start your learning journey, make sure you know what an API is and how communication generally works between client and server.
 
 ## Is GraphQL frontend or backend?
 
