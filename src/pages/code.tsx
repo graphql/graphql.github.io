@@ -6,8 +6,8 @@ import { toSlug } from "../utils/slug"
 export function buildLanguagesMenu(pageContext: any) {
   let lastRow: string[]
   const rows: string[][] = []
-  Object.keys(pageContext.codeData.Libraries).forEach((languageName, index) => {
-    if (index % 7 === 0) {
+  pageContext.languageList.forEach(({ name: languageName }: any, index: number) => {
+    if (index % 6 === 0) {
       lastRow = [languageName]
       rows.push(lastRow)
     } else {
@@ -43,13 +43,16 @@ export function buildLibraryList(libraries: any[], pageContext: any) {
       {libraries.map(library => (
         <div className="library-info">
           <div className="library-details">
-            <a className="library-name" href={library.url}>
+            <a className="library-name" href={library.url} target="_blank">
               <p>{library.name}</p>
             </a>
             {library.github && (
               <div className="library-detail">
                 <b>GitHub</b>
-                <a href={`https://github.com/${library.github}`}>
+                <a
+                  href={`https://github.com/${library.github}`}
+                  target="_blank"
+                >
                   {library.github}
                 </a>
               </div>
@@ -57,7 +60,10 @@ export function buildLibraryList(libraries: any[], pageContext: any) {
             {library.npm && (
               <div className="library-detail">
                 <b>npm</b>
-                <a href={`https://www.npmjs.com/package/${library.npm}`}>
+                <a
+                  href={`https://www.npmjs.com/package/${library.npm}`}
+                  target="_blank"
+                >
                   {library.npm}
                 </a>
               </div>
@@ -65,7 +71,10 @@ export function buildLibraryList(libraries: any[], pageContext: any) {
             {library.gem && (
               <div className="library-detail">
                 <b>gem</b>
-                <a href={`https://rubygems.org/gems/${library.gem}`}>
+                <a
+                  href={`https://rubygems.org/gems/${library.gem}`}
+                  target="_blank"
+                >
                   {library.gem}
                 </a>
               </div>
@@ -88,10 +97,12 @@ export function buildLibraryList(libraries: any[], pageContext: any) {
                 <span>{library.license}</span>
               </div>
             )}
-            {library.howto && (
+            {library.howto ? (
               <div className="library-description">
                 <Marked pageContext={pageContext}>{library.description}</Marked>
               </div>
+            ) : (
+              <br />
             )}
           </div>
           <div className="library-howto">
@@ -131,8 +142,9 @@ const categorySlugMap = [
 
 export function buildLanguagesContent(pageContext: any) {
   const elements = []
-  for (const languageName in pageContext.codeData.Libraries) {
-    const libraryCategories = pageContext.codeData.Libraries[languageName]
+  for (const languageObj of pageContext.languageList) {
+    const languageName = languageObj.name;
+    const libraryCategories = languageObj.categoryMap;
     const filteredCategorySlugMap = categorySlugMap.filter(
       ([libraryCategoryName]) =>
         libraryCategories[libraryCategoryName as any]?.length
@@ -215,29 +227,32 @@ export default ({ pageContext }: any) => {
             {buildLanguagesMenu(pageContext)}
             {buildLanguagesContent(pageContext)}
             <h2>
-              <a className="anchor" id="generic-tools" name="generic-tools"></a>
+              <a className="anchor" id="generic-tools"></a>
               Tools
               <a className="hash-link" href="#generic-tools">
                 #
               </a>
             </h2>
-{/*             <Marked pageContext={pageContext}>
-              {`
-${buildLibraryListMarkdown(pageContext.codeData.Tools)}
-`}
-            </Marked>
-            <Marked pageContext={pageContext}>
-              {`
-## Services
-${buildLibraryListMarkdown(pageContext.codeData.Services)}
-`}
-            </Marked>
-            <Marked pageContext={pageContext}>
-              {`
-## More Stuff
-${buildLibraryListMarkdown(pageContext.codeData["More Stuff"])}
-`}
-            </Marked> */}
+            {buildLibraryList(pageContext.otherLibraries.Tools, pageContext)}
+            <h2>
+              <a className="anchor" id="services"></a>
+              Services
+              <a className="hash-link" href="#services">
+                #
+              </a>
+            </h2>
+            {buildLibraryList(pageContext.otherLibraries.Services, pageContext)}
+            <h2>
+              <a className="anchor" id="more-stuff"></a>
+              More Stuff
+              <a className="hash-link" href="#more-stuff">
+                #
+              </a>
+            </h2>
+            {buildLibraryList(
+              pageContext.otherLibraries["More Stuff"],
+              pageContext
+            )}
           </div>
         </div>
       </section>

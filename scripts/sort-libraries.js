@@ -126,9 +126,7 @@ const getGemStats = async packageName => {
 }
 
 const sortLibs = async libs => {
-  if (libs.length === 1) {
-    return libs
-  }
+  let totalStars = 0;
   const libsWithScores = await Promise.all(
     libs.map(async lib => {
       const [
@@ -140,15 +138,17 @@ const sortLibs = async libs => {
         lib.gem && getGemStats(lib.gem),
         lib.github && getGitHubStats(lib.github),
       ])
-      return {
+      const result = {
         ...lib,
         ...npmStats,
         ...gemStars,
         ...githubStats,
       }
+      totalStars += result.stars || 0;
+      return result;
     })
   )
-  return libsWithScores.sort((a, b) => {
+  const sortedLibs = libsWithScores.sort((a, b) => {
     let aScore = 0,
       bScore = 0
     if ("downloadCount" in a && 'downloadCount' in b) {
@@ -178,6 +178,7 @@ const sortLibs = async libs => {
     }
     return 0
   })
+  return { sortedLibs, totalStars }
 }
 
 module.exports = sortLibs

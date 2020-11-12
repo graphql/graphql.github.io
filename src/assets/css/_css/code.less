@@ -95,21 +95,23 @@
   .inner-content {
     max-width: 100%;
   }
+  .language-content {
+    padding-top: 72px;
+  }
   .languages-title {
     font-size: 24px;
     font-weight: bold;
-    margin-top: 94px;
     font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   .language-boxes {
     .language-box {
       margin-right: 30px;
       border: 1px solid #979797;
-      width: 120px;
+      min-width: 142px;
       height: 120px;
       display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+      flex-direction: row;
+      align-items: flex-end;
       .article_title {
         text-align: left;
         font-size: 24px;
@@ -124,8 +126,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 65px;
-    margin-bottom: 45px;
     .language-title {
       margin: 0;
       font-size: 48px;
@@ -141,8 +141,11 @@
       }
     }
   }
+  .library-category {
+    padding-top: 50px;
+  }
   .library-category-title {
-    margin-top: 57px;
+    margin: 0;
     font-size: 24px;
     color: #a6a6a6;
     font-weight: bold;
@@ -183,9 +186,9 @@
     }
     .library-howto {
       width: 60%;
-      max-height: 550px;
-      overflow-y: auto;
-      overflow-x: hidden;
+      // max-height: 550px;
+      // overflow-y: auto;
+      // overflow-x: hidden;
     }
   }
 }

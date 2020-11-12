@@ -723,12 +723,14 @@
     },
     {
       "name": "Prisma",
-      "description": "([github](https://github.com/prisma)) A BaaS (Backend as a Service) providing a GraphQL backend for your applications with a powerful web ui for managing your database and stored data.",
+      "description": "A BaaS (Backend as a Service) providing a GraphQL backend for your applications with a powerful web ui for managing your database and stored data.",
+      "github": "https://github.com/prisma",
       "url": "https://www.prisma.io"
     },
     {
       "name": "Tipe",
-      "description": "([github](https://github.com/tipeio)) A SaaS (Software as a Service) content management system that allows you to create your content with powerful editing tools and access it from anywhere with a GraphQL or REST API.",
+      "description": "A SaaS (Software as a Service) content management system that allows you to create your content with powerful editing tools and access it from anywhere with a GraphQL or REST API.",
+      "github": "https://github.com/tipeio",
       "url": "https://tipe.io"
     },
     {

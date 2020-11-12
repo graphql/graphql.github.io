@@ -11,24 +11,46 @@ exports.onCreatePage = async ({ page, actions }) => {
   }
   if (page.path === "/code" || page.path === "/code/") {
     const codeData = JSON.parse(readFileSync("./data/code.json", "utf8"));
+    const languageList = [];
+    let sortedTools = [];
     await Promise.all([
       Promise.all(Object.keys(codeData.Libraries).map(async languageName => {
         const libraryCategoryMap = codeData.Libraries[languageName];
+        let languageTotalStars = 0;
         await Promise.all(
           Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
             const libraries = libraryCategoryMap[libraryCategoryName]
-            libraryCategoryMap[libraryCategoryName] = await sortLibs(libraries)
+            const { sortedLibs, totalStars } = await sortLibs(libraries)
+            libraryCategoryMap[libraryCategoryName] = sortedLibs;
+            languageTotalStars += totalStars || 0
           })
         )
+        languageList.push({
+          name: languageName,
+          totalStars: languageTotalStars,
+          categoryMap: libraryCategoryMap,
+        })
       })),
-      sortLibs(codeData.Tools).then(sortedTools => {
-        codeData.Tools = sortedTools;
+      sortLibs(codeData.Tools).then(({ sortedLibs }) => {
+        sortedTools = sortedLibs
       }),
     ])
 
     context = {
       ...context,
-      codeData,
+      otherLibraries: {
+        Services: codeData.Services,
+        Tools: sortedTools,
+        'More Stuff': codeData['More Stuff']
+      },
+      languageList: languageList.sort((a, b) => {
+        if (a.totalStars > b.totalStars) {
+          return -1
+        } else if (a.totalStars < b.totalStars) {
+          return 1
+        }
+        return 0
+      }),
     }
   }
   createPage({
