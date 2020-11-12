@@ -92,14 +92,14 @@ const getGitHubStats = async githubRepo => {
     average: true,
   });
   let lastRelease;
-  if (repo.releases?.nodes?.length) {
+  if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
     lastRelease = repo.releases.nodes[0].publishedAt;
   }
   return {
     hasCommitsInLast3Months,
     stars,
     formattedStars,
-    license: repo.licenseInfo?.name,
+    license: repo.licenseInfo && repo.licenseInfo.name,
     lastRelease,
     formattedLastRelease: lastRelease && timeago.format(lastRelease),
   }
