@@ -1,3 +1,4 @@
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 import React from "react"
 import Layout from "../components/Layout"
 import Marked from "../components/Marked"
@@ -6,14 +7,16 @@ import { toSlug } from "../utils/slug"
 export function buildLanguagesMenu(pageContext: any) {
   let lastRow: string[]
   const rows: string[][] = []
-  pageContext.languageList.forEach(({ name: languageName }: any, index: number) => {
-    if (index % 6 === 0) {
-      lastRow = [languageName]
-      rows.push(lastRow)
-    } else {
-      lastRow.push(languageName)
+  pageContext.languageList.forEach(
+    ({ name: languageName }: any, index: number) => {
+      if (index % 6 === 0) {
+        lastRow = [languageName]
+        rows.push(lastRow)
+      } else {
+        lastRow.push(languageName)
+      }
     }
-  })
+  )
   return (
     <div>
       {rows.map(row => (
@@ -22,11 +25,13 @@ export function buildLanguagesMenu(pageContext: any) {
             {row.map(languageName => {
               const slug = toSlug(languageName)
               return (
-                <div className="article language-box">
-                  <a href={`#${slug}`} className="article_title">
-                    {languageName}
-                  </a>
-                </div>
+                <AnchorLink
+                  to={`#${slug}`}
+                  className="article language-box"
+                  title={languageName}
+                >
+                  <span className="article_title">{languageName}</span>
+                </AnchorLink>
               )
             })}
           </div>
@@ -143,32 +148,35 @@ const categorySlugMap = [
 export function buildLanguagesContent(pageContext: any) {
   const elements = []
   for (const languageObj of pageContext.languageList) {
-    const languageName = languageObj.name;
-    const libraryCategories = languageObj.categoryMap;
+    const languageName = languageObj.name
+    const libraryCategories = languageObj.categoryMap
     const filteredCategorySlugMap = categorySlugMap.filter(
       ([libraryCategoryName]) =>
         libraryCategories[libraryCategoryName as any]?.length
-    );
-    const languageSlug = toSlug(languageName);
+    )
+    const languageSlug = toSlug(languageName)
     elements.push(
       <div className="language-content" id={languageSlug}>
         <div className="language-header">
           <h2 className="language-title">{languageName}</h2>
-          {filteredCategorySlugMap.length > 1 && <p className="language-categories-permalinks">
-            {filteredCategorySlugMap.map(
-              ([libraryCategoryName, categorySlug], i) => (
-                <>
-                  <a
-                    className="language-category-permalink"
-                    href={`#${languageSlug}-${categorySlug}`}
-                  >
-                    {libraryCategoryName}
-                  </a>
-                  {i < filteredCategorySlugMap.length - 1 && " / "}
-                </>
-              )
-            )}
-          </p>}
+          {filteredCategorySlugMap.length > 1 && (
+            <p className="language-categories-permalinks">
+              {filteredCategorySlugMap.map(
+                ([libraryCategoryName, categorySlug], i) => (
+                  <>
+                    <AnchorLink
+                      title={`${languageSlug} ${categorySlug}`}
+                      className="language-category-permalink"
+                      to={`#${languageSlug}-${categorySlug}`}
+                    >
+                      {libraryCategoryName}
+                    </AnchorLink>
+                    {i < filteredCategorySlugMap.length - 1 && " / "}
+                  </>
+                )
+              )}
+            </p>
+          )}
         </div>
         <div className="library-categories">
           {filteredCategorySlugMap.map(([categoryName, categorySlug]) =>
@@ -207,47 +215,49 @@ export default ({ pageContext }: any) => {
               <div className="goto-section">
                 <p>Go to</p>
                 <div className="sections">
-                  <a href="#language-support">
+                  <AnchorLink to="#language-support" title="Language Support">
                     <h3>Language Support</h3>
-                  </a>
-                  <a href="#generic-tools">
+                  </AnchorLink>
+                  <AnchorLink to="#generic-tools" title="Tools">
                     <h3>Tools</h3>
-                  </a>
-                  <a href="#services">
+                  </AnchorLink>
+                  <AnchorLink to="#services" title="Services">
                     <h3>Services</h3>
-                  </a>
-                  <a href="#more-stuff">
+                  </AnchorLink>
+                  <AnchorLink to="#more-stuff" title="More Stuff">
                     <h3>More Stuff</h3>
-                  </a>
+                  </AnchorLink>
                 </div>
               </div>
             </div>
 
-            <p className="languages-title">Language Support</p>
+            <p id="language-support" className="languages-title">
+              Language Support
+            </p>
             {buildLanguagesMenu(pageContext)}
             {buildLanguagesContent(pageContext)}
             <h2>
               <a className="anchor" id="generic-tools"></a>
               Tools
-              <a className="hash-link" href="#generic-tools">
+              <AnchorLink className="hash-link" to="#generic-tools">
                 #
-              </a>
+              </AnchorLink>
             </h2>
             {buildLibraryList(pageContext.otherLibraries.Tools, pageContext)}
             <h2>
               <a className="anchor" id="services"></a>
               Services
-              <a className="hash-link" href="#services">
+              <AnchorLink className="hash-link" to="#services">
                 #
-              </a>
+              </AnchorLink>
             </h2>
             {buildLibraryList(pageContext.otherLibraries.Services, pageContext)}
             <h2>
               <a className="anchor" id="more-stuff"></a>
               More Stuff
-              <a className="hash-link" href="#more-stuff">
+              <AnchorLink className="hash-link" to="#more-stuff">
                 #
-              </a>
+              </AnchorLink>
             </h2>
             {buildLibraryList(
               pageContext.otherLibraries["More Stuff"],
