@@ -7,7 +7,7 @@ export function buildLanguagesMenu(pageContext: any) {
   let lastRow: string[]
   const rows: string[][] = []
   Object.keys(pageContext.codeData.Libraries).forEach((languageName, index) => {
-    if (index % 4 === 0) {
+    if (index % 7 === 0) {
       lastRow = [languageName]
       rows.push(lastRow)
     } else {
@@ -15,25 +15,17 @@ export function buildLanguagesMenu(pageContext: any) {
     }
   })
   return (
-    <div className="main-block-blog">
+    <div>
       {rows.map(row => (
         <>
-          <div className="container-bl">
+          <div className="container-bl language-boxes">
             {row.map(languageName => {
               const slug = toSlug(languageName)
               return (
-                <div className="column">
-                  <div className="article language-box">
-                    <a href={`#${slug}`}>
-                      <h3 className="article_category">
-                        <img
-                          src={`../img/${slug}.svg`}
-                          style={{ width: 92, height: 92 }}
-                        />
-                      </h3>
-                      <h2 className="article_title" style={{ whiteSpace: 'nowrap' }}>{languageName}</h2>
-                    </a>
-                  </div>
+                <div className="article language-box">
+                  <a href={`#${slug}`} className="article_title">
+                    {languageName}
+                  </a>
                 </div>
               )
             })}
@@ -45,74 +37,141 @@ export function buildLanguagesMenu(pageContext: any) {
   )
 }
 
-export function buildLibraryListMarkdown(libraries: any[]) {
-  let markdown = ""
-  for (const library of libraries) {
-    if ("howto" in library) {
-      markdown += `#### [${library.name}](${library.url}) `
-    } else {
-      markdown += ` - [${library.name}](${library.url}) `
-    }
-    if ("github" in library) {
-      markdown += `([github](https://github.com/${library.github})) `
-    }
-    if ("npm" in library) {
-      markdown += `([npm](https://www.npmjs.com/package/${library.npm})) `
-    }
-    if ("gem" in library) {
-      markdown += `([gem](https://rubygems.org/gems/${library.gem})) `
-    }
-    if ("howto" in library) {
-      if (library.description) {
-        markdown += "\n"
-        markdown += library.description || ""
-        markdown += "\n"
-      }
-      markdown += "\n"
-      markdown += library.howto
-      markdown += "\n"
-    } else if (library.description) {
-      markdown += ": "
-      markdown += library.description || ""
-    }
-    markdown += "\n\n"
-  }
-  return markdown
+export function buildLibraryList(libraries: any[], pageContext: any) {
+  return (
+    <div className="library-list">
+      {libraries.map(library => (
+        <div className="library-info">
+          <div className="library-details">
+            <a className="library-name" href={library.url}>
+              <p>{library.name}</p>
+            </a>
+            {library.github && (
+              <div className="library-detail">
+                <b>GitHub</b>
+                <a href={`https://github.com/${library.github}`}>
+                  {library.github}
+                </a>
+              </div>
+            )}
+            {library.npm && (
+              <div className="library-detail">
+                <b>npm</b>
+                <a href={`https://www.npmjs.com/package/${library.npm}`}>
+                  {library.npm}
+                </a>
+              </div>
+            )}
+            {library.gem && (
+              <div className="library-detail">
+                <b>gem</b>
+                <a href={`https://rubygems.org/gems/${library.gem}`}>
+                  {library.gem}
+                </a>
+              </div>
+            )}
+            {library.lastRelease && (
+              <div className="library-detail">
+                <b>Last Release</b>
+                <span>{library.formattedLastRelease}</span>
+              </div>
+            )}
+            {library.stars && (
+              <div className="library-detail">
+                <b>Stars</b>
+                <span>{library.formattedStars}</span>
+              </div>
+            )}
+            {library.license && (
+              <div className="library-detail">
+                <b>License</b>
+                <span>{library.license}</span>
+              </div>
+            )}
+            {library.howto && (
+              <div className="library-description">
+                <Marked pageContext={pageContext}>{library.description}</Marked>
+              </div>
+            )}
+          </div>
+          <div className="library-howto">
+            <Marked pageContext={pageContext}>
+              {library.howto || library.description}
+            </Marked>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
 }
 
-export function buildLibraryCategoriesMarkdown(
+export function buildLibraryCategoryContent(
   libraryCategories: any[],
-  libraryCategoryName: string
+  libraryCategoryName: string,
+  slug: string,
+  pageContext: any
 ) {
-  let markdown = ""
   if (libraryCategoryName in libraryCategories) {
-    markdown += `### ${libraryCategoryName}\n`
     const libraries = libraryCategories[libraryCategoryName as any]
-    markdown += buildLibraryListMarkdown(libraries)
-    markdown += "\n"
+    return (
+      <div id={slug} className="library-category">
+        <h3 className="library-category-title">{libraryCategoryName}</h3>
+        {buildLibraryList(libraries, pageContext)}
+      </div>
+    )
   }
-  return markdown
+  return
 }
+
+const categorySlugMap = [
+  ["Server", toSlug("Server")],
+  ["Client", toSlug("Client")],
+  ["Tools", toSlug("Tools")],
+]
 
 export function buildLanguagesContent(pageContext: any) {
-  let markdown = ""
+  const elements = []
   for (const languageName in pageContext.codeData.Libraries) {
     const libraryCategories = pageContext.codeData.Libraries[languageName]
-    markdown += `## ${languageName}\n`
-    markdown += buildLibraryCategoriesMarkdown(
-      libraryCategories,
-      'Server Libraries'
-    )
-    markdown += buildLibraryCategoriesMarkdown(
-      libraryCategories,
-      "GraphQL Clients"
-    )
-    markdown += buildLibraryCategoriesMarkdown(
-      libraryCategories,
-      "Tools"
+    const filteredCategorySlugMap = categorySlugMap.filter(
+      ([libraryCategoryName]) =>
+        libraryCategories[libraryCategoryName as any]?.length
+    );
+    const languageSlug = toSlug(languageName);
+    elements.push(
+      <div className="language-content" id={languageSlug}>
+        <div className="language-header">
+          <h2 className="language-title">{languageName}</h2>
+          {filteredCategorySlugMap.length > 1 && <p className="language-categories-permalinks">
+            {filteredCategorySlugMap.map(
+              ([libraryCategoryName, categorySlug], i) => (
+                <>
+                  <a
+                    className="language-category-permalink"
+                    href={`#${languageSlug}-${categorySlug}`}
+                  >
+                    {libraryCategoryName}
+                  </a>
+                  {i < filteredCategorySlugMap.length - 1 && " / "}
+                </>
+              )
+            )}
+          </p>}
+        </div>
+        <div className="library-categories">
+          {filteredCategorySlugMap.map(([categoryName, categorySlug]) =>
+            buildLibraryCategoryContent(
+              libraryCategories,
+              categoryName,
+              `${languageSlug}-${categorySlug}`,
+              pageContext
+            )
+          )}
+        </div>
+      </div>
     )
   }
-  return <Marked pageContext={pageContext}>{markdown}</Marked>
+  return <div className="languages-content">{elements}</div>
 }
 
 export default ({ pageContext }: any) => {
@@ -132,12 +191,12 @@ export default ({ pageContext }: any) => {
                 Because GraphQL is a communication pattern, there are many tools
                 to help you get started working which support GraphQL in all
                 sorts of languages.
-              </strong>{" "}
+              </strong>
               <div className="goto-section">
                 <p>Go to</p>
                 <div className="sections">
-                  <a href="#languages">
-                    <h3>Languages</h3>
+                  <a href="#language-support">
+                    <h3>Language Support</h3>
                   </a>
                   <a href="#generic-tools">
                     <h3>Tools</h3>
@@ -152,13 +211,7 @@ export default ({ pageContext }: any) => {
               </div>
             </div>
 
-            <Marked pageContext={pageContext}>{`
-## Language Support
-`}</Marked>
-            <p>
-              This page will help you get started with GraphQL in languages you
-              are already using.
-            </p>
+            <p className="languages-title">Language Support</p>
             {buildLanguagesMenu(pageContext)}
             {buildLanguagesContent(pageContext)}
             <h2>
@@ -168,7 +221,7 @@ export default ({ pageContext }: any) => {
                 #
               </a>
             </h2>
-            <Marked pageContext={pageContext}>
+{/*             <Marked pageContext={pageContext}>
               {`
 ${buildLibraryListMarkdown(pageContext.codeData.Tools)}
 `}
@@ -184,7 +237,7 @@ ${buildLibraryListMarkdown(pageContext.codeData.Services)}
 ## More Stuff
 ${buildLibraryListMarkdown(pageContext.codeData["More Stuff"])}
 `}
-            </Marked>
+            </Marked> */}
           </div>
         </div>
       </section>

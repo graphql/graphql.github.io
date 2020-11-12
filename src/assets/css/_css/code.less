@@ -59,7 +59,8 @@
       width: 50%;
       margin-right: 5%;
       font-size: 24px;
-      line-height: 36px;
+      font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 32px;
     }
     .goto-section {
       display: flex;
@@ -68,8 +69,10 @@
       p {
         width: 20%;
         margin: 0;
-        color: #8C8C8C;
+        color: #8c8c8c;
         font-weight: bold;
+        font-size: 24px;
+        font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
       .sections {
         display: flex;
@@ -77,11 +80,13 @@
         flex-direction: column;
         a {
           h3 {
-              margin: 0 0 15px 0;
-              border-left: 1px solid #B7B7B7;
-              font-weight: bold;
-              padding-left: 15px;
-              line-height: 28px;
+            margin: 0 0 22px 0;
+            border-left: 1px solid #b7b7b7;
+            font-weight: bold;
+            padding-left: 15px;
+            line-height: 28px;
+            font-size: 24px;
+            font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
           }
         }
       }
@@ -90,11 +95,97 @@
   .inner-content {
     max-width: 100%;
   }
-  .language-box {
-    border: 1px inset #979797;
-    .article_title {
-      text-align: left;
+  .languages-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 94px;
+    font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .language-boxes {
+    .language-box {
+      margin-right: 30px;
+      border: 1px solid #979797;
+      width: 120px;
+      height: 120px;
+      display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+      .article_title {
+        text-align: left;
+        font-size: 24px;
+        color: #000;
+        font-weight: bold;
+        font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+      }
+    }
+  }
+  .language-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 65px;
+    margin-bottom: 45px;
+    .language-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: bold;
+    }
+    .language-categories-permalinks {
+      margin: 0;
       font-size: 24px;
+      font-weight: bold;
+      color: #a6a6a6;
+      .language-category-permalink {
+        color: #a6a6a6;
+      }
+    }
+  }
+  .library-category-title {
+    margin-top: 57px;
+    font-size: 24px;
+    color: #a6a6a6;
+    font-weight: bold;
+  }
+  .library-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 36px;
+    .library-details {
+      width: 30%;
+      .library-name {
+        font-size: 24px;
+        font-weight: bold;
+        p {
+          margin: 0 0 20px 0;
+        }
+      }
+      .library-detail {
+        margin-top: 7px;
+        display: flex;
+        flex-direction: row;
+        b {
+          font-size: 14px;
+          min-width: 90px;
+        }
+        a,
+        span {
+          font-size: 16px;
+          color: #e10098;
+          font-weight: bold;
+          margin-left: 10px;
+        }
+      }
+      .library-description {
+        margin-top: 30px;
+      }
+    }
+    .library-howto {
+      width: 60%;
+      max-height: 550px;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
   }
 }

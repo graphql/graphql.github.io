@@ -15,7 +15,7 @@ import { StarWarsSchema } from "./swapiSchema"
 import { UsersSchema } from './usersSchema';
 
 export default function Marked(props: { pageContext: any; children: any; }) {
-  return <div>{marked(props.children, props)}</div>
+  return <div>{props.children && marked(props.children, props)}</div>
 }
 
 /**

@@ -1,4 +1,6 @@
-const fetch = require(`node-fetch`)
+const fetch = require(`node-fetch`);
+const numbro = require("numbro");
+const timeago = require('timeago.js');
 
 const getGitHubStats = async githubRepo => {
   const [owner, repoName] = githubRepo.split("/")
@@ -38,6 +40,14 @@ const getGitHubStats = async githubRepo => {
             totalCount
           }
           description
+          licenseInfo {
+            name
+          }
+          releases(last: 1) {
+            nodes {
+              publishedAt 
+            }
+          }
         }
       }
     }
@@ -56,6 +66,9 @@ const getGitHubStats = async githubRepo => {
     },
   })
   const responseJson = await response.json()
+  if (responseJson && responseJson.errors) {
+    throw JSON.stringify(responseJson.errors);
+  }
   if (!responseJson || !responseJson.data) {
     throw `GitHub returned empty response for ${owner}/${repoName}`
   }
@@ -75,9 +88,20 @@ const getGitHubStats = async githubRepo => {
       hasCommitsInLast3Months = true;
     }
   })
+  const formattedStars = numbro(stars).format({
+    average: true,
+  });
+  let lastRelease;
+  if (repo.releases?.nodes?.length) {
+    lastRelease = repo.releases.nodes[0].publishedAt;
+  }
   return {
     hasCommitsInLast3Months,
     stars,
+    formattedStars,
+    license: repo.licenseInfo?.name,
+    lastRelease,
+    formattedLastRelease: lastRelease && timeago.format(lastRelease),
   }
 }
 

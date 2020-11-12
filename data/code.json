@@ -11,7 +11,7 @@
       ]
     },
     "C# / .NET": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-dotnet",
           "description": "GraphQL for .NET",
@@ -38,7 +38,7 @@
           "github": "ChilliCream/hotchocolate"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "GraphQL.Client",
           "description": "A GraphQL Client for .NET.",
@@ -60,7 +60,7 @@
       ]
     },
     "Clojure": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "alumbra",
           "description": "A set of reusable GraphQL components for Clojure conforming to the data structures given in [alumbra.spec](https://github.com/alumbra/alumbra.spec).",
@@ -82,7 +82,7 @@
           "url": "https://github.com/walmartlabs/lacinia"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "regraph",
           "description": "A GraphQL client implemented in Clojurescript with support for websockets.",
@@ -92,7 +92,7 @@
       ]
     },
     "D": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphqld",
           "description": "A GraphQL implementaiton for the D Programming Language.",
@@ -102,7 +102,7 @@
       ]
     },
     "Elixir": {
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "Neuron",
           "description": "A GraphQL client for Elixir",
@@ -116,7 +116,7 @@
           "url": "https://github.com/annkissam/common_graphql_client"
         }
       ],
-      "Server Libraries": [
+      "Server": [
         {
           "name": "absinthe",
           "description": "GraphQL implementation for Elixir.",
@@ -132,7 +132,7 @@
       ]
     },
     "Elm": {
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "dillonkearns/elm-graphql",
           "description": "Library and command-line code generator to create type-safe Elm code for a GraphQL endpoint.",
@@ -142,7 +142,7 @@
       ]
     },
     "Erlang": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-erlang",
           "description": "GraphQL implementation in Erlang.",
@@ -152,7 +152,7 @@
       ]
     },
     "Flutter": {
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "graphql",
           "description": "A GraphQL client implementation in Flutter.",
@@ -162,7 +162,7 @@
       ]
     },
     "Go": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-go",
           "description": "An implementation of GraphQL for Go / Golang.",
@@ -206,7 +206,7 @@
           "github": "appointy/jaal"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "graphql",
           "description": "A GraphQL client implementation in Go.",
@@ -216,7 +216,7 @@
       ]
     },
     "Groovy": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "gorm-graphql",
           "howto": "**Core Library** - The GORM GraphQL library provides functionality to generate a GraphQL schema based on your GORM entities. In addition to mapping domain classes to a GraphQL schema, the core library also provides default implementations of \"data fetchers\" to query, update, and delete data through executions of the schema.\n\n**Grails Plugin** - In a addition to the Core Library, the GORM GraphQL Grails Plugin:\n\n- Provides a controller to receive and respond to GraphQL requests through HTTP, based on their guidelines.\n\n- Generates the schema at startup with spring bean configuration to make it easy to extend.\n\n- Includes a [GraphiQL](https://github.com/graphql/graphiql) browser enabled by default in development. The browser is accessible at /graphql/browser.\n\n- Overrides the default data binder to use the data binding provided by Grails\n- Provides a [trait](https://grails.github.io/gorm-graphql/latest/api/org/grails/gorm/graphql/plugin/testing/GraphQLSpec.html) to make integration testing of your GraphQL endpoints easier\n\nSee [the documentation](https://grails.github.io/gorm-graphql/latest/guide/index.html) for more information.",
@@ -232,7 +232,7 @@
       ]
     },
     "Haskell": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "Morpheus GraphQL",
           "description": "A Haskell library for building GraphQL APIs.",
@@ -241,7 +241,7 @@
           "github": "morpheusgraphql/morpheus-graphql"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "morpheus-graphql-client",
           "description": "A strongly-typed GraphQL client implementation in Haksell.",
@@ -251,7 +251,7 @@
       ]
     },
     "Java / Android": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-java",
           "description": "A Java library for building GraphQL APIs.",
@@ -260,7 +260,7 @@
           "url": "https://github.com/graphql-java/graphql-java"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "Apollo Android",
           "description": "A strongly-typed, caching GraphQL client for Android, written in Java.",
@@ -276,7 +276,7 @@
       ]
     },
     "JavaScript": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "GraphQL.js",
           "description": "The reference implementation of the GraphQL specification, designed for running GraphQL in a Node.js environment.",
@@ -302,7 +302,7 @@
           "github": "apollographql/apollo-server"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "Relay",
           "description": "Facebook's framework for building React applications that talk to a GraphQL backend.",
@@ -469,7 +469,7 @@
       ]
     },
     "Julia": {
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "Diana.jl",
           "description": "A Julia GraphQL server implementation.",
@@ -479,7 +479,7 @@
       ]
     },
     "Kotlin": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-kotlin",
           "description": "A set of libraries for running GraphQL server in Kotlin.",
@@ -489,7 +489,7 @@
       ]
     },
     "Perl": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-perl",
           "description": "A Perl port of GraphQL reference implementation",
@@ -500,7 +500,7 @@
       ]
     },
     "PHP": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-php",
           "description": "A PHP port of GraphQL reference implementation",
@@ -573,7 +573,7 @@
       ]
     },
     "Python": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "Graphene",
           "description": "A Python library for building GraphQL APIs.",
@@ -582,7 +582,7 @@
           "github": "graphql-python/graphene"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "GQL",
           "description": "A GraphQL client in Python.",
@@ -604,7 +604,7 @@
       ]
     },
     "R": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "ghql",
           "description": "General purpose GraphQL R client",
@@ -614,7 +614,7 @@
       ]
     },
     "Ruby": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-ruby",
           "description": "A Ruby library for building GraphQL APIs.",
@@ -633,7 +633,7 @@
       ]
     },
     "Rust": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "graphql-rust/juniper",
           "description": "GraphQL server library for Rust",
@@ -643,7 +643,7 @@
       ]
     },
     "Scala": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "Sangria",
           "description": "A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).",
@@ -654,7 +654,7 @@
       ]
     },
     "OCaml / Reason": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "ocaml-graphql-server",
           "description": "GraphQL server library for OCaml and Reason",
@@ -664,7 +664,7 @@
       ]
     },
     "Swift / Objective-C iOS": {
-      "Server Libraries": [
+      "Server": [
         {
           "name": "Graphiti",
           "description": "Swift library for building GraphQL schemas/types fast, safely and easily.",
@@ -672,7 +672,7 @@
           "github": "GraphQLSwift/Graphiti"
         }
       ],
-      "GraphQL Clients": [
+      "Client": [
         {
           "name": "Apollo iOS",
           "description": "A GraphQL client for iOS that returns results as query-specific Swift types, and integrates with Xcode to show your Swift source and GraphQL side by side, with inline validation errors.",
