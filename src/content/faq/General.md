@@ -70,7 +70,7 @@ That said, the specification was originally developed at Facebook and [Facebook 
 
 ## What is the GraphQL Foundation?
 
-The [GraphQL Foundation](https://foundation.graphql.org/faq/) is a neutral foundation that provides governance for GraphQL. This includes vendor-neutral oversight of open-source repositories, funding, events, and more. It's hosted under the [Linux Foundation](https://www.linuxfoundation.org/) and consists of [representatives from 20 different companies](https://foundation.graphql.org/members/). The idea is that it’s an impartial and open home for the GraphQL community.
+The [GraphQL Foundation](https://foundation.graphql.org/faq/) is a neutral foundation that provides governance for GraphQL. This includes vendor-neutral oversight of open-source repositories, funding, events, and more. It's hosted under the [Linux Foundation](https://www.linuxfoundation.org/) and consists of [representatives from dozens of different companies](https://foundation.graphql.org/members/). The idea is that it’s an impartial and open home for the GraphQL community.
 
 You can find out more by visiting [foundation.graphql.org](https://foundation.graphql.org/).
 
