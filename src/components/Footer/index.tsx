@@ -54,7 +54,7 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     subsections: [
       {
         text: "GraphQL Specification",
-        href: "/https://graphql.github.io/graphql-spec/",
+        href: "https://graphql.github.io/graphql-spec/",
       },
       { text: "GraphQL Foundation", href: "https://foundation.graphql.org/" },
       {
