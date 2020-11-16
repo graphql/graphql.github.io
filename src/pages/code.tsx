@@ -90,11 +90,7 @@ export function buildLibraryContent(library: any, pageContext: any) {
       </div>
       <div className="library-howto">
         <div
-          className="library-howto-content"
-          style={{
-            maxHeight: expanded ? "100%" : "450px",
-            overflow: "hidden",
-          }}
+          className={`library-howto-content ${expanded ? 'expanded' : 'not-expanded'}`}
           ref={el => {
             if (el && !overflown) {
               setOverflown(el.clientHeight < el.scrollHeight)
@@ -105,10 +101,13 @@ export function buildLibraryContent(library: any, pageContext: any) {
             {library.howto || library.description}
           </Marked>
         </div>
-        {overflown && <div
-          className="library-howto-expand"
-          onClick={() => setExpanded(!expanded)}
-        /> }
+        {overflown && (
+          <div
+            className={`library-howto-expand ${expanded ? 'expanded' : 'not-expanded'}`}
+            onClick={() => setExpanded(!expanded)}>
+              <img src="/img/downarrow.svg" className="library-howto-expand-anchor" />
+          </div>
+        )}
       </div>
     </div>
   )
