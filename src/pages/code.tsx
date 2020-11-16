@@ -1,43 +1,115 @@
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout"
 import Marked from "../components/Marked"
 import { toSlug } from "../utils/slug"
 
 export function buildLanguagesMenu(pageContext: any) {
-  let lastRow: string[]
-  const rows: string[][] = []
-  pageContext.languageList.forEach(
-    ({ name: languageName }: any, index: number) => {
-      if (index % 6 === 0) {
-        lastRow = [languageName]
-        rows.push(lastRow)
-      } else {
-        lastRow.push(languageName)
-      }
-    }
-  )
   return (
-    <div>
-      {rows.map(row => (
-        <>
-          <div className="container-bl language-boxes">
-            {row.map(languageName => {
-              const slug = toSlug(languageName)
-              return (
-                <AnchorLink
-                  to={`#${slug}`}
-                  className="article language-box"
-                  title={languageName}
-                >
-                  <span className="article_title">{languageName}</span>
-                </AnchorLink>
-              )
-            })}
+    <div className="language-boxes">
+      {pageContext.languageList.map(({ name: languageName }) => {
+        const slug = toSlug(languageName)
+        return (
+          <AnchorLink
+            to={`#${slug}`}
+            className="article language-box"
+            title={languageName}
+          >
+            <span className="article_title">{languageName}</span>
+          </AnchorLink>
+        )
+      })}
+    </div>
+  )
+}
+
+export function buildLibraryContent(library: any, pageContext: any) {
+  const [ overflown, setOverflown ] = useState(false);
+  const [ expanded, setExpanded ] = useState(false);
+  return (
+    <div className="library-info">
+      <div className="library-details">
+        <a className="library-name" href={library.url} target="_blank">
+          <p>{library.name}</p>
+        </a>
+        {library.github && (
+          <div className="library-detail">
+            <b>GitHub</b>
+            <a href={`https://github.com/${library.github}`} target="_blank">
+              {library.github}
+            </a>
           </div>
+        )}
+        {library.npm && (
+          <div className="library-detail">
+            <b>npm</b>
+            <a
+              href={`https://www.npmjs.com/package/${library.npm}`}
+              target="_blank"
+            >
+              {library.npm}
+            </a>
+          </div>
+        )}
+        {library.gem && (
+          <div className="library-detail">
+            <b>gem</b>
+            <a
+              href={`https://rubygems.org/gems/${library.gem}`}
+              target="_blank"
+            >
+              {library.gem}
+            </a>
+          </div>
+        )}
+        {library.lastRelease && (
+          <div className="library-detail">
+            <b>Last Release</b>
+            <span>{library.formattedLastRelease}</span>
+          </div>
+        )}
+        {library.stars && (
+          <div className="library-detail">
+            <b>Stars</b>
+            <span>{library.formattedStars}</span>
+          </div>
+        )}
+        {library.license && (
+          <div className="library-detail">
+            <b>License</b>
+            <span>{library.license}</span>
+          </div>
+        )}
+        {library.howto ? (
+          <div className="library-description">
+            <Marked pageContext={pageContext}>{library.description}</Marked>
+          </div>
+        ) : (
           <br />
-        </>
-      ))}
+        )}
+      </div>
+      <div className="library-howto">
+        <div
+          className="library-howto-content"
+          style={{
+            maxHeight: expanded ? "100%" : "450px",
+            overflow: "hidden",
+          }}
+          ref={el => {
+            if (el && !overflown) {
+              setOverflown(el.clientHeight < el.scrollHeight)
+            }
+          }}
+        >
+          <Marked pageContext={pageContext}>
+            {library.howto || library.description}
+          </Marked>
+        </div>
+        {overflown && <div
+          className="library-howto-expand"
+          onClick={() => setExpanded(!expanded)}
+        /> }
+      </div>
     </div>
   )
 }
@@ -45,78 +117,7 @@ export function buildLanguagesMenu(pageContext: any) {
 export function buildLibraryList(libraries: any[], pageContext: any) {
   return (
     <div className="library-list">
-      {libraries.map(library => (
-        <div className="library-info">
-          <div className="library-details">
-            <a className="library-name" href={library.url} target="_blank">
-              <p>{library.name}</p>
-            </a>
-            {library.github && (
-              <div className="library-detail">
-                <b>GitHub</b>
-                <a
-                  href={`https://github.com/${library.github}`}
-                  target="_blank"
-                >
-                  {library.github}
-                </a>
-              </div>
-            )}
-            {library.npm && (
-              <div className="library-detail">
-                <b>npm</b>
-                <a
-                  href={`https://www.npmjs.com/package/${library.npm}`}
-                  target="_blank"
-                >
-                  {library.npm}
-                </a>
-              </div>
-            )}
-            {library.gem && (
-              <div className="library-detail">
-                <b>gem</b>
-                <a
-                  href={`https://rubygems.org/gems/${library.gem}`}
-                  target="_blank"
-                >
-                  {library.gem}
-                </a>
-              </div>
-            )}
-            {library.lastRelease && (
-              <div className="library-detail">
-                <b>Last Release</b>
-                <span>{library.formattedLastRelease}</span>
-              </div>
-            )}
-            {library.stars && (
-              <div className="library-detail">
-                <b>Stars</b>
-                <span>{library.formattedStars}</span>
-              </div>
-            )}
-            {library.license && (
-              <div className="library-detail">
-                <b>License</b>
-                <span>{library.license}</span>
-              </div>
-            )}
-            {library.howto ? (
-              <div className="library-description">
-                <Marked pageContext={pageContext}>{library.description}</Marked>
-              </div>
-            ) : (
-              <br />
-            )}
-          </div>
-          <div className="library-howto">
-            <Marked pageContext={pageContext}>
-              {library.howto || library.description}
-            </Marked>
-          </div>
-        </div>
-      ))}
+      {libraries.map(library => buildLibraryContent(library, pageContext))}
     </div>
   )
 }

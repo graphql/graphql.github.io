@@ -67,6 +67,7 @@
       flex-direction: row;
       width: 40%;
       p {
+        min-width: 72px;
         width: 20%;
         margin: 0;
         color: #8c8c8c;
@@ -104,8 +105,14 @@
     font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   .language-boxes {
+    display: grid;
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    grid-template-columns: auto auto auto;
+    @media screen and (min-width: 1020px) {
+      grid-template-columns: auto auto auto auto auto auto;
+    }
     .language-box {
-      margin-right: 30px;
       border: 1px solid #979797;
       min-width: 142px;
       height: 120px;
@@ -187,9 +194,21 @@
     }
     .library-howto {
       width: 60%;
-      // max-height: 550px;
-      // overflow-y: auto;
-      // overflow-x: hidden;
+      .library-howto-content {
+        transition: max-height 0.25s ease-in;
+      }
+    }
+    .library-howto-expand {
+      border-top-style: solid;
+      border-top-color: #C4C4C4;
+      border-top-width: 3px;
+      background-image: url(../../../../static/img/downarrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      min-height: 40px;
+      display: block;
+      cursor: pointer;
     }
   }
 }
