@@ -588,32 +588,39 @@ Executor.execute(schema, query) map println
 
 #### [Caliban](https://ghostdogpr.github.io/caliban/) ([github](https://github.com/ghostdogpr/caliban)): Caliban is a purely functional library for building GraphQL servers and clients in Scala
 
-A simple example of a GraphQL schema and query with \`caliban\`:
+An example of a GraphQL schema and query with \`caliban\`:
 
 ```scala
+// Define a case class for our Schema
 case class Character(name: String, age: Int)
 
 def getCharacters(): List[Character] = ???
 def getCharacter(name: String): Option[Character] = ???
 
-// schema
+// The schema is derived from our case class [[Character]]
+// We use [[CharacterName]] to name our arguments.
 case class CharacterName(name: String)
+// Our Query schema is just a case class
 case class Queries(characters: List[Character],
                    character: CharacterName => Option[Character])
-// resolver
+// We build our Query schema by providing resolvers that satisfy our Queries case class
 val queries = Queries(getCharacters, args => getCharacter(args.name))
 
 import caliban.GraphQL.graphQL
 import caliban.RootResolver
 
+// Our first line of Caliban! pass your `queries` val to the RootResolver
+// and give that to a function `graphQL` that returns a graphQL api. 
 val api = graphQL(RootResolver(queries))
 
+// In order to process requests, you need to turn your API into an interpreter
 for {
   interpreter <- api.interpreter
 } yield interpreter
 
 case class GraphQLResponse[+E](data: ResponseValue, errors: List[E])
 
+// Here is an example of querying your API with a console app.
 val query = """
   {
     characters {
