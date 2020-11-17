@@ -10,7 +10,7 @@
   "go": "Go",
   "groovy": "Groovy",
   "haskell": "Haskell",
-  "java-kotlin-android": "Java / Kotlin / Android",
+  "java-kotlin-android": "Java / Kotlin",
   "javascript": "JavaScript",
   "julia": "Julia",
   "perl": "Perl",
@@ -21,11 +21,10 @@
   "rust": "Rust",
   "scala": "Scala",
   "ocaml-reason": "OCaml / Reason",
-  "swift-objective-c-ios": "Swift / Objective-C iOS",
+  "swift-objective-c-ios": "Swift / Objective-C",
   "language-support": "Language Support",
   "client": "Client",
   "server": "Server",
   "tools": "Tools",
-  "services": "Services",
-  "more-stuff": "More Stuff"
+  "services": "Services"
 }

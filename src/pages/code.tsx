@@ -104,7 +104,7 @@ export function buildLibraryContent(library: any, pageContext: any) {
         {overflown && (
           <div
             className={`library-howto-expand ${expanded ? 'expanded' : 'not-expanded'}`}
-            onClick={() => setExpanded(!expanded)}>
+            onClick={() => setExpanded(true)}>
               <img src="/img/downarrow.svg" className="library-howto-expand-anchor" />
           </div>
         )}
@@ -196,7 +196,7 @@ export function buildLanguagesContent(pageContext: any) {
 
 export default ({ pageContext }: any) => {
   return (
-    <Layout title="Code" className="code" pageContext={pageContext}>
+    <Layout title="GraphQL Code Libraries, Tools and Services" className="code" pageContext={pageContext}>
       <div className="code-hero">
         <div className="code-hero-inner">
           <h1>Code</h1>
@@ -207,11 +207,11 @@ export default ({ pageContext }: any) => {
         <div className="documentationContent">
           <div className="inner-content">
             <div className="intro-note">
-              <strong>
+              <p>
                 Because GraphQL is a communication pattern, there are many tools
                 to help you get started working which support GraphQL in all
                 sorts of languages.
-              </strong>
+              </p>
               <div className="goto-section">
                 <p>Go to</p>
                 <div className="sections">
@@ -223,9 +223,6 @@ export default ({ pageContext }: any) => {
                   </AnchorLink>
                   <AnchorLink to="#services" title="Services">
                     <h3>Services</h3>
-                  </AnchorLink>
-                  <AnchorLink to="#more-stuff" title="More Stuff">
-                    <h3>More Stuff</h3>
                   </AnchorLink>
                 </div>
               </div>
@@ -252,17 +249,6 @@ export default ({ pageContext }: any) => {
               </AnchorLink>
             </h2>
             {buildLibraryList(pageContext.otherLibraries.Services, pageContext)}
-            <h2>
-              <a className="anchor" id="more-stuff"></a>
-              More Stuff
-              <AnchorLink className="hash-link" to="#more-stuff">
-                #
-              </AnchorLink>
-            </h2>
-            {buildLibraryList(
-              pageContext.otherLibraries["More Stuff"],
-              pageContext
-            )}
           </div>
         </div>
       </section>

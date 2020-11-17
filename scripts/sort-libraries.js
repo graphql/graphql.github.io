@@ -48,6 +48,20 @@ const getGitHubStats = async githubRepo => {
               publishedAt 
             }
           }
+          tags: refs(refPrefix: "refs/tags/", first: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
+            nodes {
+              name
+              target {
+                ... on Tag {
+                  target {
+                    ... on Commit {
+                      pushedDate
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -82,6 +96,7 @@ const getGitHubStats = async githubRepo => {
   }
   const stars = repo.stargazers.totalCount
   const commitHistory = repo.defaultBranchRef.target.history.edges
+
   let hasCommitsInLast3Months = false;
   commitHistory.forEach(commit => {
     if (!commit.node.author.name.match(/bot/i)) {
@@ -91,10 +106,20 @@ const getGitHubStats = async githubRepo => {
   const formattedStars = numbro(stars).format({
     average: true,
   });
-  let lastRelease;
-  if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
-    lastRelease = repo.releases.nodes[0].publishedAt;
+  
+  const releases = [];
+  if (repo.tags && repo.tags.nodes && repo.tags.nodes.length && repo.tags.nodes[0].target.target && repo.tags.nodes[0].target.target.pushedDate) {
+    releases.push(repo.tags.nodes[0].target.target.pushedDate);
   }
+  if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
+    releases.push(repo.releases.nodes[0].publishedAt)
+  }
+  if(owner.includes("graphql")) {
+    console.log({ releases, repoName })
+  }
+  
+  const lastRelease = releases.filter(Boolean).sort().reverse()[0]
+
   return {
     hasCommitsInLast3Months,
     stars,

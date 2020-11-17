@@ -31,7 +31,6 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
       { text: "Languages", href: "/code/#languages" },
       { text: "Tools", href: "/code/#tools" },
       { text: "Services", href: "/code/#services" },
-      { text: "More Stuff", href: "/code/#more-stuff" },
     ],
   },
   {
