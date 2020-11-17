@@ -1,7 +1,7 @@
 ---
 name: gorm-graphql
-description: undefined
-url: https://github.com/grails/gorm-graphql/
+description: An automatic GraphQL schema generator for GORM
+url: https://grails.github.io/gorm-graphql/latest/guide/index.html
 github: grails/gorm-graphql
 ---
 
