@@ -14,8 +14,8 @@ import MiniGraphiQL from "./MiniGraphiQL"
 import { StarWarsSchema } from "./swapiSchema"
 import { UsersSchema } from './usersSchema';
 
-export default function Marked(props) {
-  return <div>{marked(props.children, props)}</div>
+export default function Marked(props: { pageContext: any; children: any; }) {
+  return <div>{props.children && marked(props.children, props)}</div>
 }
 
 /**

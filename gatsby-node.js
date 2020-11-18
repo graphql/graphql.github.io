@@ -1,14 +1,120 @@
 const path = require("path")
+const sortLibs = require("./scripts/sort-libraries")
+const globby = require('globby');
+const frontmatterParser = require('parser-front-matter');
+const { readFile } = require("fs-extra");
+const { promisify } = require('util');
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage } = actions
   deletePage(page)
+  let context = {
+    ...page.context,
+    sourcePath: path.relative(__dirname, page.componentPath),
+  }
+  if (page.path === "/code" || page.path === "/code/") {
+    const markdownFilePaths = await globby('src/content/code/**/*.md');
+    const codeData = {}
+    const slugMap = require('./src/content/code/slug-map.json');
+    const parse$ = promisify(frontmatterParser.parse);
+    await Promise.all(markdownFilePaths.map(async markdownFilePath => {
+
+      const markdownFileContent = await readFile(markdownFilePath, "utf-8")
+      let {
+        data: { name, description, url, github, npm, gem },
+        content: howto,
+      } = await parse$(markdownFileContent, undefined)
+      howto = howto.trim();
+      const pathArr = markdownFilePath.split("/")
+      if (markdownFilePath.includes("language-support")) {
+        const languageSupportDirIndex = pathArr.indexOf("language-support")
+        const languageNameSlugIndex = languageSupportDirIndex + 1
+        const languageNameSlug = pathArr[languageNameSlugIndex]
+        const languageName = slugMap[languageNameSlug]
+        codeData.Languages = codeData.Languages || {}
+        codeData.Languages[languageName] =
+          codeData.Languages[languageName] || {}
+
+        const categoryNameSlugIndex = languageSupportDirIndex + 2
+        const categoryNameSlug = pathArr[categoryNameSlugIndex]
+        const categoryName = slugMap[categoryNameSlug]
+        codeData.Languages[languageName][categoryName] =
+          codeData.Languages[languageName][categoryName] || []
+        codeData.Languages[languageName][categoryName].push({
+          name,
+          description,
+          howto,
+          url,
+          github,
+          npm,
+          gem,
+          sourcePath: markdownFilePath,
+        })
+      } else {
+        const codeDirIndex = pathArr.indexOf("code")
+        const categoryNameSlugIndex = codeDirIndex + 1
+        const categoryNameSlug = pathArr[categoryNameSlugIndex]
+        const categoryName = slugMap[categoryNameSlug]
+        codeData[categoryName] = codeData[categoryName] || []
+        codeData[categoryName].push({
+          name,
+          description,
+          howto,
+          url,
+          github,
+          npm,
+          gem,
+          sourcePath: markdownFilePath,
+        })
+      }
+    }))
+    const languageList = []
+    let sortedTools = []
+    await Promise.all([
+      Promise.all(
+        Object.keys(codeData.Languages).map(async languageName => {
+          const libraryCategoryMap = codeData.Languages[languageName]
+          let languageTotalStars = 0
+          await Promise.all(
+            Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
+              const libraries = libraryCategoryMap[libraryCategoryName]
+              const { sortedLibs, totalStars } = await sortLibs(libraries)
+              libraryCategoryMap[libraryCategoryName] = sortedLibs
+              languageTotalStars += totalStars || 0
+            })
+          )
+          languageList.push({
+            name: languageName,
+            totalStars: languageTotalStars,
+            categoryMap: libraryCategoryMap,
+          })
+        })
+      ),
+      sortLibs(codeData.Tools).then(({ sortedLibs }) => {
+        sortedTools = sortedLibs
+      }),
+    ])
+
+    context = {
+      ...context,
+      otherLibraries: {
+        Services: codeData.Services,
+        Tools: sortedTools,
+        "More Stuff": codeData["More Stuff"],
+      },
+      languageList: languageList.sort((a, b) => {
+        if (a.totalStars > b.totalStars) {
+          return -1
+        } else if (a.totalStars < b.totalStars) {
+          return 1
+        }
+        return 0
+      }),
+    }
+  }
   createPage({
     ...page,
-    context: {
-      ...page.context,
-      sourcePath: path.relative(__dirname, page.componentPath),
-    },
+    context,
   })
 }
 
@@ -64,7 +170,10 @@ exports.createPages = async ({ graphql, actions }) => {
         parent: { relativeDirectory, sourceInstanceName },
       } = node
 
-      if (sourceInstanceName !== "content") {
+      if (
+        sourceInstanceName !== "content" ||
+        relativeDirectory.includes("code")
+      ) {
         return
       }
 
@@ -176,7 +285,7 @@ exports.createPages = async ({ graphql, actions }) => {
         categoriesMap[currentCategory.name] = currentCategory
       }
 
-      sideBardata[folder] = Object.values(categoriesMap);
+      sideBardata[folder] = Object.values(categoriesMap)
     })
   )
 
