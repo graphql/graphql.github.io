@@ -1,0 +1,18 @@
+name: CI
+on: pull_request
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+
+      - run: yarn install
+
+      # Verify it compiles
+      - run: yarn build
+
+      # Doesn't pass ATM
+      # - run: yarn tsc --noEmit
