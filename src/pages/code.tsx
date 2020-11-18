@@ -251,6 +251,7 @@ export default ({ pageContext }: any) => {
             {buildLibraryList(pageContext.otherLibraries.Services, pageContext)}
           </div>
         </div>
+      <p>Want to improve this page? See the <a href="https://github.com/graphql/graphql.github.io/blob/source/notes/ContributingToCodePage.md">docs here</a>.</p>
       </section>
     </Layout>
   )
