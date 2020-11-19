@@ -172,7 +172,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       if (
         sourceInstanceName !== "content" ||
-        relativeDirectory.includes("code")
+        relativeDirectory.includes("code/")
       ) {
         return
       }
