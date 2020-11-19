@@ -1,6 +1,6 @@
 ---
 name: urql
-description: The highly customizable and versatile GraphQL client with which you add on features like normalized caching as you grow.
+description: A highly customizable and versatile GraphQL client with which you add on features like normalized caching as you grow.
 url: https://formidable.com/open-source/urql/docs/
 github: FormidableLabs/urql
 npm: "@urql/core"
