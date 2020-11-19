@@ -21,7 +21,7 @@ const layoutMap: any = {
 const Blog = ({ data, pageContext }: Props) => {
   const {
     doc: {
-      frontmatter: { title, date, permalink, byline, guestBio, layout, questions },
+      frontmatter: { title, date, permalink, byline, guestBio, layout, gettingStartedQuestions, generalQuestions, bestPracticesQuestions, specificationQuestions, frontendQuestions },
       rawMarkdownBody,
     },
     nextDoc,
@@ -35,7 +35,11 @@ const Blog = ({ data, pageContext }: Props) => {
         permalink={permalink}
         byline={byline}
         guestBio={guestBio}
-        questions={questions}
+        gettingStartedQuestions={gettingStartedQuestions}
+        generalQuestions={generalQuestions}
+        bestPracticesQuestions={bestPracticesQuestions}
+        specificationQuestions={specificationQuestions}
+        frontendQuestions={frontendQuestions}
         rawMarkdownBody={rawMarkdownBody}
         nextDoc={nextDoc}
         sideBarData={pageContext.sideBarData}
@@ -56,7 +60,11 @@ export const query = graphql`
         guestBio
         sublinks
         layout
-        questions
+        gettingStartedQuestions
+        generalQuestions
+        bestPracticesQuestions
+        specificationQuestions
+        frontendQuestions
       }
       id
       rawMarkdownBody
