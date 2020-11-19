@@ -4,14 +4,14 @@
 
 Thanks for taking the time to contribute! The GraphQL community is great because of people like you 🎉 
 
-There are many ways to contribute to the GraphQL website. Follow this guide and feel free to [reach out if you have questions](#asking-questions).
+There are many ways to get involved. Follow this guide and feel free to [reach out if you have questions](#asking-questions).
 
 ## What's in this document
 
 - [Development guide](#development-guide)
     - [Running the site locally](#running-the-site-locally)
     - [Branching](#branching)
-    - [Folder structure](#folder-structure)
+    - [Project structure](#project-structure)
     - [Publishing the updated site](#publishing-the-updated-site)
 - [Updating content](#updating-content)
     - [Fix a typo, code sample bug, or fomatting](#fix-a-typo-code-sample-bug-or-formatting)
@@ -34,7 +34,7 @@ git clone https://github.com/graphql/graphql.github.io.git
 cd graphql.github.io
 ```
 
-Then, use [Yarn](https://yarnpkg.com/getting-started/install) to install and load all of the necessary dependencies:
+Then, use [Yarn](https://yarnpkg.com/getting-started/install) to install and load all the necessary dependencies:
 
 ```bash
 yarn 
@@ -50,15 +50,15 @@ yarn start
 
 Finally, open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
-Because graphql.org is built with [Gatsby](https://www.gatsbyjs.com/docs/), a hot-reloading development environment is accessible by default. 
+The GraphQL website is built with [Gatsby](https://www.gatsbyjs.com/docs/). This means that a hot-reloading development environment will be accessible by default. 
 
 ### Branching
 
 Active development for graphql.org happens on the `source` branch. Be sure to create any new branches or direct any pull requests back to `source`. 
 
-### Folder structure
+### Project structure
 
-- `static` folder contains the files that will be copied directly to `public` folder which will contain the output files to be served by a static HTTP server.
+- `static` contains the files that will be copied directly to the `public` folder. which will contain the output files to be served by a static HTTP server.
 - `src` folder contains markdown and TypeScript/JavaScript files used to generate the website.
 - - `assets` folder contains `less` files and those files contain stylesheets.
 - - `components` and `Containers` folders contains React components that are used in layouts and pages.
