@@ -14,7 +14,7 @@ There are many ways to get involved. Follow this guide and feel free to [reach o
     - [Project structure](#project-structure)
     - [Publishing the updated site](#publishing-the-updated-site)
 - [Updating content](#updating-content)
-    - [Fix a typo, code sample bug, or fomatting](#fix-a-typo-code-sample-bug-or-formatting)
+    - [Fix a typo, code sample bug, or formatting](#fix-a-typo-code-sample-bug-or-formatting)
     - [Add a library or tool to the Code page](#add-a-library-or-tool-to-the-code-page)
     - [Add a resource to the Community page](#add-a-resource-to-the-community-page)
     - [Add a question to the FAQ](#add-a-question-to-the-faq)
@@ -58,57 +58,58 @@ Active development for graphql.org happens on the `source` branch. Be sure to cr
 
 ### Project structure
 
-- `static` contains the files that will be copied directly to the `public` folder. which will contain the output files to be served by a static HTTP server.
-- `src` folder contains markdown and TypeScript/JavaScript files used to generate the website.
-- - `assets` folder contains `less` files and those files contain stylesheets.
-- - `components` and `Containers` folders contains React components that are used in layouts and pages.
-- - `content` folder contains markdown files for the content of pages.
-- - `templates` contains the layout templates.
-- - `utils` contains helper functions.
+- `static`: Files that will be copied directly to `public`. 
+- `public`: Output files that will be served by a static HTTP server.
+- `src`: Markdown and the TypeScript/JavaScript files used to generate the website.
+    - `assets`: All the [`less`](http://lesscss.org/) files that contain stylesheets.
+    - `components` and `Containers`: React components used for layouts and pages.
+    - `content`: Markdown files with the content of pages.
+    - `templates`: Layout templates.
+    - `utils`: Helper functions.
 
 ### Publishing the updated site
 
-Once your changes have been merged into the `source` branch, the CI will automatically publish a new version of http://graphql.org via [Netlify](https://docs.netlify.com/).
+Your changes will be merged into the `source` branch. Then, the CI will automatically publish a new version of http://graphql.org via [Netlify](https://docs.netlify.com/).
 
 ## Updating content
 
-### Fix a typo, code sample bug, or fomatting
+### Fix a typo, code sample bug, or formatting
 
-If you notice something wrong in the text or code samples, please follow our [development guide](#development-guide) and [open a pull request directly](https://github.com/graphql/graphql.github.io/pulls) with your fix. 
+If you notice something wrong in the text or code samples, please follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls) with your fix. 
 
 All of the content on graphql.org is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
 ### Add a library or tool to the Code page
 
-The [Code page](https://graphql.org/code/) is a comprehensive resource of libraries, tools, services, and more built for GraphQL. 
+The [Code page](https://graphql.org/code/) is a collection of libraries, tools, and services built for GraphQL. 
 
-To add your resource to this page, follow our [development guide](#development-guide) and [open a pull request directly](https://github.com/graphql/graphql.github.io/pulls). 
+To add your resource to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls). 
 
 The content for this page is located in [various directories under `src/content/code`](./src/). Everything is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
 ### Add a resource to the Community page
 
-The [Community Resources page](https://graphql.org/community/) highlights resources and groups to help people become more involved with GraphQL.
+The [Community page](https://graphql.org/community/) highlights resources and groups that help people get more involved with GraphQL.
 
-To add something to this page, follow our [development guide](#development-guide) and [open a pull request directly](https://github.com/graphql/graphql.github.io/pulls). 
+To add something to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls). 
 
 The content for this page is located in a [directory under `src/content/community`](./src/). Everything is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
 ### Add a question to the FAQ
 
-Our [Frequently Asked Questions (FAQ)](https://graphql.org/faq/) page is designed to help answer all of the GraphQL unknowns. This page is still in development, so if you think there's a question missing - please [open an issue](https://github.com/graphql/graphql.github.io/issues/new)! It'd be great if you could include both the question and a proposed answer outline in the issue description.
+Our [Frequently Asked Questions (FAQ) page](https://graphql.org/faq/) is designed to help answer questions from the community. This page is still in development, so if you think there's a question missing - please [open an issue](https://github.com/graphql/graphql.github.io/issues/new)! It'd be great if you could include both the question and a proposed answer outline in the issue description.
 
-When your question has been approved, you can use our [development guide](#development-guide) to add your question and answer. All of the content for the FAQ is located in [`src/content/faq`](./src/content/faq/). Each section has its own file and all of the content is written in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/). 
+Once you have approval from a maintainer, use the [development guide](#development-guide) to add your question and answer. The content for the FAQ is located in [`src/content/faq`](./src/content/faq/). Each section has its own [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/) file.
 
-> Please note that all answers in this section should be _vendor-neutral_ and accessible to GraphQL users of all levels.
+> Note: All answers in this section should be vendor-neutral and accessible to GraphQL users of all levels.
 
-Once your answer is ready, [open a pull request](https://github.com/graphql/graphql.github.io/pulls/).
+When your answer is ready, [open a pull request](https://github.com/graphql/graphql.github.io/pulls/).
 
 ### Write a new section or guide
 
-There are still several [Best Practices guides that haven't been written yet](https://github.com/graphql/graphql.github.io/issues/41). If you're interested in taking up one of these, please comment on [the original issue](https://github.com/graphql/graphql.github.io/issues/41) and mention that you're tackling it.
+There are still several [Best Practices guides that no one has written](https://github.com/graphql/graphql.github.io/issues/41) yet. If you want to take one of these, comment on [the original issue](https://github.com/graphql/graphql.github.io/issues/41) and mention which topic you'll work on.
 
-Then, you can use our [development guide](#development-guide) to determine where your new page best fits. All of our documentation is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/). 
+Then, use our [development guide](#development-guide) to determine where your new page best fits. Our documentation is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/). 
 
 Once it's ready for review, please [open a pull request](https://github.com/graphql/graphql.github.io/pulls/).
 
@@ -116,7 +117,7 @@ Once it's ready for review, please [open a pull request](https://github.com/grap
 
 Before diving into any code updates, please [open an issue](https://github.com/graphql/graphql.github.io/issues/new) describing the change(s) you'd like to make.
 
-If you're working off an [existing issue](https://github.com/graphql/graphql.github.io/issues/), you can follow our [development guide](#development-guide) to make your changes. Once it's ready for review, please [open a pull request](https://github.com/graphql/graphql.github.io/pulls/) and reference the original issue.
+If you're working off an [existing issue](https://github.com/graphql/graphql.github.io/issues/), follow our [development guide](#development-guide) to make your changes. Once it's ready for review, please [open a pull request](https://github.com/graphql/graphql.github.io/pulls/) and reference the original issue.
 
 ## Contributing something else
 
@@ -126,4 +127,4 @@ Interested in adding something not covered in this guide? Please [open an issue]
 
 If you run into any problems or have questions while contributing, you're always welcome to [open an issue](https://github.com/graphql/graphql.github.io/issues/new). 
 
-Alternatively, you can ping our team in the [#website channel on the GraphQL Slack](https://graphql.slack.com/messages/website/). [Get your invite here!](https://graphql-slack.herokuapp.com/) 
+You can also ping our team in the [#website channel on the GraphQL Slack](https://graphql.slack.com/messages/website/). [Get your invite here!](https://graphql-slack.herokuapp.com/) 
