@@ -14,11 +14,11 @@ It depends on your use case, but in general, GraphQL has a few key features that
 * Create a representation of your data that feels familiar and natural ([a graph](/learn/thinking-in-graphs/#it-s-graphs-all-the-way-down)).
 * Ensure that all of your data is [statically typed](/learn/schema/) and these types inform [what queries the schema supports](/learn/introspection/).
 * [Reduce the need for breaking changes](/learn/best-practices/#versioning), but utilize a [built-in mechanism for deprecations](https://spec.graphql.org/draft/#sec-Deprecation) when you need to.
-* Access to a [powerful tooling ecosystem](/code/#tools) with GUIs, editor integrations, code generation, linting, analytics, and more.
+* Access to a [powerful tooling ecosystem](/code/#generic-tools) with GUIs, editor integrations, code generation, linting, analytics, and more.
 
 [Our homepage](/) outlines even more reasons to use GraphQL.
 
-You can try out GraphQL without rewriting your entire application. For example, starting with a single HTTP request that wraps an existing REST call. Your [GraphQL schema](/learn/thinking-in-graphs/#shared-language) and [business domain model](/learn/thinking-in-graphs/#business-logic-layer) can expand gradually. We recommend focusing on one use case at first and only building the part of the schema needed for that. 
+You can try out GraphQL without rewriting your entire application. For instance, starting with a single HTTP request that wraps an existing REST call. Your [GraphQL schema](/learn/thinking-in-graphs/#shared-language) and [business domain model](/learn/thinking-in-graphs/#business-logic-layer) can expand gradually. We recommend focusing on one use case at first and only building the part of the schema needed for that. 
 
 ## Is GraphQL a database language like SQL?
 
@@ -42,7 +42,7 @@ There are many resources available to help you learn GraphQL, including this web
 
 For more practical guides, visit the [How to GraphQL](https://www.howtographql.com/) fullstack tutorial website. We also have a free online course with edX, [Exploring GraphQL: A Query Language for APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis). 
 
-Before you start your learning journey, make sure you know what an API is and how communication generally works between client and server.
+Before you start your learning journey, make sure you know [what an API is](https://www.codenewbie.org/blogs/an-intro-to-apis) and how communication generally works between client and server.
 
 ## Is GraphQL frontend or backend?
 
@@ -58,7 +58,7 @@ It’s understandable why you’d think this, though. GraphQL was introduced at 
 
 GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [subscriptions](https://spec.graphql.org/draft/#sec-Subscription) to a [GraphQL server](https://www.howtographql.com/advanced/1-server/). They use the underlying structure of a GraphQL API to automate certain processes. This includes batching, UI updates, build-time schema validation, and more.
 
-A [list of GraphQL clients](/code/#graphql-clients) in various languages is available on our Code page. There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
+A list of GraphQL clients in various languages is available on our [Code page](/code/). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
 You don't need a specific client to work with GraphQL, though. You might want to start out by [issuing GraphQL results with a regular HTTP client](/learn/serving-over-http/). Then later switch to a GraphQL-optimized client as your application grows in complexity.
 
@@ -76,6 +76,6 @@ You can find out more by visiting [foundation.graphql.org](https://foundation.gr
 
 ## How can I contribute to the GraphQL specification?
 
-GraphQL is still an evolving language and contributions are very welcome! The specification (including the [latest working draft](https://spec.graphql.org/)) is open source. [Contributor guidelines](https://github.com/graphql/graphql-spec/blob/master/CONTRIBUTING.md) are available on GitHub.
+GraphQL is still evolving and contributions are very welcome! The specification (including the [latest working draft](https://spec.graphql.org/)) is open source. [Contributor guidelines](https://github.com/graphql/graphql-spec/blob/master/CONTRIBUTING.md) are available on GitHub.
 
 There are more ways to get involved with GraphQL beyond the specification though. Updating the content on [this website and the documentation](https://github.com/graphql/graphql.github.io), for example. Or contributing to [graphql-js](https://github.com/graphql/graphql-js), [express-graphql](https://github.com/graphql/express-graphql), [GraphiQL](https://github.com/graphql/graphiql), or [one of the many other projects](https://github.com/graphql/) maintained by the [GraphQL Foundation](#what-is-the-graphql-foundation). 
