@@ -20,10 +20,10 @@ case class Queries(characters: List[Character])
 // resolver
 val queries = Queries(getCharacters)
 
-val query = "{ characters { name } }"
+val api = graphQL(RootResolver(queries))
+
 for {
-  api          = graphQL(RootResolver(queries))
   interpreter <- api.interpreter
-  result      <- interpreter.execute(query)
+  result      <- interpreter.execute("{ characters { name } }")
 } yield result
 ```
