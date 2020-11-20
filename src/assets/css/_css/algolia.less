@@ -7,9 +7,12 @@
   display: inline-block;
   vertical-align: top;
   pointer-events: auto;
+  position: absolute;
+  top: 0;
+  right: 100px;
 
-  @media screen and (max-width: 1020px) {
-    display: none;
+  @media screen and (max-width: 1210px) {
+    right: 10px;
   }
 
   input {
@@ -47,7 +50,10 @@
     box-shadow:
       0 0 1px rgba(0, 0, 0, 0.2),
       0 2px 8px rgba(0, 0, 0, 0.2);
-
+    @media screen and (max-width: 1210px) {
+      width: fit-content;
+      margin-left: -100px;
+    }
     .aa-suggestion {
       border-top: solid 1px #F3F3F3;
 

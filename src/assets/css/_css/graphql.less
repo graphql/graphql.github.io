@@ -126,7 +126,6 @@ header {
   top: 0px;
   width: 100%;
   position: sticky;
-
   // Home link within nav.
   .nav-home {
     float: left;
@@ -136,7 +135,10 @@ header {
     display: inline-block;
     padding-right: 1em;
     text-decoration: none;
-
+    @media screen and (max-width:850px) {
+      position: absolute;
+      left: 50px;
+    }
     img {
       vertical-align: -9px;
       margin-right: 6px;
@@ -147,25 +149,84 @@ header {
 }
 
 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   @media screen and (min-width: 1020px) {
-    float: left;
+    height: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
   }
   @media screen and (max-width: 1019px) {
     text-align: center;
     margin: 0 -1em;
   }
-
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+  .toggle-button{
+    position: absolute;
+    top: 0.75rem;
+    cursor: pointer;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    @media (max-width:850px){
+      display: flex;
+    }
+    .bar{
+      height: 3px;
+      mix-blend-mode: difference;
+      isolation: isolate;
+      width: inherit;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+  }
+  .navbar-links{
+    @media (max-width:850px){
+      display: none;
+      width: 100%;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      @media (max-width:850px){
+        position: relative;
+        top: 2rem;
+        width: 100%;
+        flex-direction:column;
+      }
+      li{
+        list-style: none;
+        text-align: center;
+      }
+    }
+  }
+  .navbar-links.active{
+    display: flex;
+  }
   a {
     color: #aaa;
     display: inline-block;
     line-height: 50px;
     padding: 0 1em;
     transition: color 0.1s ease-out;
-
     &:hover, &:focus, &.active {
       color: @text-color;
       text-decoration: none;
     }
+    @media screen and (max-width:1020px){
+        padding: 0 0.4em;
+    }
+    animation: fade 1.2s ease-in-out;
   }
 }
 

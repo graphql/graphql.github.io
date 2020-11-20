@@ -18,7 +18,7 @@ const Header = () => {
           GraphQL
         </Link>
         <HeaderLinks/>
-        <Search />
+        <Search searchID="hero-search-input"></Search>
       </section>
     </header>
   )
