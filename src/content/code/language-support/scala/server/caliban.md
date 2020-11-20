@@ -7,27 +7,23 @@ github: ghostdogpr/caliban
 
 An example of a GraphQL schema and query with `caliban`:
 ```scala
-case class Character(name: String, age: Int)
-def getCharacters(): List[Character] = ??? 
-// schema
-case class Queries(characters: List[Character])
-// resolver
-val queries = Queries(getCharacters)
 import caliban.GraphQL.graphQL
 import caliban.RootResolver
+
+case class Character(name: String, age: Int)
+
+def getCharacters(): List[Character] = ??? 
+
+// schema
+case class Queries(characters: List[Character])
+
+// resolver
+val queries = Queries(getCharacters)
+
 val api = graphQL(RootResolver(queries))
+
 for {
   interpreter <- api.interpreter
-} yield interpreter
-case class GraphQLResponse[+E](data: ResponseValue, errors: List[E])
-val query = """
-  {
-    characters {
-      name
-    }
-  }"""
-for {
-  result <- interpreter.execute(query)
-  _      <- zio.console.putStrLn(result.data.toString)
-} yield ()
+  result      <- interpreter.execute("{ characters { name } }")
+} yield result
 ```
