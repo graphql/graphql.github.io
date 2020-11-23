@@ -11,6 +11,7 @@ const links: LinkItem[] = [
   { section: "learn", text: "Learn", href: "/learn/" },
   { section: "code", text: "Code", href: "/code/" },
   { section: "community", text: "Community", href: "/community/" },
+  { section: "faq", text: "FAQ", href: "/faq/" },
   {
     section: "spec",
     text: "Spec",

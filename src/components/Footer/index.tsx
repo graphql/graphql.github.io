@@ -28,9 +28,9 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     text: "Code",
     href: "/code",
     subsections: [
-      { text: "Servers", href: "/code/#server-libraries" },
-      { text: "Clients", href: "/code/#graphql-clients" },
+      { text: "Languages", href: "/code/#languages" },
       { text: "Tools", href: "/code/#tools" },
+      { text: "Services", href: "/code/#services" },
     ],
   },
   {
@@ -54,7 +54,7 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     subsections: [
       {
         text: "GraphQL Specification",
-        href: "/https://graphql.github.io/graphql-spec/",
+        href: "https://graphql.github.io/graphql-spec/",
       },
       { text: "GraphQL Foundation", href: "https://foundation.graphql.org/" },
       {

@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import DocsLayout from "../components/DocsLayout"
 import BlogLayout from '../components/BlogLayout';
 import CodeLayout from "../components/CodeLayout";
+import FAQLayout from "../components/FAQLayout";
 
 interface Props {
   data: any
@@ -14,12 +15,13 @@ const layoutMap: any = {
   docs: DocsLayout,
   blog: BlogLayout,
   code: CodeLayout,
+  faq: FAQLayout,
 }
 
 const Blog = ({ data, pageContext }: Props) => {
   const {
     doc: {
-      frontmatter: { title, date, permalink, byline, guestBio, layout },
+      frontmatter: { title, date, permalink, byline, guestBio, layout, questions },
       rawMarkdownBody,
     },
     nextDoc,
@@ -33,9 +35,11 @@ const Blog = ({ data, pageContext }: Props) => {
         permalink={permalink}
         byline={byline}
         guestBio={guestBio}
+        questions={questions}
         rawMarkdownBody={rawMarkdownBody}
         nextDoc={nextDoc}
         sideBarData={pageContext.sideBarData}
+        pageContext={pageContext}
       />
     </Layout>
   )
@@ -52,6 +56,7 @@ export const query = graphql`
         guestBio
         sublinks
         layout
+        questions
       }
       id
       rawMarkdownBody
