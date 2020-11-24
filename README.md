@@ -4,4 +4,4 @@ This repository contains the source code of https://graphql.org website.
 
 ## Contributing
 
-Check out our [contributing guide](./CONTRIBUTING.md) for detailed instructions for how to make changes to graphql.org 🎉
+Check out our [contributing guide](./CONTRIBUTING.md) for detailed instructions for how to make changes to [Graphql🎉](https://graphql.org/)
