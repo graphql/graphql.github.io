@@ -1,7 +1,18 @@
 # Source Repository for graphql.org
 
-This repository contains the source code of https://graphql.org website.
+This repository contains the source code of [GrapQL](https://graphql.org)
+> [Invite link to slack channel](https://graphql-slack.herokuapp.com/)
 
-## Contributing
+**GraphQL 🎉** is a query language for APIs and a runtime for fulfilling those queries with your existing data.
 
-Check out our [contributing guide](./CONTRIBUTING.md) for detailed instructions for how to make changes to graphql.org 🎉
+**GraphQL 🎉** provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+
+## Documentation
+- [Site](https://graphql.org/)
+- [User guide](https://graphql.org/code/)
+- [API documentation](https://graphql.org/learn/)
+
+## How to contribute
+If you want to report a bug or if you just want to request for a new feature/improvement Check out our [contributing guide](./CONTRIBUTING.md) for detailed instructions for how to make changes to [Graphql 🎉](https://graphql.org/)
+
+Thanks for taking time to contribute to Graphql 🎉 👍
