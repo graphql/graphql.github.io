@@ -79,11 +79,30 @@ If you notice something wrong in the text or code samples, please follow our [de
 
 All of the content on graphql.org is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
-### Add a library or tool to the Code page
+### Add a library, tool, or service to the Code page
 
-The [Code page](https://graphql.org/code/) is a collection of libraries, tools, and services built for GraphQL. 
+The [Code page](https://graphql.org/code/) is a collection of libraries, tools, and services built for GraphQL.
 
-To add your resource to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls). 
+#### General guidelines
+
+**Adding a resource:**
+- With rare exceptions, any pull request that adds a new library, tool, or service to the Code page will be accepted.
+- Any library should include a few paragraphs describing the usage and offering people a chance to grok the project priorities.
+- If there isn't a section already for your programming language, please add it. 
+
+If it isn't a library, tool, or service - then it could go into the community section. If it doesn't fit in any of these cases, then ping me or Ivan and we can figure out if/where it can live.
+
+**Removing a resource:**
+- Services that don't work anymore
+- Code repositories that are archived
+- Projects declared to be abandoned by their maintainers
+- Any link that 404s
+
+We rely on these concrete signals before removing a resource. Even if a project hasn't been released in a few years, that doesn't mean that it's not working. 
+
+#### Workflow
+
+To add or remove a resource to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls). 
 
 The content for this page is located in [various directories under `src/content/code`](./src/). Everything is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
