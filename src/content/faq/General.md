@@ -60,7 +60,6 @@ Both. GraphQL specifies how you can [exchange information between client and ser
 
 ## Does GraphQL use HTTP?
 
-<<<<<<< HEAD
 Yes, [GraphQL is typically served over HTTP](/learn/best-practices/#http). This is largely due to how pervasive the HTTP protocol is in our industry. But it helps that you try out GraphQL by creating [a single HTTP request](#why-should-i-use-graphql). Guidelines for setting up a GraphQL server to operate over HTTP are available in our [Serving over HTTP](/learn/serving-over-http/) documentation. 
 
 While HTTP is the most common choice for client-server protocol, it’s not the only one. GraphQL is agnostic to the transport layer. So, for example, you could use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) for GraphQL subscriptions instead of HTTP to consume realtime data. 
@@ -70,9 +69,6 @@ While HTTP is the most common choice for client-server protocol, it’s not the 
 On a typical GraphQL backend, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data batching on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.
 
 Other performance factors should be considered when building out your GraphQL implementation. For example, it’s possible for a GraphQL service to be ‘chatty’ and repeatedly load data from your database. This is commonly solved by [implementing a batching technique](/learn/best-practices/#server-side-batching-caching) or [utilizing a tool like DataLoader](https://github.com/graphql/dataloader). 
-=======
-<!-- TODO -->
->>>>>>> Initial design - not pretty
 
 ## What is a GraphQL client and why would I use one?
 
@@ -84,11 +80,7 @@ You don't need a specific client to work with GraphQL, though. You might want to
 
 ## Does GraphQL replace ORMs?
 
-<<<<<<< HEAD
 No, GraphQL is a specification typically used for remote client-server communications. It's [agnostic to the data source(s) used](#is-graphql-a-database-language-like-sql) and doesn’t implement an object-relational mapping technique. But there are ORMs built specifically for GraphQL. A few of those are listed under the [Services section of our Code page](/code/#services). 
-=======
-No, GraphQL is a specification. It [doesn’t understand the concept of databases](#is-graphql-a-database-language-like-sql). There are, however, ORMs built specifically for GraphQL. A few of those are listed under the [Services section of our Code page](/code/#services). 
->>>>>>> Initial design - not pretty
 
 ## Is GraphQL owned by Facebook?
 
@@ -98,7 +90,6 @@ That said, the specification was originally developed at Facebook and [Facebook 
 
 ## Who is behind GraphQL?
 
-<<<<<<< HEAD
 Many people! The [GraphQL specification and all related projects](http://github.com/graphql/) are open source, so anyone is welcome to [contribute](#how-can-i-contribute-to-the-specification). That said, there is a structure in place behind the repositories. This exists to resolve conflicts within the community and guiding technical decisions.
 
 The [GraphQL Foundation](#what-is-the-graphql-foundation) provides most of the oversight for GraphQL. It's made up of [representatives from dozens of different companies](https://foundation.graphql.org/members/). 
@@ -108,13 +99,6 @@ There are also monthly virtual [GraphQL Working Group (WG)](https://github.com/g
 In the [November 2020 WG meeting](https://www.youtube.com/watch?v=UybZp9O24Ow), it was announced that GraphQL will have a Technical Steering Committee (TSC) going forward. More on that coming soon.
 
 If this is confusing, don’t worry - there’s a lot going on. To get a more visual, high-level overview, check out the [GraphQL Landscape](https://landscape.graphql.org/).
-=======
-Loads of people! The [GraphQL specification and all related projects](http://github.com/graphql/) are open source, so anyone is welcome to [contribute](#how-can-i-contribute-to-the-specification). That being said, there is a structure in place behind the repositories - particularly for resolving conflicts within the community and guiding technical decisions. 
-
-The [GraphQL Foundation](#what-is-the-graphql-foundation) provides most of the oversight for GraphQL and is made up of [representatives from 20 different companies](https://foundation.graphql.org/members/). There are also monthly virtual [GraphQL Working Group (WG)](https://github.com/graphql/graphql-wg) meetings. These meetings are operated by the GraphQL Foundation and designed to bring together maintainers of commonly used GraphQL libraries and tools, as well as significant contributors to the GraphQL community. While it tends to be mostly foundation members in attendance, the WG meetings are completely open. Anyone is able to join and [propose items to the agenda](https://github.com/graphql/graphql-wg/blob/master/agendas/). Additionally, GraphQL will soon have a Technical Steering Committee (TSC) to advise on implementation details. More on that coming soon.
-
-If this is confusing, don’t worry - there’s a lot going on. To get a more visual high-level overview, check out the [GraphQL Landscape](https://landscape.graphql.org/).
->>>>>>> Initial design - not pretty
 
 ## What is the GraphQL Foundation?
 
@@ -122,7 +106,6 @@ The [GraphQL Foundation](https://foundation.graphql.org/faq/) is a neutral found
 
 You can find out more by visiting [foundation.graphql.org](https://foundation.graphql.org/).
 
-<<<<<<< HEAD
 ## Is GraphQL scalable?
 
 Yes, GraphQL is designed to be scalable and is used by many companies in production under a very high load.
@@ -146,43 +129,19 @@ For an overview of common security concerns and how to address them, check out t
 ## How can I set up authorization with GraphQL?
 
 We recommend enforcing authorization behavior in the [business logic layer](/learn/thinking-in-graphs/#business-logic-layer). That way, you have a single source of truth for authorization. 
-=======
-## How does GraphQL affect my product’s performance?
-
-<!-- TODO -->
-
-## Does GraphQL support offline usage?
-
-No, or at least not natively. But there are [GraphQL clients](#what-is-a-graphql-client-and-why-would-i-need-one) that enable you to build offline-first through caching, holding your mutations in a queue, service workers, or another feature designed to perform data operations while offline. 
-
-You can find a [list of GraphQL clients on our Code page](/code/#graphql-clients).
-
-## What are the security concerns with GraphQL?
-
-<!-- TODO -->
-
-## How can I set up authorization with GraphQL?
-
-As tempting as it is to define your authorization logic in your GraphQL implementation, we recommend enforcing authorization behavior in the [business logic layer](/learn/thinking-in-graphs/#business-logic-layer). That way, you have a single source of truth for authorization. 
->>>>>>> Initial design - not pretty
 
 For a more detailed explanation, go to our [Authorization documentation](/learn/authorization/).
 
 ## How does authentication work with GraphQL?
 
-<<<<<<< HEAD
 You can implement authentication with common patterns, such as [OAuth](https://oauth.net/) or [JWT](https://jwt.io/). There’s nothing special about authentication within the GraphQL specification. 
 
 Some [GraphQL libraries](/code/#language-support) include a specific protocol for authentication as well. Although if you’re working with a pipeline model, we recommend that [GraphQL be placed after all authentication middleware](/learn/serving-over-http/#web-request-pipeline).
-=======
-There’s nothing special about it within the specification, but you can implement authentication with common patterns, such as [OAuth](https://oauth.net/) or [JWT](https://jwt.io/). Some [GraphQL libraries](/code/) include a specific protocol for authentication as well. Although if you’re working with a pipeline model, we recommend that [GraphQL should be placed after all authentication middleware](/learn/serving-over-http/#web-request-pipeline).
->>>>>>> Initial design - not pretty
 
 If you’re using [GraphQL.js](/graphql-js/) to build your API server, we have documentation on [handling authentication with Express middleware](/graphql-js/authentication-and-express-middleware/).
 
 ## Is GraphQL the right fit for designing a microservice architecture?
 
-<<<<<<< HEAD
 Yes, it can be. If you’re integrating GraphQL into your microservice architecture, we’d recommend having one GraphQL schema as an API gateway rather than having your client talk to multiple GraphQL services. This way, you can split your backend into microservices, but then still aggregate all your data to the frontend from a single API.
 
 There are many ways to create an API gateway. The benefit of using GraphQL is that you can take advantage of features like [caching](/learn/caching/), request budgeting, and planning out query schedules.
@@ -204,21 +163,6 @@ For many, this provides enough API reference documentation. But it doesn’t red
 The latest working draft release of the GraphQL specification can be found at [spec.graphql.org/draft](https://spec.graphql.org/draft/). Previous editions are also available at permalinks that match their [release tag](https://github.com/graphql/graphql-spec/releases).
 
 The entire process behind each release is open source. You can monitor specification proposals by following [pull requests in the graphql-spec repository](https://github.com/graphql/graphql-spec/pulls). You can also watch past GraphQL Working Group discussions various proposals on [YouTube](https://www.youtube.com/channel/UCERcwLeheOXp_u61jEXxHMA).
-=======
-Yes, it can be. If you’re integrating GraphQL into your microservice architecture, we’d recommend having one GraphQL schema as an API gateway rather than having your client talk to multiple GraphQL services. This way, you can split your backend into microservices, but then still aggregate all of your data to the frontend from a single API.
-
-There are many ways to create an API gateway, but the benefit of using GraphQL is that you can take advantage of features like [caching](/learn/caching/), request budgeting, and planning out query schedules.
-
-## How can I document my GraphQL API?
-
-One of the benefits of GraphQL is that it is inherently self-documenting. This means that when you use an interactive tool like [GraphiQL](https://github.com/graphql/graphiql), you’re able to explore what data is exposed by your GraphQL API. This includes the [fields](/learn/queries/#fields), [types](/learn/schema/#type-system), and more. You can also add a [`description` field](https://spec.graphql.org/draft/#sec-Documentation) to provide supplementary notes about your endpoint. 
-
-For many, this provides sufficient API reference documentation. But it doesn’t reduce the need for other forms of documentation, such as guides that explain how the general concepts tie into your specific use case.
-
-## What’s the best way to follow specification releases?
-
-The latest working draft release of the GraphQL specification can be found at [spec.graphql.org/draft](https://spec.graphql.org/draft/). Previous editions can also be found at permalinks that match their [release tag](https://github.com/graphql/graphql-spec/releases).
->>>>>>> Initial design - not pretty
 
 ## How can I contribute to the GraphQL specification?
 
@@ -226,21 +170,14 @@ GraphQL is still evolving and contributions are very welcome! The specification 
 
 There are more ways to get involved with GraphQL beyond the specification though. Updating the content on [this website and the documentation](https://github.com/graphql/graphql.github.io), for example. Or contributing to [graphql-js](https://github.com/graphql/graphql-js), [express-graphql](https://github.com/graphql/express-graphql), [GraphiQL](https://github.com/graphql/graphiql), or [one of the many other projects](https://github.com/graphql/) maintained by the [GraphQL Foundation](#what-is-the-graphql-foundation). 
 
-<<<<<<< HEAD
 ## Where is the documentation for subscriptions?
 
 It's not on this website yet, but we're working on it. For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription). 
 
 If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/993). 
 
-=======
->>>>>>> Initial design - not pretty
 ## Does GraphQL replace Redux or other state management libraries?
 
 No, GraphQL isn’t a state management library - but it can reduce the need for one.
 
-<<<<<<< HEAD
 One benefit of state management libraries like Redux is that they can manipulate API responses into a format that your application understands. With GraphQL, you have control over [what data you request](/learn/queries/#fields) and typically results are formatted in a client-friendly way by the graph design. So this benefit is already built-in. Many [client libraries](#what-is-a-graphql-client-and-why-would-i-need-one) can also be used to manage state and have features like caching built-in. You may still decide to implement a state management library, but using it to format response data is generally not necessary.
-=======
-One benefit of state management libraries like Redux is that they can manipulate API responses into a format that your application understands. With GraphQL, you have control over [what data you request](/learn/queries/#fields) and typically results are formatted in a client-friendly way by virtue of the graph design. So this benefit is already built-in. Many [client libraries](https://graphql.org/code/#graphql-clients) can also be used to manage state and have features like caching built-in. You may still decide to implement a state management library, but using it to format response data is generally not necessary.
->>>>>>> Initial design - not pretty
