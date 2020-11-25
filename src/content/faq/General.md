@@ -22,7 +22,11 @@ It depends on your use case, but in general, GraphQL has a few key features that
 
 [Our homepage](/) outlines even more reasons to use GraphQL.
 
+<<<<<<< HEAD
 You can try out GraphQL without rewriting your entire application. For instance, starting with a single HTTP request that wraps an existing REST call. Your [GraphQL schema](/learn/thinking-in-graphs/#shared-language) and [business domain model](/learn/thinking-in-graphs/#business-logic-layer) can expand gradually. We recommend focusing on one use case at first and only building the part of the schema needed for that. 
+=======
+You can try out GraphQL without rewriting your entire application. For example, starting with a single HTTP request that wraps an existing REST call. Your [GraphQL schema](/learn/thinking-in-graphs/#shared-language) and [business domain model](/learn/thinking-in-graphs/#business-logic-layer) can expand gradually. We recommend focusing on one use case at first and only building the part of the schema needed for that. 
+>>>>>>> 43725c45eff1ea78323b3b0e71962e6f67a444d6
 
 ## Does GraphQL replace REST?
 
