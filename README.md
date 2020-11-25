@@ -4,7 +4,6 @@ This repository contains the source code for the [GraphQL website](https://graph
 
 > You can find more discussions on the [#website channel on the GraphQL Slack](https://graphql.slack.com/messages/website/). [Get your invite here!](https://graphql-slack.herokuapp.com/) 
 
-**GraphQL 🎉** is a query language for APIs and a runtime for fulfilling those queries with your existing data.
 
 **GraphQL 🎉** provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
