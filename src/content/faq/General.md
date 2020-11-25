@@ -78,6 +78,12 @@ A list of GraphQL clients in various languages is available on our [Code page](/
 
 You don't need a specific client to work with GraphQL, though. You might want to start out by [issuing GraphQL results with a regular HTTP client](/learn/serving-over-http/). Then later switch to a GraphQL-optimized client as your application grows in complexity.
 
+## Where is the documentation for subscriptions?
+
+It's not on this website yet, but we're working on it. If you'd like to help create these guides, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
+
+For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription).
+
 ## Does GraphQL replace ORMs?
 
 No, GraphQL is a specification typically used for remote client-server communications. It's [agnostic to the data source(s) used](#is-graphql-a-database-language-like-sql) and doesn’t implement an object-relational mapping technique. But there are ORMs built specifically for GraphQL. A few of those are listed under the [Services section of our Code page](/code/#services). 
