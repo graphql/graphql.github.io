@@ -10,7 +10,7 @@ This repository contains the source code of [GraphQL](https://graphql.org)
 ## Documentation
 - [Site](https://graphql.org/)
 - [Language support, tools, and services](https://graphql.org/code/)
-- [API documentation](https://graphql.org/learn/)
+- [Reference documentation](https://graphql.org/learn/)
 - [Frequently Asked Questions (FAQ)](https://graphql.org/faq/)
 - [Community resources](https://graphql.org/community/)
 
