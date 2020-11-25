@@ -11,6 +11,8 @@ This repository contains the source code of [GraphQL](https://graphql.org)
 - [Site](https://graphql.org/)
 - [Language support, tools, and services](https://graphql.org/code/)
 - [API documentation](https://graphql.org/learn/)
+- [Frequently Asked Questions (FAQ)](https://graphql.org/faq/)
+- [Community resources](https://graphql.org/community/)
 
 ## How to contribute
 If you want to report a bug or if you just want to request for a new feature/improvement Check out our [contributing guide](./CONTRIBUTING.md) for detailed instructions for how to make changes to [Graphql 🎉](https://graphql.org/)
