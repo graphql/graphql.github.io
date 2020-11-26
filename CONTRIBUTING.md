@@ -90,7 +90,7 @@ The [Code page](https://graphql.org/code/) is a collection of libraries, tools, 
 - Any library should include a few paragraphs describing the usage and offering people a chance to grok the project priorities.
 - If there isn't a section already for your programming language, please add it. 
 
-If it isn't a library, tool, or service - then it could go into the community section. If it doesn't fit in any of these cases, then ping me or Ivan and we can figure out if/where it can live.
+If it isn't a library, tool, or service - then it could go on the [Community page](#add-a-resource-to-the-community-page). If you aren't sure where your resource would fit, you can [open an issue](https://github.com/graphql/graphql.github.io/issues/new) and ask.
 
 **Removing a resource:**
 - Services that don't work anymore
