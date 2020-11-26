@@ -60,11 +60,9 @@ Both. GraphQL specifies how you can [exchange information between client and ser
 
 ## Does GraphQL use HTTP?
 
-Yes, [GraphQL is typically served over HTTP](/learn/best-practices/#http). This is largely due to 
+Yes, [GraphQL is typically served over HTTP](/learn/best-practices/#http). This is largely due to how pervasive the HTTP protocol is in our industry. But it helps that you try out GraphQL by creating [a single HTTP request](#why-should-i-use-graphql). Guidelines for setting up a GraphQL server to operate over HTTP are available in our [Serving over HTTP](/learn/serving-over-http/) documentation. 
 
-More guidelines for how to set up a GraphQL server to operate over HTTP are available in our [Serving over HTTP](/learn/serving-over-http/) documentation. 
-
-While HTTP is the most common choice for client-server protocol, it’s not the only one. GraphQL is agnostic to the transport layer. So for example, you could use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) for GraphQL subscriptions instead of HTTP to consume realtime data. 
+While HTTP is the most common choice for client-server protocol, it’s not the only one. GraphQL is agnostic to the transport layer. So, for example, you could use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) for GraphQL subscriptions instead of HTTP to consume realtime data. 
 
 ## What is a GraphQL client and why would I use one?
 
@@ -76,9 +74,9 @@ You don't need a specific client to work with GraphQL, though. You might want to
 
 ## Where is the documentation for subscriptions?
 
-It's not on this website yet, but we're working on it. If you'd like to help create these guides, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
+It's not on this website yet, but we're working on it. For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription). 
 
-For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription).
+If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
 
 ## Does GraphQL replace ORMs?
 
@@ -110,14 +108,15 @@ You can find out more by visiting [foundation.graphql.org](https://foundation.gr
 
 ## How does GraphQL affect my product’s performance?
 
-GraphQL is designed to be clean. Every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data parsing on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits, such as minimizing over-fetching and generally making [fewer roundtrips to the server](/learn/queries/#fields) to retrieve your data.
+With GraphQL, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data parsing on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.
 
-Some additional performance considerations should be taken into account when building out your GraphQL implementation, though. For example, it’s possible for a GraphQL service to be ‘chatty’ and repeatedly load data from your database. This is commonly solved by [implementing a batching technique](/learn/best-practices/#server-side-batching-caching) or [utilizing a tool like DataLoader](https://github.com/graphql/dataloader). 
+Other performance factors should be considered when building out your GraphQL implementation. For example, it’s possible for a GraphQL service to be ‘chatty’ and repeatedly load data from your database. This is commonly solved by [implementing a batching technique](/learn/best-practices/#server-side-batching-caching) or [utilizing a tool like DataLoader](https://github.com/graphql/dataloader). 
 
 ## Is GraphQL scalable?
 
-Yes, but only if you scale it. GraphQL comes with some [built-in performance boosts](#how-does-graphql-affect-my-product-s-performance) that help. Once you push it to production though, your team is responsible for scaling it across instances and monitoring performance.  
+Yes, if you scale it. 
 
+GraphQL comes with some [built-in performance boosts](#how-does-graphql-affect-my-product-s-performance) that can help. But once you push it to production, you're responsible for scaling it across instances and monitoring performance.
 
 ## Does GraphQL support offline usage?
 
@@ -127,9 +126,9 @@ You can find a list of GraphQL clients in various languages on our [Code page](/
 
 ## What are the security concerns with GraphQL?
 
-Most of the security concerns associated with GraphQL are typical for any API or service. Think SQL injections, Denial of Service (DoS) attacks, someone abusing flawed authentication, etc. But there are also some attacks specific to GraphQL. For example, [batching attacks](https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html#batching-attacks) can occur as a result of GraphQL allowing you to batch multiple queries or requests for multiple object instances in a single network call. 
+Most of the security concerns associated with GraphQL are typical for any API or service. A few examples: SQL injections, Denial of Service (DoS) attacks, or someone abusing flawed authentication. But there are also some attacks specific to GraphQL. For instance, [batching attacks](https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html#batching-attacks). These attacks can happen as a result of GraphQL allowing you to batch multiple queries (or requests for multiple object instances) in a single network call. 
 
-No matter the concern, it’s important to be proactive. Fortunately, there are many approaches to securing your GraphQL server. Some of these approaches include using a timeout, setting a maximum depth for queries, and throttling queries based on the server time it needs to complete. 
+No matter the concern, it’s important to be proactive. There are many ways to securing your GraphQL server. Using a timeout, setting a maximum depth for queries, and throttling queries based on the server time it needs to complete are all potential approaches. 
 
 For an overview of common security concerns and how to address them, check out the [Security tutorial on How to GraphQL](https://www.howtographql.com/advanced/4-security/) and [OWASP’s GraphQL Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html).
 
@@ -155,9 +154,7 @@ There are many ways to create an API gateway. The benefit of using GraphQL is th
 
 ## How does versioning work in GraphQL?
 
-There’s nothing that will prevent a GraphQL service from being versioned like any other REST API. That said, GraphQL inherently avoids versioning. 
-
-Instead, GraphQL provides the tools to continually build and evolve your schema. For example, GraphQL only returns the data that’s explicitly requested. This means that you can add new features (and all of the associated types and fields) without creating a breaking change.
+There’s nothing that will prevent a GraphQL service from being versioned like any other REST API. That said, GraphQL avoids versioning by design. Instead, GraphQL provides the tools to continually build and evolve your schema. For example, GraphQL only returns the data that’s explicitly requested. This means that you can add new features (and all the associated types and fields) without creating a breaking change.
 
 You can read more about [how versioning works in GraphQL](/learn/best-practices/#versioning) in our Best Practices section.
 
