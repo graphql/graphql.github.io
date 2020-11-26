@@ -4,9 +4,9 @@ layout: faq
 category: General
 permalink: /faq/
 gettingStartedQuestions: Why should I use GraphQL?,Does GraphQL replace REST?,How can I learn GraphQL?,Is GraphQL a database language like SQL?,Is GraphQL only for React or JavaScript developers?
-generalQuestions: Is GraphQL frontend or backend?,Does GraphQL use HTTP?,What is a GraphQL client and why would I use one?,Where is the documentation for subscriptions?,Does GraphQL replace ORMs?,Is GraphQL owned by Facebook?,Who is behind GraphQL?,What is the GraphQL Foundation?
-bestPracticesQuestions: How does GraphQL affect my product’s performance?,Is GraphQL scalable?,Does GraphQL support offline usage?,What are the security concerns with GraphQL?,How can I set up authorization with GraphQL?,How does authentication work with GraphQL?,Is GraphQL the right fit for designing a microservice architecture?,How does versioning work in GraphQL?,How can I document my GraphQL API?
-specificationQuestions: What is the best way to follow specification releases?,How can I contribute to the GraphQL specification?
+generalQuestions: Is GraphQL frontend or backend?,Does GraphQL use HTTP?,How does GraphQL affect my product’s performance?,What is a GraphQL client and why would I use one?,Does GraphQL replace ORMs?,Is GraphQL owned by Facebook?,Who is behind GraphQL?,What is the GraphQL Foundation?
+bestPracticesQuestions: Is GraphQL scalable?,Does GraphQL support offline usage?,What are the security concerns with GraphQL?,How can I set up authorization with GraphQL?,How does authentication work with GraphQL?,Is GraphQL the right fit for designing a microservice architecture?,How does versioning work in GraphQL?,How can I document my GraphQL API?
+specificationQuestions: What is the best way to follow specification releases?,How can I contribute to the GraphQL specification?,Where is the documentation for subscriptions?
 frontendQuestions: Does GraphQL replace Redux or other state management libraries?
 ---
 
@@ -64,6 +64,12 @@ Yes, [GraphQL is typically served over HTTP](/learn/best-practices/#http). This 
 
 While HTTP is the most common choice for client-server protocol, it’s not the only one. GraphQL is agnostic to the transport layer. So, for example, you could use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) for GraphQL subscriptions instead of HTTP to consume realtime data. 
 
+## How does GraphQL affect my product’s performance?
+
+With GraphQL, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data parsing on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.
+
+Other performance factors should be considered when building out your GraphQL implementation. For example, it’s possible for a GraphQL service to be ‘chatty’ and repeatedly load data from your database. This is commonly solved by [implementing a batching technique](/learn/best-practices/#server-side-batching-caching) or [utilizing a tool like DataLoader](https://github.com/graphql/dataloader). 
+
 ## What is a GraphQL client and why would I use one?
 
 GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [subscriptions](https://spec.graphql.org/draft/#sec-Subscription) to a [GraphQL server](https://www.howtographql.com/advanced/1-server/). They use the underlying structure of a GraphQL API to automate certain processes. This includes batching, UI updates, build-time schema validation, and more.
@@ -71,12 +77,6 @@ GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [
 A list of GraphQL clients in various languages is available on our [Code page](/code/). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
 You don't need a specific client to work with GraphQL, though. You might want to start out by [issuing GraphQL results with a regular HTTP client](/learn/serving-over-http/). Then later switch to a GraphQL-optimized client as your application grows in complexity.
-
-## Where is the documentation for subscriptions?
-
-It's not on this website yet, but we're working on it. For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription). 
-
-If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
 
 ## Does GraphQL replace ORMs?
 
@@ -105,12 +105,6 @@ If this is confusing, don’t worry - there’s a lot going on. To get a more vi
 The [GraphQL Foundation](https://foundation.graphql.org/faq/) is a neutral foundation that provides governance for GraphQL. This includes vendor-neutral oversight of open-source repositories, funding, events, and more. It's hosted under the [Linux Foundation](https://www.linuxfoundation.org/) and consists of [representatives from dozens of different companies](https://foundation.graphql.org/members/). The idea is that it’s an impartial and open home for the GraphQL community.
 
 You can find out more by visiting [foundation.graphql.org](https://foundation.graphql.org/).
-
-## How does GraphQL affect my product’s performance?
-
-With GraphQL, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data parsing on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.
-
-Other performance factors should be considered when building out your GraphQL implementation. For example, it’s possible for a GraphQL service to be ‘chatty’ and repeatedly load data from your database. This is commonly solved by [implementing a batching technique](/learn/best-practices/#server-side-batching-caching) or [utilizing a tool like DataLoader](https://github.com/graphql/dataloader). 
 
 ## Is GraphQL scalable?
 
@@ -173,6 +167,12 @@ The latest working draft release of the GraphQL specification can be found at [s
 GraphQL is still evolving and contributions are very welcome! The specification (including the [latest working draft](https://spec.graphql.org/)) is open source. [Contributor guidelines](https://github.com/graphql/graphql-spec/blob/master/CONTRIBUTING.md) are available on GitHub.
 
 There are more ways to get involved with GraphQL beyond the specification though. Updating the content on [this website and the documentation](https://github.com/graphql/graphql.github.io), for example. Or contributing to [graphql-js](https://github.com/graphql/graphql-js), [express-graphql](https://github.com/graphql/express-graphql), [GraphiQL](https://github.com/graphql/graphiql), or [one of the many other projects](https://github.com/graphql/) maintained by the [GraphQL Foundation](#what-is-the-graphql-foundation). 
+
+## Where is the documentation for subscriptions?
+
+It's not on this website yet, but we're working on it. For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription). 
+
+If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
 
 ## Does GraphQL replace Redux or other state management libraries?
 
