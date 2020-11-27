@@ -5,7 +5,7 @@ url: https://kgraphql.io/
 github: aPureBase/KGraphQL
 ---
 
-Here's a simple example on how to create a simple schema based on a kotlin data class plus a property resolver that gets applied onto your class.
+Here's an example on how to create a simple schema based on a kotlin data class plus a property resolver that gets applied onto your class.
 
 ```kotlin
 data class Article(val id: Int, val text: String)
