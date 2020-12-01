@@ -3,7 +3,7 @@ title: Frequently Asked Questions (FAQ)
 sectionTitle: General
 layout: faq
 permalink: /faq/#general
-questions: Is GraphQL frontend or backend?,Does GraphQL use HTTP?,What is a GraphQL client and why would I use one?,Where is the documentation for subscriptions?,Does GraphQL replace ORMs?,Is GraphQL owned by Facebook?,Who is behind GraphQL?,What is the GraphQL Foundation?
+questions: Is GraphQL frontend or backend?,Does GraphQL use HTTP?,How does GraphQL affect my product’s performance?,What is a GraphQL client and why would I use one?,Does GraphQL replace ORMs?,Is GraphQL owned by Facebook?,Who is behind GraphQL?,What is the GraphQL Foundation?
 position: 2
 ---
 
@@ -30,12 +30,6 @@ GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [
 A list of GraphQL clients in various languages is available on our [Code page](/code/). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
 You don't need a specific client to work with GraphQL, though. You might want to start out by [issuing GraphQL results with a regular HTTP client](/learn/serving-over-http/). Then later switch to a GraphQL-optimized client as your application grows in complexity.
-
-## Where is the documentation for subscriptions?
-
-It's not on this website yet, but we're working on it. If you'd like to help create these guides, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
-
-For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription).
 
 ## Does GraphQL replace ORMs?
 
