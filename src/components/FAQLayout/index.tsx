@@ -2,26 +2,29 @@ import React from "react"
 import FAQSection from "../FAQSection"
 
 interface Props {
-  sectionTitle: string
+  title: string
   permalink: string
   questions: string
   rawMarkdownBody: string
+  pageContext: any
 }
 
 const index = ({
-  sectionTitle,
+  title,
   permalink,
   questions,
-  rawMarkdownBody
+  rawMarkdownBody,
+  pageContext
 }: Props) => {
   return (
     <section>
       <div className="documentationContent">
         <FAQSection
-          sectionTitle={sectionTitle}
+          title={title}
           permalink={permalink}
           questions={questions}
           rawMarkdownBody={rawMarkdownBody}
+          pageContext={pageContext}
         />
       </div>
     </section>

@@ -1,6 +1,5 @@
 ---
-title: Frequently Asked Questions (FAQ)
-sectionTitle: Specification
+title: Specification
 layout: faq
 permalink: /faq/#specification
 questions: What is the best way to follow specification releases?,How can I contribute to the GraphQL specification?,Where is the documentation for subscriptions?

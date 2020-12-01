@@ -1,6 +1,5 @@
 ---
-title: Frequently Asked Questions (FAQ)
-sectionTitle: Getting Started
+title: Getting Started
 layout: faq
 permalink: /faq/#getting-started
 questions: Why should I use GraphQL?,Does GraphQL replace REST?,How can I learn GraphQL?,Is GraphQL a database language like SQL?,Is GraphQL only for React or JavaScript developers?
