@@ -3,7 +3,7 @@ title: Frequently Asked Questions (FAQ)
 sectionTitle: General
 layout: faq
 permalink: /faq/#general
-questions: Is GraphQL frontend or backend?,Does GraphQL use HTTP?,What is a GraphQL client and why would I use one?,Where is the documentation for subscriptions?,Does GraphQL replace ORMs?,Is GraphQL owned by Facebook?,Who is behind GraphQL?,What is the GraphQL Foundation?
+questions: Is GraphQL frontend or backend?,Does GraphQL use HTTP?,How does GraphQL affect my product’s performance?,What is a GraphQL client and why would I use one?,Does GraphQL replace ORMs?,Is GraphQL owned by Facebook?,Who is behind GraphQL?,What is the GraphQL Foundation?
 position: 2
 ---
 
@@ -13,7 +13,15 @@ Both. GraphQL specifies how you can [exchange information between client and ser
 
 ## Does GraphQL use HTTP?
 
-<!-- TODO -->
+Yes, [GraphQL is typically served over HTTP](/learn/best-practices/#http). This is largely due to how pervasive the HTTP protocol is in our industry. But it helps that you try out GraphQL by creating [a single HTTP request](#why-should-i-use-graphql). Guidelines for setting up a GraphQL server to operate over HTTP are available in our [Serving over HTTP](/learn/serving-over-http/) documentation. 
+
+While HTTP is the most common choice for client-server protocol, it’s not the only one. GraphQL is agnostic to the transport layer. So, for example, you could use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) for GraphQL subscriptions instead of HTTP to consume realtime data. 
+
+## How does GraphQL affect my product’s performance?
+
+With GraphQL, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data parsing on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.
+
+Other performance factors should be considered when building out your GraphQL implementation. For example, it’s possible for a GraphQL service to be ‘chatty’ and repeatedly load data from your database. This is commonly solved by [implementing a batching technique](/learn/best-practices/#server-side-batching-caching) or [utilizing a tool like DataLoader](https://github.com/graphql/dataloader). 
 
 ## What is a GraphQL client and why would I use one?
 
@@ -22,12 +30,6 @@ GraphQL clients can help you handle [queries, mutations,](/learn/queries/) and [
 A list of GraphQL clients in various languages is available on our [Code page](/code/). There’s also an [in-depth explanation of their benefits](https://www.howtographql.com/advanced/0-clients/) on How To GraphQL.
 
 You don't need a specific client to work with GraphQL, though. You might want to start out by [issuing GraphQL results with a regular HTTP client](/learn/serving-over-http/). Then later switch to a GraphQL-optimized client as your application grows in complexity.
-
-## Where is the documentation for subscriptions?
-
-It's not on this website yet, but we're working on it. If you'd like to help create these guides, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
-
-For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription).
 
 ## Does GraphQL replace ORMs?
 
@@ -45,7 +47,7 @@ Many people! The [GraphQL specification and all related projects](http://github.
 
 The [GraphQL Foundation](#what-is-the-graphql-foundation) provides most of the oversight for GraphQL. It's made up of [representatives from dozens of different companies](https://foundation.graphql.org/members/). 
 
-There are also monthly virtual [GraphQL Working Group (WG)](https://github.com/graphql/graphql-wg) meetings managed by the GraphQL Foundation. These meetings are designed to bring together maintainers of commonly used GraphQL libraries and tools, as well as significant contributors to the GraphQL community. While it tends to be mostly foundation members in attendance, the WG meetings are completely open. Anyone is able to join and [propose items to the agenda](https://github.com/graphql/graphql-wg/blob/master/agendas/). 
+There are also monthly virtual [GraphQL Working Group (WG)](https://github.com/graphql/graphql-wg) meetings managed by the GraphQL Foundation. These meetings are designed to bring together maintainers of commonly used GraphQL libraries and tools, as well as significant contributors to the GraphQL community. The WG meetings are completely open. Anyone is able to join and [propose items to the agenda](https://github.com/graphql/graphql-wg/blob/master/agendas/).  
 
 In the [November 2020 WG meeting](https://www.youtube.com/watch?v=UybZp9O24Ow), it was announced that GraphQL will have a Technical Steering Committee (TSC) going forward. More on that coming soon.
 
