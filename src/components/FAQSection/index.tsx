@@ -4,19 +4,21 @@ import Marked from "../Marked"
 import { toSlug } from '../../utils/slug'
 
 interface Props {
-  sectionTitle: string
+  title: string
   permalink: string
   questions: string
   rawMarkdownBody: string
+  pageContext: any
 }
 
 const FAQSection = ({
-  sectionTitle,
+  title,
   questions,
-  rawMarkdownBody
+  rawMarkdownBody,
+  pageContext
 }: Props) => (
   <div className="inner-content">
-    <h2>{sectionTitle}</h2>
+    <h2>{title}</h2>
     {questions
         .split(',')
         .map(question => (
@@ -25,7 +27,7 @@ const FAQSection = ({
             </Link>
         ))
     }
-    <Marked>{rawMarkdownBody}</Marked>
+    <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>
   </div>
 )
 

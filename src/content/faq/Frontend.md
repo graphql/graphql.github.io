@@ -1,6 +1,5 @@
 ---
-title: Frequently Asked Questions (FAQ)
-sectionTitle: Frontend
+title: Frontend
 layout: faq
 permalink: /faq/#frontend
 questions: Does GraphQL replace Redux or other state management libraries?

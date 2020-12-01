@@ -1,6 +1,5 @@
 ---
-title: Frequently Asked Questions (FAQ)
-sectionTitle: Best Practices
+title: Best Practices
 layout: faq
 permalink: /faq/#best-practices
 questions: Is GraphQL scalable?,Does GraphQL support offline usage?,What are the security concerns with GraphQL?,How can I set up authorization with GraphQL?,How does authentication work with GraphQL?,Is GraphQL the right fit for designing a microservice architecture?,How does versioning work in GraphQL?,How can I document my GraphQL API?

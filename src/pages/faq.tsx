@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import FAQSection from "../components/FAQSection"
 import { graphql } from "gatsby"
 
-export default ({ data }: any) => {
+export default ({ pageContext, data }: any) => {
   const sections = data.allMarkdownRemark.edges
     .map((e: any) => e.node)
     .sort((a: any, b: any) => {
@@ -18,7 +18,7 @@ export default ({ data }: any) => {
     })
 
   return (
-    <Layout title="FAQ | GraphQL">
+    <Layout title="FAQ | GraphQL" pageContext={pageContext}>
     <section>
       <div className="documentationContent">
         <div className="inner-content">
@@ -27,17 +27,18 @@ export default ({ data }: any) => {
             {sections.map(
               (
                 {
-                  frontmatter: { sectionTitle, permalink, questions },
+                  frontmatter: { title, permalink, questions },
                   rawMarkdownBody,
                 }: any,
               i
             ) => (
               <FAQSection
                 key={i}
-                sectionTitle={sectionTitle}
+                title={title}
                 permalink={permalink}
                 questions={questions}
                 rawMarkdownBody={rawMarkdownBody}
+                pageContext={pageContext}
               />
             )
             )}
@@ -58,7 +59,6 @@ export const query = graphql`
         node {
           frontmatter {
             title
-            sectionTitle
             permalink
             questions
             position
