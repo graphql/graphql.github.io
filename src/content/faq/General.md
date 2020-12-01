@@ -94,7 +94,7 @@ Many people! The [GraphQL specification and all related projects](http://github.
 
 The [GraphQL Foundation](#what-is-the-graphql-foundation) provides most of the oversight for GraphQL. It's made up of [representatives from dozens of different companies](https://foundation.graphql.org/members/). 
 
-There are also monthly virtual [GraphQL Working Group (WG)](https://github.com/graphql/graphql-wg) meetings managed by the GraphQL Foundation. These meetings are designed to bring together maintainers of commonly used GraphQL libraries and tools, as well as significant contributors to the GraphQL community. While it tends to be mostly foundation members in attendance, the WG meetings are completely open. Anyone is able to join and [propose items to the agenda](https://github.com/graphql/graphql-wg/blob/master/agendas/). 
+There are also monthly virtual [GraphQL Working Group (WG)](https://github.com/graphql/graphql-wg) meetings managed by the GraphQL Foundation. These meetings are designed to bring together maintainers of commonly used GraphQL libraries and tools, as well as significant contributors to the GraphQL community. The WG meetings are completely open. Anyone is able to join and [propose items to the agenda](https://github.com/graphql/graphql-wg/blob/master/agendas/). 
 
 In the [November 2020 WG meeting](https://www.youtube.com/watch?v=UybZp9O24Ow), it was announced that GraphQL will have a Technical Steering Committee (TSC) going forward. More on that coming soon.
 
