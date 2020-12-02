@@ -1,12 +1,13 @@
 ---
 title: Frontend
+sidebarTitle: Frontend
 layout: faq
 permalink: /faq/#frontend
 questions: Does GraphQL replace Redux or other state management libraries?
 position: 5
 ---
 
-## Does GraphQL replace Redux or other state management libraries?
+### Does GraphQL replace Redux or other state management libraries?
 
 No, GraphQL isn’t a state management library - but it can reduce the need for one.
 

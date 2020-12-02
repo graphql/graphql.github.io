@@ -1,12 +1,13 @@
 ---
 title: Getting Started
+sidebarTitle: Getting Started
 layout: faq
 permalink: /faq/#getting-started
-questions: Why should I use GraphQL?,Does GraphQL replace REST?,How can I learn GraphQL?,Is GraphQL a database language like SQL?,Is GraphQL only for React or JavaScript developers?
+questions: Why should I use GraphQL?,Does GraphQL replace REST?,Is GraphQL a database language like SQL?,How can I learn GraphQL?,Is GraphQL only for React or JavaScript developers?
 position: 1
 ---
 
-## Why should I use GraphQL?
+### Why should I use GraphQL?
 
 It depends on your use case, but in general, GraphQL has a few key features that stand out. For example, GraphQL enables you to:
 
@@ -20,7 +21,7 @@ It depends on your use case, but in general, GraphQL has a few key features that
 
 You can try out GraphQL without rewriting your entire application. For instance, starting with a single HTTP request that wraps an existing REST call. Your [GraphQL schema](/learn/thinking-in-graphs/#shared-language) and [business domain model](/learn/thinking-in-graphs/#business-logic-layer) can expand gradually. We recommend focusing on one use case at first and only building the part of the schema needed for that. 
 
-## Does GraphQL replace REST?
+### Does GraphQL replace REST?
 
 No, not necessarily. They both handle APIs and can [serve similar purposes](/learn/thinking-in-graphs/#business-logic-layer) from a business perspective. GraphQL is often considered an alternative to REST, but it’s not a definitive replacement.
 
@@ -28,15 +29,7 @@ GraphQL and REST can actually co-exist in your stack. For example, you can abstr
 
 For an opinionated perspective on how GraphQL compares to REST, check out [How To GraphQL](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/).
 
-## How can I learn GraphQL?
-
-There are many resources available to help you learn GraphQL, including this website. In [our documentation](/learn/), you’ll find a series of articles that explain essential GraphQL concepts and how they work. Our [Community page](/community) is full of resources to reference and groups to join.
-
-For more practical guides, visit the [How to GraphQL](https://www.howtographql.com/) fullstack tutorial website. We also have a free online course with edX, [Exploring GraphQL: A Query Language for APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis). 
-
-Before you start your learning journey, make sure you know [what an API is](https://www.codenewbie.org/blogs/an-intro-to-apis) and how communication generally works between client and server.
-
-## Is GraphQL a database language like SQL?
+### Is GraphQL a database language like SQL?
 
 No, but this is a common misconception.
 
@@ -44,7 +37,15 @@ GraphQL is a specification typically used for remote client-server communication
 
 For more information on how to get GraphQL to interact with your database, check out our [documentation on resolvers](/learn/execution/#root-fields-resolvers).
 
-## Is GraphQL only for React or JavaScript developers?
+### How can I learn GraphQL?
+
+There are many resources available to help you learn GraphQL, including this website. In [our documentation](/learn/), you’ll find a series of articles that explain essential GraphQL concepts and how they work. Our [Community page](/community) is full of resources to reference and groups to join.
+
+For more practical guides, visit the [How to GraphQL](https://www.howtographql.com/) fullstack tutorial website. We also have a free online course with edX, [Exploring GraphQL: A Query Language for APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis). 
+
+Before you start your learning journey, make sure you know [what an API is](https://www.codenewbie.org/blogs/an-intro-to-apis) and how communication generally works between client and server.
+
+### Is GraphQL only for React or JavaScript developers?
 
 No, not at all. [GraphQL is a specification](https://spec.graphql.org/) that can be [implemented in any language](/learn/schema/#type-language). Our [Code page](/code/) contains a long list of libraries in many different programming languages to help with that.
 

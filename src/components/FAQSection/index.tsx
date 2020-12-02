@@ -17,7 +17,7 @@ const FAQSection = ({
   rawMarkdownBody,
   pageContext
 }: Props) => (
-  <div className="inner-content">
+  <section className="inner-content">
     <h2>{title}</h2>
     {questions
         .split(',')
@@ -28,7 +28,7 @@ const FAQSection = ({
         ))
     }
     <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>
-  </div>
+  </section>
 )
 
 export default FAQSection
