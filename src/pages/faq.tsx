@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import FAQSection from "../components/FAQSection"
 import { graphql } from "gatsby"
+import FAQSidebar from "../components/FAQSidebar"
 
 export default ({ pageContext, data }: any) => {
   const sections = data.allMarkdownRemark.edges
@@ -17,13 +18,15 @@ export default ({ pageContext, data }: any) => {
       return 0
     })
 
+    console.log(sections[0].frontmatter.title)
+
   return (
     <Layout title="FAQ | GraphQL" pageContext={pageContext}>
     <section>
       <div className="documentationContent">
-        <div className="inner-content">
+        <section className="inner-content">
           <h1>Frequently Asked Questions (FAQ)</h1>
-          <div>
+          <div className="faq-content">
             {sections.map(
               (
                 {
@@ -43,7 +46,8 @@ export default ({ pageContext, data }: any) => {
             )
             )}
           </div>
-        </div>
+          <FAQSidebar sections={sections} />
+        </section>
       </div>
     </section>
     </Layout>

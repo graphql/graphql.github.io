@@ -1,11 +1,13 @@
 import React from "react"
 import FAQSection from "../FAQSection"
+import FAQSidebar from "../FAQSidebar"
 
 interface Props {
   title: string
   permalink: string
   questions: string
   rawMarkdownBody: string
+  sections: any
   pageContext: any
 }
 
@@ -14,6 +16,7 @@ const index = ({
   permalink,
   questions,
   rawMarkdownBody,
+  sections,
   pageContext
 }: Props) => {
   return (
@@ -25,6 +28,10 @@ const index = ({
           questions={questions}
           rawMarkdownBody={rawMarkdownBody}
           pageContext={pageContext}
+        />
+        <FAQSidebar
+          sections={sections}
+          currentPermalink={permalink}
         />
       </div>
     </section>
