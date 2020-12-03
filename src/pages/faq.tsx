@@ -1,9 +1,70 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Layout from "../components/Layout"
 import FAQSection from "../components/FAQSection"
 import { graphql } from "gatsby"
 
+export const useAccordion = () => {
+  const toggleChildrenClass = (element: HTMLElement) => {
+    console.log(nextUntil(element, 'h3'))
+    Array.from(nextUntil(element, 'h3')).map(p =>
+      p.classList.toggle('show')
+    );
+  };
+
+  var nextUntil = function (elem: HTMLElement, selector: string) {
+
+    // Setup siblings array
+    var siblings = [];
+  
+    // Get the next sibling element
+    let nextElement = elem.nextElementSibling;
+  
+    // As long as a sibling exists
+    while (nextElement) {
+  
+      // If we've reached our match, bail
+      if (nextElement.matches(selector)) break;
+  
+      // Otherwise, push it to the siblings array
+      siblings.push(nextElement);
+  
+      // Get the next sibling element
+      nextElement = nextElement.nextElementSibling;
+  
+    }
+  
+    return siblings;
+  
+  };
+
+  useEffect(() => {
+    const hash = location.hash ? location.hash.split('#')[1] : '';
+
+    if (hash) {
+      const parent = document && document.getElementById(hash);
+
+      document.getElementById(hash).classList.toggle('open');
+      toggleChildrenClass(parent);
+    }
+
+    const toggleClasses = (e: Event) => {
+      if (e.target.localName !== 'h3') return;
+      history.replaceState({}, '', '#' + e.target.getElementsByTagName('a')[0].id);
+      history.scrollRestoration = 'manual';
+
+      e.target.classList.toggle('open');
+      toggleChildrenClass(e.target);
+    };
+
+    document.addEventListener('click', toggleClasses);
+
+    return () => document.removeEventListener('click', toggleClasses);
+  }, []);
+};
+
 export default ({ pageContext, data }: any) => {
+  useAccordion()
+
   const sections = data.allMarkdownRemark.edges
     .map((e: any) => e.node)
     .sort((a: any, b: any) => {
