@@ -4,14 +4,14 @@ import FAQSection from "../components/FAQSection"
 import { graphql } from "gatsby"
 
 export const useAccordion = () => {
-  const toggleChildrenClass = (element: HTMLElement) => {
+  const toggleChildrenClass = (element: React.ReactNode) => {
     console.log(nextUntil(element, 'h3'))
     Array.from(nextUntil(element, 'h3')).map(p =>
       p.classList.toggle('show')
     );
   };
 
-  var nextUntil = function (elem: HTMLElement, selector: string) {
+  var nextUntil = function (elem: any, selector: string) {
 
     // Setup siblings array
     var siblings = [];
@@ -41,13 +41,16 @@ export const useAccordion = () => {
     const hash = location.hash ? location.hash.split('#')[1] : '';
 
     if (hash) {
-      const parent = document && document.getElementById(hash);
+      const anchor = document && document.getElementById(hash)
+      const heading: any = anchor && anchor.parentNode;
 
-      document.getElementById(hash).classList.toggle('open');
-      toggleChildrenClass(parent);
+      if (heading) {
+        heading.classList.toggle('open');
+        toggleChildrenClass(heading);
+      }
     }
 
-    const toggleClasses = (e: Event) => {
+    const toggleClasses = (e: any) => {
       if (e.target.localName !== 'h3') return;
       history.replaceState({}, '', '#' + e.target.getElementsByTagName('a')[0].id);
       history.scrollRestoration = 'manual';
@@ -72,10 +75,8 @@ export default ({ pageContext, data }: any) => {
       const bPosition = b.frontmatter.position
       if (aPosition < bPosition) {
         return -1
-      } else if (aPosition > bPosition) {
-        return 1
       }
-      return 0
+      return 1
     })
 
   return (
@@ -88,7 +89,7 @@ export default ({ pageContext, data }: any) => {
             {sections.map(
               (
                 {
-                  frontmatter: { title, permalink, questions },
+                  frontmatter: { title, permalink },
                   rawMarkdownBody,
                 }: any,
               i
@@ -97,7 +98,6 @@ export default ({ pageContext, data }: any) => {
                 key={i}
                 title={title}
                 permalink={permalink}
-                questions={questions}
                 rawMarkdownBody={rawMarkdownBody}
                 pageContext={pageContext}
               />
