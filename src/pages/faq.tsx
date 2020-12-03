@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/Layout"
 import FAQSection from "../components/FAQSection"
 import { graphql } from "gatsby"
-import FAQSidebar from "../components/FAQSidebar"
 
 export default ({ pageContext, data }: any) => {
   const sections = data.allMarkdownRemark.edges
@@ -17,8 +16,6 @@ export default ({ pageContext, data }: any) => {
       }
       return 0
     })
-
-    console.log(sections[0].frontmatter.title)
 
   return (
     <Layout title="FAQ | GraphQL" pageContext={pageContext}>
@@ -46,7 +43,6 @@ export default ({ pageContext, data }: any) => {
             )
             )}
           </div>
-          <FAQSidebar sections={sections} />
         </section>
       </div>
     </section>
