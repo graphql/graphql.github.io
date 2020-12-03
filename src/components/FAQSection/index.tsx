@@ -3,7 +3,6 @@ import Marked from "../Marked"
 
 interface Props {
   title: string
-  permalink: string
   rawMarkdownBody: string
   pageContext: any
 }

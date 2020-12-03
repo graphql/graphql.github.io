@@ -2,7 +2,6 @@
 title: General
 layout: faq
 permalink: /faq/#general
-questions: Is GraphQL frontend or backend?,Does GraphQL use HTTP?,How does GraphQL affect my product’s performance?,What is a GraphQL client and why would I use one?,Does GraphQL replace ORMs?,Is GraphQL owned by Facebook?,Who is behind GraphQL?,What is the GraphQL Foundation?
 position: 2
 ---
 
