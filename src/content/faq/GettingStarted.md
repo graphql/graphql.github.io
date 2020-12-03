@@ -2,7 +2,6 @@
 title: Getting Started
 layout: faq
 permalink: /faq/#getting-started
-questions: Why should I use GraphQL?,Does GraphQL replace REST?,Is GraphQL a database language like SQL?,How can I learn GraphQL?,Is GraphQL only for React or JavaScript developers?
 position: 1
 ---
 
