@@ -20,3 +20,11 @@ There are more ways to get involved with GraphQL beyond the specification though
 It's not on this website yet, but we're working on it. If you'd like to help create these guides, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
 
 For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription).
+
+### Why doesn’t GraphQL have a wildcard field?
+
+<!-- TODO -->
+
+### What is the N+1 problem I keep hearing about?
+
+<!-- TODO -->

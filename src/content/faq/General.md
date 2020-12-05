@@ -15,6 +15,10 @@ Yes, [GraphQL is typically served over HTTP](/learn/best-practices/#http). This 
 
 While HTTP is the most common choice for client-server protocol, it’s not the only one. GraphQL is agnostic to the transport layer. So, for example, you could use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) for GraphQL subscriptions instead of HTTP to consume realtime data. 
 
+### Does GraphQL only work with graph-like structures or data sources that are graph-based?
+
+<!-- TODO -->
+
 ### How does GraphQL affect my product’s performance?
 
 With GraphQL, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data parsing on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.

@@ -25,6 +25,10 @@ No matter the concern, it’s important to be proactive. There are many ways to 
 
 For an overview of common security concerns and how to address them, check out the [Security tutorial on How to GraphQL](https://www.howtographql.com/advanced/4-security/) and [OWASP’s GraphQL Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html).
 
+### Does GraphQL introduce a single point of failure?
+
+<!-- TODO -->
+
 ### How can I set up authorization with GraphQL?
 
 We recommend enforcing authorization behavior in the [business logic layer](/learn/thinking-in-graphs/#business-logic-layer). That way, you have a single source of truth for authorization. 
@@ -38,6 +42,14 @@ You can implement authentication with common patterns, such as [OAuth](https://o
 Some [GraphQL libraries](/code/#language-support) include a specific protocol for authentication as well. Although if you’re working with a pipeline model, we recommend that [GraphQL be placed after all authentication middleware](/learn/serving-over-http/#web-request-pipeline).
 
 If you’re using [GraphQL.js](/graphql-js/) to build your API server, we have documentation on [handling authentication with Express middleware](/graphql-js/authentication-and-express-middleware/).
+
+### How can I make part of my GraphQL API private? 
+
+<!-- TODO -->
+
+### How can I do error handling?
+
+<!-- TODO -->
 
 ### Is GraphQL the right fit for designing a microservice architecture?
 
@@ -56,3 +68,7 @@ You can read more about [how versioning works in GraphQL](/learn/best-practices/
 One of the benefits of GraphQL is that it's inherently self-documenting. This means that when you use an interactive tool like [GraphiQL](https://github.com/graphql/graphiql), you’re able to explore what data is exposed by your GraphQL API. This includes the [fields](/learn/queries/#fields), [types](/learn/schema/#type-system), and more. You can also add a [description field](https://spec.graphql.org/draft/#sec-Documentation) to provide supplementary notes about your endpoint. 
 
 For many, this provides enough API reference documentation. But it doesn’t reduce the need for other forms of documentation. You'll likely still need to create guides that explain how the general concepts tie into your specific use case.
+
+### Schema-first or code-first?
+
+<!-- TODO -->
