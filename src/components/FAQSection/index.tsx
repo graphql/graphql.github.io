@@ -12,7 +12,7 @@ const FAQSection = ({
   rawMarkdownBody,
   pageContext
 }: Props) => (
-  <section className="inner-content">
+  <section className="inner-faq-content">
     <h2>{title}</h2>
     <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>
   </section>

@@ -22,9 +22,9 @@ export default ({ pageContext, data }: any) => {
     <Layout title="FAQ | GraphQL" pageContext={pageContext}>
     <section>
       <div className="documentationContent">
-        <section className="inner-content">
+        <section className="inner-faq-content">
           <h1>Frequently Asked Questions (FAQ)</h1>
-          <div className="faq-content">
+          <div>
             {sections.map(
               (
                 {

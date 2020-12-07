@@ -132,9 +132,8 @@
 	}
 }
 
-.inner-content {
+.inner-faq-content {
   flex: 1;
-  max-width: 720px;
   @media screen and (max-width: 740px) {
     margin-right: 0;
   }
@@ -142,35 +141,19 @@
   & > h1:first-child {
     margin-top: 1em;
   }
-
-  blockquote {
-    padding: 0.5em 1em 0.5em 0.5em;
-    margin: 1em 0;
-    background-color: rgba(204, 122, 111, 0.05);
-    border-left: 5px solid rgba(191, 87, 73, 0.1);
-
-    h4 {
-      margin-top: 0;
-    }
-
-    p {
-      margin-bottom: 0;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-
-  .faq-content {
+  
     h3 {
-      font-size: 16px;
-      padding: 40px 0;
-      // box-shadow: 0px -1px 0px #242424;
+      color: #E10098;
+      padding: 20px 0;
+      box-shadow: 0px -1px 0px #242424;
       margin: 0;
       user-select: none;
       cursor: pointer;
       position: relative;
+
+      &:first-child {
+        box-shadow: none;
+      }
   
       &.open:after {
         transform: rotate(-90deg);
@@ -199,11 +182,6 @@
       max-height: 0;
       opacity: 0;
       transition: all 200ms ease;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 23px;
-      color: #999999;
       margin-bottom: 0;
   
       &.show {
@@ -213,11 +191,6 @@
       }
     }
     p {
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 23px;
-      color: #999999;
       max-height: 0;
       opacity: 0;
       transition: all 200ms ease;
@@ -229,11 +202,36 @@
         margin-bottom: 1.0875rem;
       }
     }
+}
+
+.inner-content {
+  flex: 1;
+  max-width: 720px;
+  @media screen and (max-width: 740px) {
+    margin-right: 0;
   }
 
-  .faq-questions::before {
-    content: "\A";
-    white-space: pre;
+  & > h1:first-child {
+    margin-top: 1em;
+  }
+
+  blockquote {
+    padding: 0.5em 1em 0.5em 0.5em;
+    margin: 1em 0;
+    background-color: rgba(204, 122, 111, 0.05);
+    border-left: 5px solid rgba(191, 87, 73, 0.1);
+
+    h4 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 
   img {
