@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 
 export const useFAQAccordion = () => {
     const toggleChildrenClass = (element: React.ReactNode) => {
-      console.log(nextUntil(element, 'h3'))
       Array.from(nextUntil(element, 'h3')).map(p =>
         p.classList.toggle('show')
       );

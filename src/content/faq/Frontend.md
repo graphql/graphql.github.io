@@ -1,7 +1,7 @@
 ---
 title: Frontend
 layout: faq
-permalink: /faq/#frontend
+permalink: /faq/frontend
 position: 5
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Specification
 layout: faq
-permalink: /faq/#specification
+permalink: /faq/specification
 position: 4
 ---
 

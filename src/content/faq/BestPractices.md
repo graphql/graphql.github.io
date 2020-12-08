@@ -1,7 +1,7 @@
 ---
 title: Best Practices
 layout: faq
-permalink: /faq/#best-practices
+permalink: /faq/best-practices
 position: 3
 ---
 

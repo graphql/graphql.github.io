@@ -1,7 +1,7 @@
 ---
 title: General
 layout: faq
-permalink: /faq/#general
+permalink: /faq/general
 position: 2
 ---
 

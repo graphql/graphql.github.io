@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 layout: faq
-permalink: /faq/#getting-started
+permalink: /faq/getting-started
 position: 1
 ---
 
