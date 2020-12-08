@@ -47,7 +47,9 @@ There are many ways to create an API gateway. The benefit of using GraphQL is th
 
 ### How does versioning work in GraphQL?
 
-There’s nothing that will prevent a GraphQL service from being versioned like any other REST API. That said, GraphQL avoids versioning by design. Instead, GraphQL provides the tools to continually build and evolve your schema. For example, GraphQL only returns the data that’s explicitly requested. This means that you can add new features (and all the associated types and fields) without creating a breaking change or bloating results for existing queries.
+There’s nothing that will prevent a GraphQL service from being versioned like any other REST API. That said, GraphQL avoids versioning by design. 
+
+Instead, GraphQL provides the tools to continually build and evolve your schema. For example, GraphQL only returns the data that’s explicitly requested. This means that you can add new features (and all the associated types and fields) without creating a breaking change or bloating results for existing queries.
 
 You can read more about [how versioning works in GraphQL](/learn/best-practices/#versioning) in our Best Practices section.
 
