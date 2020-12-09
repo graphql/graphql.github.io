@@ -24,16 +24,18 @@ export const useFAQAccordion = () => {
   }
 
   useEffect(() => {
-    const hash = window.location.hash ? window.location.hash.split("#")[1] : ""
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash ? window.location.hash.split("#")[1] : ""
 
-    if (hash && buttonCreated) {
-      const anchor = document && document.getElementById(hash)
-      const heading: any = anchor && anchor.parentNode
+      if (hash && buttonCreated) {
+        const anchor = document && document.getElementById(hash)
+        const heading: any = anchor && anchor.parentNode
 
-      if (heading) {
-        heading.parentNode.classList.toggle("open")
-        heading.classList.toggle("open")
-        toggleChildrenClass(heading.parentNode)
+        if (heading) {
+          heading.parentNode.classList.toggle("open")
+          heading.classList.toggle("open")
+          toggleChildrenClass(heading.parentNode)
+        }
       }
     }
   }, [buttonCreated])
@@ -57,12 +59,15 @@ export const useFAQAccordion = () => {
       const element =
         e.target.localName === "button" ? e.target : e.target.parentNode
 
-      window.history.replaceState(
-        {},
-        "",
-        "#" + e.target.getElementsByTagName("a")[0].id
-      )
-      window.history.scrollRestoration = "manual"
+    
+      if (typeof window !== 'undefined') {
+        window.history.replaceState(
+          {},
+          "",
+          "#" + e.target.getElementsByTagName("a")[0].id
+        )
+        window.history.scrollRestoration = "manual"
+      }
 
       if (e.target.localName === "button") {
         e.target.classList.toggle("open")
