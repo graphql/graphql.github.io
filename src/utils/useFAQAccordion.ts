@@ -83,5 +83,5 @@ export const useFAQAccordion = () => {
     document.addEventListener("click", toggleClasses)
 
     return () => document.removeEventListener("click", toggleClasses)
-  }, [window.location.hash])
+  }, [typeof window !== 'undefined' ? window.location.hash : null])
 }
