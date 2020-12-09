@@ -1,52 +1,82 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
+
+const nextUntil = (elem: any, selector: string) => {
+  const siblings = []
+  let nextElement = elem.nextElementSibling
+
+  while (nextElement) {
+    if (nextElement.matches(selector)) break
+
+    siblings.push(nextElement)
+
+    nextElement = nextElement.nextElementSibling
+  }
+
+  return siblings
+}
 
 export const useFAQAccordion = () => {
-    const toggleChildrenClass = (element: React.ReactNode) => {
-      Array.from(nextUntil(element, 'h3')).map(p =>
-        p.classList.toggle('show')
-      );
-    };
-  
-    const nextUntil = (elem: any, selector: string) => {
-      const siblings = [];
-      let nextElement = elem.nextElementSibling;
+  const [buttonCreated, setButtonCreated] = useState(false)
+  const toggleChildrenClass = (element: React.ReactNode) => {
+    Array.from(nextUntil(element, "button")).map(p =>
+      p.classList.toggle("show")
+    )
+  }
 
-      while (nextElement) {
-        if (nextElement.matches(selector)) break;
+  useEffect(() => {
+    const hash = window.location.hash ? window.location.hash.split("#")[1] : ""
 
-        siblings.push(nextElement);
+    if (hash && buttonCreated) {
+      const anchor = document && document.getElementById(hash)
+      const heading: any = anchor && anchor.parentNode
 
-        nextElement = nextElement.nextElementSibling;
+      if (heading) {
+        heading.parentNode.classList.toggle("open")
+        heading.classList.toggle("open")
+        toggleChildrenClass(heading.parentNode)
       }
-    
-      return siblings;
-    
-    };
-  
-    useEffect(() => {
-      const hash = location.hash ? location.hash.split('#')[1] : '';
-  
-      if (hash) {
-        const anchor = document && document.getElementById(hash)
-        const heading: any = anchor && anchor.parentNode;
-  
-        if (heading) {
-          heading.classList.toggle('open');
-          toggleChildrenClass(heading);
-        }
+    }
+  }, [buttonCreated])
+
+  useEffect(() => {
+    const allH3 = document.querySelectorAll("h3")
+
+    Array.from(allH3).forEach(h3 => {
+      const button = document.createElement("button")
+      button.classList.add("faq-button-question")
+      h3.parentNode?.insertBefore(button, h3)
+      button.appendChild(h3)
+      setButtonCreated(true)
+    })
+  }, [])
+
+  useEffect(() => {
+    const toggleClasses = (e: any) => {
+      if (e.target.localName !== "button" && e.target.localName !== "h3") return
+
+      const element =
+        e.target.localName === "button" ? e.target : e.target.parentNode
+
+      window.history.replaceState(
+        {},
+        "",
+        "#" + e.target.getElementsByTagName("a")[0].id
+      )
+      window.history.scrollRestoration = "manual"
+
+      if (e.target.localName === "button") {
+        e.target.classList.toggle("open")
+        e.target.getElementsByTagName("h3")[0].classList.toggle("open")
+      } else {
+        e.target.classList.toggle("open")
+        e.target.parentNode.classList.toggle("open")
       }
-  
-      const toggleClasses = (e: any) => {
-        if (e.target.localName !== 'h3') return;
-        history.replaceState({}, '', '#' + e.target.getElementsByTagName('a')[0].id);
-        history.scrollRestoration = 'manual';
-  
-        e.target.classList.toggle('open');
-        toggleChildrenClass(e.target);
-      };
-  
-      document.addEventListener('click', toggleClasses);
-  
-      return () => document.removeEventListener('click', toggleClasses);
-    }, []);
-  };
+
+      toggleChildrenClass(element)
+    }
+
+    document.addEventListener("click", toggleClasses)
+
+    return () => document.removeEventListener("click", toggleClasses)
+  }, [window.location.hash])
+}
