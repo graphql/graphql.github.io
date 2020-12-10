@@ -1,7 +1,7 @@
 ---
 name: Mu-Haskell with Mu-GraphQL
 description: A Haskell library for building microservices (gRPC, HTTP) and GraphQL APIs.
-url: https://github.com/higherkindness/mu-haskell
+url: https://higherkindness.io/mu-haskell/
 github: higherkindness/mu-haskell
 ---
 
