@@ -20,6 +20,7 @@ There are many ways to get involved. Follow this guide and feel free to [reach o
     - [Add a question to the FAQ](#add-a-question-to-the-faq)
     - [Write a new section or guide](#write-a-new-section-or-guide)
 - [Making changes to the code](#making-changes-to-the-code)
+    - [Browser support](#browser-support)
 - [Contributing something else](#contributing-something-else)
 - [Asking questions](#asking-questions)
 
@@ -137,6 +138,10 @@ Once it's ready for review, please [open a pull request](https://github.com/grap
 Before diving into any code updates, please [open an issue](https://github.com/graphql/graphql.github.io/issues/new) describing the change(s) you'd like to make.
 
 If you're working off an [existing issue](https://github.com/graphql/graphql.github.io/issues/), follow our [development guide](#development-guide) to make your changes. Once it's ready for review, please [open a pull request](https://github.com/graphql/graphql.github.io/pulls/) and reference the original issue.
+
+### Browser support
+
+We aim to support the latest stable versions of Chrome, Edge, Firefox, Safari, and Safari on mobile. 
 
 ## Contributing something else
 
