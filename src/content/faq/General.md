@@ -66,7 +66,7 @@ While HTTP is the most common choice for client-server protocol, it’s not the 
 
 ## How does GraphQL affect my product’s performance?
 
-With GraphQL, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data parsing on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.
+On a typical GraphQL backend, every field on every type has a focused, single-purpose function for resolving that value. Also, instead of trying to handle data batching on the client, [GraphQL moves that logic to the server](/learn/best-practices/#server-side-batching-caching). As a result, there are some inherent performance benefits. Minimizing over-fetching and making [fewer roundtrips to the server](/learn/queries/#fields) are two of them.
 
 Other performance factors should be considered when building out your GraphQL implementation. For example, it’s possible for a GraphQL service to be ‘chatty’ and repeatedly load data from your database. This is commonly solved by [implementing a batching technique](/learn/best-practices/#server-side-batching-caching) or [utilizing a tool like DataLoader](https://github.com/graphql/dataloader). 
 
@@ -108,7 +108,7 @@ You can find out more by visiting [foundation.graphql.org](https://foundation.gr
 
 ## Is GraphQL scalable?
 
-Yes, if you scale it. 
+Yes, GraphQL is designed to be scalable and is used by many companies in production under a very high load.
 
 GraphQL comes with some [built-in performance boosts](#how-does-graphql-affect-my-product-s-performance) that can help. But once you push it to production, you're responsible for scaling it across instances and monitoring performance.
 
