@@ -154,13 +154,15 @@ You can read more about [how versioning works in GraphQL](/learn/best-practices/
 
 ## How can I document my GraphQL API?
 
-One of the benefits of GraphQL is that it's inherently self-documenting. This means that when you use an interactive tool like [GraphiQL](https://github.com/graphql/graphiql), you’re able to explore what data is exposed by your GraphQL API. This includes the [fields](/learn/queries/#fields), [types](/learn/schema/#type-system), and more. You can also add a [description field](https://spec.graphql.org/draft/#sec-Documentation) to provide supplementary notes about your endpoint. 
+One of the benefits of GraphQL is that it's inherently self-documenting. This means that when you use an interactive tool like [GraphiQL](https://github.com/graphql/graphiql), you’re able to explore what data is exposed by your GraphQL API. This includes the [fields](/learn/queries/#fields), [types](/learn/schema/#type-system), and more. You can also add a [description field](https://spec.graphql.org/draft/#sec-Documentation) to provide supplementary notes about your endpoint. This description field supports strings and Markdown.
 
 For many, this provides enough API reference documentation. But it doesn’t reduce the need for other forms of documentation. You'll likely still need to create guides that explain how the general concepts tie into your specific use case.
 
 ## What is the best way to follow specification releases?
 
 The latest working draft release of the GraphQL specification can be found at [spec.graphql.org/draft](https://spec.graphql.org/draft/). Previous editions are also available at permalinks that match their [release tag](https://github.com/graphql/graphql-spec/releases).
+
+The entire process behind each release is open source. You can monitor specification proposals by following [pull requests in the graphql-spec repository](https://github.com/graphql/graphql-spec/pulls). You can also watch past GraphQL Working Group discussions various proposals on [YouTube](https://www.youtube.com/channel/UCERcwLeheOXp_u61jEXxHMA).
 
 ## How can I contribute to the GraphQL specification?
 
@@ -172,7 +174,7 @@ There are more ways to get involved with GraphQL beyond the specification though
 
 It's not on this website yet, but we're working on it. For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription). 
 
-If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/new). 
+If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/993). 
 
 ## Does GraphQL replace Redux or other state management libraries?
 
