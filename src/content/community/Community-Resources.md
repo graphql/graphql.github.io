@@ -37,7 +37,7 @@ Chat with GraphQL developers on IRC at the [freenode](https://freenode.net/) ser
 Many GraphQL developers idle in Discord and Slack chatrooms for live
 communication and quick questions.
 
-Join #graphql on the [ReactiFlux Discord](http://join.reactiflux.com/).
+Join [#help-graphql on the Reactiflux Discord](https://discord.gg/aBtYAXxG7B).
 
 ### Slack Communities:
 
