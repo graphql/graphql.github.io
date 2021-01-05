@@ -68,13 +68,15 @@
     opacity: 0;
     margin-bottom: 0;
     margin-top: 0;
-    display: none;
+    overflow: hidden;
+    transition: height 0ms 400ms, opacity 400ms 0ms;
 
     &.show {
       opacity: 1;
       max-height: 800px;
       margin-bottom: 1.0875rem;
-      display: block;
+      overflow: visible;
+      transition: height 0ms 0ms, opacity 600ms 0ms;
     }
   }
 
@@ -82,13 +84,14 @@
     max-height: 0;
     opacity: 0;
     margin: 0;
-    display: none;
+    overflow: hidden;
+    transition: height 0ms 400ms, opacity 400ms 0ms;
 
     &.show {
       opacity: 1;
       max-height: 400px;
       margin-bottom: 1.0875rem;
-      display: block;
+      transition: height 0ms 0ms, opacity 600ms 0ms;
     }
   }
 }
