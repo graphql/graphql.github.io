@@ -2,7 +2,7 @@
 name: GraphQL by PoP
 description: CMS-agnostic GraphQL server in PHP. It follows the code-first approach, generating the schema dynamically
 url: https://graphql-by-pop.com
-github: GraphQLByPoP/graphql-server
+github: leoloso/PoP
 ---
 
 GraphQL by PoP follows the [code-first approach](https://graphql-by-pop.com/docs/architecture/code-first.html) to generate the schema (it can be customized for different clients/applications). Fields are dynamically "subscribed" to types, and may or may not be added to the schema depending on the context.
