@@ -14,5 +14,9 @@ A brief overview: **GraphQL** is a query language for APIs and a runtime for ful
 - [Frequently Asked Questions (FAQ)](https://graphql.org/faq/)
 - [Community resources](https://graphql.org/community/)
 
+## Deployment
+
+The site is deployed via Netlify on merges to the source branch, you can see the [builds here](https://app.netlify.com/teams/graphql-org/builds).
+
 ## How to contribute
 Check out our [contributing guide](./CONTRIBUTING.md) for detailed instructions on how to make changes to the GraphQL website 🎉
