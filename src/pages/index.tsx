@@ -1,8 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
 
-import Search from "../components/Search"
-
 import Hero from "../Containers/Sections/Hero"
 import SingleRequest from "../Containers/Sections/SingleRequest"
 import TypeSystem from "../Containers/Sections/TypeSystem"
@@ -15,9 +13,6 @@ import WhosUsing from "../Containers/Sections/WhosUsing"
 export default ({ pageContext }) => {
   return (
     <Layout className={"index"} title="GraphQL | A query language for your API" pageContext={pageContext}>
-      <section className="fixedSearch">
-        <Search searchID="hero-search-input" />
-      </section>
       <Hero />
       <section className="lead">
         <h1>A query language for your API</h1>
