@@ -56,3 +56,7 @@ If this is confusing, don’t worry - there’s a lot going on. To get a more vi
 The [GraphQL Foundation](https://foundation.graphql.org/faq/) is a neutral foundation that provides governance for GraphQL. This includes vendor-neutral oversight of open-source repositories, funding, events, and more. It's hosted under the [Linux Foundation](https://www.linuxfoundation.org/) and consists of [representatives from dozens of different companies](https://foundation.graphql.org/members/). The idea is that it’s an impartial and open home for the GraphQL community.
 
 You can find out more by visiting [foundation.graphql.org](https://foundation.graphql.org/).
+
+### Does GraphQL only work with graph-like structures or data sources that are graph-based?
+
+No, The "graph" in GraphQL is only used to represent the graph-like structure of data. It's a misconception that you need to rewrite your database to adopt GraphQL. There is no limitation in the GraphQL ecosystem that enforces that the data source should be a graph. GraphQL can be a wrapper around any data source. GraphQL is a query language for your API which means it is a syntax of how to ask for data.

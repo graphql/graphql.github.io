@@ -48,3 +48,25 @@ Before you start your learning journey, make sure you know [what an API is](http
 No, not at all. [GraphQL is a specification](https://spec.graphql.org/) that can be [implemented in any language](/learn/schema/#type-language). Our [Code page](/code/) contains a long list of libraries in many different programming languages to help with that.
 
 It’s understandable why you’d think this, though. GraphQL was introduced at a [React conference](https://www.youtube.com/watch?v=9sc8Pyc51uU) and [GraphQL.js](/graphql-js/) is one of the most widely used implementations to date. We know this can be confusing, so we’re working to improve our documentation and add more code samples that aren’t written in JavaScript.
+
+### Can I use GraphQL to make graphs or charts?
+
+Yes, graphql2chartjs is an open source tool that reshapes your GraphQL data as per the ChartJS API. This makes building charts as easy as simply making a GraphQL query. The idea behind this tool was to leverage GraphQL's realtime subscriptions to build realtime charts by restructuring the GraphQL data to a form that ChartJS expects and generate ChartJS compliant data object from your GraphQL response by simply adding a few aliases in your GraphQL query.
+
+For more information on graphql2chartjs, check out their [documentation](https://github.com/hasura/graphql2chartjs).
+
+### What are the downsides of GraphQL?
+
+Although GraphQL has negligible downsides over its upsides, here are some downsides of GraphQL.
+
+**GraphQL Caching** : It is complicated to implement a simplified cache with GraphQL than implementing it in REST. In REST API, we access resources with URLs, so we can cache on a resource level. On the other hand, In GraphQL, it is very complex because each query can be different, even though it operates on the same entity. But most of the libraries built on top of GraphQL offer an efficient caching mechanism.
+
+For more information on caching using GraphQL, check out our [documentation](/learn/caching/).
+
+**File uploading** : Since GraphQL doesn’t understand files, a file uploading feature is not included in its specification. You won’t have to deal with this limitation in case of REST, as there you can POST or PUT whatever content you want to. To allow file uploads in your GraphQL web app, there are several options, using Base64 encoding, making a separate API endpoint just for this purpose, using a library like Apollo for implementing the GraphQL multipart request specification.
+
+**Overkill for small applications** : While GraphQL is the right solution for multiple microservices, you’d better go for REST architecture in case of a simple app. REST can be also a valuable approach for connecting resource-driven apps that don’t need the flexible queries offered by GraphQL.
+
+**GraphQL Query Complexity** : Don't mistake GraphQL as a replacement for server-side databases. It is just a simple query language. When we have to access multiple fields in one query whether it is in a RESTful architecture or GraphQL, the varied resources and fields still have to be retrieved from a data source. So, it also shows the same problems when a client requests too many nested fields data at a single time. So there must be a mechanism like maximum query depths, query complexity weighting, avoiding recursion, or persistent queries to stop inefficient requests from the client-side.
+
+For more information on querying in GraphQL, check out our [documentation](/learn/queries/).

@@ -58,3 +58,19 @@ You can read more about [how versioning works in GraphQL](/learn/best-practices/
 One of the benefits of GraphQL is that it's inherently self-documenting. This means that when you use an interactive tool like [GraphiQL](https://github.com/graphql/graphiql), you’re able to explore what data is exposed by your GraphQL API. This includes the [fields](/learn/queries/#fields), [types](/learn/schema/#type-system), and more. You can also add a [description field](https://spec.graphql.org/draft/#sec-Documentation) to provide supplementary notes about your endpoint. This description field supports strings and Markdown.
 
 For many, this provides enough API reference documentation. But it doesn’t reduce the need for other forms of documentation. You'll likely still need to create guides that explain how the general concepts tie into your specific use case.
+
+### Does GraphQL introduce a single point of failure?
+
+One concern people have with this architecture is that the GraphQL gateway looks like a single point of failure. Everything depends on it, so if it goes down, then everything breaks. Except not exactly. The GraphQL gateway is completely stateless, meaning it doesn't store any data itself. It only communicates with external data sources. Once a request is finished processing, the GraphQL server forgets everything about it. Because of this stateless nature, the GraphQL gateway can actually live on several servers behind some load balancers. Now if one of the gateway instances goes down, the request can still be sent to one of the other instances.
+
+### How can I do error handling?
+
+GraphQL servers are able to handle errors by default, both for syntax and validations errors. You've probably already seen this when using GraphiQL or any other playground to explore GraphQL APIs. But often the default way is not sufficient for more complex situations or to sophistically handle the errors from a frontend application.
+
+**GraphQL Error Object** : Error handling is described in the GraphQL specification and is part of the default structure of any GraphQL response. This response consists of 3 fields, The `data` field containing the result of the operation, The `errors` field containing all the errors that occurred during the execution of the operation and an optional `extensions` field that contains meta data about the operation
+
+### Schema-first or code-first?
+
+**Schema-first** indicates that we first define the schema for the GraphQL service and then we implement the code by matching the definitions in the schema. To code the schema, we use the [Schema Definition Language (SDL)]('https://www.howtographql.com/basics/2-core-concepts/), a syntax created to represent the GraphQL data model. Because of this, this approach may also be called SDL-first. It resembles doing test-driven development (TDD) because developers must consider the different use cases. It follows the dependency inversion principle (DIP), which makes the solution more abstract and less tied to dependencies.
+
+**Code-first**, indicates that we start by coding the resolvers, and then, from code as a single source of truth, we have the schema generated as an artifact. Thus, we still have a schema, but instead of being manually created, it is created through running a script. This approach may also be called resolver-first. It requires less effort to use because, in contrast to the schema-first approach, it doesn’t depend on an excessive amount of tooling.
