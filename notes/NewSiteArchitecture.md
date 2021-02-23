@@ -159,6 +159,7 @@ This page should serve as a high-level view of what resources are available and 
 
 * Links out to:
   * Stack Overflow topic
+  * DEV Community tag
   * Slack/Discord channels
   * Popular blogs
   * Twitter feed

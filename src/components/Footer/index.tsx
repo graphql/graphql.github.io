@@ -43,6 +43,10 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
         href: "http://stackoverflow.com/questions/tagged/graphql",
       },
       {
+        text: "DEV Community",
+        href: "https://dev.to/t/graphql",
+      },
+      {
         text: "Facebook Group",
         href: "https://www.facebook.com/groups/graphql.community/",
       },
