@@ -59,4 +59,4 @@ You can find out more by visiting [foundation.graphql.org](https://foundation.gr
 
 ### Does GraphQL only work with graph-like structures or data sources that are graph-based?
 
-No, The "graph" in GraphQL is only used to represent the graph-like structure of data. It's a misconception that you need to rewrite your database to adopt GraphQL. There is no limitation in the GraphQL ecosystem that enforces that the data source should be a graph. GraphQL can be a wrapper around any data source. GraphQL is a query language for your API which means it is a syntax of how to ask for data.
+No, the "graph" in GraphQL is only used to represent the graph-like structure of data. It's a misconception that you need to rewrite your database to adopt GraphQL. There is no limitation in the GraphQL ecosystem that enforces that the data source should be a graph. GraphQL can be a wrapper around any data source. GraphQL is a query language for your API which means it is a syntax of how to ask for data.

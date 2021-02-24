@@ -65,12 +65,40 @@ One concern people have with this architecture is that the GraphQL gateway looks
 
 ### How can I do error handling?
 
-GraphQL servers are able to handle errors by default, both for syntax and validations errors. You've probably already seen this when using GraphiQL or any other playground to explore GraphQL APIs. But often the default way is not sufficient for more complex situations or to sophistically handle the errors from a frontend application.
+GraphQL servers are able to handle errors by default, both for syntax and validation errors. You've probably already seen this when using GraphiQL or any other playground to explore GraphQL APIs. But often the default way is not sufficient for more complex situations or to sophistically handle the errors from a frontend application.
 
-**GraphQL Error Object** : Error handling is described in the GraphQL specification and is part of the default structure of any GraphQL response. This response consists of 3 fields, The `data` field containing the result of the operation, The `errors` field containing all the errors that occurred during the execution of the operation and an optional `extensions` field that contains meta data about the operation
+**GraphQL Error Object** : Error handling is described in the GraphQL specification and is part of the default structure of any GraphQL response. This response consists of 3 fields, a `data` field containing the result of the operation, an `errors` field containing all the errors that occurred during the execution of the operation, and an optional `extensions` field that contains meta data about the operation.
 
 ### Schema-first or code-first?
 
-**Schema-first** indicates that we first define the schema for the GraphQL service and then we implement the code by matching the definitions in the schema. To code the schema, we use the [Schema Definition Language (SDL)]('https://www.howtographql.com/basics/2-core-concepts/), a syntax created to represent the GraphQL data model. Because of this, this approach may also be called SDL-first. It resembles doing test-driven development (TDD) because developers must consider the different use cases. It follows the dependency inversion principle (DIP), which makes the solution more abstract and less tied to dependencies.
+GraphQL schema is a set of rules describing the functionality available to the client, including specification of operations (queries and mutations) that can be executed to execute against your data source. If you ever decide to build a GraphQL service at some point you would need to chose which approach you want to go with. In either case, we will end up with a fully functional GraphQL service, but this choice will influence your project in terms of the amount of work you will need to put to achieve certain things like scaling your project etc.
+
+**Schema-first** indicates that we first define the schema for the GraphQL service and then we implement the code by matching the definitions in the schema. To code the schema, we use the [Schema Definition Language (SDL)]('https://www.howtographql.com/basics/2-core-concepts/), a syntax created to represent the GraphQL data model. Because of this, this approach may also be called SDL-first.
+
+**PROS**
+
+It resembles doing test-driven development (TDD) because developers must consider the different use cases.
+
+It follows the dependency inversion principle (DIP), which makes the solution more abstract and less tied to dependencies.
+
+It reduces development time by allowing frontend and backend teams to work simultaneously.
+
+**CONS**
+
+Reusing SDL definitions may involve a lot of boilerplate and repeated code.
+
+Ensuring that the schema definition is in sync with the resolvers at all times.
+
+Composing a number of existing (and distributed) schemas into a single schema.
 
 **Code-first**, indicates that we start by coding the resolvers, and then, from code as a single source of truth, we have the schema generated as an artifact. Thus, we still have a schema, but instead of being manually created, it is created through running a script. This approach may also be called resolver-first.
+
+**PROS**
+
+It can work as a single source of truth as it keeps stored both the schema definitions as well as resolvers.
+
+It offers better manageability if you expect your schema to grow in complexity or size.
+
+**CONS**
+
+Having both the definitions and resolves might be less readable.

@@ -59,11 +59,11 @@ For more information on graphql2chartjs, check out their [documentation](https:/
 
 Although GraphQL has negligible downsides over its upsides, here are some downsides of GraphQL.
 
-**GraphQL Caching** : It is complicated to implement a simplified cache with GraphQL than implementing it in REST. In REST API, we access resources with URLs, so we can cache on a resource level. On the other hand, In GraphQL, it is very complex because each query can be different, even though it operates on the same entity. But most of the libraries built on top of GraphQL offer an efficient caching mechanism.
+**GraphQL Caching** : It is complicated to implement a simplified cache with GraphQL than implementing it in REST. In a REST API, we access resources with URLs, so we can cache on a resource level. On the other hand, in GraphQL, it is very complex because each query can be different, even though it operates on the same entity. But most of the libraries built on top of GraphQL offer an efficient caching mechanism.
 
 For more information on caching using GraphQL, check out our [documentation](/learn/caching/).
 
-**File uploading** : Since GraphQL doesn’t understand files, a file uploading feature is not included in its specification. You won’t have to deal with this limitation in case of REST, as there you can POST or PUT whatever content you want to. To allow file uploads in your GraphQL web app, there are several options, using Base64 encoding, making a separate API endpoint just for this purpose, using a library like Apollo for implementing the GraphQL multipart request specification.
+**File uploading** : Since GraphQL doesn’t understand files, a file uploading feature is not included in its specification. You won’t have to deal with this limitation in case of REST, as there you can POST or PUT whatever content you want to. To allow file uploads in your GraphQL web app, there are several options: using Base64 encoding, making a separate API endpoint just for this purpose, or using a library like [Apollo](https://github.com/apollographql/apollo-server) for implementing the GraphQL multipart request specification.
 
 **GraphQL Query Complexity** : Don't mistake GraphQL as a replacement for server-side databases. It is just a query language. When we have to access multiple fields in one query whether it is in a RESTful architecture or GraphQL, the varied resources and fields still have to be retrieved from a data source, so it also shows the same problems when a client requests too many nested fields data at a time. Mechanisms like maximum query depths, query complexity weighting, avoiding recursion, or persisted queries help to stop inefficient requests from the client-side.
 
