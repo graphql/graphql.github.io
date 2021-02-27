@@ -12,7 +12,7 @@ developers when an invalid query has been created, without having to rely
 on runtime checks.
 
 For our Star Wars example, the file
-[starWarsValidation-test.js](https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsValidation-test.js)
+[starWarsValidation-test.js](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsValidation-test.js)
 contains a number of queries demonstrating various invalidities, and is a test
 file that can be run to exercise the reference implementation's validator.
 
@@ -165,6 +165,6 @@ This has just scratched the surface of the validation system; there
 are a number of validation rules in place to ensure that a GraphQL query
 is semantically meaningful. The specification goes into more detail about this
 topic in the "Validation" section, and the
-[validation](https://github.com/graphql/graphql-js/blob/master/src/validation)
+[validation](https://github.com/graphql/graphql-js/blob/main/src/validation)
 directory in GraphQL.js contains code implementing a
 specification-compliant GraphQL validator.
