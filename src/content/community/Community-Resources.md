@@ -22,7 +22,6 @@ Use the [**#graphql** hashtag](https://twitter.com/search?q=%23GraphQL&src=tyah)
 Here are some helpful accounts to follow:
 - [@GraphQL](https://twitter.com/GraphQL)
 - [@graphqlweekly](https://twitter.com/graphqlweekly)
-- [@GraphQLStackOverflow](https://twitter.com/GraphQLatSO)
 - [@apollographql](https://twitter.com/apollographql)
 - [@prisma](https://twitter.com/prisma)
 - [@HasuraHQ](https://twitter.com/HasuraHQ)
