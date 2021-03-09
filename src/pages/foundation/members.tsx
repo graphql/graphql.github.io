@@ -15,7 +15,7 @@ export default ({ pageContext }) => {
           </p>
           <p>
             To learn more about the <a href="/foundation">GraphQL Foundation</a> and becoming a
-            member, please see our <a href="/http://localhost:8000/faq/graphql-foundation/">FAQ</a>,
+            member, please see our <a href="/faq/graphql-foundation/">FAQ</a>,
             reach out to <a href="mailto:membership@graphql.org">membership@graphql.org</a>, or <a
             href="https://join.graphql.org">complete a membership application</a>.
           </p>

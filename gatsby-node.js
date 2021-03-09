@@ -32,14 +32,12 @@ exports.onCreatePage = async ({ page, actions }) => {
         const languageNameSlug = pathArr[languageNameSlugIndex]
         const languageName = slugMap[languageNameSlug]
         codeData.Languages = codeData.Languages || {}
-        codeData.Languages[languageName] =
-          codeData.Languages[languageName] || {}
+        codeData.Languages[languageName] = codeData.Languages[languageName] || {}
 
         const categoryNameSlugIndex = languageSupportDirIndex + 2
         const categoryNameSlug = pathArr[categoryNameSlugIndex]
         const categoryName = slugMap[categoryNameSlug]
-        codeData.Languages[languageName][categoryName] =
-          codeData.Languages[languageName][categoryName] || []
+        codeData.Languages[languageName][categoryName] = codeData.Languages[languageName][categoryName] || []
         codeData.Languages[languageName][categoryName].push({
           name,
           description,
@@ -157,150 +155,183 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  const { edges } = result.data.allMarkdownRemark
+  const markdownPages = result.data.allMarkdownRemark.edges
 
-  let sideBardata = {}
+  // foundation: [
+  //   {
+  //     fileAbsolutePath: '/graphql/graphql.github.io/src/content/foundation/About.md',
+  //     parent: {},
+  //     frontmatter: {},
+  //     id: '1d502d5e-3453-56cf-ad9a-7f6bfb68d9ba'
+  //   },
+  //   ...
+  //   ]
+  // }
   let pagesGroupedByFolder = {}
+
+  // {
+  //   foundation: [
+  //     { name: 'foundation', links: [{"fileAbsolutePath":"/graphql/graphql.github.io/src/content/foundation/About.md","parent":{"relativeDirectory":"foundation","sourceInstanceName":"content"},"frontmatter":{"title":"What is the GraphQL Foundation?","permalink":"/foundation/","next":"/foundation/join/","category":"GraphQL Foundation","sublinks":null,"sidebarTitle":"About the Foundation","date":null},"id":"1d502d5e-3453-56cf-ad9a-7f6bfb68d9ba"}] },
+  //     { name: 'GraphQL Foundation', links: [Array] }
+  //   ],
+  // Note that this is mutated
+  let sideBardata = {}
+
+
+  // Sidebar items to add which don't come from markdown
+  const additionalSidebarItems = {
+    foundation: [{
+      name: "GraphQL Foundation",
+      links: [{  frontmatter: {  sidebarTitle:"Foundation Members", title: "Foundation Members", permalink: "/foundation/members/", date: null, category: "GraphQL Foundation" } }]
+    }]
+  }
+
+  // E.g.
+  // {
+  //   permalink: '/learn/best-practices/',
+  //   relativeDirectory: 'learn',
+  //   sidebarTitle: 'Introduction',
+  //   nextPermalink: '/learn/thinking-in-graphs/',
+  //   sourcePath: 'src/content/learn/BestPractice-Introduction.md'
+  // }
   const allPages = []
 
-  await Promise.all(
-    edges.map(async ({ node }) => {
-      const {
-        frontmatter: { permalink, next, sidebarTitle },
-        parent: { relativeDirectory, sourceInstanceName },
-      } = node
+  // Loop through all *.md files in the repo, setting up both pagesGroupedByFolder
+  // and allPages.
+  markdownPages.map(({ node }) => {
+    const {
+      frontmatter: { permalink, next, sidebarTitle },
+      parent: { relativeDirectory, sourceInstanceName },
+    } = node
 
-      if (
-        sourceInstanceName !== "content" ||
-        relativeDirectory.includes("code/")
-      ) {
+    if (sourceInstanceName !== "content" || relativeDirectory.includes("code/")) {
+      return
+    }
+
+    if (!pagesGroupedByFolder[relativeDirectory]) {
+      pagesGroupedByFolder = {
+        ...pagesGroupedByFolder,
+        [relativeDirectory]: [node],
+      }
+    } else {
+      pagesGroupedByFolder = {
+        ...pagesGroupedByFolder,
+        [relativeDirectory]: [
+          ...pagesGroupedByFolder[relativeDirectory],
+          node,
+        ],
+      }
+    }
+  
+    allPages.push({
+      permalink,
+      relativeDirectory,
+      sidebarTitle,
+      nextPermalink: next,
+      sourcePath: path.relative(__dirname, node.fileAbsolutePath),
+    })
+  })
+  
+  // Loop through the sections in the sidebar, mutating the 
+  // next and previous objects for different
+  Object.entries(pagesGroupedByFolder).map(([folder, pages]) => {
+    let pagesByUrl = {}
+    let previousPagesMap = {}
+    let pagesByDate = pages.sort((a, b) => {
+      const aDate = new Date(a.frontmatter.date || Date.now())
+      const bDate = new Date(b.frontmatter.date || Date.now())
+      if (aDate > bDate) {
+        return -1
+      } else if (aDate < bDate) {
+        return 1
+      }
+      return 0
+    })
+
+    pagesByDate.forEach(page => {
+      const next = page.frontmatter.next
+      const permalink = page.frontmatter.permalink
+
+      if (next) {
+        previousPagesMap[next] = permalink
+      }
+      pagesByUrl[permalink] = page
+    })
+
+    let firstPage = null
+    pagesByDate.forEach(page => {
+      const permalink = page.frontmatter.permalink
+      if (!previousPagesMap[permalink] && !firstPage) {
+        firstPage = page
         return
       }
+    })
+    
+    if (!firstPage) {
+      throw new Error(`First page not found in ${folder}`)
+    }
 
-      if (!pagesGroupedByFolder[relativeDirectory]) {
-        pagesGroupedByFolder = {
-          ...pagesGroupedByFolder,
-          [relativeDirectory]: [node],
+    let categoriesMap = {}
+    let currentCategory = null
+
+    let page = firstPage
+    let i = 0
+    while (page && i++ < 1000) {
+      const { frontmatter } = page
+      const {
+        category: definedCategory,
+        next: definedNextPageUrl,
+      } = frontmatter
+      let category = definedCategory || folder
+      if (!currentCategory || category !== currentCategory.name) {
+        if (currentCategory) {
+          if (!(currentCategory.name in categoriesMap)) {
+            categoriesMap[currentCategory.name] = currentCategory
+          }
         }
+        currentCategory = {
+          name: category,
+          links: [],
+        }
+      }
+      currentCategory.links.push(page)
+      if (definedNextPageUrl) {
+        page = pagesByUrl[definedNextPageUrl]
       } else {
-        pagesGroupedByFolder = {
-          ...pagesGroupedByFolder,
-          [relativeDirectory]: [
-            ...pagesGroupedByFolder[relativeDirectory],
-            node,
-          ],
-        }
+        page = pagesByDate[pagesByDate.indexOf(page) + 1]
       }
-      allPages.push({
-        permalink,
-        relativeDirectory,
-        sidebarTitle,
-        nextPermalink: next,
-        sourcePath: path.relative(__dirname, node.fileAbsolutePath),
-      })
+      if (currentCategory.links.includes(page)) {
+        page = null
+      }
+    }
+
+    if (!(currentCategory.name in categoriesMap)) {
+      categoriesMap[currentCategory.name] = currentCategory
+    }
+
+    sideBardata[folder] = Object.values(categoriesMap) 
+  })
+
+  Object.entries(additionalSidebarItems).map(([folder, sections]) => {
+    sections.forEach(s => {
+      const originalLinks = sideBardata[folder].find(l => l.name === s.name)
+      originalLinks.links  = [...originalLinks.links, ...s.links]
     })
-  )
+  })
 
-  await Promise.all(
-    Object.entries(pagesGroupedByFolder).map(async ([folder, pages]) => {
-      let pagesByUrl = {}
-      let previousPagesMap = {}
-      let pagesByDate = pages.sort((a, b) => {
-        const aDate = new Date(a.frontmatter.date || Date.now())
-        const bDate = new Date(b.frontmatter.date || Date.now())
-        if (aDate > bDate) {
-          return -1
-        } else if (aDate < bDate) {
-          return 1
-        }
-        return 0
-      })
 
-      await Promise.all(
-        pagesByDate.map(async page => {
-          const {
-            frontmatter: { permalink, next },
-          } = page
-          if (next) {
-            previousPagesMap[next] = permalink
-          }
-          pagesByUrl[permalink] = page
-        })
-      )
-
-      let firstPage = null
-
-      await Promise.all(
-        pagesByDate.map(async page => {
-          const {
-            frontmatter: { permalink },
-          } = page
-
-          if (!previousPagesMap[permalink] && !firstPage) {
-            firstPage = page
-            return
-          }
-        })
-      )
-
-      if (!firstPage) {
-        throw new Error(`First page not found in ${folder}`)
-      }
-
-      let categoriesMap = {}
-      let currentCategory = null
-
-      let page = firstPage
-      let i = 0
-      while (page && i++ < 1000) {
-        const { frontmatter } = page
-        const {
-          category: definedCategory,
-          next: definedNextPageUrl,
-        } = frontmatter
-        let category = definedCategory || folder
-        if (!currentCategory || category !== currentCategory.name) {
-          if (currentCategory) {
-            if (!(currentCategory.name in categoriesMap)) {
-              categoriesMap[currentCategory.name] = currentCategory
-            }
-          }
-          currentCategory = {
-            name: category,
-            links: [],
-          }
-        }
-        currentCategory.links.push(page)
-        if (definedNextPageUrl) {
-          page = pagesByUrl[definedNextPageUrl]
-        } else {
-          page = pagesByDate[pagesByDate.indexOf(page) + 1]
-        }
-        if (currentCategory.links.includes(page)) {
-          page = null
-        }
-      }
-
-      if (!(currentCategory.name in categoriesMap)) {
-        categoriesMap[currentCategory.name] = currentCategory
-      }
-
-      sideBardata[folder] = Object.values(categoriesMap)
+  // Use all the set up data to now tell Gatsby to create pages 
+  // on the site
+  allPages.forEach(page => {
+    createPage({
+      path: `${page.permalink}`,
+      component: docTemplate,
+      context: {
+        permalink: page.permalink,
+        nextPermalink: page.nextPermalink,
+        sideBarData: sideBardata[page.relativeDirectory],
+        sourcePath: page.sourcePath,
+      },
     })
-  )
-
-  await Promise.all(
-    allPages.map(async page => {
-      createPage({
-        path: `${page.permalink}`,
-        component: docTemplate,
-        context: {
-          permalink: page.permalink,
-          nextPermalink: page.nextPermalink,
-          sideBarData: sideBardata[page.relativeDirectory],
-          sourcePath: page.sourcePath,
-        },
-      })
-    })
-  )
+  })
 }
