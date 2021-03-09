@@ -37,7 +37,8 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     text: "Community",
     href: "/community",
     subsections: [
-      { text: "Upcoming Events", href: "/community/upcoming-events/" },
+      { text: "Code of Conduct", href: "/codeofconduct/" },
+      { text: "GitHub", href: "https://github.com/graphql" },
       {
         text: "Stack Overflow",
         href: "http://stackoverflow.com/questions/tagged/graphql",
@@ -47,6 +48,7 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
         href: "https://www.facebook.com/groups/graphql.community/",
       },
       { text: "Twitter", href: "https://twitter.com/GraphQL" },
+      { text: "Upcoming Events", href: "/community/upcoming-events/" },
     ],
   },
   {
@@ -54,7 +56,7 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     subsections: [
       {
         text: "GraphQL Specification",
-        href: "https://graphql.github.io/graphql-spec/",
+        href: "https://spec.graphql.org/",
       },
       { text: "GraphQL Foundation", href: "https://foundation.graphql.org/" },
       {

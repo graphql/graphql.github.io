@@ -18,14 +18,9 @@ const links: LinkItem[] = [
     href: "https://graphql.github.io/graphql-spec/",
   },
   {
-    section: "codeofconduct",
-    text: "Code of Conduct",
-    href: "/codeofconduct/",
-  },
-  {
     section: "foundation",
     text: "Foundation",
-    href: "https://foundation.graphql.org/",
+    href: "/foundation/",
   },
   { section: "landscape", text: "Landscape", href: "https://l.graphql.org/" },
 ]

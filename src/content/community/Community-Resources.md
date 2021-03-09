@@ -4,8 +4,20 @@ layout: docs
 category: Community
 permalink: /community/
 next: /community/upcoming-events/
-sublinks: Blogs,Videos,Books,More Resources
+sublinks: Code of Conduct,GitHub,Blogs,Videos,Books,More Resources
 ---
+
+## Code of Conduct
+
+The [GraphQL Code of Conduct](/codeofconduct/) applies both within project spaces and in public spaces when an individual is representing the project or its community.
+
+## GitHub
+
+All official GraphQL development is done on [GitHub](https://github.com/graphql). Participants must sign the GraphQL Specification membership agreement, but this process is both easy and free.
+
+To participate in any project or meeting, please open a PR to add yourself to the agenda. This will initiate an automated check to determine if you still need to sign the document.
+
+If you maintain a tool or reference implementation that you'd like to transfer to the [GraphQL GitHub org](https://github.com/graphql), please add your name to the agenda of an upcoming [GraphQL Working Group meeting](https://github.com/graphql/graphql-wg/tree/HEAD/agendas) to introduce your idea.
 
 ## Stack Overflow
 
