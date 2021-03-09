@@ -17,6 +17,14 @@ GraphQL is still evolving and contributions are very welcome! The specification 
 
 There are more ways to get involved with GraphQL beyond the specification though. Updating the content on [this website and the documentation](https://github.com/graphql/graphql.github.io), for example. Or contributing to [graphql-js](https://github.com/graphql/graphql-js), [express-graphql](https://github.com/graphql/express-graphql), [GraphiQL](https://github.com/graphql/graphiql), or [one of the many other projects](https://github.com/graphql/) maintained by the [GraphQL Foundation](#what-is-the-graphql-foundation).
 
+### What is GraphQL Specification membership?
+
+The [GraphQL Specification](https://specification.graphql.org) and the associated reference implementations are a Joint Development Foundation project (also part of the Linux Foundation family). Individual or corporate contributors sign a document at no cost that they agree their contributions are under the open source licenses of the project. Because this is not GraphQL Foundation membership, specification members do not decide how to spend the budget.
+
+To sign the [GraphQL Specification membership document](https://github.com/graphql/graphql-wg/tree/HEAD/membership), open a PR against any [GraphQL repo on GitHub](https://github.com/graphql).
+
+If your organization uses and benefits from GraphQL, please consider becoming a member of both by opening a PR on behalf of your company and [joining the GraphQL Foundation](https://join.graphql.org).
+
 ### Where is the documentation for subscriptions?
 
 It's not on this website yet, but we're working on it. If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/993).
