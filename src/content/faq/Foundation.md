@@ -47,7 +47,7 @@ The GraphQL Foundation was founded by Apollo, AWS, Butterfly Network, Dgraph Lab
 
 ### Who is currently a member?
 
-Current GraphQL Foundation members are listed on the [GraphQL Landscape](https://landscape.graphql.org).
+You can learn more about our membership on the [GraphQL Foundation membership page](/foundation/members/).
 
 ### How do we join?
 
