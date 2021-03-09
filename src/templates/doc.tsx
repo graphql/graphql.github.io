@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import DocsLayout from "../components/DocsLayout"
+import FoundationLayout from "../components/FoundationLayout"
 import BlogLayout from '../components/BlogLayout';
 import CodeLayout from "../components/CodeLayout";
 import FAQLayout from "../components/FAQLayout";
@@ -13,6 +14,7 @@ interface Props {
 
 const layoutMap: any = {
   docs: DocsLayout,
+  foundation: FoundationLayout,
   blog: BlogLayout,
   code: CodeLayout,
   faq: FAQLayout,
@@ -21,7 +23,7 @@ const layoutMap: any = {
 const Blog = ({ data, pageContext }: Props) => {
   const {
     doc: {
-      frontmatter: { title, date, permalink, byline, guestBio, layout },
+      frontmatter: { title, date, heroText, permalink, byline, guestBio, layout },
       rawMarkdownBody,
     },
     nextDoc,
@@ -32,6 +34,7 @@ const Blog = ({ data, pageContext }: Props) => {
       <InnerLayout
         title={title}
         date={date}
+        heroText={heroText}
         permalink={permalink}
         byline={byline}
         guestBio={guestBio}
@@ -49,6 +52,7 @@ export const query = graphql`
     doc: markdownRemark(frontmatter: { permalink: { eq: $permalink } }) {
       frontmatter {
         title
+        heroText
         date
         permalink
         byline
