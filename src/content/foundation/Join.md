@@ -1,12 +1,12 @@
 ---
 title: Become a Member
-sidebarTitle: Membership
+sidebarTitle: Join GraphQL
 heroText: GraphQL Foundation members demonstrate their commitment to the ecosystem by providing essential financial support.
 layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/join/
 sublinks: GraphQL Specification,GraphQL Foundation
-next: /foundation/contact/
+next: /foundation/members/
 ---
 
 There are two primary ways to support the ongoing development and success of GraphQL.
