@@ -27,6 +27,7 @@ export default ({ pageContext, data }: any) => {
                 {
                   frontmatter: { title, date, permalink, byline, guestBio },
                   rawMarkdownBody,
+                  excerpt
                 }: any,
                 i
               ) => (
@@ -40,6 +41,8 @@ export default ({ pageContext, data }: any) => {
                   rawMarkdownBody={rawMarkdownBody}
                   isPermalink={false}
                   pageContext={pageContext}
+                  excerpt={excerpt}
+                  showExcerpt
                 />
               )
             )}
@@ -68,6 +71,7 @@ export const query = graphql`
             layout
           }
           id
+          excerpt
           rawMarkdownBody
         }
       }
