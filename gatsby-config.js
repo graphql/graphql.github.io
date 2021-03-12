@@ -16,7 +16,19 @@ module.exports = {
         path: `${__dirname}/src/content`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "@weknow/gatsby-remark-twitter",
+            options: {
+              debug: true
+            }
+          }
+        ]
+      }
+    },
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {

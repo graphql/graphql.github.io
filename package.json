@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@graphql-tools/schema": "7.0.0",
+    "@weknow/gatsby-remark-twitter": "^0.2.3",
     "codemirror": "5.58.2",
     "codemirror-graphql": "0.12.3",
     "gatsby": "2.25.0",
