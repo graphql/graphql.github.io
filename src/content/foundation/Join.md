@@ -47,7 +47,7 @@ To join, please open a PR against a GraphQL repo ([instructions](https://individ
 
 The GraphQL Foundation is a member-supported, non-profit organization whose mission is to support the long-term health and viability of the [GraphQL ecosystem](https://graphql.org). The GraphQL Foundation is hosted by [The Linux Foundation](https://linuxfoundation.org), the 501(c)6 non-profit home of Linux and many other open source collaborative projects.
 
-The GraphQL Foundation is entirely supported by [end-users, vendors, service providers, and consultants](/members) who recognize the importance of ensuring the long-term viability of neutral, collaborative development. The GraphQL Foundation is funded through participation fees, which are allocated by the governing board in ways that benefit the development community.
+The GraphQL Foundation is entirely supported by [end-users, vendors, service providers, and consultants](/foundation/members) who recognize the importance of ensuring the long-term viability of neutral, collaborative development. The GraphQL Foundation is funded through participation fees, which are allocated by the governing board in ways that benefit the development community.
 
 ### Benefits of membership
 
