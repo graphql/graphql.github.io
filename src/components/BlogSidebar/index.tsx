@@ -7,14 +7,14 @@ interface Props {
 }
 
 const BlogSidebar = ({ posts, currentPermalink }: Props) => (
-  <div className="nav-docs">
-    <div className="nav-docs-section">
+  <div className="nav-docs blog-sidebar">
+    <div className="nav-docs-section subscribe">
       <h3>Subscribe</h3>
       <a rel="home" type="application/rss+xml" href="/blog/rss.xml">
         RSS
       </a>
     </div>
-    <div className="nav-docs-section">
+    <div className="nav-docs-section recent-posts">
       <h3>Recent Posts</h3>
       <ul>
         {posts.map(({ frontmatter }, i) => (

@@ -2,7 +2,8 @@
 title: "Wrapping a REST API in GraphQL"
 layout: blog
 permalink: /blog/rest-api-graphql-wrapper/
-date: 5 May 2016
+tags: ["blog"]
+date: 2016-05-05
 byline: "Steven Luscher"
 ---
 
