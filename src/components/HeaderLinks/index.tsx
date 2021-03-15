@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import Link from "../Link"
+import Search from "../Search";
 
 interface LinkItem {
   section: string
@@ -29,13 +30,30 @@ const links: LinkItem[] = [
   },
   { section: "landscape", text: "Landscape", href: "https://l.graphql.org/" },
 ]
-
-export default () => (
-  <nav>
-    {links.map((link, i) => (
-      <Link key={i} href={link.href}>
-        {link.text}
-      </Link>
-    ))}
-  </nav>
-)
+export default () => {
+  const [expanded,setExpanded] = useState(false);
+  const handleClick = ()=>{
+    setExpanded(!expanded);
+  }
+  let classname = expanded?'navbar-links active':'navbar-links';
+  return(
+    <nav className='navbar'>
+      <div className='toggle-button' onClick={handleClick}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </div>
+      <div className={classname}>
+        <ul>
+        {links.map((link, i) => (
+        <li key={i}>
+          <Link href={link.href}>
+          {link.text}
+          </Link>
+        </li>
+        ))}
+        </ul>
+      </div>
+    </nav>
+  )
+}
