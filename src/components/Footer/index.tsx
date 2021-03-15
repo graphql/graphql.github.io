@@ -25,12 +25,19 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     ],
   },
   {
-    text: "Code",
+    text: "Spec and Code",
     href: "/code",
     subsections: [
+      { text: "Specification", href: "https://spec.graphql.org" },
       { text: "Languages", href: "/code/#languages" },
       { text: "Tools", href: "/code/#tools" },
       { text: "Services", href: "/code/#services" },
+      {
+        text: "Edit this page ✎",
+        href:
+          "https://github.com/graphql/graphql.github.io/edit/source/" +
+          sourcePath,
+      },
     ],
   },
   {
@@ -52,23 +59,14 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     ],
   },
   {
-    text: "More",
+    text: "GraphQL Foundation",
     subsections: [
-      {
-        text: "GraphQL Specification",
-        href: "https://spec.graphql.org/",
-      },
-      { text: "GraphQL Foundation", href: "https://foundation.graphql.org/" },
-      {
-        text: "GraphQL GitHub",
-        href: "https://github.com/graphql",
-      },
-      {
-        text: "Edit this page ✎",
-        href:
-          "https://github.com/graphql/graphql.github.io/edit/source/" +
-          sourcePath,
-      },
+      { text: "About", href: "/foundation/" },
+      { text: "Join", href: "/foundation/join/" },
+      { text: "Current members", href: "/foundation/members/" },
+      { text: "Landscape", href: "https://landscape.graphql.org" },
+      { text: "Artwork", href: "https://github.com/graphql/artwork" },
+      { text: "Contact", href: "/foundation/contact/" },
     ],
   },
 ]
