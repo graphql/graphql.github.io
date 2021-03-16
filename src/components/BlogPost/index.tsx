@@ -1,4 +1,3 @@
-import { printIntrospectionSchema } from "graphql"
 import React from "react"
 import Marked from "../Marked"
 
