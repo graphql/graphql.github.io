@@ -11,6 +11,10 @@ sublinks: Blogs,Videos,Books,More Resources
 
 Many members of the community use Stack Overflow to ask and answer questions. [Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
 
+## DEV Community
+
+Members of the community write blog posts and hold discussions on the [DEV GraphQL tag](https://dev.to/t/graphql).
+
 ## Facebook Group
 
 Join the [GraphQL Facebook Group](https://www.facebook.com/groups/graphql.community/) sharing and discovering new content. The GraphQL Facebook group is the preferred venue for announcements and broader discussion.
