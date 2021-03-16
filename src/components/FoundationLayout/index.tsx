@@ -13,7 +13,7 @@ interface Props {
   pageContext: any
 }
 
-const index = ({ title, heroText, nextDoc, sideBarData, rawMarkdownBody, pageContext }: Props) => {
+const Index = ({ title, heroText, nextDoc, sideBarData, rawMarkdownBody, pageContext }: Props) => {
   return (
     <section>
       <div class="foundation">
@@ -45,4 +45,4 @@ const index = ({ title, heroText, nextDoc, sideBarData, rawMarkdownBody, pageCon
   )
 }
 
-export default index
+export default Index
