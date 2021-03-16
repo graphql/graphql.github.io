@@ -72,7 +72,7 @@ The Linux Foundation holds the top-level graphql.org domain, and a number of oth
 
 ### Trademark guidance
 
-The GraphQL trademark is managed by LF Projects. GraphQL projects are able to use the GraphQL name and marks in accordance with the [trademark policy](https://lfprojects.org/policies/trademark-policy/). If your project has questions about how you or others can use the mark, please contact [trademark@graphql.org](mailto:trademark@graphql.org)
+The GraphQL trademark is managed by LF Projects. GraphQL projects are able to use the GraphQL name and marks in accordance with the [trademark policy](https://lfprojects.org/policies/trademark-policy/). If your project has questions about how you or others can use the mark, please contact [trademark@graphql.org](mailto:trademark@graphql.org).
 
 ### All other questions
 
