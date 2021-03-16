@@ -81,6 +81,6 @@ The [Technical Steering Committee](https://github.com/graphql/graphql-wg/blob/ma
 
 ### Financial and policy governance
 
-The [GraphQL Foundation](/foundation/) provides financial support for the GraphQL project. In keeping wiht best practices, the Foundation is a separate organization, which helps to ensure that technical decisions are made upon their own merit and independent of financial contributions. The GraphQL Foundation uses the funds raised through [membership dues](/foundation/join/) to support the work of the GraphQL Project through investments in infrastructure, coordination support services, developer grants, and mentorship programs.
+The [GraphQL Foundation](/foundation/) provides financial support for the GraphQL project. In keeping with best practices, the Foundation is a separate organization, which helps to ensure that technical decisions are made upon their own merit and independent of financial contributions. The GraphQL Foundation uses the funds raised through [membership dues](/foundation/join/) to support the work of the GraphQL Project through investments in infrastructure, coordination support services, developer grants, and mentorship programs.
 
 The [GraphQL Foundation](/foundation/) is supported entirely by [membership dues](/foundation/join/), from [companies](/foundation/members/) who wish to support the long-term sustainability of the GraphQL ecosystem.
