@@ -21,7 +21,7 @@ We welcome and encourage community members and third-parties to maintain their o
 > 
 > If you maintain a tool or reference implementation that you'd like to transfer to the [GraphQL GitHub org](https://github.com/graphql), or if you are planning to start a new workgroup or implementation within the official GraphQL project, please add your name to the agenda of an upcoming [GraphQL Working Group meeting](https://github.com/graphql/graphql-wg/tree/HEAD/agendas) to introduce your idea.
 > 
-> A few things will then need to happen. For example, we will work with you to adopt our policies and neutral governance, and help you transfer the project and its assets (generally the domain name and any trademarks) so that they are neutrally held at the Linux Foundation. If you'd like to explore the idea before making a proposal, please reach out to [operations@graphql.org](mailto:operations@graphql.org)
+> Should your proposal meet with approval, a few things will then need to happen. For example, we will work with you to adopt our policies and neutral governance, and help you transfer the project and its assets (generally the domain name and any trademarks) so that they are neutrally held at the Linux Foundation. If you'd like to explore the idea before making a proposal, please reach out to [operations@graphql.org](mailto:operations@graphql.org)
 
 
 ## Running project meetings
