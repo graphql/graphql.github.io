@@ -21,7 +21,7 @@ If you would like to learn more about becoming a GraphQL member, please email
 
 ## Membership Support
 
-If you are already a member of the [GraphQL Foundation](./) and you need help with your membership, please reach out to [operations@graphql.org](mailto:operations@graphql.org).
+If you are already a member of the [GraphQL Foundation](/foundation/) and you need help with your membership, please reach out to [operations@graphql.org](mailto:operations@graphql.org).
 
 ## Meeting Logistics
 
@@ -46,4 +46,3 @@ Our mailing address is:
 > PMB 57274  
 > San Francisco, California  
 > 94104-5401 US  
-
