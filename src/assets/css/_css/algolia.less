@@ -23,11 +23,21 @@
     margin-top: 10px;
     outline: none;
     padding: 0 10px 0 35px;
-    width: 180px;
+    width: 160px;
     transition: width 0.2s ease-out;
 
-    &:focus {
-      width: 250px;
+    @media screen and (min-width: 1076px) {
+      &:focus {
+        width: 190px;
+      }
+    }
+    @media screen and (min-width: 1065px) and (max-width: 1075px) {
+      &:focus {
+        width: 180px;
+      }
+    }
+    @media screen and (min-width: 1021px) and (max-width: 1064px) {
+      width: 135px;
     }
   }
 
