@@ -31,7 +31,7 @@ The GraphQL specification, sub-specifications, and official reference implementa
 
 #### The GraphQL Working Group
 
-The [GraphQL Working Group](https://github.com/graphql/graphql-wg) is the main group that plans and implements changes to the [GraphQL specification](https://spec.graphql.org). It meets actively and is the default place for discussion for topics which do not have a separate breakout working group (e.g., input unions, graphql-over-http, etc).
+The [GraphQL Working Group](https://github.com/graphql/graphql-wg) is the main group that plans and implements changes to the [GraphQL specification](https://spec.graphql.org). It meets actively and is the default place for discussion for topics which do not have a separate breakout working group (breakout working groups include the [Input Union WG](https://github.com/graphql/graphql-spec/blob/main/rfcs/InputUnion.md) and the [GraphQL-over-HTTP WG](https://github.com/graphql/graphql-over-http)).
 
 * **GitHub**: [github.com/graphql/graphql-wg](https://github.com/graphql/graphql-wg)
 * **Meeting frequency:** Monthly, generally the first Thursday ([calendar](https://calendar.graphql.org))
