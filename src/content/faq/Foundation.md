@@ -15,9 +15,9 @@ The GraphQL Foundation is funded exclusively through the support of our members.
 Ways the Foundation distributes the money raised through memberships include:
 
 * Providing grants and sponsorship to core community developers who are working in neutral roles.
-* Funding core community IT infrastructure
-* Funding coordination, financial, and legal support program for the Foundation and the GraphQL project ecosystem
-* Other community and developer support programs
+* Funding core community IT infrastructure.
+* Funding coordination, financial, and legal support programs for the Foundation and the GraphQL project ecosystem.
+* Other community and developer support programs.
 
 The GraphQL Foundation budget is realigned as the needs of the community change.
 
@@ -52,4 +52,3 @@ You can learn more about our membership on the [GraphQL Foundation membership pa
 ### How do we join?
 
 You can become a member of GraphQL Foundation and the Linux Foundation by completing our [membership application form](https://join.graphql.org).
-
