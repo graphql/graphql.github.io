@@ -30,7 +30,7 @@ export default ({ pageContext }) => {
           id="landscape"
           scrolling="no"
           style={{ width: "1px", minWidth: "100%" }}
-          src="https://landscape.graphql.org/category=graph-ql-adopter&format=card-mode&grouping=category&embed=yes"
+          src="https://landscape.graphql.org/card-mode?category=graph-ql-adopter&grouping=category&embed=yes"
           onLoad={() => {
             const scriptElem = document.createElement('script');
             scriptElem.type = 'text/javascript';
