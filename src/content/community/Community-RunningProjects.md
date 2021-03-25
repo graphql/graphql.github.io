@@ -41,7 +41,7 @@ Each **attendee** must:
 
 The **person running the call** must:
 
-* Merge all PRs with passing checks prior to the meeting.
+* Merge all appropriate attendance and agenda PRs with passing checks prior to the meeting.
 * Verify that everyone who connects to the meeting appears on the list.
 * If someone joins who is not on the list, they need to disconnect until they can PR themselves onto the attendee list with all checks passing.
 * Notify all attendees the meeting is being recorded, and record to the cloud.
