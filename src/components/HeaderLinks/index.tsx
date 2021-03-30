@@ -15,7 +15,7 @@ const links: LinkItem[] = [
   {
     section: "spec",
     text: "Spec",
-    href: "https://graphql.github.io/graphql-spec/",
+    href: "https://spec.graphql.org/",
   },
   {
     section: "codeofconduct",
