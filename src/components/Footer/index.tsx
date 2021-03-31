@@ -25,19 +25,27 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
     ],
   },
   {
-    text: "Code",
+    text: "Spec and Code",
     href: "/code",
     subsections: [
+      { text: "Specification", href: "https://spec.graphql.org" },
       { text: "Languages", href: "/code/#languages" },
       { text: "Tools", href: "/code/#tools" },
       { text: "Services", href: "/code/#services" },
+      {
+        text: "Edit this page ✎",
+        href:
+          "https://github.com/graphql/graphql.github.io/edit/source/" +
+          sourcePath,
+      },
     ],
   },
   {
     text: "Community",
     href: "/community",
     subsections: [
-      { text: "Upcoming Events", href: "/community/upcoming-events/" },
+      { text: "Code of Conduct", href: "/codeofconduct/" },
+      { text: "GitHub", href: "https://github.com/graphql" },
       {
         text: "Stack Overflow",
         href: "http://stackoverflow.com/questions/tagged/graphql",
@@ -47,26 +55,18 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
         href: "https://www.facebook.com/groups/graphql.community/",
       },
       { text: "Twitter", href: "https://twitter.com/GraphQL" },
+      { text: "Upcoming Events", href: "/community/upcoming-events/" },
     ],
   },
   {
-    text: "More",
+    text: "GraphQL Foundation",
     subsections: [
-      {
-        text: "GraphQL Specification",
-        href: "https://graphql.github.io/graphql-spec/",
-      },
-      { text: "GraphQL Foundation", href: "https://foundation.graphql.org/" },
-      {
-        text: "GraphQL GitHub",
-        href: "https://github.com/graphql",
-      },
-      {
-        text: "Edit this page ✎",
-        href:
-          "https://github.com/graphql/graphql.github.io/edit/source/" +
-          sourcePath,
-      },
+      { text: "About", href: "/foundation/" },
+      { text: "Join", href: "/foundation/join/" },
+      { text: "Current members", href: "/foundation/members/" },
+      { text: "Landscape", href: "https://landscape.graphql.org" },
+      { text: "Artwork", href: "https://github.com/graphql/artwork" },
+      { text: "Contact", href: "/foundation/contact/" },
     ],
   },
 ]

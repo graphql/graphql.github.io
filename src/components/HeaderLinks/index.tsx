@@ -8,26 +8,46 @@ interface LinkItem {
 }
 
 const links: LinkItem[] = [
-  { section: "learn", text: "Learn", href: "/learn/" },
-  { section: "code", text: "Code", href: "/code/" },
-  { section: "community", text: "Community", href: "/community/" },
-  { section: "faq", text: "FAQ", href: "/faq/" },
+  {
+    section: "learn",
+    text: "Learn",
+    href: "/learn/"
+  },
+  {
+    section: "code",
+    text: "Code",
+    href: "/code/"
+  },
+  {
+    section: "community",
+    text: "Community",
+    href: "/community/"
+  },
+  {
+    section: "faq",
+    text: "FAQ",
+    href: "/faq/"
+  },
   {
     section: "spec",
     text: "Spec",
-    href: "https://graphql.github.io/graphql-spec/",
-  },
-  {
-    section: "codeofconduct",
-    text: "Code of Conduct",
-    href: "/codeofconduct/",
+    href: "https://spec.graphql.org/",
   },
   {
     section: "foundation",
     text: "Foundation",
-    href: "https://foundation.graphql.org/",
+    href: "/foundation/",
   },
-  { section: "landscape", text: "Landscape", href: "https://l.graphql.org/" },
+  {
+    section: "news",
+    text: "News",
+    href: "/blog/",
+  },
+  {
+    section: "landscape",
+    text: "Landscape",
+    href: "https://l.graphql.org/"
+  },
 ]
 
 export default () => (

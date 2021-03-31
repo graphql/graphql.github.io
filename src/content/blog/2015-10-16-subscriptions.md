@@ -2,6 +2,7 @@
 title: "Subscriptions in GraphQL and Relay"
 layout: blog
 permalink: /blog/subscriptions-in-graphql-and-relay/
+tags: ["blog", "spec"]
 date: 16 Oct 2015
 byline: Dan Schafer and Laney Kuenzel
 ---
