@@ -33,15 +33,20 @@ communication and can answer quick questions.
 
 Please be patient and polite. These are not explicitly user support channels, although they're likely a good place to find someone who can answer your question if you ask nicely.
 
-* **Discord:** [#graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
 * **Slack:** [#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)
 * **IRC:** [#graphql on freenode](https://freenode.net/)
+
+#### Discord
+
+* [Everything GraphQL: Curated By The Guild](https://discord.gg/xud7bH9)
+* [#graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
 
 ### Vendor channels
 
 The following channels are maintained by vendors, and may be a good place to find help on their products.
 
 * [Apollo Slack](http://apollostack.com/#slack)
+* [Graphile Discord](https://discord.gg/graphile)
 * [Prisma Slack](https://slack.prisma.io/)
 
 ## Blogs
