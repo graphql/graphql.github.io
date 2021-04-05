@@ -39,7 +39,6 @@ Please be patient and polite. These are not explicitly user support channels, al
 #### Discord
 
 * [Everything GraphQL: Curated By The Guild](https://discord.gg/xud7bH9)
-* [Graphile](https://discord.gg/graphile)
 * [#graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
 
 ### Vendor channels
@@ -47,6 +46,7 @@ Please be patient and polite. These are not explicitly user support channels, al
 The following channels are maintained by vendors, and may be a good place to find help on their products.
 
 * [Apollo Slack](http://apollostack.com/#slack)
+* [Graphile Discord](https://discord.gg/graphile)
 * [Prisma Slack](https://slack.prisma.io/)
 
 ## Blogs
