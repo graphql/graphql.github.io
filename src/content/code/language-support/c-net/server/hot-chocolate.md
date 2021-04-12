@@ -1,9 +1,11 @@
 ---
 name: Hot Chocolate
-description: GraphQL Server for .NET core and .NET classic
-url: https://github.com/ChilliCream/hotchocolate
+description: Hot Chocolate is an open-source GraphQL Server for .NET
+url: https://chillicream.com/docs/hotchocolate/
 github: ChilliCream/hotchocolate
 ---
+
+Hot Chocolate takes the complexity away from building a fully-fledged GraphQL server and lets you focus on delivering the next big thing.
 
 ```csharp
 using Microsoft.AspNetCore;
