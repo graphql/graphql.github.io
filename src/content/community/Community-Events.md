@@ -109,3 +109,5 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL Meetup (Bangkok)](https://www.meetup.com/GraphQL-Bangkok/)
 - [GraphQL Meetup (Singapore)](https://www.meetup.com/GraphQL-SG/)
 - [GraphQL Meetup (Hong Kong)](https://www.meetup.com/GraphQLHongKong/)
+- [GraphQL Korea](https://www.facebook.com/groups/graphql.kr)
+
