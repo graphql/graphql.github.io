@@ -5,7 +5,8 @@ import BlogSidebar from "../components/BlogSidebar"
 import { graphql } from "gatsby"
 
 export default ({ pageContext, data }: any) => {
-  const posts = data.allMarkdownRemark.edges
+  const { tag } = pageContext
+  const allPosts = data.allMarkdownRemark.edges
     .map((e: any) => e.node)
     .sort((a: any, b: any) => {
       const aDate = new Date(a.frontmatter.date)
@@ -18,12 +19,16 @@ export default ({ pageContext, data }: any) => {
       return 0
     })
 
+  const taggedPosts = allPosts.filter((post: any) =>
+    post.frontmatter.tags.includes(tag)
+  )
+
   return (
-    <Layout title="Blog | GraphQL" pageContext={pageContext}>
+    <Layout title={`Blog: ${tag} | GraphQL`} pageContext={pageContext}>
       <section>
         <div className="documentationContent">
           <div>
-            {posts.map(
+            {taggedPosts.map(
               (
                 {
                   frontmatter: {
@@ -56,7 +61,7 @@ export default ({ pageContext, data }: any) => {
               )
             )}
           </div>
-          <BlogSidebar posts={posts} />
+          <BlogSidebar posts={allPosts} />
         </div>
       </section>
     </Layout>
@@ -64,7 +69,7 @@ export default ({ pageContext, data }: any) => {
 }
 
 export const query = graphql`
-  query getAllBlogPosts {
+  query {
     allMarkdownRemark(
       filter: { frontmatter: { permalink: { regex: "/blog/" } } }
     ) {

@@ -1,5 +1,6 @@
 import React from "react"
 import Marked from "../Marked"
+import { Link } from "gatsby"
 
 interface Props {
   title: string
@@ -10,8 +11,9 @@ interface Props {
   rawMarkdownBody: string
   isPermalink: boolean
   pageContext: any
-  excerpt: string
+  excerpt?: string
   showExcerpt?: true
+  tags: Array<string>
 }
 
 const BlogPost = ({
@@ -24,19 +26,32 @@ const BlogPost = ({
   isPermalink,
   pageContext,
   excerpt,
-  showExcerpt
+  showExcerpt,
+  tags,
 }: Props) => (
   <div className="inner-content">
     <h1>{isPermalink ? title : <a href={permalink}>{title}</a>}</h1>
     <p>
       {new Date(date).toLocaleDateString()} by {byline}
     </p>
+    <div className="tag-wrapper">
+      {tags.map(tag => (
+        <span className="tag">
+          <Link to={`/tags/${tag}`}>{tag}</Link>
+        </span>
+      ))}
+    </div>
+
     {guestBio ? null : <hr />}
     {guestBio && (
       <p className="guestBio">{`This guest article contributed by ${byline}, ${guestBio}.`}</p>
     )}
-    
-    {showExcerpt ? <p>{excerpt}</p> : <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>}
+
+    {showExcerpt ? (
+      <p>{excerpt}</p>
+    ) : (
+      <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>
+    )}
   </div>
 )
 
