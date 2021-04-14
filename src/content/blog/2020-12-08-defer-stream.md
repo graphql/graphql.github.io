@@ -1,6 +1,6 @@
 ---
 title: "Improving Latency with @defer and @stream Directives"
-tags: ["announcement"]
+tags: ["announcements"]
 layout: blog
 date: 2020-12-08
 byline: Rob Richard, Liliana Matos
