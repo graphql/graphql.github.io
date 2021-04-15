@@ -101,7 +101,7 @@ That means that the GraphQL service needs to have a `Query` type with `hero` and
 
 ```graphql
 type Query {
-  hero(episode: Episode): Character
+  hero: Character
   droid(id: ID!): Droid
 }
 ```
