@@ -61,7 +61,7 @@ export default ({ pageContext, data }: any) => {
               )
             )}
           </div>
-          <BlogSidebar posts={allPosts} />
+          <BlogSidebar posts={allPosts} currentPermalink={tag} />
         </div>
       </section>
     </Layout>
