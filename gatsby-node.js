@@ -1,9 +1,9 @@
 const path = require("path")
 const sortLibs = require("./scripts/sort-libraries")
-const globby = require('globby');
-const frontmatterParser = require('parser-front-matter');
-const { readFile } = require("fs-extra");
-const { promisify } = require('util');
+const globby = require("globby")
+const frontmatterParser = require("parser-front-matter")
+const { readFile } = require("fs-extra")
+const { promisify } = require("util")
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage, deletePage } = actions
@@ -13,59 +13,62 @@ exports.onCreatePage = async ({ page, actions }) => {
     sourcePath: path.relative(__dirname, page.componentPath),
   }
   if (page.path === "/code" || page.path === "/code/") {
-    const markdownFilePaths = await globby('src/content/code/**/*.md');
+    const markdownFilePaths = await globby("src/content/code/**/*.md")
     const codeData = {}
-    const slugMap = require('./src/content/code/slug-map.json');
-    const parse$ = promisify(frontmatterParser.parse);
-    await Promise.all(markdownFilePaths.map(async markdownFilePath => {
+    const slugMap = require("./src/content/code/slug-map.json")
+    const parse$ = promisify(frontmatterParser.parse)
+    await Promise.all(
+      markdownFilePaths.map(async markdownFilePath => {
+        const markdownFileContent = await readFile(markdownFilePath, "utf-8")
+        let {
+          data: { name, description, url, github, npm, gem },
+          content: howto,
+        } = await parse$(markdownFileContent, undefined)
+        howto = howto.trim()
+        const pathArr = markdownFilePath.split("/")
+        if (markdownFilePath.includes("language-support")) {
+          const languageSupportDirIndex = pathArr.indexOf("language-support")
+          const languageNameSlugIndex = languageSupportDirIndex + 1
+          const languageNameSlug = pathArr[languageNameSlugIndex]
+          const languageName = slugMap[languageNameSlug]
+          codeData.Languages = codeData.Languages || {}
+          codeData.Languages[languageName] =
+            codeData.Languages[languageName] || {}
 
-      const markdownFileContent = await readFile(markdownFilePath, "utf-8")
-      let {
-        data: { name, description, url, github, npm, gem },
-        content: howto,
-      } = await parse$(markdownFileContent, undefined)
-      howto = howto.trim();
-      const pathArr = markdownFilePath.split("/")
-      if (markdownFilePath.includes("language-support")) {
-        const languageSupportDirIndex = pathArr.indexOf("language-support")
-        const languageNameSlugIndex = languageSupportDirIndex + 1
-        const languageNameSlug = pathArr[languageNameSlugIndex]
-        const languageName = slugMap[languageNameSlug]
-        codeData.Languages = codeData.Languages || {}
-        codeData.Languages[languageName] = codeData.Languages[languageName] || {}
-
-        const categoryNameSlugIndex = languageSupportDirIndex + 2
-        const categoryNameSlug = pathArr[categoryNameSlugIndex]
-        const categoryName = slugMap[categoryNameSlug]
-        codeData.Languages[languageName][categoryName] = codeData.Languages[languageName][categoryName] || []
-        codeData.Languages[languageName][categoryName].push({
-          name,
-          description,
-          howto,
-          url,
-          github,
-          npm,
-          gem,
-          sourcePath: markdownFilePath,
-        })
-      } else {
-        const codeDirIndex = pathArr.indexOf("code")
-        const categoryNameSlugIndex = codeDirIndex + 1
-        const categoryNameSlug = pathArr[categoryNameSlugIndex]
-        const categoryName = slugMap[categoryNameSlug]
-        codeData[categoryName] = codeData[categoryName] || []
-        codeData[categoryName].push({
-          name,
-          description,
-          howto,
-          url,
-          github,
-          npm,
-          gem,
-          sourcePath: markdownFilePath,
-        })
-      }
-    }))
+          const categoryNameSlugIndex = languageSupportDirIndex + 2
+          const categoryNameSlug = pathArr[categoryNameSlugIndex]
+          const categoryName = slugMap[categoryNameSlug]
+          codeData.Languages[languageName][categoryName] =
+            codeData.Languages[languageName][categoryName] || []
+          codeData.Languages[languageName][categoryName].push({
+            name,
+            description,
+            howto,
+            url,
+            github,
+            npm,
+            gem,
+            sourcePath: markdownFilePath,
+          })
+        } else {
+          const codeDirIndex = pathArr.indexOf("code")
+          const categoryNameSlugIndex = codeDirIndex + 1
+          const categoryNameSlug = pathArr[categoryNameSlugIndex]
+          const categoryName = slugMap[categoryNameSlug]
+          codeData[categoryName] = codeData[categoryName] || []
+          codeData[categoryName].push({
+            name,
+            description,
+            howto,
+            url,
+            github,
+            npm,
+            gem,
+            sourcePath: markdownFilePath,
+          })
+        }
+      })
+    )
     const languageList = []
     let sortedTools = []
     await Promise.all([
@@ -139,9 +142,15 @@ exports.createPages = async ({ graphql, actions }) => {
               sublinks
               sidebarTitle
               date
+              tags
             }
             id
           }
+        }
+      }
+      tagsGroup: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
         }
       }
     }
@@ -177,13 +186,24 @@ exports.createPages = async ({ graphql, actions }) => {
   // Note that this is mutated
   let sideBardata = {}
 
-
   // Sidebar items to add which don't come from markdown
   const additionalSidebarItems = {
-    foundation: [{
-      name: "GraphQL Foundation",
-      links: [{  frontmatter: {  sidebarTitle:"Foundation Members", title: "Foundation Members", permalink: "/foundation/members/", date: null, category: "GraphQL Foundation" } }]
-    }]
+    foundation: [
+      {
+        name: "GraphQL Foundation",
+        links: [
+          {
+            frontmatter: {
+              sidebarTitle: "Foundation Members",
+              title: "Foundation Members",
+              permalink: "/foundation/members/",
+              date: null,
+              category: "GraphQL Foundation",
+            },
+          },
+        ],
+      },
+    ],
   }
 
   // E.g.
@@ -204,7 +224,10 @@ exports.createPages = async ({ graphql, actions }) => {
       parent: { relativeDirectory, sourceInstanceName },
     } = node
 
-    if (sourceInstanceName !== "content" || relativeDirectory.includes("code/")) {
+    if (
+      sourceInstanceName !== "content" ||
+      relativeDirectory.includes("code/")
+    ) {
       return
     }
 
@@ -216,13 +239,10 @@ exports.createPages = async ({ graphql, actions }) => {
     } else {
       pagesGroupedByFolder = {
         ...pagesGroupedByFolder,
-        [relativeDirectory]: [
-          ...pagesGroupedByFolder[relativeDirectory],
-          node,
-        ],
+        [relativeDirectory]: [...pagesGroupedByFolder[relativeDirectory], node],
       }
     }
-  
+
     allPages.push({
       permalink,
       relativeDirectory,
@@ -231,8 +251,8 @@ exports.createPages = async ({ graphql, actions }) => {
       sourcePath: path.relative(__dirname, node.fileAbsolutePath),
     })
   })
-  
-  // Loop through the sections in the sidebar, mutating the 
+
+  // Loop through the sections in the sidebar, mutating the
   // next and previous objects for different
   Object.entries(pagesGroupedByFolder).map(([folder, pages]) => {
     let pagesByUrl = {}
@@ -266,7 +286,7 @@ exports.createPages = async ({ graphql, actions }) => {
         return
       }
     })
-    
+
     if (!firstPage) {
       throw new Error(`First page not found in ${folder}`)
     }
@@ -309,18 +329,17 @@ exports.createPages = async ({ graphql, actions }) => {
       categoriesMap[currentCategory.name] = currentCategory
     }
 
-    sideBardata[folder] = Object.values(categoriesMap) 
+    sideBardata[folder] = Object.values(categoriesMap)
   })
 
   Object.entries(additionalSidebarItems).map(([folder, sections]) => {
     sections.forEach(s => {
       const originalLinks = sideBardata[folder].find(l => l.name === s.name)
-      originalLinks.links  = [...originalLinks.links, ...s.links]
+      originalLinks.links = [...originalLinks.links, ...s.links]
     })
   })
 
-
-  // Use all the set up data to now tell Gatsby to create pages 
+  // Use all the set up data to now tell Gatsby to create pages
   // on the site
   allPages.forEach(page => {
     createPage({
@@ -331,6 +350,19 @@ exports.createPages = async ({ graphql, actions }) => {
         nextPermalink: page.nextPermalink,
         sideBarData: sideBardata[page.relativeDirectory],
         sourcePath: page.sourcePath,
+      },
+    })
+  })
+
+  // Create tag pages
+  const tagTemplate = path.resolve("src/templates/tags.tsx")
+  const tags = result.data.tagsGroup.group
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag.fieldValue}/`,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
       },
     })
   })
