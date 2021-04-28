@@ -5,7 +5,7 @@ heroText: The GraphQL Foundation is here to help.
 layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/contact/
-sublinks: Membership Inquiries,Membership Support,Meeting Logistics,Media Inquries,Technical Issues,General
+sublinks: Membership Inquiries,Membership Support,Meeting Logistics,Media Inquiries,Technical Issues,General
 next: /foundation/join/
 ---
 
