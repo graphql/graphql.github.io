@@ -215,6 +215,8 @@ type GraphQLScalarTypeConfig<InternalType> = {
 The leaf values of any request and input values to arguments are
 Scalars (or Enums) and are defined with a name and a series of serialization
 functions used to ensure validity.
+See [this stackoverflow.com answer](https://stackoverflow.com/a/41513681/2038383)
+for an explanation of the GraphQLScalarTypeConfig options.
 
 #### Example
 
