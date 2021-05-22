@@ -18,5 +18,5 @@ GraPHPinator is feature complete PHP implementation of GraphQL server. Its job i
     - [Where directives](https://github.com/infinityloop-dev/graphpinator-where-directives) - Executable directives to filter values in lists.
     - File upload using [multipart-formdata](https://github.com/jaydenseric/graphql-multipart-request-spec) specs (currently bundled).
 - Project is composed from multiple smaller packages, which may be used standalone:
-    - [Tokenizer](https://github.com/infinityloop-dev/graphpinator-tokenizer) - Lexical analyzer of request document.
-    - [Parser](https://github.com/infinityloop-dev/graphpinator-parser) - Syntactic analyzer of request document.
+    - [Tokenizer](https://github.com/infinityloop-dev/graphpinator-tokenizer) - Lexical analyzer of GraphQL document.
+    - [Parser](https://github.com/infinityloop-dev/graphpinator-parser) - Syntactic analyzer of GraphQL document.
