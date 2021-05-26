@@ -180,6 +180,6 @@ and create documentation browsers, or rich IDE experiences.
 This has just scratched the surface of the introspection system; we can
 query for enum values, what interfaces a type implements, and more. We
 can even introspect on the introspection system itself. The specification goes
-into more detail about this topic in the "Introspection" section, and the [introspection](https://github.com/graphql/graphql-js/blob/main/src/type/introspection.js)
+into more detail about this topic in the "Introspection" section, and the [introspection](https://github.com/graphql/graphql-js/blob/main/src/type/introspection.ts)
 file in GraphQL.js contains code implementing a specification-compliant GraphQL
 query introspection system.
