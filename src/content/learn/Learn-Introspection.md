@@ -11,7 +11,7 @@ queries it supports. GraphQL allows us to do so using the introspection
 system!
 
 For our Star Wars example, the file
-[starWarsIntrospection-test.js](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsIntrospection-test.js)
+[starWarsIntrospection-test.ts](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsIntrospection-test.ts)
 contains a number of queries demonstrating the introspection system, and is a
 test file that can be run to exercise the reference implementation's
 introspection system.
@@ -180,6 +180,6 @@ and create documentation browsers, or rich IDE experiences.
 This has just scratched the surface of the introspection system; we can
 query for enum values, what interfaces a type implements, and more. We
 can even introspect on the introspection system itself. The specification goes
-into more detail about this topic in the "Introspection" section, and the [introspection](https://github.com/graphql/graphql-js/blob/main/src/type/introspection.js)
+into more detail about this topic in the "Introspection" section, and the [introspection](https://github.com/graphql/graphql-js/blob/main/src/type/introspection.ts)
 file in GraphQL.js contains code implementing a specification-compliant GraphQL
 query introspection system.
