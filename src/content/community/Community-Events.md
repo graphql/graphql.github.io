@@ -111,3 +111,6 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL Meetup (Hong Kong)](https://www.meetup.com/GraphQLHongKong/)
 - [GraphQL Korea](https://www.facebook.com/groups/graphql.kr)
 
+### Africa
+
+- [GraphQL Nairobi](https://www.meetup.com/Nairobi-GraphQL-Meetup/)

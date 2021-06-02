@@ -12,7 +12,7 @@ developers when an invalid query has been created, without having to rely
 on runtime checks.
 
 For our Star Wars example, the file
-[starWarsValidation-test.js](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsValidation-test.js)
+[starWarsValidation-test.ts](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsValidation-test.ts)
 contains a number of queries demonstrating various invalidities, and is a test
 file that can be run to exercise the reference implementation's validator.
 

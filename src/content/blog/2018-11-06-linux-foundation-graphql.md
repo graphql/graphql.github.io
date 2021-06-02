@@ -1,10 +1,10 @@
 ---
-title: The Linux Foundation Announces Intent to Form New Foundation to Support GraphQL
+title: "The Linux Foundation Announces Intent to Form New Foundation to Support GraphQL"
 tags: ["announcements"]
 layout: blog
 date: 2018-11-06
 byline: GraphQL Foundation
-permalink: 2018-11-06-linux-foundation-announces-intent-to-form-new-foundation-to-support-graphql
+permalink: /blog/2018-11-06-linux-foundation-announces-intent-to-form-new-foundation-to-support-graphql
 ---
 
 [The Linux Foundation](https://www.linuxfoundation.org/), the nonprofit organization enabling mass innovation through open source, announces a broad coalition of industry leaders and users have joined forces to create a new open source foundation for the [GraphQL](https://graphql.org/) project, which will be dedicated to growing and sustaining a neutral GraphQL ecosystem. Hosted under the Linux Foundation, the [GraphQL Foundation](https://gql.foundation/)'s mission will be to enable widespread adoption and help accelerate development of GraphQL and the surrounding ecosystem.

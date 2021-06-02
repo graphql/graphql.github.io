@@ -1,8 +1,8 @@
 ---
 name: graphql-yoga
 description: Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience
-url: https://github.com/prisma-labs/graphql-yoga
-github: prisma-labs/graphql-yoga
+url: https://github.com/dotansimha/graphql-yoga
+github: dotansimha/graphql-yoga
 npm: "graphql-yoga"
 ---
 

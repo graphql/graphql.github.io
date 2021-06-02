@@ -11,6 +11,7 @@ interface Props {
   rawMarkdownBody: string
   sideBarData: any
   pageContext: any
+  tags: Array<string>
 }
 
 const index = ({
@@ -21,7 +22,8 @@ const index = ({
   guestBio,
   rawMarkdownBody,
   sideBarData,
-  pageContext
+  pageContext,
+  tags,
 }: Props) => {
   return (
     <section>
@@ -35,6 +37,7 @@ const index = ({
           rawMarkdownBody={rawMarkdownBody}
           isPermalink={true}
           pageContext={pageContext}
+          tags={tags}
         />
         <BlogSidebar
           posts={sideBarData[0].links.sort((a: any, b: any) => {
@@ -55,4 +58,3 @@ const index = ({
 }
 
 export default index
-
