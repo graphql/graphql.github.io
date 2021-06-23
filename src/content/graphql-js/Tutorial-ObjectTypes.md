@@ -16,22 +16,22 @@ type Query {
 }
 ```
 
-If we wanted to have more and more methods based on a random die over time, we could implement this with a `RandomDie` object type instead.
+If we wanted to have more and more methods based on a random dice over time, we could implement this with a `RandomDice` object type instead.
 
 ```javascript
-type RandomDie {
+type RandomDice {
   roll(numRolls: Int!): [Int]
 }
 
 type Query {
-  getDie(numSides: Int): RandomDie
+  getDice(numSides: Int): RandomDice
 }
 ```
 
-Instead of a root-level resolver for the `RandomDie` type, we can instead use an ES6 class, where the resolvers are instance methods. This code shows how the `RandomDie` schema above can be implemented:
+Instead of a root-level resolver for the `RandomDice` type, we can instead use an ES6 class, where the resolvers are instance methods. This code shows how the `RandomDice` schema above can be implemented:
 
 ```javascript
-class RandomDie {
+class RandomDice {
   constructor(numSides) {
     this.numSides = numSides;
   }
