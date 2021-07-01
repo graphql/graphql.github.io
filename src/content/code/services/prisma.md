@@ -1,6 +1,6 @@
 ---
 name: Prisma
-description: A BaaS (Backend as a Service) providing a GraphQL backend for your applications with a powerful web ui for managing your database and stored data.
+description: Next-generation Node.js and TypeScript ORM which can be used when building GraphQL backends. For more information, go to https://www.prisma.io/graphql 
 url: https://www.prisma.io
 github: prisma/prisma
 ---
