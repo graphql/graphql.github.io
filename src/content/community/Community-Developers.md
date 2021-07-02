@@ -14,7 +14,8 @@ The following resources are intended to describe how GraphQL development process
 * The [GraphQL Specification](https://spec.graphql.org)
 * GraphQL [reference implementations and tools](/code/)
 * The official [GraphQL GitHub org](https://github.com/graphql)
-* The official [GraphQL Slack](https://slack.graphql.org)
+* The official [GraphQL Discord](https://discord.graphql.org)
+  * We're in the process of moving our official chat to Discord, but you may still find historical discussion at ~~the official [GraphQL Slack](https://slack.graphql.org)~~.
 * Instructions on how to sign the [GraphQL Specification Membership Agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership)
 * The [GraphQL project calendar](https://calendar.graphql.org)
 * Meeting replays on the [GraphQL YouTube channel](https://youtube.graphql.org)
