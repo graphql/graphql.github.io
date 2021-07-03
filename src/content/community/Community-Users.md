@@ -26,20 +26,18 @@ Many members of the community use Stack Overflow to ask and answer questions. If
 
 [Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
 
-### Slack, Discord, and IRC
+### Live discussion
 
 Many GraphQL developers idle in Discord, Slack, and IRC for live
-communication and can answer quick questions. 
+communication and can answer quick questions.
 
 Please be patient and polite. These are not explicitly user support channels, although they're likely a good place to find someone who can answer your question if you ask nicely.
 
-* **Slack:** [#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)
-* **IRC:** [#graphql on freenode](https://freenode.net/)
-
-#### Discord
-
+* [GraphQL Foundation Discord](https://discord.graphql.org)
+  * We're in the process of moving our official chat to Discord, but you may find historical discussion in ~~[#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)~~.
 * [Everything GraphQL: Curated By The Guild](https://discord.gg/xud7bH9)
-* [#graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
+* [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
+* [#graphql on freenode IRC](https://freenode.net/)
 
 ### Vendor channels
 

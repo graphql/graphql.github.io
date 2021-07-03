@@ -19,7 +19,8 @@ Please follow these channels for updates and information:
 
 * **Twitter:** [@graphql](https://twitter.com/graphql)
 * **GitHub:** [github.com/graphql](https://github.com/graphql)
-* **Slack:** [slack.graphql.org](https://slack.graphql.org) ([get an invite](https://slack-invite.graphql.org))
+* **Discord** [discord.graphql.org](https://discord.graphql.org)
+  * We're in the process of moving our official chat to Discord, but you may find historical discussion on ~~**Slack:** [slack.graphql.org](https://slack.graphql.org) ([get an invite](https://slack-invite.graphql.org))~~.
 * **Google Calendar:** [calendar.graphql.org](https://calendar.graphql.org)
 * **Blog:** [graphql.org/blog](/blog/)
 
