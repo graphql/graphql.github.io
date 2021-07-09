@@ -17,12 +17,16 @@ The GraphQL community is active and has created a tremendous amount of valuable 
 
 Please follow these channels for updates and information:
 
+<div style="float:right;"><iframe src="https://discordapp.com/widget?id=625400653321076807&theme=dark" width="350" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
+
 * **Twitter:** [@graphql](https://twitter.com/graphql)
 * **GitHub:** [github.com/graphql](https://github.com/graphql)
 * **Discord** [discord.graphql.org](https://discord.graphql.org)
   * We're in the process of moving our official chat to Discord, but you may find historical discussion on ~~**Slack:** [slack.graphql.org](https://slack.graphql.org) ([get an invite](https://slack-invite.graphql.org))~~.
 * **Google Calendar:** [calendar.graphql.org](https://calendar.graphql.org)
 * **Blog:** [graphql.org/blog](/blog/)
+
+<div style="clear:both;"></div>
 
 ## GraphQL Trademark
 

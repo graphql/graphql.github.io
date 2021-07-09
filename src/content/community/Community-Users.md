@@ -33,11 +33,15 @@ communication and can answer quick questions.
 
 Please be patient and polite. These are not explicitly user support channels, although they're likely a good place to find someone who can answer your question if you ask nicely.
 
+<div style="float:right;"><iframe src="https://discordapp.com/widget?id=625400653321076807&theme=dark" width="350" height="250" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
+
 * [GraphQL Foundation Discord](https://discord.graphql.org)
   * We're in the process of moving our official chat to Discord, but you may find historical discussion in ~~[#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)~~.
 * [Everything GraphQL: Curated By The Guild](https://discord.gg/xud7bH9)
 * [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
 * [#graphql on freenode IRC](https://freenode.net/)
+
+<div style="clear:both;"></div>
 
 ### Vendor channels
 
