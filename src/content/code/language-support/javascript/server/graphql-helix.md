@@ -77,8 +77,8 @@ app.use('/graphql', async (req, res) => {
 });
 
 app.listen(4000, () =>
-  console.log('Now browse to http://localhost:4000/graphql');
-)
+  console.log('Now browse to http://localhost:4000/graphql')
+);
 ```
 
 This example uses Express, but GraphQL Helix is framework- and runtime-agnostic -- it can run in Node, Deno and the browser. GraphQL Helix provides you with a handful of utility functions to build your own HTTP server but leaves the ultimate implementation details up to you.
