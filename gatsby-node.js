@@ -367,3 +367,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        "assert": require.resolve("assert/"),
+      }
+    }
+  })
+}
