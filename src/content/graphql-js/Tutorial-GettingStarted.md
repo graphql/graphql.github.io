@@ -54,7 +54,7 @@ node server.js
 You should see the GraphQL response printed out:
 
 ```javascript
-{ data: { hello: 'Hello world!' } }
+{ data: [Object: null prototype] { hello: 'Hello world!' } }
 ```
 
 Congratulations - you just executed a GraphQL query!
