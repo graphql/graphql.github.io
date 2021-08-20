@@ -2,13 +2,13 @@ import React from "react"
 import Link from "../Link"
 
 interface LinkItem {
-  text:string,
-  href:string
+  text: string
+  href: string
 }
 
 interface FooterLinks {
-  text:string,
-  href?:string,
+  text: string
+  href?: string
   subsections: LinkItem[]
 }
 
@@ -60,6 +60,7 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
   },
   {
     text: "GraphQL Foundation",
+    href: "/foundation/",
     subsections: [
       { text: "About", href: "/foundation/" },
       { text: "Join", href: "/foundation/join/" },
@@ -71,7 +72,7 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
   },
 ]
 
-const Footer = ({sourcePath}: { sourcePath: string }) => {
+const Footer = ({ sourcePath }: { sourcePath: string }) => {
   return (
     <div>
       <footer>
@@ -107,7 +108,6 @@ const Footer = ({sourcePath}: { sourcePath: string }) => {
           and <a href="http://www.linuxfoundation.org/terms">Terms of Use</a>.
         </section>
       </footer>
-
     </div>
   )
 }
