@@ -1,6 +1,16 @@
 /* https://www.pantone.com/color-finder/Rhodamine-Red-C */
+:root {
+  --rhodamine: #e10098;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --rhodamine: ~"color(display-p3 0.8824 0 0.5961)";
+  }
+}
+
 @dark-color: #171e26;
-@rhodamine-color: #e10098;
+@rhodamine-color: ~"var(--rhodamine)";
 @text-color: #202020;
 
 .headline-font(@size: 48px, @color: @text-color) {

@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import HeaderLinks from "../HeaderLinks"
+import Logo from "../Logo"
 import Search from "../Search"
 
 const Header = () => {
@@ -8,13 +9,7 @@ const Header = () => {
     <header>
       <section>
         <Link className="nav-home" to="/">
-          <img
-            className="nav-logo"
-            src="/img/logo.svg"
-            alt="GraphQL Logo"
-            width="30"
-            height="30"
-          />
+          <Logo />
           GraphQL
         </Link>
         <HeaderLinks />
