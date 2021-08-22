@@ -9,7 +9,7 @@ npm: "apollo-server-express"
 To run a hello world server with apollo-server-express:
 
 ```bash
-npm install apollo-server-express express 
+npm install apollo-server-express express graphql
 ```
 
 Then run `node server.js` with this code in `server.js`:
@@ -32,12 +32,17 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
-const app = express();
-server.applyMiddleware({ app });
+const main = async () => {
+  const app = express();
+  await server.start();
+  server.applyMiddleware({ app });
 
-app.listen({ port: 4000 }, () =>
-  console.log('Now browse to http://localhost:4000' + server.graphqlPath)
-);
+  app.listen({ port: 4000 }, () =>
+    console.log("Now browse to http://localhost:4000" + server.graphqlPath)
+  );
+};
+
+main();
 ```
 
 Apollo Server also supports all Node.js HTTP server frameworks: Express, Connect, HAPI, Koa and NestJs.
