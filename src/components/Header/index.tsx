@@ -17,7 +17,7 @@ const Header = () => {
           />
           GraphQL
         </Link>
-        <HeaderLinks/>
+        <HeaderLinks />
         <Search />
       </section>
     </header>
