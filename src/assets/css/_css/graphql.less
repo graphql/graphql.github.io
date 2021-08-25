@@ -208,7 +208,7 @@ footer {
 
     .nav-home {
       display: table;
-      margin: -12px 20px 0 0;
+      margin: -12px 20px 0 -10px;
       padding: 10px;
       width: 50px;
       height: 50px;
@@ -224,15 +224,21 @@ footer {
       }
     }
 
-    a {
+    a, span {
       color: white;
       display: table;
       margin: 2px -10px;
       padding: 3px 10px;
-      &:hover,
-      &:focus {
-        color: @rhodamine-color;
-        text-decoration: none;
+      position: relative;
+
+      img {
+        opacity: 0.6;
+        position: absolute;
+        height: 0.85em;
+        right: ~"calc(100% - 4px)";
+        top: 50%;
+        transform: translateY(-50%);
+        user-select: none;
       }
     }
 
@@ -241,11 +247,11 @@ footer {
       margin: 0 0 10px;
 
       &,
-      & > a {
+      & > a, & > span {
         color: lighten(@dark-color, 50%);
       }
 
-      & > a {
+      & > a, & > span {
         margin: 0 -10px;
       }
     }
