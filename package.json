@@ -15,7 +15,7 @@
     "@graphql-tools/schema": "7.1.5",
     "@weknow/gatsby-remark-twitter": "0.2.3",
     "assert": "2.0.0",
-    "codemirror": "5.62.2",
+    "codemirror": "5.62.3",
     "codemirror-graphql": "1.0.2",
     "gatsby": "3.10.1",
     "gatsby-plugin-anchor-links": "1.2.1",
