@@ -11,22 +11,22 @@ const links: LinkItem[] = [
   {
     section: "learn",
     text: "Learn",
-    href: "/learn/"
+    href: "/learn/",
   },
   {
     section: "code",
     text: "Code",
-    href: "/code/"
+    href: "/code/",
   },
   {
     section: "community",
     text: "Community",
-    href: "/community/"
+    href: "/community/",
   },
   {
     section: "faq",
     text: "FAQ",
-    href: "/faq/"
+    href: "/faq/",
   },
   {
     section: "spec",
@@ -47,10 +47,13 @@ const links: LinkItem[] = [
 
 export default () => (
   <nav>
-    {links.map((link, i) => (
-      <Link key={i} href={link.href}>
-        {link.text}
-      </Link>
-    ))}
+    <input type="checkbox" id="menubox" aria-label="Menu" />
+    <div>
+      {links.map((link, i) => (
+        <Link key={i} href={link.href}>
+          {link.text}
+        </Link>
+      ))}
+    </div>
   </nav>
 )
