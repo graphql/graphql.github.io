@@ -201,6 +201,15 @@ exports.createPages = async ({ graphql, actions }) => {
               category: "GraphQL Foundation",
             },
           },
+          {
+            frontmatter: {
+              sidebarTitle: "GraphQL Landscape",
+              title: "GraphQL Landscape",
+              permalink: "https://landscape.graphql.org/",
+              date: null,
+              category: "GraphQL Foundation",
+            },
+          },
         ],
       },
     ],

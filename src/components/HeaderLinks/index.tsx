@@ -43,11 +43,6 @@ const links: LinkItem[] = [
     text: "News",
     href: "/blog/",
   },
-  {
-    section: "landscape",
-    text: "Landscape",
-    href: "https://l.graphql.org/"
-  },
 ]
 
 export default () => (
