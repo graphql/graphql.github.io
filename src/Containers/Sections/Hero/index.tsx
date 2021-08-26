@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import HeaderLinks from "../../../components/HeaderLinks"
+import Logo from "../../../components/Logo"
 import Search from "../../../components/Search"
 import Prism from "../../../components/Prism"
 
@@ -16,7 +17,7 @@ const Hero = () => {
         </header>
         <section className="intro">
           <div className="named-logo">
-            <img src="/img/logo.svg" alt="GraphQL Logo" />
+            <Logo />
             <h1>GraphQL</h1>
           </div>
 

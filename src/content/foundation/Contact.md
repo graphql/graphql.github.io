@@ -5,7 +5,7 @@ heroText: The GraphQL Foundation is here to help.
 layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/contact/
-sublinks: Membership Inquriries,Membership Support,Meeting Logistics,Media Inquries,Technical Issues,General
+sublinks: Membership Inquriries,Membership Support,Meeting Logistics,Trademark Requests,Media Inquries,Technical Issues,General
 next: /foundation/join/
 ---
 
@@ -27,6 +27,10 @@ If you are already a member of the [GraphQL Foundation](/foundation/) and you ne
 
 Governing board and Working Group members who need help with meeting logistics (setting up a Zoom conference, adding or changing a calendar entry, designating an alternate representative, etc.) can reach out to [operations@graphql.org](mailto:operations@graphql.org) with their request.
 
+## Trademark Requests
+
+For guidance using the GraphQL trademark and brand see our [brand guidelines](/brand). For trademark licensing questions or requests please reach out to [info@graphql.org](mailto:info@graphql.org?subject=Trademark%20Request).
+
 ## Media Inquiries
 
 For media inquiries, please reach out to [pr@graphql.org](mailto:pr@graphql.org).
@@ -41,8 +45,8 @@ For all other inquiries, please email [info@graphql.org](mailto:info@graphql.org
 
 Our mailing address is:
 
-> **GraphQL Foundation**  
-> 548 Market St  
-> PMB 57274  
-> San Francisco, California  
-> 94104-5401 US  
+> **GraphQL Foundation**
+> 548 Market St
+> PMB 57274
+> San Francisco, California
+> 94104-5401 US
