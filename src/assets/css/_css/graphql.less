@@ -158,12 +158,68 @@ header {
 }
 
 nav {
+  input {
+    display: none;
+  }
+
   @media screen and (min-width: 1020px) {
     float: left;
   }
-  @media screen and (max-width: 1019px) {
+
+  @media screen and (min-width: 720px) and (max-width: 1019px) {
     text-align: center;
     margin: 0 -1em;
+  }
+
+  @media screen and (max-width: 719px) {
+    height: 50px;
+    position: relative;
+
+    input {
+      display: block;
+      float: right;
+      appearance: none;
+      background: url("/img/menu.svg");
+      width: 42px;
+      height: 42px;
+      margin: 4px 0;
+      cursor: pointer;
+
+      .hero & {
+        background: url("/img/menu-white.svg");
+      }
+    }
+
+    div {
+      display: none;
+    }
+
+    input:checked + div {
+      display: block;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      a {
+        display: block;
+        background: white;
+        width: 100%;
+        left: 0;
+        .hero & {
+          background: @dark-color;
+          &:hover,
+          &:focus {
+            color: white;
+          }
+        }
+      }
+      a:not(:first-child) {
+        border-top: solid 1px #eee;
+        .hero & {
+          border-top-color: #666;
+        }
+      }
+    }
   }
 
   a {
@@ -224,10 +280,11 @@ footer {
       }
     }
 
-    a, span {
+    a,
+    span {
       color: white;
       display: table;
-      margin: 2px -10px;
+      margin: 2px 15px 2px -10px;
       padding: 3px 10px;
       position: relative;
 
@@ -247,11 +304,13 @@ footer {
       margin: 0 0 10px;
 
       &,
-      & > a, & > span {
+      & > a,
+      & > span {
         color: lighten(@dark-color, 50%);
       }
 
-      & > a, & > span {
+      & > a,
+      & > span {
         margin: 0 -10px;
       }
     }
