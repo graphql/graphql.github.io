@@ -27,7 +27,7 @@
     "gatsby-source-filesystem": "3.12.0",
     "gatsby-transformer-remark": "4.9.0",
     "globby": "11.0.4",
-    "graphql": "15.5.1",
+    "graphql": "15.5.2",
     "marked": "3.0.2",
     "numbro": "2.3.5",
     "parser-front-matter": "1.6.4",
