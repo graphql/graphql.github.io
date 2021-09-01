@@ -12,7 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@graphql-tools/schema": "8.1.2",
+    "@graphql-tools/schema": "8.2.0",
     "@weknow/gatsby-remark-twitter": "0.2.3",
     "assert": "2.0.0",
     "codemirror": "5.62.3",
