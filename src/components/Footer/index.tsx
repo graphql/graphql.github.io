@@ -107,15 +107,16 @@ const Footer = ({ sourcePath }: { sourcePath: string }) => {
         </section>
         <section className="copyright">
           Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
-          All rights reserved. The Linux Foundation has registered trademarks
-          and uses trademarks. For a list of trademarks of The Linux Foundation,
-          please see our{" "}
-          <a href="https://www.linuxfoundation.org/trademark-usage">
-            Trademark Usage
-          </a>{" "}
-          page. Linux is a registered trademark of Linus Torvalds.{" "}
-          <a href="http://www.linuxfoundation.org/privacy">Privacy Policy</a>{" "}
-          and <a href="http://www.linuxfoundation.org/terms">Terms of Use</a>.
+          All rights reserved.<br />
+          For web site terms of use, trademark policy and general project
+          policies please see&nbsp;
+          <a
+            href="https://lfprojects.org"
+            target="_blank"
+          >
+            https://lfprojects.org
+          </a>
+          .
         </section>
       </footer>
     </div>
