@@ -23,11 +23,8 @@ export default ({ pageContext }) => {
             GraphQL Foundation
           </a>
           . Use of the trademark and logo are subject to the{" "}
-          <a
-            href="https://lfprojects.org/policies/trademark-policy"
-            target="_blank"
-          >
-            Linux Foundation trademark policy
+          <a href="https://lfprojects.org/policies/trademark-policy/"
+            target="_blank">LF Projects trademark policy
           </a>
           .
         </p>
