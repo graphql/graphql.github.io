@@ -37,8 +37,6 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 
 ## Events
 
-*None currently scheduled*
-
 <!-- Event template, copy and paste what you need. Please note that the only three required fields are the name of the event, who is organizing and hosting it, and the link to the code of conduct. Events without this information can't be posted.
 
 ### [Name of the event - REQUIRED]
@@ -52,6 +50,16 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 * **Code of Conduct:** [link to code of conduct - REQUIRED]
 
 -->
+
+### Enterprise GraphQL Conf'21
+
+* **Date(s):** 28-Oct-2021
+* **Location:** Virtual
+* **Registration:** https://hasura.io/enterprisegraphql/
+* **CFP:** N/A
+* **Schedule:** https://hasura.io/enterprisegraphql/#talks
+* **Host:** [Hasura](https://hasura.io/)
+* **Code of Conduct:** https://hasura.io/enterprisegraphql/code-of-conduct/
 
 ## Meetups
 
