@@ -42,6 +42,6 @@
     "@types/codemirror": "5.60.2",
     "@types/prismjs": "1.16.6",
     "@types/react-helmet": "6.1.2",
-    "prettier": "2.3.2"
+    "prettier": "2.4.1"
   }
 }
