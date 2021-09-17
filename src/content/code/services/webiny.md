@@ -1,6 +1,6 @@
 ---
 name: Webiny
-description: Webiny is an open-source JavaScript serverless application framework with a built-in CMS. It offers GraphQL based serverless headless CMS with powerful content modeling features. You can create GraphQL APIs for your mobile and web apps and run them on top of a serverless infrastructure with the Webiny framework.
+description: Webiny allows you to quickly build GraphQL APIs on top of AWS Lambda and DynamoDB with built-in scaffolds. Webiny also includes a ready-made headless GraphQL CMS for a no-code experience.
 url: https://www.webiny.com/
 github: webiny/webiny-js/
 ---
