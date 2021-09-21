@@ -5,7 +5,87 @@ const frontmatterParser = require("parser-front-matter")
 const { readFile } = require("fs-extra")
 const { promisify } = require("util")
 
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const gql = String.raw;
+  const { createTypes } = actions;
+
+  createTypes(gql`
+    type BlogPost implements Node
+      @dontInfer
+      @childOf(types: ["File", "MarkdownRemark"])
+    {
+      postId: String!
+      title: String!
+      excerpt: String!
+      rawContent: String! # raw markdown content, better if it would be fully parsed & rendered at the build time
+      tags: [String!]!
+      date: Date! @dateformat(formatString: "YYYY-MM-DD")
+      authors: [String!]!
+    }
+  `);
+};
+
+// Transform nodes, each of logic inside here can be extracted to a separated plugin later.
+exports.onCreateNode = async ({
+  reporter,
+  node,
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const { createNode, createParentChildLink } = actions;
+
+  // Derive content nodes from remark nodes
+  if (node.internal.type === 'MarkdownRemark') {
+    if (node.frontmatter.layout === 'blog') {
+      const nodeId = createNodeId(`${node.id} >>> BlogPost`);
+
+      const permalink = node.frontmatter.permalink;
+      if (!permalink?.startsWith('/blog/')) {
+        reporter.panicOnBuild(`${permalink} is not valid permalink for blog post`);
+        return;
+      }
+
+      // It contains a kind of transform logic. However, those logics can be extracted to resolvers into ahead of sourcing (createTypes)
+      const blogPostContent = {
+        id: nodeId,
+        postId: permalink.replace('/blog/', '').replace(/\/$/, ''),
+        title: node.frontmatter.title,
+        excerpt: node.excerpt,
+        rawContent: node.rawMarkdownBody,
+        tags: node.frontmatter.tags ?? [],
+        date: node.frontmatter.date,
+        authors: (node.frontmatter.byline ?? '')
+          .split(',')
+          .map(name => name.trim())
+          .filter(Boolean),
+      };
+
+      createNode({
+        ...blogPostContent,
+        parent: node.id,
+        children: [],
+        internal: {
+          type: 'BlogPost',
+          contentDigest: createContentDigest(blogPostContent),
+        },
+      });
+
+      createParentChildLink({
+        parent: node,
+        child: blogPostContent,
+      });
+    }
+  }
+};
+
 exports.onCreatePage = async ({ page, actions }) => {
+  // trying to refactor code to be "the Gatsby way".
+  // from the paths on ready, ignores a bunch of existing custom logic below.
+  if (page.path.startsWith('/blog')) {
+    return;
+  }
+
   const { createPage, deletePage } = actions
   deletePage(page)
   let context = {
@@ -350,7 +430,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Use all the set up data to now tell Gatsby to create pages
   // on the site
-  allPages.forEach(page => {
+  allPages
+    .filter(page => !page.permalink.startsWith('/blog'))
+    .forEach(page => {
     createPage({
       path: `${page.permalink}`,
       component: docTemplate,
