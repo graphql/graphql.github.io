@@ -1,56 +1,44 @@
-import React from "react"
+import * as React from "react"
+import { graphql, Link } from "gatsby"
 import Marked from "../Marked"
-import { Link } from "gatsby"
+
+export const fragments = graphql`
+  fragment BlogPost_post on BlogPost {
+    title
+    excerpt
+    rawContent
+    date
+    authors
+    tags
+  }
+`;
 
 interface Props {
-  title: string
-  date: string
-  permalink: string
-  byline: string
-  guestBio: string
-  rawMarkdownBody: string
-  isPermalink: boolean
-  pageContext: any
-  excerpt?: string
-  showExcerpt?: true
-  tags: Array<string>
+  post: GatsbyTypes.BlogPost_postFragment,
+  showExcerpt: boolean,
 }
 
-const BlogPost = ({
-  title,
-  date,
-  permalink,
-  byline,
-  guestBio,
-  rawMarkdownBody,
-  isPermalink,
-  pageContext,
-  excerpt,
+const BlogPost: React.FC<Props> = ({
+  post,
   showExcerpt,
-  tags,
-}: Props) => (
+}) => (
   <div className="inner-content">
-    <h1>{isPermalink ? title : <a href={permalink}>{title}</a>}</h1>
+    <h1>{post.title}</h1>
     <p>
-      {new Date(date).toLocaleDateString()} by {byline}
+      {new Date(post.date).toLocaleDateString()} by {post.authors.join(', ')}
     </p>
     <div className="tag-wrapper">
-      {tags.map(tag => (
-        <span className="tag">
+      {post.tags.map(tag => (
+        <span key={tag} className="tag">
           <Link to={`/tags/${tag}`}>{tag}</Link>
         </span>
       ))}
     </div>
 
-    {guestBio ? null : <hr />}
-    {guestBio && (
-      <p className="guestBio">{`This guest article contributed by ${byline}, ${guestBio}.`}</p>
-    )}
-
     {showExcerpt ? (
-      <p>{excerpt}</p>
+      <p>{post.excerpt}</p>
     ) : (
-      <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>
+      <Marked>{post.rawContent}</Marked>
     )}
   </div>
 )
