@@ -15,12 +15,12 @@ export const fragments = graphql`
 
 interface Props {
   post: GatsbyTypes.BlogPost_postFragment,
-  showExcerpt: boolean,
+  showExcerpt?: boolean,
 }
 
 const BlogPost: React.FC<Props> = ({
   post,
-  showExcerpt,
+  showExcerpt = false,
 }) => (
   <div className="inner-content">
     <h1>{post.title}</h1>
