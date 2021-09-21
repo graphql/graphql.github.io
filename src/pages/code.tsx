@@ -1,29 +1,33 @@
+import type { PageProps } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import React, { useState } from "react"
 import Layout from "../components/Layout"
 import Marked from "../components/Marked"
 import { toSlug } from "../utils/slug"
 
-export function buildLanguagesMenu(pageContext: any) {
+export function buildLanguagesMenu(pageContext: GatsbyTypes.SitePageContext) {
   return (
     <div className="language-boxes">
-      {pageContext.languageList.map(({ name: languageName }) => {
-        const slug = toSlug(languageName)
-        return (
-          <AnchorLink
-            to={`#${slug}`}
-            className="article language-box"
-            title={languageName}
-          >
-            <span className="article_title">{languageName}</span>
-          </AnchorLink>
-        )
-      })}
+      {pageContext.languageList
+        ?.map(langeuage => langeuage?.name!).filter(Boolean)
+        .map(languageName => {
+          const slug = toSlug(languageName)
+          return (
+            <AnchorLink
+              to={`#${slug}`}
+              className="article language-box"
+              title={languageName}
+            >
+              <span className="article_title">{languageName}</span>
+            </AnchorLink>
+          )
+        })
+      }
     </div>
   )
 }
 
-export function buildLibraryContent(library: any, pageContext: any) {
+export function buildLibraryContent(library: any, pageContext: GatsbyTypes.SitePageContext) {
   const [ overflown, setOverflown ] = useState(false);
   const [ expanded, setExpanded ] = useState(false);
   return (
@@ -113,7 +117,7 @@ export function buildLibraryContent(library: any, pageContext: any) {
   )
 }
 
-export function buildLibraryList(libraries: any[], pageContext: any) {
+export function buildLibraryList(libraries: readonly any[], pageContext: any) {
   return (
     <div className="library-list">
       {libraries.map(library => buildLibraryContent(library, pageContext))}
@@ -194,7 +198,7 @@ export function buildLanguagesContent(pageContext: any) {
   return <div className="languages-content">{elements}</div>
 }
 
-export default ({ pageContext }: any) => {
+export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>) => {
   return (
     <Layout title="GraphQL Code Libraries, Tools and Services" className="code" pageContext={pageContext}>
       <div className="code-hero">
@@ -240,7 +244,7 @@ export default ({ pageContext }: any) => {
                 #
               </AnchorLink>
             </h2>
-            {buildLibraryList(pageContext.otherLibraries.Tools, pageContext)}
+            {buildLibraryList(pageContext.otherLibraries?.Tools ?? [], pageContext)}
             <h2>
               <a className="anchor" id="services"></a>
               Services
@@ -248,7 +252,7 @@ export default ({ pageContext }: any) => {
                 #
               </AnchorLink>
             </h2>
-            {buildLibraryList(pageContext.otherLibraries.Services, pageContext)}
+            {buildLibraryList(pageContext.otherLibraries?.Services ?? [], pageContext)}
           </div>
         </div>
       <p>Want to improve this page? See the <a href="https://github.com/graphql/graphql.github.io/blob/source/notes/ContributingToCodePage.md">docs here</a>.</p>

@@ -1,16 +1,17 @@
 import React from "react"
+import type { PageProps } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import BlogPost from "../components/BlogPost"
 import BlogSidebar from "../components/BlogSidebar"
-import { graphql } from "gatsby"
 
-export default ({ pageContext, data }: any) => {
+export default ({ pageContext, data }: PageProps<GatsbyTypes.TagsTemplateQuery, GatsbyTypes.SitePageContext>) => {
   const { tag } = pageContext
   const allPosts = data.allMarkdownRemark.edges
-    .map((e: any) => e.node)
-    .sort((a: any, b: any) => {
-      const aDate = new Date(a.frontmatter.date)
-      const bDate = new Date(b.frontmatter.date)
+    .map(e => e.node)
+    .sort((a, b) => {
+      const aDate = new Date(a?.frontmatter?.date ?? 0)
+      const bDate = new Date(b?.frontmatter?.date ?? 0)
       if (aDate > bDate) {
         return -1
       } else if (aDate < bDate) {
@@ -69,7 +70,7 @@ export default ({ pageContext, data }: any) => {
 }
 
 export const query = graphql`
-  query {
+  query TagsTemplate {
     allMarkdownRemark(
       filter: { frontmatter: { permalink: { regex: "/blog/" } } }
     ) {

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Seo = ({ title, description }: Props): JSX.Element => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.SeoQueryQuery>(graphql`
     query SeoQuery {
       site {
         siteMetadata {

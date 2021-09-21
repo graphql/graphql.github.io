@@ -13,7 +13,7 @@ interface FooterLinks {
   subsections: LinkItem[]
 }
 
-const getLinks = (sourcePath: string): FooterLinks[] => [
+const getLinks = (sourcePath?: string): FooterLinks[] => [
   {
     text: "Learn",
     href: "/learn/",
@@ -70,18 +70,18 @@ const getLinks = (sourcePath: string): FooterLinks[] => [
       { text: "Logo and Brand Guidelines", href: "/brand" },
       { text: "Code of Conduct", href: "/codeofconduct/" },
       { text: "Contact Us", href: "/foundation/contact/" },
-      {
+      sourcePath && {
         text: "Edit this page",
         href:
           "https://github.com/graphql/graphql.github.io/edit/source/" +
           sourcePath,
         icon: "/img/edit.svg",
       },
-    ],
+    ].filter(Boolean) as LinkItem[],
   },
 ]
 
-const Footer = ({ sourcePath }: { sourcePath: string }) => {
+const Footer = ({ sourcePath }: { sourcePath?: string }) => {
   return (
     <div>
       <footer>

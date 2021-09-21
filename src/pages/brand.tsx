@@ -1,7 +1,8 @@
 import React, { useState } from "react"
+import type { PageProps } from "gatsby"
 import Layout from "../components/Layout"
 
-export default ({ pageContext }) => {
+export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>) => {
   return (
     <Layout
       title="GraphQL logo, brand guidelines and assets"

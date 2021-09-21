@@ -7,7 +7,7 @@ interface Props {
 }
 
 const BlogSidebar = ({ posts, currentPermalink }: Props) => {
-  const allTags = useStaticQuery(graphql`
+  const allTags = useStaticQuery<GatsbyTypes.allTagsQuery>(graphql`
     query allTags {
       allMarkdownRemark {
         group(field: frontmatter___tags) {
@@ -28,7 +28,7 @@ const BlogSidebar = ({ posts, currentPermalink }: Props) => {
       <div className="nav-docs-section categories">
         <h3>Categories</h3>
         <ul>
-          {allTags.map(({ fieldValue }: { fieldValue: string }, i: number) => {
+          {allTags.map(({ fieldValue = '' }, i: number) => {
             const tag = fieldValue[0].toUpperCase() + fieldValue.substring(1)
             return (
               <li key={i}>
