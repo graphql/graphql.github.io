@@ -85,6 +85,9 @@ exports.onCreatePage = async ({ page, actions }) => {
   if (page.path.startsWith('/blog')) {
     return;
   }
+  if (page.path.startsWith('/tags')) {
+    return;
+  }
 
   const { createPage, deletePage } = actions
   deletePage(page)
@@ -228,8 +231,8 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      tagsGroup: allMarkdownRemark {
-        group(field: frontmatter___tags) {
+      allBlogPost {
+        group(field: tags) {
           fieldValue
         }
       }
@@ -243,6 +246,17 @@ exports.createPages = async ({ graphql, actions }) => {
     console.error(result.errors)
     throw result.errors
   }
+
+  const tags = result.data.allBlogPost.group.map(group => group.fieldValue)
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag.toLowerCase()}/`,
+      component: path.resolve("./src/templates/{BlogPost.tags}.tsx"),
+      context: {
+        tag,
+      },
+    })
+  })
 
   const markdownPages = result.data.allMarkdownRemark.edges
 

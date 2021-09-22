@@ -1,14 +1,14 @@
 import * as React from "react"
 import type { PageProps } from "gatsby"
 import { graphql } from "gatsby"
-import Layout from "../../components/Layout"
-import BlogPostPreview from "../../components/BlogPostPreview"
-import BlogSidebar from "../../components/BlogSidebar"
+import Layout from "../components/Layout"
+import BlogPostPreview from "../components/BlogPostPreview"
+import BlogSidebar from "../components/BlogSidebar"
 
 export const query = graphql`
-  query TagPage($tags: [String!]!) {
+  query TagPage($tag: String!) {
     allBlogPost(
-      filter: { tags: { in: $tags } }
+      filter: { tags: { in: [$tag] } }
     ) {
       nodes {
         id
@@ -20,8 +20,8 @@ export const query = graphql`
 
 type Props = PageProps<GatsbyTypes.TagPageQuery, GatsbyTypes.SitePageContext>
 
-const TagPage: React.FC<Props> = ({ data, params }) => {
-  const currentTag = params.tags!
+const TagPage: React.FC<Props> = ({ data, pageContext }) => {
+  const currentTag = pageContext.tag!
   return (
     <Layout title={`Blog: ${currentTag} | GraphQL`} pageContext={{}}>
       <section>
