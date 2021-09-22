@@ -45,9 +45,9 @@ const BlogSidebar: React.FC = () => {
             return (
               <li key={tag}>
                 {pathname === currentPath ? (
-                  tag
+                  formattedTag
                 ) : (
-                  <Link to={`/tags/${tag}`}>{formattedTag}</Link>
+                  <Link to={pathname}>{formattedTag}</Link>
                 )}
               </li>
             )

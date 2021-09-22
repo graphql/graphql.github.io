@@ -444,19 +444,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
-  // Create tag pages
-  const tagTemplate = path.resolve("src/templates/tags.tsx")
-  const tags = result.data.tagsGroup.group
-  tags.forEach(tag => {
-    createPage({
-      path: `/tags/${tag.fieldValue}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
-      },
-    })
-  })
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
