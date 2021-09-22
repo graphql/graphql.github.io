@@ -11,17 +11,15 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
   createTypes(gql`
     type BlogPost implements Node
-      @dontInfer
-      @childOf(types: ["File", "MarkdownRemark"])
+      @childOf(types: ["MarkdownRemark"])
     {
       postId: String!
       title: String!
-      excerpt: String!
-      rawContent: String! # raw markdown content, better if it would be fully parsed & rendered at the build time
       tags: [String!]!
       date: Date! @dateformat(formatString: "YYYY-MM-DD")
       authors: [String!]!
       guestBio: String
+      remark: MarkdownRemark! @link # backlink to the parent
     }
   `);
 };
@@ -52,8 +50,6 @@ exports.onCreateNode = async ({
         id: nodeId,
         postId: permalink.replace('/blog/', '').replace(/\/$/, ''),
         title: node.frontmatter.title,
-        excerpt: node.excerpt,
-        rawContent: node.rawMarkdownBody,
         tags: node.frontmatter.tags ?? [],
         date: node.frontmatter.date,
         authors: (node.frontmatter.byline ?? '')
@@ -65,6 +61,7 @@ exports.onCreateNode = async ({
 
       createNode({
         ...blogPostContent,
+        remark: node.id,
         parent: node.id,
         children: [],
         internal: {

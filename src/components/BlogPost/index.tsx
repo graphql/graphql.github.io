@@ -5,11 +5,13 @@ import Marked from "../Marked"
 export const fragments = graphql`
   fragment BlogPost_post on BlogPost {
     title
-    rawContent
     date
     authors
     tags
     guestBio
+    remark {
+      rawMarkdownBody
+    }
   }
 `;
 
@@ -41,7 +43,7 @@ const BlogPost: React.FC<Props> = ({
         <p className="guestBio">{`This guest article contributed by ${byline}, ${post.guestBio}.`}</p>
       )}
 
-      <Marked>{post.rawContent}</Marked>
+      <Marked>{post.remark.rawMarkdownBody}</Marked>
     </div>
   )
 }

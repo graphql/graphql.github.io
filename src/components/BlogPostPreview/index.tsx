@@ -4,11 +4,13 @@ import { graphql, Link } from "gatsby"
 export const fragments = graphql`
   fragment BlogPostPreview_post on BlogPost {
     title
-    excerpt
     date
     authors
     tags
     postPath: gatsbyPath(filePath: "/blog/{BlogPost.postId}")
+    remark {
+      excerpt
+    }
   }
 `;
 
@@ -36,7 +38,7 @@ const BlogPostPreview: React.FC<Props> = ({
       ))}
     </div>
 
-    <p>{post.excerpt}</p>
+    <p>{post.remark.excerpt}</p>
   </div>
 )
 
