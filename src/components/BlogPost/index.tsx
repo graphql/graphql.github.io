@@ -9,6 +9,7 @@ export const fragments = graphql`
     date
     authors
     tags
+    guestBio
   }
 `;
 
@@ -18,24 +19,31 @@ interface Props {
 
 const BlogPost: React.FC<Props> = ({
   post,
-}) => (
-  <div className="inner-content">
-    <h1>{post.title}</h1>
+}) => {
+  const byline = post.authors.join(', ')
+  return (
+    <div className="inner-content">
+      <h1>{post.title}</h1>
 
-    <p>
-      {new Date(post.date).toLocaleDateString()} by {post.authors.join(', ')}
-    </p>
+      <p>
+        {new Date(post.date).toLocaleDateString()} by {byline}
+      </p>
 
-    <div className="tag-wrapper">
-      {post.tags.map(tag => (
-        <span key={tag} className="tag">
-          <Link to={`/tags/${tag}/`}>{tag}</Link>
-        </span>
-      ))}
+      <div className="tag-wrapper">
+        {post.tags.map(tag => (
+          <span key={tag} className="tag">
+            <Link to={`/tags/${tag}/`}>{tag}</Link>
+          </span>
+        ))}
+      </div>
+
+      {post.guestBio && (
+        <p className="guestBio">{`This guest article contributed by ${byline}, ${post.guestBio}.`}</p>
+      )}
+
+      <Marked>{post.rawContent}</Marked>
     </div>
-
-    <Marked>{post.rawContent}</Marked>
-  </div>
-)
+  )
+}
 
 export default BlogPost

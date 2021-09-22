@@ -21,6 +21,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       tags: [String!]!
       date: Date! @dateformat(formatString: "YYYY-MM-DD")
       authors: [String!]!
+      guestBio: String
     }
   `);
 };
@@ -59,6 +60,7 @@ exports.onCreateNode = async ({
           .split(',')
           .map(name => name.trim())
           .filter(Boolean),
+        guestBio: node.frontmatter.guestBio ?? null,
       };
 
       createNode({
