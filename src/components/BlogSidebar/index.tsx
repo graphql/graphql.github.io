@@ -40,7 +40,7 @@ const BlogSidebar: React.FC = () => {
         <h3>Categories</h3>
         <ul>
           {tags.map(tag => {
-            const formattedTag = tag.toUpperCase() + tag.substring(1)
+            const formattedTag = tag[0].toUpperCase() + tag.substring(1)
             const pathname = `/tags/${tag}/`;
             return (
               <li key={tag}>

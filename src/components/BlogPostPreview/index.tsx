@@ -1,26 +1,28 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import Marked from "../Marked"
 
 export const fragments = graphql`
-  fragment BlogPost_post on BlogPost {
+  fragment BlogPostPreview_post on BlogPost {
     title
-    rawContent
+    excerpt
     date
     authors
     tags
+    postPath: gatsbyPath(filePath: "/blog/{BlogPost.postId}")
   }
 `;
 
 interface Props {
-  post: GatsbyTypes.BlogPost_postFragment,
+  post: GatsbyTypes.BlogPostPreview_postFragment,
 }
 
-const BlogPost: React.FC<Props> = ({
+const BlogPostPreview: React.FC<Props> = ({
   post,
 }) => (
   <div className="inner-content">
-    <h1>{post.title}</h1>
+    <h1>
+      <Link to={post.postPath!}>{post.title}</Link>
+    </h1>
 
     <p>
       {new Date(post.date).toLocaleDateString()} by {post.authors.join(', ')}
@@ -34,8 +36,8 @@ const BlogPost: React.FC<Props> = ({
       ))}
     </div>
 
-    <Marked>{post.rawContent}</Marked>
+    <p>{post.excerpt}</p>
   </div>
 )
 
-export default BlogPost
+export default BlogPostPreview

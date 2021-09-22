@@ -1,91 +1,43 @@
-import React from "react"
-import Layout from "../components/Layout"
-import BlogPost from "../components/BlogPost"
-import BlogSidebar from "../components/BlogSidebar"
+import * as React from "react"
 import { graphql } from "gatsby"
-import type { PageProps } from "gatsby";
+import type { PageProps } from "gatsby"
+import Layout from "../components/Layout"
+import BlogPostPreview from "../components/BlogPostPreview"
+import BlogSidebar from "../components/BlogSidebar"
 
-export default ({ pageContext, data }: PageProps<GatsbyTypes.GetAllBlogPostsQuery, GatsbyTypes.SitePageContext>) => {
-  const posts = data.allMarkdownRemark.edges
-    .map(e => e.node)
-    .sort((a, b) => {
-      const aDate = new Date(a?.frontmatter?.date ?? 0)
-      const bDate = new Date(b?.frontmatter?.date ?? 0)
-      if (aDate > bDate) {
-        return -1
-      } else if (aDate < bDate) {
-        return 1
+export const query = graphql`
+  query BlogPostListPage {
+    allBlogPost(
+      sort: { fields: [date], order: DESC }
+    ) {
+      nodes {
+        id
+        ...BlogPostPreview_post
       }
-      return 0
-    })
+    }
+  }
+`
 
+type Props = PageProps<GatsbyTypes.BlogPostListPageQuery, GatsbyTypes.SitePageContext>
+
+const BlogPostListPage: React.FC<Props> = ({ data }) => {
   return (
-    <Layout title="Blog | GraphQL" pageContext={pageContext}>
+    <Layout title="Blog | GraphQL" pageContext={{}}>
       <section>
         <div className="documentationContent">
           <div>
-            {posts.map(
-              (
-                {
-                  frontmatter: {
-                    title,
-                    date,
-                    permalink,
-                    byline,
-                    guestBio,
-                    tags,
-                  },
-                  rawMarkdownBody,
-                  excerpt,
-                }: any,
-                i
-              ) => (
-                <BlogPost
-                  key={i}
-                  title={title}
-                  date={date}
-                  permalink={permalink}
-                  byline={byline}
-                  guestBio={guestBio}
-                  rawMarkdownBody={rawMarkdownBody}
-                  isPermalink={false}
-                  pageContext={pageContext}
-                  excerpt={excerpt}
-                  showExcerpt
-                  tags={tags}
-                />
-              )
-            )}
+            {data.allBlogPost.nodes.map(post => (
+              <BlogPostPreview
+                key={post.id}
+                post={post}
+              />
+            ))}
           </div>
-          <BlogSidebar posts={posts} />
+          <BlogSidebar />
         </div>
       </section>
     </Layout>
   )
 }
 
-export const query = graphql`
-  query GetAllBlogPosts {
-    allMarkdownRemark(
-      filter: { frontmatter: { permalink: { regex: "/blog/" } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            permalink
-            byline
-            guestBio
-            sublinks
-            layout
-            tags
-          }
-          id
-          excerpt
-          rawMarkdownBody
-        }
-      }
-    }
-  }
-`
+export default BlogPostListPage
