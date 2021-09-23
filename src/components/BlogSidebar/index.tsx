@@ -1,21 +1,32 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
 
-interface Props {
-  posts: any[]
-  currentPermalink?: string
-}
-
-const BlogSidebar = ({ posts, currentPermalink }: Props) => {
-  const allTags = useStaticQuery<GatsbyTypes.allTagsQuery>(graphql`
-    query allTags {
-      allMarkdownRemark {
-        group(field: frontmatter___tags) {
+const BlogSidebar: React.FC = () => {
+  const data = useStaticQuery<GatsbyTypes.AllTagsStaticQuery>(graphql`
+    query AllTagsStatic {
+      allBlogPost {
+        group(field: tags) {
           fieldValue
         }
       }
+      allRecentBlogPost: allBlogPost(
+        limit: 30,
+        sort: { fields: [date], order: DESC }
+      ) {
+        nodes {
+          title
+          postId
+          postPath: gatsbyPath(filePath: "/blog/{BlogPost.postId}")
+        }
+      }
     }
-  `).allMarkdownRemark.group
+  `)
+
+  const tags = data.allBlogPost.group.map(group => group.fieldValue!)
+  const recentPosts = data.allRecentBlogPost.nodes
+
+  const { pathname: currentPath } = useLocation();
 
   return (
     <div className="nav-docs blog-sidebar">
@@ -28,14 +39,15 @@ const BlogSidebar = ({ posts, currentPermalink }: Props) => {
       <div className="nav-docs-section categories">
         <h3>Categories</h3>
         <ul>
-          {allTags.map(({ fieldValue = '' }, i: number) => {
-            const tag = fieldValue[0].toUpperCase() + fieldValue.substring(1)
+          {tags.map(tag => {
+            const formattedTag = tag[0].toUpperCase() + tag.substring(1)
+            const pathname = `/tags/${tag}/`;
             return (
-              <li key={i}>
-                {fieldValue === currentPermalink ? (
-                  tag
+              <li key={tag}>
+                {pathname === currentPath ? (
+                  formattedTag
                 ) : (
-                  <Link to={`/tags/${fieldValue}`}>{tag}</Link>
+                  <Link to={pathname}>{formattedTag}</Link>
                 )}
               </li>
             )
@@ -45,12 +57,12 @@ const BlogSidebar = ({ posts, currentPermalink }: Props) => {
       <div className="nav-docs-section recent-posts">
         <h3>Recent Posts</h3>
         <ul>
-          {posts.map(({ frontmatter }, i) => (
-            <li key={i}>
-              {frontmatter.permalink === currentPermalink ? (
-                frontmatter.title
+          {recentPosts.map(post => (
+            <li key={post.postId}>
+              {post.postPath === currentPath ? (
+                post.title
               ) : (
-                <Link to={frontmatter.permalink}>{frontmatter.title}</Link>
+                <Link to={post.postPath!}>{post.title}</Link>
               )}
             </li>
           ))}

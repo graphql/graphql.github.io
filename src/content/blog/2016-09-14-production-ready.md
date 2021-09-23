@@ -3,7 +3,7 @@ title: "Leaving technical preview"
 layout: blog
 permalink: /blog/production-ready/
 tags: ["blog"]
-date: 14 Sep 2016
+date: 2016-09-14
 byline: "Lee Byron"
 ---
 

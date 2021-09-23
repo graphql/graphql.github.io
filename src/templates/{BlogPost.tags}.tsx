@@ -1,14 +1,14 @@
 import * as React from "react"
-import { graphql } from "gatsby"
 import type { PageProps } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import BlogPostPreview from "../components/BlogPostPreview"
 import BlogSidebar from "../components/BlogSidebar"
 
 export const query = graphql`
-  query BlogPostListPage {
+  query TagPage($tag: String!) {
     allBlogPost(
-      sort: { fields: [date], order: DESC }
+      filter: { tags: { in: [$tag] } }
     ) {
       nodes {
         id
@@ -18,19 +18,17 @@ export const query = graphql`
   }
 `
 
-type Props = PageProps<GatsbyTypes.BlogPostListPageQuery, GatsbyTypes.SitePageContext>
+type Props = PageProps<GatsbyTypes.TagPageQuery, GatsbyTypes.SitePageContext>
 
-const BlogPostListPage: React.FC<Props> = ({ data }) => {
+const TagPage: React.FC<Props> = ({ data, pageContext }) => {
+  const currentTag = pageContext.tag!
   return (
-    <Layout title="Blog | GraphQL" pageContext={{}}>
+    <Layout title={`Blog: ${currentTag} | GraphQL`} pageContext={{}}>
       <section>
         <div className="documentationContent">
           <div>
             {data.allBlogPost.nodes.map(post => (
-              <BlogPostPreview
-                key={post.id}
-                post={post}
-              />
+              <BlogPostPreview key={post.id} post={post} />
             ))}
           </div>
           <BlogSidebar />
@@ -40,4 +38,4 @@ const BlogPostListPage: React.FC<Props> = ({ data }) => {
   )
 }
 
-export default BlogPostListPage
+export default TagPage
