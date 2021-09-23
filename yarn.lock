@@ -5880,7 +5880,7 @@ gatsby-plugin-react-helmet@4.14.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-typegen@^2.2.4:
+gatsby-plugin-typegen@2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typegen/-/gatsby-plugin-typegen-2.2.4.tgz#2d0724991dd3f8517cceb7facacf083f9294532d"
   integrity sha512-JWM4r5bv2wemCmBOzHKPaEwANvxl4fvtnyZw7XulhB1R3uMSDLsl1a0hPy27j23VdO5JROciZK0sqFgnweqJ4A==
