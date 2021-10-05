@@ -12,7 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "resolutions": {
-    "graphql": "15.6.0"
+    "graphql": "15.6.1"
   },
   "dependencies": {
     "@graphql-tools/schema": "8.2.0",
@@ -32,7 +32,7 @@
     "gatsby-source-filesystem": "3.14.0",
     "gatsby-transformer-remark": "4.11.0",
     "globby": "11.0.4",
-    "graphql": "15.6.0",
+    "graphql": "15.6.1",
     "marked": "3.0.4",
     "numbro": "2.3.5",
     "parser-front-matter": "1.6.4",
