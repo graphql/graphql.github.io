@@ -37,4 +37,4 @@ type Query {
 }
 ```
 
-See [graphql-kotlin docs](https://expediagroup.github.io/graphql-kotlin/docs/getting-started) for additial details.
+See [graphql-kotlin docs](https://opensource.expediagroup.com/graphql-kotlin/docs/) for additial details.
