@@ -2182,10 +2182,10 @@
     "@types/node" "*"
     "@types/responselike" "*"
 
-"@types/codemirror@5.60.4":
-  version "5.60.4"
-  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-5.60.4.tgz#aa19477782fb1bd26f8a0e240ca4241f35c4170e"
-  integrity sha512-SUQgBj9jZ+xj75zgwfgQZt0CManWBISN/YsE0xRmPwO6uDyLNpXO8bn2m59tpevsFw+eQdmx+qY1WjOrUgMDgw==
+"@types/codemirror@5.60.5":
+  version "5.60.5"
+  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-5.60.5.tgz#5b989a3b4bbe657458cf372c92b6bfda6061a2b7"
+  integrity sha512-TiECZmm8St5YxjFUp64LK0c8WU5bxMDt9YaAek1UqUb9swrSCoJhh92fWu1p3mTEqlHjhB5sY7OFBhWroJXZVg==
   dependencies:
     "@types/tern" "*"
 
@@ -3814,10 +3814,10 @@ codemirror-graphql@1.0.2:
     graphql-language-service-interface "^2.8.2"
     graphql-language-service-parser "^1.9.0"
 
-codemirror@5.63.1:
-  version "5.63.1"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.63.1.tgz#b0b9e8444206fd6a43a58a4b31d5740bb891fa57"
-  integrity sha512-baivaNZreZOGh1/tYyTvCupC9NeWk7qlZeGUDi4nFKj/J0JU8FYKZND4QqLw70P7HOttlCt4JJAOj9GoIhHEkA==
+codemirror@5.63.3:
+  version "5.63.3"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.63.3.tgz#97042a242027fe0c87c09b36bc01931d37b76527"
+  integrity sha512-1C+LELr+5grgJYqwZKqxrcbPsHFHapVaVAloBsFBASbpLnQqLw1U8yXJ3gT5D+rhxIiSpo+kTqN+hQ+9ialIXw==
 
 collapse-white-space@^1.0.2:
   version "1.0.6"
