@@ -26,26 +26,30 @@ Many members of the community use Stack Overflow to ask and answer questions. If
 
 [Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
 
-### Slack, Discord, and IRC
+### Live discussion
 
 Many GraphQL developers idle in Discord, Slack, and IRC for live
-communication and can answer quick questions. 
+communication and can answer quick questions.
 
 Please be patient and polite. These are not explicitly user support channels, although they're likely a good place to find someone who can answer your question if you ask nicely.
 
-* **Slack:** [#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)
-* **IRC:** [#graphql on freenode](https://freenode.net/)
+<div style="float:right;"><iframe src="https://discordapp.com/widget?id=625400653321076807&theme=dark" width="350" height="250" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
 
-#### Discord
-
+* [GraphQL Foundation Discord](https://discord.graphql.org)
+  * We're in the process of moving our official chat to Discord, but you may find historical discussion in ~~[#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)~~.
+* [GraphQL Community Facebook Group](https://www.facebook.com/groups/graphql.community/)
 * [Everything GraphQL: Curated By The Guild](https://discord.gg/xud7bH9)
-* [#graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
+* [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
+* [#graphql on freenode IRC](https://freenode.net/)
+
+<div style="clear:both;"></div>
 
 ### Vendor channels
 
 The following channels are maintained by vendors, and may be a good place to find help on their products.
 
 * [Apollo Slack](http://apollostack.com/#slack)
+* [ChilliCream Slack](http://slack.chillicream.com/)
 * [Graphile Discord](https://discord.gg/graphile)
 * [Prisma Slack](https://slack.prisma.io/)
 

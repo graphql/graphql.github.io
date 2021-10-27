@@ -1,58 +1,51 @@
-import React from "react"
+import * as React from "react"
+import { graphql, Link } from "gatsby"
 import Marked from "../Marked"
-import { Link } from "gatsby"
+
+export const fragments = graphql`
+  fragment BlogPost_post on BlogPost {
+    title
+    date
+    authors
+    tags
+    guestBio
+    remark {
+      rawMarkdownBody
+    }
+  }
+`;
 
 interface Props {
-  title: string
-  date: string
-  permalink: string
-  byline: string
-  guestBio: string
-  rawMarkdownBody: string
-  isPermalink: boolean
-  pageContext: any
-  excerpt?: string
-  showExcerpt?: true
-  tags: Array<string>
+  post: GatsbyTypes.BlogPost_postFragment,
 }
 
-const BlogPost = ({
-  title,
-  date,
-  permalink,
-  byline,
-  guestBio,
-  rawMarkdownBody,
-  isPermalink,
-  pageContext,
-  excerpt,
-  showExcerpt,
-  tags,
-}: Props) => (
-  <div className="inner-content">
-    <h1>{isPermalink ? title : <a href={permalink}>{title}</a>}</h1>
-    <p>
-      {new Date(date).toLocaleDateString()} by {byline}
-    </p>
-    <div className="tag-wrapper">
-      {tags.map(tag => (
-        <span className="tag">
-          <Link to={`/tags/${tag}`}>{tag}</Link>
-        </span>
-      ))}
+const BlogPost: React.FC<Props> = ({
+  post,
+}) => {
+  const byline = post.authors.join(', ')
+  return (
+    <div className="inner-content">
+      <h1>{post.title}</h1>
+
+      <p>
+        {new Date(post.date).toLocaleDateString()} by {byline}
+      </p>
+
+      <div className="tag-wrapper">
+        {post.tags.map(tag => (
+          <span key={tag} className="tag">
+            <Link to={`/tags/${tag}/`}>{tag}</Link>
+          </span>
+        ))}
+      </div>
+
+      {post.guestBio && (
+        <p className="guestBio">{`This guest article contributed by ${byline}, ${post.guestBio}.`}</p>
+      )}
+
+      <Marked>{post.remark.rawMarkdownBody}</Marked>
     </div>
-
-    {guestBio ? null : <hr />}
-    {guestBio && (
-      <p className="guestBio">{`This guest article contributed by ${byline}, ${guestBio}.`}</p>
-    )}
-
-    {showExcerpt ? (
-      <p>{excerpt}</p>
-    ) : (
-      <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>
-    )}
-  </div>
-)
+  )
+}
 
 export default BlogPost

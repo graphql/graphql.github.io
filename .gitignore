@@ -71,3 +71,6 @@ yarn-error.log
 
 # Swap files
 *.swp
+
+# Codegen stuff
+src/__generated__/

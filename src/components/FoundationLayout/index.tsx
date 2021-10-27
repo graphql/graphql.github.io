@@ -16,11 +16,11 @@ interface Props {
 const Index = ({ title, heroText, nextDoc, sideBarData, rawMarkdownBody, pageContext }: Props) => {
   return (
     <section>
-      <div class="foundation">
+      <div className="foundation">
         <div className="foundation-hero">
           <div className="foundation-hero-inner-content">
               <img src="/img/graphql_foundation-logo-white.svg" alt="GraphQL Foundation logo" />
-              <h2>{heroText}</h2>
+              <div>{heroText}</div>
           </div>
         </div>
         <div className="documentationContent">
