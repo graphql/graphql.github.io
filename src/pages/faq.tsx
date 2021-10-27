@@ -1,17 +1,18 @@
 import React from "react"
 import Layout from "../components/Layout"
 import FAQSection from "../components/FAQSection"
+import type { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import { useFAQAccordion } from "../utils/useFAQAccordion"
 
-export default ({ pageContext, data }: any) => {
+export default ({ pageContext, data }: PageProps<GatsbyTypes.GetAllFAQSectionsQuery, GatsbyTypes.SitePageContext>) => {
   useFAQAccordion()
 
   const sections = data.allMarkdownRemark.edges
-    .map((e: any) => e.node)
-    .sort((a: any, b: any) => {
-      const aPosition = a.frontmatter.position
-      const bPosition = b.frontmatter.position
+    .map(e => e.node)
+    .sort((a, b) => {
+      const aPosition = a?.frontmatter?.position ?? 0
+      const bPosition = b?.frontmatter?.position ?? 0
       if (aPosition < bPosition) {
         return -1
       }
@@ -28,16 +29,15 @@ export default ({ pageContext, data }: any) => {
             {sections.map(
               (
                 {
-                  frontmatter: { title, permalink },
+                  frontmatter: { title } = {},
                   rawMarkdownBody,
-                }: any,
+                },
               i
             ) => (
               <FAQSection
                 key={i}
-                title={title}
-                permalink={permalink}
-                rawMarkdownBody={rawMarkdownBody}
+                title={title!}
+                rawMarkdownBody={rawMarkdownBody!}
                 pageContext={pageContext}
               />
             )
@@ -51,7 +51,7 @@ export default ({ pageContext, data }: any) => {
 }
 
 export const query = graphql`
-  query getAllFAQSections {
+  query GetAllFAQSections {
     allMarkdownRemark(
       filter: { frontmatter: { permalink: { regex: "/faq/" } } }
     ) {

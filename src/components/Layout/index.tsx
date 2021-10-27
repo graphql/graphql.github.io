@@ -6,7 +6,7 @@ import Seo from "../Seo"
 import "../../assets/css/style.less"
 
 interface PageContext {
-  sourcePath: string
+  sourcePath?: string
 }
 
 interface Props {

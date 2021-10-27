@@ -5,7 +5,89 @@ const frontmatterParser = require("parser-front-matter")
 const { readFile } = require("fs-extra")
 const { promisify } = require("util")
 
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const gql = String.raw;
+  const { createTypes } = actions;
+
+  createTypes(gql`
+    type BlogPost implements Node
+      @childOf(types: ["MarkdownRemark"])
+    {
+      postId: String!
+      title: String!
+      tags: [String!]!
+      date: Date! @dateformat(formatString: "YYYY-MM-DD")
+      authors: [String!]!
+      guestBio: String
+      remark: MarkdownRemark! @link # backlink to the parent
+    }
+  `);
+};
+
+// Transform nodes, each of logic inside here can be extracted to a separated plugin later.
+exports.onCreateNode = async ({
+  reporter,
+  node,
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const { createNode, createParentChildLink } = actions;
+
+  // Derive content nodes from remark nodes
+  if (node.internal.type === 'MarkdownRemark') {
+    if (node.frontmatter.layout === 'blog') {
+      const nodeId = createNodeId(`${node.id} >>> BlogPost`);
+
+      const permalink = node.frontmatter.permalink;
+      if (!permalink?.startsWith('/blog/')) {
+        reporter.panicOnBuild(`${permalink} is not valid permalink for blog post`);
+        return;
+      }
+
+      // It contains a kind of transform logic. However, those logics can be extracted to resolvers into ahead of sourcing (createTypes)
+      const blogPostContent = {
+        id: nodeId,
+        postId: permalink.replace('/blog/', '').replace(/\/$/, ''),
+        title: node.frontmatter.title,
+        tags: node.frontmatter.tags ?? [],
+        date: node.frontmatter.date,
+        authors: (node.frontmatter.byline ?? '')
+          .split(',')
+          .map(name => name.trim())
+          .filter(Boolean),
+        guestBio: node.frontmatter.guestBio ?? null,
+      };
+
+      createNode({
+        ...blogPostContent,
+        remark: node.id,
+        parent: node.id,
+        children: [],
+        internal: {
+          type: 'BlogPost',
+          contentDigest: createContentDigest(blogPostContent),
+        },
+      });
+
+      createParentChildLink({
+        parent: node,
+        child: blogPostContent,
+      });
+    }
+  }
+};
+
 exports.onCreatePage = async ({ page, actions }) => {
+  // trying to refactor code to be "the Gatsby way".
+  // from the paths on ready, ignores a bunch of existing custom logic below.
+  if (page.path.startsWith('/blog')) {
+    return;
+  }
+  if (page.path.startsWith('/tags')) {
+    return;
+  }
+
   const { createPage, deletePage } = actions
   deletePage(page)
   let context = {
@@ -148,8 +230,8 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      tagsGroup: allMarkdownRemark {
-        group(field: frontmatter___tags) {
+      allBlogPost {
+        group(field: tags) {
           fieldValue
         }
       }
@@ -163,6 +245,17 @@ exports.createPages = async ({ graphql, actions }) => {
     console.error(result.errors)
     throw result.errors
   }
+
+  const tags = result.data.allBlogPost.group.map(group => group.fieldValue)
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag.toLowerCase()}/`,
+      component: path.resolve("./src/templates/{BlogPost.tags}.tsx"),
+      context: {
+        tag,
+      },
+    })
+  })
 
   const markdownPages = result.data.allMarkdownRemark.edges
 
@@ -197,6 +290,15 @@ exports.createPages = async ({ graphql, actions }) => {
               sidebarTitle: "Foundation Members",
               title: "Foundation Members",
               permalink: "/foundation/members/",
+              date: null,
+              category: "GraphQL Foundation",
+            },
+          },
+          {
+            frontmatter: {
+              sidebarTitle: "GraphQL Landscape",
+              title: "GraphQL Landscape",
+              permalink: "https://landscape.graphql.org/",
               date: null,
               category: "GraphQL Foundation",
             },
@@ -341,7 +443,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Use all the set up data to now tell Gatsby to create pages
   // on the site
-  allPages.forEach(page => {
+  allPages
+    .filter(page => !page.permalink.startsWith('/blog'))
+    .forEach(page => {
     createPage({
       path: `${page.permalink}`,
       component: docTemplate,
@@ -353,17 +457,14 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
 
-  // Create tag pages
-  const tagTemplate = path.resolve("src/templates/tags.tsx")
-  const tags = result.data.tagsGroup.group
-  tags.forEach(tag => {
-    createPage({
-      path: `/tags/${tag.fieldValue}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
-      },
-    })
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        "assert": require.resolve("assert/"),
+      }
+    }
   })
 }

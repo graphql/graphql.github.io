@@ -23,18 +23,17 @@ Please follow these channels for updates and information:
 * **GitHub:** [github.com/graphql](https://github.com/graphql)
 * **Discord** [discord.graphql.org](https://discord.graphql.org)
   * We're in the process of moving our official chat to Discord, but you may find historical discussion on ~~**Slack:** [slack.graphql.org](https://slack.graphql.org) ([get an invite](https://slack-invite.graphql.org))~~.
+* **Facebook Group:** [fb.com/groups/graphql.community/](https://www.facebook.com/groups/graphql.community/)
 * **Google Calendar:** [calendar.graphql.org](https://calendar.graphql.org)
 * **Blog:** [graphql.org/blog](/blog/)
 
 <div style="clear:both;"></div>
 
-## GraphQL Trademark
+## GraphQL Logo & Trademark
 
 The GraphQL name and logo are registered trademarks, and are neutrally held by The Linux Foundation. You may use the GraphQL mark so long as you adhere to the [trademark policy](https://lfprojects.org/policies/trademark-policy/).
 
-### Artwork
-
-The GraphQL assets are available in the [artwork repo](https://github.com/graphql/artwork).
+Download the GraphQL logo and find guidelines for its use in the [brand guidelines](/brand).
 
 ## Code of conduct
 
