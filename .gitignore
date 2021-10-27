@@ -68,3 +68,9 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Swap files
+*.swp
+
+# Codegen stuff
+src/__generated__/

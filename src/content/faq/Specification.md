@@ -13,9 +13,17 @@ The entire process behind each release is open source. You can monitor specifica
 
 ### How can I contribute to the GraphQL specification?
 
-GraphQL is still evolving and contributions are very welcome! The specification (including the [latest working draft](https://spec.graphql.org/)) is open source. [Contributor guidelines](https://github.com/graphql/graphql-spec/blob/master/CONTRIBUTING.md) are available on GitHub.
+GraphQL is still evolving and contributions are very welcome! The specification (including the [latest working draft](https://spec.graphql.org/)) is open source. [Contributor guidelines](https://github.com/graphql/graphql-spec/blob/main/CONTRIBUTING.md) are available on GitHub.
 
 There are more ways to get involved with GraphQL beyond the specification though. Updating the content on [this website and the documentation](https://github.com/graphql/graphql.github.io), for example. Or contributing to [graphql-js](https://github.com/graphql/graphql-js), [express-graphql](https://github.com/graphql/express-graphql), [GraphiQL](https://github.com/graphql/graphiql), or [one of the many other projects](https://github.com/graphql/) maintained by the [GraphQL Foundation](#what-is-the-graphql-foundation).
+
+### What is GraphQL Specification membership?
+
+The [GraphQL Specification](https://specification.graphql.org) and the associated reference implementations are a Joint Development Foundation project (also part of the Linux Foundation family). Individual or corporate contributors sign a document at no cost that they agree their contributions are under the open source licenses of the project. Because this is not GraphQL Foundation membership, specification members do not decide how to spend the budget.
+
+To sign the [GraphQL Specification membership document](https://github.com/graphql/graphql-wg/tree/HEAD/membership), open a PR against any [GraphQL repo on GitHub](https://github.com/graphql).
+
+If your organization uses and benefits from GraphQL, please consider becoming a member of both by opening a PR on behalf of your company and [joining the GraphQL Foundation](https://join.graphql.org).
 
 ### Where is the documentation for subscriptions?
 
@@ -28,3 +36,4 @@ For now, the specification includes details for [how to write and execute subscr
 The N + 1 problem occurs when an application gets data from the database, and then loops through the result of that data. That means we call to the database again and again and again. In total, the application will call the database once for every row returned by the first query (N) plus the original query ( + 1). The N+1 query problem is a common one to encounter with ORMs (Object Relational Mappers) and their capabilities around lazy loading.
 
 Most GraphQL server frameworks support the idea of a [DataLoader](https://github.com/graphql/dataloader). Dataloader is a library that batches consecutive requests and makes a single data request under the hood. This request can be made to any data source, like a database or a web service. A Dataloader takes in an array as argument, processes data using that argument and returns an array of objects. The element at the nth index of the returned array will be considered by the dataloader as the data for the nth element in the input argument.
+

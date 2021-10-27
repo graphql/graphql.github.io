@@ -1,7 +1,8 @@
 import React from "react"
+import type { PageProps } from "gatsby"
 import Layout from "../components/Layout"
 
-export default ({ pageContext }) => {
+export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>) => {
   return (
     <Layout title="Who's Using | GraphQL" pageContext={pageContext}>
       <section className="whos-using-page">
@@ -30,7 +31,7 @@ export default ({ pageContext }) => {
           id="landscape"
           scrolling="no"
           style={{ width: "1px", minWidth: "100%" }}
-          src="https://landscape.graphql.org/category=graph-ql-adopter&format=card-mode&grouping=category&embed=yes"
+          src="https://landscape.graphql.org/card-mode?category=graph-ql-adopter&grouping=category&embed=yes&style=borderless"
           onLoad={() => {
             const scriptElem = document.createElement('script');
             scriptElem.type = 'text/javascript';

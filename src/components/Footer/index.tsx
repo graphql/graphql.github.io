@@ -2,76 +2,86 @@ import React from "react"
 import Link from "../Link"
 
 interface LinkItem {
-  text:string,
-  href:string
+  text: string
+  href: string
+  icon?: string
 }
 
 interface FooterLinks {
-  text:string,
-  href?:string,
+  text: string
+  href?: string
   subsections: LinkItem[]
 }
 
-const getLinks = (sourcePath: string): FooterLinks[] => [
+const getLinks = (sourcePath?: string): FooterLinks[] => [
   {
     text: "Learn",
     href: "/learn/",
     subsections: [
-      { text: "Introduction", href: "/learn/" },
-      { text: "Query Language", href: "/learn/queries/" },
-      { text: "Type System", href: "/learn/schema/" },
-      { text: "Execution", href: "/learn/execution/" },
+      { text: "Introduction to GraphQL", href: "/learn/" },
       { text: "Best Practices", href: "/learn/best-practices/" },
+      { text: "Frequently Asked Questions", href: "/faq/" },
+      { text: "Training Courses", href: "/community/users/#training-courses" },
     ],
   },
   {
     text: "Code",
     href: "/code",
     subsections: [
-      { text: "Languages", href: "/code/#languages" },
-      { text: "Tools", href: "/code/#tools" },
-      { text: "Services", href: "/code/#services" },
+      {
+        text: "GitHub",
+        href: "https://github.com/graphql",
+        icon: "/img/logos/github.svg",
+      },
+      { text: "GraphQL Specification", href: "https://spec.graphql.org" },
+      { text: "Libraries & Tools", href: "/code/" },
+      { text: "Services & Vendors", href: "/code/#services" },
     ],
   },
   {
     text: "Community",
     href: "/community",
     subsections: [
-      { text: "Upcoming Events", href: "/community/upcoming-events/" },
+      {
+        text: "@graphql",
+        href: "https://twitter.com/graphql",
+        icon: "/img/logos/twitter.svg",
+      },
+      {
+        text: "Discord",
+        href: "https://discord.graphql.org/",
+        icon: "/img/logos/discord.svg",
+      },
       {
         text: "Stack Overflow",
         href: "http://stackoverflow.com/questions/tagged/graphql",
+        icon: "/img/logos/stackoverflow.svg",
       },
-      {
-        text: "Facebook Group",
-        href: "https://www.facebook.com/groups/graphql.community/",
-      },
-      { text: "Twitter", href: "https://twitter.com/GraphQL" },
+      { text: "Resources", href: "/community/users/" },
+      { text: "Events", href: "/community/upcoming-events/" },
+      { text: "Landscape", href: "https://landscape.graphql.org" },
     ],
   },
   {
-    text: "More",
+    text: "& More",
     subsections: [
-      {
-        text: "GraphQL Specification",
-        href: "https://graphql.github.io/graphql-spec/",
-      },
-      { text: "GraphQL Foundation", href: "https://foundation.graphql.org/" },
-      {
-        text: "GraphQL GitHub",
-        href: "https://github.com/graphql",
-      },
-      {
-        text: "Edit this page ✎",
+      { text: "News Blog", href: "/blog/" },
+      { text: "GraphQL Foundation", href: "/foundation/" },
+      { text: "Logo and Brand Guidelines", href: "/brand" },
+      { text: "Code of Conduct", href: "/codeofconduct/" },
+      { text: "Contact Us", href: "/foundation/contact/" },
+      sourcePath && {
+        text: "Edit this page",
         href:
           "https://github.com/graphql/graphql.github.io/edit/source/" +
           sourcePath,
+        icon: "/img/edit.svg",
       },
-    ],
+    ].filter(Boolean) as LinkItem[],
   },
 ]
 
-const Footer = ({sourcePath}: { sourcePath: string }) => {
+const Footer = ({ sourcePath }: { sourcePath?: string }) => {
   return (
     <div>
       <footer>
@@ -83,11 +93,12 @@ const Footer = ({sourcePath}: { sourcePath: string }) => {
                 {section.href ? (
                   <Link href={section.href}>{section.text}</Link>
                 ) : (
-                  section.text
+                  <span>{section.text}</span>
                 )}
               </h5>
               {section.subsections.map((subsection: any, i) => (
                 <Link key={i} href={subsection.href}>
+                  {subsection.icon && <img src={subsection.icon} />}
                   {subsection.text}
                 </Link>
               ))}
@@ -96,18 +107,18 @@ const Footer = ({sourcePath}: { sourcePath: string }) => {
         </section>
         <section className="copyright">
           Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
-          All rights reserved. The Linux Foundation has registered trademarks
-          and uses trademarks. For a list of trademarks of The Linux Foundation,
-          please see our{" "}
-          <a href="https://www.linuxfoundation.org/trademark-usage">
-            Trademark Usage
-          </a>{" "}
-          page. Linux is a registered trademark of Linus Torvalds.{" "}
-          <a href="http://www.linuxfoundation.org/privacy">Privacy Policy</a>{" "}
-          and <a href="http://www.linuxfoundation.org/terms">Terms of Use</a>.
+          All rights reserved.<br />
+          For web site terms of use, trademark policy and general project
+          policies please see&nbsp;
+          <a
+            href="https://lfprojects.org"
+            target="_blank"
+          >
+            https://lfprojects.org
+          </a>
+          .
         </section>
       </footer>
-
     </div>
   )
 }

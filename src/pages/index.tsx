@@ -1,7 +1,6 @@
 import React from "react"
+import type { PageProps } from "gatsby"
 import Layout from "../components/Layout"
-
-import Search from "../components/Search"
 
 import Hero from "../Containers/Sections/Hero"
 import SingleRequest from "../Containers/Sections/SingleRequest"
@@ -12,12 +11,9 @@ import WithoutVersions from "../Containers/Sections/WithoutVersion"
 import PowerFulTools from "../Containers/Sections/PowerFulTools"
 import WhosUsing from "../Containers/Sections/WhosUsing"
 
-export default ({ pageContext }) => {
+export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>) => {
   return (
     <Layout className={"index"} title="GraphQL | A query language for your API" pageContext={pageContext}>
-      <section className="fixedSearch">
-        <Search searchID="hero-search-input" />
-      </section>
       <Hero />
       <section className="lead">
         <h1>A query language for your API</h1>

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Seo = ({ title, description }: Props): JSX.Element => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.SeoQueryQuery>(graphql`
     query SeoQuery {
       site {
         siteMetadata {
@@ -19,18 +19,14 @@ const Seo = ({ title, description }: Props): JSX.Element => {
     }
   `)
 
+  const metadata = data.site.siteMetadata
+
   return (
-    <Helmet
-      title={title ? title : data.site.siteMetadata.title}
-      meta={[
-        {
-          name: "description",
-          content: description
-            ? description
-            : data.site.siteMetadata.description,
-        },
-      ]}
-    >
+    <Helmet>
+      <title>{title ?? metadata.title}</title>
+      <meta name="description" content={description ?? metadata.description} />
+      <meta property="og:image" content="/img/og-image.png" />
+      <meta property="twitter:site" content="@graphql" />
       <meta name="viewport" content="width=640" />
     </Helmet>
   )

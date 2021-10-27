@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "A query language for your API",
+    title: "GraphQL",
     description:
-      "GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.",
+      "A query language for your API — GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.",
     siteUrl: "http://graphql.org/",
   },
 
@@ -16,7 +16,19 @@ module.exports = {
         path: `${__dirname}/src/content`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "@weknow/gatsby-remark-twitter",
+            options: {
+              debug: true
+            }
+          }
+        ]
+      }
+    },
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
@@ -101,6 +113,12 @@ module.exports = {
             site_url: "http://graphql.org",
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-typegen",
+      options: {
+        outputPath: "src/__generated__/gatsby-types.d.ts",
       },
     },
   ],

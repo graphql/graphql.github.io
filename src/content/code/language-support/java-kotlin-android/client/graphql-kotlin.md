@@ -85,4 +85,4 @@ fun main() {
 }
 ```
 
-See [graphql-kotlin docs](https://expediagroup.github.io/graphql-kotlin/docs/getting-started) for additial details.
+See [graphql-kotlin docs](https://expediagroup.github.io/graphql-kotlin/docs/getting-started) for additional details.
