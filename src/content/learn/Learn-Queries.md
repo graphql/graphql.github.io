@@ -130,7 +130,7 @@ It is possible for fragments to access variables declared in the query or mutati
 
 ```graphql
 # { "graphiql": true }
-query HeroComparison($first: Int = 3) {
+query HeroComparison {
   leftComparison: hero(episode: EMPIRE) {
     ...comparisonFields
   }
@@ -141,13 +141,8 @@ query HeroComparison($first: Int = 3) {
 
 fragment comparisonFields on Character {
   name
-  friendsConnection(first: $first) {
-    totalCount
-    edges {
-      node {
-        name
-      }
-    }
+  friends {
+    name
   }
 }
 ```
