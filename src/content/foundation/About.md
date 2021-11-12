@@ -5,7 +5,7 @@ heroText: An open and neutral home for the GraphQL community, dedicated to promo
 layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/
-next: /foundation/annual-reports/
+next: /foundation/join/
 ---
 
 The **GraphQL Foundation** is a neutral foundation founded by global technology and application development companies. The GraphQL Foundation encourages contributions, stewardship, and a shared investment from a broad group in vendor-neutral events, documentation, tools, and support for GraphQL.

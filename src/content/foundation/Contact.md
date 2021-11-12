@@ -6,7 +6,7 @@ layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/contact/
 sublinks: Membership Inquiries,Membership Support,Meeting Logistics,Trademark Requests,Media Inquries,Technical Issues,General
-next: /foundation/join/
+next: /foundation/community-grant-program/
 ---
 
 The GraphQL Foundation is supported by staff from [The Linux Foundation](https://linuxfoundation.org). If you have questions, please reach out to us using the links below.

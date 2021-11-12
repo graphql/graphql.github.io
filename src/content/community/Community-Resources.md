@@ -35,6 +35,10 @@ The GraphQL name and logo are registered trademarks, and are neutrally held by T
 
 Download the GraphQL logo and find guidelines for its use in the [brand guidelines](/brand).
 
+## Community Grant Program
+
+The [GraphQL Foundation](/foundation) funds a [community grant program](/foundation/community-grant-program) that is administered by the [GraphQL TSC](/community/developers/#technical-governance). The goal of the community grant program is to provide support to individuals working on initiatives that benefit the community at large.
+
 ## Code of conduct
 
 The [GraphQL Code of Conduct](/codeofconduct/) applies both within project spaces and in public spaces when an individual is representing the project or its community.
