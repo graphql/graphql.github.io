@@ -43,14 +43,14 @@ The grant amount offered will depend on our available funding and the number of 
 
 ### How often can I apply?
 
-You can apply one time per cycle.
+You can apply one time per cycle. You can apply in every cycle regardless of whether you had a past application selected or closed in a prior cycle.
 
 ### Who is eligible?
 
 Any individual working in the GraphQL developer community who can receive a payment from a US-based
 organization. Please note that this program is not work-for-hire, and this is not an employment arrangement.
 
-**Only individuals are eligible to receive funding.**
+*Only individuals are eligible to receive funding.*
 
 ### Are there any restrictions on what I produce?
 
