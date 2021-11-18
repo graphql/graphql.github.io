@@ -37,7 +37,7 @@ Download the GraphQL logo and find guidelines for its use in the [brand guidelin
 
 ## Community Grant Program
 
-The [GraphQL Foundation](/foundation) funds a [community grant program](/foundation/community-grant-program) that is administered by the [GraphQL TSC](/community/developers/#technical-governance). The goal of the community grant program is to provide support to individuals working on initiatives that benefit the community at large.
+The [GraphQL Foundation](/foundation) funds a [community grant program](/foundation/community-grant-program) that is administered by the [GraphQL TSC](/community/developers/#technical-governance). The goal of the community grant program is to provide support to individuals working on initiatives that benefit the core technical project and the community at large.
 
 ## Code of conduct
 
