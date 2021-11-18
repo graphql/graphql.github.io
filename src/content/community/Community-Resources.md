@@ -29,15 +29,15 @@ Please follow these channels for updates and information:
 
 <div style="clear:both;"></div>
 
+## Community Grant program
+
+The [GraphQL Foundation](/foundation) funds a [Community Grant](/foundation/community-grant/) program that is administered by the [GraphQL TSC](/community/developers/#technical-governance). The goal of the community grant program is to provide support to individuals working on initiatives that benefit the core technical project and the community at large.
+
 ## GraphQL Logo & Trademark
 
 The GraphQL name and logo are registered trademarks, and are neutrally held by The Linux Foundation. You may use the GraphQL mark so long as you adhere to the [trademark policy](https://lfprojects.org/policies/trademark-policy/).
 
 Download the GraphQL logo and find guidelines for its use in the [brand guidelines](/brand).
-
-## Community Grant Program
-
-The [GraphQL Foundation](/foundation) funds a [community grant program](/foundation/community-grant-program) that is administered by the [GraphQL TSC](/community/developers/#technical-governance). The goal of the community grant program is to provide support to individuals working on initiatives that benefit the core technical project and the community at large.
 
 ## Code of conduct
 

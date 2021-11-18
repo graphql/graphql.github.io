@@ -6,7 +6,7 @@ layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/join/
 sublinks: GraphQL Specification,GraphQL Foundation
-next: /foundation/contact/
+next: /foundation/community-grant/
 ---
 
 There are two primary ways to support the ongoing development and success of GraphQL.
@@ -57,7 +57,7 @@ The first 20 members of the GraphQL Foundation participate as voting members of 
 
 ### How to join
 
-To [join the GraphQL Foundation](https://join.graphql.org), organizations become a member of the Linux Foundation and sign the GraphQL Foundation participation agreement. The GraphQL Foundation annual fee is received into a fund managed by the GraphQL Foundation Governing Board. 
+To [join the GraphQL Foundation](https://join.graphql.org), organizations become a member of the Linux Foundation and sign the GraphQL Foundation participation agreement. The GraphQL Foundation annual fee is received into a fund managed by the GraphQL Foundation Governing Board.
 
 * [Preview the Linux Foundation membership application »](/files/LF_Membership-Preview.pdf)
 * [Preview the GraphQL Foundation participation agreement »](/files/GraphQL_Foundation-Participation_Agreement-Preview.pdf)
