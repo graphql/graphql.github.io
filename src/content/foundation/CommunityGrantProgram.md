@@ -1,6 +1,6 @@
 ---
 title: GraphQL Community Grant
-sidebarTitle: Community Grants
+sidebarTitle: Community Grant
 heroText: The GraphQL Community Grant program helps the GraphQL Foundation invest directly into the success, health, and sustainability of our ecosystem.
 layout: foundation
 category: GraphQL Foundation
