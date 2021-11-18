@@ -67,6 +67,7 @@ const getLinks = (sourcePath?: string): FooterLinks[] => [
     subsections: [
       { text: "News Blog", href: "/blog/" },
       { text: "GraphQL Foundation", href: "/foundation/" },
+      { text: "GraphQL Community Grant", href: "/foundation/community-grant/" },
       { text: "Logo and Brand Guidelines", href: "/brand" },
       { text: "Code of Conduct", href: "/codeofconduct/" },
       { text: "Contact Us", href: "/foundation/contact/" },

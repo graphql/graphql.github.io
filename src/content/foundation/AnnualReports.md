@@ -5,7 +5,7 @@ heroText: Reflecting upon our accomplishments, anticipating our future
 layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/annual-reports/
-next: /foundation/contact/
+next: /foundation/members/
 ---
 
 The GraphQL annual reports are a celebration of the ongoing work happening in the GraphQL technical community, the GraphQL Foundation, and our members.

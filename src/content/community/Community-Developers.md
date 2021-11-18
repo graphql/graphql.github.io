@@ -19,6 +19,7 @@ The following resources are intended to describe how GraphQL development process
 * Instructions on how to sign the [GraphQL Specification Membership Agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership)
 * The [GraphQL project calendar](https://calendar.graphql.org)
 * Meeting replays on the [GraphQL YouTube channel](https://youtube.graphql.org)
+* The [GraphQL Community Grant](/foundation/community-grant/) program
 
 ## How GraphQL is developed
 
