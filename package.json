@@ -20,7 +20,7 @@
     "@weknow/gatsby-remark-twitter": "0.2.3",
     "assert": "2.0.0",
     "codemirror": "5.63.3",
-    "codemirror-graphql": "1.0.3",
+    "codemirror-graphql": "1.1.0",
     "gatsby": "4.2.0",
     "gatsby-plugin-anchor-links": "1.2.1",
     "gatsby-plugin-feed": "4.2.0",
