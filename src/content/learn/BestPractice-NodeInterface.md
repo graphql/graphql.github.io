@@ -85,7 +85,7 @@ introspection query, and return the provided response:
 
 ```graphql
 {
-  __type(name: "Node") {
+  __type(name: "kuk") {
     name
     kind
     fields {
