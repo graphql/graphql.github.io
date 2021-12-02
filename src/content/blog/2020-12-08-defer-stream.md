@@ -130,7 +130,7 @@ While the GraphQL specification doesn’t specify transport protocols, we expect
 
 You can learn more about these directives at:
 
-* [The @defer/@stream RFC](https://github.com/graphql/graphql-spec/blob/master/rfcs/DeferStream.md)
+* [The @defer/@stream RFC](https://github.com/graphql/graphql-wg/blob/main/rfcs/DeferStream.md)
 * [The proposed spec edits](https://github.com/graphql/graphql-spec/pull/742)
 * [The GraphQL Incremental Delivery over HTTP RFC](https://github.com/graphql/graphql-over-http/blob/master/rfcs/IncrementalDelivery.md)
 * [Our talk at GraphQL Summit 2020](https://www.youtube.com/watch?v=icv_Pq06aOY)
