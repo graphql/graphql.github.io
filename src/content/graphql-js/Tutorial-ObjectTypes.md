@@ -16,22 +16,22 @@ type Query {
 }
 ```
 
-If we wanted to have more and more methods based on a random die over time, we could implement this with a `RandomDie` object type instead.
+If we wanted to have more and more methods based on a random dice over time, we could implement this with a `RandomDice` object type instead.
 
 ```javascript
-type RandomDie {
+type RandomDice {
   roll(numRolls: Int!): [Int]
 }
 
 type Query {
-  getDie(numSides: Int): RandomDie
+  getDice(numSides: Int): RandomDice
 }
 ```
 
-Instead of a root-level resolver for the `RandomDie` type, we can instead use an ES6 class, where the resolvers are instance methods. This code shows how the `RandomDie` schema above can be implemented:
+Instead of a root-level resolver for the `RandomDice` type, we can instead use an ES6 class, where the resolvers are instance methods. This code shows how the `RandomDice` schema above can be implemented:
 
 ```javascript
-class RandomDie {
+class RandomDice {
   constructor(numSides) {
     this.numSides = numSides;
   }
@@ -50,8 +50,8 @@ class RandomDie {
 }
 
 var root = {
-  getDie: ({numSides}) => {
-    return new RandomDie(numSides || 6);
+  getDice: ({numSides}) => {
+    return new RandomDice(numSides || 6);
   }
 }
 ```
@@ -59,14 +59,14 @@ var root = {
 For fields that don't use any arguments, you can use either properties on the object or instance methods. So for the example code above, both `numSides` and `rollOnce` can actually be used to implement GraphQL fields, so that code also implements the schema of:
 
 ```javascript
-type RandomDie {
+type RandomDice {
   numSides: Int!
   rollOnce: Int!
   roll(numRolls: Int!): [Int]
 }
 
 type Query {
-  getDie(numSides: Int): RandomDie
+  getDice(numSides: Int): RandomDice
 }
 ```
 
@@ -79,19 +79,19 @@ var { buildSchema } = require('graphql');
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
-  type RandomDie {
+  type RandomDice {
     numSides: Int!
     rollOnce: Int!
     roll(numRolls: Int!): [Int]
   }
 
   type Query {
-    getDie(numSides: Int): RandomDie
+    getDice(numSides: Int): RandomDice
   }
 `);
 
-// This class implements the RandomDie GraphQL type
-class RandomDie {
+// This class implements the RandomDice GraphQL type
+class RandomDice {
   constructor(numSides) {
     this.numSides = numSides;
   }
@@ -111,8 +111,8 @@ class RandomDie {
 
 // The root provides the top-level API endpoints
 var root = {
-  getDie: ({numSides}) => {
-    return new RandomDie(numSides || 6);
+  getDice: ({numSides}) => {
+    return new RandomDice(numSides || 6);
   }
 }
 
@@ -126,11 +126,11 @@ app.listen(4000);
 console.log('Running a GraphQL API server at localhost:4000/graphql');
 ```
 
-When you issue a GraphQL query against an API that returns object types, you can call multiple methods on the object at once by nesting the GraphQL field names. For example, if you wanted to call both `rollOnce` to roll a die once, and `roll` to roll a die three times, you could do it with this query:
+When you issue a GraphQL query against an API that returns object types, you can call multiple methods on the object at once by nesting the GraphQL field names. For example, if you wanted to call both `rollOnce` to roll a dice once, and `roll` to roll a dice three times, you could do it with this query:
 
 ```javascript
 {
-  getDie(numSides: 6) {
+  getDice(numSides: 6) {
     rollOnce
     roll(numRolls: 3)
   }
