@@ -40,7 +40,7 @@ var rootValue = {
 };
 
 // Run the GraphQL query '{ hello }' and print out the response
-graphql({ schema, source: "{ hello }", rootValue }).then((response) => {
+graphql({ schema, source: '{ hello }', rootValue }).then((response) => {
   console.log(response);
 });
 ```
