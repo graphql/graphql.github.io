@@ -11,9 +11,9 @@ next: /foundation/community-grant/
 
 There are two primary ways to support the ongoing development and success of GraphQL.
 
-* Developers can [join the GraphQL Specification](#the-graphql-specification), enabling them to contribute code, time, and talent to GraphQL technical projects. This is free for companies and individuals.
+* Developers can [join the GraphQL Specification](#graphql-specification), enabling them to contribute code, time, and talent to GraphQL technical projects. This is free for companies and individuals.
 
-* Organizations can [join the GraphQL Foundation](#the-graphql-foundation), which is the non-profit that supports the sustainability of the GraphQL community. This is accomplished through annual membership fees, which are allocated by the Governing Board for the benefit of the GraphQL ecosystem.
+* Organizations can [join the GraphQL Foundation](#graphql-foundation), which is the non-profit that supports the sustainability of the GraphQL community. This is accomplished through annual membership fees, which are allocated by the Governing Board for the benefit of the GraphQL ecosystem.
 
 If you have a question about which membership is right for you, please reach out to [membership@graphql.org](mailto:membership@graphql.org).
 
