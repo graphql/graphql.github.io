@@ -33,7 +33,7 @@
     "gatsby-transformer-remark": "5.2.0",
     "globby": "11.0.4",
     "graphql": "15.6.0",
-    "marked": "3.0.8",
+    "marked": "4.0.10",
     "numbro": "2.3.5",
     "parser-front-matter": "1.6.4",
     "prism-react-renderer": "1.2.1",
