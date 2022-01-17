@@ -32,7 +32,7 @@ var schema = buildSchema(`
   }
 `);
 
-// The root provides a resolver function for each API endpoint
+// The rootValue provides a resolver function for each API endpoint
 var rootValue = {
   hello: () => {
     return 'Hello world!';
