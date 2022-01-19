@@ -58,7 +58,7 @@ The GraphQL type system allows for some fields to return [lists of values](/lear
 
 Typically fields that could return long lists accept arguments "first" and "after" to allow for specifying a specific region of a list, where "after" is a unique identifier of each of the values in the list.
 
-Ultimately designing APIs with feature-rich pagination led to a best practice pattern called "Connections". Some client tools for GraphQL, such as [Relay](https://facebook.github.io/relay/), know about the Connections pattern and can automatically provide automatic support for client-side pagination when a GraphQL API employs this pattern.
+Ultimately designing APIs with feature-rich pagination led to a best practice pattern called "Connections". Some client tools for GraphQL, such as [Relay](https://facebook.github.io/relay/), know about the Connections pattern and can automatically provide support for client-side pagination when a GraphQL API employs this pattern.
 
 Read more about this in the article on [Pagination](/learn/pagination/).
 
