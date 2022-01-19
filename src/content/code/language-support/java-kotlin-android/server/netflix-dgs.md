@@ -1,5 +1,5 @@
 ---
-name: Domain Graph Service (DFS) Framework
+name: Domain Graph Service (DGS) Framework
 description: The DGS Framework (Domain Graph Service) is a GraphQL server framework for Spring Boot, developed by Netflix.
 url: https://netflix.github.io/dgs/
 github: netflix/dgs-framework
