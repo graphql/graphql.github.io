@@ -17,10 +17,10 @@ Then run `ruby hello.rb` with this code in `hello.rb`:
 require 'graphql'
 
 class QueryType < GraphQL::Schema::Object
-  graphql_name 'Query'
-  field :hello do
-    type types.String
-    resolve -> (obj, args, ctx) { 'Hello world!' }
+  field :hello, String
+
+  def hello
+    "Hello world!"
   end
 end
 
