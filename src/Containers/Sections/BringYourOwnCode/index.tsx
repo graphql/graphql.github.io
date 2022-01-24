@@ -71,17 +71,17 @@ class Character {
             code={
 `# type Character {
 class Character:
-  # name: String
-  def name(self):
-  return self._name
+    # name: String
+    def name(self):
+        return self._name
 
-  # homeWorld: Planet
-  def homeWorld(self):
-  return fetchHomeworld(self._homeworldID)
+    # homeWorld: Planet
+    def homeWorld(self):
+        return fetchHomeworld(self._homeworldID)
 
-  # friends: [Character]
-  def friends(self):
-  return map(fetchCharacter, self._friendIDs)
+    # friends: [Character]
+    def friends(self):
+        return map(fetchCharacter, self._friendIDs)
 `}
           />
           <Prism
