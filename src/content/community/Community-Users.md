@@ -128,3 +128,4 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Building Apollo](https://blog.apollographql.com)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 - [graphql-apis](https://github.com/APIs-guru/graphql-apis): A collective list of public GraphQL APIs.
+- [GraphQL Screencasts](https://graphql.wtf): Learn something new with GraphQL, every week. 
