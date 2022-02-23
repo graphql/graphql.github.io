@@ -83,3 +83,7 @@ app.use('/graphql', graphqlHTTP({
 
 ## Node
 If you are using NodeJS, we recommend using either [express-graphql](https://github.com/graphql/express-graphql) or [apollo-server](https://github.com/apollographql/apollo-server).
+
+## Draft Transport Specification
+
+A detailed [HTTP & websockets transport specification](https://github.com/graphql/graphql-over-http) is in development. Though it is not yet finalized, these draft specifications are being treated as a single source of truth by graphql client & library maintainers from across language communities for how graphql protocols work. Unlike the language specification, adherence is not mandatory for interoperability, but most implementations are moving towards these standards.
