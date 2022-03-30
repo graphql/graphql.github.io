@@ -6,7 +6,7 @@ layout: foundation
 category: GraphQL Foundation
 permalink: /foundation/join/
 sublinks: GraphQL Specification,GraphQL Foundation
-next: /foundation/community-grant/
+next: /foundation/graphql-conf/
 ---
 
 There are two primary ways to support the ongoing development and success of GraphQL.
