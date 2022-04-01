@@ -21,11 +21,11 @@ If you would like to learn more about becoming a GraphQL member, please email
 
 ## Membership Support
 
-If you are already a member of the [GraphQL Foundation](/foundation/) and you need help with your membership, please reach out to [operations@graphql.org](mailto:operations@graphql.org).
+If you are already a member of the [GraphQL Foundation](/foundation/) and you need help with your membership, please file an issue with our [member service desk](https://members.graphql.org).
 
 ## Meeting Logistics
 
-Governing board and Working Group members who need help with meeting logistics (setting up a Zoom conference, adding or changing a calendar entry, designating an alternate representative, etc.) can reach out to [operations@graphql.org](mailto:operations@graphql.org) with their request.
+Governing board and Working Group members who need help with meeting logistics (setting up a Zoom conference, adding or changing a calendar entry, designating an alternate representative, etc.) can reach out through our [member service desk](https://members.graphql.org).
 
 ## Trademark Requests
 
