@@ -74,6 +74,8 @@ github: babyfish-ct/graphql-provider
 
         // Return type is Connection<Book>, not List<Book>,
         // that means its pagination query.
+        // pagination arguments such as "first", "after", "last", "before"
+        // will be added by framework automactically and implicitly
         fun findBooks(
             name: String?,
             storeName: String?
