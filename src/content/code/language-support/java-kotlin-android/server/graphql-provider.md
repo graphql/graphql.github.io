@@ -17,7 +17,7 @@ github: babyfish-ct/graphql-provider
 
 **Here is a simple example** 
 
-> Due to space limitations, all EntityMapper only uses a static mapping configuration similar to ORM, and does not use a more dynamic code configuration. For a complete demonstration, please refer to the example and documentation of the project itself.
+> Due to space limitations, all *EntityMapper*s only uses a static mapping configuration similar to ORM, and does not use a more dynamic code configuration. For a complete demonstration, please refer to the example and documentation of the project itself.
 
 1. BookStoreMapper.kt
 ```kt
