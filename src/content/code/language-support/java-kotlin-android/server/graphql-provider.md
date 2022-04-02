@@ -20,74 +20,75 @@ github: babyfish-ct/graphql-provider
 > Due to space limitations, all *EntityMapper*s only uses a static mapping configuration similar to ORM, and does not use a more dynamic code configuration. For a complete demonstration, please refer to the example and documentation of the project itself.
 
 1. BookStoreMapper.kt
-```kt
-@Component
-class BookStoreMapper: EntityMapper<BookStore, UUID>() {
+    ```kt
+    @Component
+    class BookStoreMapper: EntityMapper<BookStore, UUID>() {
 
-        // Inverse one-to-many "BookStore.books" is the the 
-        // mirror image of many-to-one association "Book.store"
-        mappedList(BookStore::books, Book::store)
+            // Inverse one-to-many "BookStore.books" is the the 
+            // mirror image of many-to-one association "Book.store"
+            mappedList(BookStore::books, Book::store)
+        }
     }
-}
-```
+    ```
 
 2. BookMapper.kt
-```kt
-@Component
-class BookMapper: EntityMapper<Book, UUID>() {
+    ```kt
+    @Component
+    class BookMapper: EntityMapper<Book, UUID>() {
 
-    override fun EntityTypeDSL<Book, UUID>.config() {
+        override fun EntityTypeDSL<Book, UUID>.config() {
 
-        reference(Book::store) // many-to-one
+            reference(Book::store) // many-to-one
 
-        list(Book::authors) { // many-to-many
-            db {
-                middleTable {
-                    tableName = "BOOK_AUTHOR_MAPPING"
-                    joinColumnName = "BOOK_ID"
-                    targetJoinColumnName = "AUTHOR_ID"
+            list(Book::authors) { // many-to-many
+                db {
+                    middleTable {
+                        tableName = "BOOK_AUTHOR_MAPPING"
+                        joinColumnName = "BOOK_ID"
+                        targetJoinColumnName = "AUTHOR_ID"
+                    }
                 }
             }
         }
     }
-}
-```
+    ```
 
 3. Author.kt
-@Component
-class AuthorMapper: EntityMapper<Author, UUID>() {
+    ```kt
+    @Component
+    class AuthorMapper: EntityMapper<Author, UUID>() {
 
-    override fun EntityTypeDSL<Author, UUID>.config() {
+        override fun EntityTypeDSL<Author, UUID>.config() {
 
-        // Inverse many-to-many "Author.books" is the the 
-        // mirror image of many-to-many association "Book.authors"
-        mappedList(Author::books, Book::authors)
+            // Inverse many-to-many "Author.books" is the the 
+            // mirror image of many-to-many association "Book.authors"
+            mappedList(Author::books, Book::authors)
+        }
     }
-}
+    ```
 
 4. BookQuery.kt
+    ```kt
+    @Service
+    class BookQuery: Query() {
 
-```kt
-@Service
-class BookQuery: Query() {
-
-    // Return type is Connection<Book>, not List<Book>,
-    // that means its pagination query.
-    fun findBooks(
-        name: String?,
-        storeName: String?
-    ): Connection<Book> = 
-        runtime.queryConnection {
-            name?.let {
-                db {
-                    where(table.name ilike it)
+        // Return type is Connection<Book>, not List<Book>,
+        // that means its pagination query.
+        fun findBooks(
+            name: String?,
+            storeName: String?
+        ): Connection<Book> = 
+            runtime.queryConnection {
+                name?.let {
+                    db {
+                        where(table.name ilike it)
+                    }
+                }
+                storeName?.let {
+                    db {
+                        where(table.store.name ilike it)
+                    }
                 }
             }
-            storeName?.let {
-                db {
-                    where(table.store.name ilike it)
-                }
-            }
-        }
-}
-```
+    }
+    ```
