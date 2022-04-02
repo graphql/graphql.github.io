@@ -15,7 +15,7 @@ github: babyfish-ct/graphql-provider
 
 5. For mutation operations, the inputs type can be automatically generated according to a simple configuration, develpers only need to focus on entity objects, not input objects. At runtime, the framework can automatically convert the input object to a dynamic entity object tree and you only need one sentence to save any complex entity object tree to the database.
 
-* Here is a simple example* 
+**Here is a simple example** 
 
 > Due to space limitations, all EntityMapper only uses a static mapping configuration similar to ORM, and does not use a more dynamic code configuration. For a complete demonstration, please refer to the example and documentation of the project itself.
 
