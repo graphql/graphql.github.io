@@ -7,6 +7,7 @@ import FoundationLayout from "../components/FoundationLayout"
 import BlogLayout from "../components/BlogLayout"
 import CodeLayout from "../components/CodeLayout"
 import FAQLayout from "../components/FAQLayout"
+import ConfLayout from "../components/ConfLayout"
 
 const layoutMap: Record<string, React.ComponentType<any>> = {
   docs: DocsLayout,
@@ -14,6 +15,7 @@ const layoutMap: Record<string, React.ComponentType<any>> = {
   blog: BlogLayout,
   code: CodeLayout,
   faq: FAQLayout,
+  conf: ConfLayout,
 }
 
 const Blog = ({ data, pageContext }: PageProps<GatsbyTypes.DocTemplateQuery, GatsbyTypes.SitePageContext>) => {

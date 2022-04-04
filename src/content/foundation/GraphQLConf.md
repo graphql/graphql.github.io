@@ -2,7 +2,7 @@
 title: GraphQL Conf 2022
 sidebarTitle: GraphQL Conf
 heroText: The GraphQL Foundation-hosted event for spec and implementation contributors!
-layout: foundation
+layout: conf
 category: GraphQL Foundation
 permalink: /foundation/graphql-conf/
 next: /foundation/community-grant/
