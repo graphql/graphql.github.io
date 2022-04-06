@@ -17,7 +17,7 @@ Talks are expected to include:
 * Security considerations
 * Common practices and lessons learned
 
-The [CFP is now open](https://cfp.graphql.org), and we will be collecting submissions through midnight PDT on April 10, 2022. For those who cannot attend, we will be recording the sessions and posting them to [our YouTube channel](https://youtube.graphql.org).
+The [CFP is now open](https://cfp.graphql.org), and we will be collecting submissions through midnight PDT on April 15, 2022. For those who cannot attend, we will be recording the sessions and posting them to [our YouTube channel](https://youtube.graphql.org).
 
 GraphQL Conf will be held in a shared space. To join us, please register for [OpenJS World](https://events.linuxfoundation.org/openjs-world/) or [cdCon](https://events.linuxfoundation.org/cdcon/).
 
