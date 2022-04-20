@@ -15,6 +15,8 @@ github: babyfish-ct/graphql-provider
 
 5. For mutation operations, the inputs type can be automatically generated according to a simple configuration, develpers only need to focus on entity objects, not input objects. At runtime, the framework can automatically convert the input object to a dynamic entity object tree and you only need one sentence to save any complex entity object tree to the database.
 
+6. Integrated Spring security and JWT. Allows users to authorize by behavior, authorize by column, and authorize by row through the kotlin DSL.
+
 **Here is a simple example** 
 
 > Due to space limitations, all *EntityMapper*s only uses a static mapping configuration similar to ORM, and does not use a more dynamic code configuration. For a complete demonstration, please refer to the example and documentation of the project itself.
@@ -76,7 +78,7 @@ github: babyfish-ct/graphql-provider
         // that means its pagination query.
         // pagination arguments such as "first", "after", "last", "before"
         // will be added by framework automactically and implicitly
-        fun findBooks(
+        suspend fun findBooks(
             name: String?,
             storeName: String?
         ): Connection<Book> = 
