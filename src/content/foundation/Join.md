@@ -59,8 +59,8 @@ The first 20 members of the GraphQL Foundation participate as voting members of 
 
 To [join the GraphQL Foundation](https://join.graphql.org), organizations become a member of the Linux Foundation and sign the GraphQL Foundation participation agreement. The GraphQL Foundation annual fee is received into a fund managed by the GraphQL Foundation Governing Board.
 
-* [Preview the Linux Foundation membership application »](/files/LF_Membership-Preview.pdf)
-* [Preview the GraphQL Foundation participation agreement »](/files/GraphQL_Foundation-Participation_Agreement-Preview.pdf)
+* [Preview the Linux Foundation membership application »](https://cdn.platform.linuxfoundation.org/agreements/tlf.pdf)
+* [Preview the GraphQL Foundation participation agreement »](https://cdn.platform.linuxfoundation.org/agreements/gql.pdf)
 
 GraphQL Foundation membership fees and Linux Foundation Silver Membership dues are adjusted according to an organization's number of full-time employees.
 
