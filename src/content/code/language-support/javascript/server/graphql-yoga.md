@@ -3,7 +3,7 @@ name: graphql-yoga
 description: GraphQL Yoga is a batteries-included cross-platform GraphQL over HTTP spec-compliant GraphQL Server using Envelop and GraphQL Tools.
 url: https://github.com/dotansimha/graphql-yoga
 github: dotansimha/graphql-yoga
-npm: "@graphql-yoga/node"
+npm: "@graphql-yoga/common"
 ---
 
 - Built around the Fetch API `Request` & `Response` objects
