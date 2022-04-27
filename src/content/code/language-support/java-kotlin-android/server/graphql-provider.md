@@ -5,6 +5,8 @@ url: https://github.com/babyfish-ct/graphql-provider
 github: babyfish-ct/graphql-provider
 ---
 
+Video: https://www.youtube.com/watch?v=5UxmkNbCe0Q
+
 1. It is a GRM (GraphQL-Relation mapping), and its usage is similar to ORM. When kotlin dsl is used to complete the mapping configuration between entities and tables, GraphQL objects and associations are automatically completed, including the runtime association-level DataLoader and related batch loading optimization.
 
 2. It is easy to add user implemention fields to entity, where you can implement business-related calculations. User implementation fields can also enjoy the automatic generated DataLoader and related batch loading optimization at runtime.
