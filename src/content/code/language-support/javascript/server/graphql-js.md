@@ -23,9 +23,11 @@ var schema = buildSchema(`
   }
 `);
 
-var root = { hello: () => 'Hello world!' };
+var rootValue = { hello: () => 'Hello world!' };
 
-graphql(schema, '{ hello }', root).then((response) => {
+var source = '{ hello }';
+
+graphql({ schema, source, rootValue }).then((response) => {
   console.log(response);
 });
 ```
