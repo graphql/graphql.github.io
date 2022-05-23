@@ -8,7 +8,7 @@ permalink: /foundation/graphql-conf/
 next: /foundation/community-grant/
 ---
 
-The GraphQL Foundation's inaugural [GraphQL Conf](https://conf.graphql.org) will be co-located with [OpenJS World](https://events.linuxfoundation.org/openjs-world/) and [cdCon](https://events.linuxfoundation.org/cdcon/) in Austin, TX on June 7-8, 2022. This collaborator summit-style event will be an opportunity for core GraphQL spec and implementation developers to meet in-person, discuss recent work, and plan for the future. All attendees of OpenJS World and CDcon are welcome.
+The GraphQL Foundation's inaugural GraphQL Conf will be co-located with [OpenJS World](https://events.linuxfoundation.org/openjs-world/) and [cdCon](https://events.linuxfoundation.org/cdcon/) in Austin, TX on June 7-8, 2022. This collaborator summit-style event will be an opportunity for core GraphQL spec and implementation developers to meet in-person, discuss recent work, and plan for the future. All attendees of OpenJS World and CDcon are welcome.
 
 Talks are expected to include:
 
