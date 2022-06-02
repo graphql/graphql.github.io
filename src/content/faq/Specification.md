@@ -30,3 +30,10 @@ If your organization uses and benefits from GraphQL, please consider becoming a 
 It's not on this website yet, but we're working on it. If you'd like to help write guides on subscriptions, please [let us know](https://github.com/graphql/graphql.github.io/issues/993).
 
 For now, the specification includes details for [how to write and execute subscriptions](https://spec.graphql.org/draft/#sec-Subscription).
+
+### What is the N+1 problem I keep hearing about?
+
+The N + 1 problem occurs when an application gets data from the database, and then loops through the result of that data. That means we call to the database again and again and again. In total, the application will call the database once for every row returned by the first query (N) plus the original query ( + 1). The N+1 query problem is a common one to encounter with ORMs (Object Relational Mappers) and their capabilities around lazy loading.
+
+Most GraphQL server frameworks support the idea of a [DataLoader](https://github.com/graphql/dataloader). Dataloader is a library that batches consecutive requests and makes a single data request under the hood. This request can be made to any data source, like a database or a web service. A Dataloader takes in an array as argument, processes data using that argument and returns an array of objects. The element at the nth index of the returned array will be considered by the dataloader as the data for the nth element in the input argument.
+
