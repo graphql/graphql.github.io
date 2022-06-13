@@ -43,9 +43,11 @@ const SidebarForCategory = ({ category }: any) => {
 const SideBar = ({ sideBarData }: any) => {
   return (
     <div className="nav-docs">
+      <div className="sticky-container">
       {sideBarData.map((category: any) => (
         <SidebarForCategory category={category} key={category.name} />
       ))}
+      </div>
     </div>
   )
 }

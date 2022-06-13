@@ -249,12 +249,15 @@
   margin: 1em 0 4em;
   width: 195px;
   padding-left: 20px;
-
   @media screen and (max-width: 740px) {
     width: auto;
     padding-left: 0;
   }
 
+  .sticky-container{
+    position: sticky;
+    top: 10px;
+  }
   h3 {
     .body-font(@size: 13px);
     text-transform: uppercase;
@@ -268,7 +271,7 @@
     li {
       margin: 0;
       line-height: 32px;
-
+      width: fit-content;
       ul {
         margin-bottom: 18px;
 
