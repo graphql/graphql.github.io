@@ -151,6 +151,7 @@ fragment comparisonFields on Character {
   }
 }
 ```
+If you observe carefully there is a new `query` keyword. Let's discuss about it in [Operation name](#operation-name).
 
 ## Operation name
 
