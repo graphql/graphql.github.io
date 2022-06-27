@@ -17,7 +17,7 @@ A number of GraphQL training courses are available.
 
 * [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course, developed by [Linux Foundation Training](https://training.linuxfoundation.org)
 * [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
-* [Apollo Odyssey](https://apollographql.com/tutorials/): Well-crafted interactive courses and free Apollo GraphQL certifications.  
+* [Apollo Odyssey](https://apollographql.com/tutorials/): Interactive courses for building with Apollo GraphQL  
 
 ## Where to ask questions
 
