@@ -15,10 +15,10 @@ pip install qlient
 
 Create a `swapi_client_example.py` file with this content:
 
-```python
-from qlient import Client, GraphQLResponse
+````python
+from qlient.http import HTTPClient, GraphQLResponse
 
-client = Client("https://swapi-graphql.netlify.app/.netlify/functions/index")
+client = HTTPClient("https://swapi-graphql.netlify.app/.netlify/functions/index")
 
 res: GraphQLResponse = client.query.film(
     # swapi graphql input fields
@@ -28,10 +28,10 @@ res: GraphQLResponse = client.query.film(
     _fields=["id", "title", "episodeID"]
 )
 
-print(res.query)  # query film($id: ID) { film(id: $id) { id title episodeID } }
-print(res.variables)  # {'id': 'ZmlsbXM6MQ=='}
+print(res.request.query)  # query film($id: ID) { film(id: $id) { id title episodeID } }
+print(res.request.variables)  # {'id': 'ZmlsbXM6MQ=='}
 print(res.data)  # {'film': {'id': 'ZmlsbXM6MQ==', 'title': 'A New Hope', 'episodeID': 4}}
-```
+````
 
 Close the file and run it using python:
 
