@@ -1,7 +1,7 @@
 ---
 name: Entity GraphQL
 description: A GraphQL library for .NET Core. Easily expose you data model as a GraphQL API or bring together multiple data sources into a single GraphQL schema.
-url: https://github.com/EntityGraphQL/EntityGraphQL
+url: https://entitygraphql.github.io
 github: EntityGraphQL/EntityGraphQL
 ---
 
