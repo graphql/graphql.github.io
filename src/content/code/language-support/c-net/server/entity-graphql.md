@@ -10,43 +10,22 @@ github: EntityGraphQL/EntityGraphQL
 public class Startup {
   public void ConfigureServices(IServiceCollection services)
   {
-      services.AddControllers().AddNewtonsoftJson();
-      services.AddDbContext<MyDbContext>();
-      // Build a schema from your data model (See docs on how to extend, modify or build manually as well as merge other data sources).
-      services.AddSingleton(SchemaBuilder.FromObject<MyDbContext>());
+      services.AddDbContext<DemoContext>();
+      // Auto build a schema from DemoContext. Alternatively you can build one from scratch
+      services.AddGraphQLSchema<DemoContext>(options =>
+      {
+          // modify the schema (add/remove fields or types), add other services
+      });
   }
-}
-
-// expose an endpoint with ASP.NET
-[Route("api/[controller]")]
-public class QueryController : Controller
-{
-    private readonly MyDbContext _dbContext;
-    private readonly SchemaProvider<MyDbContext> _schemaProvider;
-
-    public QueryController(MyDbContext dbContext, SchemaProvider<MyDbContext> schemaProvider)
-    {
-        this._dbContext = dbContext;
-        this._schemaProvider = schemaProvider;
-    }
-
-    [HttpPost]
-    public object Post([FromBody]QueryRequest query)
-    {
-        try
-        {
-            var results = _schemaProvider.ExecuteQuery(query, _dbContext, null, null);
-            if (results.Errors?.Count > 0)
-            {
-                // log error
-                return StatusCode(StatusCodes.Status500InternalServerError, results);
-            }
-            return results;
-        }
-        catch (Exception)
-        {
-            return HttpStatusCode.InternalServerError;
-        }
-    }
+  
+  public void Configure(IApplicationBuilder app, DemoContext db)
+  {
+      app.UseRouting();
+      app.UseEndpoints(endpoints =>
+      {
+          // defaults to /graphql endpoint
+          endpoints.MapGraphQL<DemoContext>();
+      });
+  }
 }
 ```
