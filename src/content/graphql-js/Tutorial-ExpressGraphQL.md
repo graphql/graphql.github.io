@@ -49,6 +49,8 @@ You can run this GraphQL server with:
 ```bash
 node server.js
 ```
+and browse to:
+[https://localhost:4000/graphql](http://localhost:4000/graphql)
 
 Since we configured `graphqlHTTP` with `graphiql: true`, you can use the GraphiQL tool to manually issue GraphQL queries. If you navigate in a web browser to `http://localhost:4000/graphql`, you should see an interface that lets you enter queries. It should look like:
 
