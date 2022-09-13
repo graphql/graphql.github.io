@@ -5,7 +5,7 @@ url: https://github.com/apollographql/apollo-kotlin
 github: apollographql/apollo-kotlin
 ---
 
-Apollo Kotlin (formerly known as Apollo Android) is a GraphQL client with support for Android, Java8+, iOS and MacOS. It features:
+Apollo Kotlin (formerly known as Apollo Android) is a GraphQL client with support for Android, Java8+, iOS and Kotlin multiplatform in general. It features:
 
 * Java and Kotlin Multiplatform code generation
 * Queries, Mutations and Subscriptions
