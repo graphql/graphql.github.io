@@ -16,20 +16,22 @@ const Basic = ({ code, language }: Props) => (
     Prism={Prism}
   >
     {({ className, tokens, getLineProps, getTokenProps }: any) => (
-      <pre className={"prism " + className}>
-        {tokens.map((line, i) => {
-          if (line.length === 1 && line[0].content === "") {
-            line[0].content = " "
-          }
-          return (
-            <div {...getLineProps({ line, key: i })} style={{}}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} style={{}} />
-              ))}
-            </div>
-          )
-        })}
-      </pre>
+      <code>
+        <pre className={"prism " + className}>
+          {tokens.map((line, i) => {
+            if (line.length === 1 && line[0].content === "") {
+              line[0].content = " "
+            }
+            return (
+              <div {...getLineProps({ line, key: i })} style={{}}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} style={{}} />
+                ))}
+              </div>
+            )
+          })}
+        </pre>
+      </code>
     )}
   </Highlight>
 )
