@@ -27,6 +27,7 @@ objects "nodes." Here is an example query for a node:
       name
     }
   }
+}
 ```
 
 - The GraphQL schema is formatted to allow fetching any object via the `node` field on the root query object. This
