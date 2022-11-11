@@ -183,6 +183,7 @@ exports.onCreatePage = async ({ page, actions }) => {
       otherLibraries: {
         Services: codeData.Services,
         Tools: sortedTools,
+        Gateways: codeData.Gateways,
         "More Stuff": codeData["More Stuff"],
       },
       languageList: languageList.sort((a, b) => {

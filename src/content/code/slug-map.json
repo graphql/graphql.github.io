@@ -26,5 +26,6 @@
   "client": "Client",
   "server": "Server",
   "tools": "Tools",
-  "services": "Services"
+  "services": "Services",
+  "gateways": "Gateways"
 }

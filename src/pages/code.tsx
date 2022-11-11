@@ -147,6 +147,7 @@ const categorySlugMap = [
   ["Server", toSlug("Server")],
   ["Client", toSlug("Client")],
   ["Tools", toSlug("Tools")],
+  ["Gateways", toSlug("Gateways")],
 ]
 
 export function buildLanguagesContent(pageContext: any) {
@@ -228,6 +229,9 @@ export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>)
                   <AnchorLink to="#services" title="Services">
                     <h3>Services</h3>
                   </AnchorLink>
+                  <AnchorLink to="#gateways" title="Gateways">
+                    <h3>Gateways</h3>
+                  </AnchorLink>
                 </div>
               </div>
             </div>
@@ -253,6 +257,14 @@ export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>)
               </AnchorLink>
             </h2>
             {buildLibraryList(pageContext.otherLibraries?.Services ?? [], pageContext)}
+            <h2>
+              <a className="anchor" id="gateways"></a>
+              Gateways
+              <AnchorLink className="hash-link" to="#gateways">
+                #
+              </AnchorLink>
+            </h2>
+            {buildLibraryList(pageContext.otherLibraries?.Gateways ?? [], pageContext)}
           </div>
         </div>
       <p>Want to improve this page? See the <a href="https://github.com/graphql/graphql.github.io/blob/source/notes/ContributingToCodePage.md">docs here</a>.</p>
