@@ -29,7 +29,7 @@ fallen behind.
 Luckily, thanks to the focused efforts of [Denis Badurina](https://github.com/enisdenjo),
 we have an alternative in [graphql-http](https://github.com/graphql/graphql-http).
 Denis has been part of the committee working on the GraphQL over HTTP
-specification, and sought to build a depenency-free compliant GraphQL server
+specification, and sought to build a dependency-free compliant GraphQL server
 that works with most all existing Node and Deno HTTP frameworks.
 
 The decision was made to adopt the [graphql-http](https://github.com/graphql/graphql-http)
