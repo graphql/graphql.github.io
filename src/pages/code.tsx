@@ -5,11 +5,26 @@ import Layout from "../components/Layout"
 import Marked from "../components/Marked"
 import { toSlug } from "../utils/slug"
 
+interface LibraryProps {
+  description: string
+  github: string
+  howto: string
+  name: string
+  sourcePath: string
+  url: string
+  npm?: string
+  gem?: string
+  lastRelease?: string
+  stars?: string
+  license?: string
+}
+
 export function buildLanguagesMenu(pageContext: GatsbyTypes.SitePageContext) {
   return (
     <div className="language-boxes">
       {pageContext.languageList
-        ?.map(langeuage => langeuage?.name!).filter(Boolean)
+        ?.map(language => language?.name!)
+        .filter(Boolean)
         .map(languageName => {
           const slug = toSlug(languageName)
           return (
@@ -17,19 +32,22 @@ export function buildLanguagesMenu(pageContext: GatsbyTypes.SitePageContext) {
               to={`#${slug}`}
               className="article language-box"
               title={languageName}
+              key={slug}
             >
               <span className="article_title">{languageName}</span>
             </AnchorLink>
           )
-        })
-      }
+        })}
     </div>
   )
 }
 
-export function buildLibraryContent(library: any, pageContext: GatsbyTypes.SitePageContext) {
-  const [ overflown, setOverflown ] = useState(false);
-  const [ expanded, setExpanded ] = useState(false);
+export function buildLibraryContent(
+  library: LibraryProps,
+  pageContext: GatsbyTypes.SitePageContext
+) {
+  const [overflown, setOverflown] = useState(false)
+  const [expanded, setExpanded] = useState(false)
   return (
     <div className="library-info">
       <div className="library-details">
@@ -94,7 +112,9 @@ export function buildLibraryContent(library: any, pageContext: GatsbyTypes.SiteP
       </div>
       <div className="library-howto">
         <div
-          className={`library-howto-content ${expanded ? 'expanded' : 'not-expanded'}`}
+          className={`library-howto-content ${
+            expanded ? "expanded" : "not-expanded"
+          }`}
           ref={el => {
             if (el && !overflown) {
               setOverflown(el.clientHeight < el.scrollHeight)
@@ -107,9 +127,15 @@ export function buildLibraryContent(library: any, pageContext: GatsbyTypes.SiteP
         </div>
         {overflown && (
           <div
-            className={`library-howto-expand ${expanded ? 'expanded' : 'not-expanded'}`}
-            onClick={() => setExpanded(true)}>
-              <img src="/img/downarrow.svg" className="library-howto-expand-anchor" />
+            className={`library-howto-expand ${
+              expanded ? "expanded" : "not-expanded"
+            }`}
+            onClick={() => setExpanded(true)}
+          >
+            <img
+              src="/img/downarrow.svg"
+              className="library-howto-expand-anchor"
+            />
           </div>
         )}
       </div>
@@ -120,7 +146,11 @@ export function buildLibraryContent(library: any, pageContext: GatsbyTypes.SiteP
 export function buildLibraryList(libraries: readonly any[], pageContext: any) {
   return (
     <div className="library-list">
-      {libraries.map(library => buildLibraryContent(library, pageContext))}
+      {libraries.map(library => (
+        <React.Fragment key={library.name}>
+          {buildLibraryContent(library, pageContext)}
+        </React.Fragment>
+      ))}
     </div>
   )
 }
@@ -167,7 +197,7 @@ export function buildLanguagesContent(pageContext: any) {
             <p className="language-categories-permalinks">
               {filteredCategorySlugMap.map(
                 ([libraryCategoryName, categorySlug], i) => (
-                  <>
+                  <React.Fragment key={i}>
                     <AnchorLink
                       title={`${languageSlug} ${categorySlug}`}
                       className="language-category-permalink"
@@ -176,21 +206,23 @@ export function buildLanguagesContent(pageContext: any) {
                       {libraryCategoryName}
                     </AnchorLink>
                     {i < filteredCategorySlugMap.length - 1 && " / "}
-                  </>
+                  </React.Fragment>
                 )
               )}
             </p>
           )}
         </div>
         <div className="library-categories">
-          {filteredCategorySlugMap.map(([categoryName, categorySlug]) =>
-            buildLibraryCategoryContent(
-              libraryCategories,
-              categoryName,
-              `${languageSlug}-${categorySlug}`,
-              pageContext
-            )
-          )}
+          {filteredCategorySlugMap.map(([categoryName, categorySlug]) => (
+            <React.Fragment key={categorySlug}>
+              {buildLibraryCategoryContent(
+                libraryCategories,
+                categoryName,
+                `${languageSlug}-${categorySlug}`,
+                pageContext
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     )
@@ -198,9 +230,15 @@ export function buildLanguagesContent(pageContext: any) {
   return <div className="languages-content">{elements}</div>
 }
 
-export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>) => {
+export default ({
+  pageContext,
+}: PageProps<object, GatsbyTypes.SitePageContext>) => {
   return (
-    <Layout title="GraphQL Code Libraries, Tools and Services" className="code" pageContext={pageContext}>
+    <Layout
+      title="GraphQL Code Libraries, Tools and Services"
+      className="code"
+      pageContext={pageContext}
+    >
       <div className="code-hero">
         <div className="code-hero-inner">
           <h1>Code</h1>
@@ -244,7 +282,10 @@ export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>)
                 #
               </AnchorLink>
             </h2>
-            {buildLibraryList(pageContext.otherLibraries?.Tools ?? [], pageContext)}
+            {buildLibraryList(
+              pageContext.otherLibraries?.Tools ?? [],
+              pageContext
+            )}
             <h2>
               <a className="anchor" id="services"></a>
               Services
@@ -252,10 +293,19 @@ export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>)
                 #
               </AnchorLink>
             </h2>
-            {buildLibraryList(pageContext.otherLibraries?.Services ?? [], pageContext)}
+            {buildLibraryList(
+              pageContext.otherLibraries?.Services ?? [],
+              pageContext
+            )}
           </div>
         </div>
-      <p>Want to improve this page? See the <a href="https://github.com/graphql/graphql.github.io/blob/source/notes/ContributingToCodePage.md">docs here</a>.</p>
+        <p>
+          Want to improve this page? See the{" "}
+          <a href="https://github.com/graphql/graphql.github.io/blob/source/notes/ContributingToCodePage.md">
+            docs here
+          </a>
+          .
+        </p>
       </section>
     </Layout>
   )
