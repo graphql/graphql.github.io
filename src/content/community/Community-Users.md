@@ -38,6 +38,7 @@ Please be patient and polite. These are not explicitly user support channels, al
 
 * [GraphQL Foundation Discord](https://discord.graphql.org)
   * We're in the process of moving our official chat to Discord, but you may find historical discussion in ~~[#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)~~.
+* [GraphQL Reddit Community](https://www.reddit.com/r/graphql/)
 * [GraphQL Community Facebook Group](https://www.facebook.com/groups/graphql.community/)
 * [Everything GraphQL: Curated By The Guild](https://discord.gg/xud7bH9)
 * [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
