@@ -18,6 +18,7 @@ A number of GraphQL training courses are available.
 * [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course, developed by [Linux Foundation Training](https://training.linuxfoundation.org)
 * [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
 * [Apollo Odyssey](https://apollographql.com/tutorials/): Interactive courses for building GraphQL applications with Apollo's toolset
+* [GraphQL WhatsApp Clone Tutorial](https://www.tortilla.academy/Urigo/WhatsApp-Clone-Tutorial/): A full stack tutorial to create a fully functional WhatsApp clone using GraphQL, React, Typescript and Postgres
 
 ## Where to ask questions
 
