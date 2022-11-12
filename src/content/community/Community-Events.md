@@ -22,7 +22,7 @@ If you have questions about this process, please ask [operations@graphql.org](ma
 
 ### GraphQL Working Group / TSC meeting
 
-The [GraphQL Working Group](https://github.com/graphql/graphql-wg) meets on the first Thursday of each month. When there are topics to address, the [GraphQL Technical Steering Committee (TSC)](https://github.com/graphql/graphql-wg/blob/HEAD/GraphQL-TSC.md) may meet briefly prior to the start of the Working Group meeting. 
+The [GraphQL Working Group](https://github.com/graphql/graphql-wg) meets on the first Thursday of each month. When there are topics to address, the [GraphQL Technical Steering Committee (TSC)](https://github.com/graphql/graphql-wg/blob/HEAD/GraphQL-TSC.md) may meet briefly prior to the start of the Working Group meeting.
 
 The goal of the working group meeting is to discuss current work and future plans for the GraphQL specification. The Working Group meeting is also the place to coordinate between other GraphQL working groups and reference implementations.
 
@@ -95,6 +95,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL Paris 2](https://www.meetup.com/fr-FR/parisgraphql/)
 - [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
+- [GraphQL Wroclaw](https://www.meetup.com/GraphQL-Wroclaw/)
 
 ### Australia
 
