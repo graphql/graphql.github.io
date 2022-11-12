@@ -3,39 +3,50 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "rm -rf build && babel-node resources/server.js",
-    "build": "rm -rf build && babel-node resources/build.js",
-    "watch": "rm -rf build && babel-node resources/watch.js",
-    "test": "npm run build"
+    "build": "gatsby build",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
-  "babel": {
-    "optional": [
-      "es7.asyncFunctions",
-      "es7.objectRestSpread"
-    ]
-  },
-  "site": {
-    "source": "./site",
-    "build": "./build"
-  },
-  "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-core": "^5.8.23",
-    "babel-loader": "^5.3.2",
-    "babel-runtime": "^5.8.20",
-    "express": "^4.13.3",
-    "js-yaml": "^3.4.0",
-    "less": "^2.7.1",
-    "react": "15.3.1",
-    "react-dom": "15.3.1",
-    "sane": "^1.2.0",
-    "webpack": "^1.12.1"
+  "resolutions": {
+    "graphql": "15.6.0"
   },
   "dependencies": {
-    "codemirror": "^5.6.0",
-    "codemirror-graphql": "^0.5.7",
-    "graphql": "^0.7.0",
-    "graphql-tools": "^0.6.6",
-    "marked": "^0.3.5"
+    "@graphql-tools/schema": "8.3.1",
+    "@reach/router": "1.3.4",
+    "@weknow/gatsby-remark-twitter": "0.2.3",
+    "assert": "2.0.0",
+    "codemirror": "5.65.1",
+    "codemirror-graphql": "1.2.11",
+    "gatsby": "4.7.2",
+    "gatsby-plugin-anchor-links": "1.2.1",
+    "gatsby-plugin-feed": "4.7.0",
+    "gatsby-plugin-google-analytics": "4.7.0",
+    "gatsby-plugin-less": "6.7.0",
+    "gatsby-plugin-react-helmet": "5.7.0",
+    "gatsby-plugin-typegen": "2.2.4",
+    "gatsby-plugin-webfonts": "2.2.1",
+    "gatsby-source-filesystem": "4.7.0",
+    "gatsby-transformer-remark": "5.7.0",
+    "globby": "11.0.4",
+    "graphql": "15.6.0",
+    "marked": "4.0.10",
+    "numbro": "2.3.5",
+    "parser-front-matter": "1.6.4",
+    "prism-react-renderer": "1.2.1",
+    "prismjs": "1.25.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-helmet": "6.1.0",
+    "timeago.js": "4.0.2"
+  },
+  "devDependencies": {
+    "@types/codemirror": "5.60.5",
+    "@types/prismjs": "1.16.6",
+    "@types/react-helmet": "6.1.4",
+    "prettier": "2.4.1"
   }
 }
