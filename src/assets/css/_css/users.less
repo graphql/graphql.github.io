@@ -1,0 +1,41 @@
+section.whos-using-page, section.foundation-members-page {
+  padding-bottom: 6em;
+  max-width: 900px;
+
+  .logos {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    img {
+      max-height: 100px;
+      max-width: 180px;
+      padding: 14px;
+      @media screen and (min-width: 1020px) {
+        max-height: 150px;
+        max-width: 270px;
+        padding: 20px;
+      }
+
+      &.round {
+        max-height: 106px;
+        max-width: 140px;
+        padding: 11px;
+        @media screen and (min-width: 1020px) {
+          max-height: 158px;
+          max-width: 210px;
+          padding: 16px;
+        }
+      }
+    }
+  }
+}
+
+section.whos-using-page {
+  .prose {
+    max-width: 560px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
