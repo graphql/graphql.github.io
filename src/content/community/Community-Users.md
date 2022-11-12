@@ -54,7 +54,25 @@ The following channels are maintained by vendors, and may be a good place to fin
 * [Graphile Discord](https://discord.gg/graphile)
 * [Prisma Slack](https://slack.prisma.io/)
 
-## Blogs
+## Blogs and Newsletters
+
+Popular sources to learn and keep track of the GraphQL Ecosystem
+
+  - [Official GraphQL Blog](https://graphql.org/blog/)
+  - [Apollo's Blog](https://www.apollographql.com/blog/)
+  - [ChilliCream's Blog](https://chillicream.com/blog)
+  - [Escape Security Blog](https://escape.tech/blog/)
+  - [GraphQL Editor Blog](https://blog.graphqleditor.com/)
+  - [GraphQL WTF Episodes Feed](https://graphql.wtf/)
+  - [GraphQL Weekly](https://www.graphqlweekly.com/)
+  - [Hasura's Blog](https://hasura.io/blog/)
+  - [Inigo's Security Blog](https://inigo.io/blog)
+  - [StepZen's Blog](https://stepzen.com/blog)
+  - [The Guild's Blog](https://the-guild.dev/blog)
+  - [The Guild's Newsletter](https://www.getrevue.co/profile/TheGuild)
+  - [WunderGraph's Blog](https://wundergraph.com/blog)
+
+### Individual Posts
 
 Here are a list of notable blog posts to help you better understand GraphQL:
 
