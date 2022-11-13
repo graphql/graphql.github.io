@@ -87,26 +87,24 @@ module.exports = {
                   author: byline,
                 })
               ),
-            query: `
-              {
-                allMarkdownRemark(
-                  filter: {frontmatter: {layout: {eq: "blog"}}},
-                  sort: { order: DESC, fields: [frontmatter___date] }
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      frontmatter {
-                        title
-                        date
-                        permalink
-                        byline
-                      }
-                    }
-                  }
-                }
-              }
-            `,
+            query: `{
+  allMarkdownRemark(
+    filter: {frontmatter: {layout: {eq: "blog"}}}
+    sort: {frontmatter: {date: DESC}}
+  ) {
+    edges {
+      node {
+        excerpt
+        frontmatter {
+          title
+          date
+          permalink
+          byline
+        }
+      }
+    }
+  }
+}`,
             output: "/blog/rss.xml",
             title: "Blog | GraphQL",
             feed_url: "http://graphql.org/blog/rss.xml",

@@ -6,14 +6,11 @@ const BlogSidebar: React.FC = () => {
   const data = useStaticQuery<Queries.AllTagsStaticQuery>(graphql`
     query AllTagsStatic {
       allBlogPost {
-        group(field: tags) {
+        group(field: { tags: SELECT }) {
           fieldValue
         }
       }
-      allRecentBlogPost: allBlogPost(
-        limit: 30
-        sort: { fields: [date], order: DESC }
-      ) {
+      allRecentBlogPost: allBlogPost(limit: 30, sort: { date: DESC }) {
         nodes {
           title
           postId

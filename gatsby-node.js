@@ -204,8 +204,8 @@ exports.onCreatePage = async ({ page, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const result = await graphql(/* GraphQL */ `
-    query {
+  const result = await graphql(`
+    {
       allMarkdownRemark {
         edges {
           node {
@@ -231,7 +231,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       allBlogPost {
-        group(field: tags) {
+        group(field: { tags: SELECT }) {
           fieldValue
         }
       }
