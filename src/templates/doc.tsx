@@ -1,5 +1,5 @@
 import React from "react"
-import type { PageProps } from "gatsby"
+import type { HeadProps, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import DocsLayout from "../components/DocsLayout"
@@ -8,6 +8,15 @@ import BlogLayout from "../components/BlogLayout"
 import CodeLayout from "../components/CodeLayout"
 import FAQLayout from "../components/FAQLayout"
 import ConfLayout from "../components/ConfLayout"
+import Seo from "../components/Seo"
+
+interface PageContext extends Queries.DocTemplateQueryVariables {
+  sideBarData: Array<{
+    name: string
+    links: Array<Queries.MarkdownRemark>
+  }>
+  sourcePath: string
+}
 
 const layoutMap: Record<string, React.ComponentType<any>> = {
   docs: DocsLayout,
@@ -18,23 +27,18 @@ const layoutMap: Record<string, React.ComponentType<any>> = {
   conf: ConfLayout,
 }
 
-const Blog = ({ data, pageContext }: PageProps<GatsbyTypes.DocTemplateQuery, GatsbyTypes.SitePageContext>) => {
+const Blog = ({
+  data,
+  pageContext,
+}: PageProps<Queries.DocTemplateQuery, PageContext>) => {
   const { doc, nextDoc } = data
   const { frontmatter, rawMarkdownBody } = doc || {}
-  const {
-    title,
-    date,
-    heroText,
-    permalink,
-    byline,
-    guestBio,
-    layout,
-    tags,
-  } = frontmatter || {}
+  const { title, date, heroText, permalink, byline, guestBio, layout, tags } =
+    frontmatter || {}
 
   const InnerLayout = layoutMap[layout!]
   return (
-    <Layout title={`${title} | GraphQL`} pageContext={pageContext}>
+    <Layout pageContext={pageContext}>
       <InnerLayout
         title={title}
         date={date}
@@ -50,6 +54,13 @@ const Blog = ({ data, pageContext }: PageProps<GatsbyTypes.DocTemplateQuery, Gat
       />
     </Layout>
   )
+}
+
+export function Head({ data }: HeadProps<Queries.DocTemplateQuery>) {
+  const { frontmatter } = data.doc || {}
+  const { title } = frontmatter || {}
+
+  return <Seo title={`${title} | GraphQL`} />
 }
 
 export const query = graphql`

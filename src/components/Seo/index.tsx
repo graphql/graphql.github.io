@@ -1,5 +1,4 @@
 import React from "react"
-import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface Props {
@@ -8,7 +7,7 @@ interface Props {
 }
 
 const Seo = ({ title, description }: Props): JSX.Element => {
-  const data = useStaticQuery<GatsbyTypes.SeoQueryQuery>(graphql`
+  const data = useStaticQuery<Queries.SeoQueryQuery>(graphql`
     query SeoQuery {
       site {
         siteMetadata {
@@ -19,16 +18,16 @@ const Seo = ({ title, description }: Props): JSX.Element => {
     }
   `)
 
-  const metadata = data.site.siteMetadata
+  const metadata = data.site!.siteMetadata
 
   return (
-    <Helmet>
-      <title>{title ?? metadata.title}</title>
-      <meta name="description" content={description ?? metadata.description} />
+    <>
+      <title>{title ?? metadata!.title}</title>
+      <meta name="description" content={description ?? metadata!.description} />
       <meta property="og:image" content="/img/og-image.png" />
       <meta property="twitter:site" content="@graphql" />
       <meta name="viewport" content="width=640" />
-    </Helmet>
+    </>
   )
 }
 

@@ -12,22 +12,20 @@ export const fragments = graphql`
       excerpt
     }
   }
-`;
+`
 
 interface Props {
-  post: GatsbyTypes.BlogPostPreview_postFragment,
+  post: Queries.BlogPostPreview_postFragment
 }
 
-const BlogPostPreview: React.FC<Props> = ({
-  post,
-}) => (
+const BlogPostPreview: React.FC<Props> = ({ post }) => (
   <div className="inner-content">
     <h1>
       <Link to={post.postPath!}>{post.title}</Link>
     </h1>
 
     <p>
-      {new Date(post.date).toLocaleDateString()} by {post.authors.join(', ')}
+      {new Date(post.date).toLocaleDateString()} by {post.authors.join(", ")}
     </p>
 
     <div className="tag-wrapper">

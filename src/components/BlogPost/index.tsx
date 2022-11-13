@@ -13,16 +13,14 @@ export const fragments = graphql`
       rawMarkdownBody
     }
   }
-`;
+`
 
 interface Props {
-  post: GatsbyTypes.BlogPost_postFragment,
+  post: Queries.BlogPost_postFragment
 }
 
-const BlogPost: React.FC<Props> = ({
-  post,
-}) => {
-  const byline = post.authors.join(', ')
+const BlogPost: React.FC<Props> = ({ post }) => {
+  const byline = post.authors.join(", ")
   return (
     <div className="inner-content">
       <h1>{post.title}</h1>

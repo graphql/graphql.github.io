@@ -10,10 +10,11 @@ import BringYourOwnData from "../Containers/Sections/BringYourOwnCode"
 import WithoutVersions from "../Containers/Sections/WithoutVersion"
 import PowerFulTools from "../Containers/Sections/PowerFulTools"
 import WhosUsing from "../Containers/Sections/WhosUsing"
+import Seo from "../components/Seo"
 
-export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>) => {
+export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
-    <Layout className={"index"} title="GraphQL | A query language for your API" pageContext={pageContext}>
+    <Layout className={"index"} pageContext={pageContext}>
       <Hero />
       <section className="lead">
         <h1>A query language for your API</h1>
@@ -35,4 +36,8 @@ export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>)
       <WhosUsing />
     </Layout>
   )
-  }
+}
+
+export function Head() {
+  return <Seo title="GraphQL | A query language for your API" />
+}
