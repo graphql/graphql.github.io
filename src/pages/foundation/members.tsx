@@ -6,7 +6,6 @@ import Seo from "../../components/Seo"
 export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
     <Layout
-      title="GraphQL Foundation Members | GraphQL"
       pageContext={pageContext}
     >
       <section className="foundation-members-page">
