@@ -8,7 +8,7 @@
  */
 
 import React from "react"
-import marked from "marked"
+import { marked } from "marked"
 
 import { graphql, formatError, parse, typeFromAST } from "graphql"
 

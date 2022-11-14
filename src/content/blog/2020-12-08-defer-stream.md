@@ -24,6 +24,7 @@ query {
   person(id: "cGVvcGxlOjE=") {
     name
     ...HomeworldFragment @defer(label: "homeworldDefer")
+  }
 }
 
 fragment HomeworldFragment on Person {

@@ -17,6 +17,7 @@ A number of GraphQL training courses are available.
 
 * [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course, developed by [Linux Foundation Training](https://training.linuxfoundation.org)
 * [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
+* [Apollo Odyssey](https://apollographql.com/tutorials/): Interactive courses for building GraphQL applications with Apollo's toolset
 
 ## Where to ask questions
 
@@ -37,6 +38,7 @@ Please be patient and polite. These are not explicitly user support channels, al
 
 * [GraphQL Foundation Discord](https://discord.graphql.org)
   * We're in the process of moving our official chat to Discord, but you may find historical discussion in ~~[#general on the GraphQL Slack](https://graphql.slack.com/messages/general/) [(Get an invite)](https://graphql-slack.herokuapp.com/)~~.
+* [GraphQL Reddit Community](https://www.reddit.com/r/graphql/)
 * [GraphQL Community Facebook Group](https://www.facebook.com/groups/graphql.community/)
 * [Everything GraphQL: Curated By The Guild](https://discord.gg/xud7bH9)
 * [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
@@ -53,7 +55,25 @@ The following channels are maintained by vendors, and may be a good place to fin
 * [Graphile Discord](https://discord.gg/graphile)
 * [Prisma Slack](https://slack.prisma.io/)
 
-## Blogs
+## Blogs and Newsletters
+
+Popular sources to learn and keep track of the GraphQL Ecosystem
+
+  - [Official GraphQL Blog](https://graphql.org/blog/)
+  - [Apollo's Blog](https://www.apollographql.com/blog/)
+  - [ChilliCream's Blog](https://chillicream.com/blog)
+  - [Escape Security Blog](https://escape.tech/blog/)
+  - [GraphQL Editor Blog](https://blog.graphqleditor.com/)
+  - [GraphQL WTF Episodes Feed](https://graphql.wtf/)
+  - [GraphQL Weekly](https://www.graphqlweekly.com/)
+  - [Hasura's Blog](https://hasura.io/blog/)
+  - [Inigo's Security Blog](https://inigo.io/blog)
+  - [StepZen's Blog](https://stepzen.com/blog)
+  - [The Guild's Blog](https://the-guild.dev/blog)
+  - [The Guild's Newsletter](https://www.getrevue.co/profile/TheGuild)
+  - [WunderGraph's Blog](https://wundergraph.com/blog)
+
+### Individual Posts
 
 Here are a list of notable blog posts to help you better understand GraphQL:
 
@@ -128,4 +148,4 @@ To explore other community-developed resources and content about GraphQL, take a
 - [Building Apollo](https://blog.apollographql.com)
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql): A fantastic community maintained collection of libraries, resources, and more.
 - [graphql-apis](https://github.com/APIs-guru/graphql-apis): A collective list of public GraphQL APIs.
-- [GraphQL Screencasts](https://graphql.wtf): Learn something new with GraphQL, every week. 
+- [GraphQL Screencasts](https://graphql.wtf): Learn something new with GraphQL, every week.

@@ -69,7 +69,7 @@ Regardless of the method by which the query and variables were sent, the respons
 }
 ```
 
-If there were no errors returned, the `"errors"` field should not be present on the response. If no data is returned, [according to the GraphQL spec](http://facebook.github.io/graphql/#sec-Data), the `"data"` field should only be included if the error occurred during execution.
+If there were no errors returned, the `"errors"` field should not be present on the response. If no data is returned, [according to the GraphQL spec](http://facebook.github.io/graphql/#sec-Data), the `"data"` field should only be included if no errors occurred during execution.
 
 ## GraphiQL
 GraphiQL is useful during testing and development but should be disabled in production by default. If you are using express-graphql, you can toggle it based on the NODE_ENV environment variable:
@@ -82,7 +82,8 @@ app.use('/graphql', graphqlHTTP({
 ```
 
 ## Node
-If you are using NodeJS, we recommend using either [express-graphql](https://github.com/graphql/express-graphql) or [apollo-server](https://github.com/apollographql/apollo-server).
+
+If you are using NodeJS, we recommend looking at the [list of server implementations](/code/#javascript-server).
 
 ## Draft Transport Specification
 

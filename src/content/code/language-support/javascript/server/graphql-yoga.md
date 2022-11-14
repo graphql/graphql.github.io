@@ -1,37 +1,45 @@
 ---
 name: graphql-yoga
-description: Fully-featured GraphQL Server with focus on easy setup, performance & great developer experience
+description: GraphQL Yoga is a batteries-included cross-platform GraphQL over HTTP spec-compliant GraphQL Server using Envelop and GraphQL Tools.
 url: https://github.com/dotansimha/graphql-yoga
 github: dotansimha/graphql-yoga
-npm: "graphql-yoga"
+npm: "@graphql-yoga/common"
 ---
 
-- Sensible defaults & includes everything you need with minimal setup.
-- Built-in support for GraphQL subscriptions using WebSockets.
-- Works with all GraphQL clients (Apollo, Relay...) and fits seamless in your GraphQL workflow.
+- Built around the Fetch API `Request` & `Response` objects
+- GraphQL over HTTP compliant
+- Extensible GraphQL Engine powered by Envelop
+- GraphQL Subscriptions over HTTP
+- Handle file uploads with GraphQL
+- Integrates with AWS Lambda, Cloudflare Workers, Deno, Express, Next.js, SvelteKit, and more.
 
 To run a hello world server with graphql-yoga:
 
 ```bash
-npm install graphql-yoga
+npm install @graphql-yoga/node graphql
 ```
 
-Then run `node server.js` with this code in `server.js`:
+Then create a server using the `createServer` import:
 
 ```js
-import { GraphQLServer } from 'graphql-yoga'
-// ... or using "require()"
-// const { GraphQLServer } = require('graphql-yoga')
-const typeDefs = `
-  type Query {
-    hello(name: String): String!
-  }
-`;
-const resolvers = {
-  Query: {
-    hello: (_, { name }) => `Hello ${name || 'World'}`,
+import { createServer } from '@graphql-yoga/node'
+
+const server = createServer({
+  schema: {
+    typeDefs: /* GraphQL */ `
+      type Query {
+        hello: String
+      }
+    `,
+    resolvers: {
+      Query: {
+        hello: () => 'Hello Hello Hello',
+      },
+    },
   },
-};
-const server = new GraphQLServer({ typeDefs, resolvers })
-server.start(() => console.log('Server is running on localhost:4000'))
+})
+
+server.start()
 ```
+
+Depending on your deployment target, you may need to use an additional library. See the [documentation](https://www.graphql-yoga.com/docs) for further details.
