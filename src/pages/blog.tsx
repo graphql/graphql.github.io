@@ -8,7 +8,7 @@ import Seo from "../components/Seo"
 
 export const query = graphql`
   query BlogPostListPage {
-    allBlogPost(sort: { fields: [date], order: DESC }) {
+    allBlogPost(sort: { date: DESC }) {
       nodes {
         id
         ...BlogPostPreview_post
