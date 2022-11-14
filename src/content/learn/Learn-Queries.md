@@ -43,7 +43,7 @@ In the previous example, we just asked for the name of our hero which returned a
 }
 ```
 
-Note that in this example, the `friends` field returns an array of items. GraphQL queries look the same for both single items or lists of items, however we know which one to expect based on what is indicated in the schema.
+Note that in this example, the `friends` field returns an array of items. GraphQL queries look the same for both single items or lists of items; however, we know which one to expect based on what is indicated in the schema.
 
 
 ## Arguments
