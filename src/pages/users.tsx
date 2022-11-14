@@ -1,10 +1,11 @@
 import React from "react"
 import type { PageProps } from "gatsby"
 import Layout from "../components/Layout"
+import Seo from "../components/Seo"
 
-export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>) => {
+export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
-    <Layout title="Who's Using | GraphQL" pageContext={pageContext}>
+    <Layout pageContext={pageContext}>
       <section className="whos-using-page">
         <div className="prose">
           <h1>Who&rsquo;s using GraphQL?</h1>
@@ -33,14 +34,18 @@ export default ({ pageContext }: PageProps<object, GatsbyTypes.SitePageContext>)
           style={{ width: "1px", minWidth: "100%" }}
           src="https://landscape.graphql.org/card-mode?category=graph-ql-adopter&grouping=category&embed=yes&style=borderless"
           onLoad={() => {
-            const scriptElem = document.createElement('script');
-            scriptElem.type = 'text/javascript';
-            scriptElem.src = "https://landscape.cncf.io/iframeResizer.js";
-            scriptElem.onload = () => (window as any)["iFrameResize"]();
-            document.body.appendChild(scriptElem);
+            const scriptElem = document.createElement("script")
+            scriptElem.type = "text/javascript"
+            scriptElem.src = "https://landscape.cncf.io/iframeResizer.js"
+            scriptElem.onload = () => (window as any)["iFrameResize"]()
+            document.body.appendChild(scriptElem)
           }}
         ></iframe>
       </section>
     </Layout>
   )
+}
+
+export function Head() {
+  return <Seo title="Who's Using | GraphQL" />
 }

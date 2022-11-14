@@ -7,15 +7,13 @@ export const fragments = graphql`
   fragment BlogLayout_post on BlogPost {
     ...BlogPost_post
   }
-`;
+`
 
 interface Props {
-  post: GatsbyTypes.BlogLayout_postFragment,
+  post: Queries.BlogLayout_postFragment
 }
 
-const BlogLayout: React.FC<Props> = ({
-  post,
-}) => {
+const BlogLayout: React.FC<Props> = ({ post }) => {
   return (
     <section>
       <div className="documentationContent">

@@ -4,12 +4,11 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import BlogPostPreview from "../components/BlogPostPreview"
 import BlogSidebar from "../components/BlogSidebar"
+import Seo from "../components/Seo"
 
 export const query = graphql`
   query TagPage($tag: String!) {
-    allBlogPost(
-      filter: { tags: { in: [$tag] } }
-    ) {
+    allBlogPost(filter: { tags: { in: [$tag] } }) {
       nodes {
         id
         ...BlogPostPreview_post
@@ -18,12 +17,11 @@ export const query = graphql`
   }
 `
 
-type Props = PageProps<GatsbyTypes.TagPageQuery, GatsbyTypes.SitePageContext>
+type Props = PageProps<Queries.TagPageQuery>
 
-const TagPage: React.FC<Props> = ({ data, pageContext }) => {
-  const currentTag = pageContext.tag!
+const TagPage: React.FC<Props> = ({ data }) => {
   return (
-    <Layout title={`Blog: ${currentTag} | GraphQL`} pageContext={{}}>
+    <Layout>
       <section>
         <div className="documentationContent">
           <div>
@@ -36,6 +34,10 @@ const TagPage: React.FC<Props> = ({ data, pageContext }) => {
       </section>
     </Layout>
   )
+}
+
+export function Head({ pageContext }: { pageContext: { tag: string } }) {
+  return <Seo title={`Blog: ${pageContext.tag} | GraphQL`} />
 }
 
 export default TagPage

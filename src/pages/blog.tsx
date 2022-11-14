@@ -4,12 +4,11 @@ import type { PageProps } from "gatsby"
 import Layout from "../components/Layout"
 import BlogPostPreview from "../components/BlogPostPreview"
 import BlogSidebar from "../components/BlogSidebar"
+import Seo from "../components/Seo"
 
 export const query = graphql`
   query BlogPostListPage {
-    allBlogPost(
-      sort: { fields: [date], order: DESC }
-    ) {
+    allBlogPost(sort: { fields: [date], order: DESC }) {
       nodes {
         id
         ...BlogPostPreview_post
@@ -18,19 +17,16 @@ export const query = graphql`
   }
 `
 
-type Props = PageProps<GatsbyTypes.BlogPostListPageQuery, GatsbyTypes.SitePageContext>
+type Props = PageProps<Queries.BlogPostListPageQuery>
 
 const BlogPostListPage: React.FC<Props> = ({ data }) => {
   return (
-    <Layout title="Blog | GraphQL" pageContext={{}}>
+    <Layout>
       <section>
         <div className="documentationContent">
           <div>
             {data.allBlogPost.nodes.map(post => (
-              <BlogPostPreview
-                key={post.id}
-                post={post}
-              />
+              <BlogPostPreview key={post.id} post={post} />
             ))}
           </div>
           <BlogSidebar />
@@ -38,6 +34,10 @@ const BlogPostListPage: React.FC<Props> = ({ data }) => {
       </section>
     </Layout>
   )
+}
+
+export function Head() {
+  return <Seo title="Blog | GraphQL" />
 }
 
 export default BlogPostListPage

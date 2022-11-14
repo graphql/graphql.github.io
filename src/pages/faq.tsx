@@ -4,8 +4,12 @@ import FAQSection from "../components/FAQSection"
 import type { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import { useFAQAccordion } from "../utils/useFAQAccordion"
+import Seo from "../components/Seo"
 
-export default ({ pageContext, data }: PageProps<GatsbyTypes.GetAllFAQSectionsQuery, GatsbyTypes.SitePageContext>) => {
+export default ({
+  pageContext,
+  data,
+}: PageProps<Queries.GetAllFAQSectionsQuery, { sourcePath: string }>) => {
   useFAQAccordion()
 
   const sections = data.allMarkdownRemark.edges
@@ -20,34 +24,32 @@ export default ({ pageContext, data }: PageProps<GatsbyTypes.GetAllFAQSectionsQu
     })
 
   return (
-    <Layout title="FAQ | GraphQL" pageContext={pageContext}>
-    <section>
-      <div className="documentationContent">
-        <section className="inner-faq-content">
-          <h1>Frequently Asked Questions (FAQ)</h1>
-          <div>
-            {sections.map(
-              (
-                {
-                  frontmatter: { title } = {},
-                  rawMarkdownBody,
-                },
-              i
-            ) => (
-              <FAQSection
-                key={i}
-                title={title!}
-                rawMarkdownBody={rawMarkdownBody!}
-                pageContext={pageContext}
-              />
-            )
-            )}
-          </div>
-        </section>
-      </div>
-    </section>
+    <Layout pageContext={pageContext}>
+      <section>
+        <div className="documentationContent">
+          <section className="inner-faq-content">
+            <h1>Frequently Asked Questions (FAQ)</h1>
+            <div>
+              {sections.map(
+                ({ frontmatter: { title } = {}, rawMarkdownBody }, i) => (
+                  <FAQSection
+                    key={i}
+                    title={title!}
+                    rawMarkdownBody={rawMarkdownBody!}
+                    pageContext={pageContext}
+                  />
+                )
+              )}
+            </div>
+          </section>
+        </div>
+      </section>
     </Layout>
   )
+}
+
+export function Head() {
+  return <Seo title="FAQ | GraphQL" />
 }
 
 export const query = graphql`

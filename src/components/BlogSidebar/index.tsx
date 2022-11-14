@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
 
 const BlogSidebar: React.FC = () => {
-  const data = useStaticQuery<GatsbyTypes.AllTagsStaticQuery>(graphql`
+  const data = useStaticQuery<Queries.AllTagsStaticQuery>(graphql`
     query AllTagsStatic {
       allBlogPost {
         group(field: tags) {
@@ -11,7 +11,7 @@ const BlogSidebar: React.FC = () => {
         }
       }
       allRecentBlogPost: allBlogPost(
-        limit: 30,
+        limit: 30
         sort: { fields: [date], order: DESC }
       ) {
         nodes {
@@ -26,7 +26,7 @@ const BlogSidebar: React.FC = () => {
   const tags = data.allBlogPost.group.map(group => group.fieldValue!)
   const recentPosts = data.allRecentBlogPost.nodes
 
-  const { pathname: currentPath } = useLocation();
+  const { pathname: currentPath } = useLocation()
 
   return (
     <div className="nav-docs blog-sidebar">
@@ -41,7 +41,7 @@ const BlogSidebar: React.FC = () => {
         <ul>
           {tags.map(tag => {
             const formattedTag = tag[0].toUpperCase() + tag.substring(1)
-            const pathname = `/tags/${tag}/`;
+            const pathname = `/tags/${tag}/`
             return (
               <li key={tag}>
                 {pathname === currentPath ? (
