@@ -44,6 +44,6 @@
   "devDependencies": {
     "@types/codemirror": "5.60.5",
     "@types/prismjs": "1.16.6",
-    "prettier": "2.4.1"
+    "prettier": "2.7.1"
   }
 }
