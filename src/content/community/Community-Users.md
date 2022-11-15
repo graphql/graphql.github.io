@@ -54,6 +54,7 @@ The following channels are maintained by vendors, and may be a good place to fin
 * [ChilliCream Slack](http://slack.chillicream.com/)
 * [Graphile Discord](https://discord.gg/graphile)
 * [Prisma Slack](https://slack.prisma.io/)
+* [Stellate Discord](https://go.stellate.co/community)
 
 ## Blogs and Newsletters
 
