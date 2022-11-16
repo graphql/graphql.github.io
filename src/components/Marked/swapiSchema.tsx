@@ -383,10 +383,10 @@ const resolvers = {
   Character: {
     __resolveType(data, context, info){
       if(humanData[data.id]){
-        return info.schema.getType('Human');
+        return 'Human';
       }
       if(droidData[data.id]){
-        return info.schema.getType('Droid');
+        return 'Droid';
       }
       return null;
     },
@@ -467,13 +467,13 @@ const resolvers = {
   SearchResult: {
     __resolveType(data, context, info){
       if(humanData[data.id]){
-        return info.schema.getType('Human');
+        return 'Human';
       }
       if(droidData[data.id]){
-        return info.schema.getType('Droid');
+        return 'Droid';
       }
       if(starshipData[data.id]){
-        return info.schema.getType('Starship');
+        return 'Starship';
       }
       return null;
     },
