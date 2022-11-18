@@ -18,6 +18,7 @@ A number of GraphQL training courses are available.
 * [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course, developed by [Linux Foundation Training](https://training.linuxfoundation.org)
 * [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
 * [Apollo Odyssey](https://apollographql.com/tutorials/): Interactive courses for building GraphQL applications with Apollo's toolset
+* [Yoga GraphQL Server Tutorial](https://the-guild.dev/graphql/yoga-server/tutorial): Open source tutorial for creating modern GraphQL Servers in Node, CF Workers, Deno and others
 
 ## Where to ask questions
 
@@ -54,6 +55,7 @@ The following channels are maintained by vendors, and may be a good place to fin
 * [ChilliCream Slack](http://slack.chillicream.com/)
 * [Graphile Discord](https://discord.gg/graphile)
 * [Prisma Slack](https://slack.prisma.io/)
+* [Stellate Discord](https://go.stellate.co/community)
 
 ## Blogs and Newsletters
 

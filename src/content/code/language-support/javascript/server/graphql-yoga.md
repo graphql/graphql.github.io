@@ -3,7 +3,7 @@ name: graphql-yoga
 description: GraphQL Yoga is a batteries-included cross-platform GraphQL over HTTP spec-compliant GraphQL Server using Envelop and GraphQL Tools.
 url: https://github.com/dotansimha/graphql-yoga
 github: dotansimha/graphql-yoga
-npm: "@graphql-yoga/common"
+npm: "graphql-yoga"
 ---
 
 - Built around the Fetch API `Request` & `Response` objects
@@ -16,30 +16,33 @@ npm: "@graphql-yoga/common"
 To run a hello world server with graphql-yoga:
 
 ```bash
-npm install @graphql-yoga/node graphql
+npm install graphql-yoga graphql
 ```
 
 Then create a server using the `createServer` import:
 
 ```js
-import { createServer } from '@graphql-yoga/node'
+import { createServer } from 'http'
+import { createSchema, createYoga } from 'graphql-yoga'
 
-const server = createServer({
-  schema: {
-    typeDefs: /* GraphQL */ `
-      type Query {
-        hello: String
-      }
-    `,
-    resolvers: {
-      Query: {
-        hello: () => 'Hello Hello Hello',
+createServer(
+  createYoga({
+    schema: createSchema({
+      typeDefs: /* GraphQL */ `
+        type Query {
+          hello: String
+        }
+      `,
+      resolvers: {
+        Query: {
+          hello: () => 'Hello Hello Hello',
+        },
       },
-    },
-  },
+    })
+  })
+).listen(4000, () => {
+  console.info('GraphQL Yoga is listening on http://localhost:4000/graphql')
 })
-
-server.start()
 ```
 
 Depending on your deployment target, you may need to use an additional library. See the [documentation](https://www.graphql-yoga.com/docs) for further details.
