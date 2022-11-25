@@ -24,7 +24,7 @@ export const useFAQAccordion = () => {
   }
 
   useEffect(() => {
-    const hash = window.location.hash ? window.location.hash.split("#")[1] : ""
+    const hash = location.hash ? location.hash.split("#")[1] : ""
 
     if (hash && buttonCreated) {
       const anchor = document && document.getElementById(hash)
@@ -57,19 +57,17 @@ export const useFAQAccordion = () => {
       const element =
         e.target.localName === "button" ? e.target : e.target.parentNode
 
-    
       window.history.replaceState(
         {},
         "",
         "#" + e.target.getElementsByTagName("a")[0].id
       )
       window.history.scrollRestoration = "manual"
+      e.target.classList.toggle("open")
 
       if (e.target.localName === "button") {
-        e.target.classList.toggle("open")
         e.target.getElementsByTagName("h3")[0].classList.toggle("open")
       } else {
-        e.target.classList.toggle("open")
         e.target.parentNode.classList.toggle("open")
       }
 
@@ -79,5 +77,5 @@ export const useFAQAccordion = () => {
     document.addEventListener("click", toggleClasses)
 
     return () => document.removeEventListener("click", toggleClasses)
-  }, [typeof window !== 'undefined' ? window.location.hash : null])
+  }, [typeof window !== 'undefined' ? location.hash : null])
 }

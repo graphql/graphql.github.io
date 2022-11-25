@@ -136,6 +136,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
             <a
               href="https://fonts.google.com/specimen/Rubik?sidebar.open=true&selection.family=Rubik:wght@300&preview.text=GraphQL&preview.text_type=custom"
               target="_blank"
+              rel="noreferrer"
             >
               Rubik Light
             </a>
@@ -147,6 +148,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
                 <a
                   href="https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Open Font License
                 </a>

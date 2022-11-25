@@ -29,9 +29,9 @@ src/content/code
 
 We'd love any new project to include a few paragraphs describing its goals and usage, the goal here is to make it easy for people to decide between options.
 
-Here's an optimal example example of what we're looking for:
+Here's an optimal example of what we're looking for:
 
-- It uses yml frontmatter to provide additional information like repo, npm
+- It uses yaml frontmatter to provide additional information like repo, npm
 - It explains itself in the 'description' then fills fleshes out that description with some code samples
 
 ````md

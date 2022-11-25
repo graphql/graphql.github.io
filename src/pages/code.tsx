@@ -1,6 +1,6 @@
 import type { PageProps } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import Layout from "../components/Layout"
 import Marked from "../components/Marked"
 import Seo from "../components/Seo"
@@ -20,16 +20,16 @@ interface Language {
   name: string
   totalStars: number
   categoryMap: {
-    Client: Array<Library>
-    Server: Array<Library>
+    Client: Library[]
+    Server: Library[]
   }
 }
 
 interface PageContext {
-  languageList: Array<Language>
+  languageList: Language[]
   otherLibraries: {
-    Services: Array<Library>
-    Tools: Array<Library>
+    Services: Library[]
+    Tools: Library[]
   }
   sourcePath: string
 }
@@ -38,7 +38,7 @@ export function buildLanguagesMenu(pageContext: PageContext) {
   return (
     <div className="language-boxes">
       {pageContext.languageList
-        ?.map(langeuage => langeuage?.name!)
+        ?.map(language => language?.name!)
         .filter(Boolean)
         .map(languageName => {
           const slug = toSlug(languageName)
@@ -65,13 +65,22 @@ export function buildLibraryContent(
   return (
     <div className="library-info">
       <div className="library-details">
-        <a className="library-name" href={library.url} target="_blank">
+        <a
+          className="library-name"
+          href={library.url}
+          target="_blank"
+          rel="noreferrer"
+        >
           <p>{library.name}</p>
         </a>
         {library.github && (
           <div className="library-detail">
             <b>GitHub</b>
-            <a href={`https://github.com/${library.github}`} target="_blank">
+            <a
+              href={`https://github.com/${library.github}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               {library.github}
             </a>
           </div>
@@ -93,6 +102,7 @@ export function buildLibraryContent(
             <a
               href={`https://rubygems.org/gems/${library.gem}`}
               target="_blank"
+              rel="noreferrer"
             >
               {library.gem}
             </a>
@@ -180,7 +190,6 @@ export function buildLibraryCategoryContent(
       </div>
     )
   }
-  return
 }
 
 const categorySlugMap = [
@@ -190,52 +199,54 @@ const categorySlugMap = [
 ]
 
 export function buildLanguagesContent(pageContext: any) {
-  const elements = []
-  for (const languageObj of pageContext.languageList) {
-    const languageName = languageObj.name
-    const libraryCategories = languageObj.categoryMap
-    const filteredCategorySlugMap = categorySlugMap.filter(
-      ([libraryCategoryName]) =>
-        libraryCategories[libraryCategoryName as any]?.length
-    )
-    const languageSlug = toSlug(languageName)
-    elements.push(
-      <div className="language-content" id={languageSlug}>
-        <div className="language-header">
-          <h2 className="language-title">{languageName}</h2>
-          {filteredCategorySlugMap.length > 1 && (
-            <p className="language-categories-permalinks">
-              {filteredCategorySlugMap.map(
-                ([libraryCategoryName, categorySlug], i) => (
-                  <>
-                    <AnchorLink
-                      title={`${languageSlug} ${categorySlug}`}
-                      className="language-category-permalink"
-                      to={`#${languageSlug}-${categorySlug}`}
-                    >
-                      {libraryCategoryName}
-                    </AnchorLink>
-                    {i < filteredCategorySlugMap.length - 1 && " / "}
-                  </>
+  return (
+    <div className="languages-content">
+      {pageContext.languageList.map(languageObj => {
+        const languageName = languageObj.name
+        const libraryCategories = languageObj.categoryMap
+        const filteredCategorySlugMap = categorySlugMap.filter(
+          ([libraryCategoryName]) =>
+            libraryCategories[libraryCategoryName as any]?.length
+        )
+        const languageSlug = toSlug(languageName)
+        return (
+          <div className="language-content" id={languageSlug}>
+            <div className="language-header">
+              <h2 className="language-title">{languageName}</h2>
+              {filteredCategorySlugMap.length > 1 && (
+                <p className="language-categories-permalinks">
+                  {filteredCategorySlugMap.map(
+                    ([libraryCategoryName, categorySlug], i) => (
+                      <Fragment key={libraryCategoryName}>
+                        <AnchorLink
+                          title={`${languageSlug} ${categorySlug}`}
+                          className="language-category-permalink"
+                          to={`#${languageSlug}-${categorySlug}`}
+                        >
+                          {libraryCategoryName}
+                        </AnchorLink>
+                        {i < filteredCategorySlugMap.length - 1 && " / "}
+                      </Fragment>
+                    )
+                  )}
+                </p>
+              )}
+            </div>
+            <div className="library-categories">
+              {filteredCategorySlugMap.map(([categoryName, categorySlug]) =>
+                buildLibraryCategoryContent(
+                  libraryCategories,
+                  categoryName,
+                  `${languageSlug}-${categorySlug}`,
+                  pageContext
                 )
               )}
-            </p>
-          )}
-        </div>
-        <div className="library-categories">
-          {filteredCategorySlugMap.map(([categoryName, categorySlug]) =>
-            buildLibraryCategoryContent(
-              libraryCategories,
-              categoryName,
-              `${languageSlug}-${categorySlug}`,
-              pageContext
-            )
-          )}
-        </div>
-      </div>
-    )
-  }
-  return <div className="languages-content">{elements}</div>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 
 export default ({ pageContext }: PageProps<{}, PageContext>) => {
