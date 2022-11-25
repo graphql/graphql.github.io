@@ -34,28 +34,6 @@ interface PageContext {
   sourcePath: string
 }
 
-export function buildLanguagesMenu(pageContext: PageContext) {
-  return (
-    <div className="language-boxes">
-      {pageContext.languageList
-        ?.map(language => language?.name!)
-        .filter(Boolean)
-        .map(languageName => {
-          const slug = toSlug(languageName)
-          return (
-            <AnchorLink
-              to={`#${slug}`}
-              className="article language-box"
-              title={languageName}
-            >
-              <span className="article_title">{languageName}</span>
-            </AnchorLink>
-          )
-        })}
-    </div>
-  )
-}
-
 export function buildLibraryContent(
   library: any,
   pageContext: Queries.TagPageQueryVariables
@@ -167,7 +145,10 @@ export function buildLibraryContent(
   )
 }
 
-export function buildLibraryList(libraries: readonly any[], pageContext: any) {
+export function buildLibraryList(
+  libraries: Library[],
+  pageContext: any
+) {
   return (
     <div className="library-list">
       {libraries.map(library => buildLibraryContent(library, pageContext))}
@@ -176,13 +157,13 @@ export function buildLibraryList(libraries: readonly any[], pageContext: any) {
 }
 
 export function buildLibraryCategoryContent(
-  libraryCategories: any[],
-  libraryCategoryName: string,
+  libraryCategories: { Client: Library[]; Server: Library[] },
+  libraryCategoryName: 'Client' | 'Server',
   slug: string,
   pageContext: any
 ) {
   if (libraryCategoryName in libraryCategories) {
-    const libraries = libraryCategories[libraryCategoryName as any]
+    const libraries = libraryCategories[libraryCategoryName]
     return (
       <div id={slug} className="library-category">
         <h3 className="library-category-title">{libraryCategoryName}</h3>
@@ -197,57 +178,6 @@ const categorySlugMap = [
   ["Client", toSlug("Client")],
   ["Tools", toSlug("Tools")],
 ]
-
-export function buildLanguagesContent(pageContext: any) {
-  return (
-    <div className="languages-content">
-      {pageContext.languageList.map(languageObj => {
-        const languageName = languageObj.name
-        const libraryCategories = languageObj.categoryMap
-        const filteredCategorySlugMap = categorySlugMap.filter(
-          ([libraryCategoryName]) =>
-            libraryCategories[libraryCategoryName as any]?.length
-        )
-        const languageSlug = toSlug(languageName)
-        return (
-          <div className="language-content" id={languageSlug}>
-            <div className="language-header">
-              <h2 className="language-title">{languageName}</h2>
-              {filteredCategorySlugMap.length > 1 && (
-                <p className="language-categories-permalinks">
-                  {filteredCategorySlugMap.map(
-                    ([libraryCategoryName, categorySlug], i) => (
-                      <Fragment key={libraryCategoryName}>
-                        <AnchorLink
-                          title={`${languageSlug} ${categorySlug}`}
-                          className="language-category-permalink"
-                          to={`#${languageSlug}-${categorySlug}`}
-                        >
-                          {libraryCategoryName}
-                        </AnchorLink>
-                        {i < filteredCategorySlugMap.length - 1 && " / "}
-                      </Fragment>
-                    )
-                  )}
-                </p>
-              )}
-            </div>
-            <div className="library-categories">
-              {filteredCategorySlugMap.map(([categoryName, categorySlug]) =>
-                buildLibraryCategoryContent(
-                  libraryCategories,
-                  categoryName,
-                  `${languageSlug}-${categorySlug}`,
-                  pageContext
-                )
-              )}
-            </div>
-          </div>
-        )
-      })}
-    </div>
-  )
-}
 
 export default ({ pageContext }: PageProps<{}, PageContext>) => {
   return (
@@ -286,8 +216,73 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
             <p id="language-support" className="languages-title">
               Language Support
             </p>
-            {buildLanguagesMenu(pageContext)}
-            {buildLanguagesContent(pageContext)}
+            <div className="language-boxes">
+              {pageContext.languageList
+                ?.map(language => language?.name!)
+                .filter(Boolean)
+                .map(languageName => {
+                  const slug = toSlug(languageName)
+                  return (
+                    <AnchorLink
+                      to={`#${slug}`}
+                      className="article language-box"
+                      title={languageName}
+                    >
+                      <span className="article_title">{languageName}</span>
+                    </AnchorLink>
+                  )
+                })}
+            </div>
+            <div className="languages-content">
+              {pageContext.languageList.map(lang => {
+                const languageName = lang.name
+                const libraryCategories = lang.categoryMap
+                const filteredCategorySlugMap = categorySlugMap.filter(
+                  ([libraryCategoryName]) =>
+                    libraryCategories[
+                      libraryCategoryName as "Client" | "Server"
+                    ]?.length
+                )
+                const languageSlug = toSlug(languageName)
+                return (
+                  <div className="language-content" id={languageSlug}>
+                    <div className="language-header">
+                      <h2 className="language-title">{languageName}</h2>
+                      {filteredCategorySlugMap.length > 1 && (
+                        <p className="language-categories-permalinks">
+                          {filteredCategorySlugMap.map(
+                            ([libraryCategoryName, categorySlug], i) => (
+                              <Fragment key={libraryCategoryName}>
+                                <AnchorLink
+                                  title={`${languageSlug} ${categorySlug}`}
+                                  className="language-category-permalink"
+                                  to={`#${languageSlug}-${categorySlug}`}
+                                >
+                                  {libraryCategoryName}
+                                </AnchorLink>
+                                {i < filteredCategorySlugMap.length - 1 &&
+                                  " / "}
+                              </Fragment>
+                            )
+                          )}
+                        </p>
+                      )}
+                    </div>
+                    <div className="library-categories">
+                      {filteredCategorySlugMap.map(
+                        ([categoryName, categorySlug]) =>
+                          buildLibraryCategoryContent(
+                            libraryCategories,
+                            categoryName,
+                            `${languageSlug}-${categorySlug}`,
+                            pageContext
+                          )
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
             <h2>
               <a className="anchor" id="generic-tools"></a>
               Tools
