@@ -6,7 +6,7 @@ import Marked from "../components/Marked"
 import Seo from "../components/Seo"
 import { toSlug } from "../utils/slug"
 
-interface Library {
+interface ILibrary {
   description: string
   github?: string
   npm?: string
@@ -14,30 +14,33 @@ interface Library {
   name: string
   sourcePath: string
   url: string
+  gem?: string
+  lastRelease?: string
+  formattedLastRelease?: string
+  stars?: number
+  formattedStars?: string
+  license?: string
 }
 
 interface Language {
   name: string
   totalStars: number
   categoryMap: {
-    Client: Library[]
-    Server: Library[]
+    Client: ILibrary[]
+    Server: ILibrary[]
   }
 }
 
 interface PageContext {
   languageList: Language[]
   otherLibraries: {
-    Services: Library[]
-    Tools: Library[]
+    Services: ILibrary[]
+    Tools: ILibrary[]
   }
   sourcePath: string
 }
 
-export function buildLibraryContent(
-  library: any,
-  pageContext: Queries.TagPageQueryVariables
-) {
+export function Library({ data }: { data: ILibrary }) {
   const [overflown, setOverflown] = useState(false)
   const [expanded, setExpanded] = useState(false)
   return (
@@ -45,68 +48,69 @@ export function buildLibraryContent(
       <div className="library-details">
         <a
           className="library-name"
-          href={library.url}
+          href={data.url}
           target="_blank"
           rel="noreferrer"
         >
-          <p>{library.name}</p>
+          <p>{data.name}</p>
         </a>
-        {library.github && (
+        {data.github && (
           <div className="library-detail">
             <b>GitHub</b>
             <a
-              href={`https://github.com/${library.github}`}
+              href={`https://github.com/${data.github}`}
               target="_blank"
               rel="noreferrer"
             >
-              {library.github}
+              {data.github}
             </a>
           </div>
         )}
-        {library.npm && (
+        {data.npm && (
           <div className="library-detail">
             <b>npm</b>
             <a
-              href={`https://www.npmjs.com/package/${library.npm}`}
-              target="_blank"
-            >
-              {library.npm}
-            </a>
-          </div>
-        )}
-        {library.gem && (
-          <div className="library-detail">
-            <b>gem</b>
-            <a
-              href={`https://rubygems.org/gems/${library.gem}`}
+              href={`https://www.npmjs.com/package/${data.npm}`}
               target="_blank"
               rel="noreferrer"
             >
-              {library.gem}
+              {data.npm}
             </a>
           </div>
         )}
-        {library.lastRelease && (
+        {data.gem && (
+          <div className="library-detail">
+            <b>gem</b>
+            <a
+              href={`https://rubygems.org/gems/${data.gem}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {data.gem}
+            </a>
+          </div>
+        )}
+        {data.lastRelease && (
           <div className="library-detail">
             <b>Last Release</b>
-            <span>{library.formattedLastRelease}</span>
+            <span>{data.formattedLastRelease}</span>
           </div>
         )}
-        {library.stars && (
+        {data.stars && (
           <div className="library-detail">
             <b>Stars</b>
-            <span>{library.formattedStars}</span>
+            <span>{data.formattedStars}</span>
           </div>
         )}
-        {library.license && (
+        {data.license && (
           <div className="library-detail">
             <b>License</b>
-            <span>{library.license}</span>
+            <span>{data.license}</span>
           </div>
         )}
-        {library.howto ? (
+        {data.howto ? (
           <div className="library-description">
-            <Marked pageContext={pageContext}>{library.description}</Marked>
+            <Marked>{data.description}</Marked>
           </div>
         ) : (
           <br />
@@ -123,9 +127,7 @@ export function buildLibraryContent(
             }
           }}
         >
-          <Marked pageContext={pageContext}>
-            {library.howto || library.description}
-          </Marked>
+          <Marked>{data.howto || data.description}</Marked>
         </div>
         {overflown && (
           <div
@@ -145,32 +147,14 @@ export function buildLibraryContent(
   )
 }
 
-export function buildLibraryList(
-  libraries: Library[],
-  pageContext: any
-) {
+export function LibraryList({ data }: { data: ILibrary[] }) {
   return (
     <div className="library-list">
-      {libraries.map(library => buildLibraryContent(library, pageContext))}
+      {data.map(library => (
+        <Library data={library} />
+      ))}
     </div>
   )
-}
-
-export function buildLibraryCategoryContent(
-  libraryCategories: { Client: Library[]; Server: Library[] },
-  libraryCategoryName: 'Client' | 'Server',
-  slug: string,
-  pageContext: any
-) {
-  if (libraryCategoryName in libraryCategories) {
-    const libraries = libraryCategories[libraryCategoryName]
-    return (
-      <div id={slug} className="library-category">
-        <h3 className="library-category-title">{libraryCategoryName}</h3>
-        {buildLibraryList(libraries, pageContext)}
-      </div>
-    )
-  }
 }
 
 const categorySlugMap = [
@@ -271,11 +255,22 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                     <div className="library-categories">
                       {filteredCategorySlugMap.map(
                         ([categoryName, categorySlug]) =>
-                          buildLibraryCategoryContent(
-                            libraryCategories,
-                            categoryName,
-                            `${languageSlug}-${categorySlug}`,
-                            pageContext
+                          categoryName in libraryCategories && (
+                            <div
+                              id={`${languageSlug}-${categorySlug}`}
+                              className="library-category"
+                            >
+                              <h3 className="library-category-title">
+                                {categoryName}
+                              </h3>
+                              <LibraryList
+                                data={
+                                  libraryCategories[
+                                    categoryName as "Client" | "Server"
+                                  ]
+                                }
+                              />
+                            </div>
                           )
                       )}
                     </div>
@@ -290,10 +285,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 #
               </AnchorLink>
             </h2>
-            {buildLibraryList(
-              pageContext.otherLibraries?.Tools ?? [],
-              pageContext
-            )}
+            <LibraryList data={pageContext.otherLibraries?.Tools ?? []} />
             <h2>
               <a className="anchor" id="services"></a>
               Services
@@ -301,10 +293,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 #
               </AnchorLink>
             </h2>
-            {buildLibraryList(
-              pageContext.otherLibraries?.Services ?? [],
-              pageContext
-            )}
+            <LibraryList data={pageContext.otherLibraries?.Services ?? []} />
           </div>
         </div>
         <p>
