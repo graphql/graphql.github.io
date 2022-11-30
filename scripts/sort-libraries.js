@@ -1,12 +1,14 @@
-const fetch = require(`node-fetch`);
-const numbro = require("numbro");
-const timeago = require('timeago.js');
+const fetch = require(`node-fetch`)
+const numbro = require("numbro")
+const timeago = require("timeago.js")
 
 const getGitHubStats = async githubRepo => {
   const [owner, repoName] = githubRepo.split("/")
   const accessToken = process.env.GITHUB_ACCESS_TOKEN
   if (!accessToken) {
-    return {};
+    return {
+      accessToken: false,
+    }
   }
   const query = /* GraphQL */ `
     fragment defaultBranchRefFragment on Ref {
@@ -25,7 +27,7 @@ const getGitHubStats = async githubRepo => {
         }
       }
     }
-    query($owner: String!, $repoName: String!, $since: GitTimestamp!) {
+    query ($owner: String!, $repoName: String!, $since: GitTimestamp!) {
       repositoryOwner(login: $owner) {
         repository(name: $repoName) {
           defaultBranchRef {
@@ -43,12 +45,16 @@ const getGitHubStats = async githubRepo => {
           licenseInfo {
             name
           }
-          releases(last: 1) {
+          releases(first: 1) {
             nodes {
-              publishedAt 
+              publishedAt
             }
           }
-          tags: refs(refPrefix: "refs/tags/", first: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
+          tags: refs(
+            refPrefix: "refs/tags/"
+            first: 1
+            orderBy: { field: TAG_COMMIT_DATE, direction: DESC }
+          ) {
             nodes {
               name
               target {
@@ -81,7 +87,7 @@ const getGitHubStats = async githubRepo => {
   })
   const responseJson = await response.json()
   if (responseJson && responseJson.errors) {
-    throw JSON.stringify(responseJson.errors);
+    throw JSON.stringify(responseJson.errors)
   }
   if (!responseJson || !responseJson.data) {
     throw `GitHub returned empty response for ${owner}/${repoName}`
@@ -97,27 +103,33 @@ const getGitHubStats = async githubRepo => {
   const stars = repo.stargazers.totalCount
   const commitHistory = repo.defaultBranchRef.target.history.edges
 
-  let hasCommitsInLast3Months = false;
+  let hasCommitsInLast3Months = false
   commitHistory.forEach(commit => {
     if (!commit.node.author.name.match(/bot/i)) {
-      hasCommitsInLast3Months = true;
+      hasCommitsInLast3Months = true
     }
   })
   const formattedStars = numbro(stars).format({
     average: true,
-  });
-  
-  const releases = [];
-  if (repo.tags && repo.tags.nodes && repo.tags.nodes.length && repo.tags.nodes[0].target.target && repo.tags.nodes[0].target.target.pushedDate) {
-    releases.push(repo.tags.nodes[0].target.target.pushedDate);
+  })
+
+  const releases = []
+  if (
+    repo.tags &&
+    repo.tags.nodes &&
+    repo.tags.nodes.length &&
+    repo.tags.nodes[0].target.target &&
+    repo.tags.nodes[0].target.target.pushedDate
+  ) {
+    releases.push(repo.tags.nodes[0].target.target.pushedDate)
   }
   if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
     releases.push(repo.releases.nodes[0].publishedAt)
   }
-  if(owner.includes("graphql")) {
+  if (owner.includes("graphql")) {
     console.log({ releases, repoName })
   }
-  
+
   const lastRelease = releases.filter(Boolean).sort().reverse()[0]
 
   return {
@@ -151,32 +163,29 @@ const getGemStats = async packageName => {
 }
 
 const sortLibs = async libs => {
-  let totalStars = 0;
+  let totalStars = 0
   const libsWithScores = await Promise.all(
     libs.map(async lib => {
-      const [
-        npmStats = {},
-        gemStars = {},
-        githubStats = {},
-      ] = await Promise.all([
-        lib.npm && getNpmStats(lib.npm),
-        lib.gem && getGemStats(lib.gem),
-        lib.github && getGitHubStats(lib.github),
-      ])
+      const [npmStats = {}, gemStars = {}, githubStats = {}] =
+        await Promise.all([
+          lib.npm && getNpmStats(lib.npm),
+          lib.gem && getGemStats(lib.gem),
+          lib.github && getGitHubStats(lib.github),
+        ])
       const result = {
         ...lib,
         ...npmStats,
         ...gemStars,
         ...githubStats,
       }
-      totalStars += result.stars || 0;
-      return result;
+      totalStars += result.stars || 0
+      return result
     })
   )
   const sortedLibs = libsWithScores.sort((a, b) => {
     let aScore = 0,
       bScore = 0
-    if ("downloadCount" in a && 'downloadCount' in b) {
+    if ("downloadCount" in a && "downloadCount" in b) {
       if (a.downloadCount > b.downloadCount) {
         aScore += 40
       } else if (b.downloadCount > a.downloadCount) {
@@ -189,7 +198,7 @@ const sortLibs = async libs => {
     if ("hasCommitsInLast3Months" in b && b.hasCommitsInLast3Months) {
       bScore += 30
     }
-    if ('stars' in a && 'stars' in b) {
+    if ("stars" in a && "stars" in b) {
       if (a.stars > b.stars) {
         aScore += 40
       } else if (a.stars < b.stars) {
