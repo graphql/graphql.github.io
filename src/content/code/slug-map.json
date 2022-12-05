@@ -26,5 +26,11 @@
   "client": "Client",
   "server": "Server",
   "tools": "Tools",
-  "services": "Services"
+  "services": "Services",
+  "gqt": "GQT",
+  "graphql-armor": "graphql-armor",
+  "graphql-code-generator": "GraphQL Code Generator",
+  "microcks": "Microcks",
+  "quicktype": "quicktype",
+  "schemathesis": "schemathesis"
 }

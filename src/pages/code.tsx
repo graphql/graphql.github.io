@@ -31,8 +31,17 @@ interface Language {
   }
 }
 
+interface Tool {
+  name: string
+  totalStars: number
+  categoryMap: {
+    GatewayAndSupergraphs: ILibrary[]
+  }
+}
+
 interface PageContext {
   languageList: Language[]
+  toolsList: Tool[]
   otherLibraries: {
     Services: ILibrary[]
     Tools: ILibrary[]
@@ -161,6 +170,7 @@ const categorySlugMap = [
   ["Server", toSlug("Server")],
   ["Client", toSlug("Client")],
   ["Tools", toSlug("Tools")],
+  ["GatewayAndSupergraphs", toSlug("GatewayAndSupergraphs")],
 ]
 
 export default ({ pageContext }: PageProps<{}, PageContext>) => {
@@ -285,7 +295,65 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 #
               </AnchorLink>
             </h2>
-            <LibraryList data={pageContext.otherLibraries?.Tools ?? []} />
+            {pageContext.toolsList.map(tool => {
+              const toolName = tool.name
+              const libraryCategories = tool.categoryMap
+              const filteredCategorySlugMap = categorySlugMap.filter(
+                ([GatewayAndSupergraphs]) =>
+                  libraryCategories[
+                    GatewayAndSupergraphs as "GatewayAndSupergraphs"
+                  ]?.length
+              )
+              const toolSlug = toSlug(toolName)
+              return (
+                <div className="language-content" id={toolSlug}>
+                  <div className="language-header">
+                    <h2 className="language-title">{toolName}</h2>
+                    {filteredCategorySlugMap.length > 1 && (
+                      <p className="language-categories-permalinks">
+                        {filteredCategorySlugMap.map(
+                          ([libraryCategoryName, categorySlug], i) => (
+                            <Fragment key={libraryCategoryName}>
+                              <AnchorLink
+                                title={`${toolSlug} ${categorySlug}`}
+                                className="language-category-permalink"
+                                to={`#${toolSlug}-${categorySlug}`}
+                              >
+                                {libraryCategoryName}
+                              </AnchorLink>
+                              {i < filteredCategorySlugMap.length - 1 && " / "}
+                            </Fragment>
+                          )
+                        )}
+                      </p>
+                    )}
+                  </div>
+                  <div className="library-categories">
+                    {filteredCategorySlugMap.map(
+                      ([categoryName, categorySlug]) =>
+                        categoryName in libraryCategories && (
+                          <div
+                            id={`${toolSlug}-${categorySlug}`}
+                            className="library-category"
+                          >
+                            <h3 className="library-category-title">
+                              {categoryName}
+                            </h3>
+                            <LibraryList
+                              data={
+                                libraryCategories[
+                                  categoryName as "GatewayAndSupergraphs"
+                                ]
+                              }
+                            />
+                          </div>
+                        )
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+            {/* <LibraryList data={pageContext.otherLibraries?.Tools ?? []} /> */}
             <h2>
               <a className="anchor" id="services"></a>
               Services
