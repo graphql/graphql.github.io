@@ -1,12 +1,11 @@
 // @ts-nocheck
 /**
- * marked - a markdown parser
+ * marked - a Markdown parser
  * Copyright (c) 2011-2013, Christopher Jeffrey. (MIT Licensed)
  * https://github.com/chjj/marked
  */
 
 import React from "react"
-import users from "../../pages/users"
 import Prism from "../Prism/index"
 import Header from "./Header"
 

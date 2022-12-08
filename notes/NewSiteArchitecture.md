@@ -8,10 +8,10 @@
 
 This page is effectively a marketing page for GraphQL and should be the visual, scrollable version of the "Introducing GraphQL" conference talks and should be rich with visual metaphor and illustration and take advantage of whitespace to make individual salient points.
 
-Above the fold, this page should succinctly explain what GraphQL is and illustrate with a simple (editable) query/response example. Before scrolling you should understand the following:
+Above the fold, this page should succinctly explain what GraphQL is and illustrate with a simple (editable) query/response example. Before scrolling, you should understand the following:
 
 * GraphQL solves the same problem as REST.
-* GraphQL is an query language for APIs (and not Databases).
+* GraphQL is a query language for APIs (and not Databases).
 * GraphQL is sent by client applications, such as an iOS app.
 * GraphQL is evaluated by a web service and often returned as JSON.
 * GraphQL services provide a complete description of your data with a type system.
