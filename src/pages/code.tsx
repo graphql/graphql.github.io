@@ -31,11 +31,20 @@ interface Language {
   }
 }
 
+interface Tool {
+  name: string
+  totalStars: number
+  categoryMap: {
+    Subgraph: ILibrary[]
+    General: ILibrary[]
+  }
+}
 interface PageContext {
   languageList: Language[]
+  toolList: Tool[]
   otherLibraries: {
     Services: ILibrary[]
-    Tools: ILibrary[]
+    Tools?: ILibrary[]
   }
   sourcePath: string
 }
@@ -147,6 +156,13 @@ export function Library({ data }: { data: ILibrary }) {
   )
 }
 
+const categorySlugMap = [
+  ["Server", toSlug("Server")],
+  ["Client", toSlug("Client")],
+  ["Tools", toSlug("Tools")],
+  ["Subgraph", toSlug("Subgraph")],
+  ["General", toSlug("General")],
+]
 export function LibraryList({ data }: { data: ILibrary[] }) {
   return (
     <div className="library-list">
@@ -157,11 +173,84 @@ export function LibraryList({ data }: { data: ILibrary[] }) {
   )
 }
 
-const categorySlugMap = [
-  ["Server", toSlug("Server")],
-  ["Client", toSlug("Client")],
-  ["Tools", toSlug("Tools")],
-]
+interface ToolsListProps {
+  pageContext: PageContext
+  type: "General" | "Subgraph"
+}
+
+export function ToolsList({ pageContext, type }: ToolsListProps) {
+  const isGeneral = pageContext.toolList.find(tool => tool.categoryMap.General)
+  const isSubgraph = pageContext.toolList.find(
+    tool => tool.categoryMap.Subgraph
+  )
+  switch (type) {
+    case "General":
+      if (isGeneral && type === "General") {
+        return (
+          <>
+            <h2>{type}</h2>
+            <div>
+              {pageContext.toolList.map(tool => {
+                const libraryCategories = tool.categoryMap
+                const filteredCategorySlugMap = categorySlugMap.filter(
+                  ([libraryCategoryName]) =>
+                    libraryCategories[libraryCategoryName as "General"]
+                )
+                return (
+                  <div className="language-content" id={toSlug(tool.name)}>
+                    {filteredCategorySlugMap.map(
+                      ([categoryName]) =>
+                        categoryName in libraryCategories && (
+                          <LibraryList
+                            data={
+                              libraryCategories[categoryName as "General"] ?? []
+                            }
+                          />
+                        )
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </>
+        )
+      }
+    case "Subgraph":
+      if (isSubgraph && type === "Subgraph") {
+        return (
+          <>
+            <h2>{type}</h2>
+            <div>
+              {pageContext.toolList.map(tool => {
+                const libraryCategories = tool.categoryMap
+                const filteredCategorySlugMap = categorySlugMap.filter(
+                  ([libraryCategoryName]) =>
+                    libraryCategories[libraryCategoryName as "Subgraph"]
+                )
+                return (
+                  <div className="language-content" id={toSlug(tool.name)}>
+                    {filteredCategorySlugMap.map(
+                      ([categoryName]) =>
+                        categoryName in libraryCategories && (
+                          <LibraryList
+                            data={
+                              libraryCategories[categoryName as "Subgraph"] ??
+                              []
+                            }
+                          />
+                        )
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          </>
+        )
+      }
+    default:
+      return null
+  }
+}
 
 export default ({ pageContext }: PageProps<{}, PageContext>) => {
   return (
@@ -196,7 +285,6 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 </div>
               </div>
             </div>
-
             <p id="language-support" className="languages-title">
               Language Support
             </p>
@@ -285,7 +373,8 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 #
               </AnchorLink>
             </h2>
-            <LibraryList data={pageContext.otherLibraries?.Tools ?? []} />
+            <ToolsList pageContext={pageContext} type={"General"} />
+            <ToolsList pageContext={pageContext} type={"Subgraph"} />
             <h2>
               <a className="anchor" id="services"></a>
               Services

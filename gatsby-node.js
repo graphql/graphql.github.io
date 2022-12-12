@@ -6,13 +6,11 @@ const { readFile } = require("fs-extra")
 const { promisify } = require("util")
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
-  const gql = String.raw;
-  const { createTypes } = actions;
+  const gql = String.raw
+  const { createTypes } = actions
 
   createTypes(gql`
-    type BlogPost implements Node
-      @childOf(types: ["MarkdownRemark"])
-    {
+    type BlogPost implements Node @childOf(types: ["MarkdownRemark"]) {
       postId: String!
       title: String!
       tags: [String!]!
@@ -21,8 +19,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       guestBio: String
       remark: MarkdownRemark! @link # backlink to the parent
     }
-  `);
-};
+  `)
+}
 
 // Transform nodes, each of logic inside here can be extracted to a separated plugin later.
 exports.onCreateNode = async ({
@@ -32,32 +30,34 @@ exports.onCreateNode = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const { createNode, createParentChildLink } = actions;
+  const { createNode, createParentChildLink } = actions
 
   // Derive content nodes from remark nodes
-  if (node.internal.type === 'MarkdownRemark') {
-    if (node.frontmatter.layout === 'blog') {
-      const nodeId = createNodeId(`${node.id} >>> BlogPost`);
+  if (node.internal.type === "MarkdownRemark") {
+    if (node.frontmatter.layout === "blog") {
+      const nodeId = createNodeId(`${node.id} >>> BlogPost`)
 
-      const permalink = node.frontmatter.permalink;
-      if (!permalink?.startsWith('/blog/')) {
-        reporter.panicOnBuild(`${permalink} is not valid permalink for blog post`);
-        return;
+      const permalink = node.frontmatter.permalink
+      if (!permalink?.startsWith("/blog/")) {
+        reporter.panicOnBuild(
+          `${permalink} is not valid permalink for blog post`
+        )
+        return
       }
 
       // It contains a kind of transform logic. However, those logics can be extracted to resolvers into ahead of sourcing (createTypes)
       const blogPostContent = {
         id: nodeId,
-        postId: permalink.replace('/blog/', '').replace(/\/$/, ''),
+        postId: permalink.replace("/blog/", "").replace(/\/$/, ""),
         title: node.frontmatter.title,
         tags: node.frontmatter.tags ?? [],
         date: node.frontmatter.date,
-        authors: (node.frontmatter.byline ?? '')
-          .split(',')
+        authors: (node.frontmatter.byline ?? "")
+          .split(",")
           .map(name => name.trim())
           .filter(Boolean),
         guestBio: node.frontmatter.guestBio ?? null,
-      };
+      }
 
       createNode({
         ...blogPostContent,
@@ -65,27 +65,27 @@ exports.onCreateNode = async ({
         parent: node.id,
         children: [],
         internal: {
-          type: 'BlogPost',
+          type: "BlogPost",
           contentDigest: createContentDigest(blogPostContent),
         },
-      });
+      })
 
       createParentChildLink({
         parent: node,
         child: blogPostContent,
-      });
+      })
     }
   }
-};
+}
 
 exports.onCreatePage = async ({ page, actions }) => {
   // trying to refactor code to be "the Gatsby way".
   // from the paths on ready, ignores a bunch of existing custom logic below.
-  if (page.path.startsWith('/blog')) {
-    return;
+  if (page.path.startsWith("/blog")) {
+    return
   }
-  if (page.path.startsWith('/tags')) {
-    return;
+  if (page.path.startsWith("/tags")) {
+    return
   }
 
   const { createPage, deletePage } = actions
@@ -108,7 +108,10 @@ exports.onCreatePage = async ({ page, actions }) => {
         } = await parse$(markdownFileContent, undefined)
         howto = howto.trim()
         const pathArr = markdownFilePath.split("/")
-        if (markdownFilePath.includes("language-support")) {
+        if (
+          markdownFilePath.includes("language-support") ||
+          markdownFilePath.includes("tools")
+        ) {
           const languageSupportDirIndex = pathArr.indexOf("language-support")
           const languageNameSlugIndex = languageSupportDirIndex + 1
           const languageNameSlug = pathArr[languageNameSlugIndex]
@@ -123,6 +126,28 @@ exports.onCreatePage = async ({ page, actions }) => {
           codeData.Languages[languageName][categoryName] =
             codeData.Languages[languageName][categoryName] || []
           codeData.Languages[languageName][categoryName].push({
+            name,
+            description,
+            howto,
+            url,
+            github,
+            npm,
+            gem,
+            sourcePath: markdownFilePath,
+          })
+          const toolSupportDirIndex = pathArr.indexOf("tools")
+          const toolNameSlugIndex = toolSupportDirIndex + 1
+          const toolNameSlug = pathArr[toolNameSlugIndex]
+          const toolName = slugMap[toolNameSlug]
+          codeData.ToolsNew = codeData.ToolsNew || {}
+          codeData.ToolsNew[toolName] = codeData.ToolsNew[toolName] || {}
+          const categoryToolsNameSlugIndex = toolSupportDirIndex + 2
+          const categoryToolsNameSlug = pathArr[categoryToolsNameSlugIndex]
+          const categoryToolsName = slugMap[categoryToolsNameSlug]
+          codeData.ToolsNew[toolName][categoryToolsName] =
+            codeData.ToolsNew[toolName][categoryToolsName] || []
+
+          codeData.ToolsNew[toolName][categoryToolsName].push({
             name,
             description,
             howto,
@@ -152,7 +177,7 @@ exports.onCreatePage = async ({ page, actions }) => {
       })
     )
     const languageList = []
-    let sortedTools = []
+    const toolList = []
     await Promise.all([
       Promise.all(
         Object.keys(codeData.Languages).map(async languageName => {
@@ -173,19 +198,42 @@ exports.onCreatePage = async ({ page, actions }) => {
           })
         })
       ),
-      sortLibs(codeData.Tools).then(({ sortedLibs }) => {
-        sortedTools = sortedLibs
-      }),
-    ])
 
+      Promise.all(
+        Object.keys(codeData.ToolsNew).map(async toolName => {
+          const toolCategoryMap = codeData.ToolsNew[toolName]
+          let toolTotalStars = 0
+          await Promise.all(
+            Object.keys(toolCategoryMap).map(async toolCategoryName => {
+              const libraries = toolCategoryMap[toolCategoryName]
+              const { sortedLibs, totalStars } = await sortLibs(libraries)
+              toolCategoryMap[toolCategoryName] = sortedLibs
+              toolTotalStars += totalStars || 0
+            })
+          )
+          toolList.push({
+            name: toolName,
+            totalStars: toolTotalStars,
+            categoryMap: toolCategoryMap,
+          })
+        })
+      ),
+    ])
     context = {
       ...context,
       otherLibraries: {
         Services: codeData.Services,
-        Tools: sortedTools,
         "More Stuff": codeData["More Stuff"],
       },
       languageList: languageList.sort((a, b) => {
+        if (a.totalStars > b.totalStars) {
+          return -1
+        } else if (a.totalStars < b.totalStars) {
+          return 1
+        }
+        return 0
+      }),
+      toolList: toolList.sort((a, b) => {
         if (a.totalStars > b.totalStars) {
           return -1
         } else if (a.totalStars < b.totalStars) {
@@ -400,10 +448,8 @@ exports.createPages = async ({ graphql, actions }) => {
     let i = 0
     while (page && i++ < 1000) {
       const { frontmatter } = page
-      const {
-        category: definedCategory,
-        next: definedNextPageUrl,
-      } = frontmatter
+      const { category: definedCategory, next: definedNextPageUrl } =
+        frontmatter
       let category = definedCategory || folder
       if (!currentCategory || category !== currentCategory.name) {
         if (currentCategory) {
@@ -444,27 +490,27 @@ exports.createPages = async ({ graphql, actions }) => {
   // Use all the set up data to now tell Gatsby to create pages
   // on the site
   allPages
-    .filter(page => !page.permalink.startsWith('/blog'))
+    .filter(page => !page.permalink.startsWith("/blog"))
     .forEach(page => {
-    createPage({
-      path: `${page.permalink}`,
-      component: docTemplate,
-      context: {
-        permalink: page.permalink,
-        nextPermalink: page.nextPermalink,
-        sideBarData: sideBardata[page.relativeDirectory],
-        sourcePath: page.sourcePath,
-      },
+      createPage({
+        path: `${page.permalink}`,
+        component: docTemplate,
+        context: {
+          permalink: page.permalink,
+          nextPermalink: page.nextPermalink,
+          sideBarData: sideBardata[page.relativeDirectory],
+          sourcePath: page.sourcePath,
+        },
+      })
     })
-  })
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       fallback: {
-        "assert": require.resolve("assert/"),
-      }
-    }
+        assert: require.resolve("assert/"),
+      },
+    },
   })
 }
