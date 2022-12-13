@@ -5,7 +5,9 @@ const frontmatterParser = require("parser-front-matter")
 const { readFile } = require("fs-extra")
 const { promisify } = require("util")
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+const parse$ = promisify(frontmatterParser.parse)
+
+exports.createSchemaCustomization = ({ actions }) => {
   const gql = String.raw
   const { createTypes } = actions
 
@@ -98,7 +100,6 @@ exports.onCreatePage = async ({ page, actions }) => {
     const markdownFilePaths = await globby("src/content/code/**/*.md")
     const codeData = {}
     const slugMap = require("./src/content/code/slug-map.json")
-    const parse$ = promisify(frontmatterParser.parse)
     await Promise.all(
       markdownFilePaths.map(async markdownFilePath => {
         const markdownFileContent = await readFile(markdownFilePath, "utf-8")
@@ -116,15 +117,13 @@ exports.onCreatePage = async ({ page, actions }) => {
           const languageNameSlugIndex = languageSupportDirIndex + 1
           const languageNameSlug = pathArr[languageNameSlugIndex]
           const languageName = slugMap[languageNameSlug]
-          codeData.Languages = codeData.Languages || {}
-          codeData.Languages[languageName] =
-            codeData.Languages[languageName] || {}
+          codeData.Languages ||= {}
+          codeData.Languages[languageName] ||= {}
 
           const categoryNameSlugIndex = languageSupportDirIndex + 2
           const categoryNameSlug = pathArr[categoryNameSlugIndex]
           const categoryName = slugMap[categoryNameSlug]
-          codeData.Languages[languageName][categoryName] =
-            codeData.Languages[languageName][categoryName] || []
+          codeData.Languages[languageName][categoryName] ||= []
           codeData.Languages[languageName][categoryName].push({
             name,
             description,
@@ -139,13 +138,12 @@ exports.onCreatePage = async ({ page, actions }) => {
           const toolNameSlugIndex = toolSupportDirIndex + 1
           const toolNameSlug = pathArr[toolNameSlugIndex]
           const toolName = slugMap[toolNameSlug]
-          codeData.ToolsNew = codeData.ToolsNew || {}
-          codeData.ToolsNew[toolName] = codeData.ToolsNew[toolName] || {}
+          codeData.ToolsNew ||= {}
+          codeData.ToolsNew[toolName] ||= {}
           const categoryToolsNameSlugIndex = toolSupportDirIndex + 2
           const categoryToolsNameSlug = pathArr[categoryToolsNameSlugIndex]
           const categoryToolsName = slugMap[categoryToolsNameSlug]
-          codeData.ToolsNew[toolName][categoryToolsName] =
-            codeData.ToolsNew[toolName][categoryToolsName] || []
+          codeData.ToolsNew[toolName][categoryToolsName] ||= []
 
           codeData.ToolsNew[toolName][categoryToolsName].push({
             name,
@@ -162,7 +160,7 @@ exports.onCreatePage = async ({ page, actions }) => {
           const categoryNameSlugIndex = codeDirIndex + 1
           const categoryNameSlug = pathArr[categoryNameSlugIndex]
           const categoryName = slugMap[categoryNameSlug]
-          codeData[categoryName] = codeData[categoryName] || []
+          codeData[categoryName] ||= []
           codeData[categoryName].push({
             name,
             description,
@@ -216,7 +214,8 @@ exports.onCreatePage = async ({ page, actions }) => {
       }),
     ])
 
-    console.log("codeData.Languages", codeData.Languages.undefined.undefined)
+    console.log("codeData.Languages", codeData.Languages)
+    console.log("codeData.Languages.undefined.undefined", codeData.Languages.undefined.undefined)
     context = {
       ...context,
       otherLibraries: {
@@ -243,18 +242,18 @@ exports.onCreatePage = async ({ page, actions }) => {
       }),
     }
     console.log("toolList", context.toolList)
-    console.log(
-      "categoryMap",
-      context.toolList.map(tool => tool.categoryMap)
-    )
-    console.log(
-      "categoryMap.General",
-      context.toolList.map(tool => tool.categoryMap.General)
-    )
-    console.log(
-      "categoryMap.Subgraph",
-      context.toolList.map(tool => tool.categoryMap.Subgraph)
-    )
+    // console.log(
+    //   "categoryMap",
+    //   context.toolList.map(tool => tool.categoryMap)
+    // )
+    // console.log(
+    //   "categoryMap.General",
+    //   context.toolList.filter(tool => tool.categoryMap.General)
+    // )
+    // console.log(
+    //   "categoryMap.Subgraph",
+    //   context.toolList.filter(tool => tool.categoryMap.Subgraph)
+    // )
   }
   createPage({
     ...page,
@@ -308,7 +307,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const tags = result.data.allBlogPost.group.map(group => group.fieldValue)
-  tags.forEach(tag => {
+  for (const tag of tags) {
     createPage({
       path: `/tags/${tag.toLowerCase()}/`,
       component: path.resolve("./src/templates/{BlogPost.tags}.tsx"),
@@ -316,7 +315,7 @@ exports.createPages = async ({ graphql, actions }) => {
         tag,
       },
     })
-  })
+  }
 
   const markdownPages = result.data.allMarkdownRemark.edges
 
