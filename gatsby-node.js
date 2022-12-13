@@ -179,46 +179,44 @@ exports.onCreatePage = async ({ page, actions }) => {
     const languageList = []
     const toolList = []
     await Promise.all([
-      Promise.all(
-        Object.keys(codeData.Languages).map(async languageName => {
-          const libraryCategoryMap = codeData.Languages[languageName]
-          let languageTotalStars = 0
-          await Promise.all(
-            Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
-              const libraries = libraryCategoryMap[libraryCategoryName]
-              const { sortedLibs, totalStars } = await sortLibs(libraries)
-              libraryCategoryMap[libraryCategoryName] = sortedLibs
-              languageTotalStars += totalStars || 0
-            })
-          )
-          languageList.push({
-            name: languageName,
-            totalStars: languageTotalStars,
-            categoryMap: libraryCategoryMap,
+      ...Object.keys(codeData.Languages).map(async languageName => {
+        const libraryCategoryMap = codeData.Languages[languageName]
+        let languageTotalStars = 0
+        await Promise.all(
+          Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
+            const libraries = libraryCategoryMap[libraryCategoryName]
+            const { sortedLibs, totalStars } = await sortLibs(libraries)
+            libraryCategoryMap[libraryCategoryName] = sortedLibs
+            languageTotalStars += totalStars || 0
           })
+        )
+        languageList.push({
+          name: languageName,
+          totalStars: languageTotalStars,
+          categoryMap: libraryCategoryMap,
         })
-      ),
+      }),
 
-      Promise.all(
-        Object.keys(codeData.ToolsNew).map(async toolName => {
-          const toolCategoryMap = codeData.ToolsNew[toolName]
-          let toolTotalStars = 0
-          await Promise.all(
-            Object.keys(toolCategoryMap).map(async toolCategoryName => {
-              const libraries = toolCategoryMap[toolCategoryName]
-              const { sortedLibs, totalStars } = await sortLibs(libraries)
-              toolCategoryMap[toolCategoryName] = sortedLibs
-              toolTotalStars += totalStars || 0
-            })
-          )
-          toolList.push({
-            name: toolName,
-            totalStars: toolTotalStars,
-            categoryMap: toolCategoryMap,
+      ...Object.keys(codeData.ToolsNew).map(async toolName => {
+        const toolCategoryMap = codeData.ToolsNew[toolName]
+        let toolTotalStars = 0
+        await Promise.all(
+          Object.keys(toolCategoryMap).map(async toolCategoryName => {
+            const libraries = toolCategoryMap[toolCategoryName]
+            const { sortedLibs, totalStars } = await sortLibs(libraries)
+            toolCategoryMap[toolCategoryName] = sortedLibs
+            toolTotalStars += totalStars || 0
           })
+        )
+        toolList.push({
+          name: toolName,
+          totalStars: toolTotalStars,
+          categoryMap: toolCategoryMap,
         })
-      ),
+      }),
     ])
+
+    console.log("codeData.Languages", codeData.Languages.undefined.undefined)
     context = {
       ...context,
       otherLibraries: {
@@ -242,6 +240,19 @@ exports.onCreatePage = async ({ page, actions }) => {
         return 0
       }),
     }
+    console.log("toolList", context.toolList)
+    console.log(
+      "categoryMap",
+      context.toolList.map(tool => tool.categoryMap)
+    )
+    console.log(
+      "categoryMap.General",
+      context.toolList.map(tool => tool.categoryMap.General)
+    )
+    console.log(
+      "categoryMap.Subgraph",
+      context.toolList.map(tool => tool.categoryMap.Subgraph)
+    )
   }
   createPage({
     ...page,
