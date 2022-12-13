@@ -108,9 +108,7 @@ exports.onCreatePage = async ({ page, actions }) => {
         } = await parse$(markdownFileContent)
         howto = howto.trim()
         const pathArr = markdownFilePath.split("/")
-        if (
-          markdownFilePath.includes("language-support")
-        ) {
+        if (markdownFilePath.includes("language-support")) {
           const languageSupportDirIndex = pathArr.indexOf("language-support")
           const languageNameSlugIndex = languageSupportDirIndex + 1
           const languageNameSlug = pathArr[languageNameSlugIndex]
@@ -212,7 +210,6 @@ exports.onCreatePage = async ({ page, actions }) => {
       }),
     ])
 
-    console.log("codeData.Languages", codeData.Languages)
     context = {
       ...context,
       otherLibraries: {
@@ -238,19 +235,6 @@ exports.onCreatePage = async ({ page, actions }) => {
         return 0
       }),
     }
-    console.log("toolList", context.toolList)
-    // console.log(
-    //   "categoryMap",
-    //   context.toolList.map(tool => tool.categoryMap)
-    // )
-    // console.log(
-    //   "categoryMap.General",
-    //   context.toolList.filter(tool => tool.categoryMap.General)
-    // )
-    // console.log(
-    //   "categoryMap.Subgraph",
-    //   context.toolList.filter(tool => tool.categoryMap.Subgraph)
-    // )
   }
   createPage({
     ...page,
@@ -390,16 +374,11 @@ exports.createPages = async ({ graphql, actions }) => {
       return
     }
 
-    if (!pagesGroupedByFolder[relativeDirectory]) {
-      pagesGroupedByFolder = {
-        ...pagesGroupedByFolder,
-        [relativeDirectory]: [node],
-      }
-    } else {
-      pagesGroupedByFolder = {
-        ...pagesGroupedByFolder,
-        [relativeDirectory]: [...pagesGroupedByFolder[relativeDirectory], node],
-      }
+    pagesGroupedByFolder = {
+      ...pagesGroupedByFolder,
+      [relativeDirectory]: pagesGroupedByFolder[relativeDirectory]
+        ? [...pagesGroupedByFolder[relativeDirectory], node]
+        : [node],
     }
 
     allPages.push({
