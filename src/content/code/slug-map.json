@@ -33,6 +33,6 @@
   "microcks": "Microcks",
   "quicktype": "QuickType",
   "schemathesis": "Schemathesis",
-  "Subgraph": "Subgraph",
-  "General": "General"
+  "subgraph": "Subgraph",
+  "general": "General"
 }

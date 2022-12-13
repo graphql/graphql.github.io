@@ -1,9 +1,9 @@
-const path = require("path")
+const path = require("node:path")
 const sortLibs = require("./scripts/sort-libraries")
 const globby = require("globby")
 const frontmatterParser = require("parser-front-matter")
-const { readFile } = require("fs-extra")
-const { promisify } = require("util")
+const { readFile } = require("node:fs/promises")
+const { promisify } = require("node:util")
 
 const parse$ = promisify(frontmatterParser.parse)
 
@@ -35,48 +35,47 @@ exports.onCreateNode = async ({
   const { createNode, createParentChildLink } = actions
 
   // Derive content nodes from remark nodes
-  if (node.internal.type === "MarkdownRemark") {
-    if (node.frontmatter.layout === "blog") {
-      const nodeId = createNodeId(`${node.id} >>> BlogPost`)
+  if (
+    node.internal.type === "MarkdownRemark" &&
+    node.frontmatter.layout === "blog"
+  ) {
+    const nodeId = createNodeId(`${node.id} >>> BlogPost`)
 
-      const permalink = node.frontmatter.permalink
-      if (!permalink?.startsWith("/blog/")) {
-        reporter.panicOnBuild(
-          `${permalink} is not valid permalink for blog post`
-        )
-        return
-      }
-
-      // It contains a kind of transform logic. However, those logics can be extracted to resolvers into ahead of sourcing (createTypes)
-      const blogPostContent = {
-        id: nodeId,
-        postId: permalink.replace("/blog/", "").replace(/\/$/, ""),
-        title: node.frontmatter.title,
-        tags: node.frontmatter.tags ?? [],
-        date: node.frontmatter.date,
-        authors: (node.frontmatter.byline ?? "")
-          .split(",")
-          .map(name => name.trim())
-          .filter(Boolean),
-        guestBio: node.frontmatter.guestBio ?? null,
-      }
-
-      createNode({
-        ...blogPostContent,
-        remark: node.id,
-        parent: node.id,
-        children: [],
-        internal: {
-          type: "BlogPost",
-          contentDigest: createContentDigest(blogPostContent),
-        },
-      })
-
-      createParentChildLink({
-        parent: node,
-        child: blogPostContent,
-      })
+    const { permalink } = node.frontmatter
+    if (!permalink?.startsWith("/blog/")) {
+      reporter.panicOnBuild(`${permalink} is not valid permalink for blog post`)
+      return
     }
+
+    // It contains a kind of transform logic. However, those logics can be extracted to resolvers into ahead of sourcing (createTypes)
+    const blogPostContent = {
+      id: nodeId,
+      postId: permalink.replace("/blog/", "").replace(/\/$/, ""),
+      title: node.frontmatter.title,
+      tags: node.frontmatter.tags ?? [],
+      date: node.frontmatter.date,
+      authors: (node.frontmatter.byline ?? "")
+        .split(",")
+        .map(name => name.trim())
+        .filter(Boolean),
+      guestBio: node.frontmatter.guestBio ?? null,
+    }
+
+    createNode({
+      ...blogPostContent,
+      remark: node.id,
+      parent: node.id,
+      children: [],
+      internal: {
+        type: "BlogPost",
+        contentDigest: createContentDigest(blogPostContent),
+      },
+    })
+
+    createParentChildLink({
+      parent: node,
+      child: blogPostContent,
+    })
   }
 }
 
@@ -106,12 +105,11 @@ exports.onCreatePage = async ({ page, actions }) => {
         let {
           data: { name, description, url, github, npm, gem },
           content: howto,
-        } = await parse$(markdownFileContent, undefined)
+        } = await parse$(markdownFileContent)
         howto = howto.trim()
         const pathArr = markdownFilePath.split("/")
         if (
-          markdownFilePath.includes("language-support") ||
-          markdownFilePath.includes("tools")
+          markdownFilePath.includes("language-support")
         ) {
           const languageSupportDirIndex = pathArr.indexOf("language-support")
           const languageNameSlugIndex = languageSupportDirIndex + 1
@@ -134,6 +132,7 @@ exports.onCreatePage = async ({ page, actions }) => {
             gem,
             sourcePath: markdownFilePath,
           })
+        } else if (markdownFilePath.includes("tools")) {
           const toolSupportDirIndex = pathArr.indexOf("tools")
           const toolNameSlugIndex = toolSupportDirIndex + 1
           const toolNameSlug = pathArr[toolNameSlugIndex]
@@ -194,7 +193,6 @@ exports.onCreatePage = async ({ page, actions }) => {
           categoryMap: libraryCategoryMap,
         })
       }),
-
       ...Object.keys(codeData.ToolsNew).map(async toolName => {
         const toolCategoryMap = codeData.ToolsNew[toolName]
         let toolTotalStars = 0
@@ -215,7 +213,6 @@ exports.onCreatePage = async ({ page, actions }) => {
     ])
 
     console.log("codeData.Languages", codeData.Languages)
-    console.log("codeData.Languages.undefined.undefined", codeData.Languages.undefined.undefined)
     context = {
       ...context,
       otherLibraries: {
