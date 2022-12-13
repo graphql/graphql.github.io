@@ -161,7 +161,7 @@ const categorySlugMap = [
   ["Server", toSlug("Server")],
   ["Client", toSlug("Client")],
   ["Tools", toSlug("Tools")],
-  ["Subgraph", toSlug("Subgraph")],
+  ["Supergraphs", toSlug("Supergraphs")],
   ["General", toSlug("General")],
 ]
 
@@ -177,13 +177,13 @@ export function LibraryList({ data }: { data: ILibrary[] }) {
 
 interface ToolsListProps {
   pageContext: PageContext
-  type: "General" | "Subgraph"
+  type: "General" | "Supergraphs"
 }
 
 export function ToolsList({ pageContext, type }: ToolsListProps) {
   return (
     <>
-      <h2>{type}</h2>
+      <h3 className="library-category-title">{type}</h3>
       <div>
         {pageContext.toolList.map(tool => (
           <div
@@ -324,7 +324,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
               </AnchorLink>
             </h2>
             <ToolsList pageContext={pageContext} type="General" />
-            <ToolsList pageContext={pageContext} type="Subgraph" />
+            <ToolsList pageContext={pageContext} type="Supergraphs" />
             <h2>
               <a className="anchor" id="services"></a>
               Services
