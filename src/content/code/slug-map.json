@@ -34,5 +34,6 @@
   "quicktype": "QuickType",
   "schemathesis": "Schemathesis",
   "supergraphs": "Supergraphs",
-  "general": "General"
+  "general": "General",
+  "wundergraph": "WunderGraph"
 }

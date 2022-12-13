@@ -196,8 +196,8 @@ exports.onCreatePage = async ({ page, actions }) => {
         let toolTotalStars = 0
         await Promise.all(
           Object.keys(toolCategoryMap).map(async toolCategoryName => {
-            const libraries = toolCategoryMap[toolCategoryName]
-            const { sortedLibs, totalStars } = await sortLibs(libraries)
+            const tools = toolCategoryMap[toolCategoryName]
+            const { sortedLibs, totalStars } = await sortLibs(tools)
             toolCategoryMap[toolCategoryName] = sortedLibs
             toolTotalStars += totalStars || 0
           })
