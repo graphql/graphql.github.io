@@ -226,7 +226,8 @@ exports.onCreatePage = async ({ page, actions }) => {
       languageList: languageList.sort((a, b) => {
         if (a.totalStars > b.totalStars) {
           return -1
-        } else if (a.totalStars < b.totalStars) {
+        }
+        if (a.totalStars < b.totalStars) {
           return 1
         }
         return 0
@@ -234,7 +235,8 @@ exports.onCreatePage = async ({ page, actions }) => {
       toolList: toolList.sort((a, b) => {
         if (a.totalStars > b.totalStars) {
           return -1
-        } else if (a.totalStars < b.totalStars) {
+        }
+        if (a.totalStars < b.totalStars) {
           return 1
         }
         return 0
@@ -423,7 +425,8 @@ exports.createPages = async ({ graphql, actions }) => {
       const bDate = new Date(b.frontmatter.date || Date.now())
       if (aDate > bDate) {
         return -1
-      } else if (aDate < bDate) {
+      }
+      if (aDate < bDate) {
         return 1
       }
       return 0
@@ -444,7 +447,6 @@ exports.createPages = async ({ graphql, actions }) => {
       const permalink = page.frontmatter.permalink
       if (!previousPagesMap[permalink] && !firstPage) {
         firstPage = page
-        return
       }
     })
 
@@ -500,9 +502,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Use all the set up data to now tell Gatsby to create pages
   // on the site
-  allPages
-    .filter(page => !page.permalink.startsWith("/blog"))
-    .forEach(page => {
+  for (const page of allPages) {
+    if (!page.permalink.startsWith("/blog")) {
       createPage({
         path: `${page.permalink}`,
         component: docTemplate,
@@ -513,7 +514,8 @@ exports.createPages = async ({ graphql, actions }) => {
           sourcePath: page.sourcePath,
         },
       })
-    })
+    }
+  }
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
