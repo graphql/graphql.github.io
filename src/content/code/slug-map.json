@@ -33,7 +33,7 @@
   "microcks": "Microcks",
   "quicktype": "QuickType",
   "schemathesis": "Schemathesis",
-  "supergraphs": "Supergraphs",
+  "gateways-supergraphs": "GatewaysAndSupergraphs",
   "general": "General",
   "wundergraph": "WunderGraph"
 }
