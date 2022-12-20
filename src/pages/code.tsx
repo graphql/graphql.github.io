@@ -317,11 +317,9 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 )
               })}
             </div>
-            <div className="language-content">
+            <div className="language-content" id="generic-tools">
               <div className="language-header">
-                <h2 className="tools-title" id="generic-tools">
-                  Tools
-                </h2>
+                <h2 className="tools-title">Tools</h2>
                 <p className="language-categories-permalinks">
                   <Fragment>
                     <AnchorLink
@@ -341,11 +339,11 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 </p>
               </div>
             </div>
-            <ToolsList pageContext={pageContext} type="General" />
             <ToolsList
               pageContext={pageContext}
               type="GatewaysAndSupergraphs"
             />
+            <ToolsList pageContext={pageContext} type="General" />
             <h2>
               <a className="anchor" id="services"></a>
               Services
