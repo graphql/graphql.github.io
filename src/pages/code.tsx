@@ -35,7 +35,7 @@ interface Tool {
   name: string
   totalStars: number
   categoryMap: {
-    Supergraphs: ILibrary[]
+    GatewaysSupergraphs: ILibrary[]
     General: ILibrary[]
   }
 }
