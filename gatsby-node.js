@@ -1,18 +1,18 @@
-const path = require("path")
+const path = require("node:path")
 const sortLibs = require("./scripts/sort-libraries")
 const globby = require("globby")
 const frontmatterParser = require("parser-front-matter")
-const { readFile } = require("fs-extra")
-const { promisify } = require("util")
+const { readFile } = require("node:fs/promises")
+const { promisify } = require("node:util")
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
-  const gql = String.raw;
-  const { createTypes } = actions;
+const parse$ = promisify(frontmatterParser.parse)
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const gql = String.raw
+  const { createTypes } = actions
 
   createTypes(gql`
-    type BlogPost implements Node
-      @childOf(types: ["MarkdownRemark"])
-    {
+    type BlogPost implements Node @childOf(types: ["MarkdownRemark"]) {
       postId: String!
       title: String!
       tags: [String!]!
@@ -21,8 +21,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       guestBio: String
       remark: MarkdownRemark! @link # backlink to the parent
     }
-  `);
-};
+  `)
+}
 
 // Transform nodes, each of logic inside here can be extracted to a separated plugin later.
 exports.onCreateNode = async ({
@@ -32,60 +32,61 @@ exports.onCreateNode = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const { createNode, createParentChildLink } = actions;
+  const { createNode, createParentChildLink } = actions
 
   // Derive content nodes from remark nodes
-  if (node.internal.type === 'MarkdownRemark') {
-    if (node.frontmatter.layout === 'blog') {
-      const nodeId = createNodeId(`${node.id} >>> BlogPost`);
+  if (
+    node.internal.type === "MarkdownRemark" &&
+    node.frontmatter.layout === "blog"
+  ) {
+    const nodeId = createNodeId(`${node.id} >>> BlogPost`)
 
-      const permalink = node.frontmatter.permalink;
-      if (!permalink?.startsWith('/blog/')) {
-        reporter.panicOnBuild(`${permalink} is not valid permalink for blog post`);
-        return;
-      }
-
-      // It contains a kind of transform logic. However, those logics can be extracted to resolvers into ahead of sourcing (createTypes)
-      const blogPostContent = {
-        id: nodeId,
-        postId: permalink.replace('/blog/', '').replace(/\/$/, ''),
-        title: node.frontmatter.title,
-        tags: node.frontmatter.tags ?? [],
-        date: node.frontmatter.date,
-        authors: (node.frontmatter.byline ?? '')
-          .split(',')
-          .map(name => name.trim())
-          .filter(Boolean),
-        guestBio: node.frontmatter.guestBio ?? null,
-      };
-
-      createNode({
-        ...blogPostContent,
-        remark: node.id,
-        parent: node.id,
-        children: [],
-        internal: {
-          type: 'BlogPost',
-          contentDigest: createContentDigest(blogPostContent),
-        },
-      });
-
-      createParentChildLink({
-        parent: node,
-        child: blogPostContent,
-      });
+    const { permalink } = node.frontmatter
+    if (!permalink?.startsWith("/blog/")) {
+      reporter.panicOnBuild(`${permalink} is not valid permalink for blog post`)
+      return
     }
+
+    // It contains a kind of transform logic. However, those logics can be extracted to resolvers into ahead of sourcing (createTypes)
+    const blogPostContent = {
+      id: nodeId,
+      postId: permalink.replace("/blog/", "").replace(/\/$/, ""),
+      title: node.frontmatter.title,
+      tags: node.frontmatter.tags ?? [],
+      date: node.frontmatter.date,
+      authors: (node.frontmatter.byline ?? "")
+        .split(",")
+        .map(name => name.trim())
+        .filter(Boolean),
+      guestBio: node.frontmatter.guestBio ?? null,
+    }
+
+    createNode({
+      ...blogPostContent,
+      remark: node.id,
+      parent: node.id,
+      children: [],
+      internal: {
+        type: "BlogPost",
+        contentDigest: createContentDigest(blogPostContent),
+      },
+    })
+
+    createParentChildLink({
+      parent: node,
+      child: blogPostContent,
+    })
   }
-};
+}
 
 exports.onCreatePage = async ({ page, actions }) => {
   // trying to refactor code to be "the Gatsby way".
   // from the paths on ready, ignores a bunch of existing custom logic below.
-  if (page.path.startsWith('/blog')) {
-    return;
+  if (page.path.startsWith("/blog")) {
+    return
   }
-  if (page.path.startsWith('/tags')) {
-    return;
+  if (page.path.startsWith("/tags")) {
+    return
   }
 
   const { createPage, deletePage } = actions
@@ -98,14 +99,13 @@ exports.onCreatePage = async ({ page, actions }) => {
     const markdownFilePaths = await globby("src/content/code/**/*.md")
     const codeData = {}
     const slugMap = require("./src/content/code/slug-map.json")
-    const parse$ = promisify(frontmatterParser.parse)
     await Promise.all(
       markdownFilePaths.map(async markdownFilePath => {
         const markdownFileContent = await readFile(markdownFilePath, "utf-8")
         let {
           data: { name, description, url, github, npm, gem },
           content: howto,
-        } = await parse$(markdownFileContent, undefined)
+        } = await parse$(markdownFileContent)
         howto = howto.trim()
         const pathArr = markdownFilePath.split("/")
         if (markdownFilePath.includes("language-support")) {
@@ -113,16 +113,36 @@ exports.onCreatePage = async ({ page, actions }) => {
           const languageNameSlugIndex = languageSupportDirIndex + 1
           const languageNameSlug = pathArr[languageNameSlugIndex]
           const languageName = slugMap[languageNameSlug]
-          codeData.Languages = codeData.Languages || {}
-          codeData.Languages[languageName] =
-            codeData.Languages[languageName] || {}
+          codeData.Languages ||= {}
+          codeData.Languages[languageName] ||= {}
 
           const categoryNameSlugIndex = languageSupportDirIndex + 2
           const categoryNameSlug = pathArr[categoryNameSlugIndex]
           const categoryName = slugMap[categoryNameSlug]
-          codeData.Languages[languageName][categoryName] =
-            codeData.Languages[languageName][categoryName] || []
+          codeData.Languages[languageName][categoryName] ||= []
           codeData.Languages[languageName][categoryName].push({
+            name,
+            description,
+            howto,
+            url,
+            github,
+            npm,
+            gem,
+            sourcePath: markdownFilePath,
+          })
+        } else if (markdownFilePath.includes("tools")) {
+          const toolSupportDirIndex = pathArr.indexOf("tools")
+          const toolNameSlugIndex = toolSupportDirIndex + 1
+          const toolNameSlug = pathArr[toolNameSlugIndex]
+          const toolName = slugMap[toolNameSlug]
+          codeData.ToolsNew ||= {}
+          codeData.ToolsNew[toolName] ||= {}
+          const categoryToolsNameSlugIndex = toolSupportDirIndex + 2
+          const categoryToolsNameSlug = pathArr[categoryToolsNameSlugIndex]
+          const categoryToolsName = slugMap[categoryToolsNameSlug]
+          codeData.ToolsNew[toolName][categoryToolsName] ||= []
+
+          codeData.ToolsNew[toolName][categoryToolsName].push({
             name,
             description,
             howto,
@@ -137,7 +157,7 @@ exports.onCreatePage = async ({ page, actions }) => {
           const categoryNameSlugIndex = codeDirIndex + 1
           const categoryNameSlug = pathArr[categoryNameSlugIndex]
           const categoryName = slugMap[categoryNameSlug]
-          codeData[categoryName] = codeData[categoryName] || []
+          codeData[categoryName] ||= []
           codeData[categoryName].push({
             name,
             description,
@@ -152,29 +172,41 @@ exports.onCreatePage = async ({ page, actions }) => {
       })
     )
     const languageList = []
-    let sortedTools = []
+    const toolList = []
     await Promise.all([
-      Promise.all(
-        Object.keys(codeData.Languages).map(async languageName => {
-          const libraryCategoryMap = codeData.Languages[languageName]
-          let languageTotalStars = 0
-          await Promise.all(
-            Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
-              const libraries = libraryCategoryMap[libraryCategoryName]
-              const { sortedLibs, totalStars } = await sortLibs(libraries)
-              libraryCategoryMap[libraryCategoryName] = sortedLibs
-              languageTotalStars += totalStars || 0
-            })
-          )
-          languageList.push({
-            name: languageName,
-            totalStars: languageTotalStars,
-            categoryMap: libraryCategoryMap,
+      ...Object.keys(codeData.Languages).map(async languageName => {
+        const libraryCategoryMap = codeData.Languages[languageName]
+        let languageTotalStars = 0
+        await Promise.all(
+          Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
+            const libraries = libraryCategoryMap[libraryCategoryName]
+            const { sortedLibs, totalStars } = await sortLibs(libraries)
+            libraryCategoryMap[libraryCategoryName] = sortedLibs
+            languageTotalStars += totalStars || 0
           })
+        )
+        languageList.push({
+          name: languageName,
+          totalStars: languageTotalStars,
+          categoryMap: libraryCategoryMap,
         })
-      ),
-      sortLibs(codeData.Tools).then(({ sortedLibs }) => {
-        sortedTools = sortedLibs
+      }),
+      ...Object.keys(codeData.ToolsNew).map(async toolName => {
+        const toolCategoryMap = codeData.ToolsNew[toolName]
+        let toolTotalStars = 0
+        await Promise.all(
+          Object.keys(toolCategoryMap).map(async toolCategoryName => {
+            const tools = toolCategoryMap[toolCategoryName]
+            const { sortedLibs, totalStars } = await sortLibs(tools)
+            toolCategoryMap[toolCategoryName] = sortedLibs
+            toolTotalStars += totalStars || 0
+          })
+        )
+        toolList.push({
+          name: toolName,
+          totalStars: toolTotalStars,
+          categoryMap: toolCategoryMap,
+        })
       }),
     ])
 
@@ -182,13 +214,22 @@ exports.onCreatePage = async ({ page, actions }) => {
       ...context,
       otherLibraries: {
         Services: codeData.Services,
-        Tools: sortedTools,
         "More Stuff": codeData["More Stuff"],
       },
       languageList: languageList.sort((a, b) => {
         if (a.totalStars > b.totalStars) {
           return -1
-        } else if (a.totalStars < b.totalStars) {
+        }
+        if (a.totalStars < b.totalStars) {
+          return 1
+        }
+        return 0
+      }),
+      toolList: toolList.sort((a, b) => {
+        if (a.totalStars > b.totalStars) {
+          return -1
+        }
+        if (a.totalStars < b.totalStars) {
           return 1
         }
         return 0
@@ -247,7 +288,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const tags = result.data.allBlogPost.group.map(group => group.fieldValue)
-  tags.forEach(tag => {
+  for (const tag of tags) {
     createPage({
       path: `/tags/${tag.toLowerCase()}/`,
       component: path.resolve("./src/templates/{BlogPost.tags}.tsx"),
@@ -255,7 +296,7 @@ exports.createPages = async ({ graphql, actions }) => {
         tag,
       },
     })
-  })
+  }
 
   const markdownPages = result.data.allMarkdownRemark.edges
 
@@ -333,16 +374,11 @@ exports.createPages = async ({ graphql, actions }) => {
       return
     }
 
-    if (!pagesGroupedByFolder[relativeDirectory]) {
-      pagesGroupedByFolder = {
-        ...pagesGroupedByFolder,
-        [relativeDirectory]: [node],
-      }
-    } else {
-      pagesGroupedByFolder = {
-        ...pagesGroupedByFolder,
-        [relativeDirectory]: [...pagesGroupedByFolder[relativeDirectory], node],
-      }
+    pagesGroupedByFolder = {
+      ...pagesGroupedByFolder,
+      [relativeDirectory]: pagesGroupedByFolder[relativeDirectory]
+        ? [...pagesGroupedByFolder[relativeDirectory], node]
+        : [node],
     }
 
     allPages.push({
@@ -364,7 +400,8 @@ exports.createPages = async ({ graphql, actions }) => {
       const bDate = new Date(b.frontmatter.date || Date.now())
       if (aDate > bDate) {
         return -1
-      } else if (aDate < bDate) {
+      }
+      if (aDate < bDate) {
         return 1
       }
       return 0
@@ -385,7 +422,6 @@ exports.createPages = async ({ graphql, actions }) => {
       const permalink = page.frontmatter.permalink
       if (!previousPagesMap[permalink] && !firstPage) {
         firstPage = page
-        return
       }
     })
 
@@ -400,10 +436,8 @@ exports.createPages = async ({ graphql, actions }) => {
     let i = 0
     while (page && i++ < 1000) {
       const { frontmatter } = page
-      const {
-        category: definedCategory,
-        next: definedNextPageUrl,
-      } = frontmatter
+      const { category: definedCategory, next: definedNextPageUrl } =
+        frontmatter
       let category = definedCategory || folder
       if (!currentCategory || category !== currentCategory.name) {
         if (currentCategory) {
@@ -443,28 +477,28 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Use all the set up data to now tell Gatsby to create pages
   // on the site
-  allPages
-    .filter(page => !page.permalink.startsWith('/blog'))
-    .forEach(page => {
-    createPage({
-      path: `${page.permalink}`,
-      component: docTemplate,
-      context: {
-        permalink: page.permalink,
-        nextPermalink: page.nextPermalink,
-        sideBarData: sideBardata[page.relativeDirectory],
-        sourcePath: page.sourcePath,
-      },
-    })
-  })
+  for (const page of allPages) {
+    if (!page.permalink.startsWith("/blog")) {
+      createPage({
+        path: `${page.permalink}`,
+        component: docTemplate,
+        context: {
+          permalink: page.permalink,
+          nextPermalink: page.nextPermalink,
+          sideBarData: sideBardata[page.relativeDirectory],
+          sourcePath: page.sourcePath,
+        },
+      })
+    }
+  }
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       fallback: {
-        "assert": require.resolve("assert/"),
-      }
-    }
+        assert: require.resolve("assert/"),
+      },
+    },
   })
 }

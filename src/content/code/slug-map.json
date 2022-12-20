@@ -26,5 +26,14 @@
   "client": "Client",
   "server": "Server",
   "tools": "Tools",
-  "services": "Services"
+  "services": "Services",
+  "gqt": "GQT",
+  "graphql-armor": "Graphql-Armor",
+  "graphql-code-generator": "GraphQL Code Generator",
+  "microcks": "Microcks",
+  "quicktype": "QuickType",
+  "schemathesis": "Schemathesis",
+  "gateways-supergraphs": "GatewaysAndSupergraphs",
+  "general": "General",
+  "wundergraph": "WunderGraph"
 }

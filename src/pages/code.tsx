@@ -31,11 +31,21 @@ interface Language {
   }
 }
 
+interface Tool {
+  name: string
+  totalStars: number
+  categoryMap: {
+    GatewaysSupergraphs: ILibrary[]
+    General: ILibrary[]
+  }
+}
+
 interface PageContext {
   languageList: Language[]
+  toolList: Tool[]
   otherLibraries: {
     Services: ILibrary[]
-    Tools: ILibrary[]
+    Tools?: ILibrary[]
   }
   sourcePath: string
 }
@@ -147,21 +157,51 @@ export function Library({ data }: { data: ILibrary }) {
   )
 }
 
+const categorySlugMap = [
+  ["Server", toSlug("Server")],
+  ["Client", toSlug("Client")],
+  ["Tools", toSlug("Tools")],
+  ["Gateways-supergraphs", toSlug("Gateways-supergraphs")],
+  ["General", toSlug("General")],
+]
+
 export function LibraryList({ data }: { data: ILibrary[] }) {
   return (
     <div className="library-list">
       {data.map(library => (
-        <Library data={library} />
+        <Library key={library.name} data={library} />
       ))}
     </div>
   )
 }
 
-const categorySlugMap = [
-  ["Server", toSlug("Server")],
-  ["Client", toSlug("Client")],
-  ["Tools", toSlug("Tools")],
-]
+interface ToolsListProps {
+  pageContext: PageContext
+  type: "General" | "GatewaysAndSupergraphs"
+}
+
+export function ToolsList({ pageContext, type }: ToolsListProps) {
+  return (
+    <>
+      <h3 id={type} className="library-category-title">
+        {type === "GatewaysAndSupergraphs" ? "Gateways / Supergraphs" : type}
+      </h3>
+      {pageContext.toolList.map(
+        tool => (
+          console.log(tool.categoryMap, tool.name),
+          (
+            <div key={tool.name} id={toSlug(tool.name)}>
+              {Object.entries(tool.categoryMap).map(
+                ([categoryName, data]) =>
+                  categoryName === type && <LibraryList data={data} />
+              )}
+            </div>
+          )
+        )
+      )}
+    </>
+  )
+}
 
 export default ({ pageContext }: PageProps<{}, PageContext>) => {
   return (
@@ -196,7 +236,6 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 </div>
               </div>
             </div>
-
             <p id="language-support" className="languages-title">
               Language Support
             </p>
@@ -278,14 +317,33 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 )
               })}
             </div>
-            <h2>
-              <a className="anchor" id="generic-tools"></a>
-              Tools
-              <AnchorLink className="hash-link" to="#generic-tools">
-                #
-              </AnchorLink>
-            </h2>
-            <LibraryList data={pageContext.otherLibraries?.Tools ?? []} />
+            <div className="language-content" id="generic-tools">
+              <div className="language-header">
+                <h2 className="tools-title">Tools</h2>
+                <p className="language-categories-permalinks">
+                  <Fragment>
+                    <AnchorLink
+                      className="language-category-permalink"
+                      to={`#GatewaysAndSupergraphs`}
+                    >
+                      Gateways/Supergraphs
+                    </AnchorLink>
+                    {" / "}
+                    <AnchorLink
+                      className="language-category-permalink"
+                      to={`#General`}
+                    >
+                      General
+                    </AnchorLink>
+                  </Fragment>
+                </p>
+              </div>
+            </div>
+            <ToolsList
+              pageContext={pageContext}
+              type="GatewaysAndSupergraphs"
+            />
+            <ToolsList pageContext={pageContext} type="General" />
             <h2>
               <a className="anchor" id="services"></a>
               Services

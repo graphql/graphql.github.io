@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig } from "gatsby"
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: "GraphQL",
     description:
@@ -87,24 +89,26 @@ module.exports = {
                   author: byline,
                 })
               ),
-            query: `{
-  allMarkdownRemark(
-    filter: {frontmatter: {layout: {eq: "blog"}}}
-    sort: {frontmatter: {date: DESC}}
-  ) {
-    edges {
-      node {
-        excerpt
-        frontmatter {
-          title
-          date
-          permalink
-          byline
-        }
-      }
-    }
-  }
-}`,
+            query: /* GraphQL */ `
+              {
+                allMarkdownRemark(
+                  filter: { frontmatter: { layout: { eq: "blog" } } }
+                  sort: { frontmatter: { date: DESC } }
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      frontmatter {
+                        title
+                        date
+                        permalink
+                        byline
+                      }
+                    }
+                  }
+                }
+              }
+            `,
             output: "/blog/rss.xml",
             title: "Blog | GraphQL",
             feed_url: "http://graphql.org/blog/rss.xml",
@@ -115,3 +119,5 @@ module.exports = {
     },
   ],
 }
+
+export default config

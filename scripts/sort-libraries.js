@@ -207,7 +207,8 @@ const sortLibs = async libs => {
     }
     if (bScore > aScore) {
       return 1
-    } else if (bScore < aScore) {
+    }
+    if (bScore < aScore) {
       return -1
     }
     return 0
