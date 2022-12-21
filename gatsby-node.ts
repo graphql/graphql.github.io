@@ -1,5 +1,6 @@
+import { sortLibs } from "./scripts/sort-libraries/sort-libraries"
+
 const path = require("node:path")
-const sortLibs = require("./scripts/sort-libraries")
 const globby = require("globby")
 const frontmatterParser = require("parser-front-matter")
 const { readFile } = require("node:fs/promises")
@@ -97,7 +98,8 @@ exports.onCreatePage = async ({ page, actions }) => {
   }
   if (page.path === "/code" || page.path === "/code/") {
     const markdownFilePaths = await globby("src/content/code/**/*.md")
-    const codeData = {}
+    const codeData: any = {}
+    // TODO: Change codeData type
     const slugMap = require("./src/content/code/slug-map.json")
     await Promise.all(
       markdownFilePaths.map(async markdownFilePath => {
@@ -171,8 +173,10 @@ exports.onCreatePage = async ({ page, actions }) => {
         }
       })
     )
-    const languageList = []
-    const toolList = []
+    const languageList: any = []
+    // TODO: Change languageList type
+    const toolList: any = []
+    // TODO: Change toolList type
     await Promise.all([
       ...Object.keys(codeData.Languages).map(async languageName => {
         const libraryCategoryMap = codeData.Languages[languageName]
@@ -357,7 +361,8 @@ exports.createPages = async ({ graphql, actions }) => {
   //   nextPermalink: '/learn/thinking-in-graphs/',
   //   sourcePath: 'src/content/learn/BestPractice-Introduction.md'
   // }
-  const allPages = []
+  const allPages: any = []
+  // TODO: Change allPages type
 
   // Loop through all *.md files in the repo, setting up both pagesGroupedByFolder
   // and allPages.
@@ -430,9 +435,12 @@ exports.createPages = async ({ graphql, actions }) => {
     }
 
     let categoriesMap = {}
-    let currentCategory = null
+    let currentCategory: any = null
+    // TODO: Change currentCategory type
 
-    let page = firstPage
+    let page: any = firstPage
+    // TODO: Change page type
+
     let i = 0
     while (page && i++ < 1000) {
       const { frontmatter } = page
@@ -493,12 +501,12 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      fallback: {
-        assert: require.resolve("assert/"),
-      },
-    },
-  })
-}
+// exports.onCreateWebpackConfig = ({ actions }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       fallback: {
+//         assert: require.resolve("assert/"),
+//       },
+//     },
+//   })
+// }

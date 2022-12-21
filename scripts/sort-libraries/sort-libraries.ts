@@ -1,6 +1,7 @@
-const fetch = require(`node-fetch`)
-const numbro = require("numbro")
-const timeago = require("timeago.js")
+import { getGemStats } from "./get-gem-stats"
+import { getNpmStats } from "./get-npm-stats"
+import numbro from "numbro"
+import timeago from "timeago.js"
 
 const getGitHubStats = async githubRepo => {
   const [owner, repoName] = githubRepo.split("/")
@@ -113,7 +114,8 @@ const getGitHubStats = async githubRepo => {
     average: true,
   })
 
-  const releases = []
+  const releases: any = []
+  // TODO: Change releases type
   if (
     repo.tags &&
     repo.tags.nodes &&
@@ -142,27 +144,7 @@ const getGitHubStats = async githubRepo => {
   }
 }
 
-const getNpmStats = async packageName => {
-  const response = await fetch(
-    `https://api.npmjs.org/downloads/point/last-week/${encodeURIComponent(
-      packageName
-    )}`
-  )
-  const responseJson = await response.json()
-  const downloadCount = responseJson.downloads
-  return { downloadCount }
-}
-
-const getGemStats = async packageName => {
-  const response = await fetch(
-    `https://rubygems.org/api/v1/gems/${encodeURIComponent(packageName)}.json`
-  )
-  const responseJson = await response.json()
-  const downloadCount = responseJson.downloads
-  return { downloadCount }
-}
-
-const sortLibs = async libs => {
+export async function sortLibs(libs: any) {
   let totalStars = 0
   const libsWithScores = await Promise.all(
     libs.map(async lib => {
@@ -215,5 +197,3 @@ const sortLibs = async libs => {
   })
   return { sortedLibs, totalStars }
 }
-
-module.exports = sortLibs
