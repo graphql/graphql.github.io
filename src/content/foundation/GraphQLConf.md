@@ -8,20 +8,13 @@ permalink: /foundation/graphql-conf/
 next: /foundation/community-grant/
 ---
 
-The GraphQL Foundation's inaugural GraphQL Conf will be co-located with [OpenJS World](https://events.linuxfoundation.org/openjs-world/) and [cdCon](https://events.linuxfoundation.org/cdcon/) in Austin, TX on June 7-8, 2022. This collaborator summit-style event will be an opportunity for core GraphQL spec and implementation developers to meet in-person, discuss recent work, and plan for the future. All attendees of OpenJS World and CDcon are welcome.
+The GraphQL Foundation's inaugural GraphQL Conf was co-located with [OpenJS World](https://events.linuxfoundation.org/openjs-world/) and [cdCon](https://events.linuxfoundation.org/cdcon/) in Austin, TX on June 7-8, 2022. This collaborator summit-style event provided an opportunity for core GraphQL spec and implementation developers to meet in-person, discuss recent work, and plan for the future. All attendees of OpenJS World and cdCon were welcome.
 
-Talks are expected to include:
+Talks covered:
 
 * Recent activity in the GraphQL specification working group, such as Defer and Stream, Input Unions, and Client-Controlled Nullability.
 * Downstream implementations of GraphQL
 * Security considerations
 * Common practices and lessons learned
 
-The [CFP is now open](https://cfp.graphql.org), and we will be collecting submissions through midnight PDT on April 15, 2022. For those who cannot attend, we will be recording the sessions and posting them to [our YouTube channel](https://youtube.graphql.org).
-
-GraphQL Conf will be held in a shared space. To join us, please register for [OpenJS World](https://events.linuxfoundation.org/openjs-world/) or [cdCon](https://events.linuxfoundation.org/cdcon/).
-
-If you are interested in sponsoring the event space, we encourage you to check out [OpenJS World](https://events.linuxfoundation.org/openjs-world/) or [cdCon](https://events.linuxfoundation.org/cdcon/)!
-
-If you have any questions, please contact [info@graphql.org](mailto:info@graphql.org).
-
+Recordings of the sessions are available on [our YouTube channel](https://youtube.graphql.org).
