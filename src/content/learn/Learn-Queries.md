@@ -151,11 +151,10 @@ fragment comparisonFields on Character {
   }
 }
 ```
-If you observe carefully there is a new `query` keyword. Let's discuss about it in [Operation name](#operation-name).
 
 ## Operation name
 
-Up until now, we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
+In several of the examples above we have been using a shorthand syntax where we omit both the `query` keyword and the query name, but in production apps it's useful to use these to make our code less ambiguous.
 
 Here’s an example that includes the keyword `query` as _operation type_ and `HeroNameAndFriends` as _operation name_ :
 
