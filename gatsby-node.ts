@@ -1,3 +1,4 @@
+import { GatsbyNode } from "gatsby"
 import { sortLibs } from "./scripts/sort-libraries/sort-libraries"
 
 const path = require("node:path")
@@ -8,31 +9,35 @@ const { promisify } = require("node:util")
 
 const parse$ = promisify(frontmatterParser.parse)
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const gql = String.raw
-  const { createTypes } = actions
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  async ({ actions }) => {
+    const gql = String.raw
+    const { createTypes } = actions
 
-  createTypes(gql`
-    type BlogPost implements Node @childOf(types: ["MarkdownRemark"]) {
-      postId: String!
-      title: String!
-      tags: [String!]!
-      date: Date! @dateformat(formatString: "YYYY-MM-DD")
-      authors: [String!]!
-      guestBio: String
-      remark: MarkdownRemark! @link # backlink to the parent
-    }
-  `)
-}
+    createTypes(gql`
+      type BlogPost implements Node @childOf(types: ["MarkdownRemark"]) {
+        postId: String!
+        title: String!
+        tags: [String!]!
+        date: Date! @dateformat(formatString: "YYYY-MM-DD")
+        authors: [String!]!
+        guestBio: String
+        remark: MarkdownRemark! @link # backlink to the parent
+      }
+    `)
+  }
 
-// Transform nodes, each of logic inside here can be extracted to a separated plugin later.
-exports.onCreateNode = async ({
+export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   reporter,
   node,
   actions,
   createNodeId,
   createContentDigest,
 }) => {
+  console.log("reporter", reporter)
+  console.log("node", node)
+  console.log("actions", actions)
+
   const { createNode, createParentChildLink } = actions
 
   // Derive content nodes from remark nodes
@@ -80,9 +85,13 @@ exports.onCreateNode = async ({
   }
 }
 
-exports.onCreatePage = async ({ page, actions }) => {
+export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
+  page,
+  actions,
+}) => {
   // trying to refactor code to be "the Gatsby way".
   // from the paths on ready, ignores a bunch of existing custom logic below.
+  console.log("page", page)
   if (page.path.startsWith("/blog")) {
     return
   }
@@ -94,7 +103,7 @@ exports.onCreatePage = async ({ page, actions }) => {
   deletePage(page)
   let context = {
     ...page.context,
-    sourcePath: path.relative(__dirname, page.componentPath),
+    sourcePath: path.relative(__dirname, page.path),
   }
   if (page.path === "/code" || page.path === "/code/") {
     const markdownFilePaths = await globby("src/content/code/**/*.md")
@@ -246,7 +255,10 @@ exports.onCreatePage = async ({ page, actions }) => {
   })
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+}) => {
   const { createPage } = actions
 
   const result = await graphql(`
@@ -501,12 +513,13 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 }
 
-// exports.onCreateWebpackConfig = ({ actions }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       fallback: {
-//         assert: require.resolve("assert/"),
-//       },
-//     },
-//   })
-// }
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] =
+  async ({ actions }) => {
+    actions.setWebpackConfig({
+      resolve: {
+        fallback: {
+          assert: "assert/",
+        },
+      },
+    })
+  }
