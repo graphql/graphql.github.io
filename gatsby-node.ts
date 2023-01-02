@@ -1,31 +1,33 @@
-const path = require("node:path")
-const sortLibs = require("./scripts/sort-libraries")
-const globby = require("globby")
-const frontmatterParser = require("parser-front-matter")
-const { readFile } = require("node:fs/promises")
-const { promisify } = require("node:util")
+import { GatsbyNode } from "gatsby"
+import * as path from "path"
+import { promisify } from "util"
+import { readFile } from "fs/promises"
+import * as globby from "globby"
+import * as frontmatterParser from "parser-front-matter"
+import { sortLibs } from "./scripts/sort-libraries"
 
 const parse$ = promisify(frontmatterParser.parse)
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const gql = String.raw
-  const { createTypes } = actions
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  async ({ actions }) => {
+    const gql = String.raw
+    const { createTypes } = actions
 
-  createTypes(gql`
-    type BlogPost implements Node @childOf(types: ["MarkdownRemark"]) {
-      postId: String!
-      title: String!
-      tags: [String!]!
-      date: Date! @dateformat(formatString: "YYYY-MM-DD")
-      authors: [String!]!
-      guestBio: String
-      remark: MarkdownRemark! @link # backlink to the parent
-    }
-  `)
-}
+    createTypes(gql`
+      type BlogPost implements Node @childOf(types: ["MarkdownRemark"]) {
+        postId: String!
+        title: String!
+        tags: [String!]!
+        date: Date! @dateformat(formatString: "YYYY-MM-DD")
+        authors: [String!]!
+        guestBio: String
+        remark: MarkdownRemark! @link # backlink to the parent
+      }
+    `)
+  }
 
 // Transform nodes, each of logic inside here can be extracted to a separated plugin later.
-exports.onCreateNode = async ({
+export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   reporter,
   node,
   actions,
@@ -79,7 +81,10 @@ exports.onCreateNode = async ({
   }
 }
 
-exports.onCreatePage = async ({ page, actions }) => {
+export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
+  page,
+  actions,
+}) => {
   // trying to refactor code to be "the Gatsby way".
   // from the paths on ready, ignores a bunch of existing custom logic below.
   if (page.path.startsWith("/blog")) {
@@ -93,11 +98,11 @@ exports.onCreatePage = async ({ page, actions }) => {
   deletePage(page)
   let context = {
     ...page.context,
-    sourcePath: path.relative(__dirname, page.componentPath),
+    sourcePath: path.relative(__dirname, page.path),
   }
   if (page.path === "/code" || page.path === "/code/") {
     const markdownFilePaths = await globby("src/content/code/**/*.md")
-    const codeData = {}
+    const codeData: any = {}
     const slugMap = require("./src/content/code/slug-map.json")
     await Promise.all(
       markdownFilePaths.map(async markdownFilePath => {
@@ -171,8 +176,8 @@ exports.onCreatePage = async ({ page, actions }) => {
         }
       })
     )
-    const languageList = []
-    const toolList = []
+    const languageList: any = []
+    const toolList: any = []
     await Promise.all([
       ...Object.keys(codeData.Languages).map(async languageName => {
         const libraryCategoryMap = codeData.Languages[languageName]
@@ -242,11 +247,14 @@ exports.onCreatePage = async ({ page, actions }) => {
   })
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode["createPages"] = async ({
+  actions,
+  graphql,
+}) => {
   const { createPage } = actions
 
   const result = await graphql(`
-    {
+    query allMarkdownRemark {
       allMarkdownRemark {
         edges {
           node {
@@ -493,12 +501,13 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      fallback: {
-        assert: require.resolve("assert/"),
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] =
+  async ({ actions }) => {
+    actions.setWebpackConfig({
+      resolve: {
+        fallback: {
+          assert: "assert/",
+        },
       },
-    },
-  })
-}
+    })
+  }
