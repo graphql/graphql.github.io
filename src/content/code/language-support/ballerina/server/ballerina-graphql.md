@@ -8,12 +8,12 @@ github: ballerina-platform/module-ballerina-graphql
 To run a `ballerina-graphql` hello world server:
 
 - Download and install [Ballerina Language](https://ballerina.io/downloads)
-- Then run `bal run graphql.bal` to run the service, with with this code in the `graphql.bal` file:
+- Then run `bal run graphql_service.bal` to run the service, with with this code in the `graphql_service.bal` file:
 
 ```ballerina
 import ballerina/graphql;
 
-service on new graphql:Listener(9090) {
+service /graphql on new graphql:Listener(9090) {
     resource function get hello() returns string {
         return "Hello, world!";
     }
@@ -25,4 +25,3 @@ service on new graphql:Listener(9090) {
 - Supports subscriptions over websocket (No additional libraries needed)
 - Supports file upload
 - Built-in GraphiQL client
-
