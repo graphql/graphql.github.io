@@ -28,7 +28,7 @@
     "gatsby-plugin-less": "7.0.0",
     "gatsby-plugin-webfonts": "2.2.2",
     "gatsby-source-filesystem": "5.0.0",
-    "gatsby-transformer-remark": "6.0.0",
+    "gatsby-transformer-remark": "6.3.2",
     "globby": "11.0.4",
     "graphql": "16.6.0",
     "marked": "4.2.2",
