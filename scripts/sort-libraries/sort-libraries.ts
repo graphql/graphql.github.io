@@ -1,3 +1,5 @@
+import { getGemStats } from "./get-gem-stats"
+
 const numbro = require("numbro")
 const timeago = require("timeago.js")
 
@@ -158,21 +160,6 @@ async function getNpmStats(packageName: string): Promise<number> {
   return downloadCount
 }
 
-async function getGemStats(packageName: string): Promise<number> {
-  const response = await fetch(
-    `https://rubygems.org/api/v1/gems/${encodeURIComponent(packageName)}.json`
-  )
-  const responseJson = await response.json()
-  const downloadCount = responseJson.downloads
-  console.debug(`getGemStats: ${downloadCount} for ${packageName}`)
-  if (!downloadCount) {
-    console.debug(
-      `getGemStats: No download count for ${packageName}, so value is 0!`
-    )
-    return 0
-  }
-  return downloadCount
-}
 
 export async function sortLibs(libs: any) {
   {
