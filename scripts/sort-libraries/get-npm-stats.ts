@@ -1,8 +1,5 @@
 type NpmStatsResponse = {
   downloads?: number
-  start?: string
-  end?: string
-  package?: string
 }
 
 export async function getNpmStats(

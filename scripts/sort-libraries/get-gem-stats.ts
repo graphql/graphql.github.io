@@ -1,13 +1,5 @@
 type GemStatsRespone = {
-  name?: string
-  downloads?: number
-  version?: string
-  version_created_at?: string
-  version_downloads?: number
-  platform?: string
-  authors?: string
-  info?: string
-  licenses?: Array<string>
+  downloads?: number | undefined
 }
 
 export async function getGemStats(

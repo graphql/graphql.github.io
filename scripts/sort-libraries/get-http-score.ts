@@ -1,8 +1,5 @@
 type HttpScoreRespone = {
   total?: number
-  ok?: number
-  warn?: number
-  error?: number
 }
 
 export async function getHttpScore(
