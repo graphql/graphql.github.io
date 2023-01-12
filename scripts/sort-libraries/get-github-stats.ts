@@ -1,5 +1,5 @@
-const numbro = require("numbro")
-const timeago = require("timeago.js")
+import numbro from "numbro"
+import timeago from "timeago.js"
 
 export async function getGitHubStats(githubRepo: any) {
   const [owner, repoName] = githubRepo.split("/")
