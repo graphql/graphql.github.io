@@ -1,21 +1,6 @@
 import { getGemStats } from "./get-gem-stats"
-
-async function getNpmStats(packageName: string): Promise<number> {
-  const response = await fetch(
-    `https://api.npmjs.org/downloads/point/last-week/${encodeURIComponent(
-      packageName
-    )}`
-  )
-  const responseJson = await response.json()
-  const downloadCount = responseJson.downloads
-  if (!downloadCount) {
-    console.debug(
-      `getNpmStats: No download count for ${packageName}, so value is 0!`
-    )
-    return 0
-  }
-  return downloadCount
-}
+import { getGitHubStats } from "./get-github-stats"
+import { getNpmStats } from "./get-npm-stats"
 
 
 export async function sortLibs(libs: any) {
