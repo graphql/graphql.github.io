@@ -1,22 +1,21 @@
 import { getGemStats } from "./get-gem-stats"
 import { getGitHubStats } from "./get-github-stats"
+import { getHttpScore } from "./get-http-score"
 import { getNpmStats } from "./get-npm-stats"
-
 
 export async function sortLibs(libs: any) {
   {
     let totalStars = 0
     const libsWithScores = await Promise.all(
       libs.map(async lib => {
-        console.log(`Fetching stats for ${lib.name}`)
-        console.log(`Fetching gem for ${lib.gem}`)
-        console.log(`Fetching github for ${lib.github}`)
         const [npmStats = {}, gemStars = {}, githubStats = {}] =
           await Promise.all([
             lib.npm && (await getNpmStats(lib.npm)),
             lib.gem && (await getGemStats(lib.gem)),
             lib.github && (await getGitHubStats(lib.github)),
           ])
+        const httpScore = await getHttpScore(lib.name)
+        console.log(`lib.name`, lib.name)
         const result = {
           ...lib,
           ...npmStats,
