@@ -2,9 +2,9 @@
 title: GraphQL Custom Scalar specifications
 tags: ["announcements"]
 layout: blog
-date: 2023-01-17
+date: 2023-01-14
 byline: Andreas Marek, Donna Zhou
-permalink: /blog/2023-01-17-graphql-scalars
+permalink: /blog/2023-01-14-graphql-scalars
 ---
 
 # Announcing contributed GraphQL custom scalar specifications
