@@ -4,35 +4,35 @@ import { getHttpScore } from "./get-http-score"
 import { getNpmStats } from "./get-npm-stats"
 
 export async function sortLibs(libs: any) {
+  console.log("libs", libs)
+  console.log("libs.length", libs.length)
   {
     let totalStars = 0
     const libsWithScores = await Promise.all(
       libs.map(async lib => {
-        const [npmStats = {}, gemStars = {}, githubStats = {}] =
-          await Promise.all([
-            lib.npm && (await getNpmStats(lib.npm)),
-            lib.gem && (await getGemStats(lib.gem)),
-            lib.github && (await getGitHubStats(lib.github)),
-          ])
-        const httpScore = await getHttpScore(lib.name)
-        console.log(`lib.name`, lib.name)
+        const npmStats = lib.npm && (await getNpmStats(lib.npm))
+        const githubStats = lib.github && (await getGitHubStats(lib.github))
+        const gemStars = lib.gem && (await getGemStats(lib.gem))
         const result = {
           ...lib,
-          ...npmStats,
-          ...gemStars,
+          npmStats,
+          gemStars,
           ...githubStats,
         }
         totalStars += result.stars || 0
+        console.log("result", result)
         return result
       })
     )
+    console.log("libsWithScores", libsWithScores)
+    console.log("libsWithScores length", libsWithScores.length)
     const sortedLibs = libsWithScores.sort((a, b) => {
       let aScore = 0,
         bScore = 0
-      if ("downloadCount" in a && "downloadCount" in b) {
-        if (a.downloadCount > b.downloadCount) {
+      if ("npmStats" in a && "npmStats" in b) {
+        if (a.npmStats > b.npmStats) {
           aScore += 40
-        } else if (b.downloadCount > a.downloadCount) {
+        } else if (b.npmStats > a.npmStats) {
           bScore += 40
         }
       }
@@ -57,6 +57,8 @@ export async function sortLibs(libs: any) {
       }
       return 0
     })
+    console.log("sortedLibs", sortedLibs)
+
     return { sortedLibs, totalStars }
   }
 }

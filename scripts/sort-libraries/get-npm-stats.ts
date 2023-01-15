@@ -1,27 +1,25 @@
-type NpmStatsResponse = {
-  downloads?: number
+type NpmStatsType = {
+  downloads: number
+  start?: string
+  end?: string
+  package?: string
 }
 
-export async function getNpmStats(
-  packageName: string
-): Promise<NpmStatsResponse> {
+export async function getNpmStats(packageName: string): Promise<number> {
+  if (!packageName) {
+    return 0
+  }
   const response = await fetch(
     `https://api.npmjs.org/downloads/point/last-week/${encodeURIComponent(
       packageName
     )}`
   )
   if (!response.ok) {
-    console.warn(
-      `getGemStats: No download count for ${packageName}, so value is 0!`
-    )
-    return { downloads: 0 }
+    return 0
   }
-  const responseJson: NpmStatsResponse = await response.json()
+  const responseJson: NpmStatsType = await response.json()
   if (!responseJson) {
-    console.warn(
-      `getGemStats: No download count for ${packageName}, so value is 0!`
-    )
-    return { downloads: 0 }
+    return 0
   }
-  return responseJson
+  return responseJson.downloads
 }

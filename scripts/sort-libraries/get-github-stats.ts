@@ -85,6 +85,7 @@ export async function getGitHubStats(githubRepo: any) {
     },
   })
   const responseJson = await response.json()
+
   if (responseJson && responseJson.errors) {
     throw JSON.stringify(responseJson.errors)
   }

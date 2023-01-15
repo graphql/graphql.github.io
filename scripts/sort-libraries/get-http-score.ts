@@ -11,16 +11,10 @@ export async function getHttpScore(
     )}/report.json`
   )
   if (!response.ok) {
-    console.warn(
-      `getHttpScore: No download count for ${packageName}, so value is 0!`
-    )
     return { total: 0 }
   }
   const responseJson: HttpScoreRespone = await response.json()
   if (!responseJson) {
-    console.warn(
-      `getHttpScore: No download count for ${packageName}, so value is 0!`
-    )
     return { total: 0 }
   }
   return responseJson
