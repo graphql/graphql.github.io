@@ -1,6 +1,85 @@
 import numbro from "numbro"
 import { format as timeago } from "timeago.js"
 
+type GitHubStatsFetchResponse =
+  | {
+      errors: [
+        {
+          extensions: {
+            value: string
+            problems: [
+              {
+                path: string
+                explanation: string
+              }
+            ]
+          }
+          locations: [
+            {
+              line: number
+              column: number
+            }
+          ]
+          message: string
+        }
+      ]
+    }
+  | {
+      data: {
+        repositoryOwner: {
+          repository: {
+            defaultBranchRef: {
+              target: {
+                history: {
+                  edges: [
+                    {
+                      node: {
+                        author: {
+                          name: string
+                        }
+                        pushedDate: string
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+            stargazers: {
+              totalCount: number
+            }
+            updatedAt: string
+            forkCount: number
+            pullRequests: {
+              totalCount: number
+            }
+            description: string
+            licenseInfo: {
+              name: string
+            }
+            releases: {
+              nodes: [
+                {
+                  publishedAt: string
+                }
+              ]
+            }
+            tags: {
+              nodes: [
+                {
+                  name: string
+                  target: {
+                    target: {
+                      pushedDate: string
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+
 export async function getGitHubStats(githubRepo: string) {
   const [owner, repoName] = githubRepo.split("/")
   const accessToken = process.env.GITHUB_ACCESS_TOKEN
@@ -88,62 +167,66 @@ export async function getGitHubStats(githubRepo: string) {
       "Content-Type": "application/json",
     },
   })
-  console.log("response:", response)
-  const responseJson = await response.json()
-  console.log("responseJson:", responseJson)
+  if (!response.ok) {
+    console.warn(
+      `Get invalid response from GitHub for ${owner}/${repoName}. Status: ${response.status}`
+    )
+  }
+  const responseJson: GitHubStatsFetchResponse = await response.json()
 
-  if (responseJson && responseJson.errors) {
-    throw JSON.stringify(responseJson.errors)
-  }
-  if (!responseJson || !responseJson.data) {
-    throw `GitHub returned empty response for ${owner}/${repoName}`
-  }
-  const { repositoryOwner } = responseJson.data
-  if (!repositoryOwner) {
-    throw `No GitHub user found for ${owner}/${repoName}`
-  }
-  const { repository: repo } = repositoryOwner
-  if (!repo) {
-    throw `No GitHub repo found ${owner}/${repoName}`
-  }
-  const stars = repo.stargazers.totalCount
-  const commitHistory = repo.defaultBranchRef.target.history.edges
-
-  let hasCommitsInLast3Months = false
-  commitHistory.forEach(commit => {
-    if (!commit.node.author.name.match(/bot/i)) {
-      hasCommitsInLast3Months = true
+  if (responseJson && "data" in responseJson) {
+    const repositoryOwner = responseJson.data.repositoryOwner
+    if (!repositoryOwner) {
+      throw `No GitHub user found for ${owner}/${repoName}`
     }
-  })
-  const formattedStars = numbro(stars).format({
-    average: true,
-  })
+    const { repository: repo } = repositoryOwner
+    console.log("repo:", repo.tags)
+    if (!repo) {
+      throw `No GitHub repo found ${owner}/${repoName}`
+    }
+    const stars = repo.stargazers.totalCount
+    const commitHistory = repo.defaultBranchRef.target.history.edges
 
-  const releases: any = []
-  if (
-    repo.tags &&
-    repo.tags.nodes &&
-    repo.tags.nodes.length &&
-    repo.tags.nodes[0].target.target &&
-    repo.tags.nodes[0].target.target.pushedDate
-  ) {
-    releases.push(repo.tags.nodes[0].target.target.pushedDate)
-  }
-  if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
-    releases.push(repo.releases.nodes[0].publishedAt)
-  }
-  if (owner.includes("graphql")) {
-    console.log({ releases, repoName })
-  }
+    let hasCommitsInLast3Months = false
+    commitHistory.forEach(commit => {
+      if (!commit.node.author.name.match(/bot/i)) {
+        hasCommitsInLast3Months = true
+      }
+    })
+    const formattedStars = numbro(stars).format({
+      average: true,
+    })
+    const releases: any = []
+    if (
+      repo.tags &&
+      repo.tags.nodes &&
+      repo.tags.nodes.length &&
+      repo.tags.nodes[0].target.target &&
+      repo.tags.nodes[0].target.target.pushedDate
+    ) {
+      releases.push(repo.tags.nodes[0].target.target.pushedDate)
+    }
+    if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
+      releases.push(repo.releases.nodes[0].publishedAt)
+    }
+    if (owner.includes("graphql")) {
+      console.log({ releases, repoName })
+    }
 
-  const lastRelease = releases.filter(Boolean).sort().reverse()[0]
-
-  return {
-    hasCommitsInLast3Months,
-    stars,
-    formattedStars,
-    license: repo.licenseInfo && repo.licenseInfo.name,
-    lastRelease,
-    formattedLastRelease: lastRelease && timeago(lastRelease),
+    const lastRelease = releases.filter(Boolean).sort().reverse()[0]
+    return {
+      hasCommitsInLast3Months,
+      stars,
+      formattedStars,
+      license: repo.licenseInfo && repo.licenseInfo.name,
+      lastRelease,
+      formattedLastRelease: lastRelease && timeago(lastRelease),
+    }
+  } else {
+    console.warn(
+      `Get invalid response from GitHub for ${owner}/${repoName}. Response: ${JSON.stringify(
+        responseJson
+      )}`
+    )
   }
 }

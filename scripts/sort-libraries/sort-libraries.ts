@@ -32,7 +32,7 @@ export async function sortLibs(
         downloadCount: npmStats ?? gemStars ?? 0,
         stars: githubStats?.stars ?? 0,
         httpScore: httpScore ?? 0,
-        githubStats,
+        ...githubStats,
       }
       totalStars += result.stars
       return result
@@ -53,10 +53,10 @@ export async function sortLibs(
       bScore += 10
     }
 
-    if (a.githubStats?.hasCommitsInLast3Months) {
+    if ("hasCommitsInLast3Months" in a && a.hasCommitsInLast3Months) {
       aScore += 28
     }
-    if (b.githubStats?.hasCommitsInLast3Months) {
+    if ("hasCommitsInLast3Months" in b && b.hasCommitsInLast3Months) {
       bScore += 28
     }
     if (a.stars > b.stars) {
