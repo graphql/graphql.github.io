@@ -80,13 +80,25 @@ type GitHubStatsFetchResponse =
       }
     }
 
-export async function getGitHubStats(githubRepo: string) {
+type GitHubInfo = {
+  hasCommitsInLast3Months: boolean
+  stars: number
+  formattedStars: string
+  license: string
+  lastRelease: string
+  formattedLastRelease: string
+}
+
+export async function getGitHubStats(
+  githubRepo: string
+): Promise<GitHubInfo | undefined> {
   const [owner, repoName] = githubRepo.split("/")
   const accessToken = process.env.GITHUB_ACCESS_TOKEN
   if (!accessToken) {
-    return console.warn(
+    console.warn(
       `No GITHUB_ACCESS_TOKEN environment variable found. Skipping GitHub stats for ${githubRepo}`
     )
+    return
   }
   const query = /* GraphQL */ `
     fragment defaultBranchRefFragment on Ref {
