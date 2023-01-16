@@ -1,25 +1,28 @@
-type NpmStatsType = {
-  downloads: number
-  start?: string
-  end?: string
-  package?: string
-}
+type NpmStatsFetchResponse =
+  | {
+      downloads?: number
+      start: string
+      end: string
+      package: string
+    }
+  | { error: string }
 
 export async function getNpmStats(packageName: string): Promise<number> {
-  if (!packageName) {
-    return 0
-  }
   const response = await fetch(
     `https://api.npmjs.org/downloads/point/last-week/${encodeURIComponent(
       packageName
     )}`
   )
-  if (!response.ok) {
-    return 0
+  if (response.ok) {
+    const responseJson: NpmStatsFetchResponse = await response.json()
+    if (responseJson && "downloads" in responseJson) {
+      return responseJson.downloads ?? 0
+    } else {
+      console.warn(
+        `Get invalid response from npm for ${packageName}:`,
+        responseJson
+      )
+    }
   }
-  const responseJson: NpmStatsType = await response.json()
-  if (!responseJson) {
-    return 0
-  }
-  return responseJson.downloads
+  return 0
 }
