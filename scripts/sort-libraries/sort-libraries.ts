@@ -17,8 +17,6 @@ interface Library {
 export async function sortLibs(
   libraries: Library[]
 ): Promise<{ sortedLibs: Library[]; totalStars: number }> {
-  console.log("sortLibs length", libraries.length)
-
   let totalStars = 0
   const libsWithScores = await Promise.all(
     libraries.map(async lib => {
@@ -33,33 +31,38 @@ export async function sortLibs(
         ...lib,
         downloadCount: npmStats ?? gemStars ?? 0,
         stars: githubStats?.stars ?? 0,
+        httpScore: httpScore ?? 0,
         githubStats,
       }
       totalStars += result.stars
-      console.log("result", result)
       return result
     })
   )
-  console.log("libsWithScores", libsWithScores)
   const sortedLibs = libsWithScores.sort((a, b) => {
     let aScore = 0,
       bScore = 0
     if (a.downloadCount > b.downloadCount) {
-      aScore += 40
+      aScore += 36
     } else if (b.downloadCount > a.downloadCount) {
-      bScore += 40
+      bScore += 36
+    }
+
+    if (a.httpScore > b.httpScore) {
+      aScore += 10
+    } else if (b.httpScore > a.httpScore) {
+      bScore += 10
     }
 
     if (a.githubStats?.hasCommitsInLast3Months) {
-      aScore += 30
+      aScore += 28
     }
     if (b.githubStats?.hasCommitsInLast3Months) {
-      bScore += 30
+      bScore += 28
     }
     if (a.stars > b.stars) {
-      aScore += 40
+      aScore += 36
     } else if (a.stars < b.stars) {
-      bScore += 40
+      bScore += 36
     }
     if (bScore > aScore) {
       return 1

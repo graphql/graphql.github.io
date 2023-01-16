@@ -18,10 +18,7 @@ export async function getNpmStats(packageName: string): Promise<number> {
     if (responseJson && "downloads" in responseJson) {
       return responseJson.downloads ?? 0
     } else {
-      console.warn(
-        `Get invalid response from npm for ${packageName}:`,
-        responseJson
-      )
+      console.warn(`Get invalid response from npm for ${packageName}`)
     }
   }
   return 0

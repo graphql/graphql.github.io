@@ -1,13 +1,13 @@
 import numbro from "numbro"
 import { format as timeago } from "timeago.js"
 
-export async function getGitHubStats(githubRepo: any) {
+export async function getGitHubStats(githubRepo: string) {
   const [owner, repoName] = githubRepo.split("/")
   const accessToken = process.env.GITHUB_ACCESS_TOKEN
   if (!accessToken) {
-    return {
-      accessToken: false,
-    }
+    return console.warn(
+      `No GITHUB_ACCESS_TOKEN environment variable found. Skipping GitHub stats for ${githubRepo}`
+    )
   }
   const query = /* GraphQL */ `
     fragment defaultBranchRefFragment on Ref {
@@ -26,7 +26,11 @@ export async function getGitHubStats(githubRepo: any) {
         }
       }
     }
-    query ($owner: String!, $repoName: String!, $since: GitTimestamp!) {
+    query GitHubInfo(
+      $owner: String!
+      $repoName: String!
+      $since: GitTimestamp!
+    ) {
       repositoryOwner(login: $owner) {
         repository(name: $repoName) {
           defaultBranchRef {
@@ -84,7 +88,9 @@ export async function getGitHubStats(githubRepo: any) {
       "Content-Type": "application/json",
     },
   })
+  console.log("response:", response)
   const responseJson = await response.json()
+  console.log("responseJson:", responseJson)
 
   if (responseJson && responseJson.errors) {
     throw JSON.stringify(responseJson.errors)

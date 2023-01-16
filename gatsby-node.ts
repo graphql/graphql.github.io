@@ -185,11 +185,6 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
         await Promise.all(
           Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
             const libraries = libraryCategoryMap[libraryCategoryName]
-            console.log(
-              "libraries from node",
-              libraryCategoryName,
-              libraries.length
-            )
             const { sortedLibs, totalStars } = await sortLibs(libraries)
 
             libraryCategoryMap[libraryCategoryName] = sortedLibs
@@ -201,7 +196,6 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
           totalStars: languageTotalStars,
           categoryMap: libraryCategoryMap,
         })
-        console.log("languageList from node", languageList)
       }),
       ...Object.keys(codeData.ToolsNew).map(async toolName => {
         const toolCategoryMap = codeData.ToolsNew[toolName]
@@ -219,7 +213,6 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
           totalStars: toolTotalStars,
           categoryMap: toolCategoryMap,
         })
-        console.log("toolList from node", toolList)
       }),
     ])
 

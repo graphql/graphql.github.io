@@ -12,16 +12,14 @@ export async function getHttpScore(packageName: string): Promise<number> {
     )}/report.json`
   )
   if (!response.ok) {
-    console.warn(`Get invalid response from npm for ${packageName}:`, response)
+    console.warn(
+      `Get invalid response from HTTP score for ${packageName}. Status: ${response.status}`
+    )
     return 0
   }
   const responseJson: HttpScoreFetchResponse = await response.json()
   if (!responseJson) {
-    console.warn(
-      `Get invalid response from npm for ${packageName}:`,
-      responseJson
-    )
-
+    console.warn(`Get invalid response from HTTP score for ${packageName}`)
     return 0
   }
   return responseJson.total ?? 0
