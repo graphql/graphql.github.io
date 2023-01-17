@@ -89,6 +89,8 @@ type GitHubInfo = {
   formattedLastRelease: string
 }
 
+type Release = { date: string; formattedDate: string }
+
 export async function getGitHubStats(
   githubRepo: string
 ): Promise<GitHubInfo | undefined> {
@@ -208,7 +210,7 @@ export async function getGitHubStats(
     const formattedStars = numbro(stars).format({
       average: true,
     })
-    const releases: any = []
+    const releases: Release[] = []
     if (
       repo.tags &&
       repo.tags.nodes &&
@@ -216,23 +218,31 @@ export async function getGitHubStats(
       repo.tags.nodes[0].target.target &&
       repo.tags.nodes[0].target.target.pushedDate
     ) {
-      releases.push(repo.tags.nodes[0].target.target.pushedDate)
+      releases.push({
+        date: repo.tags.nodes[0].target.target.pushedDate,
+        formattedDate: timeago(repo.tags.nodes[0].target.target.pushedDate),
+      })
     }
     if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
-      releases.push(repo.releases.nodes[0].publishedAt)
+      releases.push({
+        date: repo.releases.nodes[0].publishedAt,
+        formattedDate: timeago(repo.releases.nodes[0].publishedAt),
+      })
     }
     if (owner.includes("graphql")) {
       console.log({ releases, repoName })
     }
+    console.log("releases", releases)
 
     const lastRelease = releases.filter(Boolean).sort().reverse()[0]
+    console.log("lastRelease", lastRelease)
     return {
       hasCommitsInLast3Months,
       stars,
       formattedStars,
       license: repo.licenseInfo && repo.licenseInfo.name,
-      lastRelease,
-      formattedLastRelease: lastRelease && timeago(lastRelease),
+      lastRelease: lastRelease ? lastRelease.date : "",
+      formattedLastRelease: lastRelease ? lastRelease.formattedDate : "",
     }
   } else {
     console.warn(
