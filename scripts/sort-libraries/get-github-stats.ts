@@ -100,7 +100,7 @@ export async function getGitHubStats(
     console.warn(
       `No GITHUB_ACCESS_TOKEN environment variable found. Skipping GitHub stats for ${githubRepo}`
     )
-    return
+    return undefined
   }
   const query = /* GraphQL */ `
     fragment defaultBranchRefFragment on Ref {
@@ -235,7 +235,6 @@ export async function getGitHubStats(
     console.log("releases", releases)
 
     const lastRelease = releases.filter(Boolean).sort().reverse()[0]
-    console.log("lastRelease", lastRelease)
     return {
       hasCommitsInLast3Months,
       stars,
