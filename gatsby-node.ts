@@ -4,7 +4,7 @@ import { promisify } from "util"
 import { readFile } from "fs/promises"
 import * as globby from "globby"
 import * as frontmatterParser from "parser-front-matter"
-import { sortLibs } from "./scripts/sort-libraries"
+import { sortLibs } from "./scripts/sort-libraries/sort-libraries"
 
 const parse$ = promisify(frontmatterParser.parse)
 
@@ -186,6 +186,7 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
           Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
             const libraries = libraryCategoryMap[libraryCategoryName]
             const { sortedLibs, totalStars } = await sortLibs(libraries)
+
             libraryCategoryMap[libraryCategoryName] = sortedLibs
             languageTotalStars += totalStars || 0
           })
