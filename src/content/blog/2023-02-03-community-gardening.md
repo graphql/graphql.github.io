@@ -56,21 +56,25 @@ Graphile suite](https://github.com/graphile)) and also my contributions to the
 [Groups](https://github.com/graphql/graphql-over-http/graphs/contributors).
 Since being approved for the grant, I've been better able to execute the role
 of community gardener; let me tell you about some of the ways in which the
-foundation's grant has enabled me to better support you, the GraphQL community!
+Foundation's grant has enabled me to better support you, the GraphQL community!
 
 The [main GraphQL working group](https://github.com/graphql/graphql-wg) meets
 each month; and it is recorded on Zoom and made available via [the Foundation's
 YouTube
 channel](https://www.youtube.com/channel/UCERcwLeheOXp_u61jEXxHMA/playlists).
 Soon after each meeting I've been uploading the videos not just for the main
-meeting but also for the various other subcommittees (GraphiQL WG, GraphQL.js
-WG, GraphQL-over-HTTP WG, Metadata WG, Composite Schemas WG) that may have met
-during the previous month. Whilst uploading the video of the main meeting, I
-file its notes and the action items, while also categorizing them making sure
-they're assigned to the relevant person. Recently, I've also started adding
-timestamped links to the YouTube video for each action item, so we can hear the
-original instructions rather than just the paraphrased summaries from the
-notes - I think this makes them even more useful!
+meeting but also for the various other subcommittees ([GraphiQL
+WG](https://github.com/graphql/graphiql/tree/main/working-group), [GraphQL.js
+WG](https://github.com/graphql/graphql-js-wg), [GraphQL-over-HTTP
+WG](https://github.com/graphql/graphql-over-http/tree/main/working-group),
+Metadata WG, [Composite Schemas
+WG](https://github.com/graphql/composite-schemas-wg)) that may have met during
+the previous month. Whilst uploading the video of the main meeting, I file its
+notes and the action items, while also categorizing them making sure they're
+assigned to the relevant person. Recently, I've also started adding timestamped
+links to the YouTube video for each action item, so we can hear the original
+instructions rather than just the paraphrased summaries from the notes - I
+think this makes them even more useful!
 
 ## Empowering other contributors
 
@@ -83,8 +87,8 @@ edits](https://github.com/graphql/wg-template#working-group-template) that take
 about 5 minutes when setting up the repository and of course the regular
 scheduling.
 
-I've also been working with the Linux Foundation's Elisa Trevino to get
-subcommittee meetings scheduled onto [the GraphQL
+I've also been working with the Linux Foundation to get subcommittee meetings
+scheduled onto [the GraphQL
 calendar](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_ik79t9uuj2p32i3r203dgv5mo8%40group.calendar.google.com),
 and to expand [EasyCLA](https://docs.linuxfoundation.org/v2/easycla) to the new
 repositories to ensure that everyone contributing has signed the [GraphQL
