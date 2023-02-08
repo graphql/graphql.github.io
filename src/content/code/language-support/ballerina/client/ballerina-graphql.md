@@ -8,7 +8,7 @@ github: ballerina-platform/module-ballerina-graphql
 To run a `ballerina-graphql` client:
 
 - Download and install [Ballerina Language](https://ballerina.io/downloads)
-- Then run `bal run graphql_client.bal` to run the service, with with this code in the `graphql_client.bal` file:
+- Then run `bal run graphql_client.bal` to run the service, with this code in the `graphql_client.bal` file:
 
 ```ballerina
 import ballerina/graphql;
@@ -25,3 +25,7 @@ public function main() returns error? {
     io:println(response.data.hello);
 }
 ```
+
+## Features
+- Dependently-typed response retrieval with Ballerina type inferring
+- Custom client generation support

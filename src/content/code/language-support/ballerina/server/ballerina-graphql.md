@@ -8,7 +8,7 @@ github: ballerina-platform/module-ballerina-graphql
 To run a `ballerina-graphql` hello world server:
 
 - Download and install [Ballerina Language](https://ballerina.io/downloads)
-- Then run `bal run graphql_service.bal` to run the service, with with this code in the `graphql_service.bal` file:
+- Then run `bal run graphql_service.bal` to run the service, with this code in the `graphql_service.bal` file:
 
 ```ballerina
 import ballerina/graphql;
