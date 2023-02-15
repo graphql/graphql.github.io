@@ -31,10 +31,10 @@ const SingleRequest = () => {
               <Prism code={
 `{
     hero {
-    name
-    friends {
+      name
+      friends {
         name
-        }
+      }
     }
 }`} language="graphql" />
             </div>
