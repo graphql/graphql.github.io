@@ -49,7 +49,7 @@ with Client("http://example.com/graphql/") as client:
 
     if result.errors:
         error = result.errors[0]
-        raise ValidationError({error.field: error.message })
+        raise ValidationError({error.field: error.message})
 
     auth_token = result.token
 ```
