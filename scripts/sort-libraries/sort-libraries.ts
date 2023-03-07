@@ -3,12 +3,12 @@ import { getGitHubStats } from "./get-github-stats"
 import { getHttpScore } from "./get-http-score"
 import { getNpmStats } from "./get-npm-stats"
 
-interface Library {
+export interface Library {
   name: string
   description: string
   howto: string
   url: string
-  github: string
+  github: string | undefined
   npm: string | undefined
   gem: string | undefined
   sourcePath: string

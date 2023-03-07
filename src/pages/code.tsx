@@ -6,7 +6,7 @@ import Marked from "../components/Marked"
 import Seo from "../components/Seo"
 import { toSlug } from "../utils/slug"
 
-interface ILibrary {
+export interface ILibrary {
   description: string
   github?: string
   npm?: string
@@ -40,13 +40,18 @@ interface Tool {
   }
 }
 
+interface Service {
+  name: string
+  totalStars: number
+  categoryMap: {
+    General: ILibrary[]
+  }
+}
+
 interface PageContext {
   languageList: Language[]
   toolList: Tool[]
-  otherLibraries: {
-    Services: ILibrary[]
-    Tools?: ILibrary[]
-  }
+  serviceList: Service[]
   sourcePath: string
 }
 
@@ -186,6 +191,31 @@ export function ToolsList({ pageContext, type }: ToolsListProps) {
       <h3 id={type} className="library-category-title">
         {type === "GatewaysAndSupergraphs" ? "Gateways / Supergraphs" : type}
       </h3>
+      {pageContext.toolList.map(
+        tool => (
+          console.log(tool.categoryMap, tool.name),
+          (
+            <div key={tool.name} id={toSlug(tool.name)}>
+              {Object.entries(tool.categoryMap).map(
+                ([categoryName, data]) =>
+                  categoryName === type && <LibraryList data={data} />
+              )}
+            </div>
+          )
+        )
+      )}
+    </>
+  )
+}
+
+interface ServicesListProps {
+  pageContext: PageContext
+  type: "General"
+}
+export function ServiceList({ pageContext, type }: ServicesListProps) {
+  return (
+    <>
+      <h3 className="library-category-title">General</h3>
       {pageContext.toolList.map(
         tool => (
           console.log(tool.categoryMap, tool.name),
@@ -351,7 +381,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 #
               </AnchorLink>
             </h2>
-            <LibraryList data={pageContext.otherLibraries?.Services ?? []} />
+            <ServiceList pageContext={pageContext} type={"General"} />
           </div>
         </div>
         <p>
