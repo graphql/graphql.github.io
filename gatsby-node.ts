@@ -99,6 +99,7 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
     const organizeData = await organizeCodeData(codeData)
     const sortedOrganizeData = await sortCodeData(organizeData)
 
+    console.log("codeData.Services", codeData.Services)
     context = {
       sourcePath: path.relative(__dirname, page.path),
       ...sortedOrganizeData,

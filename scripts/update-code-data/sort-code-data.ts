@@ -1,9 +1,10 @@
+import { Library } from "../sort-libraries/sort-libraries"
 import { List } from "./organize-code-data"
 
 type organizeData = {
   languageList: List[]
   toolList: List[]
-  serviceList: List[]
+  serviceList: Library[]
 }
 
 export async function sortCodeData(
@@ -28,15 +29,7 @@ export async function sortCodeData(
       }
       return 0
     }),
-    organizeData.serviceList.sort((a, b) => {
-      if (a.totalStars > b.totalStars) {
-        return -1
-      }
-      if (a.totalStars < b.totalStars) {
-        return 1
-      }
-      return 0
-    }),
+    organizeData.serviceList,
   ])
   return organizeData
 }

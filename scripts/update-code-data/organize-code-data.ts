@@ -11,10 +11,10 @@ export type List = {
 
 export async function organizeCodeData(
   codeData: CodeData
-): Promise<{ languageList: List[]; toolList: List[]; serviceList: List[] }> {
+): Promise<{ languageList: List[]; toolList: List[]; serviceList: Library[] }> {
   let languageList: List[] = []
   let toolList: List[] = []
-  let serviceList: List[] = []
+  let serviceList: Library[] = []
   await Promise.all([
     ...Object.keys(codeData.Languages).map(async languageName => {
       const libraryCategoryMap = codeData.Languages[languageName]
@@ -51,6 +51,7 @@ export async function organizeCodeData(
         categoryMap: toolCategoryMap,
       })
     }),
+    (serviceList = codeData.Services),
   ])
   return { languageList, toolList, serviceList }
 }

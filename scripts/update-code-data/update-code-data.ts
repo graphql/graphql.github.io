@@ -16,11 +16,7 @@ export type CodeData = {
       [categoryToolsName: string]: Library[]
     }
   }
-  Services: {
-    [serviceName: string]: {
-      [categoryServicesName: string]: Library[]
-    }
-  }
+  Services: Library[]
 }
 
 export async function updateCodeData(
@@ -39,7 +35,6 @@ export async function updateCodeData(
       const pathArr = markdownFilePath.split("/")
       const languageSupport = markdownFilePath.includes("language-support")
       const toolsSupport = markdownFilePath.includes("tools")
-      const servicesSupport = markdownFilePath.includes("services")
 
       switch (true) {
         case languageSupport: {
@@ -79,31 +74,6 @@ export async function updateCodeData(
           codeData.Tools[toolName][categoryToolsName] ||= []
 
           codeData.Tools[toolName][categoryToolsName].push({
-            name,
-            description,
-            howto,
-            url,
-            github,
-            npm,
-            gem,
-            sourcePath: markdownFilePath,
-          })
-          break
-        }
-        case servicesSupport: {
-          const serviceSupportDirIndex = pathArr.indexOf("services")
-          const serviceNameSlugIndex = serviceSupportDirIndex + 1
-          const serviceNameSlug = pathArr[serviceNameSlugIndex]
-          const serviceName = slugMap[serviceNameSlug]
-          codeData.Services ||= {}
-          codeData.Services[serviceName] ||= {}
-          const categoryServicesNameSlugIndex = serviceSupportDirIndex + 2
-          const categoryServicesNameSlug =
-            pathArr[categoryServicesNameSlugIndex]
-          const categoryServicesName = slugMap[categoryServicesNameSlug]
-          codeData.Services[serviceName][categoryServicesName] ||= []
-
-          codeData.Services[serviceName][categoryServicesName].push({
             name,
             description,
             howto,

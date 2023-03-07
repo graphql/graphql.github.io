@@ -39,19 +39,10 @@ interface Tool {
     General: ILibrary[]
   }
 }
-
-interface Service {
-  name: string
-  totalStars: number
-  categoryMap: {
-    General: ILibrary[]
-  }
-}
-
 interface PageContext {
   languageList: Language[]
   toolList: Tool[]
-  serviceList: Service[]
+  serviceList: ILibrary[]
   sourcePath: string
 }
 
@@ -191,31 +182,6 @@ export function ToolsList({ pageContext, type }: ToolsListProps) {
       <h3 id={type} className="library-category-title">
         {type === "GatewaysAndSupergraphs" ? "Gateways / Supergraphs" : type}
       </h3>
-      {pageContext.toolList.map(
-        tool => (
-          console.log(tool.categoryMap, tool.name),
-          (
-            <div key={tool.name} id={toSlug(tool.name)}>
-              {Object.entries(tool.categoryMap).map(
-                ([categoryName, data]) =>
-                  categoryName === type && <LibraryList data={data} />
-              )}
-            </div>
-          )
-        )
-      )}
-    </>
-  )
-}
-
-interface ServicesListProps {
-  pageContext: PageContext
-  type: "General"
-}
-export function ServiceList({ pageContext, type }: ServicesListProps) {
-  return (
-    <>
-      <h3 className="library-category-title">General</h3>
       {pageContext.toolList.map(
         tool => (
           console.log(tool.categoryMap, tool.name),
@@ -381,7 +347,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 #
               </AnchorLink>
             </h2>
-            <ServiceList pageContext={pageContext} type={"General"} />
+            <LibraryList data={pageContext.serviceList} />
           </div>
         </div>
         <p>
