@@ -1,7 +1,7 @@
 ---
 name: graphql-query
-description: Complete GraphQL query string generation for python..
-url: https://github.com/denisart/graphql-query
+description: Complete GraphQL query string generation for python.
+url: https://denisart.github.io/graphql-query/
 github: denisart/graphql-query
 ---
 
