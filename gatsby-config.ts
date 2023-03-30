@@ -11,6 +11,7 @@ const config: GatsbyConfig = {
     typesOutputPath: `src/__generated__/gatsby-types.d.ts`,
   },
   plugins: [
+    "gatsby-plugin-postcss",
     "gatsby-plugin-anchor-links",
     {
       resolve: "gatsby-source-filesystem",
