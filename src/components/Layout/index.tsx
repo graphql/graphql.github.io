@@ -3,7 +3,7 @@ import Footer from "../Footer"
 import Header from "../Header"
 
 import "../../assets/css/style.less"
-
+import "../../assets/css/global.css"
 interface Props {
   children: React.ReactNode
   className?: string
