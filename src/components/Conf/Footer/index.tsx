@@ -1,37 +1,26 @@
 import React from "react"
-import Link from "../../Link"
+import SocialIcons from "../SocialIcons"
 
-interface LinkItem {
-  text: string
-  href: string
-  icon?: string
-}
-
-interface FooterLinks {
-  text?: string
-  href?: string
-  subsections: LinkItem[]
-}
-
-const getLinks = (): FooterLinks[] => [
+const links = [
   {
-    subsections: [
+    category: "GraphQLConf",
+    links: [
       { text: "GraphQLConf", href: "/" },
       { text: "Speakers", href: "/#speakers" },
       { text: "Venue", href: "/#venue" },
     ],
   },
   {
-    subsections: [
-      // TODO: Edit the href link to the correct page
+    category: "Register",
+    links: [
       { text: "Register", href: "/#register" },
       { text: "Speak", href: "/cfp" },
       { text: "Sponsor", href: "/PDF" },
     ],
   },
   {
-    subsections: [
-      // TODO: Edit the href link to the correct page
+    category: "FAQ",
+    links: [
       { text: "FAQ", href: "/faq" },
       { text: "Code of Conduct", href: "/faq#codeofconduct" },
       { text: "Contact Us", href: "/faq#contact" },
@@ -41,42 +30,50 @@ const getLinks = (): FooterLinks[] => [
 
 const FooterConf = () => {
   return (
-    <div>
-      <footer>
-        <section className="sitemap">
-          {getLinks().map((section, i) => (
-            <div key={i}>
-              <h5>
-                {section.href ? (
-                  <Link href={section.href}>{section.text}</Link>
-                ) : (
-                  <span>{section.text}</span>
-                )}
-              </h5>
-              {section.subsections.map((subsection: any, i) => (
-                <Link key={i} href={subsection.href}>
-                  {subsection.icon && <img src={subsection.icon} />}
-                  {subsection.text}
-                </Link>
-              ))}
+    <footer className="text-gray-600 body-font">
+      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+          <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <img src="/img/graphql-conf-logo.svg" className="w-[200px]" />
+          </a>
+        </div>
+        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+          {links.map((link, i) => (
+            <div key={i} className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <nav className="list-none mb-20 ">
+                {link.links.map((link, i) => (
+                  <li key={i}>
+                    <a className="text-white font-semibold text-base hover:text-white hover:font-semibold cursor-pointer">
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </nav>
             </div>
           ))}
-
-          <img src="/img/conf/footer.png" height={150} />
-        </section>
-        <section className="copyright">
-          Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
-          All rights reserved.
-          <br />
-          For web site terms of use, trademark policy and general project
-          policies please see&nbsp;
-          <a href="https://lfprojects.org" target="_blank">
-            https://lfprojects.org
-          </a>
-          .
-        </section>
-      </footer>
-    </div>
+        </div>
+      </div>
+      <div className="bg-[#862e69]">
+        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p className="text-white text-sm text-center sm:text-left">
+            <section>
+              Copyright © {`${new Date().getFullYear()}`} The GraphQL
+              Foundation. All rights reserved.
+              <br />
+              For web site terms of use, trademark policy and general project
+              policies please see&nbsp;
+              <a href="https://lfprojects.org" target="_blank">
+                https://lfprojects.org
+              </a>
+              .
+            </section>
+          </p>
+          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start ">
+            <SocialIcons />
+          </span>
+        </div>
+      </div>
+    </footer>
   )
 }
 

@@ -4,15 +4,13 @@ import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import "../../assets/css/style.less"
 import "../../assets/css/global.css"
-
-const classes = {
-  button:
-    "inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg",
-}
+import LayoutConf from "../../components/Conf/Layout"
+import ButtonConf from "../../components/Conf/Button"
 
 export default () => {
   return (
-    <>
+    <LayoutConf>
+      <HeaderConf />
       <div className="text-gray-600 body-font bg-[url('/img/bg-graphql-conf.png')]">
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
           <div className="flex flex-col items-center lg:w-2/3 w-full">
@@ -25,14 +23,14 @@ export default () => {
             </h2>
             <p className="mb-8 leading-relaxed text-white">#GRAPHQLCONF</p>
             <div className="flex justify-center gap-4">
-              <button className={classes.button}>REGISTER NOW</button>
-              <button className={classes.button}>SUBMIT TO SPEAK</button>
+              <ButtonConf text="JOIN AS A SPONSOR" href="/" />
+              <ButtonConf text="SUBMIT TO SPEAK" href="/" />
             </div>
           </div>
         </div>
       </div>
       <FooterConf />
-    </>
+    </LayoutConf>
   )
 }
 
