@@ -5,7 +5,7 @@ url: https://spring.io/projects/spring-graphql
 github: spring-projects/spring-graphql
 ---
 Spring for GraphQL provides support for Spring applications built on
-[GraphQL Java](https://www.graphql-java.com/).
+[GraphQL Java](https://www.graphql-java.com/). See the official [Spring guide](https://spring.io/guides/gs/graphql-server/) for how to build a GraphQL service in 15 minutes.
 
 * It is a joint collaboration between the GraphQL Java team and Spring engineering.
 * Our shared philosophy is to provide as little opinion as we can while focusing on comprehensive support for a wide range of use cases.
