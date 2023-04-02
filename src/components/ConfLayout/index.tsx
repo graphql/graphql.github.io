@@ -19,7 +19,7 @@ const Index = ({ title, heroText, nextDoc, sideBarData, rawMarkdownBody, pageCon
       <div className="foundation conf">
         <div className="foundation-hero">
           <div className="foundation-hero-inner-content">
-              <img src="/img/graphql_conf-details-white.svg" alt="GraphQL Foundation logo" />
+              <img src="/img/conf/graphql-conf-logo.svg" alt="GraphQLConf logo" />
               <div>{heroText}</div>
           </div>
         </div>
