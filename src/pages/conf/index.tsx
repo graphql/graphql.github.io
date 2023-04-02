@@ -8,6 +8,7 @@ import SpeakersConf from "../../components/Conf/Speakers"
 import PricingConf from "../../components/Conf/Pricing"
 import ContantSectionConf from "../../components/Conf/Contant"
 import VenueConf from "../../components/Conf/Venue"
+import SFConf from "../../components/Conf/SF"
 
 export default () => {
   return (
@@ -33,6 +34,7 @@ export default () => {
       <PricingConf />
       <ContantSectionConf />
       <VenueConf />
+      <SFConf />
       <div>
         <div className="container mx-auto">
           <p>
