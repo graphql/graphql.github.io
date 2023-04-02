@@ -26,6 +26,7 @@ export default () => {
           </div>
         </div>
       </div>
+      <SpeakersConf />
       <div>
         <div className="container mx-auto">
           <p>
