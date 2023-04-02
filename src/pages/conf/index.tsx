@@ -12,21 +12,35 @@ export default () => {
     <LayoutConf>
       <HeaderConf />
       <div className="text-gray-600 body-font bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover">
-        <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-          <div className="flex flex-col items-center lg:w-2/3 w-full">
-            <img src="/img/conf/graphql-conf-logo.svg" className="w-[500px] mb-4" />
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-extrabold text-white">
-              SEPTEMBER 19-21, 2023
-            </h1>
-            <h2 className="sm:text-2xl text-xl mb-8 text-white leading-relaxed">
-              SAN FRANCISCO BAY AREA, CA
-            </h2>
-            <div className="flex justify-center gap-4">
+        <div className="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
+          <div className="flex flex-col items-center w-full">
+            <img
+              src="/img/conf/graphql-conf-logo.svg"
+              className="w-[500px] mb-4"
+            />
+            <div className="sm:text-3xl text-2xl mb-8 text-white text-center leading-relaxed">
+              <span className="block lg:inline">SEPTEMBER 19-21, 2023</span>
+              <span className="hidden lg:inline"> • </span>
+              <span>SAN FRANCISCO BAY AREA, CA</span>
+            </div>
+            <div className="flex justify-center gap-4 flex-col sm:flex-row">
               <ButtonConf text="JOIN AS A SPONSOR" href="/sponsor" />
               <ButtonConf text="SUBMIT TO SPEAK" href="/speak" />
             </div>
           </div>
         </div>
+      </div>
+      <div className="container mx-auto">
+        <p>
+          The official GraphQL conference, presented by the GraphQL Foundation.
+        </p>
+        <p>
+          GraphQLConf is a premier event uniting the global GraphQL community to
+          promote education, adoption, and advancement of GraphQL. Workshops,
+          presentations, and discussions covering everything from best
+          practices, innovative use cases, and the latest advancements in
+          GraphQL.
+        </p>
       </div>
       <FooterConf />
     </LayoutConf>

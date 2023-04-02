@@ -20,10 +20,10 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
         <a href="/conf/">
           <img src="/img/conf/graphql-conf-logo.svg" />
           <div>
-            <span>The offical GraphQL conference by the GraphQL Foundation.</span>
+            <span>The offical GraphQL conference, by the GraphQL Foundation</span>
             <i>SEPTEMBER 19-21, 2023 • SAN FRANCISO BAY AREA, CA</i>
             <div>
-              <a className="button" href="/conf/">Register Now!</a>
+              <a className="button" href="/conf/#register">Register Now!</a>
             </div>
           </div>
         </a>
