@@ -9,11 +9,11 @@ const links = [
   ],
   [
     { text: "Register", href: "/conf/#register" },
-    { text: "Speak", href: "/conf/speak" },
-    { text: "Sponsor", href: "/conf/sponsor" },
+    { text: "Speak", href: "/conf/speak/" },
+    { text: "Sponsor", href: "/conf/sponsor/" },
   ],
   [
-    { text: "FAQ", href: "/faq" },
+    { text: "FAQ", href: "/conf/faq/" },
     { text: "Code of Conduct", href: "/conf/faq/#codeofconduct" },
     { text: "Contact Us", href: "/conf/faq/#contact" },
   ],
