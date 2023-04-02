@@ -2,58 +2,49 @@ import React from "react"
 import SocialIcons from "../SocialIcons"
 
 const links = [
-  {
-    category: "GraphQLConf",
-    links: [
-      { text: "GraphQLConf", href: "/conf/" },
-      { text: "Speakers", href: "/conf/#speakers" },
-      { text: "Venue", href: "/conf/#venue" },
-    ],
-  },
-  {
-    category: "Act now",
-    links: [
-      { text: "Register", href: "/conf/#register" },
-      { text: "Speak", href: "/conf/speak" },
-      { text: "Sponsor", href: "/conf/sponsor" },
-    ],
-  },
-  {
-    category: "FAQ",
-    links: [
-      { text: "FAQ", href: "/faq" },
-      { text: "Code of Conduct", href: "/conf/faq/#codeofconduct" },
-      { text: "Contact Us", href: "/conf/faq/#contact" },
-    ],
-  },
+  [
+    { text: "GraphQLConf", href: "/conf/" },
+    { text: "Speakers", href: "/conf/#speakers" },
+    { text: "Venue", href: "/conf/#venue" },
+  ],
+  [
+    { text: "Register", href: "/conf/#register" },
+    { text: "Speak", href: "/conf/speak" },
+    { text: "Sponsor", href: "/conf/sponsor" },
+  ],
+  [
+    { text: "FAQ", href: "/faq" },
+    { text: "Code of Conduct", href: "/conf/faq/#codeofconduct" },
+    { text: "Contact Us", href: "/conf/faq/#contact" },
+  ],
 ]
 
 const FooterConf = () => {
   return (
     <footer className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="container px-5 py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a href="/conf/" className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <img src="/img/conf/graphql-conf-logo.svg" className="w-[200px]" />
           </a>
         </div>
-        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+        <div className="flex-grow flex flex-wrap lg:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           {links.map((link, i) => (
-            <div key={i} className="lg:w-1/4 md:w-1/2 w-full px-4">
-              <nav className="list-none mb-20 ">
-                {link.links.map((link, i) => (
+            <div key={i} className="md:w-1/3 w-full px-4">
+              <div className="list-none mb-20">
+                {link.map((link, i) => (
                   <li key={i}>
                     <a href={link.href} className="text-white font-semibold text-base hover:text-white hover:font-semibold hover:underline">
                       {link.text}
                     </a>
                   </li>
                 ))}
-              </nav>
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="bg-[#862e69]">
+      <div>
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p className="text-white text-sm text-center sm:text-left">
             <section>

@@ -5,6 +5,7 @@ interface LinkItem {
   section: string
   text: string
   href: string
+  noMobile?: boolean,
 }
 
 const links: LinkItem[] = [
@@ -12,6 +13,7 @@ const links: LinkItem[] = [
     section: "Register",
     text: "Register",
     href: "/conf/#register",
+    noMobile: true,
   },
   {
     section: "Speak",
@@ -37,11 +39,11 @@ const classes = {
 const HeaderConf = () => {
   return (
     <header className={classes.background}>
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+      <div className="xl:container mx-auto flex flex-wrap p-5 flex-row items-center max-md:justify-between">
+        <nav className="flex xl:w-2/5 flex-wrap items-center text-base md:ml-auto">
           {links.map((link, i) => (
             <a
-              className="mr-5 text-white font-normal hover:font-extrabold hover:text-white"
+              className={`mr-5 text-white font-normal hover:font-extrabold hover:text-white ${link.noMobile ? 'max-md:hidden' : ''}`}
               key={i}
               href={link.href}
             >
@@ -49,11 +51,11 @@ const HeaderConf = () => {
             </a>
           ))}
         </nav>
-        <a href="/conf/" className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center lg:items-center lg:justify-center mb-4 md:mb-0">
-          <img src="/img/conf/graphql-conf-logo.svg" className="w-[150px]" />
+        <a href="/conf/" className="flex order-first max-sm:hidden xl:order-none xl:w-1/5 title-font font-medium items-center xl:items-center xl:justify-center max-lg:mr-2">
+          <img src="/img/conf/graphql-conf-logo.svg" className="w-[125px] md:w-[150px]" />
         </a>
-        <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-          <ButtonConf text="REGISTER NOW" href="/" />
+        <div className="xl:w-2/5 inline-flex xl:justify-end ml-5 xl:ml-0">
+          <ButtonConf text="Register Now!" href="/conf/#register" />
         </div>
       </div>
     </header>
