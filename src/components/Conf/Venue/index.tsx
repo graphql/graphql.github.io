@@ -4,7 +4,7 @@ const VenueConf = () => {
   return (
     <>
       <div className="flex flex-wrap">
-        <div className="p-4 lg:w-1/2">
+        <div className="p-4 lg:w-1/2 sm:w-full">
           <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
             <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900">
               VENUE INFORMATION
@@ -18,7 +18,7 @@ const VenueConf = () => {
             <p>1333 Old Bayshore Hwy Burlingame, CA 94010</p>
           </div>
         </div>
-        <div className="p-4 lg:w-1/2">
+        <div className="p-4 lg:w-1/2 sm:w-full">
           <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
             <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900">
               HOTEL INFORMATION
@@ -45,7 +45,7 @@ const VenueConf = () => {
       </div>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap ">
-          <div className="p-4 lg:w-1/3">
+          <div className="p-4 lg:w-1/3 sm:w-full">
             <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden relative">
               <div className="justify-center flex">
                 <img src="/img/conf/train.svg" className="w-20 h-20" />
@@ -74,7 +74,7 @@ const VenueConf = () => {
               </p>
             </div>
           </div>
-          <div className="p-4 lg:w-1/3">
+          <div className="p-4 lg:w-1/3 sm:w-full">
             <div className="h-full w-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden ">
               <div className="justify-center flex">
                 <img src="/img/conf/around.svg" className="w-20 h-20" />
@@ -97,7 +97,7 @@ const VenueConf = () => {
               </a>
             </div>
           </div>
-          <div className="p-4 lg:w-1/3">
+          <div className="p-4 lg:w-1/3 sm:w-full">
             <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden relative">
               <div className="justify-center flex">
                 <img src="/img/conf/parking.svg" className="w-20 h-20" />

@@ -68,13 +68,13 @@ const PricingConf = () => {
           </div>
         ))}
       </div>
-      <div className="flex flex-wrap justify-center">
-        <h1 className="text-4xl title-font text-white font-bold">
-          WHAT’S INCLUDED?
-        </h1>
-        <div className="w-full mx-8 overflow-hidden bg-white shadow-lg rounded-2xl">
-          <div>
-            <div className="text-center flex  w-full">
+      <div className="flex flex-wrap">
+        <div className="p-4 lg:w-full">
+          <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+            <h1 className="title-font sm:text-2xl text-xl font-medium text-[#862e69]">
+              WHAT’S INCLUDED?
+            </h1>
+            <div className="flex flex-wrap justify-center">
               {includes.map((include, i) => (
                 <div key={i} className="flex m-2 h-full items-center">
                   <svg
@@ -89,7 +89,7 @@ const PricingConf = () => {
                     <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                     <path d="M22 4L12 14.01l-3-3"></path>
                   </svg>
-                  <span className="title-font font-bold">{include.title}</span>
+                  <p className="leading-relaxed">{include.title}</p>
                 </div>
               ))}
             </div>
