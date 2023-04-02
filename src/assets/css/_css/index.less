@@ -7,6 +7,62 @@ div.index {
     margin-top: 50px;
   }
 
+  // GraphQLConf 2023 - Remove on Oct 1, 2023
+  section.conf-banner {
+    background-color: #562556;
+    background: url("/img/conf/graphql-conf-bg.png") repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    max-width: none;
+    margin-top: 30px;
+
+    & > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      margin: 0 auto;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      & > div {
+        display: flex;
+        flex-direction: column;
+
+        & > * {
+          margin: 6px 0;
+        }
+      }
+    }
+
+    img {
+      height: 130px;
+      margin: 0 30px;
+    }
+
+    .button {
+      .headline-font(@size: 17px, @color: white);
+      border: solid 1px fadeout(white, 60%);
+      border-radius: 6px;
+      line-height: 1.0;
+      transition: background 0.1s ease-out, color 0.1s ease-out;
+      padding: 0.6em 1.6em;
+      margin: 0 0.8em;
+      display: inline-block;
+      text-decoration: none;
+
+      &:hover, &:focus, &:active {
+        color: @text-color;
+        background: white;
+        text-decoration: none;
+      }
+    }
+  }
+  // End GraphQLConf 2023
+
   header {
     display: none;
     @media screen and (min-width: 1020px) {

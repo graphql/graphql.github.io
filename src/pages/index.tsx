@@ -14,8 +14,20 @@ import Seo from "../components/Seo"
 
 export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
-    <Layout className={"index"} pageContext={pageContext}>
+    <Layout className="index" pageContext={pageContext}>
       <Hero />
+      <section className="conf-banner">
+        <a href="/conf/">
+          <img src="/img/conf/graphql-conf-logo.svg" />
+          <div>
+            <span>The offical GraphQL conference by the GraphQL Foundation.</span>
+            <i>SEPTEMBER 19-21, 2023 • SAN FRANCISO BAY AREA, CA</i>
+            <div>
+              <a className="button" href="/conf/">Register Now!</a>
+            </div>
+          </div>
+        </a>
+      </section>
       <section className="lead">
         <h1>A query language for your API</h1>
         <p>

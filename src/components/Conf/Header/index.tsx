@@ -11,28 +11,26 @@ const links: LinkItem[] = [
   {
     section: "Register",
     text: "Register",
-    href: "/#register",
+    href: "/conf/#register",
   },
   {
     section: "Speak",
     text: "Speak",
-    href: "/cfp",
+    href: "/conf/speak/",
   },
   {
     section: "Sponsor",
     text: "Sponsor",
-    href: "/pdf",
+    href: "/conf/sponsor/",
   },
   {
     section: "FAQ",
     text: "FAQ",
-    href: "/faq/",
+    href: "/conf/faq/",
   },
 ]
 
 const classes = {
-  button:
-    "inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg",
   background: "bg-[#862e69]",
 }
 
@@ -51,8 +49,8 @@ const HeaderConf = () => {
             </a>
           ))}
         </nav>
-        <a className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center lg:items-center lg:justify-center mb-4 md:mb-0">
-          <img src="/img/graphql-conf-logo.svg" className="w-[150px]" />
+        <a href="/conf/" className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center lg:items-center lg:justify-center mb-4 md:mb-0">
+          <img src="/img/conf/graphql-conf-logo.svg" className="w-[150px]" />
         </a>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
           <ButtonConf text="REGISTER NOW" href="/" />
