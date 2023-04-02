@@ -4,6 +4,7 @@ import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
+import SpeakersConf from "../../components/Conf/Speakers"
 
 export default () => {
   return (
