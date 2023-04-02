@@ -6,6 +6,8 @@ import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 import SpeakersConf from "../../components/Conf/Speakers"
 import PricingConf from "../../components/Conf/Pricing"
+import ContantSectionConf from "../../components/Conf/Contant"
+import VenueConf from "../../components/Conf/Venue"
 
 export default () => {
   return (
@@ -29,6 +31,8 @@ export default () => {
       </div>
       <SpeakersConf />
       <PricingConf />
+      <ContantSectionConf />
+      <VenueConf />
       <div>
         <div className="container mx-auto">
           <p>

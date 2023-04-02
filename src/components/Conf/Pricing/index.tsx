@@ -1,5 +1,4 @@
 import React from "react"
-import ContantConf from "../Contant"
 
 interface Pricing {
   title: string
@@ -70,7 +69,9 @@ const PricingConf = () => {
         ))}
       </div>
       <div className="flex flex-wrap justify-center">
-        <ContantConf title={" WHAT’S INCLUDED?"} />
+        <h1 className="text-4xl title-font text-white font-bold">
+          WHAT’S INCLUDED?
+        </h1>
         <div className="w-full mx-8 overflow-hidden bg-white shadow-lg rounded-2xl">
           <div>
             <div className="text-center flex  w-full">
