@@ -9,6 +9,7 @@ import PricingConf from "../../components/Conf/Pricing"
 import ContantSectionConf from "../../components/Conf/Contant"
 import VenueConf from "../../components/Conf/Venue"
 import SFConf from "../../components/Conf/SF"
+import ScheduleGlanceConf from "../../components/Conf/Schedule"
 
 export default () => {
   return (
@@ -35,6 +36,7 @@ export default () => {
       <ContantSectionConf />
       <VenueConf />
       <SFConf />
+      <ScheduleGlanceConf />
       <div>
         <div className="container mx-auto">
           <p>
