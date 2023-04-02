@@ -4,9 +4,10 @@ interface Props {
   text: React.ReactNode
   className?: string
   href?: string
+  target?: string
 }
 
-const ButtonConf = ({ text, href, className }: Props) => {
+const ButtonConf = ({ text, href, target, className }: Props) => {
   return (
     <button
       className={
@@ -14,7 +15,11 @@ const ButtonConf = ({ text, href, className }: Props) => {
         "transition ease-in-out no-underline inline-flex text-center bg-[--rhodamine] border-0 py-2 px-6 focus:outline-none hover:drop-shadow-lg hover:scale-105 rounded text-lg"
       }
     >
-      <a className="whitespace-nowrap cursor-pointer text-white no-underline hover:no-underline" href={href}>
+      <a
+        className="whitespace-nowrap cursor-pointer text-white no-underline hover:no-underline"
+        href={href}
+        target={target}
+      >
         {text}
       </a>
     </button>
