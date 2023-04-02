@@ -43,7 +43,7 @@ const FooterConf = () => {
               <nav className="list-none mb-20 ">
                 {link.links.map((link, i) => (
                   <li key={i}>
-                    <a href={link.href} className="text-white font-semibold text-base hover:text-white hover:font-semibold cursor-pointer">
+                    <a href={link.href} className="text-white font-semibold text-base hover:text-white hover:font-semibold hover:underline">
                       {link.text}
                     </a>
                   </li>

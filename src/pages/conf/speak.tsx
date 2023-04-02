@@ -2,8 +2,6 @@ import React from "react"
 import Seo from "../../components/Seo"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
-import "../../assets/css/style.less"
-import "../../assets/css/global.css"
 import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 

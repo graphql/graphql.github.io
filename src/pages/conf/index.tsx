@@ -2,8 +2,6 @@ import React from "react"
 import Seo from "../../components/Seo"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
-import "../../assets/css/style.less"
-import "../../assets/css/global.css"
 import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 
@@ -16,7 +14,7 @@ export default () => {
           <div className="flex flex-col items-center w-full">
             <img
               src="/img/conf/graphql-conf-logo.svg"
-              className="w-[500px] mb-4"
+              className="w-[500px]"
             />
             <div className="sm:text-3xl text-2xl mb-8 text-white text-center leading-relaxed">
               <span className="block lg:inline">SEPTEMBER 19-21, 2023</span>
@@ -24,8 +22,8 @@ export default () => {
               <span>SAN FRANCISCO BAY AREA, CA</span>
             </div>
             <div className="flex justify-center gap-4 flex-col sm:flex-row">
-              <ButtonConf text="JOIN AS A SPONSOR" href="/sponsor" />
-              <ButtonConf text="SUBMIT TO SPEAK" href="/speak" />
+              <ButtonConf text="Join as a Sponsor" href="/sponsor" />
+              <ButtonConf text="Submit to Speak" href="/speak" />
             </div>
           </div>
         </div>

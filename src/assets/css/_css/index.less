@@ -18,11 +18,18 @@ div.index {
     margin-top: 30px;
 
     & > a {
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 30px;
+      gap: 30px;
       margin: 0 auto;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+        gap: 10px;
+      }
 
       &:hover {
         text-decoration: none;
@@ -40,13 +47,13 @@ div.index {
 
     img {
       height: 150px;
-      margin: 0 30px;
     }
 
     .button {
       .headline-font(@size: 17px, @color: white);
       border: solid 1px fadeout(white, 60%);
       border-radius: 6px;
+      color: white;
       line-height: 1.0;
       transition: background 0.1s ease-out, color 0.1s ease-out;
       padding: 0.6em 1.6em;
