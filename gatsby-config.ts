@@ -48,7 +48,7 @@ const config: GatsbyConfig = {
             },
             {
               family: `Roboto`,
-              variants: [`300`],
+              variants: [`300`, `500`],
             },
           ],
         },

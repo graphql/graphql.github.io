@@ -33,7 +33,7 @@ export default function SeoConf(props: {
       <meta name="twitter:title" content={twitterTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <body className="bg-fuchsia-950" />
+      <body className="bg-[#0E031C]" />
     </>
   )
 }

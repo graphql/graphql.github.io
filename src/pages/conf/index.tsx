@@ -50,21 +50,6 @@ export default () => {
       <VenueConf />
       <SFConf />
       <ScheduleGlanceConf />
-      <div>
-        <div className="container mx-auto">
-          <p>
-            The official GraphQL conference, presented by the GraphQL
-            Foundation.
-          </p>
-          <p>
-            GraphQLConf is a premier event uniting the global GraphQL community
-            to promote education, adoption, and advancement of GraphQL.
-            Workshops, presentations, and discussions covering everything from
-            best practices, innovative use cases, and the latest advancements in
-            GraphQL.
-          </p>
-        </div>
-      </div>
       <FooterConf />
     </LayoutConf>
   )
