@@ -49,22 +49,8 @@ const SpeakersConf = () => {
   return (
     <div id="speakers">
       <div className="bg-[#0E031C] w-full">
-        <div className="flex flex-col text-center mx-auto max-w-[80ch] text-white px-4">
-          <h1 className="text-4xl text-white font-bold">Speakers</h1>
-          <p>
-            GraphQLConf brings together the creators of some of the most
-            important technologies behind GraphQL. These speakers will share
-            their experience, insights and knowledge as they discuss the
-            challenges facing the growing GraphQL ecosystem. If you have
-            something worth sharing, submit an application to speak!
-          </p>
-          <p>
-            <ButtonConf
-              className="mx-auto"
-              text="Submit to Speak"
-              href="/conf/speak/"
-            />
-          </p>
+        <div className="text-center mx-auto text-white">
+          <h1 className="text-4xl text-white font-bold mb-2">Speakers</h1>
         </div>
         <div className="flex justify-center items-center md:items-start flex-col md:flex-row flex-wrap gap-0 md:gap-4">
           {speakers.map((speaker, i) => (
@@ -90,11 +76,29 @@ const SpeakersConf = () => {
                   <div className="text-lg text-white font-bold mt-3">
                     {speaker.name}
                   </div>
-                  <div className="text-gray-400 text-sm mt-2 mb-2">{speaker.title}</div>
+                  <div className="text-gray-400 text-sm mt-2 mb-2">
+                    {speaker.title}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex flex-col text-center mx-auto max-w-[80ch] text-white px-4">
+          <p>
+            GraphQLConf brings together the creators of some of the most
+            important technologies behind GraphQL. These speakers will share
+            their experience, insights and knowledge as they discuss the
+            challenges facing the growing GraphQL ecosystem. If you have
+            something worth sharing, submit an application to speak!
+          </p>
+          <p>
+            <ButtonConf
+              className="mx-auto"
+              text="Submit to Speak"
+              href="/conf/speak/"
+            />
+          </p>
         </div>
       </div>
     </div>

@@ -34,8 +34,8 @@ const links: LinkItem[] = [
 
 const HeaderConf = () => {
   return (
-    <header className="bg-[#0E031C] bg-opacity-[85%] gap-2 shadow-lg px-5">
-      <div className=" mx-auto flex flex-wrap flex-row items-center max-md:justify-between">
+    <header className="bg-[#0E031C] gap-2 shadow-lg px-5">
+      <div className="mx-auto flex flex-wrap flex-row items-center max-md:justify-between">
         <a
           href="/conf/"
           className="flex order-first max-sm:hidden xl:order-none xl:w-1/5 title-font font-medium items-center xl:items-center xl:justify-center mr-8 xl:mr-0"
