@@ -27,13 +27,13 @@ const BlogSidebar: React.FC = () => {
 
   return (
     <div className="nav-docs blog-sidebar">
-      <div className="nav-docs-section subscribe">
+      <div>
         <h3>Subscribe</h3>
         <a rel="home" type="application/rss+xml" href="/blog/rss.xml">
           RSS
         </a>
       </div>
-      <div className="nav-docs-section categories">
+      <div className="categories">
         <h3>Categories</h3>
         <ul>
           {tags.map(tag => {
@@ -51,7 +51,7 @@ const BlogSidebar: React.FC = () => {
           })}
         </ul>
       </div>
-      <div className="nav-docs-section recent-posts">
+      <div className="recent-posts">
         <h3>Recent Posts</h3>
         <ul>
           {recentPosts.map(post => (

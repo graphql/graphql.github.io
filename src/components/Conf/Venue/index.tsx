@@ -26,7 +26,7 @@ const VenueConf = () => {
                     weather is great.
                   </p>
                 </div>
-                <h2 className="title-font sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
+                <h2 className="sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
                   Hotel Information
                 </h2>
                 <p className="leading-relaxed mb-3 text-gray-400">
@@ -46,7 +46,7 @@ const VenueConf = () => {
                     housing@linuxfoundation.org.
                   </a>
                 </p>
-                <h2 className="title-font sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
+                <h2 className="sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
                   Welcome to all
                 </h2>
                 <p className="leading-relaxed mb-3 text-gray-400">

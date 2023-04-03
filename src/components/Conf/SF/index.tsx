@@ -1,4 +1,5 @@
 import React from "react"
+import { AspectRatio } from '../../aspect-ratio'
 
 interface Image {
   src: string
@@ -46,30 +47,15 @@ const images: Image[] = [
 const SFConf = () => {
   return (
     <div className="bg-white">
-      <h1 className="text-4xl text-center mb-5 title-font text-[#862e69] font-bold">
+      <h1 className="text-4xl text-center mb-5 text-[#862e69] font-bold">
         About San Francisco
       </h1>
       <div className="flex flex-wrap w-full justify-center">
         {images.map((image, i) => (
           <div key={i} className="lg:w-1/4 sm:w-full mx-5 mb-5">
-            <a
-              href={image.link}
-              className="flex relative no-underline hover:no-underline"
-            >
-              <img
-                alt={image.name}
-                className="absolute inset-0 w-full h-36 object-cover object-center rounded-md"
-                src={image.src}
-              />
-              <div className=" relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100 no-underline hover:no-underline">
-                <h2 className="tracking-widest text-base title-font font-bold text-[#862e69] no-underline hover:no-underline">
-                  {image.name}
-                </h2>
-                <p className="leading-relaxed no-underline hover:no-underline text-black">
-                  {image.description}
-                </p>
-              </div>
-            </a>
+            <div className="max-w-sm">
+              <AspectRatio title={image.name} src={image.src} href={image.link} />
+            </div>
           </div>
         ))}
       </div>

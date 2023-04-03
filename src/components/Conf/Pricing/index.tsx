@@ -51,7 +51,7 @@ const PricingConf = () => {
     <div id="register">
       <div className="bg-[#0E031C] w-full mt-10 mb-6">
         <div className="flex flex-col text-center w-full">
-          <h1 className="text-4xl title-font text-white font-bold">
+          <h1 className="text-4xl text-white font-bold">
             Pricing &amp; Registration
           </h1>
         </div>
@@ -65,7 +65,7 @@ const PricingConf = () => {
                   className="block mx-auto w-64 p-6 overflow-hidden bg-[#251C39] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
                 >
                   <div>
-                    <div className="title-font text-center text-3xl text-white font-bold mb-2">
+                    <div className="text-center text-3xl text-white font-bold mb-2">
                       {pricing.title}
                     </div>
                     <div className="text-white text-center text-sm">
