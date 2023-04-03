@@ -13,7 +13,7 @@ const ButtonConf = ({ text, href, target, className, onWhiteBg }: Props) => {
     <button
       className={
         `transition ease-in-out no-underline inline-flex text-center ${
-          onWhiteBg ? "bg-[#0e031c]" : "bg-white"
+          onWhiteBg ? "bg-[#B48EF1]" : "bg-white"
         } border-0 py-2 px-6 focus:outline-none hover:drop-shadow-md hover:scale-105 rounded text-lg ` +
         (className ?? "")
       }
