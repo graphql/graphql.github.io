@@ -19,7 +19,7 @@ const Index = (): JSX.Element => {
 
   return (
     <section className="point6" id="bring-your-own-code">
-      <div className="prose">
+      <div className="prose2">
         <h2>
           Bring your own
           <br />

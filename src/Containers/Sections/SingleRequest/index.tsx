@@ -5,7 +5,7 @@ const SingleRequest = () => {
     return (
         <div className="grayWash">
         <section className="point2" id="single-request">
-          <div className="prose">
+          <div className="prose2">
             <h2>
               Get many resources
               <br />

@@ -4,7 +4,7 @@ const PowerFulTools = () => {
   return (
     <div className="darkWash">
       <section className="point4" id="powerful-tools">
-        <div className="prose">
+        <div className="prose2">
           <h2>
             Move faster with
             <br />
