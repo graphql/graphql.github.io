@@ -6,19 +6,6 @@ import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 import SectionConf from "../../components/Conf/Section"
 
-function DL({ items }: { items: [header: string, contents: ReactNode][] }) {
-  return (
-    <dl className="my-4">
-      {items.map(([header, contents]) => (
-        <>
-          <dt className="mt-6 mb-2 text-xl">{header}</dt>
-          <dd>{contents}</dd>
-        </>
-      ))}
-    </dl>
-  )
-}
-
 const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
   {
     id: "dates",
@@ -274,6 +261,19 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
     ),
   },
 ]
+
+function DL({ items }: { items: [header: string, contents: ReactNode][] }) {
+  return (
+    <dl className="my-4">
+      {items.map(([header, contents]) => (
+        <>
+          <dt className="mt-6 mb-2 text-xl">{header}</dt>
+          <dd>{contents}</dd>
+        </>
+      ))}
+    </dl>
+  )
+}
 
 export default () => {
   return (

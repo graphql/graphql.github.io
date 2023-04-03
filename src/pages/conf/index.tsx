@@ -25,8 +25,8 @@ export default () => {
               <span>SAN FRANCISCO BAY AREA, CA</span>
             </div>
             <div className="flex justify-center gap-4 flex-col sm:flex-row">
-              <ButtonConf text="Join as a Sponsor" href="/sponsor" />
-              <ButtonConf text="Submit to Speak" href="/speak" />
+              <ButtonConf text="Join as a Sponsor" href="/conf/sponsor/" />
+              <ButtonConf text="Submit to Speak" href="/conf/speak/" />
             </div>
           </div>
         </div>
