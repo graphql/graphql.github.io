@@ -252,6 +252,7 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           <li>Notifications — Week of August 7, 2023</li>
         </ul>
         <ButtonConf
+          onWhiteBg
           text="Apply for a Scholarship"
           href="https://forms.gle/PwgWSTJ872Pce9XW6"
           target="_blank"

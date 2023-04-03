@@ -298,6 +298,7 @@ export default () => {
               .
             </p>
             <ButtonConf
+              onWhiteBg
               text="Submit a Proposal"
               href="https://sessionize.com/graphqlconf2023/"
               target="_blank"
