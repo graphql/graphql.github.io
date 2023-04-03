@@ -5,7 +5,7 @@ const links = [
   [
     { text: "GraphQLConf", href: "/conf/" },
     { text: "Speakers", href: "/conf/#speakers" },
-    { text: "Venue", href: "/conf/#venue" },
+    { text: "Location", href: "/conf/#location" },
   ],
   [
     { text: "Register", href: "/conf/#register" },

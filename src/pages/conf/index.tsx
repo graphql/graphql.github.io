@@ -46,8 +46,8 @@ export default () => {
       </div>
       <SpeakersConf />
       <PricingConf />
-      <ContantSectionConf />
       <VenueConf />
+      <ContantSectionConf />
       <SFConf />
       <ScheduleGlanceConf />
       <FooterConf />

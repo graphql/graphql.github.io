@@ -49,7 +49,7 @@ const includes = [
 
 const PricingConf = () => {
   return (
-    <div id="register">
+    <div id="register" className="pt-16 -mt-16">
       <div className="bg-[#0E031C] w-full">
         <div className="flex flex-col text-center w-full">
           <h1 className="text-4xl title-font text-white font-bold">

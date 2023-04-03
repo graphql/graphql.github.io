@@ -47,7 +47,7 @@ const speakers: Speaker[] = [
 
 const SpeakersConf = () => {
   return (
-    <div id="speakers">
+    <div id="speakers" className="-mt-16 pt-16">
       <div className="bg-[#0E031C] w-full">
         <div className="text-center mx-auto text-white">
           <h1 className="text-4xl text-white font-bold mb-2">Speakers</h1>
@@ -84,7 +84,7 @@ const SpeakersConf = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col text-center mx-auto max-w-[80ch] text-white px-4">
+        <div className="flex flex-col text-center mx-auto max-w-prose text-white px-4">
           <p>
             GraphQLConf brings together the creators of some of the most
             important technologies behind GraphQL. These speakers will share
