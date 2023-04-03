@@ -17,7 +17,7 @@ export default () => {
                 Sponsor GraphQLConf 2023
               </span>
             </div>
-            <div className="flex justify-center gap-4 flex-col sm:flex-row">
+            <div className="flex justify-center items-center gap-4 flex-col sm:flex-row">
               <ButtonConf
                 text="Explore Sponsorship"
                 target="_blank"
