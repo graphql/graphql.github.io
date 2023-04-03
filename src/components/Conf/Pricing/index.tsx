@@ -30,6 +30,9 @@ const includes = [
     title: "All conference content",
   },
   {
+    title: "Full-day GraphQL workshop",
+  },
+  {
     title: "Lunch and all-day beverages",
   },
   {
