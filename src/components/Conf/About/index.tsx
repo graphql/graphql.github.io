@@ -14,44 +14,44 @@ const list = [
 const whyAttend = [
   {
     title: (
-      <p>
+      <span>
         <span className="font-bold">Learn</span> about the latest developments
         in GraphQL and related technologies, including GraphQL Core and beyond.
-      </p>
+      </span>
     ),
   },
   {
     title: (
-      <p>
+      <span>
         <span className="font-bold">Discover</span> best practices and
         real-world use cases through engaging presentations and panel
         discussions.
-      </p>
+      </span>
     ),
   },
   {
     title: (
-      <p>
+      <span>
         <span className="font-bold">Connect</span> with leading companies that
         are using GraphQL to transform their businesses and industries.
-      </p>
+      </span>
     ),
   },
   {
     title: (
-      <p>
+      <span>
         <span className="font-bold">Build</span> your skills and deepen your
         understanding of GraphQL through workshops, tutorials, and code labs.
-      </p>
+      </span>
     ),
   },
   {
     title: (
-      <p>
+      <span>
         <span className="font-bold">Network</span> with a diverse and vibrant
         community of professionals who are passionate about GraphQL and its
         potential.
-      </p>
+      </span>
     ),
   },
 ]

@@ -2,25 +2,16 @@ import React from "react"
 import ButtonConf from "../Button"
 
 interface LinkItem {
-  section: string
   text: string
   href: string
   noMobile?: boolean
 }
 
 const links: LinkItem[] = [
-  {
-    section: "Register",
-    text: "Register",
-    href: "/conf/#register",
-  },
-  { section: "Speak", text: "Speak", href: "/conf/speak/" },
-  {
-    section: "Sponsor",
-    text: "Sponsor",
-    href: "/conf/sponsor/",
-  },
-  { section: "FAQ", text: "FAQ", href: "/conf/faq/" },
+  { text: "Attend", href: "/conf/#attend" },
+  { text: "Speak", href: "/conf/speak/" },
+  { text: "Sponsor", href: "/conf/sponsor/" },
+  { text: "FAQ", href: "/conf/faq/" },
 ]
 
 const HeaderConf = () => {
@@ -43,7 +34,7 @@ const HeaderConf = () => {
           </a>
         ))}
         <ButtonConf
-          text="Register Now!"
+          text="Buy a Ticket!"
           href="https://cvent.me/4zbxz9"
           target="_blank"
           className="ml-auto max-sm:hidden"

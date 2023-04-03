@@ -1,5 +1,6 @@
 import React from "react"
 import { CheckCircledIcon } from "@radix-ui/react-icons"
+import ButtonConf from "../Button"
 
 interface Pricing {
   title: string
@@ -48,14 +49,12 @@ const includes = [
 
 const PricingConf = () => {
   return (
-    <div id="register">
+    <div id="attend">
       <div className="bg-[#0E031C] container mt-10 mb-6">
         <div className="flex flex-col text-center w-full">
-          <h1 className="text-4xl text-white font-bold">
-            Pricing &amp; Registration
-          </h1>
+          <h1 className="text-4xl text-white font-bold">Attend</h1>
         </div>
-        <div className="max-w-[80ch] mx-auto">
+        <div className="mx-auto">
           <div className="flex max-md:flex-wrap gap-8 mt-8">
             {pricing.map((pricing, i) => (
               <a
@@ -77,6 +76,13 @@ const PricingConf = () => {
                 </div>
               </a>
             ))}
+          </div>
+          <div className="my-8 flex justify-center">
+            <ButtonConf
+              text="Buy a Ticket!"
+              href="https://cvent.me/4zbxz9"
+              target="_blank"
+            />
           </div>
           <div className="w-full">
             <div className="mx-auto flex flex-col items-center text-center">

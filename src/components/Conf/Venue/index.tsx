@@ -6,25 +6,27 @@ import { ReactComponent as ParkingIcon } from "../../../../static/img/conf/parki
 const VenueConf = () => {
   return (
     <div id="location">
-      <h1 className="text-4xl text-white font-bold mt-8 mb-6 mx-auto text-center">
+      <h1 className="text-4xl text-white font-bold mb-8 mx-auto text-center">
         Location &amp; Venue
       </h1>
-      <p className="max-w-prose mx-auto text-white">
-        GraphQLConf 2023 is hosted in the San Francisco Bay Area, where GraphQL
-        was first created. It's hosted at the{" "}
-        <a
-          href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
-          target="_blank"
-          className="font-bold"
-        >
-          Hyatt Regency SFO
-        </a>{" "}
-        hotel in Burlingame, CA.
-      </p>
-      <img
-        src="/img/conf/sf-hotel-image.png"
-        className="object-cover w-[300px] h-[180px] md:w-[500px] md:h-[300px] rounded-xl my-8 block mx-auto"
-      />
+      <div className="container">
+        <p className="max-w-prose mx-auto text-white">
+          GraphQLConf 2023 is hosted in the San Francisco Bay Area, where
+          GraphQL was first created. It's hosted at the{" "}
+          <a
+            href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+            target="_blank"
+            className="font-bold"
+          >
+            Hyatt Regency SFO
+          </a>{" "}
+          hotel in Burlingame, CA.
+        </p>
+        <img
+          src="/img/conf/sf-hotel-image.png"
+          className="object-cover w-[300px] h-[180px] md:w-[500px] md:h-[300px] rounded-xl my-8 block mx-auto"
+        />
+      </div>
       <div className="container flex flex-wrap">
         <div className="sm:w-full grid grid-rows-1 md:grid-cols-2 gap-20">
           <div>

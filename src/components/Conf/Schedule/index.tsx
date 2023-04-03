@@ -29,12 +29,12 @@ const ScheduleGlanceConf = () => {
           <div className="mx-auto w-full grid grid-rows-1 md:grid-cols-3 justify-center gap-8 mb-5">
             {Days.map((day, i) => (
               <div key={i}>
-                <div className="h-full mx-auto w-64 p-4 overflow-hidden bg-[#251C39] shadow-lg rounded-2xl">
+                <div className="h-full mx-auto w-64 px-4 overflow-hidden bg-[#251C39] shadow-lg rounded-2xl">
                   <div className="p-4">
                     <p className="text-2xl text-center text-white font-bold mb-2">
                       {day.date}
                     </p>
-                    <ul className="list-disc pl-6 marker:text-[#B48EF1]">
+                    <ul className="list-disc pl-0 marker:text-[#B48EF1]">
                       {day.list.map((item, i) => (
                         <li key={i} className="text-white mb-2">
                           {item}
