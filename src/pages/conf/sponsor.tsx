@@ -1,9 +1,9 @@
 import React from "react"
-import Seo from "../../components/Seo"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
+import SeoConf from "../../components/Conf/Seo"
 
 export default () => {
   return (
@@ -78,6 +78,6 @@ export default () => {
 
 export function Head() {
   return (
-    <Seo title="Sponsor GraphQLConf 2023 - hosted by the GraphQL Foundation" />
+    <SeoConf title="Sponsor GraphQLConf 2023 - hosted by the GraphQL Foundation" />
   )
 }

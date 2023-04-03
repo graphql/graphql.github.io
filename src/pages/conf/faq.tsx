@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react"
-import Seo from "../../components/Seo"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 import SectionConf from "../../components/Conf/Section"
+import SeoConf from "../../components/Conf/Seo"
 
 const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
   {
@@ -305,5 +305,5 @@ export default () => {
 }
 
 export function Head() {
-  return <Seo title="GraphQLConf 2023 FAQ Frequently Asked Questions" />
+  return <SeoConf title="GraphQLConf 2023 FAQ Frequently Asked Questions" />
 }

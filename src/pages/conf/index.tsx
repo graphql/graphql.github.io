@@ -1,5 +1,4 @@
 import React from "react"
-import Seo from "../../components/Seo"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -10,6 +9,7 @@ import ContantSectionConf from "../../components/Conf/Contant"
 import VenueConf from "../../components/Conf/Venue"
 import SFConf from "../../components/Conf/SF"
 import ScheduleGlanceConf from "../../components/Conf/Schedule"
+import SeoConf from "../../components/Conf/Seo"
 
 export default () => {
   return (
@@ -58,5 +58,5 @@ export default () => {
 }
 
 export function Head() {
-  return <Seo title="GraphQLConf 2023 - hosted by the GraphQL Foundation" />
+  return <SeoConf  title="GraphQLConf 2023 - hosted by the GraphQL Foundation" />
 }
