@@ -48,8 +48,8 @@ export default () => {
       <PricingConf />
       <ScheduleGlanceConf />
       <VenueConf />
-      <AboutConf />
       <SFConf />
+      <AboutConf />
       <FooterConf />
     </LayoutConf>
   )

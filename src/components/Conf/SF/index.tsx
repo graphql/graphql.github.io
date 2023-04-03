@@ -40,9 +40,9 @@ const images: Image[] = [
 ]
 const SFConf = () => {
   return (
-    <div className="bg-white pb-10 pt-8">
-      <h1 className="text-4xl text-center mb-5 text-[#0E031C] font-bold pb-6">
-        About San Francisco
+    <div className="pb-10 pt-8">
+      <h1 className="text-4xl text-white text-center mb-5 text-[#0E031C] font-bold pb-6">
+        About San Francisco Bay Area
       </h1>
       <div className="flex flex-wrap w-full justify-center">
         {images.map((image, i) => (

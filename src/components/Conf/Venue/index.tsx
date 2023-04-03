@@ -9,33 +9,41 @@ const VenueConf = () => {
       <h1 className="text-4xl text-white font-bold mt-8 mb-6 mx-auto text-center">
         Location &amp; Venue
       </h1>
+      <p className="max-w-prose mx-auto text-white">
+        GraphQLConf 2023 is hosted in the San Francisco Bay Area, where GraphQL
+        was first created. It's hosted at the{" "}
+        <a
+          href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+          target="_blank"
+          className="font-bold"
+        >
+          Hyatt Regency SFO
+        </a>{" "}
+        hotel in Burlingame, CA.
+      </p>
+      <img
+        src="/img/conf/sf-hotel-image.png"
+        className="object-cover w-[500px] h-[300px] rounded-xl my-8 block mx-auto"
+      />
       <div className="container flex flex-wrap">
         <div className="sm:w-full grid grid-rows-1 md:grid-cols-2 gap-20">
           <div>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
-              Hotel Information
+              Venue Information
             </h3>
-            <p className="leading-relaxed mb-3 text-white text-base">
-              Please note, rooms will most likely sell out in advance of the
-              room block close dates listed below. We encourage you to book
-              early to secure a room at the conference rate
-              <br />
-              <br />
-              <span className="font-bold">Important:</span> The Linux Foundation
-              will never reach out to attendees by phone to make hotel
-              reservations for our conferences. Please be advised that the most
-              secure way to book in our discounted room block is by using the
-              direct booking link provided below or by calling the hotel
-              directly. If you receive a phone call or email from someone
-              claiming to be with The Linux Foundation or the hotel and they
-              attempt to sell you a hotel room, please email us at{" "}
+            <p>
               <a
+                target="_blank"
                 className="font-bold text-[#B48EF1]"
-                href="mailto:housing@linuxfoundation.org"
+                href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
               >
-                housing@linuxfoundation.org
+                Hyatt Regency SFO
               </a>
-              .
+            </p>
+            <p>
+              <a target="_blank" href="https://goo.gl/maps/czbwwNL28YYYpw8W8">
+                1333 Old Bayshore Hwy Burlingame, CA 94010
+              </a>
             </p>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
               Welcome to all
@@ -67,38 +75,34 @@ const VenueConf = () => {
           </div>
           <div>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
-              Venue Information
+              Hotel Information
             </h3>
-            <p className="max-w-prose mx-auto text-white">
-              GraphQLConf 2023 is hosted in the San Francisco Bay Area, where
-              GraphQL was first created, at the{" "}
+            <p className="leading-relaxed mb-3 text-white text-base">
+              Please note, rooms will most likely sell out in advance of the
+              room block close dates listed below. We encourage you to book
+              early to secure a room at the conference rate
+              <br />
+              <br />
+              <span className="font-bold">Important:</span> The Linux Foundation
+              will never reach out to attendees by phone to make hotel
+              reservations for our conferences. Please be advised that the most
+              secure way to book in our discounted room block is by using the
+              direct booking link provided below or by calling the hotel
+              directly. If you receive a phone call or email from someone
+              claiming to be with The Linux Foundation or the hotel and they
+              attempt to sell you a hotel room, please email us at{" "}
               <a
-                href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
-                target="_blank"
-                className="font-bold"
+                className="font-bold text-[#B48EF1]"
+                href="mailto:housing@linuxfoundation.org"
               >
-                Hyatt Regency SFO
+                housing@linuxfoundation.org
               </a>
               .
-              <br />
-              <br />
-              <a
-                target="_blank"
-                className="font-bold text-[#B48EF1]"
-                href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
-              >
-                HYATT REGENCY SAN FRANCISCO AIRPORT
-              </a>
-              <p>1333 Old Bayshore Hwy Burlingame, CA 94010</p>
-              <img
-                src="/img/conf/sf-hotel-image.png"
-                className="object-cover w-[500px] h-[300px] rounded-xl mt-8"
-              />
             </p>
           </div>
         </div>
       </div>
-      <div className="container flex max-lg:flex-col w-full gap-14 pt-16 pb-24">
+      <div className="container flex max-lg:flex-col w-full gap-14 pt-16">
         {[
           {
             title: "Public Transportation",
