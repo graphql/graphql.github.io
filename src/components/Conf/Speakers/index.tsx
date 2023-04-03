@@ -48,7 +48,7 @@ const speakers: Speaker[] = [
 const SpeakersConf = () => {
   return (
     <div id="speakers" className="-mt-16 pt-16">
-      <div className="bg-[#0E031C] w-full">
+      <div className="bg-[#0E031C] w-full mt-8">
         <div className="text-center mx-auto text-white">
           <h1 className="text-4xl text-white font-bold my-4">Speakers</h1>
         </div>
