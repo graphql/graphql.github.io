@@ -8,7 +8,7 @@ const VenueConf = () => {
     <div id="location">
       <div className="w-full mx-auto">
         <div className="flex w-2/3 flex-col mx-auto px-4">
-          <h1 className="text-4xl text-white font-bold mt-8 mb-6">
+          <h1 className="text-4xl text-white font-bold mt-8 mb-6 mx-auto text-center">
             Location &amp; Venue
           </h1>
           <div className="flex flex-wrap">
@@ -45,25 +45,42 @@ const VenueConf = () => {
                   If you receive a phone call or email from someone claiming to
                   be with The Linux Foundation or the hotel and they attempt to
                   sell you a hotel room, please email us at{" "}
-                  <a className="font-bold" href="housing@linuxfoundation.org">
-                    housing@linuxfoundation.org.
+                  <a
+                    className="font-bold"
+                    href="mailto:housing@linuxfoundation.org"
+                  >
+                    housing@linuxfoundation.org
                   </a>
+                  .
                 </p>
                 <h2 className="sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
                   Welcome to all
                 </h2>
                 <p className="leading-relaxed mb-3 text-gray-400">
                   GraphQLConf is welcome to all. Please read our{" "}
-                  <a href="/conf/faq/#dni">diversity & inclusion</a> guide and{" "}
-                  <a href="/conf/faq/#codeofconduct">code of conduct</a>. Your
-                  health and safety is our top priority. We have considered a
-                  range of both{" "}
-                  <a href="/conf/faq/#onsite-resources">onsite resources</a> and{" "}
-                  <a href="/conf/faq/#emergency-resources">
+                  <a href="/conf/faq/#dni" className="underline">
+                    diversity & inclusion
+                  </a>{" "}
+                  guide and{" "}
+                  <a href="/conf/faq/#codeofconduct" className="underline">
+                    code of conduct
+                  </a>
+                  . Your health and safety is our top priority. We have
+                  considered a range of both{" "}
+                  <a href="/conf/faq/#onsite-resources" className="underline">
+                    onsite resources
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    href="/conf/faq/#emergency-resources"
+                    className="underline"
+                  >
                     emergency resources
                   </a>{" "}
                   as well as a{" "}
-                  <a href="/conf/faq/#health-and-safety">health &amp; safety</a>{" "}
+                  <a href="/conf/faq/#health-and-safety" className="underline">
+                    health &amp; safety
+                  </a>{" "}
                   policy.
                 </p>
               </div>
@@ -94,7 +111,7 @@ const VenueConf = () => {
                         Learn More
                       </a>
                     </p>
-                    <a href="https://bart.gov">
+                    <a href="https://bart.gov" target="_blank" rel="noreferrer">
                       Bay Area Rapid Transit (BART):
                     </a>
                     <p>

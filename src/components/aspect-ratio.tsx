@@ -20,6 +20,7 @@ export function AspectRatio({ className, href, title, src }: AspectRatioProps) {
         )}
       >
         <a
+          target="_blank"
           href={href}
           className="hover:no-underline absolute inset-0 z-[1] flex items-center justify-center"
         >
