@@ -24,19 +24,19 @@ const links = [
 const FooterConf = () => {
   return (
     <footer className="text-gray-600 bg-[#0E031C]">
-      <div className="container py-24 flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-64 shrink-0 md:mx-0 mx-auto text-center md:text-left">
+      <div className="container px-5 md:py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="w-64 shrink-0 md:mx-0 text-left">
           <a
             href="/conf/"
-            className="flex font-medium items-center md:justify-start justify-center text-gray-900"
+            className="flex font-medium md:items-center justify-start text-gray-900"
           >
             <img src="/img/conf/graphql-conf-logo.svg" className="w-[200px]" />
           </a>
         </div>
-        <div className="grow flex flex-wrap lg:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+        <div className="grow flex flex-wrap justify-between lg:pl-20 -mb-10 md:mt-0 mt-10 text-left">
           {links.map((link, i) => (
-            <div key={i} className="md:w-1/3 w-full px-4">
-              <div className="list-none mb-20">
+            <div key={i} className="md:w-1/3 md:px-4">
+              <div className="list-none mb-10 md:mb-20">
                 {link.map((link, i) => (
                   <li key={i}>
                     <a
@@ -53,7 +53,7 @@ const FooterConf = () => {
         </div>
       </div>
       <div>
-        <div className="container py-4 flex flex-wrap flex-col sm:flex-row">
+        <div className="container mt-5 sm:mt-0 py-4 flex flex-wrap flex-col sm:flex-row">
           <p className="text-white text-sm text-center sm:text-left">
             Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
             All rights reserved.
