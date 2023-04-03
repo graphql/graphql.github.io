@@ -2,27 +2,13 @@ import { CheckCircledIcon } from "@radix-ui/react-icons"
 import React from "react"
 
 const list = [
-  {
-    title: "Cloud Engineering",
-  },
-  {
-    title: "Software Development",
-  },
-  {
-    title: "Platform Engineering",
-  },
-  {
-    title: "Data Engineering",
-  },
-  {
-    title: "Technology Architecture",
-  },
-  {
-    title: "Data Architecture",
-  },
-  {
-    title: "Product Management",
-  },
+  { title: "Cloud Engineering" },
+  { title: "Software Development" },
+  { title: "Platform Engineering" },
+  { title: "Data Engineering" },
+  { title: "Technology Architecture" },
+  { title: "Data Architecture" },
+  { title: "Product Management" },
 ]
 
 const whyAttend = [
@@ -35,31 +21,48 @@ const whyAttend = [
     ),
   },
   {
-    title: <p>
-      <span className="font-bold">Discover</span> best practices and real-world use cases through engaging presentations and panel discussions.
-    </p>
-  },
-  {
-    title:
-      <p><span className="font-bold">Connect</span> with leading companies that are using GraphQL to transform their businesses and industries.</p>,
-  },
-  {
-    title:
+    title: (
       <p>
-        <span className="font-bold">Build</span> your skills and deepen your understanding of GraphQL through workshops, tutorials, and code labs.
-      </p>,
+        <span className="font-bold">Discover</span> best practices and
+        real-world use cases through engaging presentations and panel
+        discussions.
+      </p>
+    ),
   },
   {
-    title:
-      <p><span className="font-bold">Network</span> with a diverse and vibrant community of professionals who are passionate about GraphQL and its potential.</p>,
+    title: (
+      <p>
+        <span className="font-bold">Connect</span> with leading companies that
+        are using GraphQL to transform their businesses and industries.
+      </p>
+    ),
+  },
+  {
+    title: (
+      <p>
+        <span className="font-bold">Build</span> your skills and deepen your
+        understanding of GraphQL through workshops, tutorials, and code labs.
+      </p>
+    ),
+  },
+  {
+    title: (
+      <p>
+        <span className="font-bold">Network</span> with a diverse and vibrant
+        community of professionals who are passionate about GraphQL and its
+        potential.
+      </p>
+    ),
   },
 ]
 
 const AboutSection = () => {
   return (
-    <div className="w-full bg-white flex items-center align-center py-10">
-      <div className="mx-auto w-3/4">
-        <h1 className="text-center text-4xl text-[#0E031C] font-bold mt-10">About</h1>
+    <div className="bg-white py-10">
+      <div className="container">
+        <h1 className="text-center text-4xl text-[#0E031C] font-bold mt-10">
+          About
+        </h1>
         <h3 className="text-center text-sm mt-4 mb-10">
           GRAPHQLCONF | SEP 19 – 21
         </h3>

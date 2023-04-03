@@ -304,9 +304,9 @@ export default () => {
               target="_blank"
             />
           </section>
-          <ul className="columns-2 mx-0 gap-4">
+          <ul className="flex flex-wrap">
             {cfp.map(q => (
-              <li key={q.id}>
+              <li key={q.id} className="flex-[50%]">
                 <a href={`#${q.id}`}>{q.title}</a>
               </li>
             ))}

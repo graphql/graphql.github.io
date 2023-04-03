@@ -1,5 +1,5 @@
 import React from "react"
-import { AspectRatio } from '../../aspect-ratio'
+import { AspectRatio } from "../../aspect-ratio"
 
 interface Image {
   src: string
@@ -7,6 +7,7 @@ interface Image {
   description: string
   link: string
 }
+
 const images: Image[] = [
   {
     src: "https://events.linuxfoundation.org/wp-content/uploads/2022/12/San-Francisco-Golden-Gate-Bridge-unsplash.jpg",
@@ -43,12 +44,10 @@ const SFConf = () => {
       <h1 className="text-4xl text-center mb-5 text-[#0E031C] font-bold pb-6">
         About San Francisco
       </h1>
-      <div className="flex flex-wrap w-full justify-center">
-        {images.map((image, i) => (
-          <div key={i} className="lg:w-1/5 sm:w-full mx-5 mb-5">
-            <div className="max-w-sm">
-              <AspectRatio title={image.name} src={image.src} href={image.link} />
-            </div>
+      <div className="container flex max-xl:flex-wrap justify-center gap-10 ">
+        {images.map(image => (
+          <div key={image.name} className="max-w-sm w-full">
+            <AspectRatio title={image.name} src={image.src} href={image.link} />
           </div>
         ))}
       </div>

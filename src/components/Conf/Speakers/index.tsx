@@ -52,33 +52,27 @@ const SpeakersConf = () => {
         <div className="text-center mx-auto text-white">
           <h1 className="text-4xl text-white font-bold my-4">Speakers</h1>
         </div>
-        <div className="flex justify-center items-center md:items-start flex-col md:flex-row flex-wrap gap-0 md:gap-4">
+        <div className="flex justify-center items-start flex-wrap">
           {speakers.map((speaker, i) => (
             <div key={i} className="p-4 w-[220px]">
               <div className="h-full flex flex-col items-center text-center">
                 <div className="relative">
                   <img
                     alt={speaker.name}
-                    className="shrink-0 rounded-full h-36 w-36 object-cover object-center"
                     src={speaker.image}
+                    className="shrink-0 rounded-full h-36 w-36 object-cover object-center"
                   />
                   <div className="bg-[#55ACEF] h-8 w-8 flex items-center justify-center rounded-full absolute bottom-0 right-0">
                     <a href={speaker.twitter} target="_blank">
-                      <TwitterLogoIcon
-                        className="text-white"
-                        width={20}
-                        height={20}
-                      />
+                      <TwitterLogoIcon className="text-white h-5 w-5" />
                     </a>
                   </div>
                 </div>
-                <div className="w-full">
-                  <div className="text-lg text-white font-bold mt-3">
-                    {speaker.name}
-                  </div>
-                  <div className="text-gray-400 text-sm my-2">
-                    {speaker.title}
-                  </div>
+                <div className="text-lg text-white font-bold mt-3">
+                  {speaker.name}
+                </div>
+                <div className="text-gray-400 text-sm my-2">
+                  {speaker.title}
                 </div>
               </div>
             </div>
