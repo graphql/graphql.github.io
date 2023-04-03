@@ -26,7 +26,7 @@ export default () => {
               />
             </div>
             <div>
-              <div className="mb-8 text-white text-3xl md:text-lg leading-relaxed font-semibold">
+              <div className="mb-8 text-white text-2xl mt-10 md:mt-2 md:text-lg leading-relaxed font-semibold">
                 <div className="flex gap-2 items-center mb-2 font-medium">
                   <CalendarIcon />
                   <span>September 19-21, 2023</span>

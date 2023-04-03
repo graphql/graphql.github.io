@@ -12,7 +12,7 @@ const VenueConf = () => {
             Location &amp; Venue
           </h1>
           <div className="flex flex-wrap">
-            <div className="p-4 sm:w-full grid grid-cols-2 gap-20">
+            <div className="p-4 sm:w-full grid-rows-1 md:grid-cols-2  gap-20">
               <div>
                 <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
                   Hotel Information

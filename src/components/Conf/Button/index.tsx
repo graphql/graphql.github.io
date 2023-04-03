@@ -19,7 +19,7 @@ const ButtonConf = ({ text, href, target, className, onWhiteBg }: Props) => {
       }
     >
       <a
-        className={`text-xl md:text-base font-medium whitespace-nowrap cursor-pointer ${
+        className={`text-sm sm:text-base font-medium whitespace-nowrap cursor-pointer ${
           onWhiteBg ? "text-white" : "text-black"
         } no-underline hover:no-underline`}
         href={href}

@@ -21,13 +21,13 @@ const Days: Day[] = [
 const ScheduleGlanceConf = () => {
   return (
     <div id="schedule">
-      <div className="bg-[#0E031C] w-full mt-20 mb-6">
+      <div className="bg-[#0E031C] max-w-[80ch] mt-20 mb-6 mx-auto">
         <div className="text-center mx-auto text-white">
-          <h1 className="text-4xl text-white font-bold mb-2">Schedule</h1>
+          <h1 className="text-4xl text-white font-bold mb-8">Schedule</h1>
         </div>
-        <div className="flex flex-wrap justify-center">
+        <div className="grid grid-rows-1 md:grid-cols-3 justify-center gap-8 mb-5">
           {Days.map((day, i) => (
-            <div key={i} className="m-5">
+            <div key={i}>
               <div className="h-full w-64 p-4 overflow-hidden bg-[#251C39] shadow-lg rounded-2xl">
                 <div className="p-4">
                   <p className="text-2xl text-center text-white font-bold mb-2">

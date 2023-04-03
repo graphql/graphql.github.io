@@ -56,9 +56,9 @@ const PricingConf = () => {
           </h1>
         </div>
         <div className="max-w-[80ch] mx-auto">
-          <div className="mx-auto w-full flex flex-wrap justify-center text-center m-8">
+          <div className="mx-auto w-full grid grid-rows-1 md:grid-cols-3 justify-center text-center gap-8 mt-8">
             {pricing.map((pricing, i) => (
-              <div key={i} className="lg:w-1/3">
+              <div key={i}>
                 <a
                   href="https://cvent.me/4zbxz9"
                   target="_blank"
@@ -95,7 +95,7 @@ const PricingConf = () => {
                       height={20}
                       width={20}
                     />
-                    <p className="leading-relaxed">{include.title}</p>
+                    <p className="leading-relaxed text-base md:text-md">{include.title}</p>
                   </div>
                 ))}
               </div>
