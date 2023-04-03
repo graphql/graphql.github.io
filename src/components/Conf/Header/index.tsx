@@ -5,7 +5,7 @@ interface LinkItem {
   section: string
   text: string
   href: string
-  noMobile?: boolean,
+  noMobile?: boolean
 }
 
 const links: LinkItem[] = [
@@ -43,7 +43,9 @@ const HeaderConf = () => {
         <nav className="flex xl:w-2/5 flex-wrap items-center text-base md:ml-auto">
           {links.map((link, i) => (
             <a
-              className={`mr-5 text-white font-normal hover:font-extrabold hover:text-white ${link.noMobile ? 'max-md:hidden' : ''}`}
+              className={`mr-5 text-white font-normal hover:font-extrabold hover:text-white focus:text-white ${
+                link.noMobile ? "max-md:hidden" : ""
+              }`}
               key={i}
               href={link.href}
             >
@@ -51,11 +53,21 @@ const HeaderConf = () => {
             </a>
           ))}
         </nav>
-        <a href="/conf/" className="flex order-first max-sm:hidden xl:order-none xl:w-1/5 title-font font-medium items-center xl:items-center xl:justify-center max-lg:mr-2">
-          <img src="/img/conf/graphql-conf-logo.svg" className="w-[125px] md:w-[150px]" />
+        <a
+          href="/conf/"
+          className="flex order-first max-sm:hidden xl:order-none xl:w-1/5 title-font font-medium items-center xl:items-center xl:justify-center max-lg:mr-2"
+        >
+          <img
+            src="/img/conf/graphql-conf-logo.svg"
+            className="w-[125px] md:w-[150px]"
+          />
         </a>
         <div className="xl:w-2/5 inline-flex xl:justify-end ml-5 xl:ml-0">
-          <ButtonConf text="Register Now!" href="/conf/#register" />
+          <ButtonConf
+            text="Register Now!"
+            href="https://cvent.me/4zbxz9"
+            target="_blank"
+          />
         </div>
       </div>
     </header>
