@@ -68,7 +68,7 @@ const PricingConf = () => {
               <a
                 href="https://cvent.me/4zbxz9"
                 target="_blank"
-                className="block w-64 p-6 overflow-hidden bg-white bg-opacity-80 shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
+                className="block mx-auto w-64 p-6 overflow-hidden bg-white bg-opacity-80 shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
               >
                 <div>
                   <div className="title-font text-center text-3xl text-fuchsia-900 font-bold mb-4">

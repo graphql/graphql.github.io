@@ -38,7 +38,7 @@ const HeaderConf = () => {
       <div className=" mx-auto flex flex-wrap flex-row items-center max-md:justify-between">
         <a
           href="/conf/"
-          className="flex order-first max-sm:hidden xl:order-none xl:w-1/5 title-font font-medium items-center xl:items-center xl:justify-center max-lg:mr-2"
+          className="flex order-first max-sm:hidden xl:order-none xl:w-1/5 title-font font-medium items-center xl:items-center xl:justify-center mr-8 xl:mr-0"
         >
           <img
             src="/img/conf/graphql-conf-logo-simple.svg"
