@@ -34,21 +34,21 @@ const links: LinkItem[] = [
 
 const HeaderConf = () => {
   return (
-    <header className="bg-fuchsia-950 gap-2 shadow-lg">
-      <div className="xl:container mx-auto flex flex-wrap flex-row items-center max-md:justify-between">
+    <header className="bg-[#0E031C] bg-opacity-[85%] gap-2 shadow-lg px-5">
+      <div className=" mx-auto flex flex-wrap flex-row items-center max-md:justify-between">
         <a
           href="/conf/"
           className="flex order-first max-sm:hidden xl:order-none xl:w-1/5 title-font font-medium items-center xl:items-center xl:justify-center max-lg:mr-2"
         >
           <img
-            src="/img/conf/graphql-conf-logo.svg"
-            className="w-[125px] md:w-[150px]"
+            src="/img/conf/graphql-conf-logo-simple.svg"
+            className="h-[70px]"
           />
         </a>
-        <nav className="flex grow gap-4">
+        <nav className="flex grow items-center justify-between md:justify-normal">
           {links.map((link, i) => (
             <a
-              className={`text-white hover:bg-fuchsia-900 rounded font-normal hover:font-extrabold hover:text-white focus:text-white ${
+              className={`text-lg text-white font-medium hover:text-white focus:text-white ${
                 link.noMobile ? "max-md:hidden" : ""
               }`}
               key={i}
@@ -58,7 +58,7 @@ const HeaderConf = () => {
             </a>
           ))}
         </nav>
-        <div className="xl:w-2/5 inline-flex xl:justify-end ml-5 xl:ml-0">
+        <div>
           <ButtonConf
             text="Register Now!"
             href="https://cvent.me/4zbxz9"

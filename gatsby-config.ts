@@ -40,7 +40,7 @@ const config: GatsbyConfig = {
           google: [
             {
               family: `Rubik`,
-              variants: [`300`],
+              variants: [`300`, `400`, `500`, `700`],
             },
             {
               family: `Roboto Mono`,

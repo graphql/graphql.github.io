@@ -10,23 +10,36 @@ import VenueConf from "../../components/Conf/Venue"
 import SFConf from "../../components/Conf/SF"
 import ScheduleGlanceConf from "../../components/Conf/Schedule"
 import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
+import { CalendarIcon, GlobeIcon } from "@radix-ui/react-icons"
 
 export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="text-gray-600 body-font bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover">
-        <div className="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
-          <div className="flex flex-col items-center w-full">
-            <img src="/img/conf/graphql-conf-logo.svg" className="w-[500px]" />
-            <div className="sm:text-3xl text-2xl mb-8 text-white text-center italic leading-relaxed">
-              <span className="block lg:inline">SEPTEMBER 19-21, 2023</span>
-              <span className="hidden lg:inline"> • </span>
-              <span>SAN FRANCISCO BAY AREA, CA</span>
+      <div className="text-gray-600 mt-[-70px] body-font bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
+        <div className="container mx-auto flex px-4 h-[80vh] md:h-screen items-center justify-center flex-col">
+          <div className="flex flex-col justify-center items-center w-full gap-2 md:gap-32 md:flex-row">
+            <div>
+              <img
+                src="/img/conf/graphql-conf-logo.svg"
+                className="w-[400px] md:w-[500px]"
+              />
             </div>
-            <div className="flex justify-center gap-4 flex-col sm:flex-row">
-              <ButtonConf text="Join as a Sponsor" href="/conf/sponsor/" />
-              <ButtonConf text="Submit to Speak" href="/conf/speak/" />
+            <div>
+              <div className="mb-8 text-white text-3xl md:text-lg leading-relaxed font-semibold">
+                <div className="flex gap-2 items-center mb-2 font-medium">
+                  <CalendarIcon />
+                  <span>September 19-21, 2023</span>
+                </div>
+                <div className="flex gap-2 items-center mb-6 font-medium">
+                  <GlobeIcon />
+                  <span>San Fransisco Bay Area, CA</span>
+                </div>
+              </div>
+              <div className="flex justify-center gap-4 flex-row">
+                <ButtonConf text="Join as a Sponsor" href="/conf/sponsor/" />
+                <ButtonConf text="Submit to Speak" href="/conf/speak/" />
+              </div>
             </div>
           </div>
         </div>
