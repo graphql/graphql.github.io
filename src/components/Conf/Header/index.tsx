@@ -2,35 +2,26 @@ import React from "react"
 import ButtonConf from "../Button"
 
 interface LinkItem {
-  section: string
   text: string
   href: string
   noMobile?: boolean
 }
 
 const links: LinkItem[] = [
-  {
-    section: "Register",
-    text: "Register",
-    href: "/conf/#register",
-  },
-  { section: "Speak", text: "Speak", href: "/conf/speak/" },
-  {
-    section: "Sponsor",
-    text: "Sponsor",
-    href: "/conf/sponsor/",
-  },
-  { section: "FAQ", text: "FAQ", href: "/conf/faq/" },
+  { text: "Attend", href: "/conf/#attend" },
+  { text: "Speak", href: "/conf/speak/" },
+  { text: "Sponsor", href: "/conf/sponsor/" },
+  { text: "FAQ", href: "/conf/faq/" },
 ]
 
 const HeaderConf = () => {
   return (
     <header className="bg-[#0E031C] gap-2 shadow-lg px-5 h-[70px]">
-      <div className="container flex items-center h-full gap-5">
-        <a href="/conf/" className="shrink-0">
+      <div className="container flex items-center h-full gap-5 max-sm:justify-center">
+        <a href="/conf/" className="shrink-0 max-sm:hidden">
           <img
             src="/img/conf/graphql-conf-logo-simple.svg"
-            className="max-md:w-24"
+            className="mt-[5px] mr-2 max-md:w-24"
           />
         </a>
         {links.map(link => (
@@ -43,7 +34,7 @@ const HeaderConf = () => {
           </a>
         ))}
         <ButtonConf
-          text="Register Now!"
+          text="Buy a Ticket!"
           href="https://cvent.me/4zbxz9"
           target="_blank"
           className="ml-auto max-sm:hidden"

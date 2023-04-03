@@ -3,21 +3,22 @@ import SocialIcons from "../SocialIcons"
 
 const links = [
   [
-    { text: "GraphQLConf", href: "/conf/" },
+    { text: "Attend", href: "/conf/#attend" },
     { text: "Speakers", href: "/conf/#speakers" },
     { text: "Schedule", href: "/conf/#schedule" },
     { text: "Location", href: "/conf/#location" },
   ],
   [
-    { text: "Register", href: "/conf/#register" },
     { text: "Speak", href: "/conf/speak/" },
     { text: "Sponsor", href: "/conf/sponsor/" },
+    { text: "FAQ", href: "/conf/faq/" },
+    { text: "Contact Us", href: "/conf/faq/#contact" },
   ],
   [
-    { text: "FAQ", href: "/conf/faq/" },
+    { text: "GraphQL", href: "/" },
+    { text: "GraphQL Foundation", href: "/foundation/" },
     { text: "Code of Conduct", href: "/conf/faq/#codeofconduct" },
     { text: "Diversity & Inclusion", href: "/conf/faq/#dni" },
-    { text: "Contact Us", href: "/conf/faq/#contact" },
   ],
 ]
 

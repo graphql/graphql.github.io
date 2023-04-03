@@ -17,12 +17,12 @@ export default () => {
     <LayoutConf>
       <HeaderConf />
       <div className="text-gray-600 bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
-        <div className="container flex py-36 items-center justify-center flex-col">
+        <div className="container flex py-16 md:py-36 items-center justify-center flex-col">
           <div className="flex flex-col justify-center items-center w-full gap-2 md:gap-32 md:flex-row">
             <div>
               <img
                 src="/img/conf/graphql-conf-logo.svg"
-                className="w-[400px] md:w-[500px]"
+                className="w-[300px] md:w-[500px]"
               />
             </div>
             <div>
@@ -48,8 +48,8 @@ export default () => {
       <PricingConf />
       <ScheduleGlanceConf />
       <VenueConf />
-      <AboutConf />
       <SFConf />
+      <AboutConf />
       <FooterConf />
     </LayoutConf>
   )

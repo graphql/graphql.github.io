@@ -685,9 +685,9 @@ export default () => {
       <div className="bg-white">
         <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4">
           <h1>GraphQLConf FAQ</h1>
-          <ul className="flex flex-wrap">
+          <ul className="md:columns-2 max-lg:p-0 max-lg:m-0 list-none">
             {faq.map(q => (
-              <li key={q.id} className="flex-[50%]">
+              <li key={q.id} className="md:mt-0 md:mb-2">
                 <a href={`#${q.id}`}>{q.title}</a>
               </li>
             ))}

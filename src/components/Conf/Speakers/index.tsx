@@ -63,7 +63,7 @@ const SpeakersConf = () => {
                     className="shrink-0 rounded-full h-36 w-36 object-cover object-center"
                   />
                   <div className="bg-[#55ACEF] h-8 w-8 flex items-center justify-center rounded-full absolute bottom-0 right-0">
-                    <a href={speaker.twitter} target="_blank">
+                    <a href={speaker.twitter} target="_blank" className="h-[20px]">
                       <TwitterLogoIcon className="text-white h-5 w-5" />
                     </a>
                   </div>
