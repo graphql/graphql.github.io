@@ -14,7 +14,7 @@ const VenueConf = () => {
           GraphQLConf 2023 is hosted in the San Francisco Bay Area, where
           GraphQL was first created. It's hosted at the{" "}
           <a
-            href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+            href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO"
             target="_blank"
             className="font-bold"
           >
@@ -37,7 +37,7 @@ const VenueConf = () => {
               <a
                 target="_blank"
                 className="font-bold text-[#B48EF1]"
-                href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+                href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO"
               >
                 Hyatt Regency SFO
               </a>
@@ -80,8 +80,7 @@ const VenueConf = () => {
               Hotel Information
             </h3>
             <p className="leading-relaxed mb-3 text-white text-base">
-              Please note, rooms will most likely sell out in advance of the
-              room block close dates listed below. We encourage you to book
+              Please note, rooms will most likely sell out in advance of the <a href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO" target="_blank">room block</a> close dates. We encourage you to book
               early to secure a room at the conference rate
               <br />
               <br />
