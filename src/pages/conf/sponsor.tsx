@@ -24,9 +24,9 @@ export default () => {
                 href="https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf"
               />
               <ButtonConf
-                text="Request a Contract"
+                text="Contact Us"
                 target="_blank"
-                href="https://na3.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=ba1e05a3-244d-4c94-9b3a-fd769966e479&env=na3&acct=f30e10ec-fea1-4dd8-a262-384a61edabb5&v=2 "
+                href="mailto:graphqlconf@graphql.org?subject=Sponsorships"
               />
             </div>
           </div>
