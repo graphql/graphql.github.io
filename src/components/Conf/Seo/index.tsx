@@ -12,7 +12,7 @@ const SeoConf = ({ title, description }: Props): JSX.Element => {
         {title ?? "GraphQL Conf 2023  | hosted by GraphQL Foundation "}
       </title>
       <meta name="description" content={description} />
-      <meta property="og:image" content="/img/conf/og-image.png" />
+      <meta property="og:image" content="/img/conf/graphql-conf-bg.png" />
       <meta property="twitter:site" content="@graphqlconf" />
       <meta name="viewport" content="width=640" />
     </>
