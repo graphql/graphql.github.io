@@ -87,9 +87,9 @@ const PricingConf = () => {
           <div className="px-0 lg:px-8 lg:w-full lg:mb-16">
             <div className="mx-auto h-full bg-gray-100 bg-opacity-75 px-8 pb-12 lg:max-w-prose lg:rounded-lg overflow-hidden text-center relative">
               <h1 className="title-font sm:text-2xl text-xl font-medium text-[#862e69]">
-                What’s included?
+                What's included?
               </h1>
-              <div className="flex flex-wrap justify-center">
+              <div className="grid grid-cols-2">
                 {includes.map((include, i) => (
                   <div key={i} className="flex m-2 h-full items-center">
                     <svg
