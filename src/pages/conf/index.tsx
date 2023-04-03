@@ -5,7 +5,7 @@ import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 import SpeakersConf from "../../components/Conf/Speakers"
 import PricingConf from "../../components/Conf/Pricing"
-import ContantSectionConf from "../../components/Conf/Contant"
+import AboutConf from "../../components/Conf/About"
 import VenueConf from "../../components/Conf/Venue"
 import SFConf from "../../components/Conf/SF"
 import ScheduleGlanceConf from "../../components/Conf/Schedule"
@@ -48,7 +48,7 @@ export default () => {
       <PricingConf />
       <ScheduleGlanceConf />
       <VenueConf />
-      <ContantSectionConf />
+      <AboutConf />
       <SFConf />
       <FooterConf />
     </LayoutConf>
