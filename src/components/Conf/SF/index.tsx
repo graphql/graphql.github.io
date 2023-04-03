@@ -30,13 +30,6 @@ const images: Image[] = [
     link: "https://www.nps.gov/alca/index.htm",
   },
   {
-    src: "https://events.linuxfoundation.org/wp-content/uploads/2022/12/San-Francisco-Pier39-unsplash.jpg",
-    name: "Pier 39",
-    description:
-      "Pier 39 is a shopping center and popular tourist attraction built on a pier in San Francisco, California. At Pier 39, there are shops, restaurants, a video arcade, street performances, the Aquarium of the Bay, virtual 3D rides, and views of California sea lions hauled out on docks on Pier 39’s marina.",
-    link: "https://www.pier39.com/",
-  },
-  {
     src: "https://events.linuxfoundation.org/wp-content/uploads/2022/12/San-Francisco-Fishermans-Wharf-unsplash.jpg",
     name: "Fisherman’s Wharf",
     description:
@@ -46,13 +39,13 @@ const images: Image[] = [
 ]
 const SFConf = () => {
   return (
-    <div className="bg-white">
-      <h1 className="text-4xl text-center mb-5 text-[#862e69] font-bold">
+    <div className="bg-white pb-10 pt-8">
+      <h1 className="text-4xl text-center mb-5 text-[#0E031C] font-bold pb-6">
         About San Francisco
       </h1>
       <div className="flex flex-wrap w-full justify-center">
         {images.map((image, i) => (
-          <div key={i} className="lg:w-1/4 sm:w-full mx-5 mb-5">
+          <div key={i} className="lg:w-1/5 sm:w-full mx-5 mb-5">
             <div className="max-w-sm">
               <AspectRatio title={image.name} src={image.src} href={image.link} />
             </div>

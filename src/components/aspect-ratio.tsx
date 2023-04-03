@@ -23,7 +23,7 @@ export function AspectRatio({ className, href, title, src }: AspectRatioProps) {
           href={href}
           className="hover:no-underline absolute inset-0 z-[1] flex items-center justify-center"
         >
-          <h3 className="text-center select-none bg-gradient-to-r from-fuchsia-500 to-fuchsia-300 bg-clip-text text-3xl font-black uppercase text-transparent duration-300 ease-in-out group-hover:opacity-0 sm:text-4xl">
+          <h3 className="text-center select-none text-white bg-clip-text text-2xl font-black uppercase text-transparent duration-300 ease-in-out group-hover:opacity-0 sm:text-2xl">
             {title}
           </h3>
         </a>
