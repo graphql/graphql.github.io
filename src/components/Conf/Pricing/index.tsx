@@ -74,7 +74,9 @@ const PricingConf = () => {
                   <div className="title-font text-center text-3xl text-fuchsia-900 font-bold mb-4">
                     {pricing.title}
                   </div>
-                  <div className="text-black text-center text-sm">{pricing.date}</div>
+                  <div className="text-black text-center text-sm">
+                    {pricing.date}
+                  </div>
                   <div className="text-fuchsia-900 mt-4 p-4 rounded-full text-center text-4xl text-white font-extrabold">
                     {pricing.price}
                   </div>
@@ -86,9 +88,9 @@ const PricingConf = () => {
         <div className="flex flex-wrap">
           <div className="px-0 lg:px-8 lg:w-full lg:mb-16">
             <div className="mx-auto h-full bg-white bg-opacity-80 px-8 pb-12 lg:max-w-prose lg:rounded-lg overflow-hidden text-center relative">
-              <h1 className="title-font sm:text-2xl text-xl font-medium text-[#862e69]">
+              <h3 className="title-font sm:text-2xl text-xl font-medium text-[#862e69]">
                 What's included?
-              </h1>
+              </h3>
               <div className="grid grid-cols-2">
                 {includes.map((include, i) => (
                   <div key={i} className="flex m-2 h-full items-center">
@@ -108,6 +110,14 @@ const PricingConf = () => {
                   </div>
                 ))}
               </div>
+              <h3 className="title-font sm:text-2xl text-xl font-medium text-[#862e69]">
+                Need assistance?
+              </h3>
+              <p>
+                Apply for a <a href="/conf/faq/#visas">Visa</a> or{" "}
+                <a href="/conf/faq/#scholarships">Scholarship</a> or find more
+                help in our <a href="/conf/faq/">FAQ</a>.
+              </p>
             </div>
           </div>
         </div>
