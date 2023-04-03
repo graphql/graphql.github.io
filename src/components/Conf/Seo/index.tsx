@@ -24,10 +24,10 @@ export default function SeoConf(props: {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta property="og:type" content="event" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      <meta properpty="og:image:alt" content="GraphQLConf 2023 hosted by the GraphQL Foundation. September 19-21, 2023. San Francisco Bay Area, California" />
       <meta name="twitter:site" content="@graphql" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={twitterTitle} />
