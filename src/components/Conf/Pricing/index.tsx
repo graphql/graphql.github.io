@@ -104,15 +104,15 @@ const PricingConf = () => {
               </h3>
               <p className="text-white">
                 Apply for a{" "}
-                <a href="/conf/faq/#visas">
+                <a className="text-[#B48EF1]" href="/conf/faq/#visas">
                   Visa
                 </a>{" "}
                 or{" "}
-                <a href="/conf/faq/#scholarships">
+                <a className="text-[#B48EF1]" href="/conf/faq/#scholarships">
                   Scholarship
                 </a>{" "}
                 or find more help in our{" "}
-                <a href="/conf/faq/">
+                <a className="text-[#B48EF1]" href="/conf/faq/">
                   FAQ
                 </a>
                 .
