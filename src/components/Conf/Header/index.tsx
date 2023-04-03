@@ -26,11 +26,11 @@ const links: LinkItem[] = [
 const HeaderConf = () => {
   return (
     <header className="bg-[#0E031C] gap-2 shadow-lg px-5 h-[70px]">
-      <div className="container flex items-center h-full gap-5">
-        <a href="/conf/" className="shrink-0">
+      <div className="container flex items-center h-full gap-5 max-sm:justify-center">
+        <a href="/conf/" className="shrink-0 max-sm:hidden">
           <img
             src="/img/conf/graphql-conf-logo-simple.svg"
-            className="max-md:w-24"
+            className="mt-[5px] mr-2 max-md:w-24"
           />
         </a>
         {links.map(link => (

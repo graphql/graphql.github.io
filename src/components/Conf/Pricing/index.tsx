@@ -83,7 +83,7 @@ const PricingConf = () => {
               <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-2">
                 What's included?
               </h3>
-              <div className="grid grid-cols-2 w-[fit-content]">
+              <div className="md:grid md:grid-cols-2 w-[fit-content]">
                 {includes.map((include, i) => (
                   <div
                     key={i}

@@ -23,7 +23,7 @@ const VenueConf = () => {
       </p>
       <img
         src="/img/conf/sf-hotel-image.png"
-        className="object-cover w-[500px] h-[300px] rounded-xl my-8 block mx-auto"
+        className="object-cover w-[300px] h-[180px] md:w-[500px] md:h-[300px] rounded-xl my-8 block mx-auto"
       />
       <div className="container flex flex-wrap">
         <div className="sm:w-full grid grid-rows-1 md:grid-cols-2 gap-20">
