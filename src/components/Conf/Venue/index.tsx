@@ -26,9 +26,9 @@ const VenueConf = () => {
                     weather is great.
                   </p>
                 </div>
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
+                <h2 className="title-font sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
                   Hotel Information
-                </h1>
+                </h2>
                 <p className="leading-relaxed mb-3 text-gray-400">
                   Please note, rooms will most likely sell out in advance of the
                   room block close dates listed below. We encourage you to book
@@ -46,10 +46,27 @@ const VenueConf = () => {
                     housing@linuxfoundation.org.
                   </a>
                 </p>
+                <h2 className="title-font sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
+                  Welcome to all
+                </h2>
+                <p className="leading-relaxed mb-3 text-gray-400">
+                  GraphQLConf is welcome to all. Please read our{" "}
+                  <a href="/conf/faq/#dni">diversity & inclusion</a> guide and{" "}
+                  <a href="/conf/faq/#codeofconduct">code of conduct</a>. Your
+                  health and safety is our top priority. We have considered a
+                  range of both{" "}
+                  <a href="/conf/faq/#onsite-resources">onsite resources</a> and{" "}
+                  <a href="/conf/faq/#emergency-resources">
+                    emergency resources
+                  </a>{" "}
+                  as well as a{" "}
+                  <a href="/conf/faq/#health-and-safety">health &amp; safety</a>{" "}
+                  policy.
+                </p>
               </div>
             </div>
           </div>
-          <div className="container px-5  mx-auto">
+          <div className="container px-5 mx-auto">
             <div className="flex flex-wrap w-full">
               <div className="p-4 lg:w-1/3 sm:w-full">
                 <div className="h-full bg-[#251C39] px-8 pt-16 pb-24 rounded-lg overflow-hidden relative">
