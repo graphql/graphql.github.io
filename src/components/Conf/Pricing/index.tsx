@@ -49,34 +49,33 @@ const includes = [
 const PricingConf = () => {
   return (
     <div id="register">
-      <div className="bg-[#0E031C] w-full mt-10 mb-6">
+      <div className="bg-[#0E031C] container mt-10 mb-6">
         <div className="flex flex-col text-center w-full">
           <h1 className="text-4xl text-white font-bold">
             Pricing &amp; Registration
           </h1>
         </div>
         <div className="max-w-[80ch] mx-auto">
-          <div className="mx-auto w-full grid grid-rows-1 md:grid-cols-3 justify-center text-center gap-8 mt-8">
+          <div className="flex max-md:flex-wrap gap-8 mt-8">
             {pricing.map((pricing, i) => (
-              <div key={i}>
-                <a
-                  href="https://cvent.me/4zbxz9"
-                  target="_blank"
-                  className="block mx-auto w-64 p-6 overflow-hidden bg-[#251C39] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
-                >
-                  <div>
-                    <div className="text-center text-3xl text-white font-bold mb-2">
-                      {pricing.title}
-                    </div>
-                    <div className="text-white text-center text-sm">
-                      {pricing.date}
-                    </div>
-                    <div className="text-[#B48EF1] mt-4 p-4 rounded-full text-center text-4xl text-white font-extrabold">
-                      {pricing.price}
-                    </div>
+              <a
+                key={i}
+                href="https://cvent.me/4zbxz9"
+                target="_blank"
+                className="block mx-auto w-64 p-6 overflow-hidden bg-[#251C39] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
+              >
+                <div>
+                  <div className="text-center text-3xl text-white font-bold mb-2">
+                    {pricing.title}
                   </div>
-                </a>
-              </div>
+                  <div className="text-white text-center text-sm">
+                    {pricing.date}
+                  </div>
+                  <div className="text-[#B48EF1] mt-4 p-4 rounded-full text-center text-4xl font-extrabold">
+                    {pricing.price}
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
           <div className="w-full">
@@ -95,7 +94,9 @@ const PricingConf = () => {
                       height={20}
                       width={20}
                     />
-                    <p className="leading-relaxed text-base md:text-md">{include.title}</p>
+                    <p className="leading-relaxed text-base md:text-md">
+                      {include.title}
+                    </p>
                   </div>
                 ))}
               </div>

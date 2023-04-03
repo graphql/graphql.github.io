@@ -10,10 +10,10 @@ export default () => {
     <LayoutConf>
       <HeaderConf />
       <div className="bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
-        <div className="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
+        <div className="container flex py-16 items-center justify-center flex-col">
           <div className="flex flex-col items-center w-full">
             <div className="sm:text-3xl text-2xl mb-8 text-white text-center leading-relaxed">
-              <span className="block text-46xl lg:inline">
+              <span className="block lg:inline">
                 Sponsor GraphQLConf 2023
               </span>
             </div>

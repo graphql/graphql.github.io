@@ -24,7 +24,7 @@ const links = [
 const FooterConf = () => {
   return (
     <footer className="text-gray-600 bg-[#0E031C]">
-      <div className="container px-5 py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="container py-24 flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a
             href="/conf/"
@@ -53,7 +53,7 @@ const FooterConf = () => {
         </div>
       </div>
       <div>
-        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+        <div className="container py-4 flex flex-wrap flex-col sm:flex-row">
           <p className="text-white text-sm text-center sm:text-left">
             Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
             All rights reserved.
