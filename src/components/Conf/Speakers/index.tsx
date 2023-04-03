@@ -89,9 +89,10 @@ const SpeakersConf = () => {
           <div className="my-8">
             <ButtonConf
               className="mx-auto"
-              text="Submit to Speak"
               href="/conf/speak/"
-            />
+            >
+              Submit to Speak
+            </ButtonConf>
           </div>
         </div>
       </div>

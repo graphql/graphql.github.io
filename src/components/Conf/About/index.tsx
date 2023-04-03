@@ -115,7 +115,7 @@ const AboutSection = () => {
             </p>
           </div>
         </div>
-        <h1 className="text-center text-4xl text-[#0E031C] font-bold mt-8 mb-8">
+        <h1 className="text-center text-4xl text-[#0E031C] font-bold my-8">
           Why Attend?
         </h1>
         <div className="w-full md:w-1/2 mx-auto">
@@ -125,7 +125,7 @@ const AboutSection = () => {
           </p>
           <ul role="list" className="mt-8 space-y-4">
             {whyAttend.map((item, index) => (
-              <li key={index} className="flex gap-2 ">
+              <li key={index} className="flex gap-2">
                 <CheckCircledIcon
                   className="text-[#B48EF1]"
                   height={30}

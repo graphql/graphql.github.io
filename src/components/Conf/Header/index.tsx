@@ -34,11 +34,11 @@ const HeaderConf = () => {
           </a>
         ))}
         <ButtonConf
-          text="Buy a Ticket!"
           href="https://cvent.me/4zbxz9"
-          target="_blank"
           className="ml-auto max-sm:hidden"
-        />
+        >
+          Buy a Ticket!
+        </ButtonConf>
       </div>
     </header>
   )

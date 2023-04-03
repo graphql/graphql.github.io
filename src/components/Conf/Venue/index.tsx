@@ -47,6 +47,18 @@ const VenueConf = () => {
                 1333 Old Bayshore Hwy Burlingame, CA 94010
               </a>
             </p>
+            <div className="text-white">
+              <b>Dates with Availability</b>: September 18, 19, 20, 21, 2023
+              <br />
+              <b>Room Rates Start From</b>: $179.00
+              <br />
+              <b>Room Block Closes</b>: September 4, 2023
+              <br />
+              <i>
+                (Please note, the rate is valid until the cut-off date or the
+                room block is full)
+              </i>
+            </div>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
               Welcome to all
             </h3>
@@ -74,7 +86,16 @@ const VenueConf = () => {
               </a>{" "}
               policy.
             </p>
+            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">Alternate lodging options</h3>
+            <a
+              href="https://www.ihg.com/holidayinnexpress/hotels/us/en/burlingame/urlbh/hoteldetail"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Holiday Inn Express San Francisco Airport South, and IHG Hotel
+            </a>
           </div>
+
           <div>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
               Hotel Information
@@ -140,7 +161,7 @@ const VenueConf = () => {
             icon: AroundIcon,
             content: (
               <div>
-                <a href="https://flysfo.com">
+                <a href="https://flysfo.com" target="_blank" rel="noreferrer">
                   San Francisco International Airport (SFO)
                 </a>
                 <p>
@@ -148,7 +169,11 @@ const VenueConf = () => {
                   <br />
                   Distance from venue: 3.1 miles.
                 </p>
-                <a href="https://www.google.com/maps/dir/San+Francisco+International+Airport+(SFO),+San+Francisco,+CA/Hyatt+Regency+San+Francisco+Airport,+1333+Old+Bayshore+Hwy,+Burlingame,+CA+94010/@37.6056719,-122.3979086,14z/am=t/data=!4m14!4m13!1m5!1m1!1s0x808f778c55555555:0xa4f25c571acded3f!2m2!1d-122.3789554!2d37.6213129!1m5!1m1!1s0x808f762dd36adc25:0x66d848e8e05f3445!2m2!1d-122.3651261!2d37.5938725!3e0?shorturl=1">
+                <a
+                  href="https://www.google.com/maps/dir/San+Francisco+International+Airport+(SFO),+San+Francisco,+CA/Hyatt+Regency+San+Francisco+Airport,+1333+Old+Bayshore+Hwy,+Burlingame,+CA+94010/@37.6056719,-122.3979086,14z/am=t/data=!4m14!4m13!1m5!1m1!1s0x808f778c55555555:0xa4f25c571acded3f!2m2!1d-122.3789554!2d37.6213129!1m5!1m1!1s0x808f762dd36adc25:0x66d848e8e05f3445!2m2!1d-122.3651261!2d37.5938725!3e0?shorturl=1"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Driving Directions from SFO to Venue
                 </a>
               </div>
@@ -159,7 +184,13 @@ const VenueConf = () => {
             icon: ParkingIcon,
             content: (
               <div>
-                <a>The Hyatt Regency SFO offers self-parking.</a>
+                <a
+                  href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  The Hyatt Regency SFO offers self-parking.
+                </a>
                 <p className="font-bold">Self-Parking:</p>
                 <p>
                   0-1 hour: $12

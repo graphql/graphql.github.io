@@ -37,8 +37,8 @@ export default () => {
                 </div>
               </div>
               <div className="flex justify-center gap-4 flex-row">
-                <ButtonConf text="Join as a Sponsor" href="/conf/sponsor/" />
-                <ButtonConf text="Submit to Speak" href="/conf/speak/" />
+                <ButtonConf href="/conf/sponsor/">Join as a Sponsor</ButtonConf>
+                <ButtonConf href="/conf/speak/">Submit to Speak</ButtonConf>
               </div>
             </div>
           </div>

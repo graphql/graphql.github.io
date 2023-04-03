@@ -78,11 +78,9 @@ const PricingConf = () => {
             ))}
           </div>
           <div className="my-8 flex justify-center">
-            <ButtonConf
-              text="Buy a Ticket!"
-              href="https://cvent.me/4zbxz9"
-              target="_blank"
-            />
+            <ButtonConf href="https://cvent.me/4zbxz9">
+              Buy a Ticket!
+            </ButtonConf>
           </div>
           <div className="w-full">
             <div className="mx-auto flex flex-col items-center text-center">
