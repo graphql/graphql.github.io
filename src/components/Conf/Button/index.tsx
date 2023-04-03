@@ -10,24 +10,17 @@ interface Props {
 
 const ButtonConf = ({ text, href, target, className, onWhiteBg }: Props) => {
   return (
-    <button
+    <a
       className={
-        `transition ease-in-out no-underline inline-flex text-center ${
-          onWhiteBg ? "bg-[#B48EF1]" : "bg-white"
-        } border-0 py-2 px-6 focus:outline-none hover:drop-shadow-md hover:scale-105 rounded text-lg ` +
-        (className ?? "")
+        `block cursor-pointer transition ease-in-out no-underline inline-flex text-center border-0 py-2 px-6 no-underline hover:no-underline focus:outline-none hover:drop-shadow-md hover:[transform:scale(1.05)] rounded text-sm sm:text-base font-medium whitespace-nowrap ${
+          onWhiteBg ? "bg-[#B48EF1] text-white" : "bg-white text-black"
+        } ${className ?? ""}`
       }
+      href={href}
+      target={target}
     >
-      <a
-        className={`text-sm sm:text-base font-medium whitespace-nowrap cursor-pointer ${
-          onWhiteBg ? "text-white" : "text-black"
-        } no-underline hover:no-underline`}
-        href={href}
-        target={target}
-      >
-        {text}
-      </a>
-    </button>
+      {text}
+    </a>
   )
 }
 
