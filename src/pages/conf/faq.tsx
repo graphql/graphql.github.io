@@ -682,18 +682,18 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="flow-root bg-white px-8 pb-24">
-        <div className="mx-auto max-w-prose">
+      <div className="bg-white">
+        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4">
           <h1>GraphQLConf FAQ</h1>
           <ul className="columns-2 mx-0 gap-4">
             {faq.map(q => (
-              <li>
+              <li key={q.id}>
                 <a href={`#${q.id}`}>{q.title}</a>
               </li>
             ))}
           </ul>
           {faq.map(q => (
-            <SectionConf id={q.id} title={q.title}>
+            <SectionConf key={q.id} id={q.id} title={q.title}>
               {q.contents}
             </SectionConf>
           ))}

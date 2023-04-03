@@ -55,17 +55,15 @@ const FooterConf = () => {
       <div>
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p className="text-white text-sm text-center sm:text-left">
-            <section>
-              Copyright © {`${new Date().getFullYear()}`} The GraphQL
-              Foundation. All rights reserved.
-              <br />
-              For web site terms of use, trademark policy and general project
-              policies please see&nbsp;
-              <a href="https://lfprojects.org" target="_blank">
-                https://lfprojects.org
-              </a>
-              .
-            </section>
+            Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
+            All rights reserved.
+            <br />
+            For web site terms of use, trademark policy and general project
+            policies please see&nbsp;
+            <a href="https://lfprojects.org" target="_blank">
+              https://lfprojects.org
+            </a>
+            .
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start ">
             <SocialIcons />

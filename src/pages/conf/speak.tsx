@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode, Fragment } from "react"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -266,10 +266,10 @@ function DL({ items }: { items: [header: string, contents: ReactNode][] }) {
   return (
     <dl className="my-4">
       {items.map(([header, contents]) => (
-        <>
+        <Fragment key={header}>
           <dt className="mt-6 mb-2 text-xl">{header}</dt>
           <dd>{contents}</dd>
-        </>
+        </Fragment>
       ))}
     </dl>
   )
@@ -279,8 +279,8 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="flow-root bg-white px-8 pb-24">
-        <div className="mx-auto max-w-prose">
+      <div className="bg-white">
+        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4">
           <h1>Speak at GraphQLConf</h1>
           <section className="px-0">
             <p>
@@ -306,13 +306,13 @@ export default () => {
           </section>
           <ul className="columns-2 mx-0 gap-4">
             {cfp.map(q => (
-              <li>
+              <li key={q.id}>
                 <a href={`#${q.id}`}>{q.title}</a>
               </li>
             ))}
           </ul>
           {cfp.map(q => (
-            <SectionConf id={q.id} title={q.title}>
+            <SectionConf key={q.id} id={q.id} title={q.title}>
               {q.contents}
             </SectionConf>
           ))}
