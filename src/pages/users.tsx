@@ -7,7 +7,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
     <Layout pageContext={pageContext}>
       <section className="whos-using-page">
-        <div className="prose">
+        <div className="prose2">
           <h1>Who&rsquo;s using GraphQL?</h1>
           <p>
             GraphQL is used by teams of all sizes in many different environments

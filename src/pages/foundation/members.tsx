@@ -9,7 +9,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
       pageContext={pageContext}
     >
       <section className="foundation-members-page">
-        <div className="prose">
+        <div className="prose2">
           <h1>GraphQL Foundation members</h1>
           <p>
             The <a href="/foundation/">GraphQL Foundation</a> is the primary way

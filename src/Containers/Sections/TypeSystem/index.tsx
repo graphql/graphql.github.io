@@ -21,7 +21,7 @@ const TypeSysyem = () => {
   }, [])
   return (
     <section className="point3" id="type-system">
-      <div className="prose">
+      <div className="prose2">
         <h2>
           Describe what&rsquo;s possible
           <br />

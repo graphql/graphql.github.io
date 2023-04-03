@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 const WhosUsing = () => {
   return (
     <section className="powered-by" id="whos-using">
-      <div className="prose">
+      <div className="prose2">
         <h2>Who&rsquo;s using GraphQL?</h2>
         <p>
           Facebook's mobile apps have been powered by GraphQL since 2012. A

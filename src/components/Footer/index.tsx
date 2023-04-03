@@ -1,5 +1,10 @@
 import React from "react"
 import Link from "../Link"
+import { ReactComponent as GitHubIcon } from "../../../static/img/logos/github.svg"
+import { ReactComponent as TwitterIcon } from "../../../static/img/logos/twitter.svg"
+import { ReactComponent as DiscordIcon } from "../../../static/img/logos/discord.svg"
+import { ReactComponent as StackOverflowIcon } from "../../../static/img/logos/stackoverflow.svg"
+import { ReactComponent as EditIcon } from "../../../static/img/edit.svg"
 
 interface LinkItem {
   text: string
@@ -31,7 +36,7 @@ const getLinks = (sourcePath?: string): FooterLinks[] => [
       {
         text: "GitHub",
         href: "https://github.com/graphql",
-        icon: "/img/logos/github.svg",
+        icon: GitHubIcon,
       },
       { text: "GraphQL Specification", href: "https://spec.graphql.org" },
       { text: "Libraries & Tools", href: "/code/" },
@@ -45,17 +50,17 @@ const getLinks = (sourcePath?: string): FooterLinks[] => [
       {
         text: "@graphql",
         href: "https://twitter.com/graphql",
-        icon: "/img/logos/twitter.svg",
+        icon: TwitterIcon,
       },
       {
         text: "Discord",
         href: "https://discord.graphql.org/",
-        icon: "/img/logos/discord.svg",
+        icon: DiscordIcon,
       },
       {
         text: "Stack Overflow",
         href: "http://stackoverflow.com/questions/tagged/graphql",
-        icon: "/img/logos/stackoverflow.svg",
+        icon: StackOverflowIcon,
       },
       { text: "Resources", href: "/community/users/" },
       { text: "Events", href: "/community/upcoming-events/" },
@@ -76,7 +81,7 @@ const getLinks = (sourcePath?: string): FooterLinks[] => [
         href:
           "https://github.com/graphql/graphql.github.io/edit/source/" +
           sourcePath,
-        icon: "/img/edit.svg",
+        icon: EditIcon,
       },
     ].filter(Boolean) as LinkItem[],
   },
@@ -97,9 +102,9 @@ const Footer = ({ sourcePath }: { sourcePath?: string }) => {
                   <span>{section.text}</span>
                 )}
               </h5>
-              {section.subsections.map((subsection: any, i) => (
-                <Link key={i} href={subsection.href}>
-                  {subsection.icon && <img src={subsection.icon} />}
+              {section.subsections.map((subsection, i) => (
+                <Link key={i} href={subsection.href} className="!flex items-center gap-2">
+                  {subsection.icon && <subsection.icon />}
                   {subsection.text}
                 </Link>
               ))}
@@ -108,13 +113,11 @@ const Footer = ({ sourcePath }: { sourcePath?: string }) => {
         </section>
         <section className="copyright">
           Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
-          All rights reserved.<br />
+          All rights reserved.
+          <br />
           For web site terms of use, trademark policy and general project
           policies please see&nbsp;
-          <a
-            href="https://lfprojects.org"
-            target="_blank"
-          >
+          <a href="https://lfprojects.org" target="_blank">
             https://lfprojects.org
           </a>
           .

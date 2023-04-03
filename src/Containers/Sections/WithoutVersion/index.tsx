@@ -15,7 +15,7 @@ const WithoutVersion = () => {
   return (
     <div className="grayWash">
       <section className="point5" id="without-versions">
-        <div className="prose">
+        <div className="prose2">
           <h2>
             Evolve your API
             <br />
