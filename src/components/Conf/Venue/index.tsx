@@ -5,12 +5,12 @@ import { ReactComponent as ParkingIcon } from "../../../../static/img/conf/parki
 
 const VenueConf = () => {
   return (
-    <div id="location" className="container">
+    <div id="location">
       <h1 className="text-4xl text-white font-bold mt-8 mb-6 mx-auto text-center">
         Location &amp; Venue
       </h1>
-      <div className="flex flex-wrap">
-        <div className="p-4 sm:w-full grid grid-rows-1 md:grid-cols-2 gap-20">
+      <div className="container flex flex-wrap">
+        <div className="sm:w-full grid grid-rows-1 md:grid-cols-2 gap-20">
           <div>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
               Hotel Information

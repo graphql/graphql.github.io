@@ -44,10 +44,16 @@ const SFConf = () => {
       <h1 className="text-4xl text-center mb-5 text-[#0E031C] font-bold pb-6">
         About San Francisco
       </h1>
-      <div className="container flex max-xl:flex-wrap justify-center gap-10 ">
-        {images.map(image => (
-          <div key={image.name} className="max-w-sm w-full">
-            <AspectRatio title={image.name} src={image.src} href={image.link} />
+      <div className="flex flex-wrap w-full justify-center">
+        {images.map((image, i) => (
+          <div key={i} className="w-full lg:w-1/5 mx-5 mb-5">
+            <div className="max-w-sm">
+              <AspectRatio
+                title={image.name}
+                src={image.src}
+                href={image.link}
+              />
+            </div>
           </div>
         ))}
       </div>
