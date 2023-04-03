@@ -45,7 +45,7 @@ const images: Image[] = [
 ]
 const SFConf = () => {
   return (
-    <div>
+    <div className="bg-white">
       <h1 className="text-4xl text-center mb-5 title-font text-[#862e69] font-bold">
         About San Francisco
       </h1>

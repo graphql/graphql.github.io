@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react"
+import SeoConf from "../../components/Conf/SEOConf"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -282,7 +283,7 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="px-8 pb-24">
+      <div className="flow-root bg-white px-8 pb-24">
         <div className="mx-auto max-w-prose">
           <h1>GraphQLConf FAQ</h1>
           <ul className="columns-2 mx-0 gap-4">

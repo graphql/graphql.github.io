@@ -1,4 +1,5 @@
 import React from "react"
+import SEOConf from "../../components/Conf/SEOConf"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -9,7 +10,6 @@ import ContantSectionConf from "../../components/Conf/Contant"
 import VenueConf from "../../components/Conf/Venue"
 import SFConf from "../../components/Conf/SF"
 import ScheduleGlanceConf from "../../components/Conf/Schedule"
-import SeoConf from "../../components/Conf/Seo"
 
 export default () => {
   return (
@@ -58,5 +58,9 @@ export default () => {
 }
 
 export function Head() {
-  return <SeoConf  title="GraphQLConf 2023 - hosted by the GraphQL Foundation" />
+  return (
+    <SEOConf includeSchema={true}>
+      <meta property="og:url" content="https://graphql.org/conf/" />
+    </SEOConf>
+  )
 }

@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react"
+import SEOConf from "../../components/Conf/SEOConf"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 import SectionConf from "../../components/Conf/Section"
-import SeoConf from "../../components/Conf/Seo"
 
 const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
   {
@@ -279,8 +279,7 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-
-      <div className="px-8 pb-24">
+      <div className="flow-root bg-white px-8 pb-24">
         <div className="mx-auto max-w-prose">
           <h1>Speak at GraphQLConf</h1>
           <section className="px-0">
@@ -324,7 +323,5 @@ export default () => {
 }
 
 export function Head() {
-  return (
-    <SeoConf title="Speak at GraphQLConf 2023 - (CFP) Call for proposals" />
-  )
+  return <SEOConf title="Speak at GraphQLConf 2023 - (CFP) Call for proposals" />
 }

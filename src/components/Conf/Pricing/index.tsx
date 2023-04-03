@@ -62,7 +62,7 @@ const PricingConf = () => {
             target="_blank"
           />
         </div>
-        <div className="mx-auto max-w-screen-xl flex flex-wrap justify-center my-8">
+        <div className="mx-auto max-w-screen-xl flex flex-wrap justify-center text-center gap-8 m-8">
           {pricing.map((pricing, i) => (
             <div key={i} className="lg:w-1/4">
               <a

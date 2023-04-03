@@ -1,4 +1,5 @@
 import React from "react"
+import SEOConf from "../../components/Conf/SEOConf"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -39,10 +40,10 @@ export default () => {
                 options.
               </p>
               <p>
-                GraphQLConf is the official GraphQL conference presented by the
+                GraphQLConf is the official GraphQL conference hosted by the
                 GraphQL Foundation. It is a premier event by the community for
-                the community uniting the global GraphQL community to promote
-                education, adoption, and advancement of GraphQL.
+                the community to promote education, adoption, and advancement of
+                GraphQL.
               </p>
               <p>
                 Help make this event one to remember by{" "}
@@ -58,9 +59,8 @@ export default () => {
                 GraphQLConf will attract members of the GraphQL community from
                 around the world. Developers, users, architects, and technology
                 leaders from multiple industries will gather in San Francisco to
-                meet, collaborate and build. GraphQLConf 2023 represents the
-                flagship event in the GraphQL Foundation’s official conference
-                series for GraphQL.
+                meet, collaborate and build. GraphQLConf 2023 is the flagship
+                event in the GraphQL Foundation’s official event series.
               </p>
               <p>
                 Investing in GraphQLConf provides the opportunity to build
@@ -78,6 +78,6 @@ export default () => {
 
 export function Head() {
   return (
-    <SeoConf title="Sponsor GraphQLConf 2023 - hosted by the GraphQL Foundation" />
+    <SEOConf title="Sponsor GraphQLConf 2023 - hosted by the GraphQL Foundation" />
   )
 }
