@@ -282,7 +282,7 @@ export default () => {
       <div className="bg-white">
         <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4">
           <h1>Speak at GraphQLConf</h1>
-          <section className="px-0">
+          <section className="px-0 my-8">
             <p>
               Putting on an amazing conference depends on great content, which
               is where you come in! Join other GraphQL leaders and community
@@ -304,9 +304,9 @@ export default () => {
               target="_blank"
             />
           </section>
-          <ul className="flex flex-wrap">
+          <ul className="md:columns-2 max-lg:p-0 max-lg:m-0 list-none">
             {cfp.map(q => (
-              <li key={q.id} className="flex-[50%]">
+              <li key={q.id} className="md:mt-0 md:mb-2">
                 <a href={`#${q.id}`}>{q.title}</a>
               </li>
             ))}

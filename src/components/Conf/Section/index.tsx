@@ -10,7 +10,7 @@ interface Props {
 const SectionConf = ({ id, title, children }: Props): JSX.Element => (
   <div key={id} id={id}>
     <h2>
-      <a href={`#${id}`}>{title}</a>
+      <a href={`#${id}`} className="no-underline">{title}</a>
     </h2>
     {children}
   </div>
