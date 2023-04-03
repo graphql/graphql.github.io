@@ -27,7 +27,7 @@ const ScheduleGlanceConf = () => {
         </div>
         <div className="flex flex-wrap justify-center">
           {Days.map((day, i) => (
-            <div key={i} className="mx-5 mt-5 mb-5">
+            <div key={i} className="m-5">
               <div className="h-full w-64 p-4 overflow-hidden bg-[#251C39] shadow-lg rounded-2xl">
                 <div className="p-4">
                   <p className="text-2xl text-center text-white font-bold mb-2">

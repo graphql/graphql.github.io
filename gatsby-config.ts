@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
   },
   plugins: [
     "gatsby-plugin-postcss",
+    "gatsby-plugin-svgr",
     "gatsby-plugin-anchor-links",
     {
       resolve: "gatsby-source-filesystem",

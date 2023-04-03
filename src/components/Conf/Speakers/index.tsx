@@ -59,7 +59,7 @@ const SpeakersConf = () => {
                 <div className="relative">
                   <img
                     alt={speaker.name}
-                    className="flex-shrink-0 rounded-full h-36 w-36 object-cover object-center"
+                    className="shrink-0 rounded-full h-36 w-36 object-cover object-center"
                     src={speaker.image}
                   />
                   <div className="bg-[#55ACEF] h-8 w-8 flex items-center justify-center rounded-full absolute bottom-0 right-0">
@@ -76,7 +76,7 @@ const SpeakersConf = () => {
                   <div className="text-lg text-white font-bold mt-3">
                     {speaker.name}
                   </div>
-                  <div className="text-gray-400 text-sm mt-2 mb-2">
+                  <div className="text-gray-400 text-sm my-2">
                     {speaker.title}
                   </div>
                 </div>

@@ -1,16 +1,19 @@
 import React from "react"
+import { ReactComponent as TrainIcon } from "../../../../static/img/conf/train.svg"
+import { ReactComponent as AroundIcon } from "../../../../static/img/conf/around.svg"
+import { ReactComponent as ParkingIcon } from "../../../../static/img/conf/parking.svg"
 
 const VenueConf = () => {
   return (
     <div id="location">
       <div className="w-full mx-auto">
-        <div className="flex w-2/3 flex-col text-center mx-auto px-4">
+        <div className="flex w-2/3 flex-col mx-auto px-4">
           <h1 className="text-4xl text-white font-bold mt-8 mb-6">
             Location &amp; Venue
           </h1>
           <div className="flex flex-wrap">
             <div className="p-4 sm:w-full">
-              <div className="h-full bg-[#251C39] bg-opacity-75 px-8 pt-16 pb-12 rounded-lg overflow-hidden text-center relative">
+              <div className="h-full bg-[#251C39]/75 px-8 pt-16 pb-12 rounded-lg overflow-hidden text-center relative">
                 <div className="text-white text-xl">
                   <p className="max-w-prose mx-auto text-white">
                     GraphQLConf 2023 is hosted in the San Francisco Bay Area,
@@ -66,92 +69,89 @@ const VenueConf = () => {
               </div>
             </div>
           </div>
-          <div className="container px-5 mx-auto">
-            <div className="flex flex-wrap w-full">
-              <div className="p-4 lg:w-1/3 sm:w-full">
-                <div className="h-full bg-[#251C39] px-8 pt-16 pb-24 rounded-lg overflow-hidden relative">
-                  <div className="justify-center flex">
-                    <img src="/img/conf/train.svg" className="w-20 h-20" />
-                  </div>
-                  <h1 className="mb-2 mt-2  sm:text-2xl text-xl font-medium text-white mb-3 text-center">
-                    Public Transportation
-                  </h1>
-                  <div className="text-gray-400 text-sm">
+          <div className="container px-5 mx-auto flex max-lg:flex-col w-full gap-14 pt-16 pb-24">
+            {[
+              {
+                title: "Public Transportation",
+                icon: TrainIcon,
+                content: (
+                  <div>
                     <a
-                      href="https://www.samtrans.com/"
-                      className=" inline-flex left-0 "
+                      href="https://samtrans.com"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       SamTrans
                     </a>
-                    <p className="leading-relaxed mb-3">
+                    <p>
                       Service from Burlingame to San Francisco is available for
-                      $5 (adults) or $2.50 youth and seniors.
-                      <a className=" inline-flex items-center">Learn More</a>
+                      $5 (adults) or $2.50 youth and seniors.{" "}
+                      <a
+                        href="https://samtrans.com"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Learn More
+                      </a>
                     </p>
-                    <a
-                      href="https://www.bart.gov/"
-                      className=" inline-flex left-0 "
-                    >
+                    <a href="https://bart.gov">
                       Bay Area Rapid Transit (BART):
                     </a>
-                    <p className="leading-relaxed mb-3">
+                    <p>
                       Take the Hyatt Shuttle Bus to/from SFO International
                       Terminal to connect with BART. Approximate cost from the
                       station to downtown San Francisco is $8.65 one-way.
                     </p>
                   </div>
-                </div>
-              </div>
-              <div className="p-4 lg:w-1/3 sm:w-full">
-                <div className="h-full w-full bg-[#251C39] bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden ">
-                  <div className="justify-center flex">
-                    <img src="/img/conf/around.svg" className="w-20 h-20" />
-                  </div>
-                  <h1 className="mb-2 mt-2 sm:text-2xl text-xl font-medium text-white mb-3 text-center">
-                    Airport Information
-                  </h1>
-                  <div className="text-gray-400 text-sm">
-                    <a
-                      href="https://www.flysfo.com/"
-                      className=" inline-flex left-0 "
-                    >
+                ),
+              },
+              {
+                title: "Airport Information",
+                icon: AroundIcon,
+                content: (
+                  <div>
+                    <a href="https://flysfo.com">
                       San Francisco International Airport (SFO)
                     </a>
-                    <p className="leading-relaxed mb-3">
-                      Drive time from venue: 7 mins. <br />
+                    <p>
+                      Drive time from venue: 7 mins.
+                      <br />
                       Distance from venue: 3.1 miles.
                     </p>
                     <a href="https://www.google.com/maps/dir/San+Francisco+International+Airport+(SFO),+San+Francisco,+CA/Hyatt+Regency+San+Francisco+Airport,+1333+Old+Bayshore+Hwy,+Burlingame,+CA+94010/@37.6056719,-122.3979086,14z/am=t/data=!4m14!4m13!1m5!1m1!1s0x808f778c55555555:0xa4f25c571acded3f!2m2!1d-122.3789554!2d37.6213129!1m5!1m1!1s0x808f762dd36adc25:0x66d848e8e05f3445!2m2!1d-122.3651261!2d37.5938725!3e0?shorturl=1">
                       Driving Directions from SFO to Venue
                     </a>
                   </div>
-                </div>
-              </div>
-              <div className="p-4 lg:w-1/3 sm:w-full">
-                <div className="h-full bg-[#251C39] bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden relative">
-                  <div className="justify-center flex">
-                    <img
-                      src="/img/conf/parking.svg"
-                      className="text-white w-20 h-20"
-                    />
-                  </div>
-                  <h1 className="text-white mb-2 mt-2 sm:text-2xl text-xl font-medium text-white mb-3 text-center">
-                    Parking
-                  </h1>
-                  <div className="text-gray-400 text-sm">
+                ),
+              },
+              {
+                title: "Parking",
+                icon: ParkingIcon,
+                content: (
+                  <div>
                     <a>The Hyatt Regency SFO offers self-parking.</a>
-                    <br />
-                    <br />
                     <p className="font-bold">Self-Parking:</p>
-                    <p className="leading-relaxed mb-3">
-                      0-1 hour: $12 <br />
-                      1-6 hours: $22/hour <br />
+                    <p>
+                      0-1 hour: $12
+                      <br />
+                      1-6 hours: $22/hour
+                      <br />
                       6+ hours or overnight: $40/night
                     </p>
                   </div>
+                ),
+              },
+            ].map(o => (
+              <div key={o.title} className="flex-1">
+                <div className="h-full rounded-lg overflow-hidden relative [&_a]:text-violet-400 [&_a]:font-medium [&_p]:text-white [&_p]:text-lg [&_p]:mb-6 [&>div>a]:block [&>div>a]:mt-6 [&>div>a]:mb-3">
+                  <o.icon className="fill-violet-400 h-16 w-auto" />
+                  <h1 className="my-3 sm:text-2xl text-xl font-medium text-white">
+                    {o.title}
+                  </h1>
+                  {o.content}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
