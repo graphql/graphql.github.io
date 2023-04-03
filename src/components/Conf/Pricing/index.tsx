@@ -1,5 +1,4 @@
 import React from "react"
-import ButtonConf from "../Button"
 import { CheckCircledIcon } from "@radix-ui/react-icons"
 
 interface Pricing {
@@ -49,8 +48,8 @@ const includes = [
 
 const PricingConf = () => {
   return (
-    <div id="register" className="pt-16 -mt-16">
-      <div className="bg-[#0E031C] w-full">
+    <div id="register">
+      <div className="bg-[#0E031C] w-full mt-10 mb-6">
         <div className="flex flex-col text-center w-full">
           <h1 className="text-4xl title-font text-white font-bold">
             Pricing &amp; Registration
@@ -82,7 +81,7 @@ const PricingConf = () => {
           </div>
           <div className="w-full">
             <div className="mx-auto flex flex-col items-center text-center">
-              <h3 className="sm:text-2xl text-xl font-medium text-white">
+              <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-2">
                 What's included?
               </h3>
               <div className="grid grid-cols-2 w-4/5">
@@ -100,7 +99,7 @@ const PricingConf = () => {
                   </div>
                 ))}
               </div>
-              <h3 className="sm:text-2xl text-xl font-medium text-white">
+              <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-2">
                 Need assistance?
               </h3>
               <p className="text-white">

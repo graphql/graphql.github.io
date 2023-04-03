@@ -1,7 +1,7 @@
 import React from "react"
 
-import "../../../assets/css/global.css"
 import "../../../assets/css/style.less"
+import "../../../assets/css/global.css"
 
 interface Props {
   children: React.ReactNode

@@ -50,7 +50,7 @@ const SpeakersConf = () => {
     <div id="speakers" className="-mt-16 pt-16">
       <div className="bg-[#0E031C] w-full">
         <div className="text-center mx-auto text-white">
-          <h1 className="text-4xl text-white font-bold mb-2">Speakers</h1>
+          <h1 className="text-4xl text-white font-bold my-4">Speakers</h1>
         </div>
         <div className="flex justify-center items-center md:items-start flex-col md:flex-row flex-wrap gap-0 md:gap-4">
           {speakers.map((speaker, i) => (
@@ -92,13 +92,13 @@ const SpeakersConf = () => {
             challenges facing the growing GraphQL ecosystem. If you have
             something worth sharing, submit an application to speak!
           </p>
-          <p>
+          <div className="my-8">
             <ButtonConf
               className="mx-auto"
               text="Submit to Speak"
               href="/conf/speak/"
             />
-          </p>
+          </div>
         </div>
       </div>
     </div>
