@@ -25,8 +25,8 @@ const links: LinkItem[] = [
 
 const HeaderConf = () => {
   return (
-    <header className="container mx-auto bg-[#0E031C] gap-2 shadow-lg px-5 h-[70px]">
-      <div className="mx-auto flex items-center h-full gap-5">
+    <header className="bg-[#0E031C] gap-2 shadow-lg px-5 h-[70px]">
+      <div className="container mx-auto flex items-center h-full gap-5">
         <a href="/conf/" className="shrink-0">
           <img
             src="/img/conf/graphql-conf-logo-simple.svg"
