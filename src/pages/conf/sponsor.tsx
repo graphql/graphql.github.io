@@ -9,12 +9,12 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="text-gray-600 bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover">
+      <div className="bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
         <div className="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
           <div className="flex flex-col items-center w-full">
             <div className="sm:text-3xl text-2xl mb-8 text-white text-center leading-relaxed">
               <span className="block text-46xl lg:inline">
-                Sponsor GraphQLConf
+                Sponsor GraphQLConf 2023
               </span>
             </div>
             <div className="flex justify-center gap-4 flex-col sm:flex-row">
@@ -34,19 +34,24 @@ export default () => {
             <div className="text-black h-full bg-gray-100 bg-opacity-75 p-8 rounded-lg overflow-hidden relative">
               <p>
                 Contact us at{" "}
-                <a href="graphqlconf@graphql.org">graphqlconf@graphql.org</a> to
-                reserve your sponsorship, ask questions or talk about different
-                options.
+                <a className="font-medium" href="mailto:graphqlconf@graphql.org">
+                  graphqlconf@graphql.org
+                </a>{" "}
+                to reserve your sponsorship, ask questions or talk about
+                different options.
               </p>
+              <br />
               <p>
                 GraphQLConf is the official GraphQL conference hosted by the
                 GraphQL Foundation. It is a premier event by the community for
                 the community to promote education, adoption, and advancement of
                 GraphQL.
               </p>
+              <br />
               <p>
                 Help make this event one to remember by{" "}
                 <a
+                  className="font-medium"
                   target="_blank"
                   href="https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf"
                 >
@@ -54,6 +59,7 @@ export default () => {
                 </a>
                 .
               </p>
+              <br />
               <p>
                 GraphQLConf will attract members of the GraphQL community from
                 around the world. Developers, users, architects, and technology
@@ -61,6 +67,7 @@ export default () => {
                 meet, collaborate and build. GraphQLConf 2023 is the flagship
                 event in the GraphQL Foundation’s official event series.
               </p>
+              <br />
               <p>
                 Investing in GraphQLConf provides the opportunity to build
                 awareness and loyalty with leaders and decision makers in
