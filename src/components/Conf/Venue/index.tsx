@@ -7,56 +7,42 @@ const VenueConf = () => {
   return (
     <div id="location">
       <div className="w-full mx-auto">
-        <div className="flex w-2/3 flex-col mx-auto px-4">
+        <div className="flex w-4/5 flex-col mx-auto px-4">
           <h1 className="text-4xl text-white font-bold mt-8 mb-6 mx-auto text-center">
             Location &amp; Venue
           </h1>
           <div className="flex flex-wrap">
-            <div className="p-4 sm:w-full">
-              <div className="h-full bg-[#251C39]/75 px-8 pt-16 pb-12 rounded-lg overflow-hidden text-center relative">
-                <div className="text-white text-xl">
-                  <p className="max-w-prose mx-auto text-white">
-                    GraphQLConf 2023 is hosted in the San Francisco Bay Area,
-                    where GraphQL was first created, at the{" "}
-                    <a
-                      href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
-                      target="_blank"
-                    >
-                      Hyatt Regency SFO
-                    </a>
-                    . We're thrilled to bring the world-wide community together
-                    here. There’s lots to explore in the Bay Area and the
-                    weather is great.
-                  </p>
-                </div>
-                <h2 className="sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
+            <div className="p-4 sm:w-full grid grid-cols-2 gap-20">
+              <div>
+                <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
                   Hotel Information
-                </h2>
-                <p className="leading-relaxed mb-3 text-gray-400">
+                </h3>
+                <p className="leading-relaxed mb-3 text-white text-base">
                   Please note, rooms will most likely sell out in advance of the
                   room block close dates listed below. We encourage you to book
                   early to secure a room at the conference rate
                   <br />
-                  Important: The Linux Foundation will never reach out to
-                  attendees by phone to make hotel reservations for our
-                  conferences. Please be advised that the most secure way to
-                  book in our discounted room block is by using the direct
-                  booking link provided below or by calling the hotel directly.
-                  If you receive a phone call or email from someone claiming to
-                  be with The Linux Foundation or the hotel and they attempt to
-                  sell you a hotel room, please email us at{" "}
+                  <br />
+                  <span className="font-bold">Important:</span> The Linux
+                  Foundation will never reach out to attendees by phone to make
+                  hotel reservations for our conferences. Please be advised that
+                  the most secure way to book in our discounted room block is by
+                  using the direct booking link provided below or by calling the
+                  hotel directly. If you receive a phone call or email from
+                  someone claiming to be with The Linux Foundation or the hotel
+                  and they attempt to sell you a hotel room, please email us at{" "}
                   <a
-                    className="font-bold"
+                    className="font-bold text-[#B48EF1]"
                     href="mailto:housing@linuxfoundation.org"
                   >
                     housing@linuxfoundation.org
                   </a>
                   .
                 </p>
-                <h2 className="sm:text-2xl text-xl font-medium text-white mb-2 mt-8">
-                  Welcome to all
-                </h2>
-                <p className="leading-relaxed mb-3 text-gray-400">
+                <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
+                Welcome to all
+                </h3>
+                <p className="leading-relaxed mb-3 text-white text-base">
                   GraphQLConf is welcome to all. Please read our{" "}
                   <a href="/conf/faq/#dni" className="underline">
                     diversity & inclusion
@@ -82,6 +68,34 @@ const VenueConf = () => {
                     health &amp; safety
                   </a>{" "}
                   policy.
+                </p>
+              </div>
+              <div>
+                <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
+                  Venue Information
+                </h3>
+                <p className="max-w-prose mx-auto text-white">
+                  GraphQLConf 2023 is hosted in the San Francisco Bay Area,
+                  where GraphQL was first created, at the{" "}
+                  <a
+                    href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+                    target="_blank"
+                    className="font-bold"
+                  >
+                    Hyatt Regency SFO
+                  </a>
+                  .
+                  <br />
+                  <br />
+                  <a
+                    target="_blank"
+                    className="font-bold text-[#B48EF1]"
+                    href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+                  >
+                    HYATT REGENCY SAN FRANCISCO AIRPORT
+                  </a>
+                  <p>1333 Old Bayshore Hwy Burlingame, CA 94010</p>
+                  <img src="/img/conf/sf-hotel-image.png" className="object-cover w-[500px] h-[300px] rounded-xl mt-8" />
                 </p>
               </div>
             </div>
