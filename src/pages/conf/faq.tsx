@@ -76,6 +76,38 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
     ),
   },
   {
+    id: "dni",
+    title: "Diversity & Inclusion",
+    contents: (
+      <>
+        <p>
+          Education and collaboration are vital to the future of the open source
+          ecosystem, and it is imperative to us that everyone in the community
+          that wants to participate feels welcome to do so regardless of gender,
+          gender identity, sexual orientation, disability, race, ethnicity, age,
+          religion or economic status. Our{" "}
+          <a href="#codeofconduct">code of conduct</a> outlines our expectations
+          for all those who participate in our community, as well as the
+          consequences for unacceptable behavior.
+        </p>
+        <p>
+          We offer diversity and need based{" "}
+          <a href="#scholarships">scholarships</a> and have considered a broad
+          range of both <a href="#onsite-resources">onsite resources</a> and{" "}
+          <a href="#emergency-resources">emergency resources</a> as well as a{" "}
+          <a href="#health-and-safety">health &amp; safety</a> policy.
+        </p>
+        <p>
+          If you have ideas on how we can create a more inclusive event, please
+          do not hesitate to let us know. Contact Emily Ruf, Senior Event
+          Manager, at{" "}
+          <a href="mailto:eruf@linuxfoundation.org">eruf@linuxfoundation.org</a>
+          .
+        </p>
+      </>
+    ),
+  },
+  {
     id: "health-and-safety",
     title: "Health & Safety",
     contents: (
@@ -242,13 +274,25 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
     ),
   },
   {
-    id: "resources",
-    title: "Local Resources",
+    id: "emergency-resources",
+    title: "Emergency Resources",
     contents: (
       <>
         <h3>Taxi</h3>
         <p>Allied Yellow Cab</p>
         <p>650-579-7000</p>
+
+        <h3>Closest Police Station</h3>
+        <p>
+          <a
+            href="https://www.burlingame.org/departments/police_department/index.php"
+            target="_blank"
+          >
+            Burlingame Police Department
+          </a>
+        </p>
+        <p>650-777-4100</p>
+        <p>Dial 911 for Emergencies</p>
 
         <h3>24-Hour Hospital</h3>
         <p>
@@ -309,6 +353,164 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           6-minute drive from venue
           <br />
           39-minute walk from venue (1.9 miles)
+        </p>
+
+        <h3>24 Hour Rape Crisis Line</h3>
+        <p>
+          <a
+            href="https://divisionoftraumarecoveryservices.org/rtc-casarc/help-now-2/"
+            target="_blank"
+          >
+            Division of Trauma Recovery Services
+          </a>
+        </p>
+        <p>
+          San Francisco Women Against Rape 24-Hour Crisis Line: 415-647-RAPE
+          (7272)
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "onsite-resources",
+    title: "Onsite Resources",
+    contents: (
+      <>
+        <h3>Nursing Room</h3>
+        <p>
+          A private nursing room will be available at the event to aid in the
+          comfort and accessibility for our nursing attendees. The room will be
+          available all days of the event and will be located onsite. For
+          location information, please check with registration or information
+          desk staff onsite.
+        </p>
+
+        <h3>Venue Accessibility</h3>
+        <p>
+          If you need any assistance locating an elevator, or have other
+          questions about accessibility onsite, please speak to a member of the
+          LF event staff at any of the registration or information desks onsite.
+          If you have questions prior to the event, please email
+          <a href="mailto:graphql_events@linuxfoundation.org">
+            graphql_events@linuxfoundation.org
+          </a>
+          .
+        </p>
+
+        <h3>Wheelchair & Medical Equipment Rental</h3>
+        <p>
+          If you need a wheelchair or scooter, you can rent them from{" "}
+          <a href="http://baycitymedicalsupplies.com/" target="_blank">
+            Bay City Medical Supplies
+          </a>
+          . Please contact them directly for rates and availability.
+        </p>
+
+        <h3>Zen Zone</h3>
+        <p>
+          All attendees are invited to use the Zen Zone as needed for sensory
+          relaxation, meditation, and worship. It is a physical space where
+          conversation and interaction are not allowed, where attendees can go
+          if, for any reason, they can’t interact with other attendees at that
+          time.
+        </p>
+
+        <h3>Communication Stickers</h3>
+        <p>
+          At Registration, attendees can pick up communication stickers to add
+          to their badges. Communication stickers indicate an attendee’s
+          requested level of interaction with both other attendees and press
+          (including photographers and videographers).
+        </p>
+
+        <ul>
+          <li>Green = Open to communicate.</li>
+          <li>Yellow = Only if you know me, please.</li>
+          <li>
+            Red = I’m not interested in communicating (or being videotaped or
+            photographed) at this time.
+          </li>
+        </ul>
+        <p>Please be respectful of attendee communication preferences.</p>
+
+        <h3>Interaction Pins</h3>
+        <p>
+          Please be mindful of attendee’s pins throughout the conference and use
+          this tool to communicate appropriately:
+        </p>
+        <ul>
+          <li>
+            Green = Handshakes and high 5’s are welcome with frequent
+            handwashing.
+          </li>
+          <li>Yellow = Still being cautious, elbow bumps only.</li>
+          <li>Red = No contact at all, please remain 6 feet away.</li>
+        </ul>
+        <p>
+          Don’t see a pin? Assume red until given permission from the other
+          attendee.
+        </p>
+
+        <h3>Share your Pronouns</h3>
+        <p>
+          Pick up a pronoun sticker from registration to share your pronouns
+          with other conference attendees. Please be respectful of attendees’
+          pronouns.
+        </p>
+
+        <h3>First Aid/Medical Assistance</h3>
+        <p>
+          If you require first aid or medical assistance, please visit our
+          registration desk or the venue front desk. For emergencies, please
+          dial 911.
+        </p>
+
+        <h3>How to Handle a Harassment Report</h3>
+        <p>
+          If you are being harassed, notice that someone else is being harassed,
+          or have any other concerns, please contact a member of the event staff
+          immediately. Event staff can be identified by staff badges and/or
+          shirts onsite and can be found at the event registration counter at
+          any time. Our staff has had incident response training, responds to
+          harassments reports and does so in accordance with the process
+          recommended by the Ada Initiative, which can be found on{" "}
+          <a
+            href="https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Responding_to_reports"
+            target="_blank"
+          >
+            the Geek Feminism Wiki
+          </a>
+          .
+        </p>
+
+        <p>
+          Conference staff will be happy to help participants contact
+          hotel/venue security or local law enforcement, provide escorts, or
+          otherwise assist those experiencing harassment to feel safe for the
+          duration of the conference.
+        </p>
+        <p>
+          If you are planning to attend and have concerns regarding another
+          individual who may be present, please reach out to us pre-event.
+          Precautions will be taken to ensure a victim’s comfort and safety,
+          including, but not limited to providing an escort, prepping onsite
+          event staff, keeping victim and harasser from attending the same
+          talks/social events and providing onsite contact cell phone numbers
+          for immediate contact.
+        </p>
+
+        <h3>The Linux Foundation Contacts:</h3>
+        <p>
+          Emily Ruf, Senior Event Manager (
+          <a href="mailto:eruf@linuxfoundation.org">eruf@linuxfoundation.org</a>
+          )
+        </p>
+        <p>
+          Angela Brown, SVP & General Manager of Events (+1-575-694-2263;
+          <a href="mailto:angela@linuxfoundation.org">
+            angela@linuxfoundation.org
+          </a>
+          )
         </p>
       </>
     ),

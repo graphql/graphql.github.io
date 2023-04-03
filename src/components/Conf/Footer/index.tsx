@@ -16,6 +16,7 @@ const links = [
   [
     { text: "FAQ", href: "/conf/faq/" },
     { text: "Code of Conduct", href: "/conf/faq/#codeofconduct" },
+    { text: "Diversity & Inclusion", href: "/conf/faq/#dni" },
     { text: "Contact Us", href: "/conf/faq/#contact" },
   ],
 ]
@@ -25,7 +26,10 @@ const FooterConf = () => {
     <footer className="text-gray-600 bg-[#0E031C]">
       <div className="container px-5 py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-          <a href="/conf/" className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <a
+            href="/conf/"
+            className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
             <img src="/img/conf/graphql-conf-logo.svg" className="w-[200px]" />
           </a>
         </div>
@@ -35,7 +39,10 @@ const FooterConf = () => {
               <div className="list-none mb-20">
                 {link.map((link, i) => (
                   <li key={i}>
-                    <a href={link.href} className="text-white font-semibold text-base hover:text-white hover:font-semibold hover:underline">
+                    <a
+                      href={link.href}
+                      className="text-white font-semibold text-base hover:text-white hover:font-semibold hover:underline"
+                    >
                       {link.text}
                     </a>
                   </li>
