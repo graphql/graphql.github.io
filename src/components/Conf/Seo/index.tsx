@@ -13,7 +13,7 @@ const SeoConf = ({ title, description }: Props): JSX.Element => {
       </title>
       <meta name="description" content={description} />
       <meta property="og:image" content="/img/conf/og-image.png" />
-      <meta property="twitter:site" content="@graphql" />
+      <meta property="twitter:site" content="@graphqlconf" />
       <meta name="viewport" content="width=640" />
     </>
   )
