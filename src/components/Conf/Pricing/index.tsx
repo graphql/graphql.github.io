@@ -10,18 +10,18 @@ interface Pricing {
 const pricing: Pricing[] = [
   {
     title: "Early Bird",
-    date: "Mar 29 - May 31, 2023",
-    price: "$599 USD",
+    date: "Through May 31, 2023",
+    price: "$599",
   },
   {
     title: "Standard",
     date: "Jun 1 - Sep 4, 2023",
-    price: "$799 USD",
+    price: "$799",
   },
   {
-    title: "Late",
-    date: "Sep 5 - 21, 2023",
-    price: "$899 USD",
+    title: "Late/Onsite",
+    date: "Sep 5 Through Event",
+    price: "$899",
   },
 ]
 
@@ -62,20 +62,20 @@ const PricingConf = () => {
             target="_blank"
           />
         </div>
-        <div className="mx-auto max-w-screen-xl flex flex-wrap justify-center gap-8 m-8">
+        <div className="mx-auto max-w-screen-xl flex flex-wrap justify-center my-8">
           {pricing.map((pricing, i) => (
             <div key={i} className="lg:w-1/4">
               <a
                 href="https://cvent.me/4zbxz9"
                 target="_blank"
-                className="block mx-auto w-64 p-6 overflow-hidden bg-white shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-110 hover:no-underline focus:no-underline transition ease-in-out"
+                className="block w-64 p-6 overflow-hidden bg-white bg-opacity-80 shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
               >
                 <div>
-                  <div className="title-font text-2xl text-[#862e69] font-bold mb-2 ">
+                  <div className="title-font text-center text-3xl text-fuchsia-900 font-bold mb-4">
                     {pricing.title}
                   </div>
-                  <div className="text-black">{pricing.date}</div>
-                  <div className="bg-[#862e69] mt-2 p-4 rounded-full text-center text-xl text-white font-extrabold">
+                  <div className="text-black text-center text-sm">{pricing.date}</div>
+                  <div className="text-fuchsia-900 mt-4 p-4 rounded-full text-center text-4xl text-white font-extrabold">
                     {pricing.price}
                   </div>
                 </div>
@@ -85,7 +85,7 @@ const PricingConf = () => {
         </div>
         <div className="flex flex-wrap">
           <div className="px-0 lg:px-8 lg:w-full lg:mb-16">
-            <div className="mx-auto h-full bg-gray-100 bg-opacity-75 px-8 pb-12 lg:max-w-prose lg:rounded-lg overflow-hidden text-center relative">
+            <div className="mx-auto h-full bg-white bg-opacity-80 px-8 pb-12 lg:max-w-prose lg:rounded-lg overflow-hidden text-center relative">
               <h1 className="title-font sm:text-2xl text-xl font-medium text-[#862e69]">
                 What's included?
               </h1>
