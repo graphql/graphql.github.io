@@ -9,7 +9,7 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="text-gray-600 body-font bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover">
+      <div className="text-gray-600 bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover">
         <div className="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
           <div className="flex flex-col items-center w-full">
             <div className="sm:text-3xl text-2xl mb-8 text-white text-center leading-relaxed">

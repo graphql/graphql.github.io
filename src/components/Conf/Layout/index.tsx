@@ -5,11 +5,10 @@ import "../../../assets/css/style.less"
 
 interface Props {
   children: React.ReactNode
-  className?: string
 }
-const LayoutConf = ({ children, className }: Props): JSX.Element => (
+const LayoutConf = ({ children }: Props): JSX.Element => (
   <>
-    <div className={className}>{children}</div>
+    <div className="conf-style">{children}</div>
   </>
 )
 

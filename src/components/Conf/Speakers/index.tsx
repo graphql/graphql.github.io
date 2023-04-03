@@ -1,5 +1,6 @@
 import React from "react"
 import ButtonConf from "../Button"
+import { TwitterLogoIcon } from "@radix-ui/react-icons"
 
 interface Speaker {
   name: string
@@ -46,10 +47,10 @@ const speakers: Speaker[] = [
 
 const SpeakersConf = () => {
   return (
-    <div id="speakers" className="pt-32 -mt-32">
+    <div id="speakers">
       <div className="bg-[#0E031C] w-full">
-        <div className="flex flex-col text-center mx-auto max-w-prose text-white px-4">
-          <h1 className="text-4xl text-white font-bold mb-6">Speakers</h1>
+        <div className="flex flex-col text-center mx-auto max-w-[80ch] text-white px-4">
+          <h1 className="text-4xl text-white font-bold">Speakers</h1>
           <p>
             GraphQLConf brings together the creators of some of the most
             important technologies behind GraphQL. These speakers will share
@@ -65,38 +66,31 @@ const SpeakersConf = () => {
             />
           </p>
         </div>
-        <div className="flex flex-wrap justify-center">
+        <div className="flex justify-center items-center md:items-start flex-col md:flex-row flex-wrap gap-0 md:gap-4">
           {speakers.map((speaker, i) => (
-            <div key={i} className="p-4 lg:w-1/5 md:w-1/2">
+            <div key={i} className="p-4 w-[220px]">
               <div className="h-full flex flex-col items-center text-center">
-                <img
-                  alt={speaker.name}
-                  className="flex-shrink-0 rounded-lg w-full h-36 object-cover object-center"
-                  src={speaker.image}
-                />
+                <div className="relative">
+                  <img
+                    alt={speaker.name}
+                    className="flex-shrink-0 rounded-full h-36 w-36 object-cover object-center"
+                    src={speaker.image}
+                  />
+                  <div className="bg-[#55ACEF] h-8 w-8 flex items-center justify-center rounded-full absolute bottom-0 right-0">
+                    <a href={speaker.twitter} target="_blank">
+                      <TwitterLogoIcon
+                        className="text-white"
+                        width={20}
+                        height={20}
+                      />
+                    </a>
+                  </div>
+                </div>
                 <div className="w-full">
-                  <div className="title-font text-lg text-white font-bold mt-3">
+                  <div className="text-lg text-white font-bold mt-3">
                     {speaker.name}
                   </div>
-                  <div className="text-gray-400 mt-1">{speaker.title}</div>
-                  <span className="inline-flex mt-3">
-                    <a
-                      href={speaker.twitter}
-                      className=" text-gray-500 hover:text-white"
-                    >
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                      </svg>
-                    </a>
-                  </span>
+                  <div className="text-gray-400 text-sm mt-2 mb-2">{speaker.title}</div>
                 </div>
               </div>
             </div>

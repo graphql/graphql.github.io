@@ -16,8 +16,8 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="text-gray-600 mt-[-70px] body-font bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
-        <div className="container mx-auto flex px-4 h-[80vh] md:h-screen items-center justify-center flex-col">
+      <div className="text-gray-600 mt-[-70px] bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
+        <div className="container mx-auto flex px-4 py-20 items-center justify-center flex-col">
           <div className="flex flex-col justify-center items-center w-full gap-2 md:gap-32 md:flex-row">
             <div>
               <img

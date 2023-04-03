@@ -21,7 +21,7 @@ const links = [
 
 const FooterConf = () => {
   return (
-    <footer className="text-gray-600 body-font">
+    <footer className="text-gray-600">
       <div className="container px-5 py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a href="/conf/" className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
