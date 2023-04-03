@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react"
-import SeoConf from "../../components/Conf/SEOConf"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"

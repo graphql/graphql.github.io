@@ -1,5 +1,4 @@
 import React from "react"
-import SEOConf from "../../components/Conf/SEOConf"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -78,6 +77,6 @@ export default () => {
 
 export function Head() {
   return (
-    <SEOConf title="Sponsor GraphQLConf 2023 - hosted by the GraphQL Foundation" />
+    <SeoConf title="Sponsor GraphQLConf 2023 - hosted by the GraphQL Foundation" />
   )
 }

@@ -1,5 +1,4 @@
 import React from "react"
-import SEOConf from "../../components/Conf/SEOConf"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -10,6 +9,7 @@ import ContantSectionConf from "../../components/Conf/Contant"
 import VenueConf from "../../components/Conf/Venue"
 import SFConf from "../../components/Conf/SF"
 import ScheduleGlanceConf from "../../components/Conf/Schedule"
+import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
 
 export default () => {
   return (
@@ -59,8 +59,44 @@ export default () => {
 
 export function Head() {
   return (
-    <SEOConf includeSchema={true}>
-      <meta property="og:url" content="https://graphql.org/conf/" />
-    </SEOConf>
+    <>
+      <SeoConf />
+      <meta property="og:url" content={seoDefaults.url} />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Event",
+          name: "GraphQLConf 2023",
+          url: seoDefaults.url,
+          description: seoDefaults.description,
+          image: seoDefaults.image,
+          potentialAction: {
+            "@type": "Action",
+            name: "Register Now!",
+            url: "https://graphql.org/conf/#register",
+          },
+          about: {
+            "@type": "Thing",
+            name: "GraphQL",
+            url: "https://graphql.org",
+          },
+          startDate: "2023-09-19",
+          endDate: "2023-09-21",
+          location: {
+            "@type": "Place",
+            name: "Hyatt Regency SFO • SF Bay Area",
+            longitude: -122.36515,
+            latitude: 37.59403,
+            address: "1333 Old Bayshore Hwy, Burlingame, CA 94010",
+          },
+          organizer: {
+            "@type": "Organizer",
+            name: "GraphQL Foundation",
+            url: "https://graphql.org/foundation/",
+          },
+          datePublished: "2023-04-03",
+        })}
+      </script>
+    </>
   )
 }
