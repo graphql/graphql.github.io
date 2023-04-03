@@ -11,7 +11,7 @@ const ButtonConf = ({ text, href, target, className }: Props) => {
   return (
     <button
       className={
-        "transition ease-in-out no-underline inline-flex text-center bg-[--rhodamine] border-0 py-2 px-6 focus:outline-none hover:drop-shadow-lg hover:scale-105 rounded text-lg" +
+        "transition ease-in-out no-underline inline-flex text-center bg-fuchsia-800 border-0 py-2 px-6 focus:outline-none hover:drop-shadow-md hover:scale-[101%] rounded text-lg" +
         (className ?? "")
       }
     >
