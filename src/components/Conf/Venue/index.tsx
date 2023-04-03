@@ -5,7 +5,21 @@ const VenueConf = () => {
     <div id="location" className="-mt-16 pt-16">
       <div className="w-full">
         <div className="flex flex-col text-center mx-auto px-4">
-          <h1 className="text-4xl text-white font-bold">Location &amp; Venue</h1>
+          <h1 className="text-4xl text-white font-bold">
+            Location &amp; Venue
+          </h1>
+          <p className="max-w-prose mx-auto text-white">
+            GraphQLConf 2023 is hosted in the San Francisco Bay Area, where
+            GraphQL was first created, at the{" "}
+            <a
+              href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+              target="_blank"
+            >
+              Hyatt Regency SFO
+            </a>
+            . We're thrilled to bring the world-wide community together here.
+            There’s lots to explore in the Bay Area and the weather is great.
+          </p>
           <div className="flex flex-wrap">
             <div className="p-4 lg:w-1/2 sm:w-full">
               <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
@@ -15,6 +29,7 @@ const VenueConf = () => {
                 <a
                   className="leading-relaxed mb-3"
                   href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+                  target="_blank"
                 >
                   Hyatt Regency San Francisco Airport
                 </a>
@@ -31,13 +46,14 @@ const VenueConf = () => {
                   room block close dates listed below. We encourage you to book
                   early to secure a room at the conference rate
                   <br />
-                  Important: The Linux Foundation will never reach out to attendees
-                  by phone to make hotel reservations for our conferences. Please be
-                  advised that the most secure way to book in our discounted room
-                  block is by using the direct booking link provided below or by
-                  calling the hotel directly. If you receive a phone call or email
-                  from someone claiming to be with The Linux Foundation or the hotel
-                  and they attempt to sell you a hotel room, please email us at
+                  Important: The Linux Foundation will never reach out to
+                  attendees by phone to make hotel reservations for our
+                  conferences. Please be advised that the most secure way to
+                  book in our discounted room block is by using the direct
+                  booking link provided below or by calling the hotel directly.
+                  If you receive a phone call or email from someone claiming to
+                  be with The Linux Foundation or the hotel and they attempt to
+                  sell you a hotel room, please email us at
                   <br />
                   <a href="housing@linuxfoundation.org">
                     housing@linuxfoundation.org.
@@ -67,13 +83,16 @@ const VenueConf = () => {
                     (adults) or $2.50 youth and seniors.
                     <a className=" inline-flex items-center">Learn More</a>
                   </p>
-                  <a href="https://www.bart.gov/" className=" inline-flex left-0 ">
+                  <a
+                    href="https://www.bart.gov/"
+                    className=" inline-flex left-0 "
+                  >
                     Bay Area Rapid Transit (BART):
                   </a>
                   <p className="leading-relaxed mb-3">
-                    Take the Hyatt Shuttle Bus to/from SFO International Terminal to
-                    connect with BART. Approximate cost from the station to downtown
-                    San Francisco is $8.65 one-way.
+                    Take the Hyatt Shuttle Bus to/from SFO International
+                    Terminal to connect with BART. Approximate cost from the
+                    station to downtown San Francisco is $8.65 one-way.
                   </p>
                 </div>
               </div>

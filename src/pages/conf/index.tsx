@@ -46,10 +46,10 @@ export default () => {
       </div>
       <SpeakersConf />
       <PricingConf />
+      <ScheduleGlanceConf />
       <VenueConf />
       <ContantSectionConf />
       <SFConf />
-      <ScheduleGlanceConf />
       <FooterConf />
     </LayoutConf>
   )

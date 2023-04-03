@@ -84,11 +84,11 @@ const PricingConf = () => {
               <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-2">
                 What's included?
               </h3>
-              <div className="grid grid-cols-2 w-4/5">
+              <div className="grid grid-cols-2 w-[fit-content]">
                 {includes.map((include, i) => (
                   <div
                     key={i}
-                    className="flex m-2 text-white items-center gap-4"
+                    className="flex mx-4 my-2 text-white items-center gap-4"
                   >
                     <CheckCircledIcon
                       className="text-[#B48EF1]"
