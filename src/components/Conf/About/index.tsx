@@ -60,7 +60,7 @@ const AboutSection = () => {
   return (
     <div className="bg-white py-10">
       <div className="container">
-        <h1 className="text-center text-4xl text-[#0E031C] font-bold mt-10">
+        <h1 className="text-center text-4xl text-[#171E26] font-bold mt-10">
           About
         </h1>
         <h3 className="text-center text-sm mt-4 mb-10">
@@ -99,7 +99,7 @@ const AboutSection = () => {
               {list.map((item, index) => (
                 <li key={index} className="flex gap-2 items-center">
                   <CheckCircledIcon
-                    className="text-[#B48EF1]"
+                    className="text-[--rhodamine]"
                     height={20}
                     width={20}
                   />
@@ -115,7 +115,7 @@ const AboutSection = () => {
             </p>
           </div>
         </div>
-        <h1 className="text-center text-4xl text-[#0E031C] font-bold my-8">
+        <h1 className="text-center text-4xl text-[#171E26] font-bold my-8">
           Why Attend?
         </h1>
         <div className="w-full md:w-1/2 mx-auto">
@@ -127,7 +127,7 @@ const AboutSection = () => {
             {whyAttend.map((item, index) => (
               <li key={index} className="flex gap-2">
                 <CheckCircledIcon
-                  className="text-[#B48EF1]"
+                  className="text-[--rhodamine]"
                   height={30}
                   width={40}
                 />

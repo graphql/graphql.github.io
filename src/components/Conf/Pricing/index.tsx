@@ -50,18 +50,18 @@ const includes = [
 const PricingConf = () => {
   return (
     <div id="attend">
-      <div className="bg-[#0E031C] container mt-10 mb-6">
+      <div className="bg-[#171E26] container mt-10 mb-6">
         <div className="flex flex-col text-center w-full">
           <h1 className="text-4xl text-white font-bold">Attend</h1>
         </div>
-        <div className="mx-auto">
-          <div className="flex max-md:flex-wrap gap-8 mt-8">
+        <div className="mx-auto max-w-[80ch]">
+          <div className="w-full grid grid-rows-1 md:grid-cols-3 gap-8 mt-8">
             {pricing.map((pricing, i) => (
               <a
                 key={i}
                 href="https://cvent.me/4zbxz9"
                 target="_blank"
-                className="block mx-auto w-64 p-6 overflow-hidden bg-[#251C39] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
+                className="block mx-auto w-64 p-6 overflow-hidden bg-[#2E343C] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
               >
                 <div>
                   <div className="text-center text-3xl text-white font-bold mb-2">
@@ -70,7 +70,7 @@ const PricingConf = () => {
                   <div className="text-white text-center text-sm">
                     {pricing.date}
                   </div>
-                  <div className="text-[#B48EF1] mt-4 p-4 rounded-full text-center text-4xl font-extrabold">
+                  <div className="text-[--rhodamine] mt-4 p-4 rounded-full text-center text-4xl font-extrabold">
                     {pricing.price}
                   </div>
                 </div>
@@ -91,10 +91,10 @@ const PricingConf = () => {
                 {includes.map((include, i) => (
                   <div
                     key={i}
-                    className="flex mx-4 my-2 text-white items-center gap-4"
+                    className="flex mx-4 text-white items-center gap-4"
                   >
                     <CheckCircledIcon
-                      className="text-[#B48EF1]"
+                      className="text-[--rhodamine]"
                       height={20}
                       width={20}
                     />
@@ -109,15 +109,15 @@ const PricingConf = () => {
               </h3>
               <p className="text-white">
                 Apply for a{" "}
-                <a className="text-[#B48EF1]" href="/conf/faq/#visas">
+                <a href="/conf/faq/#visas">
                   Visa
                 </a>{" "}
                 or{" "}
-                <a className="text-[#B48EF1]" href="/conf/faq/#scholarships">
+                <a  href="/conf/faq/#scholarships">
                   Scholarship
                 </a>{" "}
                 or find more help in our{" "}
-                <a className="text-[#B48EF1]" href="/conf/faq/">
+                <a  href="/conf/faq/">
                   FAQ
                 </a>
                 .

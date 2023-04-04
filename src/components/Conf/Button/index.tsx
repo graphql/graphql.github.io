@@ -12,7 +12,7 @@ function ButtonConf({ href, className, children }: ButtonProps): ReactElement {
     <a
       className={clsx(
         "cursor-pointer transition ease-in-out no-underline inline-flex text-center w-[fit-content] border-0 py-2 px-6 no-underline hover:no-underline focus:outline-none hover:drop-shadow-md hover:[transform:scale(1.05)] rounded text-sm sm:text-base whitespace-nowrap",
-        "bg-[--rhodamine] text-white",
+        "bg-[--rhodamine] text-white font-medium",
         className
       )}
       href={href}

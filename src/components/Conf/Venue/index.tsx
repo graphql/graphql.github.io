@@ -36,7 +36,7 @@ const VenueConf = () => {
             <p>
               <a
                 target="_blank"
-                className="font-bold text-[#B48EF1]"
+                className="font-bold"
                 href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO"
               >
                 Hyatt Regency SFO
@@ -47,7 +47,7 @@ const VenueConf = () => {
                 1333 Old Bayshore Hwy Burlingame, CA 94010
               </a>
             </p>
-            <div className="text-white">
+            <div className="text-white text-base">
               <b>Dates with Availability</b>: September 18, 19, 20, 21, 2023
               <br />
               <b>Room Rates Start From</b>: $179.00
@@ -58,7 +58,41 @@ const VenueConf = () => {
                 (Please note, the rate is valid until the cut-off date or the
                 room block is full)
               </i>
+              <br />
+              Please note, rooms will most likely sell out in advance of the <a href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO" target="_blank">room block</a> close dates. We encourage you to book
+              early to secure a room at the conference rate.
             </div>
+            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">Alternate lodging options</h3>
+            <a
+              href="https://www.ihg.com/holidayinnexpress/hotels/us/en/burlingame/urlbh/hoteldetail"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Holiday Inn Express San Francisco Airport South, and IHG Hotel
+            </a>
+          </div>
+
+          <div>
+            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
+              Hotel Information
+            </h3>
+            <p className="leading-relaxed mb-3 text-white text-base">
+              <span className="font-bold">Important:</span> The Linux Foundation
+              will never reach out to attendees by phone to make hotel
+              reservations for our conferences. Please be advised that the most
+              secure way to book in our discounted room block is by using the
+              direct booking link provided below or by calling the hotel
+              directly. If you receive a phone call or email from someone
+              claiming to be with The Linux Foundation or the hotel and they
+              attempt to sell you a hotel room, please email us at{" "}
+              <a
+                className="font-bold"
+                href="mailto:housing@linuxfoundation.org"
+              >
+                housing@linuxfoundation.org
+              </a>
+              .
+            </p>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
               Welcome to all
             </h3>
@@ -85,41 +119,6 @@ const VenueConf = () => {
                 health &amp; safety
               </a>{" "}
               policy.
-            </p>
-            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">Alternate lodging options</h3>
-            <a
-              href="https://www.ihg.com/holidayinnexpress/hotels/us/en/burlingame/urlbh/hoteldetail"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Holiday Inn Express San Francisco Airport South, and IHG Hotel
-            </a>
-          </div>
-
-          <div>
-            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
-              Hotel Information
-            </h3>
-            <p className="leading-relaxed mb-3 text-white text-base">
-              Please note, rooms will most likely sell out in advance of the <a href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO" target="_blank">room block</a> close dates. We encourage you to book
-              early to secure a room at the conference rate
-              <br />
-              <br />
-              <span className="font-bold">Important:</span> The Linux Foundation
-              will never reach out to attendees by phone to make hotel
-              reservations for our conferences. Please be advised that the most
-              secure way to book in our discounted room block is by using the
-              direct booking link provided below or by calling the hotel
-              directly. If you receive a phone call or email from someone
-              claiming to be with The Linux Foundation or the hotel and they
-              attempt to sell you a hotel room, please email us at{" "}
-              <a
-                className="font-bold text-[#B48EF1]"
-                href="mailto:housing@linuxfoundation.org"
-              >
-                housing@linuxfoundation.org
-              </a>
-              .
             </p>
           </div>
         </div>
@@ -204,8 +203,8 @@ const VenueConf = () => {
           },
         ].map(o => (
           <div key={o.title} className="flex-1">
-            <div className="h-full rounded-lg overflow-hidden relative [&_a]:text-violet-400 [&_a]:font-medium [&_p]:text-white [&_p]:text-lg [&_p]:mb-6 [&>div>a]:block [&>div>a]:mt-6 [&>div>a]:mb-3">
-              <o.icon className="fill-violet-400 h-16 w-auto" />
+            <div className="h-full rounded-lg overflow-hidden relative [&_a]:text-[--rhodamine] [&_a]:font-medium [&_p]:text-white [&_p]:text-lg [&_p]:mb-6 [&>div>a]:block [&>div>a]:mt-6 [&>div>a]:mb-3">
+              <o.icon className="fill-[--rhodamine] h-16 w-auto" />
               <h1 className="my-3 sm:text-2xl text-xl font-medium text-white">
                 {o.title}
               </h1>

@@ -40,7 +40,7 @@ const images: Image[] = [
 ]
 const SFConf = () => {
   return (
-    <div className="pb-10 pt-8">
+    <div className="pb-10">
       <h1 className="text-4xl text-white text-center mb-5 font-bold pb-6">
         About San Francisco Bay Area
       </h1>
