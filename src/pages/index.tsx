@@ -11,7 +11,6 @@ import WithoutVersions from "../Containers/Sections/WithoutVersion"
 import PowerFulTools from "../Containers/Sections/PowerFulTools"
 import WhosUsing from "../Containers/Sections/WhosUsing"
 import Seo from "../components/Seo"
-import { ReactComponent as GraphQLConfLogo } from "../../static/img/conf/graphql-conf-logo.svg"
 
 export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
@@ -19,7 +18,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
       <Hero />
       <section className="conf-banner">
         <a href="/conf/">
-          <GraphQLConfLogo />
+          <img src="/img/conf/graphql-conf-logo.svg" />
           <div>
             <span>
               The offical GraphQL conference, by the GraphQL Foundation

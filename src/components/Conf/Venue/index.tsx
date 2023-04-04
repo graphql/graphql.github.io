@@ -31,7 +31,7 @@ const VenueConf = () => {
         <div className="sm:w-full grid grid-rows-1 md:grid-cols-2 gap-20">
           <div>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
-              Venue Information
+              Venue &amp; Lodging
             </h3>
             <p>
               <a
@@ -59,10 +59,22 @@ const VenueConf = () => {
                 room block is full)
               </i>
               <br />
-              Please note, rooms will most likely sell out in advance of the <a href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO" target="_blank">room block</a> close dates. We encourage you to book
-              early to secure a room at the conference rate.
+              Please note, rooms will most likely sell out in advance of the{" "}
+              <a
+                href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO"
+                target="_blank"
+              >
+                room block
+              </a>{" "}
+              close dates. We encourage you to book early to secure a room at
+              the conference rate.
             </div>
-            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">Alternate lodging options</h3>
+          </div>
+
+          <div>
+            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
+              Alternate lodging options
+            </h3>
             <a
               href="https://www.ihg.com/holidayinnexpress/hotels/us/en/burlingame/urlbh/hoteldetail"
               target="_blank"
@@ -70,12 +82,6 @@ const VenueConf = () => {
             >
               Holiday Inn Express San Francisco Airport South, and IHG Hotel
             </a>
-          </div>
-
-          <div>
-            <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
-              Additional Information
-            </h3>
             <p className="leading-relaxed mb-3 text-white text-base">
               <span className="font-bold">Important:</span> The Linux Foundation
               will never reach out to attendees by phone to make hotel
