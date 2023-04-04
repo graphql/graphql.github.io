@@ -11,11 +11,30 @@ import WithoutVersions from "../Containers/Sections/WithoutVersion"
 import PowerFulTools from "../Containers/Sections/PowerFulTools"
 import WhosUsing from "../Containers/Sections/WhosUsing"
 import Seo from "../components/Seo"
+import { ReactComponent as GraphQLConfLogo } from "../../static/img/conf/graphql-conf-logo.svg"
 
 export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
-    <Layout className={"index"} pageContext={pageContext}>
+    <Layout className="index" pageContext={pageContext}>
       <Hero />
+      <section className="conf-banner">
+        <a href="/conf/">
+          <GraphQLConfLogo />
+          <div>
+            <span>
+              The offical GraphQL conference, by the GraphQL Foundation
+            </span>
+            <span className="mt-2 font-bold">
+              SEPTEMBER 19-21, 2023 • SAN FRANCISO BAY AREA, CA
+            </span>
+            <div>
+              <a className="button" href="/conf/#register">
+                Register Now!
+              </a>
+            </div>
+          </div>
+        </a>
+      </section>
       <section className="lead">
         <h1>A query language for your API</h1>
         <p>

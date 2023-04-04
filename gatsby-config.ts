@@ -11,6 +11,8 @@ const config: GatsbyConfig = {
     typesOutputPath: `src/__generated__/gatsby-types.d.ts`,
   },
   plugins: [
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-svgr",
     "gatsby-plugin-anchor-links",
     {
       resolve: "gatsby-source-filesystem",
@@ -39,7 +41,7 @@ const config: GatsbyConfig = {
           google: [
             {
               family: `Rubik`,
-              variants: [`300`],
+              variants: [`300`, `400`, `500`, `700`],
             },
             {
               family: `Roboto Mono`,
@@ -47,7 +49,7 @@ const config: GatsbyConfig = {
             },
             {
               family: `Roboto`,
-              variants: [`300`],
+              variants: [`300`, `500`],
             },
           ],
         },

@@ -50,7 +50,7 @@ const PredictableResults = () => {
   }, [])
   return (
     <section className="point1" id="predictable-results">
-      <div className="prose">
+      <div className="prose2">
         <h2>
           Ask for what you need,
           <br />

@@ -7,6 +7,68 @@ div.index {
     margin-top: 50px;
   }
 
+  // GraphQLConf 2023 - Remove on Oct 1, 2023
+  section.conf-banner {
+    background-color: #562556;
+    background: url("/img/conf/graphql-conf-bg.png") repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    max-width: none;
+
+    & > a {
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      gap: 30px;
+      margin: 0 auto;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      & > div {
+        display: flex;
+        flex-direction: column;
+
+        & > * {
+          margin: 6px 0;
+        }
+      }
+    }
+
+    img {
+      height: 150px;
+    }
+
+    .button {
+      .headline-font(@size: 17px, @color: white);
+      border: solid 1px fadeout(white, 60%);
+      border-radius: 6px;
+      color: white;
+      line-height: 1.0;
+      transition: background 0.1s ease-out, color 0.1s ease-out;
+      padding: 0.6em 1.6em;
+      margin: 0 0.8em;
+      display: inline-block;
+      text-decoration: none;
+
+      &:hover, &:focus, &:active {
+        color: @text-color;
+        background: white;
+        text-decoration: none;
+      }
+    }
+  }
+  // End GraphQLConf 2023
+
   header {
     display: none;
     @media screen and (min-width: 1020px) {
@@ -276,7 +338,7 @@ div.index {
     min-height: 75vh;
     @media screen and (max-width: 1019px) {
       min-height: none;
-      .prose {
+      .prose2 {
         text-align: center;
       }
     }
@@ -288,7 +350,7 @@ div.index {
       justify-content: space-between;
     }
 
-    .prose {
+    .prose2 {
       max-width: 415px;
     }
 
@@ -337,7 +399,7 @@ div.index {
       justify-content: space-between;
     }
 
-    .prose {
+    .prose2 {
       max-width: 415px;
     }
 
@@ -428,7 +490,7 @@ div.index {
       justify-content: space-between;
     }
 
-    .prose {
+    .prose2 {
       max-width: 415px;
     }
 
@@ -473,7 +535,7 @@ div.index {
       font-family: Palatino, Georgia, serif;
     }
 
-    .prose {
+    .prose2 {
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -512,7 +574,7 @@ div.index {
       justify-content: space-between;
     }
 
-    .prose {
+    .prose2 {
       max-width: 415px;
     }
 
@@ -679,7 +741,7 @@ div.index {
       justify-content: space-between;
     }
 
-    .prose {
+    .prose2 {
       max-width: 415px;
     }
 
@@ -745,7 +807,7 @@ div.index {
     padding-bottom: 6em;
     text-align: center;
 
-    .prose {
+    .prose2 {
       max-width: 545px;
       text-align: center;
       margin: 0 auto;
