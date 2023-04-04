@@ -6,7 +6,7 @@ import Marked from "../components/Marked"
 import Seo from "../components/Seo"
 import { toSlug } from "../utils/slug"
 
-interface ILibrary {
+export interface ILibrary {
   description: string
   github?: string
   npm?: string
@@ -39,14 +39,10 @@ interface Tool {
     General: ILibrary[]
   }
 }
-
 interface PageContext {
   languageList: Language[]
   toolList: Tool[]
-  otherLibraries: {
-    Services: ILibrary[]
-    Tools?: ILibrary[]
-  }
+  serviceList: ILibrary[]
   sourcePath: string
 }
 
@@ -351,7 +347,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 #
               </AnchorLink>
             </h2>
-            <LibraryList data={pageContext.otherLibraries?.Services ?? []} />
+            <LibraryList data={pageContext.serviceList} />
           </div>
         </div>
         <p>

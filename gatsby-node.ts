@@ -1,12 +1,9 @@
 import { GatsbyNode } from "gatsby"
 import * as path from "path"
-import { promisify } from "util"
-import { readFile } from "fs/promises"
 import * as globby from "globby"
-import * as frontmatterParser from "parser-front-matter"
-import { sortLibs } from "./scripts/sort-libraries/sort-libraries"
-
-const parse$ = promisify(frontmatterParser.parse)
+import { updateCodeData } from "./scripts/update-code-data/update-code-data"
+import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
+import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   async ({ actions }) => {
@@ -85,15 +82,10 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
   page,
   actions,
 }) => {
-  // trying to refactor code to be "the Gatsby way".
-  // from the paths on ready, ignores a bunch of existing custom logic below.
-  if (page.path.startsWith("/blog")) {
+  // This way is not "the Gatsby way", we create the pages, delete the pages, and create "code" paths page again.
+  if (page.path.startsWith("/blog") || page.path.startsWith("/tags")) {
     return
   }
-  if (page.path.startsWith("/tags")) {
-    return
-  }
-
   const { createPage, deletePage } = actions
   deletePage(page)
   let context = {
@@ -102,144 +94,14 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
   }
   if (page.path === "/code" || page.path === "/code/") {
     const markdownFilePaths = await globby("src/content/code/**/*.md")
-    const codeData: any = {}
     const slugMap = require("./src/content/code/slug-map.json")
-    await Promise.all(
-      markdownFilePaths.map(async markdownFilePath => {
-        const markdownFileContent = await readFile(markdownFilePath, "utf-8")
-        let {
-          data: { name, description, url, github, npm, gem },
-          content: howto,
-        } = await parse$(markdownFileContent)
-        howto = howto.trim()
-        const pathArr = markdownFilePath.split("/")
-        if (markdownFilePath.includes("language-support")) {
-          const languageSupportDirIndex = pathArr.indexOf("language-support")
-          const languageNameSlugIndex = languageSupportDirIndex + 1
-          const languageNameSlug = pathArr[languageNameSlugIndex]
-          const languageName = slugMap[languageNameSlug]
-          codeData.Languages ||= {}
-          codeData.Languages[languageName] ||= {}
-
-          const categoryNameSlugIndex = languageSupportDirIndex + 2
-          const categoryNameSlug = pathArr[categoryNameSlugIndex]
-          const categoryName = slugMap[categoryNameSlug]
-          codeData.Languages[languageName][categoryName] ||= []
-          codeData.Languages[languageName][categoryName].push({
-            name,
-            description,
-            howto,
-            url,
-            github,
-            npm,
-            gem,
-            sourcePath: markdownFilePath,
-          })
-        } else if (markdownFilePath.includes("tools")) {
-          const toolSupportDirIndex = pathArr.indexOf("tools")
-          const toolNameSlugIndex = toolSupportDirIndex + 1
-          const toolNameSlug = pathArr[toolNameSlugIndex]
-          const toolName = slugMap[toolNameSlug]
-          codeData.ToolsNew ||= {}
-          codeData.ToolsNew[toolName] ||= {}
-          const categoryToolsNameSlugIndex = toolSupportDirIndex + 2
-          const categoryToolsNameSlug = pathArr[categoryToolsNameSlugIndex]
-          const categoryToolsName = slugMap[categoryToolsNameSlug]
-          codeData.ToolsNew[toolName][categoryToolsName] ||= []
-
-          codeData.ToolsNew[toolName][categoryToolsName].push({
-            name,
-            description,
-            howto,
-            url,
-            github,
-            npm,
-            gem,
-            sourcePath: markdownFilePath,
-          })
-        } else {
-          const codeDirIndex = pathArr.indexOf("code")
-          const categoryNameSlugIndex = codeDirIndex + 1
-          const categoryNameSlug = pathArr[categoryNameSlugIndex]
-          const categoryName = slugMap[categoryNameSlug]
-          codeData[categoryName] ||= []
-          codeData[categoryName].push({
-            name,
-            description,
-            howto,
-            url,
-            github,
-            npm,
-            gem,
-            sourcePath: markdownFilePath,
-          })
-        }
-      })
-    )
-    const languageList: any = []
-    const toolList: any = []
-    await Promise.all([
-      ...Object.keys(codeData.Languages).map(async languageName => {
-        const libraryCategoryMap = codeData.Languages[languageName]
-        let languageTotalStars = 0
-        await Promise.all(
-          Object.keys(libraryCategoryMap).map(async libraryCategoryName => {
-            const libraries = libraryCategoryMap[libraryCategoryName]
-            const { sortedLibs, totalStars } = await sortLibs(libraries)
-
-            libraryCategoryMap[libraryCategoryName] = sortedLibs
-            languageTotalStars += totalStars || 0
-          })
-        )
-        languageList.push({
-          name: languageName,
-          totalStars: languageTotalStars,
-          categoryMap: libraryCategoryMap,
-        })
-      }),
-      ...Object.keys(codeData.ToolsNew).map(async toolName => {
-        const toolCategoryMap = codeData.ToolsNew[toolName]
-        let toolTotalStars = 0
-        await Promise.all(
-          Object.keys(toolCategoryMap).map(async toolCategoryName => {
-            const tools = toolCategoryMap[toolCategoryName]
-            const { sortedLibs, totalStars } = await sortLibs(tools)
-            toolCategoryMap[toolCategoryName] = sortedLibs
-            toolTotalStars += totalStars || 0
-          })
-        )
-        toolList.push({
-          name: toolName,
-          totalStars: toolTotalStars,
-          categoryMap: toolCategoryMap,
-        })
-      }),
-    ])
+    const codeData = await updateCodeData(markdownFilePaths, slugMap)
+    const organizeData = await organizeCodeData(codeData)
+    const sortedOrganizeData = await sortCodeData(organizeData)
 
     context = {
-      ...context,
-      otherLibraries: {
-        Services: codeData.Services,
-        "More Stuff": codeData["More Stuff"],
-      },
-      languageList: languageList.sort((a, b) => {
-        if (a.totalStars > b.totalStars) {
-          return -1
-        }
-        if (a.totalStars < b.totalStars) {
-          return 1
-        }
-        return 0
-      }),
-      toolList: toolList.sort((a, b) => {
-        if (a.totalStars > b.totalStars) {
-          return -1
-        }
-        if (a.totalStars < b.totalStars) {
-          return 1
-        }
-        return 0
-      }),
+      sourcePath: path.relative(__dirname, page.path),
+      ...sortedOrganizeData,
     }
   }
   createPage({
