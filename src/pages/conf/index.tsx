@@ -16,7 +16,7 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="text-gray-600 bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
+      <div className="text-gray-600 bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover bg-blend-multiply	bg-opacity-20	bg-black">
         <div className="container flex py-16 md:py-36 items-center justify-center flex-col">
           <div className="flex flex-col justify-center items-center w-full gap-2 md:gap-32 md:flex-row">
             <div>
@@ -37,8 +37,8 @@ export default () => {
                 </div>
               </div>
               <div className="flex justify-center gap-4 flex-row">
-                <ButtonConf text="Join as a Sponsor" href="/conf/sponsor/" />
-                <ButtonConf text="Submit to Speak" href="/conf/speak/" />
+                <ButtonConf href="/conf/sponsor/">Join as a Sponsor</ButtonConf>
+                <ButtonConf href="/conf/speak/">Submit to Speak</ButtonConf>
               </div>
             </div>
           </div>

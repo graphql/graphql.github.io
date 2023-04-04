@@ -9,32 +9,29 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="bg-color-[#562556] bg-[url('/img/conf/conf-bg.png')] bg-cover">
+      <div className="bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover">
         <div className="container flex py-16 items-center justify-center flex-col">
           <div className="flex flex-col items-center w-full">
             <div className="sm:text-3xl text-2xl mb-8 text-white text-center leading-relaxed">
-              <span className="block lg:inline">
-                Sponsor GraphQLConf 2023
-              </span>
+              <span className="block lg:inline">Sponsor GraphQLConf 2023</span>
             </div>
             <div className="flex justify-center items-center gap-4 flex-col sm:flex-row">
-              <ButtonConf
-                text="Explore Sponsorship"
-                target="_blank"
-                href="https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf"
-              />
-              <ButtonConf
-                text="Contact Us"
-                target="_blank"
-                href="mailto:graphqlconf@graphql.org?subject=Sponsorships"
-              />
+              <ButtonConf href="https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf">
+                Explore Sponsorship
+              </ButtonConf>
+              <ButtonConf href="mailto:graphqlconf@graphql.org?subject=Sponsorships">
+                Contact Us
+              </ButtonConf>
             </div>
           </div>
           <div className="mx-auto max-w-prose mt-8">
             <div className="text-black h-full bg-gray-100 bg-opacity-75 p-8 rounded-lg overflow-hidden relative">
               <p>
                 Contact us at{" "}
-                <a className="font-medium" href="mailto:graphqlconf@graphql.org">
+                <a
+                  className="font-medium"
+                  href="mailto:graphqlconf@graphql.org"
+                >
                   graphqlconf@graphql.org
                 </a>{" "}
                 to reserve your sponsorship, ask questions or talk about

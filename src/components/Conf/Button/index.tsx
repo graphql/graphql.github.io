@@ -1,24 +1,27 @@
-import React from "react"
+import React, { ReactElement, ReactNode } from "react"
+import { clsx } from "clsx"
 
-interface Props {
-  text: React.ReactNode
+interface ButtonProps {
+  children: ReactNode
   className?: string
   href?: string
-  target?: string
-  onWhiteBg?: boolean
 }
 
-const ButtonConf = ({ text, href, target, className, onWhiteBg }: Props) => {
+function ButtonConf({ href, className, children }: ButtonProps): ReactElement {
   return (
     <a
-      className={
-        `block cursor-pointer transition ease-in-out no-underline inline-flex text-center w-[fit-content] border-0 py-2 px-6 no-underline hover:no-underline focus:outline-none hover:drop-shadow-md hover:[transform:scale(1.05)] rounded text-sm sm:text-base font-medium whitespace-nowrap ${onWhiteBg ? "bg-[#B48EF1] text-white" : "bg-white text-black"
-        } ${className ?? ""}`
-      }
+      className={clsx(
+        "cursor-pointer transition ease-in-out no-underline inline-flex text-center w-[fit-content] border-0 py-2 px-6 no-underline hover:no-underline focus:outline-none hover:drop-shadow-md hover:[transform:scale(1.05)] rounded text-sm sm:text-base whitespace-nowrap",
+        "bg-[--rhodamine] text-white font-medium",
+        className
+      )}
       href={href}
-      target={target}
+      {...(href?.startsWith("https://") && {
+        target: "_blank",
+        rel: "noreferrer",
+      })}
     >
-      {text}
+      {children}
     </a>
   )
 }

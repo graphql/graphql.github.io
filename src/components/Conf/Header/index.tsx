@@ -16,7 +16,7 @@ const links: LinkItem[] = [
 
 const HeaderConf = () => {
   return (
-    <header className="bg-[#0E031C] gap-2 shadow-lg px-5 h-[70px]">
+    <header className="bg-[#171E26] gap-2 shadow-lg px-5 h-[70px]">
       <div className="container flex items-center h-full gap-5 max-sm:justify-center">
         <a href="/conf/" className="shrink-0 max-sm:hidden">
           <img
@@ -34,11 +34,11 @@ const HeaderConf = () => {
           </a>
         ))}
         <ButtonConf
-          text="Buy a Ticket!"
           href="https://cvent.me/4zbxz9"
-          target="_blank"
           className="ml-auto max-sm:hidden"
-        />
+        >
+          Buy a Ticket!
+        </ButtonConf>
       </div>
     </header>
   )

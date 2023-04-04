@@ -297,12 +297,9 @@ export default () => {
               </a>
               .
             </p>
-            <ButtonConf
-              onWhiteBg
-              text="Submit a Proposal"
-              href="https://sessionize.com/graphqlconf2023/"
-              target="_blank"
-            />
+            <ButtonConf href="https://sessionize.com/graphqlconf2023/">
+              Submit a Proposal
+            </ButtonConf>
           </section>
           <ul className="md:columns-2 max-lg:p-0 max-lg:m-0 list-none">
             {cfp.map(q => (
