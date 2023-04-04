@@ -30,19 +30,19 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
         items={[
           [
             "GraphQL Core",
-            "latest and greatest developments in the GraphQL specification, graphql.js, GraphQL over HTTP, GraphiQL, and Composite Schemas.",
+            "Latest and greatest developments in the GraphQL specification, graphql.js, GraphQL over HTTP, GraphiQL, and Composite Schemas.",
           ],
           [
             "GraphQL in Production",
-            "best practices, real world use cases, spectacular success, spectacular failures, and lessons learned from production deployments of GraphQL.",
+            "Best practices, real world use cases, spectacular success, spectacular failures, and lessons learned from production deployments of GraphQL.",
           ],
           [
             "GraphQL Security",
-            "authentication/authorization, security testing, threat models, GraphQL and OWASP Top 10, exploit analysis and retrospective, full-lifecycle security considerations.",
+            "Authentication/authorization, security testing, threat models, GraphQL and OWASP Top 10, exploit analysis and retrospective, full-lifecycle security considerations.",
           ],
           [
             "GraphQL Clients",
-            "client development (web, mobile, and beyond) with GraphQL, frontend frameworks, GraphQL IDEs.",
+            "Client development (web, mobile, and beyond) with GraphQL, frontend frameworks, GraphQL IDEs.",
           ],
           [
             "Platform and Backend",
@@ -58,23 +58,23 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
           ],
           [
             "Scaling",
-            "everything related to scaling GraphQL: testing, automation, performance, social/organizational considerations.",
+            "Everything related to scaling GraphQL: testing, automation, performance, social/organizational considerations.",
           ],
           [
             "Beyond Javascript",
-            "implementing and interacting with GraphQL APIs using languages and frameworks beyond JavaScript: Go, Ruby, Rust, .NET, WebAssembly, et al.",
+            "Implementing and interacting with GraphQL APIs using languages and frameworks beyond JavaScript: Go, Ruby, Rust, .NET, WebAssembly, et al.",
           ],
           [
             "GraphQL Academia",
-            "research papers or studies in academia that involve GraphQL.",
+            "Research papers or studies in academia that involve GraphQL.",
           ],
           [
             "Emerging Community Trends",
-            "what’s happening at the vanguard of GraphQL adoption that will help define the future of GraphQL usage in the community.",
+            "What’s happening at the vanguard of GraphQL adoption that will help define the future of GraphQL usage in the community.",
           ],
           [
             "Defies Categorization",
-            "have a talk idea that doesn’t fit inside the topics above? Challenge accepted! Wow us with your awesome talk submission and we’ll work with you to fit it into our track structure. ",
+            "Have a talk idea that doesn’t fit inside the topics above? Challenge accepted! Wow us with your awesome talk submission and we’ll work with you to fit it into our track structure. ",
           ],
         ]}
       />
