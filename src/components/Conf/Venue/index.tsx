@@ -74,7 +74,7 @@ const VenueConf = () => {
 
           <div>
             <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-4">
-              Hotel Information
+              Additional Information
             </h3>
             <p className="leading-relaxed mb-3 text-white text-base">
               <span className="font-bold">Important:</span> The Linux Foundation
