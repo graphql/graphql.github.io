@@ -20,7 +20,8 @@ const Days: Day[] = [
 ]
 const ScheduleGlanceConf = () => {
   return (
-    <div id="schedule">
+    // Invisible padding so anchor links align to the header menu
+    <div id="schedule" className="-mt-16 pt-16">
       <div className="bg-[#171E26] w-full mt-10 mb-6">
         <div className="text-center mx-auto text-white">
           <h1 className="text-4xl text-white font-bold mb-8">Schedule</h1>

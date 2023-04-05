@@ -47,6 +47,7 @@ const speakers: Speaker[] = [
 
 const SpeakersConf = () => {
   return (
+    // Invisible padding so anchor links align to the header menu
     <div id="speakers" className="-mt-16 pt-16">
       <div className="bg-[#171E26] w-full mt-8">
         <div className="text-center mx-auto text-white">

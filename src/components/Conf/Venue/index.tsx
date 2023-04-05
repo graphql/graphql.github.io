@@ -5,7 +5,8 @@ import { ReactComponent as ParkingIcon } from "../../../../static/img/conf/parki
 
 const VenueConf = () => {
   return (
-    <div id="location">
+    // Invisible padding so anchor links align to the header menu
+    <div id="location" className="-mt-16 pt-16">
       <h1 className="text-4xl text-white font-bold mb-8 mx-auto text-center">
         Location &amp; Venue
       </h1>

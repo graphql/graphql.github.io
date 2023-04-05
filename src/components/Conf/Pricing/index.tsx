@@ -49,8 +49,9 @@ const includes = [
 
 const PricingConf = () => {
   return (
-    <div id="attend">
-      <div className="bg-[#171E26] container mt-10 mb-6">
+    // Invisible padding so anchor links align to the header menu
+    <div id="attend" className="-mt-16 pt-16">
+      <div className="bg-[#171E26] container mb-6">
         <div className="flex flex-col text-center w-full">
           <h1 className="text-4xl text-white font-bold">Attend</h1>
         </div>
@@ -113,11 +114,11 @@ const PricingConf = () => {
                   Visa
                 </a>{" "}
                 or{" "}
-                <a  href="/conf/faq/#scholarships">
+                <a href="/conf/faq/#scholarships">
                   Scholarship
                 </a>{" "}
                 or find more help in our{" "}
-                <a  href="/conf/faq/">
+                <a href="/conf/faq/">
                   FAQ
                 </a>
                 .
