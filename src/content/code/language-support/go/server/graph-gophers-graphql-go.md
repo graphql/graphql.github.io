@@ -1,6 +1,6 @@
 ---
 name: graph-gophers/graphql-go
-description: An active implementation of GraphQL in Golang (was https://github.com/neelance/graphql-go).
+description: GraphQL server with a focus on ease of use.
 url: https://github.com/graph-gophers/graphql-go
 github: graph-gophers/graphql-go
 ---
