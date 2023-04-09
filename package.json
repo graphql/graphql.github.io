@@ -33,7 +33,7 @@
     "gatsby-plugin-webfonts": "2.3.2",
     "gatsby-source-filesystem": "5.8.0",
     "gatsby-transformer-remark": "6.8.0",
-    "globby": "11.0.4",
+    "glob": "9.3.4",
     "graphql": "16.6.0",
     "marked": "4.3.0",
     "numbro": "2.3.6",
