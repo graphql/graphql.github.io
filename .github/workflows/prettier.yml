@@ -10,4 +10,4 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - name: Run Prettier Check
-        run: yarn run prettier:check
+        run: yarn format:check
