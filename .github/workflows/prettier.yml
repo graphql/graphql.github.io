@@ -1,0 +1,15 @@
+name: Prettier Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  prettier-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Prettier Check
+        run: npm run prettier:check
