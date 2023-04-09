@@ -12,17 +12,17 @@ All GraphQL technical meetings are open to anyone who is interested, so long as 
 
 All GraphQL project meetings should appear on the [GraphQL public calendar](https://calendar.graphql.org). If a project's meeting isn't on the calendar or is incorrect, please email [operations@graphql.org](mailto:operations@graphql.org).
 
-* **Who can join GraphQL project meetings:** Anyone who has signed the free [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership).
+- **Who can join GraphQL project meetings:** Anyone who has signed the free [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership).
 
-* **How to join:** Each GraphQL project must maintain an agenda document for each meeting, and each attendee must add themselves to it prior to attending. To join, open a PR to add your name to the attendee list on an upcoming meeting's agenda (for example, the [GraphQL Working Group](https://github.com/graphql/graphql-wg/tree/HEAD/agendas) or [GraphQL.js](https://github.com/graphql/graphql-js-wg/tree/main/agendas)). The agenda document will have the date, time and Zoom links.
+- **How to join:** Each GraphQL project must maintain an agenda document for each meeting, and each attendee must add themselves to it prior to attending. To join, open a PR to add your name to the attendee list on an upcoming meeting's agenda (for example, the [GraphQL Working Group](https://github.com/graphql/graphql-wg/tree/HEAD/agendas) or [GraphQL.js](https://github.com/graphql/graphql-js-wg/tree/main/agendas)). The agenda document will have the date, time and Zoom links.
 
-*IMPORTANT: Your PR against the agenda* ***must*** *be merged before you can attend. If the EasyCLA bot says you are not covered, you need to follow the links in the bot's comment to sign the [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership) before you can attend.*
+_IMPORTANT: Your PR against the agenda_ **_must_** _be merged before you can attend. If the EasyCLA bot says you are not covered, you need to follow the links in the bot's comment to sign the [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership) before you can attend._
 
 If you have questions about this process, please ask [operations@graphql.org](mailto:operations@graphql.org).
 
 ### GraphQL Working Group / TSC meeting
 
-The [GraphQL Working Group](https://github.com/graphql/graphql-wg) meets on the first Thursday of each month. When there are topics to address, the [GraphQL Technical Steering Committee (TSC)](https://github.com/graphql/graphql-wg/blob/HEAD/GraphQL-TSC.md) may meet briefly prior to the start of the Working Group meeting. 
+The [GraphQL Working Group](https://github.com/graphql/graphql-wg) meets on the first Thursday of each month. When there are topics to address, the [GraphQL Technical Steering Committee (TSC)](https://github.com/graphql/graphql-wg/blob/HEAD/GraphQL-TSC.md) may meet briefly prior to the start of the Working Group meeting.
 
 The goal of the working group meeting is to discuss current work and future plans for the GraphQL specification. The Working Group meeting is also the place to coordinate between other GraphQL working groups and reference implementations.
 
@@ -34,10 +34,9 @@ The [GraphQL.js working group](https://github.com/graphql/graphql-js-wg) meets t
 
 To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql/graphql-js-wg/tree/HEAD/agendas).
 
-
 ## Events
 
-*None currently scheduled*
+_None currently scheduled_
 
 <!-- Event template, copy and paste what you need. Please note that the only three required fields are the name of the event, who is organizing and hosting it, and the link to the code of conduct. Events without this information can't be posted.
 
@@ -74,6 +73,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
 
 ### South America
+
 - [GraphQL Florianópolis](https://www.meetup.com/GraphQL-Floripa/)
 - [GraphQL São Paulo](https://www.meetup.com/Apollo-GraphQL/)
 - [GraphQL Buenos Aires](https://www.meetup.com/GraphQL-BA/)

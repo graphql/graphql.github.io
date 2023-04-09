@@ -5,5 +5,3 @@ url: https://www.graphile.org/postgraphile
 github: graphile/postgraphile
 npm: "postgraphile"
 ---
-
-

@@ -1,6 +1,6 @@
 ---
 name: Strawberry Shake
-description: Strawberry Shake is a open-source reactive GraphQL client for .NET 
+description: Strawberry Shake is a open-source reactive GraphQL client for .NET
 url: https://chillicream.com/docs/strawberryshake/
 github: ChilliCream/hotchocolate
 ---
@@ -16,7 +16,7 @@ You can use Strawberry Shake to:
 ```csharp
 client.GetHero
     .Watch(ExecutionStrategy.CacheFirst)
-    .Subscribe(result => 
+    .Subscribe(result =>
     {
         Console.WriteLine(result.Data.Name);
     })

@@ -5,5 +5,3 @@ url: https://graphql-tools.com
 github: ardatan/graphql-tools
 npm: "graphql-tools"
 ---
-
-

@@ -7,11 +7,7 @@ interface Props {
   pageContext: any
 }
 
-const FAQSection = ({
-  title,
-  rawMarkdownBody,
-  pageContext
-}: Props) => (
+const FAQSection = ({ title, rawMarkdownBody, pageContext }: Props) => (
   <section className="inner-faq-content">
     <h2>{title}</h2>
     <Marked pageContext={pageContext}>{rawMarkdownBody}</Marked>

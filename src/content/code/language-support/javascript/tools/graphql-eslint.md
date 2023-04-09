@@ -5,5 +5,3 @@ url: https://github.com/dotansimha/graphql-eslint/
 github: dotansimha/graphql-eslint/
 npm: "@graphql-eslint/eslint-plugin"
 ---
-
-

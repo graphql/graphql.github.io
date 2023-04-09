@@ -22,8 +22,8 @@ npm install graphql-yoga graphql
 Then create a server using the `createServer` import:
 
 ```js
-import { createServer } from 'http'
-import { createSchema, createYoga } from 'graphql-yoga'
+import { createServer } from "http"
+import { createSchema, createYoga } from "graphql-yoga"
 
 createServer(
   createYoga({
@@ -35,13 +35,13 @@ createServer(
       `,
       resolvers: {
         Query: {
-          hello: () => 'Hello Hello Hello',
+          hello: () => "Hello Hello Hello",
         },
       },
-    })
+    }),
   })
 ).listen(4000, () => {
-  console.info('GraphQL Yoga is listening on http://localhost:4000/graphql')
+  console.info("GraphQL Yoga is listening on http://localhost:4000/graphql")
 })
 ```
 

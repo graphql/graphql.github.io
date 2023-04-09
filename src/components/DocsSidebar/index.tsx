@@ -16,16 +16,18 @@ const SidebarForCategory = ({ category }: any) => {
         </Link>
         {page.frontmatter.sublinks && (
           <ul>
-            {page.frontmatter.sublinks.split(",").map((sublink: any, i: number) => (
-              <li key={i}>
-                <AnchorLink
-                  title={sublink}
-                  to={page.frontmatter.permalink + "#" + toSlug(sublink)}
-                >
-                  {sublink}
-                </AnchorLink>
-              </li>
-            ))}
+            {page.frontmatter.sublinks
+              .split(",")
+              .map((sublink: any, i: number) => (
+                <li key={i}>
+                  <AnchorLink
+                    title={sublink}
+                    to={page.frontmatter.permalink + "#" + toSlug(sublink)}
+                  >
+                    {sublink}
+                  </AnchorLink>
+                </li>
+              ))}
           </ul>
         )}
       </li>

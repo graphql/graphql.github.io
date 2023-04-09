@@ -13,7 +13,7 @@ permalink: /blog/2019-10-31-linux-foundation-training-announces-free-online-cour
 
 This course explains what GraphQL is and why it is getting so much attention from software engineers. It covers the advantages over REST, what types of software architectures to use it with, and why it benefits both frontend and backend developers. The student practices GraphQL queries in an interactive playground, and learns advanced topics such as how to implement a GraphQL server on the backend, how to use a GraphQL server with a client, and how to keep the GraphQL server secure. The course content was originally created by [Prisma](https://prisma.io), and updated and maintained by [Novvum](https://novvum.io).
 
-"Since open sourcing GraphQL, I have been blown away by the growth of the technology and community. I'm excited to see the introduction of more educational material which I hope will help our community continue to grow and reach developers world-wide." – *Lee Byron, Executive Director, GraphQL Foundation, and GraphQL Co-Creator*
+"Since open sourcing GraphQL, I have been blown away by the growth of the technology and community. I'm excited to see the introduction of more educational material which I hope will help our community continue to grow and reach developers world-wide." – _Lee Byron, Executive Director, GraphQL Foundation, and GraphQL Co-Creator_
 
 This course will help programmers gain the skills needed to use GraphQL for a small project or professionally in production. They will feel comfortable getting started with the right tools for their use case.
 
@@ -36,4 +36,4 @@ Linux is a registered trademark of Linus Torvalds.
 Clyde Seepersad  
 The Linux Foundation  
 404-964-6973  
-cseepersad@linuxfoundation.org  
+cseepersad@linuxfoundation.org

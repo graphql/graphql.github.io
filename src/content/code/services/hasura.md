@@ -4,5 +4,3 @@ description: Hasura connects to your databases & microservices and instantly giv
 url: https://hasura.io
 github: hasura/graphql-engine
 ---
-
-

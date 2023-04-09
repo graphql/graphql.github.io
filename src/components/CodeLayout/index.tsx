@@ -1,5 +1,5 @@
-import React from 'react'
-import Marked from "../Marked";
+import React from "react"
+import Marked from "../Marked"
 
 export default ({ title, rawMarkdownBody, pageContext }: any) => (
   <section>

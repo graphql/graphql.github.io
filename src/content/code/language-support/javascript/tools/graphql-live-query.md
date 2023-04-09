@@ -5,5 +5,3 @@ url: https://github.com/n1ru4l/graphql-live-query
 github: n1ru4l/graphql-live-query
 npm: "@n1ru4l/graphql-live-query"
 ---
-
-

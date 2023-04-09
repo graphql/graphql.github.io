@@ -22,10 +22,10 @@ npm install graphql-hooks
 First you'll need to create a client and wrap your app with the provider:
 
 ```js
-import { GraphQLClient, ClientContext } from 'graphql-hooks'
+import { GraphQLClient, ClientContext } from "graphql-hooks"
 
 const client = new GraphQLClient({
-  url: '/graphql'
+  url: "/graphql",
 })
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
 Now in your child components you can make use of `useQuery`:
 
 ```js
-import { useQuery } from 'graphql-hooks'
+import { useQuery } from "graphql-hooks"
 
 const HOMEPAGE_QUERY = `query HomePage($limit: Int) {
   users(limit: $limit) {
@@ -52,12 +52,12 @@ const HOMEPAGE_QUERY = `query HomePage($limit: Int) {
 function MyComponent() {
   const { loading, error, data } = useQuery(HOMEPAGE_QUERY, {
     variables: {
-      limit: 10
-    }
+      limit: 10,
+    },
   })
 
-  if (loading) return 'Loading...'
-  if (error) return 'Something Bad Happened'
+  if (loading) return "Loading..."
+  if (error) return "Something Bad Happened"
 
   return (
     <ul>

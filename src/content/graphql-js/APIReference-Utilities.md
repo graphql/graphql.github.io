@@ -11,13 +11,13 @@ The `graphql/utilities` module contains common useful computations to use with
 the GraphQL language and type objects. You can import either from the `graphql/utilities` module, or from the root `graphql` module. For example:
 
 ```js
-import { introspectionQuery } from 'graphql'; // ES6
-var { introspectionQuery } = require('graphql'); // CommonJS
+import { introspectionQuery } from "graphql" // ES6
+var { introspectionQuery } = require("graphql") // CommonJS
 ```
 
 ## Overview
 
-*Introspection*
+_Introspection_
 
 <ul class="apiIndex">
   <li>
@@ -34,7 +34,7 @@ var { introspectionQuery } = require('graphql'); // CommonJS
   </li>
 </ul>
 
-*Schema Language*
+_Schema Language_
 
 <ul class="apiIndex">
   <li>
@@ -75,7 +75,7 @@ var { introspectionQuery } = require('graphql'); // CommonJS
   </li>
 </ul>
 
-*Visitors*
+_Visitors_
 
 <ul class="apiIndex">
   <li>
@@ -86,7 +86,7 @@ var { introspectionQuery } = require('graphql'); // CommonJS
   </li>
 </ul>
 
-*Value Validation*
+_Value Validation_
 
 <ul class="apiIndex">
   <li>
@@ -192,6 +192,7 @@ function astFromValue(
   type: GraphQLInputType
 ): ?Value
 ```
+
 Produces a GraphQL Input Value AST given a JavaScript value.
 
 Optionally, a GraphQL type may be provided, which will be used to

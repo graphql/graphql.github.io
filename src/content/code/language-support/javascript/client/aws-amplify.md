@@ -5,5 +5,3 @@ url: https://docs.amplify.aws/
 github: aws-amplify/amplify-js
 npm: "aws-amplify"
 ---
-
-

@@ -5,5 +5,3 @@ url: https://sofa-api.com/
 github: Urigo/SOFA
 npm: "sofa-api"
 ---
-
-

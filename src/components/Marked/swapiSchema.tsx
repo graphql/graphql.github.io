@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Buffer } from 'buffer';
+import { Buffer } from "buffer"
 
 import {
   GraphQLSchema,
@@ -16,182 +16,182 @@ import {
   GraphQLEnumType,
   GraphQLList,
   GraphQLNonNull,
-  GraphQLString
-} from 'graphql';
+  GraphQLString,
+} from "graphql"
 
-import { makeExecutableSchema } from '@graphql-tools/schema';
+import { makeExecutableSchema } from "@graphql-tools/schema"
 
-const typeDefs = /* GraphQL */`
-schema {
-  query: Query
-  mutation: Mutation
-}
+const typeDefs = /* GraphQL */ `
+  schema {
+    query: Query
+    mutation: Mutation
+  }
 
-# The query type, represents all of the entry points into our object graph
-type Query {
-  hero(episode: Episode): Character
-  reviews(episode: Episode!): [Review]
-  search(text: String): [SearchResult]
-  character(id: ID!): Character
-  droid(id: ID!): Droid
-  human(id: ID!): Human
-  starship(id: ID!): Starship
-}
+  # The query type, represents all of the entry points into our object graph
+  type Query {
+    hero(episode: Episode): Character
+    reviews(episode: Episode!): [Review]
+    search(text: String): [SearchResult]
+    character(id: ID!): Character
+    droid(id: ID!): Droid
+    human(id: ID!): Human
+    starship(id: ID!): Starship
+  }
 
-# The mutation type, represents all updates we can make to our data
-type Mutation {
-  createReview(episode: Episode, review: ReviewInput!): Review
-}
+  # The mutation type, represents all updates we can make to our data
+  type Mutation {
+    createReview(episode: Episode, review: ReviewInput!): Review
+  }
 
-# The episodes in the Star Wars trilogy
-enum Episode {
-  # Star Wars Episode IV: A New Hope, released in 1977.
-  NEWHOPE
+  # The episodes in the Star Wars trilogy
+  enum Episode {
+    # Star Wars Episode IV: A New Hope, released in 1977.
+    NEWHOPE
 
-  # Star Wars Episode V: The Empire Strikes Back, released in 1980.
-  EMPIRE
+    # Star Wars Episode V: The Empire Strikes Back, released in 1980.
+    EMPIRE
 
-  # Star Wars Episode VI: Return of the Jedi, released in 1983.
-  JEDI
-}
+    # Star Wars Episode VI: Return of the Jedi, released in 1983.
+    JEDI
+  }
 
-# A character from the Star Wars universe
-interface Character {
-  # The ID of the character
-  id: ID!
+  # A character from the Star Wars universe
+  interface Character {
+    # The ID of the character
+    id: ID!
 
-  # The name of the character
-  name: String!
+    # The name of the character
+    name: String!
 
-  # The friends of the character, or an empty list if they have none
-  friends: [Character]
+    # The friends of the character, or an empty list if they have none
+    friends: [Character]
 
-  # The friends of the character exposed as a connection with edges
-  friendsConnection(first: Int, after: ID): FriendsConnection!
+    # The friends of the character exposed as a connection with edges
+    friendsConnection(first: Int, after: ID): FriendsConnection!
 
-  # The movies this character appears in
-  appearsIn: [Episode]!
-}
+    # The movies this character appears in
+    appearsIn: [Episode]!
+  }
 
-# Units of height
-enum LengthUnit {
-  # The standard unit around the world
-  METER
+  # Units of height
+  enum LengthUnit {
+    # The standard unit around the world
+    METER
 
-  # Primarily used in the United States
-  FOOT
-}
+    # Primarily used in the United States
+    FOOT
+  }
 
-# A humanoid creature from the Star Wars universe
-type Human implements Character {
-  # The ID of the human
-  id: ID!
+  # A humanoid creature from the Star Wars universe
+  type Human implements Character {
+    # The ID of the human
+    id: ID!
 
-  # What this human calls themselves
-  name: String!
+    # What this human calls themselves
+    name: String!
 
-  # Height in the preferred unit, default is meters
-  height(unit: LengthUnit = METER): Float
+    # Height in the preferred unit, default is meters
+    height(unit: LengthUnit = METER): Float
 
-  # Mass in kilograms, or null if unknown
-  mass: Float
+    # Mass in kilograms, or null if unknown
+    mass: Float
 
-  # This human's friends, or an empty list if they have none
-  friends: [Character]
+    # This human's friends, or an empty list if they have none
+    friends: [Character]
 
-  # The friends of the human exposed as a connection with edges
-  friendsConnection(first: Int, after: ID): FriendsConnection!
+    # The friends of the human exposed as a connection with edges
+    friendsConnection(first: Int, after: ID): FriendsConnection!
 
-  # The movies this human appears in
-  appearsIn: [Episode]!
+    # The movies this human appears in
+    appearsIn: [Episode]!
 
-  # A list of starships this person has piloted, or an empty list if none
-  starships: [Starship]
-}
+    # A list of starships this person has piloted, or an empty list if none
+    starships: [Starship]
+  }
 
-# An autonomous mechanical character in the Star Wars universe
-type Droid implements Character {
-  # The ID of the droid
-  id: ID!
+  # An autonomous mechanical character in the Star Wars universe
+  type Droid implements Character {
+    # The ID of the droid
+    id: ID!
 
-  # What others call this droid
-  name: String!
+    # What others call this droid
+    name: String!
 
-  # This droid's friends, or an empty list if they have none
-  friends: [Character]
+    # This droid's friends, or an empty list if they have none
+    friends: [Character]
 
-  # The friends of the droid exposed as a connection with edges
-  friendsConnection(first: Int, after: ID): FriendsConnection!
+    # The friends of the droid exposed as a connection with edges
+    friendsConnection(first: Int, after: ID): FriendsConnection!
 
-  # The movies this droid appears in
-  appearsIn: [Episode]!
+    # The movies this droid appears in
+    appearsIn: [Episode]!
 
-  # This droid's primary function
-  primaryFunction: String
-}
+    # This droid's primary function
+    primaryFunction: String
+  }
 
-# A connection object for a character's friends
-type FriendsConnection {
-  # The total number of friends
-  totalCount: Int
+  # A connection object for a character's friends
+  type FriendsConnection {
+    # The total number of friends
+    totalCount: Int
 
-  # The edges for each of the character's friends.
-  edges: [FriendsEdge]
+    # The edges for each of the character's friends.
+    edges: [FriendsEdge]
 
-  # A list of the friends, as a convenience when edges are not needed.
-  friends: [Character]
+    # A list of the friends, as a convenience when edges are not needed.
+    friends: [Character]
+
+    # Information for paginating this connection
+    pageInfo: PageInfo!
+  }
+
+  # An edge object for a character's friends
+  type FriendsEdge {
+    # A cursor used for pagination
+    cursor: ID!
+
+    # The character represented by this friendship edge
+    node: Character
+  }
 
   # Information for paginating this connection
-  pageInfo: PageInfo!
-}
+  type PageInfo {
+    startCursor: ID
+    endCursor: ID
+    hasNextPage: Boolean!
+  }
 
-# An edge object for a character's friends
-type FriendsEdge {
-  # A cursor used for pagination
-  cursor: ID!
+  # Represents a review for a movie
+  type Review {
+    # The number of stars this review gave, 1-5
+    stars: Int!
 
-  # The character represented by this friendship edge
-  node: Character
-}
+    # Comment about the movie
+    commentary: String
+  }
 
-# Information for paginating this connection
-type PageInfo {
-  startCursor: ID
-  endCursor: ID
-  hasNextPage: Boolean!
-}
+  # The input object sent when someone is creating a new review
+  input ReviewInput {
+    # 0-5 stars
+    stars: Int!
 
-# Represents a review for a movie
-type Review {
-  # The number of stars this review gave, 1-5
-  stars: Int!
+    # Comment about the movie, optional
+    commentary: String
+  }
 
-  # Comment about the movie
-  commentary: String
-}
+  type Starship {
+    # The ID of the starship
+    id: ID!
 
-# The input object sent when someone is creating a new review
-input ReviewInput {
-  # 0-5 stars
-  stars: Int!
+    # The name of the starship
+    name: String!
 
-  # Comment about the movie, optional
-  commentary: String
-}
+    # Length of the starship, along the longest axis
+    length(unit: LengthUnit = METER): Float
+  }
 
-type Starship {
-  # The ID of the starship
-  id: ID!
-
-  # The name of the starship
-  name: String!
-
-  # Length of the starship, along the longest axis
-  length(unit: LengthUnit = METER): Float
-}
-
-union SearchResult = Human | Droid | Starship
-`;
+  union SearchResult = Human | Droid | Starship
+`
 
 /**
  * This defines a basic set of data for our Star Wars Schema.
@@ -203,158 +203,158 @@ union SearchResult = Human | Droid | Starship
 
 const humans = [
   {
-    id: '1000',
-    name: 'Luke Skywalker',
-    friends: [ '1002', '1003', '2000', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    id: "1000",
+    name: "Luke Skywalker",
+    friends: ["1002", "1003", "2000", "2001"],
+    appearsIn: ["NEWHOPE", "EMPIRE", "JEDI"],
     height: 1.72,
     mass: 77,
-    starships: [ '3001', '3003' ],
+    starships: ["3001", "3003"],
   },
   {
-    id: '1001',
-    name: 'Darth Vader',
-    friends: [ '1004' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    id: "1001",
+    name: "Darth Vader",
+    friends: ["1004"],
+    appearsIn: ["NEWHOPE", "EMPIRE", "JEDI"],
     height: 2.02,
     mass: 136,
-    starships: [ '3002' ],
+    starships: ["3002"],
   },
   {
-    id: '1002',
-    name: 'Han Solo',
-    friends: [ '1000', '1003', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    id: "1002",
+    name: "Han Solo",
+    friends: ["1000", "1003", "2001"],
+    appearsIn: ["NEWHOPE", "EMPIRE", "JEDI"],
     height: 1.8,
     mass: 80,
-    starships: [ '3000', '3003' ],
+    starships: ["3000", "3003"],
   },
   {
-    id: '1003',
-    name: 'Leia Organa',
-    friends: [ '1000', '1002', '2000', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
+    id: "1003",
+    name: "Leia Organa",
+    friends: ["1000", "1002", "2000", "2001"],
+    appearsIn: ["NEWHOPE", "EMPIRE", "JEDI"],
     height: 1.5,
     mass: 49,
     starships: [],
   },
   {
-    id: '1004',
-    name: 'Wilhuff Tarkin',
-    friends: [ '1001' ],
-    appearsIn: [ 'NEWHOPE' ],
+    id: "1004",
+    name: "Wilhuff Tarkin",
+    friends: ["1001"],
+    appearsIn: ["NEWHOPE"],
     height: 1.8,
     mass: null,
     starships: [],
   },
-];
+]
 
-const humanData = {};
-humans.forEach((ship) => {
-  humanData[ship.id] = ship;
-});
+const humanData = {}
+humans.forEach(ship => {
+  humanData[ship.id] = ship
+})
 
 const droids = [
   {
-    id: '2000',
-    name: 'C-3PO',
-    friends: [ '1000', '1002', '1003', '2001' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
-    primaryFunction: 'Protocol',
+    id: "2000",
+    name: "C-3PO",
+    friends: ["1000", "1002", "1003", "2001"],
+    appearsIn: ["NEWHOPE", "EMPIRE", "JEDI"],
+    primaryFunction: "Protocol",
   },
   {
-    id: '2001',
-    name: 'R2-D2',
-    friends: [ '1000', '1002', '1003' ],
-    appearsIn: [ 'NEWHOPE', 'EMPIRE', 'JEDI' ],
-    primaryFunction: 'Astromech',
+    id: "2001",
+    name: "R2-D2",
+    friends: ["1000", "1002", "1003"],
+    appearsIn: ["NEWHOPE", "EMPIRE", "JEDI"],
+    primaryFunction: "Astromech",
   },
-];
+]
 
-const droidData = {};
-droids.forEach((ship) => {
-  droidData[ship.id] = ship;
-});
+const droidData = {}
+droids.forEach(ship => {
+  droidData[ship.id] = ship
+})
 
 const starships = [
   {
-    id: '3000',
-    name: 'Millenium Falcon',
+    id: "3000",
+    name: "Millenium Falcon",
     length: 34.37,
   },
   {
-    id: '3001',
-    name: 'X-Wing',
+    id: "3001",
+    name: "X-Wing",
     length: 12.5,
   },
   {
-    id: '3002',
-    name: 'TIE Advanced x1',
+    id: "3002",
+    name: "TIE Advanced x1",
     length: 9.2,
   },
   {
-    id: '3003',
-    name: 'Imperial shuttle',
+    id: "3003",
+    name: "Imperial shuttle",
     length: 20,
   },
-];
+]
 
-const starshipData = {};
-starships.forEach((ship) => {
-  starshipData[ship.id] = ship;
-});
+const starshipData = {}
+starships.forEach(ship => {
+  starshipData[ship.id] = ship
+})
 
 /**
  * Helper function to get a character by ID.
  */
 function getCharacter(id) {
   // Returning a promise just to illustrate GraphQL.js's support.
-  return Promise.resolve(humanData[id] || droidData[id]);
+  return Promise.resolve(humanData[id] || droidData[id])
 }
 
 /**
  * Allows us to query for a character's friends.
  */
 function getFriends(character) {
-  return character.friends.map(id => getCharacter(id));
+  return character.friends.map(id => getCharacter(id))
 }
 
 /**
  * Allows us to fetch the undisputed hero of the Star Wars trilogy, R2-D2.
  */
 function getHero(episode) {
-  if (episode === 'EMPIRE') {
+  if (episode === "EMPIRE") {
     // Luke is the hero of Episode V.
-    return humanData['1000'];
+    return humanData["1000"]
   }
   // Artoo is the hero otherwise.
-  return droidData['2001'];
+  return droidData["2001"]
 }
 
 /**
  * Allows us to query for the human with the given id.
  */
 function getHuman(id) {
-  return humanData[id];
+  return humanData[id]
 }
 
 /**
  * Allows us to query for the droid with the given id.
  */
 function getDroid(id) {
-  return droidData[id];
+  return droidData[id]
 }
 
 function getStarship(id) {
-  return starshipData[id];
+  return starshipData[id]
 }
 
 function toCursor(str) {
-  return Buffer("cursor" + str).toString('base64');
+  return Buffer("cursor" + str).toString("base64")
 }
 
 function fromCursor(str) {
-  return Buffer.from(str, 'base64').toString().slice(6);
+  return Buffer.from(str, "base64").toString().slice(6)
 }
 
 const resolvers = {
@@ -366,58 +366,56 @@ const resolvers = {
     starship: (root, { id }) => getStarship(id),
     reviews: () => null,
     search: (root, { text }) => {
-      const re = new RegExp(text, 'i');
+      const re = new RegExp(text, "i")
 
-      const allData = [
-        ...humans,
-        ...droids,
-        ...starships,
-      ];
+      const allData = [...humans, ...droids, ...starships]
 
-      return allData.filter((obj) => re.test(obj.name));
+      return allData.filter(obj => re.test(obj.name))
     },
   },
   Mutation: {
     createReview: (root, { episode, review }) => review,
   },
   Character: {
-    __resolveType(data, context, info){
-      if(humanData[data.id]){
-        return 'Human';
+    __resolveType(data, context, info) {
+      if (humanData[data.id]) {
+        return "Human"
       }
-      if(droidData[data.id]){
-        return 'Droid';
+      if (droidData[data.id]) {
+        return "Droid"
       }
-      return null;
+      return null
     },
   },
   Human: {
     height: ({ height }, { unit }) => {
-      if (unit === 'FOOT') {
-        return height * 3.28084;
+      if (unit === "FOOT") {
+        return height * 3.28084
       }
 
-      return height;
+      return height
     },
     friends: ({ friends }) => friends.map(getCharacter),
     friendsConnection: ({ friends }, { first, after }) => {
-      first = first || friends.length;
-      after = after ? parseInt(fromCursor(after), 10) : 0; 
-      const edges = friends.map((friend, i) => ({
-        cursor: toCursor(i+1),
-        node: getCharacter(friend)
-      })).slice(after, first + after);
-      const slicedFriends = edges.map(({ node }) => node);
+      first = first || friends.length
+      after = after ? parseInt(fromCursor(after), 10) : 0
+      const edges = friends
+        .map((friend, i) => ({
+          cursor: toCursor(i + 1),
+          node: getCharacter(friend),
+        }))
+        .slice(after, first + after)
+      const slicedFriends = edges.map(({ node }) => node)
       return {
         edges,
         friends: slicedFriends,
         pageInfo: {
           startCursor: edges.length > 0 ? edges[0].cursor : null,
           hasNextPage: first + after < friends.length,
-          endCursor: edges.length > 0 ? edges[edges.length - 1].cursor : null
+          endCursor: edges.length > 0 ? edges[edges.length - 1].cursor : null,
         },
-        totalCount: friends.length
-      };
+        totalCount: friends.length,
+      }
     },
     starships: ({ starships }) => starships.map(getStarship),
     appearsIn: ({ appearsIn }) => appearsIn,
@@ -425,23 +423,25 @@ const resolvers = {
   Droid: {
     friends: ({ friends }) => friends.map(getCharacter),
     friendsConnection: ({ friends }, { first, after }) => {
-      first = first || friends.length;
-      after = after ? parseInt(fromCursor(after), 10) : 0; 
-      const edges = friends.map((friend, i) => ({
-        cursor: toCursor(i+1),
-        node: getCharacter(friend)
-      })).slice(after, first + after);
-      const slicedFriends = edges.map(({ node }) => node);
+      first = first || friends.length
+      after = after ? parseInt(fromCursor(after), 10) : 0
+      const edges = friends
+        .map((friend, i) => ({
+          cursor: toCursor(i + 1),
+          node: getCharacter(friend),
+        }))
+        .slice(after, first + after)
+      const slicedFriends = edges.map(({ node }) => node)
       return {
         edges,
         friends: slicedFriends,
         pageInfo: {
           startCursor: edges.length > 0 ? edges[0].cursor : null,
           hasNextPage: first + after < friends.length,
-          endCursor: edges.length > 0 ? edges[edges.length - 1].cursor : null
+          endCursor: edges.length > 0 ? edges[edges.length - 1].cursor : null,
         },
-        totalCount: friends.length
-      };
+        totalCount: friends.length,
+      }
     },
     appearsIn: ({ appearsIn }) => appearsIn,
   },
@@ -457,25 +457,25 @@ const resolvers = {
   },
   Starship: {
     length: ({ length }, { unit }) => {
-      if (unit === 'FOOT') {
-        return length * 3.28084;
+      if (unit === "FOOT") {
+        return length * 3.28084
       }
 
-      return length;
-    }
+      return length
+    },
   },
   SearchResult: {
-    __resolveType(data, context, info){
-      if(humanData[data.id]){
-        return 'Human';
+    __resolveType(data, context, info) {
+      if (humanData[data.id]) {
+        return "Human"
       }
-      if(droidData[data.id]){
-        return 'Droid';
+      if (droidData[data.id]) {
+        return "Droid"
       }
-      if(starshipData[data.id]){
-        return 'Starship';
+      if (starshipData[data.id]) {
+        return "Starship"
       }
-      return null;
+      return null
     },
   },
 }
@@ -486,5 +486,5 @@ const resolvers = {
  */
 export const StarWarsSchema = makeExecutableSchema({
   typeDefs,
-  resolvers
-});
+  resolvers,
+})

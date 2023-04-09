@@ -9,26 +9,26 @@ npm: "graphql-shield"
 GraphQL Shield helps you create a permission layer for your application. Using an intuitive rule-API, you'll gain the power of the shield engine on every request and reduce the load time of every request with smart caching. This way you can make sure your application will remain quick, and no internal data will be exposed.
 
 ```ts
-import { rule, shield, and, or, not } from 'graphql-shield'
+import { rule, shield, and, or, not } from "graphql-shield"
 
 // Rules
 
-const isAuthenticated = rule({ cache: 'contextual' })(
+const isAuthenticated = rule({ cache: "contextual" })(
   async (parent, args, ctx, info) => {
     return ctx.user !== null
-  },
+  }
 )
 
-const isAdmin = rule({ cache: 'contextual' })(
+const isAdmin = rule({ cache: "contextual" })(
   async (parent, args, ctx, info) => {
-    return ctx.user.role === 'admin'
-  },
+    return ctx.user.role === "admin"
+  }
 )
 
-const isEditor = rule({ cache: 'contextual' })(
+const isEditor = rule({ cache: "contextual" })(
   async (parent, args, ctx, info) => {
-    return ctx.user.role === 'editor'
-  },
+    return ctx.user.role === "editor"
+  }
 )
 
 // Permissions
@@ -52,7 +52,7 @@ const server = new GraphQLServer({
   typeDefs,
   resolvers,
   middlewares: [permissions],
-  context: (req) => ({
+  context: req => ({
     ...req,
     user: getUser(req),
   }),

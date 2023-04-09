@@ -5,5 +5,3 @@ url: https://quicktype.io/
 github: quicktype/quicktype
 npm: "quicktype"
 ---
-
-

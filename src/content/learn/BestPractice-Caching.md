@@ -16,11 +16,11 @@ One possible pattern for this is reserving a field, like `id`, to be a globally 
 ```graphql
 # { "graphiql": true }
 {
-  starship(id:"3003") {
+  starship(id: "3003") {
     id
     name
   }
-  droid(id:"2001") {
+  droid(id: "2001") {
     id
     name
     friends {
@@ -33,7 +33,7 @@ One possible pattern for this is reserving a field, like `id`, to be a globally 
 
 This is a powerful tool to hand to client developers. In the same way that the URLs of a resource-based API provided a globally unique key, the `id` field in this system provides a globally unique key.
 
-If the backend uses something like UUIDs for identifiers, then exposing this globally unique ID may be very straightforward! If the backend doesn't have a globally unique ID for every object already, the GraphQL layer might have to construct this. Oftentimes, that's as simple as appending the name of the type to the ID and using that as the identifier; the server might then make that ID opaque by base64-encoding it. 
+If the backend uses something like UUIDs for identifiers, then exposing this globally unique ID may be very straightforward! If the backend doesn't have a globally unique ID for every object already, the GraphQL layer might have to construct this. Oftentimes, that's as simple as appending the name of the type to the ID and using that as the identifier; the server might then make that ID opaque by base64-encoding it.
 
 Optionally, this ID can then be used to work with the [Global Object Identification](/learn/global-object-identification)'s `node` pattern.
 
@@ -43,8 +43,8 @@ One concern with using the `id` field for this purpose is how a client using the
 
 In these cases, the GraphQL API can expose the previous API's IDs in a separate field. This gives us the best of both worlds:
 
- - GraphQL clients can continue to rely on a consistent mechanism for getting a globally unique ID.
- - Clients that need to work with our previous API can also fetch `previousApiId` from the object, and use that.
+- GraphQL clients can continue to rely on a consistent mechanism for getting a globally unique ID.
+- Clients that need to work with our previous API can also fetch `previousApiId` from the object, and use that.
 
 ## Alternatives
 

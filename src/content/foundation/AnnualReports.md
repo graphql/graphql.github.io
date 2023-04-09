@@ -17,4 +17,3 @@ If you have an item you'd like to add to the annual report, please contact [oper
 The GraphQL Foundation was founded in 2019, to support and sustain the GraphQL ecosystem. We had a busy first year!
 
 [Read the 2019 Annual Report »](/foundation/annual-reports/2019/)
-

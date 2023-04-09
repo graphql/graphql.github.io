@@ -11,7 +11,7 @@ import Header from "./Header"
 
 import MiniGraphiQL from "./MiniGraphiQL"
 import { StarWarsSchema } from "./swapiSchema"
-import { UsersSchema } from './usersSchema';
+import { UsersSchema } from "./usersSchema"
 
 export default function Marked(props: { children: string }) {
   return <div>{props.children && marked(props.children, props)}</div>
@@ -78,7 +78,8 @@ block.normal = merge({}, block)
 
 block.gfm = merge({}, block.normal, {
   //fences: /^ *(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/,
-  fences: /^ *(`{3,}|~{3,}) *([^\s{]+)?(?: *\{ *((?:\d+(?: *- *\d+)?(?: *, *\d+(?: *- *\d+)?)*) *)?\})? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/,
+  fences:
+    /^ *(`{3,}|~{3,}) *([^\s{]+)?(?: *\{ *((?:\d+(?: *- *\d+)?(?: *, *\d+(?: *- *\d+)?)*) *)?\})? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/,
   paragraph: /^/,
 })
 
@@ -569,7 +570,13 @@ InlineLexer.prototype.output = function (src) {
         href = text
       }
 
-      out.push(React.createElement("a", { href: this.sanitizeUrl(href), key:href }, text))
+      out.push(
+        React.createElement(
+          "a",
+          { href: this.sanitizeUrl(href), key: href },
+          text
+        )
+      )
       continue
     }
 
@@ -578,7 +585,13 @@ InlineLexer.prototype.output = function (src) {
       src = src.substring(cap[0].length)
       text = cap[1]
       href = text
-      out.push(React.createElement("a", { href: this.sanitizeUrl(href), key:href }, text))
+      out.push(
+        React.createElement(
+          "a",
+          { href: this.sanitizeUrl(href), key: href },
+          text
+        )
+      )
       continue
     }
 
@@ -861,7 +874,7 @@ Parser.prototype.tok = function () {
               StarWars: StarWarsSchema,
               Users: UsersSchema,
             }
-            const schema = schemaMap[metaData.schema || 'StarWars'];
+            const schema = schemaMap[metaData.schema || "StarWars"]
             return (
               <MiniGraphiQL
                 schema={schema}
@@ -898,14 +911,18 @@ Parser.prototype.tok = function () {
           React.createElement(
             "th",
             this.token.align[i]
-              ? { style: { textAlign: this.token.align[i] },key:i }
-              : {key:i},
+              ? { style: { textAlign: this.token.align[i] }, key: i }
+              : { key: i },
             heading
           )
         )
       }
       table.push(
-        React.createElement("thead", { key: this.tokens.length }, React.createElement("tr", null, row))
+        React.createElement(
+          "thead",
+          { key: this.tokens.length },
+          React.createElement("tr", null, row)
+        )
       )
 
       // body
@@ -917,15 +934,15 @@ Parser.prototype.tok = function () {
             React.createElement(
               "td",
               this.token.align[j]
-                ? { style: { textAlign: this.token.align[j],key:i } }
-                : {key:i},
+                ? { style: { textAlign: this.token.align[j], key: i } }
+                : { key: i },
               this.inline.output(cells[j])
             )
           )
         }
-        body.push(React.createElement("tr", {key:i}, row))
+        body.push(React.createElement("tr", { key: i }, row))
       }
-      table.push(React.createElement("thead", {key:i}, body))
+      table.push(React.createElement("thead", { key: i }, body))
 
       return React.createElement("table", null, table)
     }

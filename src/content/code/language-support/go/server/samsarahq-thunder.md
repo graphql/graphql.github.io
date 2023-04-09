@@ -4,5 +4,3 @@ description: A GraphQL implementation with easy schema building, live queries, a
 url: https://github.com/samsarahq/thunder
 github: samsarahq/thunder
 ---
-
-

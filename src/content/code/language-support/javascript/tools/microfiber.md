@@ -8,9 +8,9 @@ npm: "microfiber"
 
 Microfiber is a JavaScript library that allows:
 
-* Digging through your Introspection Query Results for a specific Query, Mutation, Type, Field, Argument or Subscription.
-* Removing a specific Query, Mutation, Type, Field/InputField, Argument or Subscription from your Introspection Query Results.
-* Removing Queries, Mutations, Fields/InputFields or Arguments that refer to Type that does not exist in - or has been removed from - your Introspection Query Results.
+- Digging through your Introspection Query Results for a specific Query, Mutation, Type, Field, Argument or Subscription.
+- Removing a specific Query, Mutation, Type, Field/InputField, Argument or Subscription from your Introspection Query Results.
+- Removing Queries, Mutations, Fields/InputFields or Arguments that refer to Type that does not exist in - or has been removed from - your Introspection Query Results.
 
 ```sh
 npm install microfiber

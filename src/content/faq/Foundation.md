@@ -14,10 +14,10 @@ The primary responsibility of the Foundation is to set policy and allocate the b
 The GraphQL Foundation is funded exclusively through the support of our members. The governing board sets an annual budget to use the dues to the maximum benefit of the community.
 Ways the Foundation distributes the money raised through memberships include:
 
-* Providing grants and sponsorship to core community developers who are working in neutral roles.
-* Funding core community IT infrastructure.
-* Funding coordination, financial, and legal support programs for the Foundation and the GraphQL project ecosystem.
-* Other community and developer support programs.
+- Providing grants and sponsorship to core community developers who are working in neutral roles.
+- Funding core community IT infrastructure.
+- Funding coordination, financial, and legal support programs for the Foundation and the GraphQL project ecosystem.
+- Other community and developer support programs.
 
 The GraphQL Foundation budget is realigned as the needs of the community change.
 

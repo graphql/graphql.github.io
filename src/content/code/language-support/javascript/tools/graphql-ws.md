@@ -5,5 +5,3 @@ url: https://github.com/enisdenjo/graphql-ws
 github: enisdenjo/graphql-ws
 npm: "graphql-ws"
 ---
-
-

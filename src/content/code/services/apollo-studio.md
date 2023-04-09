@@ -4,5 +4,3 @@ description: A cloud service that helps you build, validate, monitor and secure 
 url: https://www.apollographql.com/docs/studio/
 github: apollographql/apollo-studio-community
 ---
-
-

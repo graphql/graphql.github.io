@@ -4,5 +4,3 @@ description: A simple Python GraphQL client. Supports generating code generation
 url: https://github.com/profusion/sgqlc
 github: profusion/sgqlc
 ---
-
-
