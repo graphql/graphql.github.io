@@ -40,7 +40,7 @@ Please be patient and polite. These are not explicitly user support channels, al
 * [GraphQL Foundation Discord](https://discord.graphql.org)
 * [GraphQL Reddit Community](https://www.reddit.com/r/graphql/)
 * [GraphQL Community Facebook Group](https://www.facebook.com/groups/graphql.community/)
-* [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
+* [#help-graphql on the ReactiFlux Discord](https://discord.gg/aBtYAXxG7B)
 * [#graphql on freenode IRC](https://freenode.net/)
 
 <div style="clear:both;"></div>
