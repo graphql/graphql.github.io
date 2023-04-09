@@ -9,7 +9,6 @@
 
 import React from "react"
 import { marked } from "marked"
-import * as CodeMirror from "codemirror"
 
 import { graphql, formatError, parse, typeFromAST } from "graphql"
 
@@ -140,6 +139,17 @@ class QueryEditor extends React.Component {
   }
 
   componentDidMount() {
+    var CodeMirror = require("codemirror")
+    require("codemirror/addon/hint/show-hint")
+    require("codemirror/addon/comment/comment")
+    require("codemirror/addon/edit/matchbrackets")
+    require("codemirror/addon/edit/closebrackets")
+    require("codemirror/addon/lint/lint")
+    require("codemirror/keymap/sublime")
+    require("codemirror-graphql/hint")
+    require("codemirror-graphql/lint")
+    require("codemirror-graphql/mode")
+
     this.editor = CodeMirror(this.domNode, {
       value: this.props.value || "",
       viewportMargin: Infinity,
@@ -327,6 +337,15 @@ class VariableEditor extends React.Component {
   componentDidMount() {
     // Lazily require to ensure requiring GraphiQL outside of a Browser context
     // does not produce an error.
+    const CodeMirror = require("codemirror")
+    require("codemirror/addon/hint/show-hint")
+    require("codemirror/addon/edit/matchbrackets")
+    require("codemirror/addon/edit/closebrackets")
+    require("codemirror/addon/lint/lint")
+    require("codemirror/keymap/sublime")
+    require("codemirror-graphql/variables/hint")
+    require("codemirror-graphql/variables/lint")
+    require("codemirror-graphql/variables/mode")
 
     this.editor = CodeMirror(this.domNode, {
       value: this.props.value || "",
