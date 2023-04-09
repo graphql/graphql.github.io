@@ -96,6 +96,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
 - [GraphQL Zurich](https://www.meetup.com/graphql-zurich/)
+- [GraphQL Wroclaw](https://www.meetup.com/GraphQL-Wroclaw/)
 
 ### Australia
 
