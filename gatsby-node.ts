@@ -1,6 +1,6 @@
 import { GatsbyNode } from "gatsby"
 import * as path from "path"
-import * as globby from "globby"
+import { glob } from "glob"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
@@ -93,7 +93,7 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
     sourcePath: path.relative(__dirname, page.path),
   }
   if (page.path === "/code" || page.path === "/code/") {
-    const markdownFilePaths = await globby("src/content/code/**/*.md")
+    const markdownFilePaths = await glob("src/content/code/**/*.md")
     const slugMap = require("./src/content/code/slug-map.json")
     const codeData = await updateCodeData(markdownFilePaths, slugMap)
     const organizeData = await organizeCodeData(codeData)
