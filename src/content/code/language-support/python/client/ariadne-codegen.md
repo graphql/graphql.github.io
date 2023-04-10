@@ -42,14 +42,19 @@ $ ariadne-codegen
 And use it in your Python projects:
 
 ```python
+import asyncio
 from graphql_client import Client
 
-with Client("http://example.com/graphql/") as client:
-    result = client.create_token(username="Admin", password="Example123)
+
+async def create_token_gql():
+    client = Client("http://example.com/graphql/")
+    result = await client.create_token(username="Admin", password="Example123")
 
     if result.errors:
         error = result.errors[0]
         raise ValidationError({error.field: error.message})
 
-    auth_token = result.token
+    return result.token
+
+asyncio.run(create_token_gql())
 ```
