@@ -84,4 +84,4 @@ If you are using NodeJS, we recommend looking at the [list of server implementat
 
 ## Draft Transport Specification
 
-A detailed [HTTP & websockets transport specification](https://github.com/graphql/graphql-over-http) is in development. Though it is not yet finalized, these draft specifications act as a single source of truth for GraphQL client & library maintainers, detailing how to expose and consume a GraphQL API using an HTTP transport. Unlike the language specification, adherence is not mandatory, but most implementations are moving towards these standards to maximize interoperability.
+A detailed [HTTP transport specification](https://github.com/graphql/graphql-over-http) is in development. Though it is not yet finalized, these draft specifications act as a single source of truth for GraphQL client & library maintainers, detailing how to expose and consume a GraphQL API using an HTTP transport. Unlike the language specification, adherence is not mandatory, but most implementations are moving towards these standards to maximize interoperability.
