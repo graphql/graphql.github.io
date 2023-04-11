@@ -54,13 +54,6 @@ A standard GraphQL POST request should use the `application/json` content type, 
 
 `operationName` and `variables` are optional fields. `operationName` is only required if multiple operations are present in the query.
 
-In addition to the above, we recommend supporting two additional cases:
-
-- If the "query" query string parameter is present (as in the GET example above), it should be parsed and handled in the same way as the HTTP GET case.
-- If the "application/graphql" Content-Type header is present, treat the HTTP POST body contents as the GraphQL query string.
-
-If you're using express-graphql, you already get these behaviors for free.
-
 ## Response
 
 Regardless of the method by which the query and variables were sent, the response should be returned in the body of the request in JSON format. As mentioned in the spec, a query might result in some data and some errors, and those should be returned in a JSON object of the form:
@@ -91,4 +84,4 @@ If you are using NodeJS, we recommend looking at the [list of server implementat
 
 ## Draft Transport Specification
 
-A detailed [HTTP & websockets transport specification](https://github.com/graphql/graphql-over-http) is in development. Though it is not yet finalized, these draft specifications act as a single source of truth for GraphQL client & library maintainers, detailing how to expose and consume a GraphQL API using an HTTP transport. Unlike the language specification, adherence is not mandatory, but most implementations are moving towards these standards to maximize interoperability.
+A detailed [HTTP transport specification](https://github.com/graphql/graphql-over-http) is in development. Though it is not yet finalized, these draft specifications act as a single source of truth for GraphQL client & library maintainers, detailing how to expose and consume a GraphQL API using an HTTP transport. Unlike the language specification, adherence is not mandatory, but most implementations are moving towards these standards to maximize interoperability.
