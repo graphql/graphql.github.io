@@ -17,9 +17,9 @@ We would like to encourage you to be creative in your grant application, and pro
 
 Examples include:
 
-* Finishing an outstanding feature that has been untended
-* Community gardening, such as clarifying documentation of community processes, getting started guides for newcomers, maintaining "Good first issue" lists, or organizing a community collaboration.
-* Community advocacy, such as writing a deep-dive blog documenting a specific feature, writing a whitepaper, or creating an outreach program.
+- Finishing an outstanding feature that has been untended
+- Community gardening, such as clarifying documentation of community processes, getting started guides for newcomers, maintaining "Good first issue" lists, or organizing a community collaboration.
+- Community advocacy, such as writing a deep-dive blog documenting a specific feature, writing a whitepaper, or creating an outreach program.
 
 ## How to apply
 
@@ -50,7 +50,7 @@ You can apply one time per cycle. You can apply in every cycle regardless of whe
 Any individual working in the GraphQL developer community who can receive a payment from a US-based
 organization. Please note that this program is not work-for-hire, and this is not an employment arrangement.
 
-*Only individuals are eligible to receive funding.*
+_Only individuals are eligible to receive funding._
 
 ### Are there any restrictions on what I produce?
 

@@ -4,5 +4,3 @@ description: Create a serverless GraphQL API based on your data sources (REST & 
 url: https://stepzen.com/docs/
 github: stepzen-dev/examples
 ---
-
-

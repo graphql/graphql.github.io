@@ -7,11 +7,7 @@ interface Props {
   pageContext: any
 }
 
-const index = ({
-  title,
-  rawMarkdownBody,
-  pageContext
-}: Props) => {
+const index = ({ title, rawMarkdownBody, pageContext }: Props) => {
   return (
     <section>
       <div className="documentationContent">

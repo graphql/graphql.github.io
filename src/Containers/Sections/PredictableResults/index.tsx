@@ -84,8 +84,7 @@ const PredictableResults = () => {
           <div id="r1">
             <Prism
               language="json"
-              code={
-`{
+              code={`{
   "hero": {
       "name": "Luke Skywalker"
   }
@@ -95,8 +94,7 @@ const PredictableResults = () => {
           <div id="r2">
             <Prism
               language="json"
-              code={
-`{
+              code={`{
   "hero": {
       "name": "Luke Skywalker",
       "height": 1.72
@@ -107,8 +105,7 @@ const PredictableResults = () => {
           <div id="r3">
             <Prism
               language="json"
-              code={
-`{
+              code={`{
   "hero": {
       "name": "Luke Skywalker",
       "height": 1.72,

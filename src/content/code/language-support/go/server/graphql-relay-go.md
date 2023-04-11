@@ -4,5 +4,3 @@ description: A Go/Golang library to help construct a graphql-go server supportin
 url: https://github.com/graphql-go/relay
 github: graphql-go/relay
 ---
-
-

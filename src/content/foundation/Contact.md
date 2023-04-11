@@ -11,8 +11,8 @@ next: /foundation/annual-reports/
 
 The GraphQL Foundation is supported by staff from [The Linux Foundation](https://linuxfoundation.org). If you have questions, please reach out to us using the links below.
 
-*Please note that we do not provide user support for GraphQL. If you have an implementation question,
-please use the [relevant community channels](/community/).*
+_Please note that we do not provide user support for GraphQL. If you have an implementation question,
+please use the [relevant community channels](/community/)._
 
 ## Membership Inquiries
 

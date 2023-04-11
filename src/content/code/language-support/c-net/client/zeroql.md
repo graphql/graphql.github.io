@@ -1,6 +1,6 @@
 ---
 name: ZeroQL
-description: ZeroQL is a open-source GraphQL client for C# 
+description: ZeroQL is a open-source GraphQL client for C#
 url: https://github.com/byme8/ZeroQL
 github: byme8/ZeroQL
 ---

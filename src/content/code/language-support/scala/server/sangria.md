@@ -6,6 +6,7 @@ github: sangria-graphql/sangria
 ---
 
 An example of a hello world GraphQL schema and query with `sangria`:
+
 ```scala
 import sangria.schema._
 import sangria.execution._

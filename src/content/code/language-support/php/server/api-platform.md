@@ -37,5 +37,5 @@ class Greeting
     public $hello;
 }
 ```
-Other API Platform features include data validation, authentication, authorization, deprecations, cache and GraphiQL integration.
 
+Other API Platform features include data validation, authentication, authorization, deprecations, cache and GraphiQL integration.

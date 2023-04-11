@@ -6,10 +6,13 @@ github: tartiflette/tartiflette
 ---
 
 To run a tartiflette hello world script:
+
 ```bash
 pip install tartiflette
 ```
+
 Then run `python hello.py` with this code in `hello.py`:
+
 ```python
 import asyncio
 from tartiflette import Engine, Resolver
@@ -31,4 +34,5 @@ if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(run())
 ```
+
 There is also a nice [HTTP wrapper](https://github.com/dailymotion/tartiflette-aiohttp).

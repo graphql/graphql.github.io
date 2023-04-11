@@ -14,17 +14,17 @@ labels: bug
 
 <!-- Steps for how we can replicate your experience (numbered lists are best) -->
 
-### Expected Result 
+### Expected Result
 
 <!-- What did you expect to happen? -->
 
-### Actual Result 
+### Actual Result
 
 <!-- What actually happened? -->
 
 ### Additional Context
 
-<!-- 
+<!--
     Anything else that will help us better understand, for example:
       * Information about your local environment
       * Screenshots

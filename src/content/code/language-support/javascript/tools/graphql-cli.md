@@ -5,5 +5,3 @@ url: https://graphql-cli.com
 github: Urigo/graphql-cli
 npm: "graphql-cli"
 ---
-
-

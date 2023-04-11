@@ -5,5 +5,3 @@ url: https://graphql-modules.com
 github: Urigo/graphql-modules
 npm: "graphql-modules"
 ---
-
-

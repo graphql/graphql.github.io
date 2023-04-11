@@ -5,5 +5,3 @@ url: https://github.com/kadirahq/lokka
 github: kadirahq/lokka
 npm: "lokka"
 ---
-
-

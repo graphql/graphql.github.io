@@ -5,5 +5,3 @@ url: https://graphql-inspector.com/
 github: kamilkisiela/graphql-inspector
 npm: "@graphql-inspector/cli"
 ---
-
-

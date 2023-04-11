@@ -2,25 +2,25 @@
 
 > This repository is governed by the [GraphQL Code of Conduct](https://graphql.org/codeofconduct/). By contributing, you agree to abide by its terms.
 
-Thanks for taking the time to contribute! The GraphQL community is great because of people like you 🎉 
+Thanks for taking the time to contribute! The GraphQL community is great because of people like you 🎉
 
 There are many ways to get involved. Follow this guide and feel free to [reach out if you have questions](#asking-questions).
 
 ## What's in this document
 
 - [Development guide](#development-guide)
-    - [Running the site locally](#running-the-site-locally)
-    - [Branching](#branching)
-    - [Project structure](#project-structure)
-    - [Publishing the updated site](#publishing-the-updated-site)
+  - [Running the site locally](#running-the-site-locally)
+  - [Branching](#branching)
+  - [Project structure](#project-structure)
+  - [Publishing the updated site](#publishing-the-updated-site)
 - [Updating content](#updating-content)
-    - [Fix a typo, code sample bug, or formatting](#fix-a-typo-code-sample-bug-or-formatting)
-    - [Add a library or tool to the Code page](#add-a-library-or-tool-to-the-code-page)
-    - [Add a resource to the Community page](#add-a-resource-to-the-community-page)
-    - [Add a question to the FAQ](#add-a-question-to-the-faq)
-    - [Write a new section or guide](#write-a-new-section-or-guide)
+  - [Fix a typo, code sample bug, or formatting](#fix-a-typo-code-sample-bug-or-formatting)
+  - [Add a library or tool to the Code page](#add-a-library-or-tool-to-the-code-page)
+  - [Add a resource to the Community page](#add-a-resource-to-the-community-page)
+  - [Add a question to the FAQ](#add-a-question-to-the-faq)
+  - [Write a new section or guide](#write-a-new-section-or-guide)
 - [Making changes to the code](#making-changes-to-the-code)
-    - [Browser support](#browser-support)
+  - [Browser support](#browser-support)
 - [Contributing something else](#contributing-something-else)
 - [Asking questions](#asking-questions)
 
@@ -28,7 +28,7 @@ There are many ways to get involved. Follow this guide and feel free to [reach o
 
 ### Running the site locally
 
-First, clone this repository and move into the directory: 
+First, clone this repository and move into the directory:
 
 ```bash
 git clone https://github.com/graphql/graphql.github.io.git
@@ -38,7 +38,7 @@ cd graphql.github.io
 Then, use [Yarn](https://yarnpkg.com/getting-started/install) to install and load all the necessary dependencies:
 
 ```bash
-yarn 
+yarn
 ```
 
 > Note: [Yarn is currently the only way to run the site locally](https://github.com/graphql/graphql.github.io/issues/946).
@@ -51,22 +51,22 @@ yarn start
 
 Finally, open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
-The GraphQL website is built with [Gatsby](https://www.gatsbyjs.com/docs/). This means that a hot-reloading development environment will be accessible by default. 
+The GraphQL website is built with [Gatsby](https://www.gatsbyjs.com/docs/). This means that a hot-reloading development environment will be accessible by default.
 
 ### Branching
 
-Active development for graphql.org happens on the `source` branch. Be sure to create any new branches or direct any pull requests back to `source`. 
+Active development for graphql.org happens on the `source` branch. Be sure to create any new branches or direct any pull requests back to `source`.
 
 ### Project structure
 
-- `static`: Files that will be copied directly to `public`. 
+- `static`: Files that will be copied directly to `public`.
 - `public`: Output files that will be served by a static HTTP server.
 - `src`: Markdown and the TypeScript/JavaScript files used to generate the website.
-    - `assets`: All the [`less`](http://lesscss.org/) files that contain stylesheets.
-    - `components` and `Containers`: React components used for layouts and pages.
-    - `content`: Markdown files with the content of pages.
-    - `templates`: Layout templates.
-    - `utils`: Helper functions.
+  - `assets`: All the [`less`](http://lesscss.org/) files that contain stylesheets.
+  - `components` and `Containers`: React components used for layouts and pages.
+  - `content`: Markdown files with the content of pages.
+  - `templates`: Layout templates.
+  - `utils`: Helper functions.
 
 ### Publishing the updated site
 
@@ -76,7 +76,7 @@ Your changes will be merged into the `source` branch. Then, the CI will automati
 
 ### Fix a typo, code sample bug, or formatting
 
-If you notice something wrong in the text or code samples, please follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls) with your fix. 
+If you notice something wrong in the text or code samples, please follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls) with your fix.
 
 All of the content on graphql.org is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
@@ -87,23 +87,25 @@ The [Code page](https://graphql.org/code/) is a collection of libraries, tools, 
 #### General guidelines
 
 **Adding a resource:**
+
 - With rare exceptions, any pull request that adds a new library, tool, or service to the Code page will be accepted.
 - Any library should include a few paragraphs describing the usage and offering people a chance to grok the project priorities.
-- If there isn't a section already for your programming language, please add it. 
+- If there isn't a section already for your programming language, please add it.
 
 If it isn't a library, tool, or service - then it could go on the [Community page](#add-a-resource-to-the-community-page). If you aren't sure where your resource would fit, you can [open an issue](https://github.com/graphql/graphql.github.io/issues/new) and ask.
 
 **Removing a resource:**
+
 - Services that don't work anymore
 - Code repositories that are archived
 - Projects declared to be abandoned by their maintainers
 - Any link that 404s
 
-We rely on these concrete signals before removing a resource. Even if a project hasn't been released in a few years, that doesn't mean that it's not working. 
+We rely on these concrete signals before removing a resource. Even if a project hasn't been released in a few years, that doesn't mean that it's not working.
 
 #### Workflow
 
-To add or remove a resource to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls). 
+To add or remove a resource to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls).
 
 The content for this page is located in [various directories under `src/content/code`](./src/). Everything is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
@@ -111,7 +113,7 @@ The content for this page is located in [various directories under `src/content/
 
 The [Community page](https://graphql.org/community/) highlights resources and groups that help people get more involved with GraphQL.
 
-To add something to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls). 
+To add something to this page, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls).
 
 The content for this page is located in a [directory under `src/content/community`](./src/). Everything is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
@@ -129,7 +131,7 @@ When your answer is ready, [open a pull request](https://github.com/graphql/grap
 
 There are still several [Best Practices guides that no one has written](https://github.com/graphql/graphql.github.io/issues/41) yet. If you want to take one of these, comment on [the original issue](https://github.com/graphql/graphql.github.io/issues/41) and mention which topic you'll work on.
 
-Then, use our [development guide](#development-guide) to determine where your new page best fits. Our documentation is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/). 
+Then, use our [development guide](#development-guide) to determine where your new page best fits. Our documentation is written and formatted in [Markdown](https://www.gatsbyjs.com/docs/mdx/markdown-syntax/).
 
 Once it's ready for review, please [open a pull request](https://github.com/graphql/graphql.github.io/pulls/).
 
@@ -141,7 +143,7 @@ If you're working off an [existing issue](https://github.com/graphql/graphql.git
 
 ### Browser support
 
-We aim to support the latest stable versions of Chrome, Edge, Firefox, Safari, and Safari on mobile. 
+We aim to support the latest stable versions of Chrome, Edge, Firefox, Safari, and Safari on mobile.
 
 ## Contributing something else
 
@@ -149,7 +151,7 @@ Interested in adding something not covered in this guide? Please [open an issue]
 
 ## Asking questions
 
-If you run into any problems or have questions while contributing, you're always welcome to [open an issue](https://github.com/graphql/graphql.github.io/issues/new). 
+If you run into any problems or have questions while contributing, you're always welcome to [open an issue](https://github.com/graphql/graphql.github.io/issues/new).
 
 # Opening a PR to contribute your code
 
@@ -161,4 +163,4 @@ To initiate the signature process please open a PR against this repo. The EasyCL
 
 You can find [detailed information here](https://github.com/graphql/graphql-wg/tree/main/membership). If you have issues, please email [operations@graphql.org](mailto:operations@graphql.org).
 
-If your company benefits from GraphQL and you would like to provide essential financial support for the systems and people that power our community, please also consider membership in the [GraphQL Foundation](https://foundation.graphql.org/join). 
+If your company benefits from GraphQL and you would like to provide essential financial support for the systems and people that power our community, please also consider membership in the [GraphQL Foundation](https://foundation.graphql.org/join).

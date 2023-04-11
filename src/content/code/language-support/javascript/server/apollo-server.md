@@ -15,17 +15,17 @@ npm install @apollo/server graphql
 Then run `node server.js` with this code in `server.js`:
 
 ```js
-import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
+import { ApolloServer } from "@apollo/server"
+import { startStandaloneServer } from "@apollo/server/standalone"
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-});
+})
 
-const { url } = await startStandaloneServer(server);
-  
-console.log(`🚀 Server ready at ${url}`);
+const { url } = await startStandaloneServer(server)
+
+console.log(`🚀 Server ready at ${url}`)
 ```
 
 Apollo Server has a built in standalone HTTP server and middleware for Express, and has an framework integration API that supports all [Node.js HTTP server frameworks and serverless environments](https://www.apollographql.com/docs/apollo-server/integrations/integration-index) via community integrations.

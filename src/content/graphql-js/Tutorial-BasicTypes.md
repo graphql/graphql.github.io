@@ -17,9 +17,9 @@ To use a list type, surround the type in square brackets, so `[Int]` is a list o
 Each of these types maps straightforwardly to JavaScript, so you can just return plain old JavaScript objects in APIs that return these types. Here's an example that shows how to use some of these basic types:
 
 ```javascript
-var express = require('express');
-var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
+var express = require("express")
+var { graphqlHTTP } = require("express-graphql")
+var { buildSchema } = require("graphql")
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
@@ -28,29 +28,32 @@ var schema = buildSchema(`
     random: Float!
     rollThreeDice: [Int]
   }
-`);
+`)
 
 // The root provides a resolver function for each API endpoint
 var root = {
   quoteOfTheDay: () => {
-    return Math.random() < 0.5 ? 'Take it easy' : 'Salvation lies within';
+    return Math.random() < 0.5 ? "Take it easy" : "Salvation lies within"
   },
   random: () => {
-    return Math.random();
+    return Math.random()
   },
   rollThreeDice: () => {
-    return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6));
+    return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6))
   },
-};
+}
 
-var app = express();
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
-app.listen(4000);
-console.log('Running a GraphQL API server at localhost:4000/graphql');
+var app = express()
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true,
+  })
+)
+app.listen(4000)
+console.log("Running a GraphQL API server at localhost:4000/graphql")
 ```
 
 If you run this code with `node server.js` and browse to http://localhost:4000/graphql you can try out these APIs.

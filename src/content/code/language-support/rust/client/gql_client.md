@@ -6,6 +6,7 @@ github: arthurkhlghatyan/gql-client-rs
 ---
 
 Usage example
+
 ```rust
 use gql_client::Client;
 

@@ -4,5 +4,3 @@ description: A SaaS (Software as a Service) content management system that allow
 url: https://tipe.io
 github: tipeio/tipe
 ---
-
-

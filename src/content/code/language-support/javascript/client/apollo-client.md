@@ -5,5 +5,3 @@ url: http://apollographql.com/client/
 github: apollographql/apollo-client
 npm: "@apollo/client"
 ---
-
-

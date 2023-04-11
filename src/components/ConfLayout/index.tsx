@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import DocsSidebar from "../DocsSidebar"
-import Marked from '../Marked'
+import Marked from "../Marked"
 
 interface Props {
   title: string
@@ -13,14 +13,21 @@ interface Props {
   pageContext: any
 }
 
-const Index = ({ title, heroText, nextDoc, sideBarData, rawMarkdownBody, pageContext }: Props) => {
+const Index = ({
+  title,
+  heroText,
+  nextDoc,
+  sideBarData,
+  rawMarkdownBody,
+  pageContext,
+}: Props) => {
   return (
     <section>
       <div className="foundation conf">
         <div className="foundation-hero">
           <div className="foundation-hero-inner-content">
-              <img src="/img/conf/graphql-conf-logo.svg" alt="GraphQLConf logo" />
-              <div>{heroText}</div>
+            <img src="/img/conf/graphql-conf-logo.svg" alt="GraphQLConf logo" />
+            <div>{heroText}</div>
           </div>
         </div>
         <div className="documentationContent">

@@ -25,16 +25,16 @@ It's often convenient to have a mutation that maps to a database create or updat
 Both mutations and queries can be handled by root resolvers, so the root that implements this schema can simply be:
 
 ```javascript
-var fakeDatabase = {};
+var fakeDatabase = {}
 var root = {
-  setMessage: ({message}) => {
-    fakeDatabase.message = message;
-    return message;
+  setMessage: ({ message }) => {
+    fakeDatabase.message = message
+    return message
   },
   getMessage: () => {
-    return fakeDatabase.message;
-  }
-};
+    return fakeDatabase.message
+  },
+}
 ```
 
 You don't need anything more than this to implement mutations. But in many cases, you will find a number of different mutations that all accept the same input parameters. A common example is that creating an object in a database and updating an object in a database often take the same parameters. To make your schema simpler, you can use “input types” for this, by using the `input` keyword instead of the `type` keyword.
@@ -72,9 +72,9 @@ Naming input types with `Input` on the end is a useful convention, because you w
 Here's some runnable code that implements this schema, keeping the data in memory:
 
 ```javascript
-var express = require('express');
-var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
+var express = require("express")
+var { graphqlHTTP } = require("express-graphql")
+var { buildSchema } = require("graphql")
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
@@ -97,54 +97,56 @@ var schema = buildSchema(`
     createMessage(input: MessageInput): Message
     updateMessage(id: ID!, input: MessageInput): Message
   }
-`);
+`)
 
 // If Message had any complex fields, we'd put them on this object.
 class Message {
-  constructor(id, {content, author}) {
-    this.id = id;
-    this.content = content;
-    this.author = author;
+  constructor(id, { content, author }) {
+    this.id = id
+    this.content = content
+    this.author = author
   }
 }
 
 // Maps username to content
-var fakeDatabase = {};
+var fakeDatabase = {}
 
 var root = {
-  getMessage: ({id}) => {
+  getMessage: ({ id }) => {
     if (!fakeDatabase[id]) {
-      throw new Error('no message exists with id ' + id);
+      throw new Error("no message exists with id " + id)
     }
-    return new Message(id, fakeDatabase[id]);
+    return new Message(id, fakeDatabase[id])
   },
-  createMessage: ({input}) => {
+  createMessage: ({ input }) => {
     // Create a random id for our "database".
-    var id = require('crypto').randomBytes(10).toString('hex');
+    var id = require("crypto").randomBytes(10).toString("hex")
 
-    fakeDatabase[id] = input;
-    return new Message(id, input);
+    fakeDatabase[id] = input
+    return new Message(id, input)
   },
-  updateMessage: ({id, input}) => {
+  updateMessage: ({ id, input }) => {
     if (!fakeDatabase[id]) {
-      throw new Error('no message exists with id ' + id);
+      throw new Error("no message exists with id " + id)
     }
     // This replaces all old data, but some apps might want partial update.
-    fakeDatabase[id] = input;
-    return new Message(id, input);
+    fakeDatabase[id] = input
+    return new Message(id, input)
   },
-};
+}
 
-var app = express();
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
+var app = express()
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true,
+  })
+)
 app.listen(4000, () => {
-  console.log('Running a GraphQL API server at localhost:4000/graphql');
-});
-
+  console.log("Running a GraphQL API server at localhost:4000/graphql")
+})
 ```
 
 To call a mutation, you must use the keyword `mutation` before your GraphQL query. To pass an input type, provide the data written as if it's a JSON object. For example, with the server defined above, you can create a new message and return the `id` of the new message with this operation:
@@ -163,19 +165,19 @@ mutation {
 You can use variables to simplify mutation client logic just like you can with queries. For example, some JavaScript code that calls the server to execute this mutation is:
 
 ```javascript
-var author = 'andy';
-var content = 'hope is a good thing';
+var author = "andy"
+var content = "hope is a good thing"
 var query = `mutation CreateMessage($input: MessageInput) {
   createMessage(input: $input) {
     id
   }
-}`;
+}`
 
-fetch('/graphql', {
-  method: 'POST',
+fetch("/graphql", {
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
   body: JSON.stringify({
     query,
@@ -183,12 +185,12 @@ fetch('/graphql', {
       input: {
         author,
         content,
-      }
-    }
-  })
+      },
+    },
+  }),
 })
   .then(r => r.json())
-  .then(data => console.log('data returned:', data));
+  .then(data => console.log("data returned:", data))
 ```
 
 One particular type of mutation is operations that change users, like signing up a new user. While you can implement this using GraphQL mutations, you can reuse many existing libraries if you learn about [GraphQL with authentication and Express middleware](/graphql-js/authentication-and-express-middleware/).

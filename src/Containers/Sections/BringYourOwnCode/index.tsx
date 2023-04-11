@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import Prism from "../../../components/Prism"
 
 const Index = (): JSX.Element => {
-
   useEffect(() => {
     let i = 0
     var inView = document.getElementById("leverageCodeView")
@@ -15,7 +14,7 @@ const Index = (): JSX.Element => {
     }
     step()
     return () => clearTimeout(timer)
-  },[])
+  }, [])
 
   return (
     <section className="point6" id="bring-your-own-code">
@@ -38,8 +37,7 @@ const Index = (): JSX.Element => {
         <div id="leverageCodeView">
           <Prism
             language="graphql"
-            code={
-`type Character {
+            code={`type Character {
     name: String
     homeWorld: Planet
     friends: [Character]
@@ -47,8 +45,7 @@ const Index = (): JSX.Element => {
           />
           <Prism
             language="javascript"
-            code={
-`// type Character {
+            code={`// type Character {
 class Character {
     // name: String
     getName() {
@@ -68,8 +65,7 @@ class Character {
           />
           <Prism
             language="javascript"
-            code={
-`# type Character {
+            code={`# type Character {
 class Character:
     # name: String
     def name(self):
