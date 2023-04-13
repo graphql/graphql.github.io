@@ -10,7 +10,7 @@ type Button = {
   text: string
 }
 
-const Buttons: Button[]  = [
+const Buttons: Button[] = [
   {
     href: "https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf",
     text: "Explore Sponsorship Opportunity",
@@ -36,9 +36,11 @@ export default () => {
               <span className="block lg:inline">Sponsor GraphQLConf 2023</span>
             </div>
             <div className="flex justify-center items-center gap-4 flex-col sm:flex-row">
-              {Buttons.map((button) => (
-                <ButtonConf key={button.text } href={button.href}>{button.text}</ButtonConf>
-              )) }
+              {Buttons.map(button => (
+                <ButtonConf key={button.text} href={button.href}>
+                  {button.text}
+                </ButtonConf>
+              ))}
             </div>
           </div>
           <div className="mx-auto max-w-prose mt-8">
