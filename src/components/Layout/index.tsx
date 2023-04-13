@@ -21,7 +21,7 @@ const IndexLayout = ({
       {children}
       <Footer sourcePath={sourcePath} />
     </div>
-    <BackToTop scrollThreshold={1000}/>
+    <BackToTop scrollThreshold={1000} />
   </>
 )
 
