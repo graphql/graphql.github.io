@@ -5,6 +5,26 @@ import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 import SeoConf from "../../components/Conf/Seo"
 
+type Button = {
+  href: string
+  text: string
+}
+
+const Buttons: Button[]  = [
+  {
+    href: "https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf",
+    text: "Explore Sponsorship Opportunity",
+  },
+  {
+    href: "https://powerforms.docusign.net/ba1e05a3-244d-4c94-9b3a-fd769966e479?env=na3&acct=f30e10ec-fea1-4dd8-a262-384a61edabb5&accountId=f30e10ec-fea1-4dd8-a262-384a61edabb5",
+    text: "Ready To Sign",
+  },
+  {
+    href: "mailto:graphqlconf@graphql.org?subject=Sponsorships",
+    text: "Contact Us",
+  },
+]
+
 export default () => {
   return (
     <LayoutConf>
@@ -16,12 +36,9 @@ export default () => {
               <span className="block lg:inline">Sponsor GraphQLConf 2023</span>
             </div>
             <div className="flex justify-center items-center gap-4 flex-col sm:flex-row">
-              <ButtonConf href="https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf">
-                Explore Sponsorship
-              </ButtonConf>
-              <ButtonConf href="mailto:graphqlconf@graphql.org?subject=Sponsorships">
-                Contact Us
-              </ButtonConf>
+              {Buttons.map((button) => (
+                <ButtonConf key={button.text } href={button.href}>{button.text}</ButtonConf>
+              )) }
             </div>
           </div>
           <div className="mx-auto max-w-prose mt-8">
