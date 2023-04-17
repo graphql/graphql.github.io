@@ -4,5 +4,3 @@ description: Swift library for building GraphQL schemas/types fast, safely and e
 url: https://github.com/GraphQLSwift/Graphiti
 github: GraphQLSwift/Graphiti
 ---
-
-

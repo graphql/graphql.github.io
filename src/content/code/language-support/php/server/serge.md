@@ -4,5 +4,3 @@ description: Use GraphQL to define your Domain Model for CQRS/ES and let serge g
 url: https://github.com/kepawni/serge
 github: kepawni/serge
 ---
-
-

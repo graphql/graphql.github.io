@@ -103,7 +103,11 @@ const Footer = ({ sourcePath }: { sourcePath?: string }) => {
                 )}
               </h5>
               {section.subsections.map((subsection, i) => (
-                <Link key={i} href={subsection.href} className="!flex items-center gap-2">
+                <Link
+                  key={i}
+                  href={subsection.href}
+                  className="!flex items-center gap-2"
+                >
                   {subsection.icon && <subsection.icon />}
                   {subsection.text}
                 </Link>

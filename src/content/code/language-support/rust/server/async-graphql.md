@@ -15,4 +15,4 @@ github: async-graphql/async-graphql
         a + b
     }
  }
- ```
+```

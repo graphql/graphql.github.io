@@ -28,16 +28,16 @@ If you prefer to use a graphical user interface to send a test query, you can us
 It's also simple to send GraphQL from the browser. Open up http://localhost:4000/graphql, open a developer console, and paste in:
 
 ```javascript
-fetch('/graphql', {
-  method: 'POST',
+fetch("/graphql", {
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
-  body: JSON.stringify({query: "{ hello }"})
+  body: JSON.stringify({ query: "{ hello }" }),
 })
   .then(r => r.json())
-  .then(data => console.log('data returned:', data));
+  .then(data => console.log("data returned:", data))
 ```
 
 You should see the data returned, logged in the console:
@@ -59,25 +59,25 @@ type Query {
 You could access this from JavaScript with the code:
 
 ```javascript
-var dice = 3;
-var sides = 6;
+var dice = 3
+var sides = 6
 var query = `query RollDice($dice: Int!, $sides: Int) {
   rollDice(numDice: $dice, numSides: $sides)
-}`;
+}`
 
-fetch('/graphql', {
-  method: 'POST',
+fetch("/graphql", {
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
   body: JSON.stringify({
     query,
     variables: { dice, sides },
-  })
+  }),
 })
   .then(r => r.json())
-  .then(data => console.log('data returned:', data));
+  .then(data => console.log("data returned:", data))
 ```
 
 Using this syntax for variables is a good idea because it automatically prevents bugs due to escaping, and it makes it easier to monitor your server.

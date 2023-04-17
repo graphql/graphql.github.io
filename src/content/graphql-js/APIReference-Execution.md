@@ -11,8 +11,8 @@ The `graphql/execution` module is responsible for the execution phase of
 fulfilling a GraphQL request. You can import either from the `graphql/execution` module, or from the root `graphql` module. For example:
 
 ```js
-import { execute } from 'graphql'; // ES6
-var { execute } = require('graphql'); // CommonJS
+import { execute } from "graphql" // ES6
+var { execute } = require("graphql") // CommonJS
 ```
 
 ## Overview

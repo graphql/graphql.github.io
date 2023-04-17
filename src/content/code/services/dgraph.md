@@ -51,16 +51,13 @@ Fire up your favorite GraphQL Client pointed at `http://localhost:8080/graphql` 
 
 ```graphql
 mutation {
-  addProduct(input: [
-    { name: "Dgraph"},
-    { name: "Dgraph Cloud"}
-  ]) {
+  addProduct(input: [{ name: "Dgraph" }, { name: "Dgraph Cloud" }]) {
     product {
       id
       name
     }
   }
-  addCustomer(input: [{ username: "TonyStark"}]) {
+  addCustomer(input: [{ username: "TonyStark" }]) {
     customer {
       username
     }
@@ -70,18 +67,27 @@ mutation {
 
 ```graphql
 mutation {
-  addReview(input: [{
-    by: { username: "TonyStark" }, 
-    about: { name: "Dgraph" }, 
-    comment: "Fantastic, easy to install, worked great. Best GraphQL server available",
-    rating: 10
-  }]) {
+  addReview(
+    input: [
+      {
+        by: { username: "TonyStark" }
+        about: { name: "Dgraph" }
+        comment: "Fantastic, easy to install, worked great. Best GraphQL server available"
+        rating: 10
+      }
+    ]
+  ) {
     review {
       id
       comment
       rating
-      by { username }
-      about { id name }
+      by {
+        username
+      }
+      about {
+        id
+        name
+      }
     }
   }
 }
@@ -111,4 +117,3 @@ query {
   }
 }
 ```
-

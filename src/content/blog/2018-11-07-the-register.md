@@ -7,6 +7,6 @@ byline: The Register
 permalink: /blog/2018-11-07-the-register
 ---
 
-GraphQL, a query language for APIs that was on the verge of being shunned last year over software license concerns, has bounced back and landed in the arms of the Linux Foundation. 
+GraphQL, a query language for APIs that was on the verge of being shunned last year over software license concerns, has bounced back and landed in the arms of the Linux Foundation.
 
 [Read more »](https://www.theregister.co.uk/2018/11/07/graphql_on_linux/)

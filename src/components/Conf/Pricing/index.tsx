@@ -109,19 +109,9 @@ const PricingConf = () => {
                 Need assistance?
               </h3>
               <p className="text-white">
-                Apply for a{" "}
-                <a href="/conf/faq/#visas">
-                  Visa
-                </a>{" "}
-                or{" "}
-                <a href="/conf/faq/#scholarships">
-                  Scholarship
-                </a>{" "}
-                or find more help in our{" "}
-                <a href="/conf/faq/">
-                  FAQ
-                </a>
-                .
+                Apply for a <a href="/conf/faq/#visas">Visa</a> or{" "}
+                <a href="/conf/faq/#scholarships">Scholarship</a> or find more
+                help in our <a href="/conf/faq/">FAQ</a>.
               </p>
             </div>
           </div>

@@ -23,15 +23,15 @@ The meeting agendas and minutes are open and available in [meetings/](https://gi
 
 This is one of the most complicated validation rules, which is about overlapping fields and not forcing to ensure every field is unique in a query, especially if you compose queries. They have to be merged together and ensure the field is only executed once. There's a rule to ensure this merging can be done.
 
-The working group has agreed to add prose or a non-normative note to this validation rule to explain this. 
+The working group has agreed to add prose or a non-normative note to this validation rule to explain this.
 
 **Operation Expressions**
 
-Operation expressions is an extension to the Schema Coordinates syntax that allows for a host of new use cases. Outlined [here](https://github.com/graphql/graphql-spec/pull/823) are  some of the use cases that have been discussed so far, and have iterated on the syntax, but everything in this is very much in flux. 
+Operation expressions is an extension to the Schema Coordinates syntax that allows for a host of new use cases. Outlined [here](https://github.com/graphql/graphql-spec/pull/823) are some of the use cases that have been discussed so far, and have iterated on the syntax, but everything in this is very much in flux.
 
 **Directions via introspection report**
 
-Custom directives are not currently introspectable. This has been a big discussion over the years. Recently, graphql-java has implemented (almost merged) the ability to query directive by introspection. 
+Custom directives are not currently introspectable. This has been a big discussion over the years. Recently, graphql-java has implemented (almost merged) the ability to query directive by introspection.
 
 **Oneof Input Objects and Oneof Fields**
 
@@ -39,18 +39,18 @@ Oneof Input Objects are a special variant of Input Objects where the type system
 
 ## In Other News...
 
-*   ZDNet: [Databases, graphs, and GraphQL: The past, present, and future](https://www.zdnet.com/article/databases-graphs-and-graphql-past-present-and-future/)
-*   ZDNet: [Hasura connects GraphQL to the REST of the world](https://www.zdnet.com/article/hasura-connects-graphql-to-the-rest-of-the-world/)
-*   ADT Mag: [Netflix Open Sources GraphQL for Spring Boot](https://adtmag.com/articles/2021/02/17/netflix-open-sources-graphql-for-spring-boot.aspx)
-*   ProgrammableWeb: [Facebook Adds Relay Hooks for Improved GraphQL Data Fetching](https://www.programmableweb.com/news/facebook-adds-relay-hooks-improved-graphql-data-fetching/brief/2021/03/11)
-*   [Dgraph Labs Launches Slash GraphQL, Industry’s First GraphQL-Native Database Backend-As-A-Service](https://www.globenewswire.com/news-release/2020/09/10/2091563/0/en/Dgraph-Labs-Launches-Slash-GraphQL-Industry-s-First-GraphQL-Native-Database-Backend-As-A-Service.html)
-*   [How Square accelerates product development with Apollo GraphQL](https://www.apollographql.com/blog/how-square-accelerates-product-development-with-apollo-graphql/)
-*   [Netflix: Beyond REST Rapid Development with GraphQL Microservices](https://netflixtechblog.com/beyond-rest-1b76f7c20ef6)
-*   [The Guild announce early access to GraphQL Hive - A new Schema Registry for your GraphQL Workflows](https://the-guild.dev/blog/graphql-hive-preview)
+- ZDNet: [Databases, graphs, and GraphQL: The past, present, and future](https://www.zdnet.com/article/databases-graphs-and-graphql-past-present-and-future/)
+- ZDNet: [Hasura connects GraphQL to the REST of the world](https://www.zdnet.com/article/hasura-connects-graphql-to-the-rest-of-the-world/)
+- ADT Mag: [Netflix Open Sources GraphQL for Spring Boot](https://adtmag.com/articles/2021/02/17/netflix-open-sources-graphql-for-spring-boot.aspx)
+- ProgrammableWeb: [Facebook Adds Relay Hooks for Improved GraphQL Data Fetching](https://www.programmableweb.com/news/facebook-adds-relay-hooks-improved-graphql-data-fetching/brief/2021/03/11)
+- [Dgraph Labs Launches Slash GraphQL, Industry’s First GraphQL-Native Database Backend-As-A-Service](https://www.globenewswire.com/news-release/2020/09/10/2091563/0/en/Dgraph-Labs-Launches-Slash-GraphQL-Industry-s-First-GraphQL-Native-Database-Backend-As-A-Service.html)
+- [How Square accelerates product development with Apollo GraphQL](https://www.apollographql.com/blog/how-square-accelerates-product-development-with-apollo-graphql/)
+- [Netflix: Beyond REST Rapid Development with GraphQL Microservices](https://netflixtechblog.com/beyond-rest-1b76f7c20ef6)
+- [The Guild announce early access to GraphQL Hive - A new Schema Registry for your GraphQL Workflows](https://the-guild.dev/blog/graphql-hive-preview)
 
 ## Upcoming Events:
 
-*   The GraphQL community will come together once again for [GraphQL Summit](https://summit.graphql.com/) April 7th & 8th
+- The GraphQL community will come together once again for [GraphQL Summit](https://summit.graphql.com/) April 7th & 8th
 
 ## Get Involved!
 

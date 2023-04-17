@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import DocsSidebar from "../DocsSidebar"
-import Marked from '../Marked'
+import Marked from "../Marked"
 
 interface Props {
   title: string
@@ -12,7 +12,13 @@ interface Props {
   pageContext: any
 }
 
-const index = ({ title, nextDoc, sideBarData, rawMarkdownBody, pageContext }: Props) => {
+const index = ({
+  title,
+  nextDoc,
+  sideBarData,
+  rawMarkdownBody,
+  pageContext,
+}: Props) => {
   return (
     <section>
       <div className="documentationContent">

@@ -4,5 +4,3 @@ description: A GraphQL client implemented in Clojurescript with support for webs
 url: https://github.com/oliyh/re-graph/
 github: oliyh/re-graph
 ---
-
-

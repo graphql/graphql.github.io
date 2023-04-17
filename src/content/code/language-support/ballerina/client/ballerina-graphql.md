@@ -27,5 +27,6 @@ public function main() returns error? {
 ```
 
 ## Features
+
 - Dependently-typed response retrieval with Ballerina type inferring
 - Custom client generation support

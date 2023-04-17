@@ -8,12 +8,12 @@ next: /learn/caching/
 
 > Consistent object access enables simple caching and object lookups
 
-To provide options for GraphQL clients to elegantly handle caching and data 
-refetching, GraphQL servers need to expose object identifiers in a standardized 
-way. 
+To provide options for GraphQL clients to elegantly handle caching and data
+refetching, GraphQL servers need to expose object identifiers in a standardized
+way.
 
-For this to work, a client will need to query via a standard mechanism to 
-request an object by ID. Then, in the response, the schema will need to provide a 
+For this to work, a client will need to query via a standard mechanism to
+request an object by ID. Then, in the response, the schema will need to provide a
 standard way of providing these IDs.
 
 Because little is known about the object other than its ID, we call these
@@ -57,19 +57,19 @@ type User implements Node {
 
 # Specification
 
-Everything below describes with more formal requirements a specification around object 
-identification in order to conform to ensure consistency across server implementations. These 
-specifications are based on how a server can be compliant with the [Relay][relay] API client, but 
+Everything below describes with more formal requirements a specification around object
+identification in order to conform to ensure consistency across server implementations. These
+specifications are based on how a server can be compliant with the [Relay][relay] API client, but
 can be useful for any client.
 
 # Reserved Types
 
 A GraphQL server compatible with this spec must reserve certain types and type names
-to support the consistent object identification model. In particular, this spec creates 
+to support the consistent object identification model. In particular, this spec creates
 guidelines for the following types:
 
- - An interface named `Node`.
- - The `node` field on the root query type.
+- An interface named `Node`.
+- The `node` field on the root query type.
 
 # Node Interface
 
@@ -214,15 +214,15 @@ IDs, then the two objects must be equal.
 
 For the purposes of this definition, object equality is defined as follows:
 
- - If a field is queried on both objects, the result of querying that field on
-the first object must be equal to the result of querying that field on the
-second object.
-   - If the field returns a scalar, equality is defined as is appropriate for
-   that scalar.
-   - If the field returns an enum, equality is defined as both fields returning
-   the same enum value.
-   - If the field returns an object, equality is defined recursively as per the
-   above.
+- If a field is queried on both objects, the result of querying that field on
+  the first object must be equal to the result of querying that field on the
+  second object.
+  - If the field returns a scalar, equality is defined as is appropriate for
+    that scalar.
+  - If the field returns an enum, equality is defined as both fields returning
+    the same enum value.
+  - If the field returns an object, equality is defined recursively as per the
+    above.
 
 For example:
 
@@ -268,7 +268,7 @@ might return:
     "name": "Chris Hughes",
     "userWithIdOneLess": {
       "id": "4",
-      "name": "Mark Zuckerberg",
+      "name": "Mark Zuckerberg"
     }
   }
 }
@@ -296,7 +296,7 @@ might return:
 ```json
 {
   "username": {
-    "id": "4",
+    "id": "4"
   }
 }
 ```
@@ -305,7 +305,6 @@ Clearly, we can link up the object in the response, the user with ID 4,
 with the request, identifying the object with username "zuck". Now imagine a
 root field named `usernames`, that takes a list of usernames and returns a
 list of objects:
-
 
 ```graphql
 {
@@ -321,7 +320,7 @@ might return:
 {
   "usernames": [
     {
-      "id": "4",
+      "id": "4"
     },
     {
       "id": "6"
@@ -333,31 +332,31 @@ might return:
 For clients to be able to link the usernames to the responses, it needs to
 know that the array in the response will be the same size as the array
 passed as an argument, and that the order in the response will match the
-order in the argument. We call these *plural identifying root fields*, and
+order in the argument. We call these _plural identifying root fields_, and
 their requirements are described below.
 
 ## Fields
 
 A server compliant with this spec may expose root fields that accept a list of input
 arguments, and returns a list of responses. For spec-compliant clients to use these fields,
-these fields must be *plural identifying root fields*, and obey the following
+these fields must be _plural identifying root fields_, and obey the following
 requirements.
 
-NOTE Spec-compliant servers may expose root fields that are not *plural
-identifying root fields*; the spec-compliant client will just be unable to use those
+NOTE Spec-compliant servers may expose root fields that are not _plural
+identifying root fields_; the spec-compliant client will just be unable to use those
 fields as root fields in its queries.
 
-*Plural identifying root fields* must have a single argument. The type of that
+_Plural identifying root fields_ must have a single argument. The type of that
 argument must be a non-null list of non-nulls. In our `usernames` example, the
 field would take a single argument named `usernames`, whose type (using our type
 system shorthand) would be `[String!]!`.
 
-The return type of a *plural identifying root field* must be a list, or a
+The return type of a _plural identifying root field_ must be a list, or a
 non-null wrapper around a list. The list must wrap the `Node` interface, an
 object that implements the `Node` interface, or a non-null wrapper around
 those types.
 
-Whenever the *plural identifying root field* is used, the length of the
+Whenever the _plural identifying root field_ is used, the length of the
 list in the response must be the same as the length of the list in the
 arguments. Each item in the response must correspond to its item in the input;
 more formally, if passing the root field an input list `Lin` resulted in output

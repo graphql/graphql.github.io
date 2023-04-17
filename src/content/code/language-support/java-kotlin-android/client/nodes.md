@@ -4,5 +4,3 @@ description: A GraphQL JVM Client designed for constructing queries from standar
 url: https://github.com/americanexpress/nodes
 github: americanexpress/nodes
 ---
-
-

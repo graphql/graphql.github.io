@@ -13,5 +13,4 @@ The growing popularity and use of the open-source GraphQL API language by softwa
 
 The new organization, hosted by the non-profit [Linux Foundation](http://www.linuxfoundation.org/), is made up of a wide range of companies and users that are interested in growing and nurturing the GraphQL API project, which Facebook originally developed internally. After several years of development, Facebook released the code for GraphQL as an opn-source project.
 
-[Read more »](https://www.channelfutures.com/open-source/graphql-api-query-language-growing-gets-own-support-foundation
-)
+[Read more »](https://www.channelfutures.com/open-source/graphql-api-query-language-growing-gets-own-support-foundation)

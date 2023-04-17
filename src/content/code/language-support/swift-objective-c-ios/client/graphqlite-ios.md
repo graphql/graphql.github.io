@@ -4,5 +4,3 @@ description: GraphQLite iOS SDK is a toolkit to work with GraphQL servers easily
 url: https://graphqlite.com/sdk-ios
 github: relatedcode/GraphQLite
 ---
-
-

@@ -1,0 +1,13 @@
+name: Prettier Check
+
+on: pull_request
+
+jobs:
+  prettier-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: yarn
+      - name: Run Prettier Check
+        run: yarn format:check

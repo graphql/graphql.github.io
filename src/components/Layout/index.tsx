@@ -4,6 +4,7 @@ import Header from "../Header"
 
 import "../../assets/css/style.less"
 import "../../assets/css/global.css"
+import BackToTop from "../BackToTop"
 interface Props {
   children: React.ReactNode
   className?: string
@@ -20,6 +21,7 @@ const IndexLayout = ({
       {children}
       <Footer sourcePath={sourcePath} />
     </div>
+    <BackToTop scrollThreshold={1000} />
   </>
 )
 

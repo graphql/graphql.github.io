@@ -15,7 +15,7 @@ pip install qlient
 
 Create a `swapi_client_example.py` file with this content:
 
-````python
+```python
 from qlient.http import HTTPClient, GraphQLResponse
 
 client = HTTPClient("https://swapi-graphql.netlify.app/.netlify/functions/index")
@@ -31,7 +31,7 @@ res: GraphQLResponse = client.query.film(
 print(res.request.query)  # query film($id: ID) { film(id: $id) { id title episodeID } }
 print(res.request.variables)  # {'id': 'ZmlsbXM6MQ=='}
 print(res.data)  # {'film': {'id': 'ZmlsbXM6MQ==', 'title': 'A New Hope', 'episodeID': 4}}
-````
+```
 
 Close the file and run it using python:
 

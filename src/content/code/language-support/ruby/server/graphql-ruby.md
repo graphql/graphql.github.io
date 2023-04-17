@@ -7,6 +7,7 @@ gem: graphql
 ---
 
 To run a hello world script with `graphql-ruby`:
+
 ```bash
 gem install graphql
 ```
@@ -30,4 +31,5 @@ end
 
 puts Schema.execute('{ hello }').to_json
 ```
+
 There are also nice bindings for Relay and Rails.

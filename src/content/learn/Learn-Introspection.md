@@ -34,13 +34,13 @@ are available.
 
 Wow, that's a lot of types! What are they? Let's group them:
 
- - **Query, Character, Human, Episode, Droid** - These are the ones that we
-defined in our type system.
- - **String, Boolean** - These are built-in scalars that the type system
-provided.
- - **\_\_Schema, \_\_Type, \_\_TypeKind, \_\_Field, \_\_InputValue,
-\_\_EnumValue, \_\_Directive** - These all are preceded with a double
-underscore, indicating that they are part of the introspection system.
+- **Query, Character, Human, Episode, Droid** - These are the ones that we
+  defined in our type system.
+- **String, Boolean** - These are built-in scalars that the type system
+  provided.
+- **\_\_Schema, \_\_Type, \_\_TypeKind, \_\_Field, \_\_InputValue,
+  \_\_EnumValue, \_\_Directive** - These all are preceded with a double
+  underscore, indicating that they are part of the introspection system.
 
 Now, let's try and figure out a good place to start exploring what queries are
 available. When we designed our type system, we specified what type all queries
@@ -119,10 +119,6 @@ ask the introspection system about `Droid`:
     }
   }
 }
-
-
-
-
 ```
 
 Those are our fields that we defined on `Droid`!
@@ -154,11 +150,6 @@ tell us what these are lists of.
     }
   }
 }
-
-
-
-
-
 ```
 
 Let's end with a feature of the introspection system particularly useful

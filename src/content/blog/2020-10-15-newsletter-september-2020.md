@@ -18,8 +18,9 @@ Many of these items are just in beginning discussions while some are further alo
 ### Allowing deprecation of inputs
 
 Discussed whether the spec should allow deprecating an input that is required. Two concerns: deprecations are intended to be actionable; introspection does not include deprecated things by default - could break tooling that's no longer receiving deprecated inputs as part of their introspection results.
-* Regarding case 1: not much of a blocker; the action from deprecation doesn't need to come from a schema (e.g. it could be switch to a new version/endpoint)
-* Regarding case 2: much more of an issue because we could be breaking clients. My suggestion is to return required arguments even if they're deprecated - introspection should always give you what's necessary even if you say you don't want it.
+
+- Regarding case 1: not much of a blocker; the action from deprecation doesn't need to come from a schema (e.g. it could be switch to a new version/endpoint)
+- Regarding case 2: much more of an issue because we could be breaking clients. My suggestion is to return required arguments even if they're deprecated - introspection should always give you what's necessary even if you say you don't want it.
 
 ### @defer/@stream
 
@@ -31,10 +32,10 @@ The issue was first raised around the ambiguity of the term "query" as used in t
 
 ### Other topics discussed:
 
-* [TypeScript Migration Progress in graphql-js](https://github.com/graphql/graphql-js/issues/2104)
-* [How to bootstrap graphql-js working group?](https://github.com/graphql/graphql-js/issues/2787)
-* GitHub infrastructure for managing Working groups
-* Custom Scalars subproject
+- [TypeScript Migration Progress in graphql-js](https://github.com/graphql/graphql-js/issues/2104)
+- [How to bootstrap graphql-js working group?](https://github.com/graphql/graphql-js/issues/2787)
+- GitHub infrastructure for managing Working groups
+- Custom Scalars subproject
 
 ## Ecosystem Updates:
 
@@ -42,16 +43,16 @@ Vscode-graphql, which uses the official GraphQL Language Server, has now become 
 
 ## In Other News...
 
-* Dgraph Labs launched [Slash GraphQL](https://www.producthunt.com/posts/slash-graphql), a product that can help you get a working GraphQL backend in minutes
-* A new library for the WebSocket Protocol has been created. Read more [here](https://the-guild.dev/blog/graphql-over-websockets).
-* The Guild has created a new [GraphQL-ESLint library](https://github.com/dotansimha/graphql-eslint) for linting your GraphQL schemas and operations with community and custom rules. Read more [here](https://the-guild.dev/blog/introducing-graphql-eslint).
-* GraphQL CLI 4.1 has been released. [Read here](https://the-guild.dev/blog/whats-new-in-graphql-cli-4.1.0) about the new functionality.
-* You can now consume WebHooks as GraphQL Subscriptions thanks to the new version of [GraphQL Mesh](https://github.com/urigo/graphql-mesh). Read more [here](https://the-guild.dev/blog/graphql-mesh-subscriptions).
-* Hasura’s [Enterprise GraphQL Conf](https://hasura.io/enterprisegraphql/) is taking place October 20-22. There is still time to register
-* AWS released a new webinar “[Build Modern Serverless Applications with GraphQL APIs and AWS AppSync](https://pages.awscloud.com/Build-Modern-Serverless-Applications-with-GraphQL-APIs-and-AWS-AppSync_2020_0918-MBL_OD.html?&trk=ep_card-el_a131L0000084iG3QAI&trkCampaign=NA-FY20-AWS-DIGMKT-WEBINAR-SERIES-September_2020_0918-MBL&sc_channel=el&sc_campaign=pac_2018-2019_exlinks_ondemand_OTT_evergreen&sc_outcome=Product_Adoption_Campaigns&sc_geo=NAMER&sc_country=mult)”
-* Catch up on recent talks from the [GraphQL Berlin](https://www.youtube.com/watch?v=4UDsR4z2KIY) Meetup
-* [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/events/273901137/), [GraphQL Copenhagen](https://www.meetup.com/Copenhagen-GraphQL-Meetup-Group/events/273901144/), React GraphQL Academy and The Guild are collaborating on an online GraphQL Meetup. Check out the details [here](https://twitter.com/reactgqlacademy/status/1313789927834947585?s=20).
-* Apollo created an [Error Handling Visualizer](https://apollo-visualizer.vercel.app/) tool, which provides an interactive playground to visualize the relationship between nullability and error handling in GraphQL, specifically with Apollo Client.
+- Dgraph Labs launched [Slash GraphQL](https://www.producthunt.com/posts/slash-graphql), a product that can help you get a working GraphQL backend in minutes
+- A new library for the WebSocket Protocol has been created. Read more [here](https://the-guild.dev/blog/graphql-over-websockets).
+- The Guild has created a new [GraphQL-ESLint library](https://github.com/dotansimha/graphql-eslint) for linting your GraphQL schemas and operations with community and custom rules. Read more [here](https://the-guild.dev/blog/introducing-graphql-eslint).
+- GraphQL CLI 4.1 has been released. [Read here](https://the-guild.dev/blog/whats-new-in-graphql-cli-4.1.0) about the new functionality.
+- You can now consume WebHooks as GraphQL Subscriptions thanks to the new version of [GraphQL Mesh](https://github.com/urigo/graphql-mesh). Read more [here](https://the-guild.dev/blog/graphql-mesh-subscriptions).
+- Hasura’s [Enterprise GraphQL Conf](https://hasura.io/enterprisegraphql/) is taking place October 20-22. There is still time to register
+- AWS released a new webinar “[Build Modern Serverless Applications with GraphQL APIs and AWS AppSync](https://pages.awscloud.com/Build-Modern-Serverless-Applications-with-GraphQL-APIs-and-AWS-AppSync_2020_0918-MBL_OD.html?&trk=ep_card-el_a131L0000084iG3QAI&trkCampaign=NA-FY20-AWS-DIGMKT-WEBINAR-SERIES-September_2020_0918-MBL&sc_channel=el&sc_campaign=pac_2018-2019_exlinks_ondemand_OTT_evergreen&sc_outcome=Product_Adoption_Campaigns&sc_geo=NAMER&sc_country=mult)”
+- Catch up on recent talks from the [GraphQL Berlin](https://www.youtube.com/watch?v=4UDsR4z2KIY) Meetup
+- [GraphQL Amsterdam](https://www.meetup.com/Amsterdam-GraphQL-Meetup/events/273901137/), [GraphQL Copenhagen](https://www.meetup.com/Copenhagen-GraphQL-Meetup-Group/events/273901144/), React GraphQL Academy and The Guild are collaborating on an online GraphQL Meetup. Check out the details [here](https://twitter.com/reactgqlacademy/status/1313789927834947585?s=20).
+- Apollo created an [Error Handling Visualizer](https://apollo-visualizer.vercel.app/) tool, which provides an interactive playground to visualize the relationship between nullability and error handling in GraphQL, specifically with Apollo Client.
 
 ## Get Involved!
 

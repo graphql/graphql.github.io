@@ -4,5 +4,3 @@ description: Library and command-line code generator to create type-safe Elm cod
 url: https://github.com/dillonkearns/elm-graphql
 github: dillonkearns/elm-graphql
 ---
-
-

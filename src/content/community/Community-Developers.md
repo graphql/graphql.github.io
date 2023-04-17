@@ -11,15 +11,15 @@ The following resources are intended to describe how GraphQL development process
 
 ## Essential links
 
-* The [GraphQL Specification](https://spec.graphql.org)
-* GraphQL [reference implementations and tools](/code/)
-* The official [GraphQL GitHub org](https://github.com/graphql)
-* The official [GraphQL Discord](https://discord.graphql.org)
-  * We're in the process of moving our official chat to Discord, but you may still find historical discussion at ~~the official [GraphQL Slack](https://slack.graphql.org)~~.
-* Instructions on how to sign the [GraphQL Specification Membership Agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership)
-* The [GraphQL project calendar](https://calendar.graphql.org)
-* Meeting replays on the [GraphQL YouTube channel](https://youtube.graphql.org)
-* The [GraphQL Community Grant](/foundation/community-grant/) program
+- The [GraphQL Specification](https://spec.graphql.org)
+- GraphQL [reference implementations and tools](/code/)
+- The official [GraphQL GitHub org](https://github.com/graphql)
+- The official [GraphQL Discord](https://discord.graphql.org)
+  - We're in the process of moving our official chat to Discord, but you may still find historical discussion at ~~the official [GraphQL Slack](https://slack.graphql.org)~~.
+- Instructions on how to sign the [GraphQL Specification Membership Agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership)
+- The [GraphQL project calendar](https://calendar.graphql.org)
+- Meeting replays on the [GraphQL YouTube channel](https://youtube.graphql.org)
+- The [GraphQL Community Grant](/foundation/community-grant/) program
 
 ## How GraphQL is developed
 
@@ -35,19 +35,19 @@ The GraphQL specification, sub-specifications, and official reference implementa
 
 The [GraphQL Working Group](https://github.com/graphql/graphql-wg) is the main group that plans and implements changes to the [GraphQL specification](https://spec.graphql.org). It meets actively and is the default place for discussion for topics which do not have a separate breakout working group (breakout working groups include the [Input Union WG](https://github.com/graphql/graphql-spec/blob/main/rfcs/InputUnion.md) and the [GraphQL-over-HTTP WG](https://github.com/graphql/graphql-over-http)).
 
-* **GitHub**: [github.com/graphql/graphql-wg](https://github.com/graphql/graphql-wg)
-* **Meeting frequency:** Monthly, generally the first Thursday ([calendar](https://calendar.graphql.org))
-* **Agenda:** [GitHub](https://github.com/graphql/graphql-wg/tree/main/agendas)
-* **Recordings:** [YouTube](https://www.youtube.com/playlist?list=PLP1igyLx8foH30_sDnEZnxV_8pYW3SDtb)
+- **GitHub**: [github.com/graphql/graphql-wg](https://github.com/graphql/graphql-wg)
+- **Meeting frequency:** Monthly, generally the first Thursday ([calendar](https://calendar.graphql.org))
+- **Agenda:** [GitHub](https://github.com/graphql/graphql-wg/tree/main/agendas)
+- **Recordings:** [YouTube](https://www.youtube.com/playlist?list=PLP1igyLx8foH30_sDnEZnxV_8pYW3SDtb)
 
 #### GraphQL.js Working Group
 
 The [GraphQL.js Working Group](https://github.com/graphql/graphql-js-wg) works on one of the main reference implementations, [graphql.js](https://github.com/graphql/graphql-js).
 
-* **GitHub**: [github.com/graphql/graphql-js-wg](https://github.com/graphql/graphql-wg)
-* **Meeting frequency:** Monthly, generally the last Wednedsay ([calendar](https://calendar.graphql.org))
-* **Agenda:** [GitHub](https://github.com/graphql/graphql-js-wg/tree/main/agendas)
-* **Recordings:** [YouTube](https://www.youtube.com/playlist?list=PLP1igyLx8foHghwopNuQM7weyP5jR147I)
+- **GitHub**: [github.com/graphql/graphql-js-wg](https://github.com/graphql/graphql-wg)
+- **Meeting frequency:** Monthly, generally the last Wednedsay ([calendar](https://calendar.graphql.org))
+- **Agenda:** [GitHub](https://github.com/graphql/graphql-js-wg/tree/main/agendas)
+- **Recordings:** [YouTube](https://www.youtube.com/playlist?list=PLP1igyLx8foHghwopNuQM7weyP5jR147I)
 
 If you would like to set up a working group around a specific topic, please join a [GraphQL Working Group meeting](https://github.com/graphql/graphql-wg) and present your idea.
 

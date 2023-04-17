@@ -13,21 +13,21 @@ npm install @graphql-box/core @graphql-box/client @graphql-box/request-parser @g
 ```
 
 ```javascript
-import Cachemap from "@cachemap/core";
-import indexedDB from "@cachemap/indexed-db";
-import reaper from "@cachemap/reaper";
-import CacheManager from "@graphql-box/cache-manager";
-import Client from "@graphql-box/client";
-import DebugManager from "@graphql-box/debug-manager";
-import FetchManager from "@graphql-box/fetch-manager";
-import RequestParser from "@graphql-box/request-parser";
-import introspection from "./introspection-query";
+import Cachemap from "@cachemap/core"
+import indexedDB from "@cachemap/indexed-db"
+import reaper from "@cachemap/reaper"
+import CacheManager from "@graphql-box/cache-manager"
+import Client from "@graphql-box/client"
+import DebugManager from "@graphql-box/debug-manager"
+import FetchManager from "@graphql-box/fetch-manager"
+import RequestParser from "@graphql-box/request-parser"
+import introspection from "./introspection-query"
 
 const requestManager = new FetchManager({
   apiUrl: "/api/graphql",
   batchRequests: true,
   logUrl: "/log/graphql",
-});
+})
 
 const client = new Client({
   cacheManager: new CacheManager({
@@ -45,16 +45,16 @@ const client = new Client({
   debugManager: new DebugManager({
     environment: "client",
     log: (message, data, logLevel) => {
-      requestManager.log(message, data, logLevel);
+      requestManager.log(message, data, logLevel)
     },
     name: "CLIENT",
     performance: self.performance,
   }),
   requestManager,
   requestParser: new RequestParser({ introspection }),
-});
+})
 
 // Meanwhile... somewhere else in your code
 
-const { data, errors } = await client.request(queryOrMutation);
+const { data, errors } = await client.request(queryOrMutation)
 ```

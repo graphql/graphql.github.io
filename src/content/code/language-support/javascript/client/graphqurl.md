@@ -5,5 +5,3 @@ url: https://github.com/hasura/graphqurl
 github: hasura/graphqurl
 npm: "graphqurl"
 ---
-
-

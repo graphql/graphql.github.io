@@ -21,6 +21,7 @@ service /graphql on new graphql:Listener(9090) {
 ```
 
 ## Features
+
 - Built with Ballerina `service` and `listener` model, which are first-class citizens in Ballerina
 - Supports subscriptions over websocket (No additional libraries needed)
 - Supports file upload

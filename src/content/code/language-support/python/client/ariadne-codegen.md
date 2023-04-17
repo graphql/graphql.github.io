@@ -15,13 +15,13 @@ Create `queries.graphql` file:
 
 ```graphql
 mutation CreateToken($username: String!, $password: String!) {
-    createToken(username: $username, password: $password) {
-        token
-        errors {
-            field
-            message
-        }
+  createToken(username: $username, password: $password) {
+    token
+    errors {
+      field
+      message
     }
+  }
 }
 ```
 

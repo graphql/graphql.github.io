@@ -4,5 +4,3 @@ description: A GraphQL client for iOS that returns results as query-specific Swi
 url: https://www.apollographql.com/docs/ios/
 github: apollographql/apollo-ios
 ---
-
-

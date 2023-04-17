@@ -21,7 +21,6 @@ type Query {
 }
 ```
 
-
 ```haskell
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}

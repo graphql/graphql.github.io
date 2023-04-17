@@ -6,6 +6,7 @@ github: tendant/graphql-clj
 ---
 
 Code that executes a hello world GraphQL query with `graphql-clj`:
+
 ```clojure
 
 (def schema "type QueryRoot {

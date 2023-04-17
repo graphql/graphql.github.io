@@ -4,5 +4,3 @@ description: A library to help construct a graphql-php server supporting react-r
 url: https://github.com/ivome/graphql-relay-php
 github: ivome/graphql-relay-php
 ---
-
-

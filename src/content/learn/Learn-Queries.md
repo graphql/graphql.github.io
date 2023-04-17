@@ -26,9 +26,9 @@ You can see immediately that the query has exactly the same shape as the result.
 
 The field `name` returns a `String` type, in this case the name of the main hero of Star Wars, `"R2-D2"`.
 
-> Oh, one more thing - the query above is *interactive*. That means you can change it as you like and see the new result. Try adding an `appearsIn` field to the `hero` object in the query, and see the new result.
+> Oh, one more thing - the query above is _interactive_. That means you can change it as you like and see the new result. Try adding an `appearsIn` field to the `hero` object in the query, and see the new result.
 
-In the previous example, we just asked for the name of our hero which returned a String, but fields can also refer to Objects. In that case, you can make a *sub-selection* of fields for that object. GraphQL queries can traverse related objects and their fields, letting clients fetch lots of related data in one request, instead of making several roundtrips as one would need in a classic REST architecture.
+In the previous example, we just asked for the name of our hero which returned a String, but fields can also refer to Objects. In that case, you can make a _sub-selection_ of fields for that object. GraphQL queries can traverse related objects and their fields, letting clients fetch lots of related data in one request, instead of making several roundtrips as one would need in a classic REST architecture.
 
 ```graphql
 # { "graphiql": true }
@@ -44,7 +44,6 @@ In the previous example, we just asked for the name of our hero which returned a
 ```
 
 Note that in this example, the `friends` field returns an array of items. GraphQL queries look the same for both single items or lists of items; however, we know which one to expect based on what is indicated in the schema.
-
 
 ## Arguments
 
@@ -76,7 +75,6 @@ Arguments can be of many different types. In the above example, we have used an 
 
 [Read more about the GraphQL type system here.](/learn/schema)
 
-
 ## Aliases
 
 If you have a sharp eye, you may have noticed that, since the result object fields match the name of the field in the query but don't include arguments, you can't directly query for the same field with different arguments. That's why you need _aliases_ - they let you rename the result of a field to anything you want.
@@ -94,7 +92,6 @@ If you have a sharp eye, you may have noticed that, since the result object fiel
 ```
 
 In the above example, the two `hero` fields would have conflicted, but since we can alias them to different names, we can get both results in one request.
-
 
 ## Fragments
 
@@ -172,11 +169,11 @@ query HeroNameAndFriends {
 
 The _operation type_ is either _query_, _mutation_, or _subscription_ and describes what type of operation you're intending to do. The operation type is required unless you're using the query shorthand syntax, in which case you can't supply a name or variable definitions for your operation.
 
-The _operation name_ is a meaningful and explicit name for your operation. It is only required in multi-operation documents, but its use is encouraged because it is very helpful for debugging and server-side logging. 
+The _operation name_ is a meaningful and explicit name for your operation. It is only required in multi-operation documents, but its use is encouraged because it is very helpful for debugging and server-side logging.
 When something goes wrong (you see errors either in your network logs, or in the logs of your GraphQL server) it is easier to identify a query in your codebase by name instead of trying to decipher the contents.
-Think of this just like a function name in your favorite programming language. 
-For example, in JavaScript we can easily work only with anonymous functions, but when we give a function a name, it's easier to track it down, debug our code, 
-and log when it's called. In the same way, GraphQL query and mutation names, along with fragment names, can be a useful debugging tool on the server side to identify 
+Think of this just like a function name in your favorite programming language.
+For example, in JavaScript we can easily work only with anonymous functions, but when we give a function a name, it's easier to track it down, debug our code,
+and log when it's called. In the same way, GraphQL query and mutation names, along with fragment names, can be a useful debugging tool on the server side to identify
 different GraphQL requests.
 
 ## Variables
@@ -207,7 +204,6 @@ query HeroNameAndFriends($episode: Episode) {
 
 Now, in our client code, we can simply pass a different variable rather than needing to construct an entirely new query. This is also in general a good practice for denoting which arguments in our query are expected to be dynamic - we should never be doing string interpolation to construct queries from user-supplied values.
 
-
 ### Variable definitions
 
 The variable definitions are the part that looks like `($episode: Episode)` in the query above. It works just like the argument definitions for a function in a typed language. It lists all of the variables, prefixed by `$`, followed by their type, in this case `Episode`.
@@ -218,10 +214,9 @@ Variable definitions can be optional or required. In the case above, since there
 
 To learn more about the syntax for these variable definitions, it's useful to learn the GraphQL schema language. The schema language is explained in detail on the Schema page.
 
-
 ### Default variables
 
-Default values can also be assigned to the variables in the query by adding the default value after the type declaration. 
+Default values can also be assigned to the variables in the query by adding the default value after the type declaration.
 
 ```graphql
 query HeroNameAndFriends($episode: Episode = JEDI) {
@@ -234,7 +229,7 @@ query HeroNameAndFriends($episode: Episode = JEDI) {
 }
 ```
 
-When default values are provided for all variables, you can call the query without passing any variables. If any variables are passed as part of the variables dictionary, they will override the defaults. 
+When default values are provided for all variables, you can call the query without passing any variables. If any variables are passed as part of the variables dictionary, they will override the defaults.
 
 ## Directives
 
@@ -262,7 +257,6 @@ We needed to use a new feature in GraphQL called a _directive_. A directive can 
 - `@skip(if: Boolean)` Skip this field if the argument is `true`.
 
 Directives can be useful to get out of situations where you otherwise would need to do string manipulation to add and remove fields in your query. Server implementations may also add experimental features by defining completely new directives.
-
 
 ## Mutations
 
@@ -294,12 +288,11 @@ A mutation can contain multiple fields, just like a query. There's one important
 
 This means that if we send two `incrementCredits` mutations in one request, the first is guaranteed to finish before the second begins, ensuring that we don't end up with a race condition with ourselves.
 
-
 ## Inline Fragments
 
 Like many other type systems, GraphQL schemas include the ability to define interfaces and union types. [Learn about them in the schema guide.](/learn/schema/#interfaces)
 
-If you are querying a field that returns an interface or a union type, you will need to use *inline fragments* to access data on the underlying concrete type. It's easiest to see with an example:
+If you are querying a field that returns an interface or a union type, you will need to use _inline fragments_ to access data on the underlying concrete type. It's easiest to see with an example:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI" } }
@@ -321,7 +314,6 @@ In this query, the `hero` field returns the type `Character`, which might be eit
 To ask for a field on the concrete type, you need to use an _inline fragment_ with a type condition. Because the first fragment is labeled as `... on Droid`, the `primaryFunction` field will only be executed if the `Character` returned from `hero` is of the `Droid` type. Similarly for the `height` field for the `Human` type.
 
 Named fragments can also be used in the same way, since a named fragment always has a type attached.
-
 
 ### Meta fields
 
@@ -348,4 +340,3 @@ Given that there are some situations where you don't know what type you'll get b
 In the above query, `search` returns a union type that can be one of three options. It would be impossible to tell apart the different types from the client without the `__typename` field.
 
 GraphQL services provide a few meta fields, the rest of which are used to expose the [Introspection](../introspection/) system.
-

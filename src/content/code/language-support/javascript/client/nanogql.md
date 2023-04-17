@@ -5,5 +5,3 @@ url: https://github.com/yoshuawuyts/nanogql
 github: choojs/nanographql
 npm: "nanographql"
 ---
-
-
