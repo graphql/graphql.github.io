@@ -34,7 +34,7 @@
     "gatsby-plugin-webfonts": "2.3.2",
     "gatsby-source-filesystem": "5.8.0",
     "gatsby-transformer-remark": "6.8.0",
-    "glob": "10.1.0",
+    "glob": "10.2.1",
     "graphql": "16.6.0",
     "marked": "4.3.0",
     "numbro": "2.3.6",
