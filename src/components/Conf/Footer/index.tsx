@@ -53,23 +53,21 @@ const FooterConf = () => {
           ))}
         </div>
       </div>
-      <div>
-        <div className="container mt-5 sm:mt-0 py-4 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-white text-sm text-center sm:text-left">
-            Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
-            All rights reserved.
-            <br />
-            For web site terms of use, trademark policy and general project
-            policies please see&nbsp;
-            <a href="https://lfprojects.org" target="_blank">
-              https://lfprojects.org
-            </a>
-            .
-          </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start ">
-            <SocialIcons />
-          </span>
-        </div>
+      <div className="container px-5 mt-5 sm:mt-0 py-4 flex flex-wrap flex-col sm:flex-row">
+        <p className="text-white text-sm text-center sm:text-left">
+          Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
+          All rights reserved.
+          <br />
+          For web site terms of use, trademark policy and general project
+          policies please see&nbsp;
+          <a href="https://lfprojects.org" target="_blank">
+            https://lfprojects.org
+          </a>
+          .
+        </p>
+        <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start items-start">
+          <SocialIcons />
+        </span>
       </div>
     </footer>
   )
