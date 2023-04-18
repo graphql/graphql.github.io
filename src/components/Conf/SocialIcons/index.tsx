@@ -7,7 +7,7 @@ const SocialIcons = () => {
   return (
     <>
       <a
-        className="ml-5 mt-3 text-white cursor-pointer"
+        className="mt-3 text-white cursor-pointer"
         href="https://github.com/graphql"
         target="_blank"
       >
