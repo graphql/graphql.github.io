@@ -27,6 +27,23 @@ const Search = ({ searchID }: { searchID?: string }): JSX.Element => {
   useEffect(() => {
     runDocsearchIfPossible()
 
+    const handleSearchTrigger = (event: KeyboardEvent) => {
+      const slashKeyPressed = event.key === "/" || event.code === "Slash"
+      if (!slashKeyPressed) {
+        return
+      }
+      event.preventDefault()
+      const searchInput = document.querySelector<HTMLInputElement>(
+        `#${searchInputID}`
+      )
+
+      if (searchInput) {
+        searchInput.focus()
+      }
+    }
+
+    window.addEventListener("keypress", handleSearchTrigger)
+
     if (document.getElementById("algolia-search")) return
 
     const searchScript = document.createElement("script")
@@ -49,6 +66,10 @@ const Search = ({ searchID }: { searchID?: string }): JSX.Element => {
     }
 
     document.body.appendChild(searchScript)
+
+    return () => {
+      window.removeEventListener("keypress", handleSearchTrigger)
+    }
   }, [])
 
   return (
