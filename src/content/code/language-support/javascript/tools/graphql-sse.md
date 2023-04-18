@@ -5,5 +5,3 @@ url: https://github.com/enisdenjo/graphql-sse
 github: enisdenjo/graphql-sse
 npm: "graphql-sse"
 ---
-
-

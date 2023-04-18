@@ -4,5 +4,3 @@ description: Functional GraphQL library for Scala, with client code generation a
 url: https://ghostdogpr.github.io/caliban/
 github: ghostdogpr/caliban
 ---
-
-

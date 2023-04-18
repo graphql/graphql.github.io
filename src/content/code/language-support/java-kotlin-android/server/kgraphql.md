@@ -48,7 +48,7 @@ KGraphQL has a Ktor plugin which gives you a fully functional GraphQL server wit
 ```kotlin
 fun Application.module() {
   install(GraphQL) {
-    playground = true 
+    playground = true
     schema {
       query("hello") {
         resolver { -> "World!" }

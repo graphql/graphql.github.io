@@ -39,7 +39,7 @@ query HelloWorldQuery {
 }
 ```
 
-Plugin will generate classes that are simple POJOs implementing GraphQLClientRequest interface and represent a GraphQL request. 
+Plugin will generate classes that are simple POJOs implementing GraphQLClientRequest interface and represent a GraphQL request.
 
 ```kotlin
 package com.example.generated

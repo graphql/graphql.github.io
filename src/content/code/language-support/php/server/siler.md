@@ -6,6 +6,7 @@ github: leocavalcante/siler
 ---
 
 To run a Siler hello world script:
+
 ```graphql
 type Query {
   hello: String
@@ -39,5 +40,5 @@ Httpserver(Graphqlpsr7($schema), function (Throwable $err) {
     ]);
 })()->run();
 ```
-It also provides functionality for the construction of a WebSocket Subscriptions Server based on how Apollo works.
 
+It also provides functionality for the construction of a WebSocket Subscriptions Server based on how Apollo works.

@@ -13,21 +13,24 @@ npm install @graphql-box/core @graphql-box/server @graphql-box/client @graphql-b
 ```
 
 ```javascript
-import Cachemap from "@cachemap/core";
-import redis from "@cachemap/redis";
-import reaper from "@cachemap/reaper";
-import CacheManager from "@graphql-box/cache-manager";
-import Client from "@graphql-box/client";
-import DebugManager from "@graphql-box/debug-manager";
-import Execute from "@graphql-box/execute";
-import RequestParser from "@graphql-box/request-parser";
-import Server from "@graphql-box/server";
-import { makeExecutableSchema } from "@graphql-tools/schema";
-import { performance } from "perf_hooks";
-import { schemaResolvers, schemaTypeDefs } from "./schema";
-import logger from './logger';
+import Cachemap from "@cachemap/core"
+import redis from "@cachemap/redis"
+import reaper from "@cachemap/reaper"
+import CacheManager from "@graphql-box/cache-manager"
+import Client from "@graphql-box/client"
+import DebugManager from "@graphql-box/debug-manager"
+import Execute from "@graphql-box/execute"
+import RequestParser from "@graphql-box/request-parser"
+import Server from "@graphql-box/server"
+import { makeExecutableSchema } from "@graphql-tools/schema"
+import { performance } from "perf_hooks"
+import { schemaResolvers, schemaTypeDefs } from "./schema"
+import logger from "./logger"
 
-const schema = makeExecutableSchema({ typeDefs: schemaTypeDefs, resolvers: schemaResolvers });
+const schema = makeExecutableSchema({
+  typeDefs: schemaTypeDefs,
+  resolvers: schemaResolvers,
+})
 
 const server = new Server({
   client: new Client({
@@ -46,7 +49,7 @@ const server = new Server({
     debugManager: new DebugManager({
       environment: "server",
       log: (...args) => {
-        logger.log(...args);
+        logger.log(...args)
       },
       name: "SERVER",
       performance,
@@ -54,9 +57,9 @@ const server = new Server({
     requestManager: new Execute({ schema }),
     requestParser: new RequestParser({ schema }),
   }),
-});
+})
 
 // Meanwhile... somewhere else in your code
 
-app.use("api/graphql", graphqlServer.request());
+app.use("api/graphql", graphqlServer.request())
 ```

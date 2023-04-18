@@ -5,5 +5,3 @@ url: https://github.com/Urigo/graphql-scalars
 github: Urigo/graphql-scalars
 npm: "graphql-scalars"
 ---
-
-

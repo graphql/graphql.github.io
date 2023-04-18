@@ -5,5 +5,3 @@ url: https://graphql-config.com
 github: kamilkisiela/graphql-config
 npm: "graphql-config"
 ---
-
-

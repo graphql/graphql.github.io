@@ -10,13 +10,13 @@ next: /graphql-js/utilities/
 The `graphql/type` module is responsible for defining GraphQL types and schema. You can import either from the `graphql/type` module, or from the root `graphql` module. For example:
 
 ```js
-import { GraphQLSchema } from 'graphql'; // ES6
-var { GraphQLSchema } = require('graphql'); // CommonJS
+import { GraphQLSchema } from "graphql" // ES6
+var { GraphQLSchema } = require("graphql") // CommonJS
 ```
 
 ## Overview
 
-*Schema*
+_Schema_
 
 <ul class="apiIndex">
   <li>
@@ -27,7 +27,7 @@ var { GraphQLSchema } = require('graphql'); // CommonJS
   </li>
 </ul>
 
-*Definitions*
+_Definitions_
 
 <ul class="apiIndex">
   <li>
@@ -80,7 +80,7 @@ var { GraphQLSchema } = require('graphql'); // CommonJS
   </li>
 </ul>
 
-*Predicates*
+_Predicates_
 
 <ul class="apiIndex">
   <li>
@@ -114,7 +114,7 @@ var { GraphQLSchema } = require('graphql'); // CommonJS
   </li>
 </ul>
 
-*Un-modifiers*
+_Un-modifiers_
 
 <ul class="apiIndex">
   <li>
@@ -131,7 +131,7 @@ var { GraphQLSchema } = require('graphql'); // CommonJS
   </li>
 </ul>
 
-*Scalars*
+_Scalars_
 
 <ul class="apiIndex">
   <li>
@@ -220,19 +220,19 @@ functions used to ensure validity.
 
 ```js
 var OddType = new GraphQLScalarType({
-  name: 'Odd',
+  name: "Odd",
   serialize: oddValue,
   parseValue: oddValue,
   parseLiteral(ast) {
     if (ast.kind === Kind.INT) {
-      return oddValue(parseInt(ast.value, 10));
+      return oddValue(parseInt(ast.value, 10))
     }
-    return null;
-  }
-});
+    return null
+  },
+})
 
 function oddValue(value) {
-  return value % 2 === 1 ? value : null;
+  return value % 2 === 1 ? value : null
 }
 ```
 
@@ -305,7 +305,7 @@ When two types need to refer to each other, or a type needs to refer to
 itself in a field, you can use a function expression (aka a closure or a
 thunk) to supply the fields lazily.
 
-Note that resolver functions are provided the `source` object as the first parameter. 
+Note that resolver functions are provided the `source` object as the first parameter.
 However, if a resolver function is not provided, then the default resolver is
 used, which looks for a method on `source` of the same name as the field. If found,
 the method is called with `(args, context, info)`. Since it is a method on `source`,
@@ -315,26 +315,26 @@ that value can always be referenced with `this`.
 
 ```js
 var AddressType = new GraphQLObjectType({
-  name: 'Address',
+  name: "Address",
   fields: {
     street: { type: GraphQLString },
     number: { type: GraphQLInt },
     formatted: {
       type: GraphQLString,
       resolve(obj) {
-        return obj.number + ' ' + obj.street
-      }
-    }
-  }
-});
+        return obj.number + " " + obj.street
+      },
+    },
+  },
+})
 
 var PersonType = new GraphQLObjectType({
-  name: 'Person',
+  name: "Person",
   fields: () => ({
     name: { type: GraphQLString },
     bestFriend: { type: PersonType },
-  })
-});
+  }),
+})
 ```
 
 ### GraphQLInterfaceType
@@ -361,11 +361,11 @@ when the field is resolved.
 
 ```js
 var EntityType = new GraphQLInterfaceType({
-  name: 'Entity',
+  name: "Entity",
   fields: {
-    name: { type: GraphQLString }
-  }
-});
+    name: { type: GraphQLString },
+  },
+})
 ```
 
 ### GraphQLUnionType
@@ -393,17 +393,17 @@ to determine which type is actually used when the field is resolved.
 
 ```js
 var PetType = new GraphQLUnionType({
-  name: 'Pet',
-  types: [ DogType, CatType ],
+  name: "Pet",
+  types: [DogType, CatType],
   resolveType(value) {
     if (value instanceof Dog) {
-      return DogType;
+      return DogType
     }
     if (value instanceof Cat) {
-      return CatType;
+      return CatType
     }
-  }
-});
+  },
+})
 ```
 
 ### GraphQLEnumType
@@ -448,13 +448,13 @@ will be used as its internal value.
 
 ```js
 var RGBType = new GraphQLEnumType({
-  name: 'RGB',
+  name: "RGB",
   values: {
     RED: { value: 0 },
     GREEN: { value: 1 },
-    BLUE: { value: 2 }
-  }
-});
+    BLUE: { value: 2 },
+  },
+})
 ```
 
 ### GraphQLInputObjectType
@@ -503,13 +503,13 @@ Using `NonNull` will ensure that a value must be provided by the query
 
 ```js
 var GeoPoint = new GraphQLInputObjectType({
-  name: 'GeoPoint',
+  name: "GeoPoint",
   fields: {
     lat: { type: new GraphQLNonNull(GraphQLFloat) },
     lon: { type: new GraphQLNonNull(GraphQLFloat) },
     alt: { type: GraphQLFloat, defaultValue: 0 },
-  }
-});
+  },
+})
 ```
 
 ### GraphQLList
@@ -528,12 +528,12 @@ an object type.
 
 ```js
 var PersonType = new GraphQLObjectType({
-  name: 'Person',
+  name: "Person",
   fields: () => ({
     parents: { type: new GraphQLList(PersonType) },
     children: { type: new GraphQLList(PersonType) },
-  })
-});
+  }),
+})
 ```
 
 ### GraphQLNonNull
@@ -554,11 +554,11 @@ usually the id field of a database row will never be null.
 
 ```js
 var RowType = new GraphQLObjectType({
-  name: 'Row',
+  name: "Row",
   fields: () => ({
     id: { type: new GraphQLNonNull(String) },
-  })
-});
+  }),
+})
 ```
 
 ## Predicates
@@ -628,7 +628,7 @@ non-nullability and list wrappers and returns the underlying type.
 ### GraphQLInt
 
 ```js
-var GraphQLInt: GraphQLScalarType;
+var GraphQLInt: GraphQLScalarType
 ```
 
 A `GraphQLScalarType` that represents an int.
@@ -636,7 +636,7 @@ A `GraphQLScalarType` that represents an int.
 ### GraphQLFloat
 
 ```js
-var GraphQLFloat: GraphQLScalarType;
+var GraphQLFloat: GraphQLScalarType
 ```
 
 A `GraphQLScalarType` that represents a float.
@@ -644,7 +644,7 @@ A `GraphQLScalarType` that represents a float.
 ### GraphQLString
 
 ```js
-var GraphQLString: GraphQLScalarType;
+var GraphQLString: GraphQLScalarType
 ```
 
 A `GraphQLScalarType` that represents a string.
@@ -652,7 +652,7 @@ A `GraphQLScalarType` that represents a string.
 ### GraphQLBoolean
 
 ```js
-var GraphQLBoolean: GraphQLScalarType;
+var GraphQLBoolean: GraphQLScalarType
 ```
 
 A `GraphQLScalarType` that represents a boolean.
@@ -660,7 +660,7 @@ A `GraphQLScalarType` that represents a boolean.
 ### GraphQLID
 
 ```js
-var GraphQLID: GraphQLScalarType;
+var GraphQLID: GraphQLScalarType
 ```
 
 A `GraphQLScalarType` that represents an ID.

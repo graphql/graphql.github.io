@@ -34,19 +34,19 @@ npm install --save graphql
 Ultimately we will want to export a `GraphQLSchema` that we can use to resolve queries.
 
 ```js
-import { GraphQLSchema } from 'graphql';
+import { GraphQLSchema } from "graphql"
 
 export default new GraphQLSchema({
   query: QueryType,
-});
+})
 ```
 
 At the root of all GraphQL schemas is a type called `query` whose definition we provide, and have specified here as `QueryType`. Let's build `QueryType` now – a type on which we will define all the possible things one might want to fetch.
 
 To replicate all of the functionality of our REST API, let's expose two fields on `QueryType`:
 
-* an `allPeople` field – analogous to `/people/`
-* a `person(id: String)` field – analogous to `/people/{ID}/`
+- an `allPeople` field – analogous to `/people/`
+- a `person(id: String)` field – analogous to `/people/{ID}/`
 
 Each field will consist of a return type, optional argument definitions, and a JavaScript method that resolves the data being queried for.
 
@@ -169,7 +169,6 @@ export default new GraphQLSchema({
 });
 ```
 
-
 ### Using a client-side schema with Relay
 
 Normally, Relay will send its GraphQL queries to a server over HTTP. We can inject [@taion](https://github.com/taion/)'s custom `relay-local-schema` network layer to resolve queries using the schema we just built. Put this code wherever it's guaranteed to be executed before you mount your Relay app.
@@ -219,18 +218,16 @@ npm install --save graphql-relay
 First, let's change the `id` field of `PersonType` into a GUID. To do this, we'll use the `globalIdField` helper from `graphql-relay`.
 
 ```js
-import {
-  globalIdField,
-} from 'graphql-relay';
+import { globalIdField } from "graphql-relay"
 
 const PersonType = new GraphQLObjectType({
-  name: 'Person',
-  description: 'Somebody that you used to know',
+  name: "Person",
+  description: "Somebody that you used to know",
   fields: () => ({
-    id: globalIdField('Person'),
+    id: globalIdField("Person"),
     /* ... */
   }),
-});
+})
 ```
 
 Behind the scenes `globalIdField` returns a field definition that resolves `id` to a `GraphQLString` by hashing together the typename `'Person'` and the id returned by the REST API. We can later use `fromGlobalId` to convert the result of this field back into `'Person'` and the REST API's id.
@@ -239,28 +236,25 @@ Behind the scenes `globalIdField` returns a field definition that resolves `id` 
 
 Another set of helpers from `graphql-relay` will give us a hand developing the node field. Your job is to supply the helper two functions:
 
-* One function that can resolve an object given a GUID.
-* One function that can resolve a typename given an object.
+- One function that can resolve an object given a GUID.
+- One function that can resolve a typename given an object.
 
 ```js
-import {
-  fromGlobalId,
-  nodeDefinitions,
-} from 'graphql-relay';
+import { fromGlobalId, nodeDefinitions } from "graphql-relay"
 
 const { nodeInterface, nodeField } = nodeDefinitions(
   globalId => {
-    const { type, id } = fromGlobalId(globalId);
-    if (type === 'Person') {
-      return fetchPersonByURL(`/people/${id}/`);
+    const { type, id } = fromGlobalId(globalId)
+    if (type === "Person") {
+      return fetchPersonByURL(`/people/${id}/`)
     }
   },
   object => {
-    if (object.hasOwnProperty('username')) {
-      return 'Person';
+    if (object.hasOwnProperty("username")) {
+      return "Person"
     }
-  },
-);
+  }
+)
 ```
 
 The object-to-typename resolver above is no marvel of engineering, but you get the idea.
@@ -395,9 +389,9 @@ As a special note, make sure that your runtime offers native or polyfilled versi
 To create a `DataLoader` you supply a method that can resolve a list of objects given a list of keys. In our example, the keys are URLs at which we access our REST API.
 
 ```js
-const personLoader = new DataLoader(
-  urls => Promise.all(urls.map(fetchPersonByURL))
-);
+const personLoader = new DataLoader(urls =>
+  Promise.all(urls.map(fetchPersonByURL))
+)
 ```
 
 If this data loader sees a key more than once in its lifetime, it will return a memoized (cached) version of the response.

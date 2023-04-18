@@ -11,9 +11,9 @@ next: /foundation/graphql-conf/
 
 There are two primary ways to support the ongoing development and success of GraphQL.
 
-* Developers can [join the GraphQL Specification](#graphql-specification), enabling them to contribute code, time, and talent to GraphQL technical projects. This is free for companies and individuals.
+- Developers can [join the GraphQL Specification](#graphql-specification), enabling them to contribute code, time, and talent to GraphQL technical projects. This is free for companies and individuals.
 
-* Organizations can [join the GraphQL Foundation](#graphql-foundation), which is the non-profit that supports the sustainability of the GraphQL community. This is accomplished through annual membership fees, which are allocated by the Governing Board for the benefit of the GraphQL ecosystem.
+- Organizations can [join the GraphQL Foundation](#graphql-foundation), which is the non-profit that supports the sustainability of the GraphQL community. This is accomplished through annual membership fees, which are allocated by the Governing Board for the benefit of the GraphQL ecosystem.
 
 If you have a question about which membership is right for you, please reach out to [membership@graphql.org](mailto:membership@graphql.org).
 
@@ -25,7 +25,7 @@ The GraphQL Specification and its related tools and libraries are developed unde
 
 Membership in the GraphQL Specification is free, and is required for all who participate in the development process. This includes direct contributions to the specification, participation in meetings and discussions, and contributions to reference implementations and tooling. Joining is simple and straightforward, and all are welcome as members.
 
-*Please note that you or your employer must sign a specification membership before you can join GraphQL calls and participate in the technical development process.*
+_Please note that you or your employer must sign a specification membership before you can join GraphQL calls and participate in the technical development process._
 
 ### [Corporate specification membership](https://corporate-spec-membership.graphql.org)
 
@@ -39,7 +39,7 @@ If you are planning to work on GraphQL as an individual or if you are a student,
 
 To join, please open a PR against a GraphQL repo ([instructions](https://individual-spec-membership.graphql.org)).
 
-*Please note: If your employer has already signed a specification membership agreement, you do not need to sign a separate agreement as an individual. If your organization is a member of the GraphQL Foundation, you will still need a valid GraphQL Specification membership in order to contribute.*
+_Please note: If your employer has already signed a specification membership agreement, you do not need to sign a separate agreement as an individual. If your organization is a member of the GraphQL Foundation, you will still need a valid GraphQL Specification membership in order to contribute._
 
 ---
 
@@ -59,32 +59,32 @@ The first 20 members of the GraphQL Foundation participate as voting members of 
 
 To [join the GraphQL Foundation](https://join.graphql.org), organizations become a member of the Linux Foundation and sign the GraphQL Foundation participation agreement. The GraphQL Foundation annual fee is received into a fund managed by the GraphQL Foundation Governing Board.
 
-* [Preview the Linux Foundation membership application »](/files/LF_Membership-Preview.pdf)
-* [Preview the GraphQL Foundation participation agreement »](/files/foundation-participation-agreement-revised-jan-2022.pdf)
+- [Preview the Linux Foundation membership application »](/files/LF_Membership-Preview.pdf)
+- [Preview the GraphQL Foundation participation agreement »](/files/GraphQL_Foundation-Participation_Agreement-Preview.pdf)
 
 GraphQL Foundation membership fees and Linux Foundation Silver Membership dues are adjusted according to an organization's number of full-time employees.
 
 ### [GraphQL Foundation Membership](https://join.graphql.org)
 
-Organization size | Cost
-:-----------------|:----
-General (5,000+) | $20,000
-General (2,000 to 4,999) | $10,000
-General (50 to 1,999) | $5,000
-General (Up to 49) | $2,000
+| Organization size        | Cost    |
+| :----------------------- | :------ |
+| General (5,000+)         | $20,000 |
+| General (2,000 to 4,999) | $10,000 |
+| General (50 to 1,999)    | $5,000  |
+| General (Up to 49)       | $2,000  |
 
 To join, please complete the [membership application](https://join.graphql.org).
 
 ### [Linux Foundation Membership](https://join.graphql.org)
 
-Organization size | Cost
-:-----------------|:----
-Platinum | $500,000
-Gold | $100,000
-Silver (5,000+) | $20,000
-Silver (500 to 4,999) | $15,000
-Silver (100 to 499) | $10,000
-Silver (Up to 99) | $5,000
+| Organization size     | Cost     |
+| :-------------------- | :------- |
+| Platinum              | $500,000 |
+| Gold                  | $100,000 |
+| Silver (5,000+)       | $20,000  |
+| Silver (500 to 4,999) | $15,000  |
+| Silver (100 to 499)   | $10,000  |
+| Silver (Up to 99)     | $5,000   |
 
 To join, please complete the [membership application](https://join.graphql.org).
 

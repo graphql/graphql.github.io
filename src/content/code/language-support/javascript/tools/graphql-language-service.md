@@ -5,5 +5,3 @@ url: https://github.com/graphql/graphql-language-service
 github: graphql/graphql-language-service
 npm: "graphql-language-service"
 ---
-
-

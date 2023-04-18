@@ -17,8 +17,8 @@ GraphQL Middleware is a schema wrapper which allows you to manage additional fun
 ## Example
 
 ```ts
-const { ApolloServer } = require('apollo-server')
-const { makeExecutableSchema } = require('@graphql-tools/schema')
+const { ApolloServer } = require("apollo-server")
+const { makeExecutableSchema } = require("@graphql-tools/schema")
 
 const typeDefs = `
 type Query {
@@ -30,11 +30,11 @@ const resolvers = {
   Query: {
     hello: (root, args, context, info) => {
       console.log(`3. resolver: hello`)
-      return `Hello ${args.name ? args.name : 'world'}!`
+      return `Hello ${args.name ? args.name : "world"}!`
     },
     bye: (root, args, context, info) => {
       console.log(`3. resolver: bye`)
-      return `Bye ${args.name ? args.name : 'world'}!`
+      return `Bye ${args.name ? args.name : "world"}!`
     },
   },
 }

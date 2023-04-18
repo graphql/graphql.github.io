@@ -202,8 +202,8 @@ This means that the _list itself_ can be null, but it can't have any null member
 ```js
 myField: null // valid
 myField: [] // valid
-myField: ['a', 'b'] // valid
-myField: ['a', null, 'b'] // error
+myField: ["a", "b"] // valid
+myField: ["a", null, "b"] // error
 ```
 
 Now, let's say we defined a Non-Null List of Strings:
@@ -217,8 +217,8 @@ This means that the list itself cannot be null, but it can contain null values:
 ```js
 myField: null // error
 myField: [] // valid
-myField: ['a', 'b'] // valid
-myField: ['a', null, 'b'] // valid
+myField: ["a", "b"] // valid
+myField: ["a", null, "b"] // valid
 ```
 
 You can arbitrarily nest any number of Non-Null and List modifiers, according to your needs.

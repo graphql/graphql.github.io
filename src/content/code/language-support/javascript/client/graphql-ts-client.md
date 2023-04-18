@@ -5,5 +5,3 @@ url: https://github.com/babyfish-ct/graphql-ts-client
 github: babyfish-ct/graphql-ts-client
 npm: "graphql-ts-client-api"
 ---
-
-

@@ -23,9 +23,9 @@ The GraphQL Foundation's inaugural GraphQL Conf was co-located with [OpenJS Worl
 
 Talks covered:
 
-* Recent activity in the GraphQL specification working group, such as Defer and Stream, Input Unions, and Client-Controlled Nullability.
-* Downstream implementations of GraphQL
-* Security considerations
-* Common practices and lessons learned
+- Recent activity in the GraphQL specification working group, such as Defer and Stream, Input Unions, and Client-Controlled Nullability.
+- Downstream implementations of GraphQL
+- Security considerations
+- Common practices and lessons learned
 
 Recordings of the sessions are available on [our YouTube channel](https://youtube.graphql.org).

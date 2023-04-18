@@ -11,7 +11,9 @@ const SectionConf = ({ id, title, children }: Props): JSX.Element => (
   // Padding down so hash-links to this id display below the header menu
   <div key={id} id={id} className="pt-16 -mt-16">
     <h2>
-      <a href={`#${id}`} className="no-underline">{title}</a>
+      <a href={`#${id}`} className="no-underline">
+        {title}
+      </a>
     </h2>
     {children}
   </div>

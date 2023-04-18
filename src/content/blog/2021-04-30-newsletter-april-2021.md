@@ -31,27 +31,26 @@ Representing almost 6 million downloads per week. TypeScript is in need of addit
 
 ### Adding descriptions to queries and fragments
 
-The purpose of this discussion is to add necessary comments for various business use cases. As of now we have to parse SDL data and it's problematic when people add other comments. The WG is working on the best way to solve this issue. 
+The purpose of this discussion is to add necessary comments for various business use cases. As of now we have to parse SDL data and it's problematic when people add other comments. The WG is working on the best way to solve this issue.
 
 ### Schema introspection extensions
 
 First implemented by GraphQL Java,then some issues were found and it was discovered there was some additional work to be done before turning it into an RFC. The Working Group is planning to address these issues shortly.
 
-
 ## In Other News...
 
-*   [Dgraph announces  v21.03 - Resilient Rocket Release](https://dgraph.io/blog/post/v2103-release/)
-*   Read: [GraphQL API Security best practices with AWS AppSync and Amplify](https://github.com/danilop/graphql-api-security-with-aws-appsync-and-amplify)
-  *   AWS AppSync is a fully managed service which allows developers to deploy and interact with serverless scalable GraphQL backends on AWS. 
-*   [Neo4j announces GraphQL Library Beta Release](https://medium.com/neo4j/announcing-the-neo4j-graphql-library-beta-99ae8541bbe7)
-*   TechTarget: [Dgraph GraphQL database users detail graph use cases](https://searchdatamanagement.techtarget.com/news/252499595/Dgraph-GraphQL-database-users-detail-graph-use-cases)
-*   Devops.com: [Apollo GraphQL Makes Federated Server More Accessible](https://devops.com/apollo-graphql-makes-federated-server-more-accessible/)
-*   The New Stack: [Why Shopify Favors GraphQL over REST for Its APIs](https://thenewstack.io/why-shopify-favors-graphql-over-rest-for-its-apis/)
-*   Code Story: [E17: Matt Debergalis, Apollo GraphQL](https://codestory.co/podcast/e17-matt-debergalis-apollo-graphql/)
+- [Dgraph announces v21.03 - Resilient Rocket Release](https://dgraph.io/blog/post/v2103-release/)
+- Read: [GraphQL API Security best practices with AWS AppSync and Amplify](https://github.com/danilop/graphql-api-security-with-aws-appsync-and-amplify)
+- AWS AppSync is a fully managed service which allows developers to deploy and interact with serverless scalable GraphQL backends on AWS.
+- [Neo4j announces GraphQL Library Beta Release](https://medium.com/neo4j/announcing-the-neo4j-graphql-library-beta-99ae8541bbe7)
+- TechTarget: [Dgraph GraphQL database users detail graph use cases](https://searchdatamanagement.techtarget.com/news/252499595/Dgraph-GraphQL-database-users-detail-graph-use-cases)
+- Devops.com: [Apollo GraphQL Makes Federated Server More Accessible](https://devops.com/apollo-graphql-makes-federated-server-more-accessible/)
+- The New Stack: [Why Shopify Favors GraphQL over REST for Its APIs](https://thenewstack.io/why-shopify-favors-graphql-over-rest-for-its-apis/)
+- Code Story: [E17: Matt Debergalis, Apollo GraphQL](https://codestory.co/podcast/e17-matt-debergalis-apollo-graphql/)
 
 ## Upcoming Events:
 
-*   [Hasura Con '21: The Big Hasura User Conference](https://hasura.io/events/hasura-con-2021/) The 2021 installment of Hasura Con will take place on June 23rd and 24th. The event brings together users from all over the world to celebrate all things Hasura and will feature top-notch speakers and workshops. Sign up today to attend Hasura Con '21 or submit a talk proposal to share your knowledge at the event.
+- [Hasura Con '21: The Big Hasura User Conference](https://hasura.io/events/hasura-con-2021/) The 2021 installment of Hasura Con will take place on June 23rd and 24th. The event brings together users from all over the world to celebrate all things Hasura and will feature top-notch speakers and workshops. Sign up today to attend Hasura Con '21 or submit a talk proposal to share your knowledge at the event.
 
 ## Get Involved!
 

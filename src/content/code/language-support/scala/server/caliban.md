@@ -6,13 +6,14 @@ github: ghostdogpr/caliban
 ---
 
 An example of a GraphQL schema and query with `caliban`:
+
 ```scala
 import caliban.GraphQL.graphQL
 import caliban.RootResolver
 
 case class Character(name: String, age: Int)
 
-def getCharacters(): List[Character] = ??? 
+def getCharacters(): List[Character] = ???
 
 // schema
 case class Queries(characters: List[Character])

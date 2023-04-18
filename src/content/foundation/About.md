@@ -16,12 +16,12 @@ GraphQL was created in 2012 and open sourced by Facebook in 2015. In 2019, Faceb
 
 The primary mission of the GraphQL Foundation is to ensure that the GraphQL community is able to focus on the continued evolution of the [specification](https://spec.graphql.org) and [reference implementations](/code/). We accomplish this through a number of core activities:
 
-* Funding grants for project maintainers and community gardeners.
-* Coordinating and funding mentorship programs.
-* Providing collaboration infrastructure.
-* Managing the GraphQL trademark and related policies.
-* Providing legal support for projects.
-* Operational and logistical support through The Linux Foundation.
+- Funding grants for project maintainers and community gardeners.
+- Coordinating and funding mentorship programs.
+- Providing collaboration infrastructure.
+- Managing the GraphQL trademark and related policies.
+- Providing legal support for projects.
+- Operational and logistical support through The Linux Foundation.
 
 The GraphQL Foundation works in close collaboration with the [GraphQL Working Group](https://github.com/graphql/graphql-wg/) and the [GraphQL TSC](https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md).
 
@@ -29,7 +29,4 @@ The GraphQL Foundation works in close collaboration with the [GraphQL Working Gr
 
 The GraphQL Foundation would like to thank [our current members](/foundation/members/) for their ongoing support to ensure the sustainability of the GraphQL ecosystem. Learn more about how your company can demonstrate its commitment to GraphQL by [becoming a member of the GraphQL Foundation](https://graphql.org/foundation/join).
 
-
 If you have questions, you can reach out to [membership@graphql.org](mailto:membership@graphql.org).
-
-

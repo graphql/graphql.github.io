@@ -35,8 +35,7 @@ const WithoutVersion = () => {
             <div className="v1">
               <Prism
                 language="graphql"
-                code={
-`type Film {
+                code={`type Film {
   title: String
   episode: Int
   releaseDate: String
@@ -50,8 +49,7 @@ const WithoutVersion = () => {
               <div className="add" />
               <Prism
                 language="graphql"
-                code={
-`type Film {
+                code={`type Film {
   title: String
   episode: Int
   releaseDate: String
@@ -65,8 +63,7 @@ const WithoutVersion = () => {
               <div className="add" />
               <Prism
                 language="graphql"
-                code={
-`type Film {
+                code={`type Film {
   title: String
   episode: Int
   releaseDate: String
@@ -86,8 +83,7 @@ const WithoutVersion = () => {
               <div className="remove" />
               <Prism
                 language="graphql"
-                code={
-`type Film {
+                code={`type Film {
   title: String
   episode: Int
   releaseDate: String
@@ -107,8 +103,7 @@ type Person {
               <div className="add" />
               <Prism
                 language="graphql"
-                code={
-`type Film {
+                code={`type Film {
   title: String
   episode: Int
   releaseDate: String

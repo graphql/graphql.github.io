@@ -4,5 +4,3 @@ description: A Tool for Writing Declarative, Type-Safe and Data-Driven Applicati
 url: https://github.com/nerdsupremacist/Graphaello
 github: nerdsupremacist/Graphaello
 ---
-
-

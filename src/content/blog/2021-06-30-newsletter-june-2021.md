@@ -25,15 +25,13 @@ The meeting agendas and minutes are open and available in [meetings/](https://gi
 
 The next release is in the final stages of review and is anticipated to be released soon. Details on the release are TBD.
 
-
 ## Schema Coordinates update
 
-The WG is evaluating  how to use Schema Coordinates (e.g. what can we improve by using schema coordinates, and is Looking for support in advancing from Draft to Accepted.
-
+The WG is evaluating how to use Schema Coordinates (e.g. what can we improve by using schema coordinates, and is Looking for support in advancing from Draft to Accepted.
 
 ## Full unicode support
 
-The WG is looking for support in advancing this iteration from Proposal to Draft. Most notably full unicode is already supported today, albeit without having explicit tests for it. 
+The WG is looking for support in advancing this iteration from Proposal to Draft. Most notably full unicode is already supported today, albeit without having explicit tests for it.
 
 The only new code that is added is the verification of the surrogate pairs. The current implementation allows for invalid surrogate pairs.
 
@@ -42,7 +40,6 @@ The only new code that is added is the verification of the surrogate pairs. The 
 For the past 5+ years, Relay has had the [@arguments directive](https://relay.dev/docs/api-reference/graphql-and-directives/#arguments), which is not spec compliant. In some sense, Relay is a _dual GraphQL client_: there's Relay syntax which is used to resolve data available locally on the client, and then that syntax compiles down into a spec compliant syntax to resolve data from an external source (aka a "server"), which hydrates a graph of "local" data the relay-specific resolvers operate over.
 
 This means Relay can get away with having user-written fragments that are freed from operation-defined knowledge: Relay's fragments can be provided with variable values that were never defined at the operation level, to use when resolving arguments.
-
 
 ## Roundtable discussion on @defer/@stream
 
@@ -54,7 +51,7 @@ The working group will be converting as much of graphql-js to TypeScript as poss
 
 ### Default Value Coercion RFC
 
-The WG has spent several weeks working to integrate the default value changes into GraphQL Ruby, which has resulted in several architectural discussions and some bug reports. 
+The WG has spent several weeks working to integrate the default value changes into GraphQL Ruby, which has resulted in several architectural discussions and some bug reports.
 
 ### Glossary RFC
 
@@ -64,23 +61,18 @@ The purpose of this RFC is to add clarity and precision, especially after the ma
 
 Used by many including Yelp and Netflix, the proposal is to allow queries that can include a non-null designator (!) to indicate that a field should be treated non-nullable and if it returns null it should escalate following the standard GraphQL error bubbling.
 
-
 ## In Other News...
 
-*   Database, Trends & Applications: [Hasura Adds the Ability to Access Existing Data and Move it with GraphQL API](https://www.dbta.com/Editorial/News-Flashes/Hasura-Adds-the-Ability-to-Access-Existing-Data-and-Move-it-with-GraphQL-API-147680.aspx)
-*   InfoQ: [Rebuilding Twitter's Public API](https://www.infoq.com/presentations/twitter-public-api/)
-*   ZDNet: [MuleSoft adds DataGraph to Anypoint Platform to streamline API requests](https://www.zdnet.com/article/mulesoft-adds-datagraph-to-anypoint-platform-streamlining-api-requests/)
-
+- Database, Trends & Applications: [Hasura Adds the Ability to Access Existing Data and Move it with GraphQL API](https://www.dbta.com/Editorial/News-Flashes/Hasura-Adds-the-Ability-to-Access-Existing-Data-and-Move-it-with-GraphQL-API-147680.aspx)
+- InfoQ: [Rebuilding Twitter's Public API](https://www.infoq.com/presentations/twitter-public-api/)
+- ZDNet: [MuleSoft adds DataGraph to Anypoint Platform to streamline API requests](https://www.zdnet.com/article/mulesoft-adds-datagraph-to-anypoint-platform-streamlining-api-requests/)
 
 ## Upcoming Events:
 
-*   [GraphQL Conf. 2021](https://graphqlconf.org/) - September 29th
-
+- [GraphQL Conf. 2021](https://graphqlconf.org/) - September 29th
 
 ## Get Involved!
 
 Developers can get involved in the community and contribute to the project at [https://github.com/graphql](https://github.com/graphql).
 
 Organizations interested in becoming members of the GraphQL Foundation or the GraphQL Specification can learn more on our [member page](https://graphql.org/foundation/join). If you have questions about membership, please send an email to membership@graphql.org.
-
-

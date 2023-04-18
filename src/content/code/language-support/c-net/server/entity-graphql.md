@@ -17,7 +17,7 @@ public class Startup {
           // modify the schema (add/remove fields or types), add other services
       });
   }
-  
+
   public void Configure(IApplicationBuilder app, DemoContext db)
   {
       app.UseRouting();

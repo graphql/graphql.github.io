@@ -15,8 +15,8 @@ npm install fastify mercurius
 Then run `node app.js` with this code in `app.js`:
 
 ```js
-const Fastify = require('fastify')
-const mercurius = require('mercurius')
+const Fastify = require("fastify")
+const mercurius = require("mercurius")
 
 const schema = `
   type Query {
@@ -26,14 +26,14 @@ const schema = `
 
 const resolvers = {
   Query: {
-    hello: async (_, { name }) => `hello ${name || 'world'}`
-  }
+    hello: async (_, { name }) => `hello ${name || "world"}`,
+  },
 }
 
 const app = Fastify()
 app.register(mercurius, {
   schema,
-  resolvers
+  resolvers,
 })
 
 app.listen(3000)

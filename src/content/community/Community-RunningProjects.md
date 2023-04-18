@@ -18,11 +18,10 @@ The primary distinction between official GraphQL projects and other implementati
 We welcome and encourage community members and third-parties to maintain their own implementations.
 
 > ### Making an independent project official
-> 
+>
 > If you maintain a tool or reference implementation that you'd like to transfer to the [GraphQL GitHub org](https://github.com/graphql), or if you are planning to start a new workgroup or implementation within the official GraphQL project, please add your name to the agenda of an upcoming [GraphQL Working Group meeting](https://github.com/graphql/graphql-wg/tree/HEAD/agendas) to introduce your idea.
-> 
+>
 > Should your proposal meet with approval, a few things will then need to happen. For example, we will work with you to adopt our policies and neutral governance, and help you transfer the project and its assets (generally the domain name and any trademarks) so that they are neutrally held at the Linux Foundation. If you'd like to explore the idea before making a proposal, please reach out to [operations@graphql.org](mailto:operations@graphql.org)
-
 
 ## Running project meetings
 
@@ -30,23 +29,22 @@ Because GraphQL is a [Joint Development Foundation](https://www.jointdevelopment
 
 Each **technical meeting** must:
 
-* Have an agenda Markdown document in the project repo published at least a week before the call.
-* Have an "Attendees" section where people can open a PR and add their own names in advance.
-* Optional, but encouraged: Use the GraphQL Zoom account so that we can easily post the meeting recording to [YouTube](https://youtube.graphql.org).
+- Have an agenda Markdown document in the project repo published at least a week before the call.
+- Have an "Attendees" section where people can open a PR and add their own names in advance.
+- Optional, but encouraged: Use the GraphQL Zoom account so that we can easily post the meeting recording to [YouTube](https://youtube.graphql.org).
 
 Each **attendee** must:
 
-* Add their name to the agenda prior to the meeting.
-* Pass the EasyCLA check by signing the agreement as an individual, or asking their company to add them to the list.
+- Add their name to the agenda prior to the meeting.
+- Pass the EasyCLA check by signing the agreement as an individual, or asking their company to add them to the list.
 
 The **person running the call** must:
 
-* Merge all appropriate attendance and agenda PRs with passing checks prior to the meeting.
-* Verify that everyone who connects to the meeting appears on the list.
-* If someone joins who is not on the list, they need to disconnect until they can PR themselves onto the attendee list with all checks passing.
-* Notify all attendees the meeting is being recorded, and record to the cloud.
-* Keep minutes, or have a volunteer to write them. Minutes should be published to the project repo.
-
+- Merge all appropriate attendance and agenda PRs with passing checks prior to the meeting.
+- Verify that everyone who connects to the meeting appears on the list.
+- If someone joins who is not on the list, they need to disconnect until they can PR themselves onto the attendee list with all checks passing.
+- Notify all attendees the meeting is being recorded, and record to the cloud.
+- Keep minutes, or have a volunteer to write them. Minutes should be published to the project repo.
 
 ## Resources for projects
 

@@ -7,6 +7,7 @@ github: thecodingmachine/graphqlite
 
 It is framework agnostic with bindings available for Symfony and Laravel.
 This code declares a "product" query and a "Product" Type:
+
 ```php
 class ProductController
 {
@@ -34,4 +35,5 @@ class Product
     // ...
 }
 ```
+
 Other GraphQLite features include validation, security, error handling, loading via data-loader pattern...

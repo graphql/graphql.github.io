@@ -5,5 +5,3 @@ url: https://graphql-mesh.com
 github: Urigo/graphql-mesh
 npm: "@graphql-mesh/cli"
 ---
-
-

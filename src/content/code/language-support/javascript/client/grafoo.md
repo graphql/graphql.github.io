@@ -5,5 +5,3 @@ url: https://github.com/grafoojs/grafoo
 github: grafoojs/grafoo
 npm: "@grafoo/core"
 ---
-
-

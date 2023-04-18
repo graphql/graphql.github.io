@@ -5,5 +5,3 @@ url: https://graphql-code-generator.com
 github: dotansimha/graphql-code-generator
 npm: "@graphql-codegen/cli"
 ---
-
-

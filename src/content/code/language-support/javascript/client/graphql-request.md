@@ -5,5 +5,3 @@ url: https://github.com/prisma/graphql-request
 github: prisma-labs/graphql-request
 npm: "graphql-request"
 ---
-
-

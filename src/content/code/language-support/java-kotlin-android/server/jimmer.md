@@ -17,11 +17,11 @@ github: babyfish-ct/jimmer
 
 5.  More powerful than other popular ORM solutions.
 
-    Three aspects should be considered in ORM design: 
+    Three aspects should be considered in ORM design:
 
     a. Query.
     b. Update.
-    c. Cache. 
+    c. Cache.
 
     Each aspect is aimed at object trees with arbitrary depth rather than simple objects. This distinctive design brings convenience unmatched by other popular solutions.
 

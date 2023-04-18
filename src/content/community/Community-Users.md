@@ -9,16 +9,16 @@ sublinks: Training courses,Where to ask questions,Blogs,Videos,Books,More resour
 
 The following resources are intended to help users and implementers. Find something useful? Please add it to the list!
 
-*Please note that the GraphQL Foundation does not provide support or services, and cannot recommend one vendor's product over another.*
+_Please note that the GraphQL Foundation does not provide support or services, and cannot recommend one vendor's product over another._
 
 ## Training courses
 
 A number of GraphQL training courses are available.
 
-* [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course, developed by [Linux Foundation Training](https://training.linuxfoundation.org)
-* [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
-* [Apollo Odyssey](https://apollographql.com/tutorials/): Interactive courses for building GraphQL applications with Apollo's toolset
-* [Yoga GraphQL Server Tutorial](https://the-guild.dev/graphql/yoga-server/tutorial): Open source tutorial for creating modern GraphQL Servers in Node, CF Workers, Deno and others
+- [Exploring GraphQL: A Query Language For APIs](https://www.edx.org/course/exploring-graphql-a-query-language-for-apis): A free 7 week edX course, developed by [Linux Foundation Training](https://training.linuxfoundation.org)
+- [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
+- [Apollo Odyssey](https://apollographql.com/tutorials/): Interactive courses for building GraphQL applications with Apollo's toolset
+- [Yoga GraphQL Server Tutorial](https://the-guild.dev/graphql/yoga-server/tutorial): Open source tutorial for creating modern GraphQL Servers in Node, CF Workers, Deno and others
 
 ## Where to ask questions
 
@@ -37,11 +37,11 @@ Please be patient and polite. These are not explicitly user support channels, al
 
 <div style="float:right;"><iframe src="https://discordapp.com/widget?id=625400653321076807&theme=dark" width="350" height="250" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
 
-* [GraphQL Foundation Discord](https://discord.graphql.org)
-* [GraphQL Reddit Community](https://www.reddit.com/r/graphql/)
-* [GraphQL Community Facebook Group](https://www.facebook.com/groups/graphql.community/)
-* [#help-graphql on the ReactiFlux Discord](https://discord.gg/aBtYAXxG7B)
-* [#graphql on freenode IRC](https://freenode.net/)
+- [GraphQL Foundation Discord](https://discord.graphql.org)
+- [GraphQL Reddit Community](https://www.reddit.com/r/graphql/)
+- [GraphQL Community Facebook Group](https://www.facebook.com/groups/graphql.community/)
+- [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com/)
+- [#graphql on freenode IRC](https://freenode.net/)
 
 <div style="clear:both;"></div>
 
@@ -49,30 +49,30 @@ Please be patient and polite. These are not explicitly user support channels, al
 
 The following channels are maintained by vendors, and may be a good place to find help on their products.
 
-* [Apollo Slack](http://apollostack.com/#slack)
-* [ChilliCream Slack](http://slack.chillicream.com/)
-* [Graphile Discord](https://discord.gg/graphile)
-* [Prisma Slack](https://slack.prisma.io/)
-* [Stellate Discord](https://go.stellate.co/community)
+- [Apollo Slack](http://apollostack.com/#slack)
+- [ChilliCream Slack](http://slack.chillicream.com/)
+- [Graphile Discord](https://discord.gg/graphile)
+- [Prisma Slack](https://slack.prisma.io/)
+- [Stellate Discord](https://go.stellate.co/community)
 
 ## Blogs and Newsletters
 
 Popular sources to learn and keep track of the GraphQL Ecosystem
 
-  - [Official GraphQL Blog](https://graphql.org/blog/)
-  - [Apollo's Blog](https://www.apollographql.com/blog/)
-  - [ChilliCream's Blog](https://chillicream.com/blog)
-  - [DEV.to GraphQL tag](https://dev.to/t/graphql)
-  - [Escape Security Blog](https://escape.tech/blog/)
-  - [GraphQL Editor Blog](https://blog.graphqleditor.com/)
-  - [GraphQL WTF Episodes Feed](https://graphql.wtf/)
-  - [GraphQL Weekly](https://www.graphqlweekly.com/)
-  - [Hasura's Blog](https://hasura.io/blog/)
-  - [Inigo's Security Blog](https://inigo.io/blog)
-  - [StepZen's Blog](https://stepzen.com/blog)
-  - [The Guild's Blog](https://the-guild.dev/blog)
-  - [The Guild's Newsletter](https://www.getrevue.co/profile/TheGuild)
-  - [WunderGraph's Blog](https://wundergraph.com/blog)
+- [Official GraphQL Blog](https://graphql.org/blog/)
+- [Apollo's Blog](https://www.apollographql.com/blog/)
+- [ChilliCream's Blog](https://chillicream.com/blog)
+- [DEV.to GraphQL tag](https://dev.to/t/graphql)
+- [Escape Security Blog](https://escape.tech/blog/)
+- [GraphQL Editor Blog](https://blog.graphqleditor.com/)
+- [GraphQL WTF Episodes Feed](https://graphql.wtf/)
+- [GraphQL Weekly](https://www.graphqlweekly.com/)
+- [Hasura's Blog](https://hasura.io/blog/)
+- [Inigo's Security Blog](https://inigo.io/blog)
+- [StepZen's Blog](https://stepzen.com/blog)
+- [The Guild's Blog](https://the-guild.dev/blog)
+- [The Guild's Newsletter](https://www.getrevue.co/profile/TheGuild)
+- [WunderGraph's Blog](https://wundergraph.com/blog)
 
 ### Individual Posts
 
