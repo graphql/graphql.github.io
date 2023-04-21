@@ -11,7 +11,6 @@ const BackToTop: React.FC<Props> = ({ scrollThreshold }) => {
     const handleScroll = () => {
       const pageHeight = document.body.scrollHeight
       const currentPosition = window.pageYOffset
-      console.log(pageHeight, currentPosition)
       if (pageHeight < 6000) {
         setIsVisible(false)
       } else {
