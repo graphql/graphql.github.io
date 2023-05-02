@@ -257,4 +257,13 @@
 
 .conf-style {
   font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .zoom {
+    transition: transform .2s; /* Animation */
+    width: 200px;
+    height: 200px;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
 }
