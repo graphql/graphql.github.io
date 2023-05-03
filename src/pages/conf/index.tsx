@@ -11,7 +11,6 @@ import SFConf from "../../components/Conf/SF"
 import ScheduleGlanceConf from "../../components/Conf/Schedule"
 import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
 import { CalendarIcon, GlobeIcon } from "@radix-ui/react-icons"
-import SponsersConf from "../../components/Conf/Sponers"
 
 export default () => {
   return (
@@ -51,7 +50,6 @@ export default () => {
       <VenueConf />
       <SFConf />
       <AboutConf />
-      <SponsersConf />
       <FooterConf />
     </LayoutConf>
   )
