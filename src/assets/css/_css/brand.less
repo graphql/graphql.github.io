@@ -257,4 +257,32 @@
 
 .conf-style {
   font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .zoom-diamond {
+    transition: transform .2s; /* Animation */
+    width: 432px;
+    height: 221px;
+    cursor: pointer;
+  }
+  .zoom-diamond:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  .zoom-platinum  {
+    transition: transform .2s; /* Animation */
+    width: 299px;
+    height: 153px;
+    cursor: pointer;
+  }
+  .zoom-platinum:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  .zoom-silver {
+    transition: transform .2s; /* Animation */
+    width: 208px;
+    height: 106px;
+    cursor: pointer;
+  }
+  
+  .zoom-silver:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
 }
