@@ -12,7 +12,7 @@ type Button = {
 
 const Buttons: Button[] = [
   {
-    href: "https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf",
+    href: "https://events.linuxfoundation.org/sponsor-graphqlconf-23",
     text: "Explore Sponsorship Opportunity",
   },
   {
