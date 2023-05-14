@@ -62,7 +62,7 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
           ],
           [
             "Beyond Javascript",
-            "Implementing and interacting with GraphQL APIs using languages and frameworks beyond JavaScript: Go, Ruby, Rust, .NET, WebAssembly, et al.",
+            "Implementing and interacting with GraphQL APIs using languages and frameworks beyond JavaScript: Go, Ruby, Python, Rust, .NET, WebAssembly, et al.",
           ],
           [
             "GraphQL Academia",
