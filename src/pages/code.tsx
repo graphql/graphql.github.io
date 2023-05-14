@@ -182,24 +182,68 @@ export function ToolsList({ pageContext, type }: ToolsListProps) {
       <h3 id={type} className="library-category-title">
         {type === "GatewaysAndSupergraphs" ? "Gateways / Supergraphs" : type}
       </h3>
-      {pageContext.toolList.map(
-        tool => (
-          console.log(tool.categoryMap, tool.name),
-          (
-            <div key={tool.name} id={toSlug(tool.name)}>
-              {Object.entries(tool.categoryMap).map(
-                ([categoryName, data]) =>
-                  categoryName === type && <LibraryList data={data} />
-              )}
-            </div>
-          )
-        )
-      )}
+      {pageContext.toolList.map(tool => (
+        <div key={tool.name} id={toSlug(tool.name)}>
+          {Object.entries(tool.categoryMap).map(
+            ([categoryName, data]) =>
+              categoryName === type && <LibraryList data={data} />
+          )}
+        </div>
+      ))}
     </>
   )
 }
+const sortLanguageList = (sortConfig: {
+  sortType?: "popularity" | "alphabetical"
+  data: Language[]
+}) => {
+  const { sortType = "popularity", data } = sortConfig
+  const _data = [...data]
+  if (sortType === "popularity") return _data
+  _data?.sort((a, b) => {
+    if (a.name > b.name) {
+      return 1
+    }
+    if (a.name < b.name) {
+      return -1
+    }
+    return 0
+  })
+  return _data
+}
 
+const SortInput = (props: {
+  isChecked: boolean
+  onChange: (e: any) => unknown
+  value: string
+  label: string
+}) => {
+  const { isChecked, onChange, value, label } = props
+  return (
+    <div className="inputContainer">
+      <input
+        type="radio"
+        name="sort"
+        id={label}
+        value={value}
+        onChange={onChange}
+        checked={isChecked}
+      />
+      <label htmlFor={label}>{label}</label>
+    </div>
+  )
+}
 export default ({ pageContext }: PageProps<{}, PageContext>) => {
+  const [sortBy, setSortBy] = useState<"popularity" | "alphabetical">(
+    "popularity"
+  )
+  const sortedLanguageList = sortLanguageList({
+    sortType: sortBy,
+    data: pageContext.languageList,
+  })
+  const handleInputChange = (e: any) => {
+    setSortBy(e.target.value)
+  }
   return (
     <Layout className="code" pageContext={pageContext}>
       <div className="code-hero">
@@ -235,8 +279,23 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
             <p id="language-support" className="languages-title">
               Language Support
             </p>
+            <div className="sortByContainer">
+              <p className="sortBy">Sort By:</p>
+              <SortInput
+                onChange={handleInputChange}
+                value="popularity"
+                label="Popularity"
+                isChecked={sortBy === "popularity"}
+              />
+              <SortInput
+                onChange={handleInputChange}
+                value="alphabetical"
+                label="Alphabetical"
+                isChecked={sortBy === "alphabetical"}
+              />
+            </div>
             <div className="language-boxes">
-              {pageContext.languageList
+              {sortedLanguageList
                 ?.map(language => language?.name!)
                 .filter(Boolean)
                 .map(languageName => {
@@ -253,7 +312,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                 })}
             </div>
             <div className="languages-content">
-              {pageContext.languageList.map(lang => {
+              {sortedLanguageList.map(lang => {
                 const languageName = lang.name
                 const libraryCategories = lang.categoryMap
                 const filteredCategorySlugMap = categorySlugMap.filter(
