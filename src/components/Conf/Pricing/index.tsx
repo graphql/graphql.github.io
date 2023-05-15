@@ -83,6 +83,7 @@ const PricingConf = () => {
               Buy a Ticket!
             </ButtonConf>
           </div>
+
           <div className="w-full">
             <div className="mx-auto flex flex-col items-center text-center">
               <h3 className="sm:text-2xl text-xl font-medium text-white mt-6 mb-2">

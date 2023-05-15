@@ -2,6 +2,7 @@ import React from "react"
 import { ReactComponent as TrainIcon } from "../../../../static/img/conf/train.svg"
 import { ReactComponent as AroundIcon } from "../../../../static/img/conf/around.svg"
 import { ReactComponent as ParkingIcon } from "../../../../static/img/conf/parking.svg"
+import { ReactComponent as BusIcon } from "../../../../static/img/conf/bus.svg"
 
 const VenueConf = () => {
   return (
@@ -20,7 +21,7 @@ const VenueConf = () => {
             className="font-bold"
           >
             Hyatt Regency SFO
-          </a>{" "}
+          </a>
           hotel in Burlingame, CA.
         </p>
         <img
@@ -66,7 +67,7 @@ const VenueConf = () => {
                 target="_blank"
               >
                 room block
-              </a>{" "}
+              </a>
               close dates. We encourage you to book early to secure a room at
               the conference rate.
             </div>
@@ -204,6 +205,29 @@ const VenueConf = () => {
                   1-6 hours: $22/hour
                   <br />
                   6+ hours or overnight: $40/night
+                </p>
+              </div>
+            ),
+          },
+          {
+            title: "Complimentary Shuttle Service",
+            icon: BusIcon,
+            content: (
+              <div>
+                <a
+                  href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu?src=adm_sem_crp_chico_crp_ppc_NAM-UnitedStates-CA-Burlingame-HR-SFOBU_google_Evergreen2022_e_hyatt%20regency%20sfo"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Hyatt Regency SFO
+                </a>
+                <p>
+                  The Hyatt Regency SFO offers a <a>24-hour</a> complimentary
+                  San Francisco International Airport (SFO) shuttle which runs
+                  every <a>15 minutes</a> from <a>4:00AM until 1:00AM</a> and
+                  <a> every 30 minutes</a> from <a>1:00AM until 4:00AM</a>. At
+                  SFO, go to the area marked "Hotel Shuttle." The bus is marked
+                  "Hyatt Regency and Marriott.”
                 </p>
               </div>
             ),
