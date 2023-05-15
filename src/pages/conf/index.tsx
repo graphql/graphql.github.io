@@ -38,6 +38,7 @@ export default () => {
               </div>
               <div className="flex justify-center gap-4 flex-row">
                 <ButtonConf href="/conf/sponsor/">Join as a Sponsor</ButtonConf>
+                <ButtonConf href="/conf/partner/">Join as a Partner</ButtonConf>
                 <ButtonConf href="/conf/speak/">Submit to Speak</ButtonConf>
               </div>
             </div>

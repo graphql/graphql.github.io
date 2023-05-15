@@ -6,6 +6,7 @@ const links = [
   [
     { text: "Attend", href: "/conf/#attend" },
     { text: "Speakers", href: "/conf/#speakers" },
+    { text: "Partner", href: "/conf/partner/" },
     { text: "Schedule", href: "/conf/#schedule" },
     { text: "Location", href: "/conf/#location" },
   ],
