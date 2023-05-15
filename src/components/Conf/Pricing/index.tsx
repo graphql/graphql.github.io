@@ -1,7 +1,6 @@
 import React from "react"
 import { CheckCircledIcon } from "@radix-ui/react-icons"
 import ButtonConf from "../Button"
-import { ReactComponent as BusIcon } from "../../../../static/img/conf/bus.svg"
 
 interface Pricing {
   title: string
@@ -83,32 +82,6 @@ const PricingConf = () => {
             <ButtonConf href="https://cvent.me/4zbxz9">
               Buy a Ticket!
             </ButtonConf>
-          </div>
-
-          <div className="flex-1">
-            <div className="h-full rounded-lg overflow-hidden relative [&_a]:text-[--rhodamine] [&_a]:font-medium [&_p]:text-white [&_p]:text-lg [&_p]:mb-6 [&>div>a]:block [&>div>a]:mt-6 [&>div>a]:mb-3">
-              <BusIcon className="fill-[--rhodamine] h-16 w-auto" />
-              <h1 className="my-3 sm:text-2xl text-xl font-medium text-white">
-                Complimentary Shuttle Service
-              </h1>
-              <div>
-                <a
-                  href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu?src=adm_sem_crp_chico_crp_ppc_NAM-UnitedStates-CA-Burlingame-HR-SFOBU_google_Evergreen2022_e_hyatt%20regency%20sfo"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Hyatt Regency SFO
-                </a>
-                <p>
-                  The Hyatt Regency SFO offers a <a>24-hour</a> complimentary
-                  San Francisco International Airport (SFO) shuttle which runs
-                  every <a>15 minutes</a> from <a>4:00AM until 1:00AM</a> and
-                  <a> every 30 minutes</a> from <a>1:00AM until 4:00AM</a>. At
-                  SFO, go to the area marked "Hotel Shuttle." The bus is marked
-                  "Hyatt Regency and Marriott.”
-                </p>
-              </div>
-            </div>
           </div>
 
           <div className="w-full">

@@ -21,7 +21,7 @@ const VenueConf = () => {
             className="font-bold"
           >
             Hyatt Regency SFO
-          </a>{" "}
+          </a>
           hotel in Burlingame, CA.
         </p>
         <img
@@ -67,7 +67,7 @@ const VenueConf = () => {
                 target="_blank"
               >
                 room block
-              </a>{" "}
+              </a>
               close dates. We encourage you to book early to secure a room at
               the conference rate.
             </div>
