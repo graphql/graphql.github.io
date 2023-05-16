@@ -3,6 +3,7 @@ import React from "react"
 import { ReactComponent as Stellate } from "../../../../static/img/conf/Sponsors/Stellate.svg"
 import { ReactComponent as Postman } from "../../../../static/img/conf/Sponsors/Postman.svg"
 import { ReactComponent as Solo } from "../../../../static/img/conf/Sponsors/Solo.svg"
+import { ReactComponent as Hasura } from "../../../../static/img/conf/Sponsors/Hasura.svg"
 
 interface Image {
   iconPath: string
@@ -25,6 +26,11 @@ const sponsorDiamond: Image[] = [
     iconPath: Postman,
     name: "Postman",
     link: "https://www.postman.com/",
+  },
+  {
+    iconPath: Hasura,
+    name: "Hasura",
+    link: "https://hasura.io/",
   },
 ]
 
