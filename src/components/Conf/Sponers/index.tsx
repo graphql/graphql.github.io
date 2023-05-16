@@ -52,7 +52,7 @@ const sponsorSilver: Image[] = [
 
 const SponsersConf = () => {
   return (
-    <div className="bg-white py-10 static">
+    <div id="sponsors" className="bg-white py-10 static">
       <h1 className="text-center text-4xl text-[#171E26] font-bold my-8">
         Sponsors
       </h1>
