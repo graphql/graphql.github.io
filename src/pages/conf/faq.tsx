@@ -8,6 +8,63 @@ import SeoConf from "../../components/Conf/Seo"
 
 const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
   {
+    id: "general",
+    title: "General",
+    contents: (
+      <>
+        <h4>
+          What is the format of the GraphQLConf 2023, and when will it take
+          place?
+        </h4>
+        <p>
+          GraphQLConf is an in-person event that will take place on September
+          19-21 in the San Francisco Bay Area at the{" "}
+          <a
+            target="_blank"
+            href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO"
+          >
+            Hyatt Regency SFO hotel
+          </a>
+          .
+        </p>
+        <h4>Will all sessions be recorded?</h4>
+        <p>GraphQLConf will take place in Pacific Daylight Time, UTC -7.</p>
+        <h4>What is the timezone for the event?</h4>
+        <p>
+          Yes! Once the event ends, all attendees will be able to view all
+          sessions on-demand on the{" "}
+          <a target="_blank" href="https://www.youtube.com/@GraphQLFoundation">
+            GraphQL Foundation YouTube channel
+          </a>
+          . Recordings will be available within two weeks of the event
+          conclusion.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "speakers",
+    title: "Speakers",
+    contents: (
+      <p>
+        For all session or speaker-related questions, please contact{" "}
+        <a href="mailto:cfp@linuxfoundation.org">cfp@linuxfoundation.org</a>.
+      </p>
+    ),
+  },
+  {
+    id: "sponsors",
+    title: "Sponsors",
+    contents: (
+      <p>
+        Interested in sponsoring GraphQLConf? Contact{" "}
+        <a href="mailto:graphqlconf@graphql.org">graphqlconf@graphql.org</a> to
+        secure your sponsorship today.{" "}
+        <a href="https://graphql.org/conf/sponsor/">Learn more</a>.
+      </p>
+    ),
+  },
+  {
     id: "contact",
     title: "Contact Us",
     contents: (
