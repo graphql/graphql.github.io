@@ -28,8 +28,6 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           .
         </p>
         <h4>Will all sessions be recorded?</h4>
-        <p>GraphQLConf will take place in Pacific Daylight Time, UTC -7.</p>
-        <h4>What is the timezone for the event?</h4>
         <p>
           Yes! Once the event ends, all attendees will be able to view all
           sessions on-demand on the{" "}
@@ -39,6 +37,8 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           . Recordings will be available within two weeks of the event
           conclusion.
         </p>
+        <h4>What is the timezone for the event?</h4>
+        <p>GraphQLConf will take place in Pacific Daylight Time, UTC -7.</p>
       </>
     ),
   },
