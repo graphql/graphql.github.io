@@ -115,8 +115,12 @@ export default () => {
               our conference is promoted in a positive and appropriate way.
             </p>
             <div className="flex gap-4 flex-row">
-              <ButtonConf href="">Become a Media Partner</ButtonConf>
-              <ButtonConf href="">Become a Community Partner</ButtonConf>
+              <ButtonConf href="https://www.graphqlconf.dev/src/media-partners">
+                Become a Media Partner
+              </ButtonConf>
+              <ButtonConf href="https://www.graphqlconf.dev/src/community-partners">
+                Become a Community Partner
+              </ButtonConf>
             </div>
           </section>
           <ul className="md:columns-2 max-lg:p-0 max-lg:m-0 list-none">
