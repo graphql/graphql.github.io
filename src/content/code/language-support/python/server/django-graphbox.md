@@ -41,6 +41,7 @@ class MyModel(models.Model):
 python manage.py makemigrations
 python manage.py migrate
 ```
+
 6. Configure and Build your GraphQL Schema in `myapp/schema.py`:
 
 ```python
