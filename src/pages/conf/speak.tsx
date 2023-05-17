@@ -300,6 +300,19 @@ export default () => {
             <ButtonConf href="https://sessionize.com/graphqlconf2023/">
               Submit a Proposal
             </ButtonConf>
+            <p className="italic">
+              Please be aware that the Linux Foundation will now be utilizing
+              Sessionize for CFP submissions. Sessionize is a cloud-based event
+              content management software designed to be intuitive and
+              user-friendly. If you need guidance, please review{" "}
+              <a
+                target="_blank"
+                href="https://sessionize.com/playbook/submit-your-session-for-an-event"
+              >
+                how to submit your session for an event
+              </a>{" "}
+              to see step-by-step instructions and helpful screenshots.
+            </p>
           </section>
           <ul className="md:columns-2 max-lg:p-0 max-lg:m-0 list-none">
             {cfp.map(q => (
