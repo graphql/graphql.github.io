@@ -33,7 +33,7 @@ export default () => {
                 </div>
                 <div className="flex gap-2 items-center mb-6 font-medium">
                   <GlobeIcon />
-                  <span>San Fransisco Bay Area, CA</span>
+                  <span>San Francisco Bay Area, CA</span>
                 </div>
               </div>
               <div className="flex justify-center gap-4 flex-row">
