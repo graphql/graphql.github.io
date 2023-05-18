@@ -11,6 +11,7 @@ const links: LinkItem[] = [
   { text: "Attend", href: "/conf/#attend" },
   { text: "Speak", href: "/conf/speak/" },
   { text: "Sponsor", href: "/conf/sponsor/" },
+  { text: "Partner", href: "/conf/partner/" },
   { text: "FAQ", href: "/conf/faq/" },
 ]
 
