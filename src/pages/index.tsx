@@ -24,7 +24,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
               The offical GraphQL conference, by the GraphQL Foundation
             </span>
             <span className="mt-2 font-bold">
-              SEPTEMBER 19-21, 2023 • SAN FRANCISO BAY AREA, CA
+              SEPTEMBER 19-21, 2023 • SAN FRANCISCO BAY AREA, CA
             </span>
             <div>
               <a className="button" href="/conf/#attend">
