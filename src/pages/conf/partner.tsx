@@ -114,7 +114,7 @@ export default () => {
               benefits to media and community partners, while also ensuring that
               our conference is promoted in a positive and appropriate way.
             </p>
-            <div className="flex gap-4 flex-row">
+            <div className="flex gap-4 flex-row flex-wrap">
               <ButtonConf href="https://www.graphqlconf.dev/src/media-partners">
                 Become a Media Partner
               </ButtonConf>
