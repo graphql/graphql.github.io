@@ -9,10 +9,6 @@ interface Pricing {
   dateIsExpired: Date
 }
 
-interface Title {
-  title: string
-}
-
 const pricing: Pricing[] = [
   {
     title: "Early Bird",
@@ -34,7 +30,7 @@ const pricing: Pricing[] = [
   },
 ]
 
-const includes: Title[] = [
+const includes: { title: string }[] = [
   {
     title: "All conference content",
   },
