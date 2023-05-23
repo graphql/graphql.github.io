@@ -1,16 +1,16 @@
-import React from "react";
-import { CheckCircledIcon } from "@radix-ui/react-icons";
-import ButtonConf from "../Button";
+import React from "react"
+import { CheckCircledIcon } from "@radix-ui/react-icons"
+import ButtonConf from "../Button"
 
 interface Pricing {
-  title: string;
-  date: string;
-  price: string;
-  dateIsExpired: Date;
+  title: string
+  date: string
+  price: string
+  dateIsExpired: Date
 }
 
 interface Title {
-  title: string;
+  title: string
 }
 
 const pricing: Pricing[] = [
@@ -32,7 +32,7 @@ const pricing: Pricing[] = [
     price: "$899",
     dateIsExpired: new Date("2023-10-01"),
   },
-];
+]
 
 const includes: Title[] = [
   {
@@ -53,18 +53,18 @@ const includes: Title[] = [
   {
     title: "Access to watch all sessions",
   },
-];
+]
 
 const PricingConf: React.FC = () => {
-  const today = new Date();
+  const today = new Date()
 
-  const isExpired = (expiredDate: Date): boolean => expiredDate < today;
+  const isExpired = (expiredDate: Date): boolean => expiredDate < today
 
   const renderPriceCard = (pricing: Pricing, index: number) => {
-    const expired = isExpired(pricing.dateIsExpired);
+    const expired = isExpired(pricing.dateIsExpired)
 
-    const cardStyles = `block mx-auto w-64 p-6 overflow-hidden bg-[#2E343C] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out`;
-    const expiredCardStyles = `block mx-auto w-64 p-6 overflow-hidden bg-[#474c52] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out cursor-not-allowed`;
+    const cardStyles = `block mx-auto w-64 p-6 overflow-hidden bg-[#2E343C] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out`
+    const expiredCardStyles = `block mx-auto w-64 p-6 overflow-hidden bg-[#474c52] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out cursor-not-allowed`
 
     return (
       <a
@@ -100,8 +100,8 @@ const PricingConf: React.FC = () => {
           {pricing.price}
         </div>
       </a>
-    );
-  };
+    )
+  }
 
   return (
     <div id="attend" className="-mt-16 pt-16">
@@ -154,7 +154,7 @@ const PricingConf: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PricingConf;
+export default PricingConf
