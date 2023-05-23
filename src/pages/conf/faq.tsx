@@ -657,6 +657,16 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           </a>{" "}
           and a member of our PR team will be in touch.
         </p>
+
+        <h3>Group Discounts</h3>
+        <p>
+          If you have a group of 5 or more people, you can receive a 10%
+          discount on all passes. All pass types must be the same, and all
+          registrations must be processed under one group registration and must
+          be paid with the same credit card. To create a group, select “Add
+          Another Person” to your registration. When 5 or more people are added
+          the 10% discount will be automatically applied.
+        </p>
       </>
     ),
   },

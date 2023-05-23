@@ -6,6 +6,7 @@ interface Pricing {
   title: string
   date: string
   price: string
+  dateIsExpired: Date
 }
 
 const pricing: Pricing[] = [
@@ -13,20 +14,23 @@ const pricing: Pricing[] = [
     title: "Early Bird",
     date: "Through May 31, 2023",
     price: "$599",
+    dateIsExpired: new Date("2023-06-01"),
   },
   {
     title: "Standard",
     date: "Jun 1 - Sep 4, 2023",
     price: "$799",
+    dateIsExpired: new Date("2023-09-05"),
   },
   {
     title: "Late/Onsite",
     date: "Sep 5 Through Event",
     price: "$899",
+    dateIsExpired: new Date("2023-10-01"),
   },
 ]
 
-const includes = [
+const includes: { title: string }[] = [
   {
     title: "All conference content",
   },
@@ -47,9 +51,55 @@ const includes = [
   },
 ]
 
-const PricingConf = () => {
+const PricingConf: React.FC = () => {
+  const today = new Date()
+
+  const isExpired = (expiredDate: Date): boolean => expiredDate < today
+
+  const renderPriceCard = (pricing: Pricing, index: number) => {
+    const expired = isExpired(pricing.dateIsExpired)
+
+    const cardStyles = `block mx-auto w-64 p-6 overflow-hidden bg-[#2E343C] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out`
+    const expiredCardStyles = `block mx-auto w-64 p-6 overflow-hidden bg-[#474c52] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out cursor-not-allowed`
+
+    return (
+      <a
+        key={index}
+        href="https://cvent.me/4zbxz9"
+        target="_blank"
+        className={expired ? expiredCardStyles : cardStyles}
+      >
+        {expired && (
+          <div className="flex justify-center mb-3">
+            <div className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+              Expired
+            </div>
+          </div>
+        )}
+        <div
+          className={
+            expired
+              ? "text-center text-3xl text-gray-300 font-bold mb-2 line-through"
+              : "text-center text-3xl text-white font-bold mb-2"
+          }
+        >
+          {pricing.title}
+        </div>
+        <div className="text-white text-center text-sm">{pricing.date}</div>
+        <div
+          className={
+            expired
+              ? "text-[--rhodamine] opacity-60 mt-4 p-4 rounded-full text-center text-4xl font-extrabold line-through"
+              : "text-[--rhodamine] mt-4 p-4 rounded-full text-center text-4xl font-extrabold"
+          }
+        >
+          {pricing.price}
+        </div>
+      </a>
+    )
+  }
+
   return (
-    // Invisible padding so anchor links align to the header menu
     <div id="attend" className="-mt-16 pt-16">
       <div className="bg-[#171E26] container mb-6">
         <div className="flex flex-col text-center w-full">
@@ -57,26 +107,7 @@ const PricingConf = () => {
         </div>
         <div className="mx-auto max-w-[80ch]">
           <div className="w-full grid grid-rows-1 md:grid-cols-3 gap-8 mt-8">
-            {pricing.map((pricing, i) => (
-              <a
-                key={i}
-                href="https://cvent.me/4zbxz9"
-                target="_blank"
-                className="block mx-auto w-64 p-6 overflow-hidden bg-[#2E343C] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
-              >
-                <div>
-                  <div className="text-center text-3xl text-white font-bold mb-2">
-                    {pricing.title}
-                  </div>
-                  <div className="text-white text-center text-sm">
-                    {pricing.date}
-                  </div>
-                  <div className="text-[--rhodamine] mt-4 p-4 rounded-full text-center text-4xl font-extrabold">
-                    {pricing.price}
-                  </div>
-                </div>
-              </a>
-            ))}
+            {pricing.map(renderPriceCard)}
           </div>
           <div className="my-8 flex justify-center">
             <ButtonConf href="https://cvent.me/4zbxz9">
