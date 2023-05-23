@@ -6,6 +6,7 @@ interface Pricing {
   title: string
   date: string
   price: string
+  expierdDate: Date
 }
 
 const pricing: Pricing[] = [
@@ -13,16 +14,19 @@ const pricing: Pricing[] = [
     title: "Early Bird",
     date: "Through May 31, 2023",
     price: "$599",
+    expierdDate: new Date("2022-05-31"),
   },
   {
     title: "Standard",
     date: "Jun 1 - Sep 4, 2023",
     price: "$799",
+    expierdDate: new Date("2023-09-04"),
   },
   {
     title: "Late/Onsite",
     date: "Sep 5 Through Event",
     price: "$899",
+    expierdDate: new Date("2023-09-05"),
   },
 ]
 
@@ -48,6 +52,7 @@ const includes = [
 ]
 
 const PricingConf = () => {
+  const today = new Date()
   return (
     // Invisible padding so anchor links align to the header menu
     <div id="attend" className="-mt-16 pt-16">
@@ -62,18 +67,41 @@ const PricingConf = () => {
                 key={i}
                 href="https://cvent.me/4zbxz9"
                 target="_blank"
-                className="block mx-auto w-64 p-6 overflow-hidden bg-[#2E343C] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
+                className={`${
+                  pricing.expierdDate < today
+                    ? "block mx-auto w-64 p-6 overflow-hidden bg-[#474c52] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out cursor-not-allowed"
+                    : "block mx-auto w-64 p-6 overflow-hidden bg-[#2E343C] shadow-xl rounded-2xl focus:outline-none hover:drop-shadow-lg hover:scale-[102%] hover:no-underline focus:no-underline transition ease-in-out"
+                }`}
               >
                 <div>
-                  <div className="text-center text-3xl text-white font-bold mb-2">
+                  <div
+                    className={
+                      pricing.expierdDate < today
+                        ? "text-center text-3xl text-gray-300 font-bold mb-2 line-through"
+                        : "text-center text-3xl text-white font-bold mb-2"
+                    }
+                  >
                     {pricing.title}
                   </div>
                   <div className="text-white text-center text-sm">
                     {pricing.date}
                   </div>
-                  <div className="text-[--rhodamine] mt-4 p-4 rounded-full text-center text-4xl font-extrabold">
+                  <div
+                    className={
+                      pricing.expierdDate < today
+                        ? "text-[--rhodamine] opacity-60 mt-4 p-4 rounded-full text-center text-4xl font-extrabold line-through"
+                        : "text-[--rhodamine] mt-4 p-4 rounded-full text-center text-4xl font-extrabold"
+                    }
+                  >
                     {pricing.price}
                   </div>
+                  {pricing.expierdDate < today && (
+                    <div className="flex justify-end">
+                      <div className="badge-rotate inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                        Expired
+                      </div>
+                    </div>
+                  )}
                 </div>
               </a>
             ))}
