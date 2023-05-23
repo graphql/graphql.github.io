@@ -14,13 +14,13 @@ const pricing: Pricing[] = [
     title: "Early Bird",
     date: "Through May 31, 2023",
     price: "$599",
-    dateIsExpired: new Date("2022-06-01"),
+    dateIsExpired: new Date("2023-06-01"),
   },
   {
     title: "Standard",
     date: "Jun 1 - Sep 4, 2023",
     price: "$799",
-    dateIsExpired: new Date("2022-09-05"),
+    dateIsExpired: new Date("2023-09-05"),
   },
   {
     title: "Late/Onsite",
