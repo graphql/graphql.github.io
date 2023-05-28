@@ -13,9 +13,9 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
     contents: (
       <DL
         items={[
-          ["CFP Closes", "Friday, May 26 at 11:59 PM PDT (UTC-7)"],
-          ["CFP Notifications", "Monday, July 10"],
-          ["Schedule Announcement", "Wednesday, July 12"],
+          ["CFP Closes", "Friday, June 9 at 11:59 PM PDT (UTC-7)"],
+          ["CFP Notifications", "Wednesday, June 21"],
+          ["Schedule Announcement", "Friday, June 29"],
           ["Slide upload deadline to Sched.com", "Friday, September 15"],
           ["Event Date", "Tuesday, September 19 – Thursday, September 21"],
         ]}
@@ -290,7 +290,7 @@ export default () => {
               (CFP) and sharing your experience across a wide range of topics.
             </p>
             <p>
-              The CFP is open through Friday, May 26. For any questions
+              The CFP is open through Friday, June 9. For any questions
               regarding the CFP process, please email{" "}
               <a href="mailto:cfp@linuxfoundation.org">
                 cfp@linuxfoundation.org
