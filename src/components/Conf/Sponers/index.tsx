@@ -4,6 +4,7 @@ import { ReactComponent as Stellate } from "../../../../static/img/conf/Sponsors
 import { ReactComponent as Postman } from "../../../../static/img/conf/Sponsors/Postman.svg"
 import { ReactComponent as Solo } from "../../../../static/img/conf/Sponsors/Solo.svg"
 import { ReactComponent as Hasura } from "../../../../static/img/conf/Sponsors/Hasura.svg"
+import { ReactComponent as TheGraph } from "../../../../static/img/conf/Sponsors/TheGraph.svg"
 
 interface Image {
   iconPath: string
@@ -39,6 +40,14 @@ const sponsorPlatinum: Image[] = [
     iconPath: Solo,
     name: "Solo.io",
     link: "https://www.solo.io/",
+  },
+]
+
+const sponsorGold: Image[] = [
+  {
+    iconPath: TheGraph,
+    name: "The Graph",
+    link: "https://thegraph.com/",
   },
 ]
 
@@ -90,6 +99,25 @@ const SponsersConf = () => {
             </a>
           ))}
       </div>
+
+      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
+        GOLD
+      </h3>
+      <div className="flex justify-center items-start flex-wrap gap-[20px]">
+        {sponsorGold
+          .sort((a, b) => alphabetSort(a, b))
+          .map((sponsor, i) => (
+            <a
+              key={i}
+              className="zoom-gold flex flex-col items-center text-center w-full h-full"
+              href={sponsor.link}
+              target="_blank"
+            >
+              <sponsor.iconPath />
+            </a>
+          ))}
+      </div>
+
       <h3 className="text-center text-[--rhodamine] font-bold my-20 underline underline-offset-8">
         SILVER
       </h3>
