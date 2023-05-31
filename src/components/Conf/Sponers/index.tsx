@@ -6,7 +6,6 @@ import { ReactComponent as Solo } from "../../../../static/img/conf/Sponsors/Sol
 import { ReactComponent as Hasura } from "../../../../static/img/conf/Sponsors/Hasura.svg"
 import { ReactComponent as TheGraph } from "../../../../static/img/conf/Sponsors/TheGraph.svg"
 
-
 interface Image {
   iconPath: string
   name: string
