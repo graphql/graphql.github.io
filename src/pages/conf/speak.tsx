@@ -15,7 +15,7 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
         items={[
           ["CFP Closes", "Friday, June 9 at 11:59 PM PDT (UTC-7)"],
           ["CFP Notifications", "Wednesday, June 21"],
-          ["Schedule Announcement", "Friday, June 29"],
+          ["Schedule Announcement", "Week of June 26"],
           ["Slide upload deadline to Sched.com", "Friday, September 15"],
           ["Event Date", "Tuesday, September 19 – Thursday, September 21"],
         ]}
