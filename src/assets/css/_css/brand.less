@@ -268,11 +268,20 @@
   }
   .zoom-platinum  {
     transition: transform .2s; /* Animation */
-    width: 299px;
+    width: 300px;
     height: 153px;
     cursor: pointer;
   }
   .zoom-platinum:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  .zoom-gold {
+    transition: transform .2s; /* Animation */
+    width: 250px;
+    height: 128px;
+    cursor: pointer;
+  }
+  .zoom-gold:hover {
     transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
   .zoom-silver {
@@ -281,8 +290,17 @@
     height: 106px;
     cursor: pointer;
   }
-  
   .zoom-silver:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  .zoom-bronze {
+    transition: transform .2s; /* Animation */
+    width: 144px;
+    height: 103px;
+    cursor: pointer;
+  }
+  
+  .zoom-bronze:hover {
     transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
   .zoom-partner {
