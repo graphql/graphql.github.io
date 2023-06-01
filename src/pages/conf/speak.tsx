@@ -15,7 +15,7 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
         items={[
           ["CFP Closes", "Friday, June 9 at 11:59 PM PDT (UTC-7)"],
           ["CFP Notifications", "Wednesday, June 21"],
-          ["Schedule Announcement", "Friday, June 29"],
+          ["Schedule Announcement", "Week of June 26"],
           ["Slide upload deadline to Sched.com", "Friday, September 15"],
           ["Event Date", "Tuesday, September 19 – Thursday, September 21"],
         ]}
@@ -276,6 +276,10 @@ function DL({ items }: { items: [header: string, contents: ReactNode][] }) {
 }
 
 export default () => {
+  const today = new Date()
+  const expiredDate = new Date("2023-06-10")
+  const isExpired = expiredDate > today
+
   return (
     <LayoutConf>
       <HeaderConf />
@@ -297,9 +301,13 @@ export default () => {
               </a>
               .
             </p>
-            <ButtonConf href="https://sessionize.com/graphqlconf2023/">
-              Submit a Proposal
-            </ButtonConf>
+            {isExpired ? (
+              <ButtonConf href="https://sessionize.com/graphqlconf2023/">
+                Submit a Proposal
+              </ButtonConf>
+            ) : (
+              <div className="font-bold"> The CFP has closed.</div>
+            )}
             <p className="italic">
               Please be aware that the Linux Foundation will now be utilizing
               Sessionize for CFP submissions. Sessionize is a cloud-based event
