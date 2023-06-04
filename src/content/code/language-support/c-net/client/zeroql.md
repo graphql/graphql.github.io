@@ -16,8 +16,9 @@ You can use ZeroQL to:
 - Supports .Net Core, .Net Framework, Xamarin, Unity apps.
 
 ```csharp
+var userId = 10;
 var response = await qlClient.Query(q => q
-    .Me(o => new
+    .User(userId, o => new
     {
         o.Id,
         o.FirstName,
