@@ -13,7 +13,15 @@ You can use ZeroQL to:
 - Generate a C# client from GraphQL schema.
 - Generate and execute graphql queries from your C# code.
 - Don't require writing GraphQL manually.
+- Supports .Net Core, .Net Framework, Xamarin, Unity apps.
 
 ```csharp
-var response = await client.Query(o => o.Me(o => new { o.Id, o.FirstName, o.LastName }));
+var userId = 10;
+var response = await qlClient.Query(q => q
+    .User(userId, o => new
+    {
+        o.Id,
+        o.FirstName,
+        o.LastName
+    }));
 ```
