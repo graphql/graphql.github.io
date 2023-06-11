@@ -34,7 +34,7 @@ query {
 ```
 Brangr renders the above query as roughly this HTML (though not in a quote block):
 <blockquote>heroes...
-<table>
+<table style="border-spacing:0.5em 0">
   <tr><th>First </th><th>Last      </th></tr>
   <tr><td>Arthur</td><td>Dent      </td></tr>
   <tr><td>Ford  </td><td>Prefect   </td></tr>
