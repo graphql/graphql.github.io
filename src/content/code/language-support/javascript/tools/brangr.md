@@ -1,6 +1,6 @@
 ---
 name: Brangr
-description: Browse Any Graph - A user-friendly viewer/client for all GraphQL services
+description: Browse Any Graph - A user-friendly viewer for any GraphQL service
 url: https://github.com/networkimprov/brangr
 github: networkimprov/brangr
 ---
