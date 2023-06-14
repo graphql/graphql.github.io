@@ -278,7 +278,6 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
         </p>
 
         <h4>General Safety</h4>
-
         <ul className="list-disc">
           <li>
             When walking around the city, remember to take off your conference
@@ -314,6 +313,7 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
             pocket or in an interior jacket pocket.
           </li>
         </ul>
+
         <h4>When Visiting Any Venue:</h4>
         <ul className="list-disc">
           <li>
