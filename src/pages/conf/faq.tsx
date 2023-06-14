@@ -186,7 +186,7 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           </i>
         </p>
 
-        <h3>Measures</h3>
+        <h3>Health Measures</h3>
         <h4>COVID-19</h4>
         <p>
           Masks are recommended, but not required, to attend this event. There
@@ -268,6 +268,99 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
             graphql_events@linuxfoundation.org
           </a>
           .
+        </p>
+
+        <h3>Safety Resources & Tips</h3>
+
+        <p>
+          Attendee safety is our top priority. Always exercise common sense and
+          good judgment when traveling.
+        </p>
+
+        <h4>General Safety</h4>
+        <ul className="list-disc">
+          <li>
+            When walking around the city, remember to take off your conference
+            badge.
+          </li>
+          <li>
+            Safety in numbers: Exploring the city can be safer when done with a
+            friend or colleague.
+          </li>
+          <li>
+            Walk with purpose and stick to well-lit areas and on main streets.  
+          </li>
+          <li>
+            If alone after dark, use a ride service such as Lyft, Uber or a
+            taxi. 
+          </li>
+          <li>
+            Save the address and phone number of where you’re staying in your
+            phone.
+          </li>
+          <li>
+            Be aware of your surroundings and keep your eyes up and not on your
+            phone.
+          </li>
+          <li>
+            If something doesn’t feel right, walk into a business/hotel for
+            help.
+          </li>
+          <li>Be careful and alert when using a cash machine.</li>
+          <li>
+            Carry your purse or wallet safely. Purses should be closed and held
+            in front of your body. Wallets should be carried in a front pants
+            pocket or in an interior jacket pocket.
+          </li>
+        </ul>
+
+        <h4>When Visiting Any Venue:</h4>
+        <ul className="list-disc">
+          <li>
+            Know where you are; the venue name, street address or cross street.
+          </li>
+          <li>
+            Take a moment to identify at least two exit routes from any building
+            or event and emergency exit signs.
+          </li>
+          <li>
+            If an alarm sounds, evacuate immediately. Follow directions from
+            First Responders and venue staff.
+          </li>
+          <li>
+            Do not carry any unnecessary valuables with you, or leave personal
+            items unattended.
+          </li>
+          <li>
+            Do not leave drinks unattended, or accept open drinks or food
+            products from strangers.
+          </li>
+        </ul>
+
+        <h4>Emergency Evacuations</h4>
+        <ul className="list-disc">
+          <li>
+            In the event of an emergency evacuation, make your way quickly and
+            calmly to an emergency exit. Be aware of any hazards or dangers
+            around you and proceed to a safe area.
+          </li>
+          <li>
+            Follow the advice of venue staff, security personnel and First
+            Responders.
+          </li>
+          <li>
+            Do not put yourself in danger by stopping to collect belongings
+            unless directed by First Responders.
+          </li>
+        </ul>
+
+        <h4>Weapon Policy</h4>
+        <p>
+          The Linux Foundation does not allow firearms or other weapons,
+          regardless of whether they are permitted or not, or whether they are
+          concealed or not, to be brought into our events. By registering for
+          the event, you are agreeing that you understand this policy and will
+          not bring a firearm or other weapons into the event.
         </p>
       </>
     ),
