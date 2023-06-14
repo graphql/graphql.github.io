@@ -178,7 +178,7 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
             adjust our health and safety protocols as needed while updating this
             page with information about plans for our attendees onsite. We
             continue to look to local municipality guidelines to make the best
-            and most informed decisions around onsite safety and requirements.
+            and most informed decisions around onsite safety and requirements.{" "}
             <b>
               All in-person attendance requirements are subject to change based
               on local guidelines.
@@ -211,7 +211,7 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
         </p>
 
         <h3>Onsite Personal Protection</h3>
-        <ul className="list-disc">
+        <ul>
           <li>
             If you feel ill while at the event, please take a COVID-19 self-test
             and isolate as needed.
@@ -241,7 +241,7 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           <li>
             We’ll be providing a wearable indicator that shows your comfort
             level with social distancing. While it's optional to wear, we highly
-            encourage participants to use it.
+            encourage participants to use&nbsp;it.
           </li>
         </ul>
 
@@ -263,7 +263,7 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
         </ul>
 
         <p>
-          If you have a food allergy we need to be aware of, please email us at
+          If you have a food allergy we need to be aware of, please email us at{" "}
           <a href="mailto: graphql_events@linuxfoundation.org">
             graphql_events@linuxfoundation.org
           </a>
