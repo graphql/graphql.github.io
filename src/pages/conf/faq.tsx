@@ -169,123 +169,106 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
     title: "Health & Safety",
     contents: (
       <>
-        <em>Updated March 29, 2023</em>
+        <em>Updated June 12, 2023</em>
 
         <p>
-          Our attendees’ health and safety remain our top priority as we
-          continue to monitor COVID-19 and look to local, CDC and WHO guidelines
-          to make the best and most informed decisions around onsite safety and
-          requirements.
+          <i>
+            Our community’s well-being is extremely important to us, and
+            creating a safe, worry-free event is our top priority. We will
+            adjust our health and safety protocols as needed while updating this
+            page with information about plans for our attendees onsite. We
+            continue to look to local municipality guidelines to make the best
+            and most informed decisions around onsite safety and requirements.
+            <b>
+              All in-person attendance requirements are subject to change based
+              on local guidelines.
+            </b>
+          </i>
         </p>
 
-        <h3>In-Person Attendance Requirements</h3>
-        <h4>Masks</h4>
-        <p>Masks are recommended, but not required, to be worn at the event.</p>
-
-        <h4>Vaccine Or Negative Covid-19 Test Requirement</h4>
+        <h3>Measures</h3>
+        <h4>COVID-19</h4>
         <p>
-          At this time, proof of vaccine or a negative COVID test is NOT
-          required to attend the event in person.
+          Masks are recommended, but not required, to attend this event. There
+          are no vaccine or testing requirements to attend this event. These are
+          both subject to change based on local municipality requirements and
+          any changes in COVID-19.
         </p>
 
         <p>
-          All in-person attendance requirements are subject to change based on
-          local guidelines. Registered attendees will be notified 1 month prior
-          to the event of any updates to our mask mandate and other on-site
-          health & safety requirements.
+          We encourage high-risk individuals, and those with family or
+          colleagues who are at a higher risk of getting COVID-19, to consider
+          wearing a high-quality mask recommended by health agencies. We also
+          ask that you respect those around you who choose to wear a mask. A
+          limited number of masks will be available upon request at Registration
+          onsite.
         </p>
 
-        <h3>Onsite Health & Safety Measures</h3>
-        <p>Please expect the following measures to be in place at the event.</p>
+        <h4>Vaccines</h4>
+        <p>
+          We encourage flu shots, COVID-19 vaccination and boosters to reduce
+          the threat of illness.
+        </p>
+
+        <h3>Onsite Personal Protection</h3>
         <ul className="list-disc">
-          <li>Event signage indicating required health and safety protocols</li>
-          <li>Onsite cleaning and sanitizing of all touch points</li>
-          <li>Sanitized microphones between each speaker’s use</li>
           <li>
-            Plentiful sanitation stations onsite and personal hand sanitizer
-            bottles and wipes available for participants
+            If you feel ill while at the event, please take a COVID-19 self-test
+            and isolate as needed.
           </li>
           <li>
-            Wearable Indicators of Social Distance Comfort Levels — We will
-            provide a wearable indicator of social distance comfort levels for
-            event participants to wear onsite (optional but encouraged).
-            Participants are asked to be respectful of each other’s comfort
-            level on social distance.
+            Hand sanitizing stations will be available throughout the event
+            venue.
           </li>
           <li>
-            The Linux Foundation does not allow firearms or other weapons,
-            regardless of whether they are permitted or not, or whether they are
-            concealed or not, to be brought into our events. By registering for
-            the event, you are agreeing that you understand this policy and will
-            not bring a firearm or other weapons into the event.
+            A limited supply of face masks will be available upon request at
+            Registration.
+          </li>
+          <li>
+            We respectfully remind all attendees, speakers, sponsors, and staff
+            to:
+            <ul>
+              <li>
+                Stay home if you experience any cold or flu-like symptoms.
+              </li>
+              <li>Wash your hands for at least 20 seconds.</li>
+              <li>
+                Stay healthy! Engage in responsible health practices such as
+                avoiding touching eyes/nose/mouth with unwashed hands.
+              </li>
+            </ul>
+          </li>
+          <li>
+            We’ll be providing a wearable indicator that shows your comfort
+            level with social distancing. While it's optional to wear, we highly
+            encourage participants to use it.
+          </li>
+        </ul>
+
+        <h3>Food Allergies</h3>
+        <p>
+          The Linux Foundation believes it’s essential to prioritize the safety
+          and well-being of all attendees, including those with food allergies.
+        </p>
+
+        <ul className="list-disc">
+          <li>
+            We aim to provide a variety of choices to cater to various needs
+            such as vegetarian, vegan, gluten-free, dairy-free, and nut-free.
+          </li>
+          <li>
+            All food items will be clearly labeled at the event, indicating the
+            ingredients used and any potential allergens present.
           </li>
         </ul>
 
         <p>
-          At a minimum, we will be following all mandated venue, municipality,
-          and CDC guidelines. This list, and all protocols, are subject to
-          change should there be a change if local municipality and health
-          agency guidelines indicate or require that they should change. We will
-          do everything we can to provide any updates as early as possible.
+          If you have a food allergy we need to be aware of, please email us at
+          <a href="mailto: graphql_events@linuxfoundation.org">
+            graphql_events@linuxfoundation.org
+          </a>
+          .
         </p>
-
-        <h3>The United States COVID-Related Entry Requirements</h3>
-        <p>
-          If you are traveling to the United States, review the entry
-          requirements from your country of origin here. With the ever-changing
-          COVID-19 guidelines, we highly suggest visiting{" "}
-          <a
-            href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/international-travel-during-covid19.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Ftravelers%2Finternational-travel%2Findex.html"
-            target="_blank"
-          >
-            the CDC website
-          </a>{" "}
-          regularly for the most up-to-date information as your trip nears.
-          Changes and updates are typically marked at the top of the page. Read
-          carefully to ensure you have the most recent information regarding
-          travel rules and regulations based on your country of origin. The
-          requirements may change so continue to check back regularly.
-        </p>
-
-        <h3>What should I do if I am onsite and not feeling well?</h3>
-
-        <p>
-          If you aren’t feeling well, please watch for COVID-19 symptoms.
-          Depending on your symptoms and how unwell you feel, please take an
-          at-home COVID test (we highly recommend traveling with your own tests)
-          or go to the nearest testing facility, urgent care, or hospital.
-        </p>
-
-        <p>
-          If you have chest pain or shortness of breath, we advise you to call
-          911 or go directly to the Emergency Room.
-        </p>
-
-        <h4>Should you end up testing positive for COVID:</h4>
-        <ul className="list-disc">
-          <li>
-            Follow the guidance of the testing facility, urgent care, or
-            hospital that you visited in order to best protect yourself, as well
-            as the community.
-          </li>
-          <li>
-            Please follow the guidance of the testing facility, urgent care, or
-            hospital that you visited in order to best protect yourself, as well
-            as the community. The facility at which you test positive will
-            notify the Department of Health if deemed necessary by local
-            guidelines for contact tracing purposes.
-          </li>
-          <li>You will not be able to return to the event.</li>
-          <li>
-            Email Angela Brown, SVP & GM of Events, at{" "}
-            <a href="mailto:angela@linuxfoundation.org">
-              angela@linuxfoundation.org
-            </a>
-            , to let us know. While we will need to let event participants know
-            that someone onsite tested positive for COVID-19, we will not
-            disclose your name.
-          </li>
-        </ul>
       </>
     ),
   },
