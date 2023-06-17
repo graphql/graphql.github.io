@@ -5,6 +5,7 @@ import { ReactComponent as Postman } from "../../../../static/img/conf/Sponsors/
 import { ReactComponent as Solo } from "../../../../static/img/conf/Sponsors/Solo.svg"
 import { ReactComponent as Hasura } from "../../../../static/img/conf/Sponsors/Hasura.svg"
 import { ReactComponent as TheGraph } from "../../../../static/img/conf/Sponsors/TheGraph.svg"
+import { ReactComponent as TheGuild } from "../../../../static/img/conf/Sponsors/TheGuild.svg"
 
 interface Image {
   iconPath: string
@@ -23,6 +24,11 @@ function alphabetSort(a: Image, b: Image) {
 }
 
 const sponsorDiamond: Image[] = [
+  {
+    iconPath: TheGuild,
+    name: "The Guild",
+    link: "https://the-guild.dev/",
+  },
   {
     iconPath: Postman,
     name: "Postman",
@@ -59,6 +65,15 @@ const sponsorSilver: Image[] = [
   },
 ]
 
+const workshopDaySponsors: Image[] = [
+  {
+    iconPath: TheGuild,
+    name: "The Guild",
+    link: "https://the-guild.dev/",
+    workshopSponsor: true,
+  },
+]
+
 const SponsersConf = () => {
   return (
     <div id="sponsors" className="bg-white py-10 static">
@@ -68,21 +83,19 @@ const SponsersConf = () => {
       <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
         DIAMOND
       </h3>
-      <div className="flex justify-center items-start flex-wrap gap-[20px]">
-        {sponsorDiamond
-          .sort((a, b) => alphabetSort(a, b))
-          .map((sponsor, i) => (
-            <a
-              key={i}
-              className="zoom-diamond flex flex-col items-center text-center w-full h-full"
-              href={sponsor.link}
-              target="_blank"
-            >
-              <sponsor.iconPath />
-            </a>
-          ))}
+      <div className="flex justify-center items-center flex-wrap gap-[40px]">
+        {sponsorDiamond.map((sponsor, i) => (
+          <a
+            key={i}
+            className="zoom-diamond flex flex-col items-center text-center w-full h-full"
+            href={sponsor.link}
+            target="_blank"
+          >
+            <sponsor.iconPath />
+          </a>
+        ))}
       </div>
-      <h3 className="text-center text-[--rhodamine] font-bold my-20 underline underline-offset-8">
+      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
         PLATINUM
       </h3>
       <div className="flex justify-center items-start flex-wrap gap-[20px]">
@@ -118,7 +131,7 @@ const SponsersConf = () => {
           ))}
       </div>
 
-      <h3 className="text-center text-[--rhodamine] font-bold my-20 underline underline-offset-8">
+      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
         SILVER
       </h3>
       <div className="flex justify-center items-start flex-wrap gap-[20px]">
@@ -134,6 +147,21 @@ const SponsersConf = () => {
               <sponsor.iconPath />
             </a>
           ))}
+      </div>
+      <h1 className="text-center text-4xl text-[#171E26] font-bold my-8 pt-10">
+        Workshop Day Sponsor
+      </h1>
+      <div className="flex justify-center items-center flex-wrap gap-[40px]">
+        {workshopDaySponsors.map((sponsor, i) => (
+          <a
+            key={i}
+            className="zoom-diamond flex flex-col items-center text-center w-full h-full"
+            href={sponsor.link}
+            target="_blank"
+          >
+            <sponsor.iconPath />
+          </a>
+        ))}
       </div>
     </div>
   )
