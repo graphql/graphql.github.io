@@ -13,10 +13,6 @@ import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
 import { CalendarIcon, GlobeIcon } from "@radix-ui/react-icons"
 
 export default () => {
-  const today = new Date()
-  const expiredDate = new Date("2023-06-10")
-  const isExpired = expiredDate > today
-
   return (
     <LayoutConf>
       <HeaderConf />
@@ -40,12 +36,10 @@ export default () => {
                   <span>San Francisco Bay Area, CA</span>
                 </div>
               </div>
-              <div className="flex justify-left gap-4 flex-row flex-wrap">
+              <div className="flex justify-start gap-4 flex-row">
                 <ButtonConf href="/conf/sponsor/">Join as a Sponsor</ButtonConf>
                 <ButtonConf href="/conf/partner/">Join as a Partner</ButtonConf>
-                {isExpired && (
-                  <ButtonConf href="/conf/speak/">Submit to Speak</ButtonConf>
-                )}
+                <ButtonConf href="/conf/partner/">View the Schedule</ButtonConf>
               </div>
             </div>
           </div>

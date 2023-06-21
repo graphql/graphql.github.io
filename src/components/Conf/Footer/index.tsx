@@ -12,7 +12,6 @@ const links = [
     { text: "Location", href: "/conf/#location" },
   ],
   [
-    { text: "Speak", href: "/conf/speak/" },
     { text: "Sponsor", href: "/conf/sponsor/" },
     { text: "FAQ", href: "/conf/faq/" },
     { text: "Contact Us", href: "/conf/faq/#contact" },
@@ -25,11 +24,11 @@ const links = [
   ],
 ]
 
-const FooterConf = () => {
+const FooterConf = ({ includeSponors = true, includePartners = true }) => {
   return (
     <>
-      <SponsorsConf />
-      <PartnersConf />
+      {includeSponors && <SponsorsConf />}
+      {includePartners && <PartnersConf />}
       <footer className="text-gray-600 bg-[#171E26]">
         <div className="container px-5 md:py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 shrink-0 md:mx-0 text-left">

@@ -70,7 +70,6 @@ const workshopDaySponsors: Image[] = [
     iconPath: TheGuild,
     name: "The Guild",
     link: "https://the-guild.dev/",
-    workshopSponsor: true,
   },
 ]
 
