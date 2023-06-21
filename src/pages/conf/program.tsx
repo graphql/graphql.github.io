@@ -25,15 +25,15 @@ export default () => {
               <b>IMPORTANT NOTE: </b>Timing of sessions and room locations are{" "}
               <b>subject to change</b>.
             </p>
-            <div className="-ml-[15px]">
+            <div className="[&>div]:-ml-[15px]">
               <a id="sched-embed" href="https://graphqlconf23.sched.com/">
                 View the graphqlconf23 schedule &amp; directory.
               </a>
-              <Script
-                type="text/javascript"
-                src="https://graphqlconf23.sched.com/js/embed.js"
-              ></Script>
             </div>
+            <Script
+              type="text/javascript"
+              src="https://graphqlconf23.sched.com/js/embed.js"
+            ></Script>
             <p>
               Join us for a GraphQLConf Workshop Day on September 19. Workshops
               are included in GraphQLConf registration though pre-registration
