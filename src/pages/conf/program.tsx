@@ -34,12 +34,17 @@ export default () => {
               type="text/javascript"
               src="https://graphqlconf23.sched.com/js/embed.js"
             ></Script>
+
+            <h2>Workshop Day</h2>
             <p>
               Join us for a GraphQLConf Workshop Day on September 19. Workshops
               are included in GraphQLConf registration though pre-registration
-              is required - <a href="/conf/#attend">register now</a>, or modify
-              your registration and join us! Workshop space is available on a
-              first come, first served basis.
+              is required -{" "}
+              <a href="https://cvent.me/4zbxz9" target="_blank">
+                register now
+              </a>
+              , or modify your registration and join us! Workshop space is
+              available on a first come, first served basis.
             </p>
             <p>Thank you to our Workshop Day sponsor, The Guild.</p>
             <div className="w-48">
@@ -54,7 +59,5 @@ export default () => {
 }
 
 export function Head() {
-  return (
-    <SeoConf title="Partner with GraphQLConf 2023 - Media and Community Partners" />
-  )
+  return <SeoConf title="GraphQLConf 2023 Program" />
 }
