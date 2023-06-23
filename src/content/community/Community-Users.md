@@ -19,6 +19,7 @@ A number of GraphQL training courses are available.
 - [How to GraphQL](https://www.howtographql.com): The Fullstack Tutorial for GraphQL
 - [Apollo Odyssey](https://apollographql.com/tutorials/): Interactive courses for building GraphQL applications with Apollo's toolset
 - [Yoga GraphQL Server Tutorial](https://the-guild.dev/graphql/yoga-server/tutorial): Open source tutorial for creating modern GraphQL Servers in Node, CF Workers, Deno and others
+- [GraphQL Tutorials](https://hasura.io/learn/): Real World Fullstack GraphQL tutorials for developers by Hasura
 
 ## Where to ask questions
 
