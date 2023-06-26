@@ -145,7 +145,7 @@ const SponsersConf = () => {
       <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
         SILVER
       </h3>
-      <div className="flex justify-center items-start flex-wrap gap-[20px]">
+      <div className="flex justify-center items-start flex-wrap gap-[40px]">
         {sponsorSilver
           .sort((a, b) => alphabetSort(a, b))
           .map((sponsor, i) => (
