@@ -7,6 +7,7 @@ import { ReactComponent as Hasura } from "../../../../static/img/conf/Sponsors/H
 import { ReactComponent as TheGraph } from "../../../../static/img/conf/Sponsors/TheGraph.svg"
 import { ReactComponent as TheGuild } from "../../../../static/img/conf/Sponsors/TheGuild.svg"
 import { ReactComponent as Hygraph } from "../../../../static/img/conf/Sponsors/Hygraph.svg"
+import { ReactComponent as StepZen } from "../../../../static/img/conf/Sponsors/StepZen.svg"
 
 interface Image {
   iconPath: string
@@ -60,6 +61,11 @@ const sponsorGold: Image[] = [
     iconPath: TheGraph,
     name: "The Graph",
     link: "https://thegraph.com/",
+  },
+  {
+    iconPath: StepZen,
+    name: "StepZen",
+    link: "https://stepzen.com/",
   },
 ]
 
@@ -121,7 +127,7 @@ const SponsersConf = () => {
       <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
         GOLD
       </h3>
-      <div className="flex justify-center items-start flex-wrap gap-[20px]">
+      <div className="flex justify-center items-start flex-wrap gap-[40px]">
         {sponsorGold
           .sort((a, b) => alphabetSort(a, b))
           .map((sponsor, i) => (
