@@ -15,24 +15,17 @@ export default () => {
           <h1>GraphQLConf 2023 Program</h1>
           <section className="px-0 my-8">
             <h4>September 19-21, 2023 I San Francisco Bay Area, CA</h4>
-            <p>
-              Please note: All session times are in Pacific Daylight Time (UTC
-              -7). To view the schedule in your <b>preferred timezone</b>,
-              please select from the drop-down menu to the right, above “Filter
-              by Date.”
-            </p>
-            <p>
-              <b>IMPORTANT NOTE: </b>Timing of sessions and room locations are{" "}
-              <b>subject to change</b>.
-            </p>
             <div className="[&>div]:-ml-[15px]">
-              <a id="sched-embed" href="https://graphqlconf23.sched.com/">
+              <a
+                id="sched-embed"
+                href="//graphqlconf23.sched.com/directory/speakers"
+              >
                 View the graphqlconf23 schedule &amp; directory.
               </a>
             </div>
             <Script
               type="text/javascript"
-              src="https://graphqlconf23.sched.com/js/embed.js"
+              src="//graphqlconf23.sched.com/js/embed.js"
             ></Script>
 
             <h2>Workshop Day</h2>
