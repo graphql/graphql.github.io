@@ -77,14 +77,6 @@ const sponsorSilver: Image[] = [
   },
 ]
 
-const workshopDaySponsors: Image[] = [
-  {
-    iconPath: TheGuild,
-    name: "The Guild",
-    link: "https://the-guild.dev/",
-  },
-]
-
 const SponsersConf = () => {
   return (
     <div id="sponsors" className="bg-white py-10 static">
@@ -158,22 +150,6 @@ const SponsersConf = () => {
               <sponsor.iconPath />
             </a>
           ))}
-      </div>
-
-      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
-        Workshop Day Sponsor
-      </h3>
-      <div className="flex justify-center items-center flex-wrap gap-[40px] h-[70%]">
-        {workshopDaySponsors.map((sponsor, i) => (
-          <a
-            key={i}
-            className="zoom-platinum flex flex-col items-center text-center"
-            href={sponsor.link}
-            target="_blank"
-          >
-            <sponsor.iconPath />
-          </a>
-        ))}
       </div>
     </div>
   )
