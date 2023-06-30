@@ -31,7 +31,7 @@ export default () => {
               type="text/javascript"
               src="//graphqlconf23.sched.com/js/embed.js"
             ></Script>
-
+            {/* 
             <h2>Workshop Day</h2>
             <p>
               Join us for a GraphQLConf Workshop Day on September 19. Workshops
@@ -46,7 +46,7 @@ export default () => {
             <p>Thank you to our Workshop Day sponsor, The Guild.</p>
             <div className="w-48">
               <TheGuild />
-            </div>
+            </div> */}
           </section>
         </div>
       </div>
