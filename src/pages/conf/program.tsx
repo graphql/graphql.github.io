@@ -15,6 +15,10 @@ export default () => {
           <h1>GraphQLConf 2023 Program</h1>
           <section className="px-0 my-8">
             <h4>September 19-21, 2023 I San Francisco Bay Area, CA</h4>
+            <p>
+              We are excited to announce our speakers for GraphQLConf 2023.
+              Please check back for more details about the program.
+            </p>
             <div className="[&>div]:-ml-[15px]">
               <a
                 id="sched-embed"
