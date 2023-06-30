@@ -13,16 +13,12 @@ import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
 import { CalendarIcon, GlobeIcon } from "@radix-ui/react-icons"
 
 export default () => {
-  const today = new Date()
-  const expiredDate = new Date("2023-06-10")
-  const isExpired = expiredDate > today
-
   return (
     <LayoutConf>
       <HeaderConf />
       <div className="text-gray-600 bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover bg-blend-multiply	bg-opacity-20	bg-black">
         <div className="container flex py-16 md:py-36 items-center justify-center flex-col">
-          <div className="flex flex-col justify-center items-center w-full gap-2 lg:gap-32 lg:flex-row">
+          <div className="flex flex-col justify-center w-full gap-2 lg:gap-32 lg:flex-row">
             <div>
               <img
                 src="/img/conf/graphql-conf-logo.svg"
@@ -40,12 +36,10 @@ export default () => {
                   <span>San Francisco Bay Area, CA</span>
                 </div>
               </div>
-              <div className="flex justify-left gap-4 flex-row flex-wrap">
+              <div className="flex justify-start gap-4 flex-row flex-wrap">
                 <ButtonConf href="/conf/sponsor/">Join as a Sponsor</ButtonConf>
                 <ButtonConf href="/conf/partner/">Join as a Partner</ButtonConf>
-                {isExpired && (
-                  <ButtonConf href="/conf/speak/">Submit to Speak</ButtonConf>
-                )}
+                <ButtonConf href="/conf/program/">View the Schedule</ButtonConf>
               </div>
             </div>
           </div>
