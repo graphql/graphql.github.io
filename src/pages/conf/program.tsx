@@ -31,7 +31,6 @@ export default () => {
             <Script
               type="text/javascript"
               src="//graphqlconf23.sched.com/js/embed.js"
-              strategy="idle"
             ></Script>
             {/* 
             <h2>Workshop Day</h2>
