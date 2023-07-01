@@ -10,13 +10,6 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
-      <head>
-        <link
-          rel="preload"
-          href="//graphqlconf23.sched.com/js/embed.js"
-          as="script"
-        />
-      </head>
 
       <div className="bg-white">
         <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4 override-prose-w-with-85ch">
