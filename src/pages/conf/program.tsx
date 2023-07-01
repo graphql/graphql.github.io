@@ -10,8 +10,16 @@ export default () => {
   return (
     <LayoutConf>
       <HeaderConf />
+      <head>
+        <link
+          rel="preload"
+          href="//graphqlconf23.sched.com/js/embed.js"
+          as="script"
+        />
+      </head>
+
       <div className="bg-white">
-        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4">
+        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4 override-prose-w-with-85ch">
           <h1>GraphQLConf 2023 Program</h1>
           <section className="px-0 my-8">
             <h4>September 19-21, 2023 I San Francisco Bay Area, CA</h4>
@@ -30,6 +38,7 @@ export default () => {
             <Script
               type="text/javascript"
               src="//graphqlconf23.sched.com/js/embed.js"
+              strategy="idle"
             ></Script>
             {/* 
             <h2>Workshop Day</h2>

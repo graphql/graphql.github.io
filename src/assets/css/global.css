@@ -1,3 +1,7 @@
 /*@tailwind base;*/
 @tailwind components;
 @tailwind utilities;
+
+.override-prose-w-with-85ch {
+  max-width: 83ch;
+}
