@@ -46,10 +46,6 @@ const speakers: Speaker[] = [
 ]
 
 const SpeakersConf = () => {
-  const today = new Date()
-  const expiredDate = new Date("2023-06-10")
-  const isExpired = expiredDate > today
-
   return (
     // Invisible padding so anchor links align to the header menu
     <div id="speakers" className="-mt-16 pt-16">
@@ -87,21 +83,16 @@ const SpeakersConf = () => {
             </div>
           ))}
         </div>
+        <div className="flex justify-center items-center flex-wrap py-6">
+          <ButtonConf href="/conf/schedule/">See all speakers</ButtonConf>
+        </div>
         <div className="flex flex-col text-center mx-auto max-w-prose text-white px-4">
           <p>
             GraphQLConf brings together the creators of some of the most
             important technologies behind GraphQL. These speakers will share
             their experience, insights and knowledge as they discuss the
-            challenges facing the growing GraphQL ecosystem. If you have
-            something worth sharing, submit an application to speak!
+            challenges facing the growing GraphQL ecosystem.
           </p>
-          {isExpired && (
-            <div className="my-8">
-              <ButtonConf className="mx-auto" href="/conf/speak/">
-                Submit to Speak
-              </ButtonConf>
-            </div>
-          )}
         </div>
       </div>
     </div>

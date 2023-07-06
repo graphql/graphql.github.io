@@ -2,7 +2,6 @@ import React from "react"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
-import { ReactComponent as TheGuild } from "../../../static/img/conf/Sponsors/TheGuild.svg"
 import SeoConf from "../../components/Conf/Seo"
 import { Script } from "gatsby"
 
@@ -13,7 +12,7 @@ export default () => {
 
       <div className="bg-white">
         <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4 override-prose-w-with-85ch">
-          <h1>GraphQLConf 2023 Program</h1>
+          <h1>GraphQLConf 2023 Schedule</h1>
           <section className="px-0 my-8">
             <h4>September 19-21, 2023 I San Francisco Bay Area, CA</h4>
             <p>
@@ -57,5 +56,5 @@ export default () => {
 }
 
 export function Head() {
-  return <SeoConf title="GraphQLConf 2023 Program" />
+  return <SeoConf title="GraphQLConf 2023 Schedule" />
 }
