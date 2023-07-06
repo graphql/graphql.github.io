@@ -114,7 +114,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql,
 }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: "/conf/program",
+    toPath: "/conf/schedule",
+  })
 
   const result = await graphql(`
     query allMarkdownRemark {
