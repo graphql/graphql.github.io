@@ -7,8 +7,8 @@ byline: Jory Burson
 permalink: /blog/2023-07-06-youtube-updated
 ---
 
-Have you been missing out on recent GraphQL Working Group meetings? Want to catch up on the latest conversations about Incremental Delivery, GraphQL over HTTP, and Input Unions? 
-Thanks to [Benjie Gillam](https://github.com/benjie), now you can! 
+Have you been missing out on recent GraphQL Working Group meetings? Want to catch up on the latest conversations about Incremental Delivery, GraphQL over HTTP, and Input Unions?
+Thanks to [Benjie Gillam](https://github.com/benjie), now you can!
 
 Benjie has done the onerous job of updating the GraphQL Foundation’s YouTube playlists with all the latest recordings of GraphQL Working Group meetings, which are now available for you to view here: [https://www.youtube.com/@GraphQLFoundation/playlists](https://www.youtube.com/@GraphQLFoundation/playlists)
 
