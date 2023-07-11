@@ -21,7 +21,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
           <img src="/img/conf/graphql-conf-logo.svg" />
           <div>
             <span>
-              The offical GraphQL conference, by the GraphQL Foundation
+              The official GraphQL conference, by the GraphQL Foundation
             </span>
             <span className="mt-2 font-bold">
               SEPTEMBER 19-21, 2023 • SAN FRANCISCO BAY AREA, CA
