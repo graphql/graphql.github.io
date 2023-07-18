@@ -1,30 +1,26 @@
 ---
 name: Caliban
-description: Caliban is a purely functional library for building GraphQL servers and clients in Scala
+description: Caliban is a functional library for building GraphQL servers and clients in Scala. It offers minimal boilerplate and excellent interoperability.
 url: https://ghostdogpr.github.io/caliban/
 github: ghostdogpr/caliban
 ---
 
-An example of a GraphQL schema and query with `caliban`:
+An example of a simple GraphQL schema and query with `caliban`:
 
 ```scala
-import caliban.GraphQL.graphQL
-import caliban.RootResolver
-
-case class Character(name: String, age: Int)
-
-def getCharacters(): List[Character] = ???
+import caliban._
+import caliban.schema.Schema.auto._
 
 // schema
-case class Queries(characters: List[Character])
+case class Query(hello: String)
 
 // resolver
-val queries = Queries(getCharacters)
+val resolver = RootResolver(Query("Hello world!"))
 
-val api = graphQL(RootResolver(queries))
+val api = graphQL(resolver)
 
 for {
   interpreter <- api.interpreter
-  result      <- interpreter.execute("{ characters { name } }")
+  result      <- interpreter.execute("{ hello }")
 } yield result
 ```
