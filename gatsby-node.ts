@@ -1,3 +1,4 @@
+import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
 import * as path from "path"
 import { glob } from "glob"
@@ -115,6 +116,40 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
 }) => {
   const { createPage, createRedirect } = actions
+
+  const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
+  // Fetch conf speakers and sessions concurrently
+  const [schedule, speakers] = (await Promise.all([
+    fetch(
+      `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`
+    ).then(response => response.json()),
+    fetch(
+      `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username,company,position,name,about,location,url,avatar,role`
+    ).then(response => response.json()),
+  ])) as [any, SchedSpeaker[]]
+
+  // Create schedule page
+  createPage({
+    path: "/conf/schedule",
+    component: path.resolve("./src/templates/schedule.tsx"),
+    context: { schedule },
+  })
+
+  // Create speakers list page
+  createPage({
+    path: "/conf/speakers",
+    component: path.resolve("./src/templates/speakers.tsx"),
+    context: { speakers },
+  })
+
+  // Create a page for each speaker
+  speakers.forEach(speaker => {
+    createPage({
+      path: `/conf/speakers/${speaker.username}`,
+      component: path.resolve("./src/templates/speaker.tsx"),
+      context: { speaker, schedule },
+    })
+  })
 
   createRedirect({
     fromPath: "/conf/program",
