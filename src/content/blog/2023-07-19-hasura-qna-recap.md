@@ -7,7 +7,7 @@ byline: Jory Burson
 permalink: /blog/2023-07-19-hasura-qna-recap
 ---
 
-On July 12, we hosted an an enlightening Q&A session on scaling UI development with Relay GraphQL. Participants included several experts from [Hasura](https://hasura.io/) as well as interested attendees from our Discord community. The Q&A session was all about discussing the power of Relay in the realm of UI development. [Tanmai Gopal](https://www.linkedin.com/in/tanmaig/), CEO of Hasura, and 'nullxone', led the conversation, sharing their experiences and knowledge about the utilization of Relay and GraphQL in managing UI projects.
+On July 12, we hosted an an enlightening Q&A session on scaling UI development with Relay GraphQL. Participants included several experts from [Hasura](https://hasura.io/) as well as interested attendees from our Discord community. The Q&A session was all about discussing the power of Relay in the realm of UI development. [Tanmai Gopal](https://www.linkedin.com/in/tanmaig/), CEO of Hasura, and [Akshaya Acharya](https://twitter.com/_nullxone), developer at Hasura, led the conversation, sharing their experiences and knowledge about the utilization of Relay and GraphQL in managing UI projects.
 
 For those who couldn't make it, we've captured the highlights and insights shared during the discussion. Read on, and join us for our next Q&A Session on July 26 for another discussion about GraphQL at Scale on the [GraphQL Community Discord](https://discord.graphql.org) server!
 
