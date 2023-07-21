@@ -44,7 +44,6 @@ const SocialMediaIcon = ({
 const SpeakersTemplate: FC<
   PageProps<{}, { speaker: SchedSpeaker; schedule: any }>
 > = ({ pageContext: { schedule, speaker } }) => {
-  console.log("whatsap?", speaker)
   return (
     <LayoutConf>
       <HeaderConf />

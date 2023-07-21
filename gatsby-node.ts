@@ -116,75 +116,76 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
   })
 }
 
+const fetchData = async (url: string) => {
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "GraphQL Conf / GraphQL Foundation",
+      },
+    })
+    const data = await response.json()
+    return data
+  } catch (error) {
+    throw new Error(
+      `Error fetching data from ${url}: ${error.message || error.toString()}`
+    )
+  }
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql,
 }) => {
   const { createPage, createRedirect } = actions
 
-  const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
+  try {
+    const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
 
-  const schedule = await fetch(
-    `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "User-Agent": "GraphQL Conf / GraphQL Foundation",
-      },
-    }
-  ).then(response => response.json())
+    const schedule = await fetchData(
+      `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`
+    )
 
-  const usernames = await fetch(
-    `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "User-Agent": "GraphQL Conf / GraphQL Foundation",
-      },
-    }
-  ).then(response => response.json())
+    const usernames = await fetchData(
+      `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username`
+    )
 
-  // Fetch full info of each speaker individually and concurrently
-  const speakers: SchedSpeaker[] = await Promise.all(
-    usernames.map(async (user: { username: string }) => {
-      await new Promise(resolve => setTimeout(resolve, 2000)) // 2 second delay between requests, rate limit is 30req/min
-      return fetch(
-        `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "User-Agent": "GraphQL Conf / GraphQL Foundation",
-          },
-        }
-      ).then(response => response.json())
-    })
-  )
+    // Fetch full info of each speaker individually and concurrently
+    const speakers: SchedSpeaker[] = await Promise.all(
+      usernames.map(async (user: { username: string }) => {
+        await new Promise(resolve => setTimeout(resolve, 2000)) // 2 second delay between requests, rate limit is 30req/min
+        return fetchData(
+          `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`
+        )
+      })
+    )
 
-  // Create schedule page
-  createPage({
-    path: "/conf/schedule",
-    component: path.resolve("./src/templates/schedule.tsx"),
-    context: { schedule },
-  })
-
-  // Create speakers list page
-  createPage({
-    path: "/conf/speakers",
-    component: path.resolve("./src/templates/speakers.tsx"),
-    context: { speakers },
-  })
-
-  // Create a page for each speaker
-  speakers.forEach(speaker => {
+    // Create schedule page
     createPage({
-      path: `/conf/speakers/${speaker.username}`,
-      component: path.resolve("./src/templates/speaker.tsx"),
-      context: { speaker, schedule },
+      path: "/conf/schedule",
+      component: path.resolve("./src/templates/schedule.tsx"),
+      context: { schedule },
     })
-  })
+
+    // Create speakers list page
+    createPage({
+      path: "/conf/speakers",
+      component: path.resolve("./src/templates/speakers.tsx"),
+      context: { speakers },
+    })
+
+    // Create a page for each speaker
+    speakers.forEach(speaker => {
+      createPage({
+        path: `/conf/speakers/${speaker.username}`,
+        component: path.resolve("./src/templates/speaker.tsx"),
+        context: { speaker, schedule },
+      })
+    })
+  } catch (error) {
+    console.log("CATCH ME:", error)
+  }
 
   createRedirect({
     fromPath: "/conf/program",
