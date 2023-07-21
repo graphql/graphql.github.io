@@ -2,6 +2,7 @@ import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
 import * as path from "path"
 import { glob } from "glob"
+import _ from "lodash"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
@@ -118,15 +119,45 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage, createRedirect } = actions
 
   const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
-  // Fetch conf speakers and sessions concurrently
-  const [schedule, speakers] = (await Promise.all([
-    fetch(
-      `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`
-    ).then(response => response.json()),
-    fetch(
-      `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username,company,position,name,about,location,url,avatar,role`
-    ).then(response => response.json()),
-  ])) as [any, SchedSpeaker[]]
+
+  const schedule = await fetch(
+    `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "GraphQL Conf / GraphQL Foundation",
+      },
+    }
+  ).then(response => response.json())
+
+  const usernames = await fetch(
+    `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "GraphQL Conf / GraphQL Foundation",
+      },
+    }
+  ).then(response => response.json())
+
+  // Fetch full info of each speaker individually and concurrently
+  const speakers: SchedSpeaker[] = await Promise.all(
+    usernames.map(async (user: { username: string }) => {
+      await new Promise(resolve => setTimeout(resolve, 2000)) // 2 second delay between requests, rate limit is 30req/min
+      return fetch(
+        `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "User-Agent": "GraphQL Conf / GraphQL Foundation",
+          },
+        }
+      ).then(response => response.json())
+    })
+  )
 
   // Create schedule page
   createPage({

@@ -7,18 +7,52 @@ import { PageProps } from "gatsby"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
 import ScheduleList from "../components/Conf/Schedule/ScheduleList"
 import { Avatar } from "../components/Conf/Speakers/Avatar"
+import { ReactComponent as TwitterIcon } from "../../static/img/logos/twitter.svg"
+import { ReactComponent as FacebookIcon } from "../../static/img/logos/facebook.svg"
+import { ReactComponent as InstagramIcon } from "../../static/img/logos/instagram.svg"
+import { ReactComponent as SnapChatIcon } from "../../static/img/logos/snapchat.svg"
+import { ReactComponent as LinkedinIcon } from "../../static/img/logos/linkedin.svg"
+
+type SocialMediaIconServiceType =
+  | "twitter"
+  | "linkedin"
+  | "facebook"
+  | "instagram"
+  | "snapchat"
+
+const SocialMediaIcon = ({
+  service,
+}: {
+  service: SocialMediaIconServiceType
+}) => {
+  switch (service) {
+    case "twitter":
+      return <TwitterIcon fill="#1C96E9" className="w-6 h-6 lg:w-7 lg:h-7" />
+    case "linkedin":
+      return <LinkedinIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+    case "facebook":
+      return <FacebookIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+    case "instagram":
+      return <InstagramIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+    case "snapchat":
+      return <SnapChatIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+    default:
+      return null
+  }
+}
 
 const SpeakersTemplate: FC<
   PageProps<{}, { speaker: SchedSpeaker; schedule: any }>
 > = ({ pageContext: { schedule, speaker } }) => {
+  console.log("whatsap?", speaker)
   return (
     <LayoutConf>
       <HeaderConf />
 
       <div className="bg-white py-10">
-        <section className="text-[#333333] min-h-[80vh] flex-col override-prose-w-with-85ch mx-auto max-sm:px-4 px-0 lg:justify-between justify-center">
+        <section className="text-[#333333] min-h-[80vh] flex-col mx-auto max-sm:px-4 px-0 lg:justify-between justify-center max-w-[1100px]">
           <>
-            <div className="flex flex-col lg:px-0 px-10">
+            <div className="flex flex-col lg:px-0">
               <a
                 href="/conf/speakers"
                 className="w-max rounded-md border-2 border-[#333333] border-solid py-2.5 px-5 cursor-pointer hover:opacity-80 transition-all hover:underline text-[#333333]"
@@ -42,10 +76,40 @@ const SpeakersTemplate: FC<
                     dangerouslySetInnerHTML={{ __html: speaker.about }}
                   />
                 </div>
+
+                {speaker.socialurls && (
+                  <div className="mt-0 text-[#333333]">
+                    <h3 className="lg:text-[28px] text-2xl font-medium lg:my-5 mb-6 mt-0 whitespace-nowrap">
+                      Connect With Me:
+                    </h3>
+                    {speaker.socialurls.map(social => (
+                      <a
+                        key={social.url}
+                        href={social.url}
+                        target="_blank"
+                        className="flex items-center text-[#333333] w-max mb-3"
+                      >
+                        <SocialMediaIcon
+                          service={
+                            social.service.toLowerCase() as SocialMediaIconServiceType
+                          }
+                        />
+                        <span className="lg:text-xl text-lg ml-1">
+                          /
+                          {social.url
+                            .replace(/\/+$/, "")
+                            .split("/")
+                            .reverse()[0]
+                            .toLowerCase()}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
-            <div className="mt-14">
+            <div className="lg:mt-14 mt-10">
               <h2 className="text-2xl font-medium mb-9 mt-0">
                 My Speakers Sessions
               </h2>
