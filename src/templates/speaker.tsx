@@ -27,15 +27,15 @@ const SocialMediaIcon = ({
 }) => {
   switch (service) {
     case "twitter":
-      return <TwitterIcon fill="#1C96E9" className="w-6 h-6 lg:w-7 lg:h-7" />
+      return <TwitterIcon fill="#1C96E9" className="w-8 lg:w-7" />
     case "linkedin":
-      return <LinkedinIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+      return <LinkedinIcon className="w-8 lg:w-7" />
     case "facebook":
-      return <FacebookIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+      return <FacebookIcon className="w-8 lg:w-7" />
     case "instagram":
-      return <InstagramIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+      return <InstagramIcon className="w-8 lg:w-7" />
     case "snapchat":
-      return <SnapChatIcon className="w-6 h-6 lg:w-7 lg:h-7" />
+      return <SnapChatIcon className="w-8 lg:w-7" />
     default:
       return null
   }
@@ -67,7 +67,32 @@ const SpeakersTemplate: FC<
                 />
 
                 <div>
-                  <h2 className="text-[40px] font-bold mt-5">{speaker.name}</h2>
+                  <div className="flex justify-between items-center mt-5">
+                    <h2 className="text-[40px] mt-0 font-bold">
+                      {speaker.name}
+                    </h2>
+
+                    {!!speaker.socialurls?.length && (
+                      <div className="mt-0 text-[#333333]">
+                        <div className="flex gap-5 lg:gap-2.5">
+                          {speaker.socialurls.map(social => (
+                            <a
+                              key={social.url}
+                              href={social.url}
+                              target="_blank"
+                              className="flex items-center text-[#333333] w-max"
+                            >
+                              <SocialMediaIcon
+                                service={
+                                  social.service.toLowerCase() as SocialMediaIconServiceType
+                                }
+                              />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                   <div className="mt-3 font-medium">
                     {renderPositionAndCompany(speaker)}
                   </div>
@@ -76,36 +101,6 @@ const SpeakersTemplate: FC<
                     dangerouslySetInnerHTML={{ __html: speaker.about }}
                   />
                 </div>
-
-                {speaker.socialurls && (
-                  <div className="mt-0 text-[#333333]">
-                    <h3 className="lg:text-[28px] text-2xl font-medium lg:my-5 mb-6 mt-0 whitespace-nowrap">
-                      Connect With Me:
-                    </h3>
-                    {speaker.socialurls.map(social => (
-                      <a
-                        key={social.url}
-                        href={social.url}
-                        target="_blank"
-                        className="flex items-center text-[#333333] w-max mb-3"
-                      >
-                        <SocialMediaIcon
-                          service={
-                            social.service.toLowerCase() as SocialMediaIconServiceType
-                          }
-                        />
-                        <span className="lg:text-xl text-lg ml-1 max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
-                          /
-                          {decodeURIComponent(new URL(social.url).pathname)
-                            .replace(/\/+$/, "")
-                            .split("/")
-                            .reverse()[0]
-                            .toLowerCase()}
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                )}
               </div>
             </div>
 
