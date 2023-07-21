@@ -7,6 +7,10 @@ import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   async ({ actions }) => {
     const gql = String.raw
