@@ -1,0 +1,66 @@
+[
+  {
+    "from": "/docs/api-reference-errors",
+    "to": "/graphql-js/error/"
+  },
+  {
+    "from": "/docs/api-reference-execution",
+    "to": "/graphql-js/execution/"
+  },
+  {
+    "from": "/docs/api-reference-express-graphql",
+    "to": "/graphql-js/express-graphql/"
+  },
+  {
+    "from": "/docs/api-reference-graphql",
+    "to": "/graphql-js/graphql/"
+  },
+  {
+    "from": "/docs/api-reference-language",
+    "to": "/graphql-js/language/"
+  },
+  {
+    "from": "/docs/api-reference-type-system",
+    "to": "/graphql-js/type/"
+  },
+  {
+    "from": "/docs/api-reference-type-utilities",
+    "to": "/graphql-js/utilities/"
+  },
+  {
+    "from": "/docs/api-reference-type-validation",
+    "to": "/graphql-js/validation/"
+  },
+  {
+    "from": "/docs/getting-started",
+    "to": "/learn/"
+  },
+  {
+    "from": "/docs/intro",
+    "to": "/learn/"
+  },
+  {
+    "from": "/docs/introspection",
+    "to": "/learn/introspection/"
+  },
+  {
+    "from": "/docs/queries",
+    "to": "/learn/queries/"
+  },
+  {
+    "from": "/docs/typesystem",
+    "to": "/learn/schema/"
+  },
+  {
+    "from": "/docs/validation",
+    "to": "/learn/validation/"
+  },
+  {
+    "from": "/docs/videos",
+    "to": "/community/#videos/"
+  },
+  {
+    "from": "/help",
+    "to": "/community/"
+  }
+]
