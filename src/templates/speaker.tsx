@@ -94,9 +94,9 @@ const SpeakersTemplate: FC<
                             social.service.toLowerCase() as SocialMediaIconServiceType
                           }
                         />
-                        <span className="lg:text-xl text-lg ml-1">
+                        <span className="lg:text-xl text-lg ml-1 max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
                           /
-                          {social.url
+                          {decodeURIComponent(new URL(social.url).pathname)
                             .replace(/\/+$/, "")
                             .split("/")
                             .reverse()[0]
