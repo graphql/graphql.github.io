@@ -97,7 +97,7 @@ const SpeakersTemplate: FC<
                     {renderPositionAndCompany(speaker)}
                   </div>
                   <p
-                    className="leading-8"
+                    className="leading-8 text-justify"
                     dangerouslySetInnerHTML={{ __html: speaker.about }}
                   />
                 </div>
