@@ -121,6 +121,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
     toPath: "/conf/schedule",
   })
 
+  // redirect swapi with 200
+  createRedirect({
+    fromPath: `/swapi-graphql/*`,
+    toPath: `https://graphql.github.io/swapi-graphql/*`,
+    statusCode: 200,
+  })
+
   const result = await graphql(`
     query allMarkdownRemark {
       allMarkdownRemark {
