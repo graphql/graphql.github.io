@@ -55,9 +55,18 @@ const SpeakersTemplate: FC<
             <div className="flex flex-col lg:px-0">
               <a
                 href="/conf/speakers"
-                className="w-max rounded-md border-2 border-[#333333] border-solid py-2.5 px-5 cursor-pointer hover:opacity-80 transition-all hover:underline text-[#333333]"
+                className="w-max rounded-md py-2.5 px-5 cursor-pointer hover:opacity-80 transition-all underline text-[#333333]"
               >
-                <span>← Back to Speakers</span>
+                <span
+                  style={{
+                    display: "inline-block",
+                    transform: "translateY(-1px)",
+                    marginRight: "5px",
+                  }}
+                >
+                  ←
+                </span>
+                <span>Back to Speakers</span>
               </a>
               <div className="mt-16 flex lg:flex-row flex-col gap-10">
                 <Avatar
