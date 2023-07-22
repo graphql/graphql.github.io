@@ -111,7 +111,7 @@ const SpeakersTemplate: FC<
               </div>
               <h1 className="mt-0 lg:text-4xl text-3xl lg:leading-[50px] leading-[45px] font-medium mb-5">
                 {/* Event name without speaker's name and company */}
-                {event?.speakers}
+                {event.name}
               </h1>
               <div className="flex gap-3">
                 <Tag text={event.audience} />
@@ -123,7 +123,7 @@ const SpeakersTemplate: FC<
               </p>
 
               <div className="flex lg:flex-row flex-col gap-4">
-                {speakers.map(speaker => (
+                {speakers?.map(speaker => (
                   <div className="flex items-center mt-5 gap-7">
                     <Avatar
                       className="lg:w-[150px] lg:h-[150px] w-[120px] h-[120px] rounded-full border-solid border-2 border-gray-300"
