@@ -112,12 +112,13 @@ const SpeakersTemplate: FC<
               </div>
             </div>
 
-            <div className="lg:mt-14 mt-10">
-              <h2 className="text-2xl font-medium mb-9 mt-0">
-                My Speakers Sessions
+            <div className="lg:mt-16 mt-10">
+              <h2 className="text-3xl font-medium mb-9 mt-0">
+                My Speakers Sessions:
               </h2>
               {speaker && (
                 <ScheduleList
+                  showEventType
                   scheduleData={schedule}
                   filterSchedule={sessions =>
                     sessions.filter(session =>

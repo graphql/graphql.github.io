@@ -1,78 +1,110 @@
 import { format, parseISO } from "date-fns"
 import React, { FC, useEffect, useState } from "react"
+import { eventsColors } from "../../../templates/schedule"
+
+function groupByKey<T>(arr: T[], getKey: (entity: T) => any) {
+  return Array.from<[string, T[]]>(
+    arr.reduce(
+      (entryMap, e) =>
+        entryMap.set(getKey(e) as keyof T, [
+          ...(entryMap.get(getKey(e) as keyof T) || []),
+          e,
+        ]),
+      new Map()
+    )
+  )
+}
 
 interface Session {
+  id: string
+  audience: string
+  description: string
+  event_end: string
+  event_start: string
+  event_subtype: string
+  event_type: string
+  name: string
   speakers: string
 }
-interface SessionGroup {
-  date: string
-  sessions: Session[]
-}
+
+type Date = string
+type ConcurrentSessionsGroups = [Date, Session[]][]
+type SessionsGroupByDay = [Date, ConcurrentSessionsGroups][]
 
 interface Props {
-  scheduleData: any
+  showEventType?: boolean
+  scheduleData: Session[]
   filterSchedule?: (sessions: Session[]) => Session[]
 }
-const ScheduleList: FC<Props> = ({ filterSchedule, scheduleData }) => {
-  const [sessions, setSessions] = useState<SessionGroup[]>([])
+const ScheduleList: FC<Props> = ({
+  showEventType,
+  filterSchedule,
+  scheduleData,
+}) => {
+  const [groupedSessionsByDay, setGroupedSessionsByDay] =
+    useState<SessionsGroupByDay>([])
 
   useEffect(() => {
-    const filteredSessions = !!filterSchedule
-      ? filterSchedule(scheduleData)
-      : scheduleData
-
-    // Sort sessions in ascending order by date
-    const sortedSessions = filteredSessions.sort(
-      (a: any, b: any) =>
-        new Date(a.event_start).getTime() - new Date(b.event_start).getTime()
+    const filteredSortedSchedule = (
+      filterSchedule ? filterSchedule(scheduleData) : scheduleData
+    ).sort(
+      (a, b) =>
+        new Date(a.event_start).getTime() - new Date(b.event_end).getTime()
     )
 
-    // Group sessions by date
-    const sessionGroups: { [date: string]: any[] } = {}
+    const groupedConcurrentSessions = groupByKey(
+      filteredSortedSchedule,
+      e => e.event_start
+    )
 
-    sortedSessions.forEach((session: any) => {
-      const date = format(parseISO(session.event_start), "yyyy-MM-dd")
-      if (!sessionGroups[date]) {
-        sessionGroups[date] = []
-      }
-      sessionGroups[date].push(session)
-    })
+    const groupedSessionsByDay = groupByKey(
+      groupedConcurrentSessions,
+      // e[0] is the event date `yyyy/mm/dd hh:mm` and we split it by empty space to only get the day date excluding time.
+      e => e[0].split(" ")[0]
+    )
 
-    // Convert session groups to an array and sort by date
-    const sessionGroupArray = Object.keys(sessionGroups)
-      .sort()
-      .map(date => ({ date, sessions: sessionGroups[date] }))
-
-    setSessions(sessionGroupArray)
+    setGroupedSessionsByDay(groupedSessionsByDay)
   }, [])
 
   return (
     <>
-      {sessions.map(({ date, sessions }) => (
-        <div key={date}>
+      {groupedSessionsByDay.map(([date, concurrentSessionsGroup]) => (
+        <div key={date} className="border-2 border-red-600 text-[#111827]">
           <h3 className="mt-10 mb-5">
             {format(parseISO(date), "EEEE, MMMM d")}
           </h3>
-          {sessions.map((session: any) => (
-            <div key={session.id}>
-              <div className="flex mb-4">
-                <span className="mr-5 whitespace-nowrap text-gray-500 font-light lg:w-28 lg:mt-0 lg:text-base w-20 text-sm mt-3">
-                  {format(parseISO(session.event_start), "hh:mmaaaa 'PDT'")}
-                </span>
-                <div
-                  style={{
-                    backgroundColor: getSessionColor(
-                      session.event_type.toLowerCase()
-                    ),
-                  }}
-                  className="text-black py-2 px-4 rounded-md shadow-lg w-full"
-                >
-                  {session.name} ({/* Sigular */}
-                  {(session.event_type as string).substring(
-                    0,
-                    session.event_type.length - 1
-                  )}
-                  )
+          {concurrentSessionsGroup.map(([sharedStartDate, sessions]) => (
+            <div key={`concurrent sessions on ${sharedStartDate}`}>
+              <div className="lg:flex-row flex flex-col mb-4">
+                <div className="relative">
+                  <span className="lg:mr-7 mb-5 whitespace-nowrap text-gray-500 font-light lg:mt-0 text-base mt-3 inline-block lg:w-28 w-20">
+                    {format(parseISO(sharedStartDate), "hh:mmaaaa 'PDT'")}
+                  </span>
+                  <div className="lg:block hidden absolute right-3 top-0 h-full w-0.5 bg-gray-200" />
+                </div>
+                <div className="lg:flex-row flex flex-col gap-5 relative lg:items-start items-end w-full lg:pl-0 pl-[28px]">
+                  <div className="block lg:hidden absolute left-3 top-0 h-full w-0.5 bg-gray-200" />
+
+                  {sessions.map(session => {
+                    const singularEventType = (
+                      session.event_type as string
+                    ).substring(0, session.event_type.length - 1)
+
+                    return (
+                      <div
+                        key={session.id}
+                        style={{
+                          backgroundColor: getSessionColor(
+                            session.event_type.toLowerCase()
+                          ),
+                        }}
+                        className="text-black py-2 px-4 rounded-md shadow-lg w-full h-full"
+                      >
+                        {showEventType ? singularEventType + " / " : ""}
+                        {session.name}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -86,17 +118,5 @@ const ScheduleList: FC<Props> = ({ filterSchedule, scheduleData }) => {
 export default ScheduleList
 
 function getSessionColor(sessionType: string) {
-  if (sessionType.includes("breaks")) {
-    return "#fffc5c"
-  } else if (sessionType.includes("keynote")) {
-    return "#42a1cd"
-  } else if (sessionType.includes("lightning")) {
-    return "#3db847"
-  } else if (sessionType.includes("presentations")) {
-    return "#d64292"
-  } else if (sessionType.includes("workshops")) {
-    return "#f3a149"
-  } else {
-    return "#E05CAA" // default color if none of the keywords match
-  }
+  return eventsColors.find(e => sessionType.includes(e[0]))?.[1]
 }

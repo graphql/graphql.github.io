@@ -6,6 +6,14 @@ import SeoConf from "../components/Conf/Seo"
 import { PageProps } from "gatsby"
 import ScheduleList from "../components/Conf/Schedule/ScheduleList"
 
+export const eventsColors = [
+  ["breaks", "#fffc5c"],
+  ["keynote", "#42a1cd"],
+  ["lightning", "#3db847"],
+  ["presentations", "#d64292"],
+  ["workshops", "#f3a149"],
+]
+
 const ScheduleTemplate: FC<PageProps<{}, { schedule: any }>> = ({
   pageContext: { schedule },
 }) => {
@@ -28,30 +36,24 @@ const ScheduleTemplate: FC<PageProps<{}, { schedule: any }>> = ({
               <b>IMPORTANT NOTE:</b> Timing of sessions and room locations are{" "}
               <b>subject to change</b>.
             </p>
-            <div className="[&>div]:-ml-[15px]">
-              <a id="sched-embed" href="//graphqlconf23.sched.com/">
-                View the graphqlconf23 schedule &amp; directory.
-              </a>
+
+            <div className="flex lg:flex-row flex-col items-start mt-8 text-[#111827]">
+              <span className="font-medium text-2xl lg:mr-4 lg:mb-0 mb-4 whitespace-nowrap">
+                Event Types:
+              </span>
+              <div className="flex gap-2.5 w-full flex-wrap">
+                {eventsColors.map(([event, color]) => (
+                  <div className="flex items-center">
+                    <div
+                      className="w-6 h-6 rounded-full mr-2 border border-solid border-gray-200"
+                      style={{ background: color }}
+                    />
+                    <span>{event}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-
             <ScheduleList scheduleData={schedule} />
-
-            {/* 
-            <h2>Workshop Day</h2>
-            <p>
-              Join us for a GraphQLConf Workshop Day on September 19. Workshops
-              are included in GraphQLConf registration though pre-registration
-              is required -{" "}
-              <a href="https://cvent.me/4zbxz9" target="_blank">
-                register now
-              </a>
-              , or modify your registration and join us! Workshop space is
-              available on a first come, first served basis.
-            </p>
-            <p>Thank you to our Workshop Day sponsor, The Guild.</p>
-            <div className="w-48">
-              <TheGuild />
-            </div> */}
           </section>
         </div>
       </div>
