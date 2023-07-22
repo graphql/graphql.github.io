@@ -24,7 +24,7 @@ export interface ScheduleSession {
   event_subtype: string
   event_type: string
   name: string
-  speakers: string
+  speakers?: string
 }
 
 type Date = string

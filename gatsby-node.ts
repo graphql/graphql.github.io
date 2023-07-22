@@ -171,16 +171,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     // Create schedule events' pages
     schedule.forEach(event => {
+      const eventSpeakers = speakers.filter(e =>
+        event.speakers?.includes(e.name)
+      )
+
       createPage({
         path: `/conf/schedule/${event.id}`,
         component: path.resolve("./src/templates/event.tsx"),
         context: {
           event,
-          speaker: speakers.find(
-            e =>
-              event.name.includes(e.name) &&
-              event.name.includes(e?.company || "")
-          ),
+          speakers: eventSpeakers,
         },
       })
     })

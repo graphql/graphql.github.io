@@ -4,7 +4,9 @@ import HeaderConf from "../components/Conf/Header"
 import LayoutConf from "../components/Conf/Layout"
 import SeoConf from "../components/Conf/Seo"
 import { PageProps } from "gatsby"
-import ScheduleList from "../components/Conf/Schedule/ScheduleList"
+import ScheduleList, {
+  ScheduleSession,
+} from "../components/Conf/Schedule/ScheduleList"
 
 export const eventsColors = [
   ["Breaks", "#fffc5c"],
@@ -14,7 +16,7 @@ export const eventsColors = [
   ["Workshops", "#f3a149"],
 ]
 
-const ScheduleTemplate: FC<PageProps<{}, { schedule: any }>> = ({
+const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
   pageContext: { schedule },
 }) => {
   return (

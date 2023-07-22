@@ -42,16 +42,14 @@ const SocialMediaIcon = ({
   }
 }
 
+const Tag = ({ text }: { text: string }) => (
+  <span className="border border-solid border-[#333333] text-sm px-4 py-1.5 h-max rounded-full">
+    {text}
+  </span>
+)
 const SpeakersTemplate: FC<
-  PageProps<{}, { event: ScheduleSession; speaker: SchedSpeaker }>
-> = ({ pageContext: { event, speaker } }) => {
-  console.log(event, speaker)
-
-  const Tag = ({ text }: { text: string }) => (
-    <span className="border border-solid border-[#333333] text-sm px-4 py-1.5 h-max rounded-full">
-      {text}
-    </span>
-  )
+  PageProps<{}, { event: ScheduleSession; speakers: SchedSpeaker[] }>
+> = ({ pageContext: { event, speakers } }) => {
   return (
     <LayoutConf>
       <HeaderConf />
@@ -113,7 +111,7 @@ const SpeakersTemplate: FC<
               </div>
               <h1 className="mt-0 lg:text-4xl text-3xl lg:leading-[50px] leading-[45px] font-medium mb-5">
                 {/* Event name without speaker's name and company */}
-                {event.name.split(speaker.name)[0].slice(0, -2)}
+                {event?.speakers}
               </h1>
               <div className="flex gap-3">
                 <Tag text={event.audience} />
@@ -124,47 +122,49 @@ const SpeakersTemplate: FC<
                 {event.description}
               </p>
 
-              <div>
-                <div className="flex items-center mt-5 gap-7">
-                  <Avatar
-                    className="lg:w-[150px] lg:h-[150px] w-[120px] h-[120px] rounded-full border-solid border-2 border-gray-300"
-                    avatar={speaker.avatar}
-                    name={speaker.name}
-                  />
+              <div className="flex lg:flex-row flex-col gap-4">
+                {speakers.map(speaker => (
+                  <div className="flex items-center mt-5 gap-7">
+                    <Avatar
+                      className="lg:w-[150px] lg:h-[150px] w-[120px] h-[120px] rounded-full border-solid border-2 border-gray-300"
+                      avatar={speaker.avatar}
+                      name={speaker.name}
+                    />
 
-                  <div className="flex flex-col lg:gap-1 gap-1.5">
-                    <a
-                      href={`/conf/speakers/${speaker.username}`}
-                      className="lg:text-2xl text-xl mt-0 font-bold text-[#333333] underline"
-                    >
-                      {speaker.name}
-                    </a>
+                    <div className="flex flex-col lg:gap-1 gap-1.5">
+                      <a
+                        href={`/conf/speakers/${speaker.username}`}
+                        className="lg:text-2xl text-xl mt-0 font-bold text-[#333333] underline"
+                      >
+                        {speaker.name}
+                      </a>
 
-                    <span className="lg:text-base text-sm">
-                      {renderPositionAndCompany(speaker)}
-                    </span>
-                    {!!speaker.socialurls?.length && (
-                      <div className="mt-0 text-[#333333]">
-                        <div className="flex gap-5 lg:gap-2.5">
-                          {speaker.socialurls.map(social => (
-                            <a
-                              key={social.url}
-                              href={social.url}
-                              target="_blank"
-                              className="flex items-center text-[#333333] w-max"
-                            >
-                              <SocialMediaIcon
-                                service={
-                                  social.service.toLowerCase() as SocialMediaIconServiceType
-                                }
-                              />
-                            </a>
-                          ))}
+                      <span className="lg:text-base text-sm">
+                        {renderPositionAndCompany(speaker)}
+                      </span>
+                      {!!speaker.socialurls?.length && (
+                        <div className="mt-0 text-[#333333]">
+                          <div className="flex gap-5 lg:gap-2.5">
+                            {speaker.socialurls.map(social => (
+                              <a
+                                key={social.url}
+                                href={social.url}
+                                target="_blank"
+                                className="flex items-center text-[#333333] w-max"
+                              >
+                                <SocialMediaIcon
+                                  service={
+                                    social.service.toLowerCase() as SocialMediaIconServiceType
+                                  }
+                                />
+                              </a>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
