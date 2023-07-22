@@ -42,11 +42,12 @@ const SocialMediaIcon = ({
   }
 }
 
-const Tag = ({ text }: { text: string }) => (
-  <span className="border border-solid border-[#333333] text-sm px-4 py-1.5 h-max rounded-full">
-    {text}
-  </span>
-)
+const Tag = ({ text }: { text: string }) =>
+  !text ? null : (
+    <span className="border border-solid border-[#333333] text-sm px-4 py-1.5 h-max rounded-full whitespace-nowrap">
+      {text}
+    </span>
+  )
 const SpeakersTemplate: FC<
   PageProps<{}, { event: ScheduleSession; speakers: SchedSpeaker[] }>
 > = ({ pageContext: { event, speakers } }) => {
@@ -113,7 +114,7 @@ const SpeakersTemplate: FC<
                 {/* Event name without speaker's name and company */}
                 {event.name}
               </h1>
-              <div className="flex gap-3">
+              <div className="flex gap-3 flex-wrap">
                 <Tag text={event.audience} />
                 <Tag text={event.event_subtype} />
                 <Tag text={event.event_type} />
