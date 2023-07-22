@@ -118,5 +118,5 @@ const ScheduleList: FC<Props> = ({
 export default ScheduleList
 
 function getSessionColor(sessionType: string) {
-  return eventsColors.find(e => sessionType.includes(e[0]))?.[1]
+  return eventsColors.find(e => sessionType.includes(e[0].toLowerCase()))?.[1]
 }

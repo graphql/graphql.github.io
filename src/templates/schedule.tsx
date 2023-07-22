@@ -7,11 +7,11 @@ import { PageProps } from "gatsby"
 import ScheduleList from "../components/Conf/Schedule/ScheduleList"
 
 export const eventsColors = [
-  ["breaks", "#fffc5c"],
-  ["keynote", "#42a1cd"],
-  ["lightning", "#3db847"],
-  ["presentations", "#d64292"],
-  ["workshops", "#f3a149"],
+  ["Breaks", "#fffc5c"],
+  ["Keynote Sessions", "#42a1cd"],
+  ["Lightning Talks", "#3db847"],
+  ["Session Presentations", "#d64292"],
+  ["Workshops", "#f3a149"],
 ]
 
 const ScheduleTemplate: FC<PageProps<{}, { schedule: any }>> = ({
@@ -41,7 +41,7 @@ const ScheduleTemplate: FC<PageProps<{}, { schedule: any }>> = ({
               <span className="font-medium text-2xl lg:mr-4 lg:mb-0 mb-4 whitespace-nowrap">
                 Event Types:
               </span>
-              <div className="flex gap-2.5 w-full flex-wrap">
+              <div className="flex gap-2.5 flex-wrap w-full">
                 {eventsColors.map(([event, color]) => (
                   <div className="flex items-center">
                     <div
