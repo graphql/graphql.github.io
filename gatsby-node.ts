@@ -1,3 +1,4 @@
+import { ScheduleSession } from "./src/components/Conf/Schedule/ScheduleList"
 import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
 import * as path from "path"
@@ -143,17 +144,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
   try {
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
 
-    const schedule = await fetchData(
+    const schedule: ScheduleSession[] = await fetchData(
       `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`
     )
 
-    const usernames = await fetchData(
+    const usernames: { username: string }[] = await fetchData(
       `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username`
     )
 
     // Fetch full info of each speaker individually and concurrently
     const speakers: SchedSpeaker[] = await Promise.all(
-      usernames.map(async (user: { username: string }) => {
+      usernames.map(async user => {
         await new Promise(resolve => setTimeout(resolve, 2000)) // 2 second delay between requests, rate limit is 30req/min
         return fetchData(
           `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`
@@ -166,6 +167,22 @@ export const createPages: GatsbyNode["createPages"] = async ({
       path: "/conf/schedule",
       component: path.resolve("./src/templates/schedule.tsx"),
       context: { schedule },
+    })
+
+    // Create schedule events' pages
+    schedule.forEach(event => {
+      createPage({
+        path: `/conf/schedule/${event.id}`,
+        component: path.resolve("./src/templates/event.tsx"),
+        context: {
+          event,
+          speaker: speakers.find(
+            e =>
+              event.name.includes(e.name) &&
+              event.name.includes(e?.company || "")
+          ),
+        },
+      })
     })
 
     // Create speakers list page

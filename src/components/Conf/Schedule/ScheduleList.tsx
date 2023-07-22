@@ -15,7 +15,7 @@ function groupByKey<T>(arr: T[], getKey: (entity: T) => any) {
   )
 }
 
-interface Session {
+export interface ScheduleSession {
   id: string
   audience: string
   description: string
@@ -28,13 +28,13 @@ interface Session {
 }
 
 type Date = string
-type ConcurrentSessionsGroups = [Date, Session[]][]
+type ConcurrentSessionsGroups = [Date, ScheduleSession[]][]
 type SessionsGroupByDay = [Date, ConcurrentSessionsGroups][]
 
 interface Props {
   showEventType?: boolean
-  scheduleData: Session[]
-  filterSchedule?: (sessions: Session[]) => Session[]
+  scheduleData: ScheduleSession[]
+  filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
 }
 const ScheduleList: FC<Props> = ({
   showEventType,
@@ -90,7 +90,7 @@ const ScheduleList: FC<Props> = ({
                       session.event_type as string
                     ).substring(0, session.event_type.length - 1)
 
-                    return (
+                    return session.event_type === "Breaks" ? (
                       <div
                         key={session.id}
                         style={{
@@ -98,11 +98,25 @@ const ScheduleList: FC<Props> = ({
                             session.event_type.toLowerCase()
                           ),
                         }}
-                        className="text-black py-2 px-4 rounded-md shadow-lg w-full h-full"
+                        className="text-black py-2 px-4 rounded-md shadow-lg w-full h-full font-light"
                       >
                         {showEventType ? singularEventType + " / " : ""}
                         {session.name}
                       </div>
+                    ) : (
+                      <a
+                        href={`/conf/schedule/${session.id}?name=${session.name}`}
+                        key={session.id}
+                        style={{
+                          backgroundColor: getSessionColor(
+                            session.event_type.toLowerCase()
+                          ),
+                        }}
+                        className="text-black py-2 px-4 rounded-md shadow-lg w-full h-full font-light underline"
+                      >
+                        {showEventType ? singularEventType + " / " : ""}
+                        {session.name}
+                      </a>
                     )
                   })}
                 </div>
