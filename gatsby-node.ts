@@ -4,6 +4,7 @@ import { glob } from "glob"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
+import redirects from "./redirects.json"
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   async ({ actions }) => {
@@ -126,6 +127,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
     fromPath: `/swapi-graphql/*`,
     toPath: `https://graphql.github.io/swapi-graphql/*`,
     statusCode: 200,
+  })
+
+  // legacy 301 redirects from previous iterations of the site
+  redirects.forEach(({ from, to }) => {
+    createRedirect({
+      fromPath: from,
+      toPath: to,
+      statusCode: 301,
+    })
   })
 
   const result = await graphql(`
