@@ -89,15 +89,17 @@ const ScheduleList: FC<Props> = ({
                       session.event_type as string
                     ).substring(0, session.event_type.length - 1)
 
+                    const [backgroundColor, textColor] = getSessionColor(
+                      session.event_type.toLowerCase()
+                    )
                     return session.event_type === "Breaks" ? (
                       <div
                         key={session.id}
                         style={{
-                          backgroundColor: getSessionColor(
-                            session.event_type.toLowerCase()
-                          ),
+                          backgroundColor,
+                          color: textColor,
                         }}
-                        className="text-black py-2 px-4 rounded-md shadow-lg w-full h-full font-light"
+                        className="py-2 px-4 rounded-md shadow-lg w-full h-full font-light"
                       >
                         {showEventType ? singularEventType + " / " : ""}
                         {session.name}
@@ -107,11 +109,10 @@ const ScheduleList: FC<Props> = ({
                         href={`/conf/schedule/${session.id}?name=${session.name}`}
                         key={session.id}
                         style={{
-                          backgroundColor: getSessionColor(
-                            session.event_type.toLowerCase()
-                          ),
+                          backgroundColor,
+                          color: textColor,
                         }}
-                        className="text-black py-2 px-4 rounded-md shadow-lg w-full h-full font-light underline"
+                        className="py-2 px-4 rounded-md shadow-lg w-full h-full font-light underline"
                       >
                         {showEventType ? singularEventType + " / " : ""}
                         {session.name}
@@ -131,5 +132,9 @@ const ScheduleList: FC<Props> = ({
 export default ScheduleList
 
 function getSessionColor(sessionType: string) {
-  return eventsColors.find(e => sessionType.includes(e[0].toLowerCase()))?.[1]
+  return (
+    eventsColors
+      .find(e => sessionType.includes(e[0].toLowerCase()))
+      ?.slice(1) || []
+  )
 }

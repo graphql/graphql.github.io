@@ -9,11 +9,11 @@ import ScheduleList, {
 } from "../components/Conf/Schedule/ScheduleList"
 
 export const eventsColors = [
-  ["Breaks", "#fffc5c"],
-  ["Keynote Sessions", "#42a1cd"],
-  ["Lightning Talks", "#3db847"],
-  ["Session Presentations", "#d64292"],
-  ["Workshops", "#f3a149"],
+  ["Breaks", "#a7b7c4", "#171c24"], // Cool light blue with Dark Blue-Gray text
+  ["Keynote Sessions", "#a56be8", "#ffffff"], // Vibrant Purple with White text
+  ["Lightning Talks", "#16a596", "#ffffff"], // Turquoise with White text
+  ["Session Presentations", "#ec4646", "#ffffff"], // Vibrant Red with White text
+  ["Workshops", "#e6812f", "#ffffff"], // Slightly Darker Orange with White text
 ]
 
 const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
