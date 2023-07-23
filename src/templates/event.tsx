@@ -115,9 +115,9 @@ const SpeakersTemplate: FC<
                 {event.name}
               </h1>
               <div className="flex gap-3 flex-wrap">
+                <Tag text={event.event_type} />
                 <Tag text={event.audience} />
                 <Tag text={event.event_subtype} />
-                <Tag text={event.event_type} />
               </div>
               <p className="mt-7 text-xl leading-9 lg:pr-20">
                 {event.description}
