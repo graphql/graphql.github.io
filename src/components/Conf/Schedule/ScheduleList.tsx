@@ -1,4 +1,4 @@
-import { format, parseISO } from "date-fns"
+import { format, parseISO, compareAsc } from "date-fns"
 import React, { FC, useEffect, useState } from "react"
 import { eventsColors } from "../../../templates/schedule"
 
@@ -47,9 +47,8 @@ const ScheduleList: FC<Props> = ({
   useEffect(() => {
     const filteredSortedSchedule = (
       filterSchedule ? filterSchedule(scheduleData) : scheduleData
-    ).sort(
-      (a, b) =>
-        new Date(a.event_start).getTime() - new Date(b.event_end).getTime()
+    ).sort((a, b) =>
+      compareAsc(new Date(a.event_start), new Date(b.event_start))
     )
 
     const groupedConcurrentSessions = groupByKey(
