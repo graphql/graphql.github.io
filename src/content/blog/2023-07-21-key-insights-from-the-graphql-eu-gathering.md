@@ -2,20 +2,24 @@
 title: Key Insights from the GraphQL EU Gathering
 tags: ["blog"]
 layout: blog
-date: 2023-07-24
+date: 2023-07-28
 byline: Jamie Barton
-permalink: /blog/2023-07-24-youtube-updated
+permalink: /blog/2023-07-28-key
 ---
 
-Coming back to Berlin to be a part of the premier **GraphQL EU** "unconference" supported by the [GraphQL Foundation](/foundation/) surpassed all my expectations!
+As the adage goes, unity is strength. The premier GraphQL EU "unconference", held in Berlin, is a testament to this belief. This phenomenal event was the result of immense collaboration between various companies and providers within our vibrant ecosystem. The partnership among these key players, backed by the tireless efforts of the [GraphQL Foundation](/foundation/), truly highlighted the strength of our community and the unity we foster.
 
-My adventure with GraphQL began in this very city, largely attributable to the Prisma team (formerly known as Graphcool) who, for many years, organized the exceptional GraphQL Europe Conference.
+Such dedication from all corners reinforces our commitment to growing and strengthening the global GraphQL community. We understand that a robust community is not built on grand events alone, but through localized meetups and smaller gatherings that allow enthusiasts and experts to exchange knowledge and ideas on a more intimate level.
+
+To that end, we encourage and are excited to support local contributors eager to organize GraphQL meetups. A shining example of a successful local event was the recent gathering in Amsterdam, which saw a vibrant mix of participants sharing their GraphQL journeys, learning from each other, and expanding their networks. Now, with the backing of the GraphQL Foundation, anyone with the zeal and passion to bring the GraphQL community together at a local level can do so with our full support.
+
+## GraphQL EU
 
 The "unconference" format encourages an open dialogue; it provides a platform for all participants to express their ideas, facilitating enriching discussions about their daily experiences with GraphQL, both the victories and the challenges.
 
 After everyone had gathered and invigorated themselves with coffee and croissants (it was a tad too early for currywurst), we proceeded to convene in the main hall.
 
-## The Day
+### The Day
 
 The day kicked off with brief presentations from all sponsors - [Mirumee Software](https://mirumee.com/), [The Guild Software](https://the-guild.dev/), [Stellate](https://stellate.co/), [Saleor Commerce](https://saleor.io/), [Hasura](https://hasura.io/), [Escape](https://escape.tech/). Far from being standard sponsor speeches, each speaker conveyed an inspiring experience that would later spark a day brimming with engaging discussions.
 
@@ -25,7 +29,7 @@ Each participant was given a card to jot down their discussion topic, followed b
 
 ![A whiteboard of attendee-provided topics for discussion](/img/blog/2023-07-21-key-insights-from-the-graphql-eu-gathering/whiteboard.jpg)
 
-## Round 1
+### Round 1
 
 The moment had come to choose a topic and dive right in! We were allocated approximately an hour to join a section of the hall for in-depth topic discussions.
 
@@ -45,7 +49,7 @@ However, if there's a deviation from the original, it could negatively impact th
 
 Creating a specification doesn't have to be a complex process, nor does it need the sanction of anyone to be beneficial. Several years ago, [Jayden Seric](https://github.com/jaydenseric/graphql-multipart-request-spec) introduced the GraphQL multipart request specification. Anyone who is implementing multipart uploads will appreciate the guidance and insights offered by such a singular specification, allowing developers to concentrate on the tasks of building and delivering their applications.
 
-## Round 2
+### Round 2
 
 Choosing the next discussion to attend proved to be quite a difficult task that saw me staring at a board of topic cards longer than I would like to admit. I was torn between the following topics:
 
@@ -65,7 +69,7 @@ As the session neared its end, it became evident that there were some common rea
 
 **Interestingly, those developers who do use Relay are indeed very fond of it!**
 
-## Round 3
+### Round 3
 
 As the day was nearing its conclusion, it was time to choose a topic that would potentially ignite conversations even during the evening reception drinks. And I must say, I certainly opted for such a topic!
 
@@ -79,11 +83,13 @@ The omnipresence of React is no secret. Its adoption is surging across the board
 
 It's also well-known that the rise of Next.js and RSC is stirring up numerous concerns and questions, and encountering some challenges, as it propels the community forward with their runtime implementation of **React Server Components**. I believe GraphQL is also at a crossroads, trying to determine its ideal niche within this evolving React ecosystem.
 
-However, it's crucial to remember that while React and Next.js are prevalent choices, there are many other languages and frameworks that can leverage GraphQL. As a community, we sometimes overlook these alternatives. If you haven't yet used Houdini GraphQL and Svelte, you're in for a treat.
+However, it's crucial to remember that while React and Next.js are prevalent choices, there are many other languages and frameworks that can leverage GraphQL. As a community, we sometimes overlook these alternatives.
+
+If you haven't yet used [Houdini GraphQL](https://www.houdinigraphql.com) and Svelte, you're in for a treat. Houdini offers a refreshing approach to constructing type-safe web applications powered by GraphQL.
 
 Overall, it seemed that GraphQL was continuing to expand, but its applications were shifting. Developers who are building web and mobile applications seem to be moving towards simpler routing mechanisms, like Tanstack and React Router, coupled with Relay for client-side data loading and caching.
 
-## Key Insights
+## Key Insights from GraphQL EU
 
 While I couldn't be part of every conversation, a myriad of topics were undoubtedly discussed during the reception after-party, and even the after-after-party.
 
@@ -97,7 +103,7 @@ Below are the main insights I jotted down in my Notes App throughout the day:
 
 ## What's next for GraphQL?
 
-The official GraphQL Conf is happening in San Francisco, September 19-21.
+As significant as this event was, we are set to surpass it with the official GraphQL Conf, scheduled for September 19-21 in San Francisco. If you thought this event was insightful, I guarantee you that the upcoming conference is going to be a game-changer, with a magnitude tenfold. You wouldn't want to miss out, so grab your tickets soon! I look forward to seeing many familiar faces and meeting new ones at the conference.
 
 - [Buy a Ticket!](https://graphql.org/conf/#attend)
 - [See the schedule](https://graphql.org/conf/schedule/)
