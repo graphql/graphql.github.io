@@ -49,6 +49,12 @@ However, if there's a deviation from the original, it could negatively impact th
 
 Creating a specification doesn't have to be a complex process, nor does it need the sanction of anyone to be beneficial. Several years ago, [Jayden Seric](https://github.com/jaydenseric/graphql-multipart-request-spec) introduced the GraphQL multipart request specification. Anyone who is implementing multipart uploads will appreciate the guidance and insights offered by such a singular specification, allowing developers to concentrate on the tasks of building and delivering their applications.
 
+During the first round's intermission, I had the chance to observe Uri Goldshtein guiding the Beyond GraphQL group. This intriguing dialogue explored how GraphQL's concepts could be integrated with other tools and standards, including OpenAPI and gRPC. The group also pondered over the existing divide and potential ways to bridge these specifications, aiming for a more unified landscape where the right tool can be chosen for the job.
+
+The discussion, under Uri's skillful moderation, took an exciting turn as they probed the potential for repurposing existing APIs using GraphQL by means of automation. Numerous organizations and tools like GraphQL Mesh, Grafbase, SOFA, Hasura, and Wundergraph are already navigating these waters. They invite and appreciate the participation of anyone interested in contributing to this evolving domain through open-source projects.
+
+In his concluding remarks, Uri underscored, "The moment has arrived for the discourse within the GraphQL ecosystem to evolve beyond the 'GraphQL vs. REST' debate. Instead, we should focus on how we can apply GraphQL's robust features to enrich other existing APIs."
+
 ### Round 2
 
 Choosing the next discussion to attend proved to be quite a difficult task that saw me staring at a board of topic cards longer than I would like to admit. I was torn between the following topics:
@@ -108,3 +114,7 @@ As significant as this event was, we are set to surpass it with the official Gra
 - [Buy a Ticket!](https://graphql.org/conf/#attend)
 - [See the schedule](https://graphql.org/conf/schedule/)
 - [Become a sponsor](https://graphql.org/conf/sponsor/)
+
+## Get involved
+
+Though the aforementioned reflections encapsulate my journey, I encourage you to contribute your unique experiences to our collective narrative. Connect with us on Discord and enrich the GraphQL community with your insights.
