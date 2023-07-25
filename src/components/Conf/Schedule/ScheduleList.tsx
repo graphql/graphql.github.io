@@ -72,66 +72,61 @@ const ScheduleList: FC<Props> = ({
     setGroupedSessionsByDay(groupedSessionsByDay)
   }, [])
 
-  const isMobile = window.screen.width < 1024
-
   return (
     <>
-      {!isMobile && (
-        <Tooltip
-          id="my-tooltip"
-          style={{
-            background: "white",
-            zIndex: 1000,
-            borderRadius: "10px",
-            top: "100%",
-            width: "400px",
-            maxHeight: "350px",
-            overflowY: "hidden", // Set this to hidden
-            boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
-            padding: "14px 20px",
-          }}
-          place="bottom-start"
-          position={
-            hoveredSessionId && document.getElementById(hoveredSessionId)
-              ? {
-                  x:
-                    document
-                      .getElementById(hoveredSessionId)!
-                      .getBoundingClientRect().left + 20,
-                  y:
-                    document
-                      .getElementById(hoveredSessionId)!
-                      .getBoundingClientRect().top + 5,
-                }
-              : undefined
-          }
-          isOpen={isOpen}
-          positionStrategy="absolute"
-          opacity={1}
-          border={"3px solid black"}
-          setIsOpen={value => {
-            setIsOpen(value)
-          }}
-        >
-          <div>
-            {hoveredSession && (
-              <div className="text-[#111827] flex flex-col gap-2">
-                <span className="text-lg font-medium">
-                  {hoveredSession.name}
-                </span>
-                <p className="" style={{ margin: 0 }}>
-                  {hoveredSession?.description
-                    ? hoveredSession?.description.slice(0, 350) + "..."
-                    : "No Description"}
-                </p>
-              </div>
-            )}
-          </div>
-        </Tooltip>
-      )}
+      <Tooltip
+        id="my-tooltip"
+        className="hidden lg:block"
+        style={{
+          background: "white",
+          zIndex: 1000,
+          borderRadius: "10px",
+          top: "100%",
+          width: "400px",
+          maxHeight: "350px",
+          overflowY: "hidden", // Set this to hidden
+          boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+          padding: "14px 20px",
+        }}
+        place="bottom-start"
+        position={
+          hoveredSessionId && document.getElementById(hoveredSessionId)
+            ? {
+                x:
+                  document
+                    .getElementById(hoveredSessionId)!
+                    .getBoundingClientRect().left + 20,
+                y:
+                  document
+                    .getElementById(hoveredSessionId)!
+                    .getBoundingClientRect().top + 5,
+              }
+            : undefined
+        }
+        isOpen={isOpen}
+        positionStrategy="absolute"
+        opacity={1}
+        border={"3px solid black"}
+        setIsOpen={value => {
+          setIsOpen(value)
+        }}
+      >
+        <div>
+          {hoveredSession && (
+            <div className="text-[#111827] flex flex-col gap-2">
+              <span className="text-lg font-medium">{hoveredSession.name}</span>
+              <p className="" style={{ margin: 0 }}>
+                {hoveredSession?.description
+                  ? hoveredSession?.description.slice(0, 350) + "..."
+                  : "No Description"}
+              </p>
+            </div>
+          )}
+        </div>
+      </Tooltip>
 
       {groupedSessionsByDay.map(([date, concurrentSessionsGroup]) => (
-        <div key={date} className="border-2 border-red-600 text-[#111827]">
+        <div key={date} className="text-[#111827]">
           <h3 className="mt-10 mb-5 text-[22px]">
             {format(parseISO(date), "EEEE, MMMM d")}
           </h3>
@@ -177,10 +172,8 @@ const ScheduleList: FC<Props> = ({
                         style={{ backgroundColor, color: textColor }}
                         className="relative py-2 px-4 rounded-md shadow-lg w-full h-full font-light no-underline hover:underline"
                         onMouseEnter={() => {
-                          if (!isMobile) {
-                            setHoveredSession(session)
-                            setHoveredSessionId(`session-${session.id}`)
-                          }
+                          setHoveredSession(session)
+                          setHoveredSessionId(`session-${session.id}`)
                         }}
                       >
                         {showEventType ? singularEventType + " / " : ""}

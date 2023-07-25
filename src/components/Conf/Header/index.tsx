@@ -55,13 +55,9 @@ const HeaderConf = () => {
         )}
 
         <nav
-          style={{
-            transform:
-              window.screen.width >= 1024 || mobileDrawerOpen
-                ? "none"
-                : "translateX(100%)",
-          }}
-          className="lg:w-full lg:justify-between justify-start fixed lg:static bg-[#171e26] h-full lg:h-auto right-0 top-0 transition-transform duration-200 ease-in-out z-20 lg:items-center items-start min-w-[75%] flex flex-col lg:flex-row py-10 px-8 lg:p-0"
+          className={`lg:transform-none ${
+            mobileDrawerOpen ? "translate-x-0" : "translate-x-full"
+          }  lg:w-full lg:justify-between justify-start fixed lg:static bg-[#171e26] h-full lg:h-auto right-0 top-0 transition-transform duration-200 ease-in-out z-20 lg:items-center items-start min-w-[75%] flex flex-col lg:flex-row py-10 px-8 lg:p-0`}
         >
           {mobileDrawerOpen && (
             <Cross2Icon
