@@ -46,7 +46,7 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
       <HeaderConf />
 
       <div className="bg-white">
-        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4 override-prose-w-with-85ch">
+        <div className="prose lg:prose-lg mx-auto py-10 max-lg:px-4 override-prose-w-with-85ch">
           <h1>GraphQLConf 2023 Speakers</h1>
           <p>
             Meet the unique lineup of insightful speakers we've carefully
@@ -54,7 +54,7 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
             innovative practices in the realm of GraphQL at the conference.
           </p>
         </div>
-        <section className="override-prose-w-with-85ch mx-auto max-sm:px-4 px-0 mt-8 flex flex-wrap gap-10 lg:justify-between justify-center">
+        <section className="override-prose-w-with-85ch mx-auto max-lg:px-4 px-0 mt-8 flex flex-wrap gap-5 lg:justify-between justify-center">
           {speakers.length ? (
             speakers.map((speaker: any) => (
               <Speaker key={speaker.id} {...speaker} />

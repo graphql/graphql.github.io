@@ -49,12 +49,12 @@ const SpeakersTemplate: FC<
       <HeaderConf />
 
       <div className="bg-white py-10">
-        <section className="text-[#333333] min-h-[80vh] flex-col mx-auto max-sm:px-4 px-0 lg:justify-between justify-center max-w-[1100px]">
+        <section className="text-[#333333] min-h-[80vh] flex-col mx-auto max-lg:px-4 px-0 lg:justify-between justify-center override-prose-w-with-85ch">
           <>
             <div className="flex flex-col lg:px-0">
               <a
                 href="/conf/speakers"
-                className="w-max rounded-md py-2.5 px-5 cursor-pointer hover:opacity-80 transition-all underline text-[#333333]"
+                className="w-max rounded-md cursor-pointer hover:opacity-80 transition-all underline text-[#333333] text-[18px]"
               >
                 <span
                   style={{
@@ -67,7 +67,7 @@ const SpeakersTemplate: FC<
                 </span>
                 <span>Back to Speakers</span>
               </a>
-              <div className="mt-16 flex lg:flex-row flex-col gap-10">
+              <div className="lg:mt-16 mt-6 flex lg:flex-row flex-col-reverse gap-10">
                 <Avatar
                   className="w-[300px] h-[300px] rounded-full border-solid border-2 border-gray-300"
                   avatar={speaker.avatar}
@@ -105,7 +105,7 @@ const SpeakersTemplate: FC<
                     {renderPositionAndCompany(speaker)}
                   </div>
                   <p
-                    className="leading-8 text-justify"
+                    className="leading-8 lg:text-justify text-[18px]"
                     dangerouslySetInnerHTML={{ __html: speaker.about }}
                   />
                 </div>
@@ -153,7 +153,7 @@ function renderPositionAndCompany(speaker: SchedSpeaker) {
     speaker.url !== "" ? (
       <a
         target="_blank"
-        className="text-[#333333] underline"
+        className="text-[#333333] underline text-[18px]"
         href={speaker.url}
       >
         {company}

@@ -60,18 +60,18 @@ const Speaker: FC<SchedSpeaker> = ({
     <div className="flex flex-col w-max max-w-[250px] items-center mb-10">
       <Avatar
         href={username}
-        className="border-2 border-solid border-gray-300 rounded-full w-[250px] h-[250px]"
+        className="border-2 border-solid border-gray-300 rounded-full w-[200px] h-[200px]"
         avatar={avatar}
         name={name}
       />
-      <div className="flex flex-col justify-center items-center mt-4 max-w-[95%] text-center">
+      <div className="flex flex-col justify-center items-center mt-1.5 max-w-[190px] text-center">
         <a
           href={username}
-          className="text-2xl font-bold mt-0 text-[#181E26] hover:underline cursor-pointer"
+          className="text-[22px] font-bold mt-0 text-[#181E26] hover:underline cursor-pointer"
         >
           {name || "-"}
         </a>
-        <p className="mt-2 mb-0 text-sm font-medium text-[#212a35]">
+        <p className="mt-1 mb-0 text-sm font-medium text-[#212a35]">
           {company ? (
             url ? (
               <a href={url} target="_blank" className="text-[#212a35]">
