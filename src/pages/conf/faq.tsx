@@ -817,8 +817,8 @@ const faq: Array<{ id: string; title: string; contents: ReactNode }> = [
           <li>Application Deadline — Friday, July 21, 2023 11:59 PM PST</li>
           <li>Notifications — Week of August 7, 2023</li>
         </ul>
-        <ButtonConf href="https://forms.gle/PwgWSTJ872Pce9XW6">
-          Apply for a Scholarship
+        <ButtonConf disabled href="https://forms.gle/PwgWSTJ872Pce9XW6">
+          SCHOLARSHIP APPLICATION CLOSED
         </ButtonConf>
       </>
     ),
