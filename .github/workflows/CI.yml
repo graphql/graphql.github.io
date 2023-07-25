@@ -13,6 +13,9 @@ jobs:
 
       - run: yarn install
 
+      - name: Set Sched's API token env
+        run: echo "SCHED_ACCESS_TOKEN=${{ secrets.SCHED_ACCESS_TOKEN }}" >> .env.production
+
       # Verify it compiles
       - run: yarn build
 

@@ -1,10 +1,17 @@
+import { ScheduleSession } from "./src/components/Conf/Schedule/ScheduleList"
+import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
 import * as path from "path"
 import { glob } from "glob"
+import _ from "lodash"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
 import redirects from "./redirects.json"
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   async ({ actions }) => {
@@ -111,11 +118,92 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
   })
 }
 
+const fetchData = async (url: string) => {
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "GraphQL Conf / GraphQL Foundation",
+      },
+    })
+    const data = await response.json()
+    return data
+  } catch (error) {
+    throw new Error(
+      `Error fetching data from ${url}: ${error.message || error.toString()}`
+    )
+  }
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql,
 }) => {
   const { createPage, createRedirect } = actions
+
+  try {
+    const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
+
+    const schedule: ScheduleSession[] = await fetchData(
+      `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`
+    )
+
+    const usernames: { username: string }[] = await fetchData(
+      `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username`
+    )
+
+    // Fetch full info of each speaker individually and concurrently
+    const speakers: SchedSpeaker[] = await Promise.all(
+      usernames.map(async user => {
+        await new Promise(resolve => setTimeout(resolve, 2000)) // 2 second delay between requests, rate limit is 30req/min
+        return fetchData(
+          `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`
+        )
+      })
+    )
+
+    // Create schedule page
+    createPage({
+      path: "/conf/schedule",
+      component: path.resolve("./src/templates/schedule.tsx"),
+      context: { schedule },
+    })
+
+    // Create schedule events' pages
+    schedule.forEach(event => {
+      const eventSpeakers = speakers.filter(e =>
+        event.speakers?.includes(e.name)
+      )
+
+      createPage({
+        path: `/conf/schedule/${event.id}`,
+        component: path.resolve("./src/templates/event.tsx"),
+        context: {
+          event,
+          speakers: eventSpeakers,
+        },
+      })
+    })
+
+    // Create speakers list page
+    createPage({
+      path: "/conf/speakers",
+      component: path.resolve("./src/templates/speakers.tsx"),
+      context: { speakers },
+    })
+
+    // Create a page for each speaker
+    speakers.forEach(speaker => {
+      createPage({
+        path: `/conf/speakers/${speaker.username}`,
+        component: path.resolve("./src/templates/speaker.tsx"),
+        context: { speaker, schedule },
+      })
+    })
+  } catch (error) {
+    console.log("CATCH ME:", error)
+  }
 
   createRedirect({
     fromPath: "/conf/program",

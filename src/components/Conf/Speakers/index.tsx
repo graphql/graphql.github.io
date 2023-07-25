@@ -100,3 +100,5 @@ const SpeakersConf = () => {
 }
 
 export default SpeakersConf
+
+export { speakers as keynoteSpeakers }
