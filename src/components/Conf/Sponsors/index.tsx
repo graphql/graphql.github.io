@@ -8,6 +8,7 @@ import { ReactComponent as TheGraph } from "../../../../static/img/conf/Sponsors
 import { ReactComponent as TheGuild } from "../../../../static/img/conf/Sponsors/TheGuild.svg"
 import { ReactComponent as Hygraph } from "../../../../static/img/conf/Sponsors/Hygraph.svg"
 import { ReactComponent as StepZen } from "../../../../static/img/conf/Sponsors/StepZen.svg"
+import { ReactComponent as Inigo } from "../../../../static/img/conf/Sponsors/Inigo.svg"
 
 interface Image {
   iconPath: string
@@ -66,6 +67,11 @@ const sponsorGold: Image[] = [
     iconPath: StepZen,
     name: "StepZen",
     link: "https://stepzen.com/",
+  },
+  {
+    iconPath: Inigo,
+    name: "Inigo",
+    link: "https://inigo.io/",
   },
 ]
 
