@@ -77,7 +77,7 @@ const SpeakersConf = () => {
           ))}
         </div>
         <div className="flex justify-center items-center flex-wrap py-6">
-          <ButtonConf href="/conf/schedule/">See all speakers</ButtonConf>
+          <ButtonConf href="/conf/speakers/">See all speakers</ButtonConf>
         </div>
         <div className="flex flex-col text-center mx-auto max-w-prose text-white px-4">
           <p>
