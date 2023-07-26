@@ -24,13 +24,6 @@ const speakers: Speaker[] = [
       "https://pbs.twimg.com/profile_images/922586508871139330/60rIRufM_400x400.jpg",
   },
   {
-    name: "Matteo Collina",
-    title: "Creator of Fastify, Platformatic CTO, Node TSC",
-    twitter: "https://twitter.com/matteocollina",
-    image:
-      "https://pbs.twimg.com/profile_images/1541698320443314179/4Cp5IrGB_400x400.jpg",
-  },
-  {
     name: "Marc-André Giroux",
     title: "Author of Production Ready GraphQL, GraphQL TSC",
     twitter: "https://twitter.com/__xuorig__",
