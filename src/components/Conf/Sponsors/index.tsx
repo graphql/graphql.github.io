@@ -91,6 +91,9 @@ const workshopDaySponsors: Image[] = [
   },
 ]
 
+const iconClassName =
+  "flex flex-col justify-center items-center text-center w-full h-full"
+
 const SponsersConf = () => {
   return (
     <div id="sponsors" className="bg-white py-10 static">
@@ -104,7 +107,7 @@ const SponsersConf = () => {
         {sponsorDiamond.map((sponsor, i) => (
           <a
             key={i}
-            className="zoom-diamond flex flex-col items-center text-center w-full h-full"
+            className={`zoom-diamond ${iconClassName}`}
             href={sponsor.link}
             target="_blank"
           >
@@ -121,7 +124,7 @@ const SponsersConf = () => {
           .map((sponsor, i) => (
             <a
               key={i}
-              className="zoom-platinum self-center flex flex-col text-center w-full"
+              className={`zoom-platinum ${iconClassName}`}
               href={sponsor.link}
               target="_blank"
             >
@@ -139,7 +142,7 @@ const SponsersConf = () => {
           .map((sponsor, i) => (
             <a
               key={i}
-              className="zoom-gold flex flex-col items-center text-center w-full h-full"
+              className={`zoom-gold ${iconClassName}`}
               href={sponsor.link}
               target="_blank"
             >
@@ -157,7 +160,7 @@ const SponsersConf = () => {
           .map((sponsor, i) => (
             <a
               key={i}
-              className="zoom-silver flex flex-col items-center text-center w-full h-full"
+              className={`zoom-silver ${iconClassName}`}
               href={sponsor.link}
               target="_blank"
             >
@@ -173,7 +176,7 @@ const SponsersConf = () => {
         {workshopDaySponsors.map((sponsor, i) => (
           <a
             key={i}
-            className="zoom-platinum flex flex-col items-center text-center"
+            className={`zoom-platinum ${iconClassName}`}
             href={sponsor.link}
             target="_blank"
           >
