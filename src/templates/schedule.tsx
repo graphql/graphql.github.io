@@ -30,9 +30,7 @@ const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
             <h4>September 19-21, 2023 I San Francisco Bay Area, CA</h4>
             <p>
               Please note: All session times are in Pacific Daylight Time (UTC
-              -7). To view the schedule in your <b>preferred&nbsp;timezone</b>,
-              please select from the drop-down menu to the right, above “Filter
-              by Date.”
+              -7).
             </p>
             <p>
               <b>IMPORTANT NOTE:</b> Timing of sessions and room locations are{" "}
