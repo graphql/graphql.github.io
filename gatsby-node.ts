@@ -8,6 +8,7 @@ import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
 import redirects from "./redirects.json"
+import { keynoteSpeakers } from "./src/components/Conf/Speakers"
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -186,12 +187,47 @@ export const createPages: GatsbyNode["createPages"] = async ({
       })
     })
 
+    const keynoteNames = keynoteSpeakers.map(speaker => speaker.name)
+
+    // create an array for keynote speakers in fetched data maintaining the order in keynoteSpeakers
+    const keynoteSpeakersData = keynoteNames
+      .map(name => {
+        return speakers.find(
+          (speaker: any) =>
+            speaker.name === name && speaker.role.includes("speaker")
+        )
+      })
+      .filter(Boolean) as SchedSpeaker[]
+
+    const otherSpeakersData = speakers.filter(
+      (speaker: any) =>
+        speaker.role.includes("speaker") && !keynoteNames.includes(speaker.name)
+    )
+
+    // Sort other speakers by last name alphabetically
+    otherSpeakersData.sort((a: any, b: any) => {
+      const aLastName = a.name.split(" ").slice(-1)[0].toLowerCase()
+      const bLastName = b.name.split(" ").slice(-1)[0].toLowerCase()
+
+      return aLastName.localeCompare(bLastName)
+    })
+
+    const filteredAndSortedSpeakers = [
+      ...keynoteSpeakersData,
+      ...otherSpeakersData,
+    ]
+
     // Create speakers list page
     createPage({
       path: "/conf/speakers",
       component: path.resolve("./src/templates/speakers.tsx"),
-      context: { speakers },
+      context: { speakers: filteredAndSortedSpeakers },
     })
+
+    require("fs").writeFileSync(
+      "speakers.json",
+      JSON.stringify(filteredAndSortedSpeakers, null, 2)
+    )
 
     // Create a page for each speaker
     speakers.forEach(speaker => {
