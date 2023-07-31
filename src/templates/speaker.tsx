@@ -145,7 +145,10 @@ export function Head({
       <SeoConf
         title={`${speaker.name} | GraphQLConf 2023`}
         description={speaker.about}
-        twitterTitle={`${speaker.name} | GraphQLConf 2023`}
+      />
+      <meta
+        property="keywords"
+        content={`GraphQL, GraphQLConf, GraphQLConf 2023, ${speaker.name}, ${speaker.company}, ${speaker.position}`}
       />
       <meta
         property="og:url"

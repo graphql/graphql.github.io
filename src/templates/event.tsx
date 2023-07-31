@@ -198,7 +198,10 @@ export function Head({
       <SeoConf
         title={`${event.name} | GraphQLConf 2023`}
         description={event.description}
-        twitterTitle={`${event.name} | GraphQLConf 2023`}
+      />
+      <meta
+        name="keywords"
+        content={`GraphQL, GraphQLConf, GraphQLConf 2023, ${event.event_type}, ${event.audience}, ${event.event_subtype} ${event.event_start}`}
       />
       <meta
         property="og:url"
