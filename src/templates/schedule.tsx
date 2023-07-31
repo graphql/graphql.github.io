@@ -7,14 +7,7 @@ import { PageProps } from "gatsby"
 import ScheduleList, {
   ScheduleSession,
 } from "../components/Conf/Schedule/ScheduleList"
-
-export const eventsColors = [
-  ["Breaks", "#a7b7c485", "#000"], // Cool light blue with Dark Blue-Gray text
-  ["Keynote Sessions", "#a56be885", "#000"], // Vibrant Purple with White text
-  ["Lightning Talks", "#16a59680", "#000"], // Turquoise with White text
-  ["Session Presentations", "#ec464669", "#000"], // Vibrant Red with White text
-  ["Workshops", "#e6812f7d", "#000"], // Slightly Darker Orange with White text
-]
+import { eventsColors } from "../utils/eventsColors"
 
 const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
   pageContext: { schedule },

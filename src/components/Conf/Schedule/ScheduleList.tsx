@@ -1,7 +1,7 @@
 import { format, parseISO, compareAsc } from "date-fns"
 import React, { FC, useEffect, useState } from "react"
-import { eventsColors } from "../../../templates/schedule"
 import { Tooltip } from "react-tooltip"
+import { eventsColors } from "../../../utils/eventsColors"
 
 function groupByKey<T>(arr: T[], getKey: (entity: T) => any) {
   return Array.from<[string, T[]]>(
@@ -145,7 +145,7 @@ const ScheduleList: FC<Props> = ({
                       session.event_type as string
                     ).substring(0, session.event_type.length - 1)
 
-                    const [backgroundColor, textColor] = getSessionColor(
+                    const [borderColor, backgroundColor] = getSessionColor(
                       session.event_type.toLowerCase()
                     )
 
@@ -153,8 +153,9 @@ const ScheduleList: FC<Props> = ({
                       <div
                         key={session.id}
                         style={{
+                          borderLeft: `5px solid ${borderColor}`,
+                          borderRadius: "3px",
                           backgroundColor,
-                          color: textColor,
                         }}
                         className="font-normal flex items-center py-2 px-4 rounded-md w-full h-full"
                       >
@@ -167,7 +168,11 @@ const ScheduleList: FC<Props> = ({
                         data-tooltip-id="my-tooltip"
                         href={`/conf/schedule/${session.id}?name=${session.name}`}
                         key={session.id}
-                        style={{ backgroundColor, color: textColor }}
+                        style={{
+                          borderLeft: `5px solid ${borderColor}`,
+                          borderRadius: "3px",
+                          backgroundColor,
+                        }}
                         className="font-normal flex items-center relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline"
                         onMouseEnter={() => {
                           setHoveredSession(session)
