@@ -157,7 +157,7 @@ const ScheduleList: FC<Props> = ({
                           borderRadius: "3px",
                           backgroundColor,
                         }}
-                        className="font-normal flex items-center py-2 px-4 rounded-md w-full h-full"
+                        className="font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
                       >
                         {showEventType ? singularEventType + " / " : ""}
                         {session.name}
@@ -173,7 +173,7 @@ const ScheduleList: FC<Props> = ({
                           borderRadius: "3px",
                           backgroundColor,
                         }}
-                        className="font-normal flex items-center relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline"
+                        className="font-normal flex items-center relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline text-black"
                         onMouseEnter={() => {
                           setHoveredSession(session)
                           setHoveredSessionId(`session-${session.id}`)
