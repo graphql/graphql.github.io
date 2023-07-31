@@ -2,9 +2,9 @@
 title: Key Insights from the GraphQL EU Gathering
 tags: ["blog"]
 layout: blog
-date: 2023-07-28
+date: 2023-08-01
 byline: Jamie Barton
-permalink: /blog/2023-07-28-key
+permalink: /blog/2023-08-01-key-insights-from-the-graphql-eu-gathering
 ---
 
 As the adage goes, unity is strength. The premier GraphQL EU "unconference", held in Berlin, is a testament to this belief. This phenomenal event was the result of immense collaboration between various companies and providers within our vibrant ecosystem. The partnership among these key players, backed by the tireless efforts of the [GraphQL Foundation](/foundation/), truly highlighted the strength of our community and the unity we foster.
@@ -14,6 +14,8 @@ Such dedication from all corners reinforces our commitment to growing and streng
 To that end, we encourage and are excited to support local contributors eager to organize GraphQL meetups. A shining example of a successful local event was the recent gathering in Amsterdam, which saw a vibrant mix of participants sharing their GraphQL journeys, learning from each other, and expanding their networks. Now, with the backing of the GraphQL Foundation, anyone with the zeal and passion to bring the GraphQL community together at a local level can do so with our full support.
 
 ## GraphQL EU
+
+![Promotional banner promoting the date, time and place for GraphQL EU](/img/blog/2023-08-01-key-insights-from-the-graphql-eu-gathering/banner.jpg)
 
 The "unconference" format encourages an open dialogue; it provides a platform for all participants to express their ideas, facilitating enriching discussions about their daily experiences with GraphQL, both the victories and the challenges.
 
@@ -27,7 +29,7 @@ After the sponsor presentations concluded, [Van Riper](https://twitter.com/vanri
 
 Each participant was given a card to jot down their discussion topic, followed by a 20-second slot on stage to present it. Once we deciphered the correct usage of sticky tape, these cards were affixed to the whiteboards. This interactive activity essentially laid down the structure for the remainder of the day's events.
 
-![A whiteboard of attendee-provided topics for discussion](/img/blog/2023-07-21-key-insights-from-the-graphql-eu-gathering/whiteboard.jpg)
+![A whiteboard of attendee-provided topics for discussion](/img/blog/2023-08-01-key-insights-from-the-graphql-eu-gathering/whiteboard.jpg)
 
 ### Round 1
 
@@ -109,7 +111,9 @@ Below are the main insights I jotted down in my Notes App throughout the day:
 
 ## What's next for GraphQL?
 
-As significant as this event was, we are set to surpass it with the official GraphQL Conf, scheduled for September 19-21 in San Francisco. If you thought this event was insightful, I guarantee you that the upcoming conference is going to be a game-changer, with a magnitude tenfold. You wouldn't want to miss out, so grab your tickets soon! I look forward to seeing many familiar faces and meeting new ones at the conference.
+As significant as this event was, we are set to surpass it with the official [GraphQL Conf](https://graphql.org/conf), scheduled for September 19-21 in San Francisco. If you thought this event was insightful, I guarantee you that the upcoming conference is going to be a game-changer!
+
+You wouldn't want to miss out, so grab your tickets soon! I look forward to seeing many familiar faces and meeting new ones at the conference.
 
 - [Buy a Ticket!](https://graphql.org/conf/#attend)
 - [See the schedule](https://graphql.org/conf/schedule/)
@@ -117,4 +121,6 @@ As significant as this event was, we are set to surpass it with the official Gra
 
 ## Get involved
 
-Though the aforementioned reflections encapsulate my journey, I encourage you to contribute your unique experiences to our collective narrative. Connect with us on Discord and enrich the GraphQL community with your insights.
+Though the aforementioned reflections encapsulate my journey, I encourage you to contribute your unique experiences to our collective narrative. [Connect with us on Discord](https://discord.graphql.org) and enrich the GraphQL community with your insights.
+
+See you in San Francisco!
