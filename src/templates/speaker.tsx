@@ -54,7 +54,7 @@ const SpeakersTemplate: FC<
             <div className="flex flex-col lg:px-0">
               <a
                 href="/conf/speakers"
-                className="w-max rounded-md cursor-pointer hover:opacity-80 transition-all underline"
+                className="w-max text-black rounded-md cursor-pointer hover:opacity-80 transition-all underline"
               >
                 <span
                   style={{
