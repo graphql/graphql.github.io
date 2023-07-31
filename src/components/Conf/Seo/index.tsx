@@ -1,4 +1,3 @@
-import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
 export const defaults = {
@@ -8,22 +7,6 @@ export const defaults = {
     "The official GraphQL conference hosted by the GraphQL Foundation.",
   url: "https://graphql.org/conf/",
   image: "http://graphql.org/img/conf/social-pk.jpg",
-}
-
-export const useSiteMetadata = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-        }
-      }
-    }
-  `)
-
-  return data.site.siteMetadata
 }
 
 export default function SeoConf(props: {
