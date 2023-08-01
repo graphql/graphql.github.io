@@ -35,7 +35,7 @@ const sponsorDiamond: Image[] = [
   {
     iconPath: Postman,
     name: "Postman",
-    link: "https://www.postman.com/product/what-is-postman/?utm_source=&utm_medium=website&utm_campaign=event&utm_term=grpc_conf_23&utm_content=",
+    link: "https://www.postman.com/",
   },
   {
     iconPath: Hasura,
