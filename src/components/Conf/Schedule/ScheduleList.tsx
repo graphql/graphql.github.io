@@ -1,8 +1,7 @@
 import { format, parseISO, compareAsc } from "date-fns"
 import React, { FC, useEffect, useState } from "react"
-import { eventsColors } from "../../../templates/schedule"
 import { Tooltip } from "react-tooltip"
-import EventTemplate, { EventComponent } from "../../../templates/event"
+import { eventsColors } from "../../../utils/eventsColors"
 
 function groupByKey<T>(arr: T[], getKey: (entity: T) => any) {
   return Array.from<[string, T[]]>(
@@ -85,7 +84,6 @@ const ScheduleList: FC<Props> = ({
           width: "400px",
           maxHeight: "350px",
           overflowY: "hidden", // Set this to hidden
-          boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
           padding: "14px 20px",
         }}
         place="bottom-start"
@@ -113,8 +111,8 @@ const ScheduleList: FC<Props> = ({
       >
         <div>
           {hoveredSession && (
-            <div className="text-[#111827] flex flex-col gap-2">
-              <span className="text-lg font-medium">{hoveredSession.name}</span>
+            <div className="text-gray-800 flex flex-col gap-2">
+              <span className="font-medium">{hoveredSession.name}</span>
               <p className="" style={{ margin: 0 }}>
                 {hoveredSession?.description
                   ? hoveredSession?.description.slice(0, 350) + "..."
@@ -126,15 +124,15 @@ const ScheduleList: FC<Props> = ({
       </Tooltip>
 
       {groupedSessionsByDay.map(([date, concurrentSessionsGroup]) => (
-        <div key={date} className="text-[#111827]">
-          <h3 className="mt-10 mb-5 text-[22px]">
+        <div key={date} className="text-gray-800 text-sm">
+          <h3 className="mt-10 mb-5">
             {format(parseISO(date), "EEEE, MMMM d")}
           </h3>
           {concurrentSessionsGroup.map(([sharedStartDate, sessions]) => (
             <div key={`concurrent sessions on ${sharedStartDate}`}>
               <div className="lg:flex-row flex flex-col mb-4">
                 <div className="relative">
-                  <span className="lg:mr-7 mb-5 whitespace-nowrap text-gray-500 font-light lg:mt-0 text-base mt-3 inline-block lg:w-28 w-20">
+                  <span className="lg:mr-7 mb-5 whitespace-nowrap text-gray-500 lg:mt-0 mt-3 inline-block lg:w-28 w-20">
                     {format(parseISO(sharedStartDate), "hh:mmaaaa 'PDT'")}
                   </span>
                   <div className="lg:block hidden absolute right-3 top-0 h-full w-0.5 bg-gray-200" />
@@ -147,7 +145,7 @@ const ScheduleList: FC<Props> = ({
                       session.event_type as string
                     ).substring(0, session.event_type.length - 1)
 
-                    const [backgroundColor, textColor] = getSessionColor(
+                    const [borderColor, backgroundColor] = getSessionColor(
                       session.event_type.toLowerCase()
                     )
 
@@ -155,10 +153,11 @@ const ScheduleList: FC<Props> = ({
                       <div
                         key={session.id}
                         style={{
+                          borderLeft: `5px solid ${borderColor}`,
+                          borderRadius: "3px",
                           backgroundColor,
-                          color: textColor,
                         }}
-                        className="py-2 px-4 rounded-md shadow-lg w-full h-full font-light"
+                        className="font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
                       >
                         {showEventType ? singularEventType + " / " : ""}
                         {session.name}
@@ -169,8 +168,12 @@ const ScheduleList: FC<Props> = ({
                         data-tooltip-id="my-tooltip"
                         href={`/conf/schedule/${session.id}?name=${session.name}`}
                         key={session.id}
-                        style={{ backgroundColor, color: textColor }}
-                        className="relative py-2 px-4 rounded-md shadow-lg w-full h-full font-light no-underline hover:underline"
+                        style={{
+                          borderLeft: `5px solid ${borderColor}`,
+                          borderRadius: "3px",
+                          backgroundColor,
+                        }}
+                        className="font-normal flex items-center relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline text-black"
                         onMouseEnter={() => {
                           setHoveredSession(session)
                           setHoveredSessionId(`session-${session.id}`)

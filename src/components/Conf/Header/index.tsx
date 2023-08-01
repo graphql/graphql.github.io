@@ -22,7 +22,7 @@ const LinksList = () => (
       <a
         key={link.href}
         href={link.href}
-        className="px-2.5 text-2xl md:text-lg text-white font-medium hover:text-white focus:text-white w-max"
+        className="px-2.5 text-2xl md:text-lg text-white font-medium hover:text-white focus:text-white"
       >
         {link.text}
       </a>
@@ -38,8 +38,8 @@ const HeaderConf = () => {
   }
 
   return (
-    <header className="bg-[#171E26] gap-2 shadow-lg px-5 h-[70px]">
-      <div className="container flex items-center h-full gap-5 max-sm:justify-end justify-between">
+    <header className="bg-[#171E26] px-6 lg:px-0 gap-2 shadow-lg h-[70px]">
+      <div className="md:container flex items-center h-full gap-5 max-sm:justify-end justify-between">
         <a href="/conf/" className="shrink-0 max-sm:hidden">
           <img
             src="/img/conf/graphql-conf-logo-simple.svg"

@@ -18,7 +18,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
       <Hero />
       <section className="conf-banner">
         <a href="/conf/">
-          <img src="/img/conf/graphql-conf-logo.svg" />
+          <img src="/img/conf/graphql-conf-logo.svg" alt="GraphQLConf logo" />
           <div>
             <span>
               The official GraphQL conference, by the GraphQL Foundation

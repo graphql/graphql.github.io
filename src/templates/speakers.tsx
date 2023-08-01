@@ -46,7 +46,7 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
       <HeaderConf />
 
       <div className="bg-white">
-        <div className="prose lg:prose-lg mx-auto py-10 max-lg:px-4 override-prose-w-with-85ch">
+        <div className="prose lg:prose-lg mx-auto py-10 px-6 lg:px-0 override-prose-w-with-85ch">
           <h1>GraphQLConf 2023 Speakers</h1>
           <p>
             Meet the unique lineup of insightful speakers we've carefully

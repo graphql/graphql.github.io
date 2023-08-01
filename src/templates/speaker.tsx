@@ -3,7 +3,7 @@ import FooterConf from "../components/Conf/Footer"
 import HeaderConf from "../components/Conf/Header"
 import LayoutConf from "../components/Conf/Layout"
 import SeoConf from "../components/Conf/Seo"
-import { PageProps } from "gatsby"
+import { HeadProps, PageProps } from "gatsby"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
 import ScheduleList from "../components/Conf/Schedule/ScheduleList"
 import { Avatar } from "../components/Conf/Speakers/Avatar"
@@ -49,12 +49,12 @@ const SpeakersTemplate: FC<
       <HeaderConf />
 
       <div className="bg-white py-10">
-        <section className="text-[#333333] min-h-[80vh] flex-col mx-auto max-lg:px-4 px-0 lg:justify-between justify-center override-prose-w-with-85ch">
+        <section className="min-h-[80vh] flex-col mx-auto max-lg:px-4 px-6 lg:px-0 lg:justify-between justify-center override-prose-w-with-85ch">
           <>
             <div className="flex flex-col lg:px-0">
               <a
                 href="/conf/speakers"
-                className="w-max rounded-md cursor-pointer hover:opacity-80 transition-all underline text-[#333333] text-[18px]"
+                className="w-max text-black text-sm cursor-pointer hover:opacity-80 transition-all underline"
               >
                 <span
                   style={{
@@ -67,7 +67,7 @@ const SpeakersTemplate: FC<
                 </span>
                 <span>Back to Speakers</span>
               </a>
-              <div className="lg:mt-16 mt-6 flex lg:flex-row flex-col-reverse gap-10">
+              <div className="lg:mt-16 mt-6 flex lg:flex-row flex-col-reverse lg:gap-10">
                 <Avatar
                   className="w-[300px] h-[300px] rounded-full border-solid border-2 border-gray-300"
                   avatar={speaker.avatar}
@@ -75,20 +75,18 @@ const SpeakersTemplate: FC<
                 />
 
                 <div>
-                  <div className="flex justify-between items-center mt-5">
-                    <h2 className="text-[40px] mt-0 font-bold">
-                      {speaker.name}
-                    </h2>
+                  <div className="flex justify-between items-center">
+                    <h2 className="mt-0 font-bold">{speaker.name}</h2>
 
                     {!!speaker.socialurls?.length && (
-                      <div className="mt-0 text-[#333333]">
+                      <div className="mt-0">
                         <div className="flex gap-5 lg:gap-2.5">
                           {speaker.socialurls.map(social => (
                             <a
                               key={social.url}
                               href={social.url}
                               target="_blank"
-                              className="flex items-center text-[#333333] w-max"
+                              className="flex items-center w-max"
                             >
                               <SocialMediaIcon
                                 service={
@@ -105,7 +103,7 @@ const SpeakersTemplate: FC<
                     {renderPositionAndCompany(speaker)}
                   </div>
                   <p
-                    className="leading-8 lg:text-justify text-[18px]"
+                    className="lg:text-justify"
                     dangerouslySetInnerHTML={{ __html: speaker.about }}
                   />
                 </div>
@@ -113,9 +111,6 @@ const SpeakersTemplate: FC<
             </div>
 
             <div className="lg:mt-16 mt-10">
-              <h2 className="text-3xl font-medium mb-9 mt-0">
-                My Speakers Sessions:
-              </h2>
               {speaker && (
                 <ScheduleList
                   showEventType
@@ -139,8 +134,28 @@ const SpeakersTemplate: FC<
 
 export default SpeakersTemplate
 
-export function Head() {
-  return <SeoConf title="GraphQLConf 2023 Speaker" />
+export function Head({
+  pageContext,
+  location,
+}: HeadProps<{}, { speaker: SchedSpeaker }>) {
+  const { speaker } = pageContext
+
+  return (
+    <>
+      <SeoConf
+        title={`${speaker.name} | GraphQLConf 2023`}
+        description={speaker.about}
+      />
+      <meta
+        property="keywords"
+        content={`GraphQL, GraphQLConf, GraphQLConf 2023, ${speaker.name}, ${speaker.company}, ${speaker.position}`}
+      />
+      <meta
+        property="og:url"
+        content={`https://graphql.org${location.pathname}`}
+      />
+    </>
+  )
 }
 
 function renderPositionAndCompany(speaker: SchedSpeaker) {
@@ -151,11 +166,7 @@ function renderPositionAndCompany(speaker: SchedSpeaker) {
   // Only include anchor element if url is not an empty string
   const companyElement =
     speaker.url !== "" ? (
-      <a
-        target="_blank"
-        className="text-[#333333] underline text-[18px]"
-        href={speaker.url}
-      >
+      <a target="_blank" className="underline" href={speaker.url}>
         {company}
       </a>
     ) : (

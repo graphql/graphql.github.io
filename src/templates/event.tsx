@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { PageProps } from "gatsby"
+import { HeadProps, PageProps } from "gatsby"
 import FooterConf from "../components/Conf/Footer"
 import HeaderConf from "../components/Conf/Header"
 import LayoutConf from "../components/Conf/Layout"
@@ -56,7 +56,7 @@ export const EventComponent: FC<{
 }> = ({ event, speakers, hideBackButton }) => {
   return (
     <div className={`bg-white ${!hideBackButton ? "py-10" : ""}`}>
-      <section className="text-[#333333] min-h-[80vh] flex-col mx-auto max-sm:px-4 px-0 lg:justify-between justify-center max-w-[1100px]">
+      <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-6 lg:px-0 lg:justify-between justify-center override-prose-w-with-85ch">
         <div className="flex flex-col lg:px-0">
           {!hideBackButton && (
             <a
@@ -77,7 +77,7 @@ export const EventComponent: FC<{
           )}
           <div className="mt-10 flex flex-col">
             <div className="flex gap-3.5 mb-1.5">
-              <span className="text-[#f6009b] text-lg flex items-center">
+              <span className="text-[#f6009b] font-medium flex items-center">
                 <svg
                   className="mr-1.5 mb-0.5"
                   width={20}
@@ -94,7 +94,7 @@ export const EventComponent: FC<{
 
                 {format(parseISO(event.event_start), "EEEE, MMM d")}
               </span>
-              <span className="text-[#f6009b] text-lg flex items-center">
+              <span className="text-[#f6009b] font-medium flex items-center">
                 <svg
                   className="mr-1.5 mb-0.5"
                   width={20}
@@ -112,7 +112,7 @@ export const EventComponent: FC<{
                 {format(parseISO(event.event_start), "hh:mmaaaa 'PDT'")}
               </span>
             </div>
-            <h1 className="mt-0 lg:text-4xl text-3xl lg:leading-[50px] leading-[45px] font-medium mb-5">
+            <h1 className="mt-0 text-2xl lg:text-3xl font-medium mb-5">
               {/* Event name without speaker's name and company */}
               {event.name}
             </h1>
@@ -121,9 +121,7 @@ export const EventComponent: FC<{
               <Tag text={event.audience} />
               <Tag text={event.event_subtype} />
             </div>
-            <p className="mt-7 text-xl leading-9 lg:pr-20">
-              {event.description}
-            </p>
+            <p className="mt-7 lg:pr-20">{event.description}</p>
 
             <div className="flex lg:flex-row flex-col gap-4">
               {speakers?.map(speaker => (
@@ -137,14 +135,12 @@ export const EventComponent: FC<{
                   <div className="flex flex-col lg:gap-1 gap-1.5">
                     <a
                       href={`/conf/speakers/${speaker.username}`}
-                      className="lg:text-2xl text-xl mt-0 font-bold text-[#333333] underline"
+                      className="text-xl mt-0 font-bold text-[#333333] underline"
                     >
                       {speaker.name}
                     </a>
 
-                    <span className="lg:text-base text-sm">
-                      {renderPositionAndCompany(speaker)}
-                    </span>
+                    <span>{renderPositionAndCompany(speaker)}</span>
                     {!!speaker.socialurls?.length && (
                       <div className="mt-0 text-[#333333]">
                         <div className="flex gap-5 lg:gap-2.5">
@@ -191,8 +187,28 @@ const EventTemplate: FC<
 
 export default EventTemplate
 
-export function Head() {
-  return <SeoConf title="GraphQLConf 2023 Speaker" />
+export function Head({
+  pageContext,
+  location,
+}: HeadProps<{}, { event: ScheduleSession; speakers: SchedSpeaker[] }>) {
+  const { event } = pageContext
+
+  return (
+    <>
+      <SeoConf
+        title={`${event.name} | GraphQLConf 2023`}
+        description={event.description}
+      />
+      <meta
+        name="keywords"
+        content={`GraphQL, GraphQLConf, GraphQLConf 2023, ${event.event_type}, ${event.audience}, ${event.event_subtype} ${event.event_start}`}
+      />
+      <meta
+        property="og:url"
+        content={`https://graphql.org${location.pathname}`}
+      />
+    </>
+  )
 }
 
 function renderPositionAndCompany(speaker: SchedSpeaker) {
