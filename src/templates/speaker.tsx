@@ -1,4 +1,7 @@
 import React, { FC } from "react"
+import { ReactMarkdown } from "react-markdown/lib/react-markdown"
+import rehypeRaw from "rehype-raw"
+import remarkGfm from "remark-gfm"
 import FooterConf from "../components/Conf/Footer"
 import HeaderConf from "../components/Conf/Header"
 import LayoutConf from "../components/Conf/Layout"
@@ -102,10 +105,13 @@ const SpeakersTemplate: FC<
                   <div className="mt-3 font-medium">
                     {renderPositionAndCompany(speaker)}
                   </div>
-                  <p
-                    className="lg:text-justify"
-                    dangerouslySetInnerHTML={{ __html: speaker.about }}
-                  />
+                  <p className="lg:text-justify">
+                    <ReactMarkdown
+                      children={speaker.about}
+                      rehypePlugins={[rehypeRaw]}
+                      remarkPlugins={[remarkGfm]}
+                    />
+                  </p>
                 </div>
               </div>
             </div>
