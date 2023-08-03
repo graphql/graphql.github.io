@@ -1,6 +1,7 @@
 import { ScheduleSession } from "./src/components/Conf/Schedule/ScheduleList"
 import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
+import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
 import * as path from "path"
 import { glob } from "glob"
 import _ from "lodash"
@@ -179,6 +180,29 @@ export const createPages: GatsbyNode["createPages"] = async ({
       createPage({
         path: `/conf/schedule/${event.id}`,
         component: path.resolve("./src/templates/event.tsx"),
+        context: {
+          event,
+          speakers: eventSpeakers,
+          ogImage: createOpenGraphImage(createPage, {
+            component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
+            size: {
+              width: 1200,
+              height: 630,
+            },
+            waitCondition: "networkidle0",
+            context: {
+              id: event.id,
+              title: event.name,
+              event,
+              speakers: eventSpeakers,
+            },
+          }),
+        },
+      })
+
+      createPage({
+        path: `/conf/schedule/og-image`,
+        component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
         context: {
           event,
           speakers: eventSpeakers,

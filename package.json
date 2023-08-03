@@ -29,6 +29,7 @@
     "date-fns": "^2.30.0",
     "gatsby": "5.10.0",
     "gatsby-plugin-anchor-links": "1.2.1",
+    "gatsby-plugin-dynamic-open-graph-images": "^1.1.4",
     "gatsby-plugin-feed": "5.10.0",
     "gatsby-plugin-google-analytics": "5.10.0",
     "gatsby-plugin-less": "7.10.0",

@@ -13,12 +13,17 @@ export default function SeoConf(props: {
   title?: string
   twitterTitle?: string
   description?: string
+  ogImage?: {
+    url: string
+    width: number
+    height: number
+  }
 }) {
   const title = props.title ?? defaults.title
   const twitterTitle =
     props.twitterTitle ?? props.title ?? defaults.twitterTitle
   const description = props.description ?? defaults.description
-  const image = defaults.image
+  const image = props.ogImage?.url ?? defaults.image
 
   return (
     <>
@@ -27,6 +32,7 @@ export default function SeoConf(props: {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      <meta property="twitter:image" content={image} />
       <meta
         property="og:image:alt"
         content="GraphQLConf 2023 hosted by the GraphQL Foundation. September 19-21, 2023. San Francisco Bay Area, California"
