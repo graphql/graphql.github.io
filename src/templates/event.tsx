@@ -1,4 +1,7 @@
 import React, { FC } from "react"
+import ReactMarkdown from "react-markdown"
+import rehypeRaw from "rehype-raw"
+import remarkGfm from "remark-gfm"
 import { HeadProps, PageProps } from "gatsby"
 import FooterConf from "../components/Conf/Footer"
 import HeaderConf from "../components/Conf/Header"
@@ -121,7 +124,13 @@ export const EventComponent: FC<{
               <Tag text={event.audience} />
               <Tag text={event.event_subtype} />
             </div>
-            <p className="mt-7 lg:pr-20">{event.description}</p>
+            <p className="mt-7 lg:pr-20">
+              <ReactMarkdown
+                children={event.description}
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+              />
+            </p>
 
             <div className="flex lg:flex-row flex-col gap-4">
               {speakers?.map(speaker => (
@@ -149,7 +158,7 @@ export const EventComponent: FC<{
                               key={social.url}
                               href={social.url}
                               target="_blank"
-                              className="flex items-center text-[#333333] w-max"
+                              className="flex items-center text-[#c9b7b7] w-max"
                             >
                               <SocialMediaIcon
                                 service={
