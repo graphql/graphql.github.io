@@ -186,7 +186,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         },
       })
 
-      if (!process.env.GATSBY_CLOUD) {
+      if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
         try {
           createOpenGraphImage(createPage, {
             path: "__og-image",
