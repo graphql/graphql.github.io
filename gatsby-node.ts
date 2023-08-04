@@ -187,20 +187,24 @@ export const createPages: GatsbyNode["createPages"] = async ({
       })
 
       if (!process.env.GATSBY_CLOUD) {
-        createOpenGraphImage(createPage, {
-          component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
-          size: {
-            width: 1200,
-            height: 630,
-          },
-          waitCondition: "networkidle0",
-          context: {
-            id: event.id,
-            title: event.name,
-            event,
-            speakers: eventSpeakers,
-          },
-        })
+        try {
+          createOpenGraphImage(createPage, {
+            component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
+            size: {
+              width: 1200,
+              height: 630,
+            },
+            waitCondition: "networkidle0",
+            context: {
+              id: event.id,
+              title: event.name,
+              event,
+              speakers: eventSpeakers,
+            },
+          })
+        } catch {
+          console.log("Error creating OG image for", event.name)
+        }
       }
     })
 
