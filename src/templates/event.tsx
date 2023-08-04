@@ -208,7 +208,7 @@ export function Head({
         title={`${event.name} | GraphQLConf 2023`}
         description={event.description}
         ogImage={{
-          url: `/img/__og-image/${event.id}.png`,
+          url: `https://graphql.org/img/__og-image/${event.id}.png`,
           width: 1200,
           height: 630,
         }}
