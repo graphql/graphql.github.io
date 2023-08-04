@@ -11,6 +11,12 @@ jobs:
         with:
           node-version: "18.15.0"
 
+      - name: Install system dependencies
+        run: |
+          sudo apt update
+          sudo apt-get update
+          sudo apt-get install libatk-bridge2.0-0
+
       - run: yarn install
 
       - name: Set Sched's API token env

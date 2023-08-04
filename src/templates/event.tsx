@@ -207,6 +207,11 @@ export function Head({
       <SeoConf
         title={`${event.name} | GraphQLConf 2023`}
         description={event.description}
+        ogImage={{
+          url: `/img/__og-image/${event.id}.png`,
+          width: 1200,
+          height: 630,
+        }}
       />
       <meta
         name="keywords"

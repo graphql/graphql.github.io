@@ -1,6 +1,7 @@
 import { ScheduleSession } from "./src/components/Conf/Schedule/ScheduleList"
 import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
+import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
 import * as path from "path"
 import { glob } from "glob"
 import _ from "lodash"
@@ -184,6 +185,28 @@ export const createPages: GatsbyNode["createPages"] = async ({
           speakers: eventSpeakers,
         },
       })
+
+      if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
+        try {
+          createOpenGraphImage(createPage, {
+            outputDir: "../static/__og-image",
+            component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
+            size: {
+              width: 1200,
+              height: 630,
+            },
+            waitCondition: "networkidle0",
+            context: {
+              id: event.id,
+              title: event.name,
+              event,
+              speakers: eventSpeakers,
+            },
+          })
+        } catch {
+          console.log("Error creating OG image for", event.name)
+        }
+      }
     })
 
     // Create speakers list page
