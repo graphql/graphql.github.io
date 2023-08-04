@@ -189,7 +189,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
         try {
           createOpenGraphImage(createPage, {
-            path: "__og-image",
+            outputDir: "../static/__og-image",
             component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
             size: {
               width: 1200,

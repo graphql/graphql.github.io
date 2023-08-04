@@ -57,12 +57,11 @@ typings/
 
 # gatsby files
 .cache/
-!public/
-public/*
+public/
 
-!public/__og-image/
-public/__og-image/*
-!public/__og-image/*.png
+!static/__og-image/
+static/__og-image/*
+!static/__og-image/*.png
 
 # Mac files
 .DS_Store
