@@ -1,5 +1,8 @@
 import { format, parseISO, compareAsc } from "date-fns"
 import React, { FC, useEffect, useState } from "react"
+import ReactMarkdown from "react-markdown"
+import rehypeRaw from "rehype-raw"
+import remarkGfm from "remark-gfm"
 import { Tooltip } from "react-tooltip"
 import { eventsColors } from "../../../utils/eventsColors"
 
@@ -104,7 +107,7 @@ const ScheduleList: FC<Props> = ({
         isOpen={isOpen}
         positionStrategy="absolute"
         opacity={1}
-        border={"3px solid black"}
+        border="2px solid black"
         setIsOpen={value => {
           setIsOpen(value)
         }}
@@ -114,9 +117,15 @@ const ScheduleList: FC<Props> = ({
             <div className="text-gray-800 flex flex-col gap-2">
               <span className="font-medium">{hoveredSession.name}</span>
               <p className="" style={{ margin: 0 }}>
-                {hoveredSession?.description
-                  ? hoveredSession?.description.slice(0, 350) + "..."
-                  : "No Description"}
+                <ReactMarkdown
+                  children={
+                    hoveredSession?.description
+                      ? hoveredSession?.description.slice(0, 250) + "..."
+                      : "No Description"
+                  }
+                  rehypePlugins={[rehypeRaw]}
+                  remarkPlugins={[remarkGfm]}
+                />
               </p>
             </div>
           )}

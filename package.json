@@ -45,7 +45,9 @@
     "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
     "react-tooltip": "^5.18.1",
+    "rehype-raw": "^6.1.1",
     "timeago.js": "4.0.2"
   },
   "devDependencies": {
