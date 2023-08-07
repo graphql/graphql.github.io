@@ -14,7 +14,7 @@ import Seo from "../components/Seo"
 
 export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
-    <Layout className="index" pageContext={pageContext}>
+    <Layout className="index" pageContext={pageContext} showConfBanner={false}>
       <Hero />
       <section className="conf-banner">
         <a href="/conf/">
