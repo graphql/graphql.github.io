@@ -26,7 +26,7 @@ const IndexLayout = ({
         >
           <div className="text-center md:text-right text-white">
             <a
-              href="https://graphql.org/conf/#attend"
+              href="https://graphql.org/conf/"
               className="rounded-md border-2 px-3 py-2 font-normal text-white underline-offset-2"
             >
               📣 GraphQL Conf 2023 • Sept 19-21 • San Francisco •{" "}
