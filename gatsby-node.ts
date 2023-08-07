@@ -189,7 +189,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
         try {
           createOpenGraphImage(createPage, {
-            outputDir: "../static/__og-image",
+            outputDir: "../static/img/__og-image",
             component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
             size: {
               width: 1200,
@@ -223,6 +223,29 @@ export const createPages: GatsbyNode["createPages"] = async ({
         component: path.resolve("./src/templates/speaker.tsx"),
         context: { speaker, schedule },
       })
+
+      if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
+        try {
+          createOpenGraphImage(createPage, {
+            outputDir: "../static/img/__og-image",
+            component: path.resolve(
+              "./src/templates/SpeakerOgImageTemplate.tsx"
+            ),
+            size: {
+              width: 1200,
+              height: 630,
+            },
+            waitCondition: "networkidle0",
+            context: {
+              id: speaker.username,
+              title: speaker.name,
+              speaker,
+            },
+          })
+        } catch {
+          console.log("Error creating OG image for speaker ", speaker.name)
+        }
+      }
     })
   } catch (error) {
     console.log("CATCH ME:", error)

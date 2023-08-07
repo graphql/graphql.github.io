@@ -151,6 +151,11 @@ export function Head({
       <SeoConf
         title={`${speaker.name} | GraphQLConf 2023`}
         description={speaker.about}
+        ogImage={{
+          url: `https://graphql.org/img/__og-image/${speaker.username}.png`,
+          width: 1200,
+          height: 630,
+        }}
       />
       <meta
         property="keywords"

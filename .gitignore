@@ -59,9 +59,9 @@ typings/
 .cache/
 public/
 
-!static/__og-image/
-static/__og-image/*
-!static/__og-image/*.png
+!static/img/__og-image/
+static/img/__og-image/*
+!static/img/__og-image/*.png
 
 # Mac files
 .DS_Store
