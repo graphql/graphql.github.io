@@ -36,7 +36,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 
 ## Events
 
-_None currently scheduled_
+<!-- _None currently scheduled_ -->
 
 <!-- Event template, copy and paste what you need. Please note that the only three required fields are the name of the event, who is organizing and hosting it, and the link to the code of conduct. Events without this information can't be posted.
 
@@ -51,6 +51,16 @@ _None currently scheduled_
 * **Code of Conduct:** [link to code of conduct - REQUIRED]
 
 -->
+
+### GraphQLConf 2023
+
+* **Date:** September 19-21, 2023
+* **Location:** San Francisco Bay Area, CA
+* **Host:** GraphQL Foundation
+* [**Registration**](https://graphql.org/conf/#attend)
+* [**Schedule**](https://graphql.org/conf/schedule/)
+* [**Code of Conduct**](https://graphql.org/conf/faq/#codeofconduct)
+
 
 ## Meetups
 
