@@ -9,6 +9,7 @@ import { ReactComponent as TheGuild } from "../../../../static/img/conf/Sponsors
 import { ReactComponent as Hygraph } from "../../../../static/img/conf/Sponsors/Hygraph.svg"
 import { ReactComponent as StepZen } from "../../../../static/img/conf/Sponsors/StepZen.svg"
 import { ReactComponent as Inigo } from "../../../../static/img/conf/Sponsors/Inigo.svg"
+import { ReactComponent as Neo4j } from "../../../../static/img/conf/Sponsors/Neo4j.svg"
 
 interface Image {
   iconPath: string
@@ -76,6 +77,11 @@ const sponsorGold: Image[] = [
 ]
 
 const sponsorSilver: Image[] = [
+  {
+    iconPath: Neo4j,
+    name: "Neo4j",
+    link: "https://neo4j.com/",
+  },
   {
     iconPath: Stellate,
     name: "Stellate",
