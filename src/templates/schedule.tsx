@@ -30,7 +30,7 @@ const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
               <b>subject to change</b>.
             </p>
 
-            <div className="flex lg:flex-row flex-col items-start mt-8">
+            <div className="flex lg:flex-row flex-col items-start my-8">
               <div className="flex gap-2.5 flex-wrap w-full">
                 {eventsColors.map(([event, color]) => (
                   <div className="flex items-center">
@@ -43,6 +43,12 @@ const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
                 ))}
               </div>
             </div>
+            <a
+              href="https://graphqlconf23.sched.com/"
+              className="rounded-md border-2 py-2 font-normal underline-offset-2"
+            >
+              🔗 Bookmark sessions & plan your days on Sched
+            </a>
             <ScheduleList scheduleData={schedule} />
           </section>
         </div>
