@@ -17,9 +17,9 @@ const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
       <HeaderConf />
 
       <div className="bg-white">
-        <div className="prose lg:prose-lg mx-auto py-10 px-6 lg:px-0 override-prose-w-with-85ch">
+        <div className="md:container px-2 xs:px-0 prose lg:prose-lg mx-auto py-10">
           <h1>GraphQLConf 2023 Schedule</h1>
-          <section className="px-0 my-8">
+          <section className="px-0 mx-0 my-8">
             <h4>September 19-21, 2023 I San Francisco Bay Area, CA</h4>
             <p>
               Please note: All session times are in Pacific Daylight Time (UTC

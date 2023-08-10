@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import ButtonConf from "../Button"
 import { Cross2Icon } from "@radix-ui/react-icons"
+import clsx from "clsx"
 
 interface LinkItem {
   text: string
@@ -30,7 +31,10 @@ const LinksList = () => (
   </>
 )
 
-const HeaderConf = () => {
+interface HeaderConfProps {
+  className?: string
+}
+const HeaderConf = ({ className = "" }: HeaderConfProps) => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
 
   const handleDrawerClick = () => {
@@ -38,8 +42,13 @@ const HeaderConf = () => {
   }
 
   return (
-    <header className="bg-[#171E26] px-6 lg:px-0 gap-2 shadow-lg h-[70px]">
-      <div className="md:container flex items-center h-full gap-5 max-sm:justify-end justify-between">
+    <header
+      className={clsx(
+        "bg-[#171E26] px-2 xs:px-0 gap-2 shadow-lg h-[70px]",
+        className
+      )}
+    >
+      <div className="md:container mx-auto flex items-center h-full gap-5 justify-between">
         <a href="/conf/" className="shrink-0 max-sm:hidden">
           <img
             src="/img/conf/graphql-conf-logo-simple.svg"
