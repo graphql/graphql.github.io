@@ -54,13 +54,12 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 
 ### GraphQLConf 2023
 
-* **Date:** September 19-21, 2023
-* **Location:** San Francisco Bay Area, CA
-* **Host:** GraphQL Foundation
-* [**Registration**](https://graphql.org/conf/#attend)
-* [**Schedule**](https://graphql.org/conf/schedule/)
-* [**Code of Conduct**](https://graphql.org/conf/faq/#codeofconduct)
-
+- **Date:** September 19-21, 2023
+- **Location:** San Francisco Bay Area, CA
+- **Host:** GraphQL Foundation
+- [**Registration**](https://graphql.org/conf/#attend)
+- [**Schedule**](https://graphql.org/conf/schedule/)
+- [**Code of Conduct**](https://graphql.org/conf/faq/#codeofconduct)
 
 ## Meetups
 
