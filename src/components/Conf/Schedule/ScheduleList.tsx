@@ -191,7 +191,7 @@ const ScheduleList: FC<Props> = ({
                           borderRadius: "5px",
                           backgroundColor: "white",
                         }}
-                        className="shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline text-black"
+                        className="group no-underline hover:no-underline shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal relative py-2 px-4 rounded-md w-full h-full text-black"
                         onMouseEnter={() => {
                           setHoveredSession(session)
                           setHoveredSessionId(`session-${session.id}`)
@@ -200,7 +200,7 @@ const ScheduleList: FC<Props> = ({
                         <div className="flex flex-col justify-start h-full py-3 gap-y-2">
                           {borderColor && (
                             <span
-                              className="flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl"
+                              className="group-hover:no-underline flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl"
                               style={{
                                 backgroundColor: borderColor,
                               }}
@@ -208,7 +208,7 @@ const ScheduleList: FC<Props> = ({
                               {eventType}
                             </span>
                           )}
-                          <div className="flex flex-col justify-between h-full gap-y-2">
+                          <div className="group-hover:underline flex flex-col justify-between h-full gap-y-2">
                             {showEventType ? eventType + " / " : ""}
                             {eventTitle}
                             {speakers.length > 0 && (
