@@ -150,11 +150,20 @@ const ScheduleList: FC<Props> = ({
                   <div className="block lg:hidden absolute left-3 top-0 h-full w-0.5 bg-gray-200" />
 
                   {sessions.map(session => {
-                    const singularEventType = (
-                      session.event_type as string
-                    ).substring(0, session.event_type.length - 1)
+                    const eventType = session.event_type.endsWith("s")
+                      ? session.event_type.slice(0, -1)
+                      : session.event_type
 
-                    const [borderColor, backgroundColor] = getSessionColor(
+                    const speakers = session.speakers?.split(",") || []
+                    const eventTitle =
+                      speakers.length > 0
+                        ? session.name.substring(
+                            0,
+                            session.name.indexOf(`${speakers[0]}`) - 3
+                          )
+                        : session.name
+
+                    const [borderColor] = getSessionColor(
                       session.event_type.toLowerCase()
                     )
 
@@ -162,14 +171,14 @@ const ScheduleList: FC<Props> = ({
                       <div
                         key={session.id}
                         style={{
-                          borderLeft: `5px solid ${borderColor}`,
-                          borderRadius: "3px",
-                          backgroundColor,
+                          borderLeft: `10px solid ${borderColor}`,
+                          borderRadius: "5px",
+                          backgroundColor: "white",
                         }}
-                        className="font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
+                        className="shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
                       >
-                        {showEventType ? singularEventType + " / " : ""}
-                        {session.name}
+                        {showEventType ? eventType + " / " : ""}
+                        {eventTitle}
                       </div>
                     ) : (
                       <a
@@ -178,18 +187,37 @@ const ScheduleList: FC<Props> = ({
                         href={`/conf/schedule/${session.id}?name=${session.name}`}
                         key={session.id}
                         style={{
-                          borderLeft: `5px solid ${borderColor}`,
-                          borderRadius: "3px",
-                          backgroundColor,
+                          borderLeft: `10px solid ${borderColor}`,
+                          borderRadius: "5px",
+                          backgroundColor: "white",
                         }}
-                        className="font-normal flex items-center relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline text-black"
+                        className="shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline text-black"
                         onMouseEnter={() => {
                           setHoveredSession(session)
                           setHoveredSessionId(`session-${session.id}`)
                         }}
                       >
-                        {showEventType ? singularEventType + " / " : ""}
-                        {session.name}
+                        <div className="flex flex-col justify-start h-full py-3 gap-y-2">
+                          {borderColor && (
+                            <span
+                              className="flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl"
+                              style={{
+                                backgroundColor: borderColor,
+                              }}
+                            >
+                              {eventType}
+                            </span>
+                          )}
+                          <div className="flex flex-col justify-between h-full gap-y-2">
+                            {showEventType ? eventType + " / " : ""}
+                            {eventTitle}
+                            {speakers.length > 0 && (
+                              <span className="font-light">
+                                {speakers.join(", ")}
+                              </span>
+                            )}
+                          </div>
+                        </div>
                       </a>
                     )
                   })}

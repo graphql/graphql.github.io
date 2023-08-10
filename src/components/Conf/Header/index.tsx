@@ -48,7 +48,7 @@ const HeaderConf = ({ className = "" }: HeaderConfProps) => {
         className
       )}
     >
-      <div className="md:container mx-auto flex items-center h-full gap-5 justify-between">
+      <div className="md:container mx-auto flex items-center h-full gap-5 max-sm:justify-end justify-between">
         <a href="/conf/" className="shrink-0 max-sm:hidden">
           <img
             src="/img/conf/graphql-conf-logo-simple.svg"

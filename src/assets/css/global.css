@@ -20,3 +20,18 @@
 .translate-x-full {
   transform: translateX(100%);
 }
+
+.list {
+  & {
+    list-style: none; /* Remove default bullets */
+  }
+
+  & li::before {
+    content: "•";
+    color: #f5009b;
+    font-weight: 800;
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1.5em;
+  }
+}
