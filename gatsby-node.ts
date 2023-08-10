@@ -155,14 +155,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
     )
 
     // Fetch full info of each speaker individually and concurrently
-    const speakers: SchedSpeaker[] = await Promise.all(
+    const speakers = (await Promise.all(
       usernames.map(async user => {
         await new Promise(resolve => setTimeout(resolve, 2000)) // 2 second delay between requests, rate limit is 30req/min
         return fetchData(
           `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`
         )
       })
-    )
+    ) as SchedSpeaker[]).filter((s) => s.role.includes("speaker"))
+
 
     // Create schedule page
     createPage({
