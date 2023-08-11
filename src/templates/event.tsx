@@ -47,7 +47,10 @@ export const EventComponent: FC<{
 
   const eventTitle =
     speakers.length > 0
-      ? event.name.substring(0, event.name.indexOf(`${speakers[0].name}`) - 3)
+      ? event.name.substring(
+          0,
+          event.name.indexOf(`${speakers[0].name.replace("ı", "i")}`) - 3
+        )
       : event.name
 
   return (
@@ -55,7 +58,7 @@ export const EventComponent: FC<{
       <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
         <div className="flex flex-col lg:px-0">
           {!hideBackButton && <BackLink />}
-          <div className="mt-10 flex flex-col self-center prose lg:prose-lg space-y-8">
+          <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-8">
             <div className="flex gap-5 mb-1.5">
               <span className="flex items-center">
                 <svg
@@ -101,7 +104,7 @@ export const EventComponent: FC<{
               <h1 className="mt-0 text-2xl lg:text-3xl font-medium mb-5">
                 {eventTitle}
               </h1>
-              <h4>
+              <h4 className="flex space-x-4">
                 {speakers?.map(speaker => (
                   <span className="font-normal">
                     <span className="font-semibold">
@@ -119,11 +122,11 @@ export const EventComponent: FC<{
               rehypePlugins={[rehypeRaw]}
             />
 
-            <div className="flex lg:flex-row flex-col gap-4">
+            <div className="flex lg:flex-row flex-col sm:gap-5">
               {speakers?.map(speaker => (
-                <div className="flex items-center gap-7">
+                <div className="flex items-center gap-3">
                   <Avatar
-                    className="lg:w-[150px] lg:h-[150px] w-[120px] h-[120px] rounded-full border-solid border-2 border-gray-300"
+                    className="lg:w-[120px] lg:h-[120px] w-[100px] h-[100px] rounded-full"
                     avatar={speaker.avatar}
                     name={speaker.name}
                   />
@@ -136,7 +139,13 @@ export const EventComponent: FC<{
                       {speaker.name}
                     </a>
 
-                    <span>{renderPositionAndCompany(speaker)}</span>
+                    <span className="font-normal">
+                      <span className="font-semibold">
+                        {speaker.company && speaker.company}
+                      </span>
+                      {speaker.company && ", "}
+                      {speaker.position}
+                    </span>
                     {speaker.socialurls?.length ? (
                       <div className="mt-0 text-[#333333]">
                         <div className="flex space-x-2">
@@ -210,38 +219,4 @@ export function Head({
       />
     </>
   )
-}
-
-function renderPositionAndCompany(speaker: SchedSpeaker) {
-  // Reassign "-" if position or company are undefined
-  const position = speaker.position || "-"
-  const company = speaker.company || "-"
-
-  // Only include anchor element if url is not an empty string
-  const companyElement =
-    speaker.url !== "" ? (
-      <a
-        target="_blank"
-        className="text-[#333333] underline"
-        href={speaker.url}
-      >
-        {company}
-      </a>
-    ) : (
-      company
-    )
-
-  if (position !== "-" && company !== "-") {
-    return (
-      <>
-        {position} at {companyElement}
-      </>
-    )
-  } else if (position !== "-") {
-    return position
-  } else if (company !== "-") {
-    return <>Works at {companyElement}</>
-  } else {
-    return "-"
-  }
 }

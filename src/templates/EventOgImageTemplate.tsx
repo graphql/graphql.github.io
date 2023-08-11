@@ -21,7 +21,10 @@ const EventOgImageTemplate = ({
 
   const eventTitle =
     speakers.length > 0
-      ? name.substring(0, name.indexOf(`${speakers[0].name}`) - 3)
+      ? name.substring(
+          0,
+          name.indexOf(`${speakers[0].name.replace("ı", "i")}`) - 3
+        )
       : name
 
   return (

@@ -8,7 +8,9 @@ import LayoutConf from "../components/Conf/Layout"
 import SeoConf from "../components/Conf/Seo"
 import { HeadProps, PageProps } from "gatsby"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
-import ScheduleList from "../components/Conf/Schedule/ScheduleList"
+import ScheduleList, {
+  ScheduleSession,
+} from "../components/Conf/Schedule/ScheduleList"
 import { Avatar } from "../components/Conf/Speakers/Avatar"
 import {
   SocialMediaIcon,
@@ -17,8 +19,13 @@ import {
 import { BackLink } from "../components/Conf/Schedule/BackLink"
 
 const SpeakersTemplate: FC<
-  PageProps<{}, { speaker: SchedSpeaker; schedule: any }>
+  PageProps<{}, { speaker: SchedSpeaker; schedule: ScheduleSession[] }>
 > = ({ pageContext: { schedule, speaker } }) => {
+  const speakersSessions = schedule.filter(session =>
+    session.speakers?.includes(speaker?.name)
+  )
+
+  console.log({ schedule, speakersSessions })
   return (
     <LayoutConf>
       <HeaderConf />
@@ -29,7 +36,7 @@ const SpeakersTemplate: FC<
             <BackLink />
             <div className="mt-10 self-center prose lg:prose-lg space-y-12">
               <div className="flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5">
-                <div className="flex flex-col items-start xs:space-y-3">
+                <div className="flex flex-col items-start gap-y-5">
                   <h1 className="!my-0 py-0">{speaker.name}</h1>
 
                   <span className="font-normal">
@@ -39,13 +46,12 @@ const SpeakersTemplate: FC<
                     {speaker.company && ", "}
                     {speaker.position}
                   </span>
-                  <p className="text-justify !my-0">
-                    <ReactMarkdown
-                      children={speaker.about}
-                      rehypePlugins={[rehypeRaw]}
-                      remarkPlugins={[remarkGfm]}
-                    />
-                  </p>
+                  <ReactMarkdown
+                    className="text-justify [&>p]:!my-0 !py-0"
+                    children={speaker.about}
+                    rehypePlugins={[rehypeRaw]}
+                    remarkPlugins={[remarkGfm]}
+                  />
                   {!!speaker.socialurls?.length && (
                     <div className="mt-0">
                       <div className="flex gap-5 lg:gap-2.5">
@@ -68,26 +74,23 @@ const SpeakersTemplate: FC<
                   )}
                 </div>
                 <Avatar
-                  className="self-center sm:self-start !mt-0 w-[250px] h-[250px] rounded-full border-solid border-2 border-gray-300"
+                  className="self-center sm:self-start !mt-0 w-[250px] h-[250px] rounded-full"
                   avatar={speaker.avatar}
                   name={speaker.name}
                 />
               </div>
 
-              <div>
-                <h1 className="!mb-0 pb-0">Sessions</h1>
-                {speaker && (
-                  <ScheduleList
-                    showEventType
-                    scheduleData={schedule}
-                    filterSchedule={sessions =>
-                      sessions.filter(session =>
-                        session.speakers?.includes(speaker?.name)
-                      )
-                    }
-                  />
-                )}
-              </div>
+              {speakersSessions.length > 0 ? (
+                <div>
+                  <h1 className="!mb-0 pb-0">Sessions</h1>
+                  {speaker && (
+                    <ScheduleList
+                      showEventType
+                      scheduleData={speakersSessions}
+                    />
+                  )}
+                </div>
+              ) : null}
             </div>
           </div>
         </section>

@@ -95,7 +95,9 @@ const ScheduleList: FC<Props> = ({
                   speakers.length > 0
                     ? session.name.substring(
                         0,
-                        session.name.indexOf(`${speakers[0]}`) - 3
+                        session.name.indexOf(
+                          `${speakers[0].replace("ı", "i")}`
+                        ) - 3
                       )
                     : session.name
 
