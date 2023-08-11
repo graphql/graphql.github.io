@@ -52,7 +52,7 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
             </p>
           </div>
         </div>
-        <section className="bg-white md:container px-2 xs:px-0 mt-8 flex gap-y-8 flex-wrap lg:justify-between justify-center">
+        <section className="bg-white md:container px-2 xs:px-0 mt-8 flex gap-8 flex-wrap lg:justify-between justify-center">
           {speakers.length ? (
             speakers.map(speaker => <Speaker key={speaker.name} {...speaker} />)
           ) : (

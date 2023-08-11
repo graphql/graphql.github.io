@@ -33,7 +33,7 @@ const SpeakersTemplate: FC<
       <div className="bg-[#F4F6F8] py-10">
         <section className="text-[#333333] min-h-[80vh] mx-auto flex flex-col px-2 xs:px-0 md:container">
           <div className="lg:px-0 flex flex-col">
-            <BackLink />
+            <BackLink kind="speakers" />
             <div className="mt-10 self-center prose lg:prose-lg space-y-12">
               <div className="flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5">
                 <div className="flex flex-col items-start gap-y-5">
