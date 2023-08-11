@@ -10,44 +10,28 @@ import SeoConf from "../components/Conf/Seo"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
 import { ScheduleSession } from "../components/Conf/Schedule/ScheduleList"
 import { format, parseISO } from "date-fns"
-import { ReactComponent as TwitterIcon } from "../../static/img/logos/twitter.svg"
-import { ReactComponent as FacebookIcon } from "../../static/img/logos/facebook.svg"
-import { ReactComponent as InstagramIcon } from "../../static/img/logos/instagram.svg"
-import { ReactComponent as SnapChatIcon } from "../../static/img/logos/snapchat.svg"
-import { ReactComponent as LinkedinIcon } from "../../static/img/logos/linkedin.svg"
 import { Avatar } from "../components/Conf/Speakers/Avatar"
+import clsx from "clsx"
+import {
+  SocialMediaIcon,
+  SocialMediaIconServiceType,
+} from "../components/Conf/Speakers/SocialMedia"
+import { BackLink } from "../components/Conf/Schedule/BackLink"
 
-type SocialMediaIconServiceType =
-  | "twitter"
-  | "linkedin"
-  | "facebook"
-  | "instagram"
-  | "snapchat"
-
-const SocialMediaIcon = ({
-  service,
+const Tag = ({
+  text,
+  featured = false,
 }: {
-  service: SocialMediaIconServiceType
-}) => {
-  switch (service) {
-    case "twitter":
-      return <TwitterIcon fill="#1C96E9" className="w-8 lg:w-7" />
-    case "linkedin":
-      return <LinkedinIcon className="w-8 lg:w-7" />
-    case "facebook":
-      return <FacebookIcon className="w-8 lg:w-7" />
-    case "instagram":
-      return <InstagramIcon className="w-8 lg:w-7" />
-    case "snapchat":
-      return <SnapChatIcon className="w-8 lg:w-7" />
-    default:
-      return null
-  }
-}
-
-const Tag = ({ text }: { text: string }) =>
+  text: string
+  featured?: boolean
+}) =>
   !text ? null : (
-    <span className="border border-solid border-[#333333] text-sm px-4 py-1.5 h-max rounded-full whitespace-nowrap">
+    <span
+      className={clsx(
+        "border border-solid border-[#333333] font-semibold text-sm px-3 py-1 h-max rounded-full whitespace-nowrap",
+        featured ? "bg-[#F8779D] border-[#F8779D] border-2 text-white" : ""
+      )}
+    >
       {text}
     </span>
   )
@@ -57,57 +41,53 @@ export const EventComponent: FC<{
   speakers: SchedSpeaker[]
   hideBackButton?: boolean
 }> = ({ event, speakers, hideBackButton }) => {
+  const eventType = event.event_type.endsWith("s")
+    ? event.event_type.slice(0, -1)
+    : event.event_type
+
+  const eventTitle =
+    speakers.length > 0
+      ? event.name.substring(
+          0,
+          event.name.indexOf(`${speakers[0].name.replace("ı", "i")}`) - 3
+        )
+      : event.name
+
   return (
     <div className={`bg-white ${!hideBackButton ? "py-10" : ""}`}>
-      <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-6 lg:px-0 lg:justify-between justify-center override-prose-w-with-85ch">
+      <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
         <div className="flex flex-col lg:px-0">
-          {!hideBackButton && (
-            <a
-              href="/conf/schedule"
-              className="w-max rounded-md cursor-pointer hover:opacity-80 transition-all underline text-[#333333]"
-            >
-              <span
-                style={{
-                  display: "inline-block",
-                  transform: "translateY(-1px)",
-                  marginRight: "5px",
-                }}
-              >
-                ←
-              </span>
-              <span>Back to Schedule</span>
-            </a>
-          )}
-          <div className="mt-10 flex flex-col">
-            <div className="flex gap-3.5 mb-1.5">
-              <span className="text-[#f6009b] font-medium flex items-center">
+          {!hideBackButton && <BackLink />}
+          <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-8">
+            <div className="flex gap-5 mb-1.5">
+              <span className="flex items-center">
                 <svg
                   className="mr-1.5 mb-0.5"
-                  width={20}
-                  height={20}
+                  width={18}
+                  height={18}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
                 >
                   {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
                   <path
-                    fill="#f6009b"
+                    fill="#0E031C"
                     d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"
                   />
                 </svg>
 
                 {format(parseISO(event.event_start), "EEEE, MMM d")}
               </span>
-              <span className="text-[#f6009b] font-medium flex items-center">
+              <span className="flex items-center">
                 <svg
                   className="mr-1.5 mb-0.5"
-                  width={20}
-                  height={20}
+                  width={18}
+                  height={18}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
                 >
                   {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
                   <path
-                    fill="#f6009b"
+                    fill="#0E031C"
                     d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
                   />
                 </svg>
@@ -115,28 +95,38 @@ export const EventComponent: FC<{
                 {format(parseISO(event.event_start), "hh:mmaaaa 'PDT'")}
               </span>
             </div>
-            <h1 className="mt-0 text-2xl lg:text-3xl font-medium mb-5">
-              {/* Event name without speaker's name and company */}
-              {event.name}
-            </h1>
-            <div className="flex gap-3 flex-wrap">
-              <Tag text={event.event_type} />
-              <Tag text={event.audience} />
-              <Tag text={event.event_subtype} />
+            <div className="space-y-5">
+              <div className="flex gap-3 flex-wrap">
+                <Tag text={eventType} featured />
+                <Tag text={event.audience} />
+                <Tag text={event.event_subtype} />
+              </div>
+              <h1 className="mt-0 text-2xl lg:text-3xl font-medium mb-5">
+                {eventTitle}
+              </h1>
+              <h4 className="flex space-x-4">
+                {speakers?.map(speaker => (
+                  <span className="font-normal">
+                    <span className="font-semibold">
+                      {speaker.name}
+                      {speaker.company && ", "}
+                    </span>
+                    {speaker.company && speaker.company}
+                  </span>
+                ))}
+              </h4>
             </div>
-            <p className="mt-7 lg:pr-20">
-              <ReactMarkdown
-                children={event.description}
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-              />
-            </p>
+            <ReactMarkdown
+              children={event.description}
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+            />
 
-            <div className="flex lg:flex-row flex-col gap-4">
+            <div className="flex lg:flex-row flex-col sm:gap-5">
               {speakers?.map(speaker => (
-                <div className="flex items-center mt-5 gap-7">
+                <div className="flex items-center gap-3">
                   <Avatar
-                    className="lg:w-[150px] lg:h-[150px] w-[120px] h-[120px] rounded-full border-solid border-2 border-gray-300"
+                    className="lg:w-[120px] lg:h-[120px] w-[100px] h-[100px] rounded-full"
                     avatar={speaker.avatar}
                     name={speaker.name}
                   />
@@ -149,16 +139,22 @@ export const EventComponent: FC<{
                       {speaker.name}
                     </a>
 
-                    <span>{renderPositionAndCompany(speaker)}</span>
-                    {!!speaker.socialurls?.length && (
+                    <span className="font-normal">
+                      <span className="font-semibold">
+                        {speaker.company && speaker.company}
+                      </span>
+                      {speaker.company && ", "}
+                      {speaker.position}
+                    </span>
+                    {speaker.socialurls?.length ? (
                       <div className="mt-0 text-[#333333]">
-                        <div className="flex gap-5 lg:gap-2.5">
+                        <div className="flex space-x-2">
                           {speaker.socialurls.map(social => (
                             <a
                               key={social.url}
                               href={social.url}
                               target="_blank"
-                              className="flex items-center text-[#c9b7b7] w-max"
+                              className="flex items-center text-[#c9b7b7]"
                             >
                               <SocialMediaIcon
                                 service={
@@ -169,7 +165,7 @@ export const EventComponent: FC<{
                           ))}
                         </div>
                       </div>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               ))}
@@ -223,38 +219,4 @@ export function Head({
       />
     </>
   )
-}
-
-function renderPositionAndCompany(speaker: SchedSpeaker) {
-  // Reassign "-" if position or company are undefined
-  const position = speaker.position || "-"
-  const company = speaker.company || "-"
-
-  // Only include anchor element if url is not an empty string
-  const companyElement =
-    speaker.url !== "" ? (
-      <a
-        target="_blank"
-        className="text-[#333333] underline"
-        href={speaker.url}
-      >
-        {company}
-      </a>
-    ) : (
-      company
-    )
-
-  if (position !== "-" && company !== "-") {
-    return (
-      <>
-        {position} at {companyElement}
-      </>
-    )
-  } else if (position !== "-") {
-    return position
-  } else if (company !== "-") {
-    return <>Works at {companyElement}</>
-  } else {
-    return "-"
-  }
 }

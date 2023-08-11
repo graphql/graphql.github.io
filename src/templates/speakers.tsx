@@ -18,16 +18,16 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
     // create an array for keynote speakers in fetched data maintaining the order in keynoteSpeakers
     const keynoteSpeakersData = keynoteNames
       .map(name => {
-        return speakersData.find((speaker: any) => speaker.name === name)
+        return speakersData.find(speaker => speaker.name === name)
       })
       .filter(Boolean) as SchedSpeaker[]
 
     const otherSpeakersData = speakersData.filter(
-      (speaker: any) => !keynoteNames.includes(speaker.name)
+      speaker => !keynoteNames.includes(speaker.name)
     )
 
     // Sort other speakers by last name alphabetically
-    otherSpeakersData.sort((a: any, b: any) => {
+    otherSpeakersData.sort((a, b) => {
       const aLastName = a.name.split(" ").slice(-1)[0].toLowerCase()
       const bLastName = b.name.split(" ").slice(-1)[0].toLowerCase()
 
@@ -39,22 +39,22 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
 
   return (
     <LayoutConf>
-      <HeaderConf />
+      <HeaderConf className="shadow-none" />
 
-      <div className="bg-white">
-        <div className="prose lg:prose-lg mx-auto py-10 px-6 lg:px-0 override-prose-w-with-85ch">
-          <h1>GraphQLConf 2023 Speakers</h1>
-          <p>
-            Meet the unique lineup of insightful speakers we've carefully
-            chosen, who are primed to share their groundbreaking ideas and
-            innovative practices in the realm of GraphQL at the conference.
-          </p>
+      <div className="bg-white pb-3">
+        <div className="bg-[#171e26] w-full flex justify-center">
+          <div className="prose lg:prose-lg py-20 md:container px-2 xs:px-0">
+            <h1 className="text-white">GraphQLConf 2023 Speakers</h1>
+            <p className="text-white sm:w-2/3">
+              Meet the unique lineup of insightful speakers we've carefully
+              chosen, who are primed to share their groundbreaking ideas and
+              innovative practices in the realm of GraphQL at the conference.
+            </p>
+          </div>
         </div>
-        <section className="override-prose-w-with-85ch mx-auto max-lg:px-4 px-0 mt-8 flex flex-wrap gap-5 lg:justify-between justify-center">
+        <section className="bg-white md:container px-2 xs:px-0 mt-8 flex gap-y-8 flex-wrap lg:justify-between justify-center">
           {speakers.length ? (
-            speakers.map((speaker: any) => (
-              <Speaker key={speaker.id} {...speaker} />
-            ))
+            speakers.map(speaker => <Speaker key={speaker.name} {...speaker} />)
           ) : (
             <p className="text-center w-screen my-0 mb-20">
               Loading Speakers...

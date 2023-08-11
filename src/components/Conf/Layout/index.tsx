@@ -7,9 +7,7 @@ interface Props {
   children: React.ReactNode
 }
 const LayoutConf = ({ children }: Props): JSX.Element => (
-  <>
-    <div className="conf-style">{children}</div>
-  </>
+  <div className="conf-style">{children}</div>
 )
 
 export default LayoutConf

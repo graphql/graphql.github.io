@@ -1,9 +1,5 @@
 import { format, parseISO, compareAsc } from "date-fns"
 import React, { FC, useEffect, useState } from "react"
-import ReactMarkdown from "react-markdown"
-import rehypeRaw from "rehype-raw"
-import remarkGfm from "remark-gfm"
-import { Tooltip } from "react-tooltip"
 import { eventsColors } from "../../../utils/eventsColors"
 
 function groupByKey<T>(arr: T[], getKey: (entity: T) => any) {
@@ -74,133 +70,101 @@ const ScheduleList: FC<Props> = ({
     setGroupedSessionsByDay(groupedSessionsByDay)
   }, [])
 
-  return (
-    <>
-      <Tooltip
-        id="my-tooltip"
-        className="hidden lg:block"
-        style={{
-          background: "white",
-          zIndex: 1000,
-          borderRadius: "10px",
-          top: "100%",
-          width: "400px",
-          maxHeight: "350px",
-          overflowY: "hidden", // Set this to hidden
-          padding: "14px 20px",
-        }}
-        place="bottom-start"
-        position={
-          hoveredSessionId && document.getElementById(hoveredSessionId)
-            ? {
-                x:
-                  document
-                    .getElementById(hoveredSessionId)!
-                    .getBoundingClientRect().left + 20,
-                y:
-                  document
-                    .getElementById(hoveredSessionId)!
-                    .getBoundingClientRect().top + 5,
-              }
-            : undefined
-        }
-        isOpen={isOpen}
-        positionStrategy="absolute"
-        opacity={1}
-        border="2px solid black"
-        setIsOpen={value => {
-          setIsOpen(value)
-        }}
-      >
-        <div>
-          {hoveredSession && (
-            <div className="text-gray-800 flex flex-col gap-2">
-              <span className="font-medium">{hoveredSession.name}</span>
-              <p className="" style={{ margin: 0 }}>
-                <ReactMarkdown
-                  children={
-                    hoveredSession?.description
-                      ? hoveredSession?.description.slice(0, 250) + "..."
-                      : "No Description"
-                  }
-                  rehypePlugins={[rehypeRaw]}
-                  remarkPlugins={[remarkGfm]}
-                />
-              </p>
+  return groupedSessionsByDay.map(([date, concurrentSessionsGroup]) => (
+    <div key={date} className="text-gray-800 text-sm">
+      <h3 className="mt-10 mb-5">{format(parseISO(date), "EEEE, MMMM d")}</h3>
+      {concurrentSessionsGroup.map(([sharedStartDate, sessions]) => (
+        <div key={`concurrent sessions on ${sharedStartDate}`}>
+          <div className="lg:flex-row flex flex-col mb-4">
+            <div className="relative">
+              <span className="lg:mr-7 mb-5 whitespace-nowrap text-gray-500 lg:mt-0 mt-3 inline-block lg:w-28 w-20">
+                {format(parseISO(sharedStartDate), "hh:mmaaaa 'PDT'")}
+              </span>
+              <div className="lg:block hidden absolute right-3 top-0 h-full w-0.5 bg-gray-200" />
             </div>
-          )}
-        </div>
-      </Tooltip>
+            <div className="lg:flex-row flex flex-col gap-5 relative lg:items-start items-end w-full lg:pl-0 pl-[28px]">
+              <div className="block lg:hidden absolute left-3 top-0 h-full w-0.5 bg-gray-200" />
 
-      {groupedSessionsByDay.map(([date, concurrentSessionsGroup]) => (
-        <div key={date} className="text-gray-800 text-sm">
-          <h3 className="mt-10 mb-5">
-            {format(parseISO(date), "EEEE, MMMM d")}
-          </h3>
-          {concurrentSessionsGroup.map(([sharedStartDate, sessions]) => (
-            <div key={`concurrent sessions on ${sharedStartDate}`}>
-              <div className="lg:flex-row flex flex-col mb-4">
-                <div className="relative">
-                  <span className="lg:mr-7 mb-5 whitespace-nowrap text-gray-500 lg:mt-0 mt-3 inline-block lg:w-28 w-20">
-                    {format(parseISO(sharedStartDate), "hh:mmaaaa 'PDT'")}
-                  </span>
-                  <div className="lg:block hidden absolute right-3 top-0 h-full w-0.5 bg-gray-200" />
-                </div>
-                <div className="lg:flex-row flex flex-col gap-5 relative lg:items-start items-end w-full lg:pl-0 pl-[28px]">
-                  <div className="block lg:hidden absolute left-3 top-0 h-full w-0.5 bg-gray-200" />
+              {sessions.map(session => {
+                const eventType = session.event_type.endsWith("s")
+                  ? session.event_type.slice(0, -1)
+                  : session.event_type
 
-                  {sessions.map(session => {
-                    const singularEventType = (
-                      session.event_type as string
-                    ).substring(0, session.event_type.length - 1)
+                const speakers = session.speakers?.split(",") || []
+                const eventTitle =
+                  speakers.length > 0
+                    ? session.name.substring(
+                        0,
+                        session.name.indexOf(
+                          `${speakers[0].replace("ı", "i")}`
+                        ) - 3
+                      )
+                    : session.name
 
-                    const [borderColor, backgroundColor] = getSessionColor(
-                      session.event_type.toLowerCase()
-                    )
+                const [borderColor] = getSessionColor(
+                  session.event_type.toLowerCase()
+                )
 
-                    return session.event_type === "Breaks" ? (
-                      <div
-                        key={session.id}
-                        style={{
-                          borderLeft: `5px solid ${borderColor}`,
-                          borderRadius: "3px",
-                          backgroundColor,
-                        }}
-                        className="font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
-                      >
-                        {showEventType ? singularEventType + " / " : ""}
-                        {session.name}
+                return session.event_type === "Breaks" ? (
+                  <div
+                    key={session.id}
+                    style={{
+                      borderLeft: `10px solid ${borderColor}`,
+                      borderRadius: "5px",
+                      backgroundColor: "white",
+                    }}
+                    className="shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
+                  >
+                    {showEventType ? eventType + " / " : ""}
+                    {eventTitle}
+                  </div>
+                ) : (
+                  <a
+                    id={`session-${session.id}`}
+                    data-tooltip-id="my-tooltip"
+                    href={`/conf/schedule/${session.id}?name=${session.name}`}
+                    key={session.id}
+                    style={{
+                      borderLeft: `10px solid ${borderColor}`,
+                      borderRadius: "5px",
+                      backgroundColor: "white",
+                    }}
+                    className="group no-underline hover:no-underline shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal relative py-2 px-4 rounded-md w-full h-full text-black"
+                    onMouseEnter={() => {
+                      setHoveredSession(session)
+                      setHoveredSessionId(`session-${session.id}`)
+                    }}
+                  >
+                    <div className="flex flex-col justify-start h-full py-3 gap-y-2">
+                      {borderColor && (
+                        <span
+                          className="group-hover:no-underline flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl"
+                          style={{
+                            backgroundColor: borderColor,
+                          }}
+                        >
+                          {eventType}
+                        </span>
+                      )}
+                      <div className="group-hover:underline flex flex-col justify-between h-full gap-y-2">
+                        {showEventType ? eventType + " / " : ""}
+                        {eventTitle}
+                        {speakers.length > 0 && (
+                          <span className="font-light">
+                            {speakers.join(", ")}
+                          </span>
+                        )}
                       </div>
-                    ) : (
-                      <a
-                        id={`session-${session.id}`}
-                        data-tooltip-id="my-tooltip"
-                        href={`/conf/schedule/${session.id}?name=${session.name}`}
-                        key={session.id}
-                        style={{
-                          borderLeft: `5px solid ${borderColor}`,
-                          borderRadius: "3px",
-                          backgroundColor,
-                        }}
-                        className="font-normal flex items-center relative py-2 px-4 rounded-md w-full h-full no-underline hover:underline text-black"
-                        onMouseEnter={() => {
-                          setHoveredSession(session)
-                          setHoveredSessionId(`session-${session.id}`)
-                        }}
-                      >
-                        {showEventType ? singularEventType + " / " : ""}
-                        {session.name}
-                      </a>
-                    )
-                  })}
-                </div>
-              </div>
+                    </div>
+                  </a>
+                )
+              })}
             </div>
-          ))}
+          </div>
         </div>
       ))}
-    </>
-  )
+    </div>
+  ))
 }
 
 export default ScheduleList

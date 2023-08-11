@@ -4,5 +4,5 @@ export const eventsColors = [
   ["Lightning Talks", "rgb(22, 165, 150)", "rgb(22, 165, 150, 0.1)"],
   ["Session Presentations", "rgb(236, 70, 70)", "rgb(236, 70, 70, 0.1)"],
   ["Workshops", "rgb(230, 129, 47)", "rgb(230, 129, 47, 0.1)"],
-  ["Unconference", "rgb(255, 209, 102)", "rgb(255, 209, 102, 0.1)"],
+  ["Unconference", "#A07EFF", "rgb(255, 209, 102, 0.1)"],
 ]
