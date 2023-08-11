@@ -28,7 +28,7 @@ const SpeakersTemplate: FC<
           <div className="lg:px-0 flex flex-col">
             <BackLink />
             <div className="mt-10 self-center prose lg:prose-lg space-y-12">
-              <div className="flex flex-col sm:flex-row gap-0 sm:gap-5 gap-y-5">
+              <div className="flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5">
                 <div className="flex flex-col items-start xs:space-y-3">
                   <h1 className="!my-0 py-0">{speaker.name}</h1>
 

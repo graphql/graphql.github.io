@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.override-prose-w-with-85ch {
-  max-width: 83ch;
-}
-
 /* The below classes have been added to substitute the missing classes from `base` that breaks the styling */
 .translate-x-0 {
   transform: translateX(0);

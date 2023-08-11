@@ -11,7 +11,7 @@ export default () => {
       <HeaderConf />
 
       <div className="bg-white">
-        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4 override-prose-w-with-85ch">
+        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4 md:container">
           <h1>GraphQLConf 2023 Schedule</h1>
           <section className="px-0 my-8">
             <h4>September 19-21, 2023 I San Francisco Bay Area, CA</h4>
