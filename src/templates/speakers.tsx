@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react"
+import React, { FC } from "react"
 import FooterConf from "../components/Conf/Footer"
 import HeaderConf from "../components/Conf/Header"
 import LayoutConf from "../components/Conf/Layout"
@@ -10,32 +10,28 @@ import { PageProps } from "gatsby"
 const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
   pageContext: { speakers: speakersData },
 }) => {
-  const [speakers, setSpeakers] = useState<SchedSpeaker[]>([])
+  const keynoteNames = keynoteSpeakers.map(speaker => speaker.name)
 
-  useEffect(() => {
-    const keynoteNames = keynoteSpeakers.map(speaker => speaker.name)
-
-    // create an array for keynote speakers in fetched data maintaining the order in keynoteSpeakers
-    const keynoteSpeakersData = keynoteNames
-      .map(name => {
-        return speakersData.find(speaker => speaker.name === name)
-      })
-      .filter(Boolean) as SchedSpeaker[]
-
-    const otherSpeakersData = speakersData.filter(
-      speaker => !keynoteNames.includes(speaker.name)
-    )
-
-    // Sort other speakers by last name alphabetically
-    otherSpeakersData.sort((a, b) => {
-      const aLastName = a.name.split(" ").slice(-1)[0].toLowerCase()
-      const bLastName = b.name.split(" ").slice(-1)[0].toLowerCase()
-
-      return aLastName.localeCompare(bLastName)
+  // create an array for keynote speakers in fetched data maintaining the order in keynoteSpeakers
+  const keynoteSpeakersData = keynoteNames
+    .map(name => {
+      return speakersData.find(speaker => speaker.name === name)
     })
+    .filter(Boolean) as SchedSpeaker[]
 
-    setSpeakers([...keynoteSpeakersData, ...otherSpeakersData])
-  }, [])
+  const otherSpeakersData = speakersData.filter(
+    speaker => !keynoteNames.includes(speaker.name)
+  )
+
+  // Sort other speakers by last name alphabetically
+  otherSpeakersData.sort((a, b) => {
+    const aLastName = a.name.split(" ").slice(-1)[0].toLowerCase()
+    const bLastName = b.name.split(" ").slice(-1)[0].toLowerCase()
+
+    return aLastName.localeCompare(bLastName)
+  })
+
+  const speakers = [...keynoteSpeakersData, ...otherSpeakersData]
 
   return (
     <LayoutConf>
@@ -53,13 +49,9 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
           </div>
         </div>
         <section className="bg-white md:container px-2 xs:px-0 mt-8 flex gap-8 flex-wrap lg:justify-between justify-center">
-          {speakers.length ? (
-            speakers.map(speaker => <Speaker key={speaker.name} {...speaker} />)
-          ) : (
-            <p className="text-center w-screen my-0 mb-20">
-              Loading Speakers...
-            </p>
-          )}
+          {speakers.map(speaker => (
+            <Speaker key={speaker.name} {...speaker} />
+          ))}
         </section>
       </div>
       <FooterConf includePartners={false} includeSponors={false} />

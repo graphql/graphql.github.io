@@ -215,7 +215,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       path: "/conf/speakers",
       component: path.resolve("./src/templates/speakers.tsx"),
-      context: { speakers },
+      context: { speakers: speakers || [] },
     })
 
     // Create a page for each speaker
