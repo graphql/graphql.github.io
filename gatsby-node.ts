@@ -220,10 +220,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     // Create a page for each speaker
     speakers.forEach(speaker => {
+      const speakerSessions: ScheduleSession[] =
+        schedule.filter(session => session.speakers?.includes(speaker.name)) ||
+        []
+
       createPage({
         path: `/conf/speakers/${speaker.username}`,
         component: path.resolve("./src/templates/speaker.tsx"),
-        context: { speaker, schedule },
+        context: { speaker, schedule: speakerSessions },
       })
 
       if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
