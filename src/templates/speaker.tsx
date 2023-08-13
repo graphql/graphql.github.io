@@ -21,11 +21,6 @@ import { BackLink } from "../components/Conf/Schedule/BackLink"
 const SpeakersTemplate: FC<
   PageProps<{}, { speaker: SchedSpeaker; schedule: ScheduleSession[] }>
 > = ({ pageContext: { schedule, speaker } }) => {
-  const speakersSessions = schedule.filter(session =>
-    session.speakers?.includes(speaker?.name)
-  )
-
-  console.log({ schedule, speakersSessions })
   return (
     <LayoutConf>
       <HeaderConf />
@@ -80,17 +75,10 @@ const SpeakersTemplate: FC<
                 />
               </div>
 
-              {speakersSessions.length > 0 ? (
-                <div>
-                  <h1 className="!mb-0 pb-0">Sessions</h1>
-                  {speaker && (
-                    <ScheduleList
-                      showEventType
-                      scheduleData={speakersSessions}
-                    />
-                  )}
-                </div>
-              ) : null}
+              <div>
+                <h1 className="!mb-0 pb-0">Sessions</h1>
+                <ScheduleList showEventType scheduleData={schedule} />
+              </div>
             </div>
           </div>
         </section>
