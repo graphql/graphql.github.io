@@ -116,16 +116,18 @@ const SponsersConf = () => {
         DIAMOND
       </h3>
       <div className="flex justify-center items-center flex-wrap gap-[40px]">
-        {sponsorDiamond.map((sponsor, i) => (
-          <a
-            key={i}
-            className={`zoom-diamond ${iconClassName}`}
-            href={sponsor.link}
-            target="_blank"
-          >
-            <sponsor.iconPath />
-          </a>
-        ))}
+        {sponsorDiamond
+          .sort((a, b) => alphabetSort(a, b))
+          .map((sponsor, i) => (
+            <a
+              key={i}
+              className={`zoom-diamond ${iconClassName}`}
+              href={sponsor.link}
+              target="_blank"
+            >
+              <sponsor.iconPath />
+            </a>
+          ))}
       </div>
       <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
         PLATINUM
