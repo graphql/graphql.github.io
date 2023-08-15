@@ -84,14 +84,14 @@ const sponsorSilver: Image[] = [
     link: "https://neo4j.com/",
   },
   {
-    iconPath: Stellate,
-    name: "Stellate",
-    link: "https://stellate.co/",
-  },
-  {
     iconPath: WunderGraph,
     name: "WunderGraph",
     link: "https://wundergraph.com/",
+  },
+  {
+    iconPath: Stellate,
+    name: "Stellate",
+    link: "https://stellate.co/",
   },
 ]
 
