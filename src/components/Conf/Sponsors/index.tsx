@@ -10,6 +10,7 @@ import { ReactComponent as Hygraph } from "../../../../static/img/conf/Sponsors/
 import { ReactComponent as StepZen } from "../../../../static/img/conf/Sponsors/StepZen.svg"
 import { ReactComponent as Inigo } from "../../../../static/img/conf/Sponsors/Inigo.svg"
 import { ReactComponent as Neo4j } from "../../../../static/img/conf/Sponsors/Neo4j.svg"
+import { ReactComponent as WunderGraph } from "../../../../static/img/conf/Sponsors/WunderGraph.svg"
 
 interface Image {
   iconPath: string
@@ -81,6 +82,11 @@ const sponsorSilver: Image[] = [
     iconPath: Neo4j,
     name: "Neo4j",
     link: "https://neo4j.com/",
+  },
+  {
+    iconPath: WunderGraph,
+    name: "WunderGraph",
+    link: "https://wundergraph.com/",
   },
   {
     iconPath: Stellate,
