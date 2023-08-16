@@ -3,7 +3,8 @@ import React from "react"
 import { ReactComponent as GraphQLWeekly } from "../../../../static/img/conf/Partners/GraphQLWeekly.svg"
 import { ReactComponent as GraphQLWTF } from "../../../../static/img/conf/Partners/GraphQLwtf.svg"
 import { ReactComponent as EscapeTechnologies } from "../../../../static/img/conf/Partners/EscapeTechnologies.svg"
-
+import { ReactComponent as AmsterdamGraphQL } from "../../../../static/img/conf/Partners/AmsterdamGraphQL.svg"
+import { ReactComponent as BangkokGraphQL } from "../../../../static/img/conf/Partners/BangkokGraphQL.svg"
 interface Image {
   iconPath: string
   name: string
@@ -39,6 +40,16 @@ const communityPartners: Image[] = [
     name: "EscapeTechnologies",
     link: "https://escape.tech/",
   },
+  {
+    iconPath: AmsterdamGraphQL,
+    name: "Amsterdam GraphQL",
+    link: "https://www.meetup.com/amsterdam-graphql-meetup/",
+  },
+  {
+    iconPath: BangkokGraphQL,
+    name: "Bangkok GraphQL",
+    link: "https://www.meetup.com/graphql-bangkok/",
+  },
 ]
 
 const PartnersConf = () => {
@@ -73,7 +84,7 @@ const PartnersConf = () => {
           .map((partner, i) => (
             <a
               key={i}
-              className="zoom-partner flex flex-col items-center text-center w-full h-full"
+              className="zoom-partner flex flex-col justify-center items-center text-center w-full h-full"
               href={partner.link}
               target="_blank"
             >
