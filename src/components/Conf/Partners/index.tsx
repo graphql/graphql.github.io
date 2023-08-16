@@ -43,12 +43,12 @@ const communityPartners: Image[] = [
   {
     iconPath: AmsterdamGraphQL,
     name: "Amsterdam GraphQL",
-    link: "https://www.meetup.com/AmsterdamGraphQL/",
+    link: "https://www.meetup.com/amsterdam-graphql-meetup/",
   },
   {
     iconPath: BangkokGraphQL,
     name: "Bangkok GraphQL",
-    link: "https://www.meetup.com/Bangkok-GraphQL/",
+    link: "https://www.meetup.com/graphql-bangkok/",
   },
 ]
 
