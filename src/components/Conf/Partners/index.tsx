@@ -5,6 +5,7 @@ import { ReactComponent as GraphQLWTF } from "../../../../static/img/conf/Partne
 import { ReactComponent as EscapeTechnologies } from "../../../../static/img/conf/Partners/EscapeTechnologies.svg"
 import { ReactComponent as AmsterdamGraphQL } from "../../../../static/img/conf/Partners/AmsterdamGraphQL.svg"
 import { ReactComponent as BangkokGraphQL } from "../../../../static/img/conf/Partners/BangkokGraphQL.svg"
+import { ReactComponent as TypeGraphQL } from "../../../../static/img/conf/Partners/TypeGraphQL.svg"
 interface Image {
   iconPath: string
   name: string
@@ -49,6 +50,11 @@ const communityPartners: Image[] = [
     iconPath: BangkokGraphQL,
     name: "Bangkok GraphQL",
     link: "https://www.meetup.com/graphql-bangkok/",
+  },
+  {
+    iconPath: TypeGraphQL,
+    name: "TypeGraphQL",
+    link: "https://typegraphql.com/",
   },
 ]
 
