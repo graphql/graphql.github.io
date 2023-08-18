@@ -3,6 +3,7 @@ import { PageProps } from "gatsby"
 import { ScheduleSession } from "../components/Conf/Schedule/ScheduleList"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
 import { format, parseISO } from "date-fns"
+import { getEventTitle } from "../utils/eventTitle"
 
 const EventOgImageTemplate = ({
   pageContext,
@@ -13,19 +14,16 @@ const EventOgImageTemplate = ({
     company: speaker.company,
     position: speaker.position,
   }))
-  const { name, event_type, event_start: eventDate } = pageContext.event
+  const { event_type, event_start: eventDate } = pageContext.event
 
   const eventType = event_type.endsWith("s")
     ? event_type.slice(0, -1)
     : event_type
 
-  const eventTitle =
-    speakers.length > 0
-      ? name.substring(
-          0,
-          name.indexOf(`${speakers[0].name.replace("ı", "i")}`) - 3
-        )
-      : name
+  const eventTitle = getEventTitle(
+    pageContext.event,
+    pageContext.speakers?.[0]?.name
+  )
 
   return (
     <div

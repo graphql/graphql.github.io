@@ -17,6 +17,7 @@ import {
   SocialMediaIconServiceType,
 } from "../components/Conf/Speakers/SocialMedia"
 import { BackLink } from "../components/Conf/Schedule/BackLink"
+import { getEventTitle } from "../utils/eventTitle"
 
 const Tag = ({
   text,
@@ -45,13 +46,7 @@ export const EventComponent: FC<{
     ? event.event_type.slice(0, -1)
     : event.event_type
 
-  const eventTitle =
-    speakers.length > 0
-      ? event.name.substring(
-          0,
-          event.name.indexOf(`${speakers[0].name.replace("ı", "i")}`) - 3
-        )
-      : event.name
+  const eventTitle = getEventTitle(event, speakers?.[0]?.name)
 
   return (
     <div className={`bg-white ${!hideBackButton ? "py-10" : ""}`}>
