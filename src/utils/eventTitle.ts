@@ -8,14 +8,12 @@ export function getEventTitle(
     return event.name
   }
 
-  let speakerInTitle = -1
   speakers?.forEach(speaker => {
-    speakerInTitle = event.name.indexOf(`- ${speaker.replace("ı", "i")}`)
+    const speakerInTitle = event.name.indexOf(`- ${speaker.replace("ı", "i")}`)
+    if (speakerInTitle > -1) {
+      event.name = event.name.slice(0, speakerInTitle)
+    }
   })
 
-  if (speakerInTitle === -1) {
-    return event.name
-  }
-
-  return event.name.substring(0, speakerInTitle)
+  return event.name
 }
