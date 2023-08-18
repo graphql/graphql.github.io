@@ -1,6 +1,7 @@
 import { format, parseISO, compareAsc } from "date-fns"
 import React, { FC } from "react"
 import { eventsColors } from "../../../utils/eventsColors"
+import { getEventTitle } from "../../../utils/eventTitle"
 
 function groupByKey<T>(arr: T[], getKey: (entity: T) => any) {
   return Array.from<[string, T[]]>(
@@ -84,15 +85,7 @@ const ScheduleList: FC<Props> = ({
                       : session.event_type
 
                     const speakers = session.speakers?.split(",") || []
-                    const eventTitle =
-                      speakers.length > 0
-                        ? session.name.substring(
-                            0,
-                            session.name.indexOf(
-                              `${speakers[0].replace("ı", "i")}`
-                            ) - 3
-                          )
-                        : session.name
+                    const eventTitle = getEventTitle(session, speakers)
 
                     const [borderColor] = getSessionColor(
                       session.event_type.toLowerCase()
