@@ -46,7 +46,10 @@ export const EventComponent: FC<{
     ? event.event_type.slice(0, -1)
     : event.event_type
 
-  const eventTitle = getEventTitle(event, speakers?.[0]?.name)
+  const eventTitle = getEventTitle(
+    event,
+    speakers.map(s => s.name)
+  )
 
   return (
     <div className={`bg-white ${!hideBackButton ? "py-10" : ""}`}>

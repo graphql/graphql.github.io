@@ -85,7 +85,7 @@ const ScheduleList: FC<Props> = ({
                       : session.event_type
 
                     const speakers = session.speakers?.split(",") || []
-                    const eventTitle = getEventTitle(session, speakers[0])
+                    const eventTitle = getEventTitle(session, speakers)
 
                     const [borderColor] = getSessionColor(
                       session.event_type.toLowerCase()

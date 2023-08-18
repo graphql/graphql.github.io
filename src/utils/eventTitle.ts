@@ -2,14 +2,16 @@ import { ScheduleSession } from "../components/Conf/Schedule/ScheduleList"
 
 export function getEventTitle(
   event: ScheduleSession,
-  speaker: string | undefined
+  speakers: string[] | undefined
 ): string {
-  if (!speaker) {
+  if (!speakers) {
     return event.name
   }
 
-  console.log(speaker, event)
-  const speakerInTitle = event.name.indexOf(`- ${speaker.replace("ı", "i")}`)
+  let speakerInTitle = -1
+  speakers?.forEach(speaker => {
+    speakerInTitle = event.name.indexOf(`- ${speaker.replace("ı", "i")}`)
+  })
 
   if (speakerInTitle === -1) {
     return event.name

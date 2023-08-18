@@ -22,7 +22,7 @@ const EventOgImageTemplate = ({
 
   const eventTitle = getEventTitle(
     pageContext.event,
-    pageContext.speakers?.[0]?.name
+    pageContext.speakers.map(s => s.name)
   )
 
   return (
