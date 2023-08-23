@@ -1,5 +1,5 @@
 ---
-title: Key Insights from the GraphQL EU Gathering
+title: "GraphQL-Fusion: An open spec for distributed GraphQL"
 tags: ["blog", "graphql", "federation", "fusion", "micro-services"]
 layout: blog
 date: 2023-08-01
