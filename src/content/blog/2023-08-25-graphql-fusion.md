@@ -116,34 +116,21 @@ The outcome? An annotated Fusion graph document, which provides all the metadata
 
 ```graphql
 type Review
-  @variable(
-    subgraph: "Reviews",
-    name: "Review_id",
-    select: "id")
+  @variable(subgraph: "Reviews", name: "Review_id", select: "id")
   @resolver(
     subgraph: "Reviews"
     select: "{ reviewById(id: $Review_id) }"
     arguments: [{ name: "Review_id", type: "ID!" }]
   ) {
-  id: ID!
-    @source(subgraph: "Reviews")
-  body: String!
-    @source(subgraph: "Reviews")
-  product: Product!
-    @source(subgraph: "Reviews")
-  author: User!
-    @source(subgraph: "Reviews")
+  id: ID! @source(subgraph: "Reviews")
+  body: String! @source(subgraph: "Reviews")
+  product: Product! @source(subgraph: "Reviews")
+  author: User! @source(subgraph: "Reviews")
 }
 
 type User
-  @variable(
-    subgraph: "Reviews",
-    name: "User_id",
-    select: "id")
-  @variable(
-    subgraph: "Account",
-    name: "User_id",
-    select: "id")
+  @variable(subgraph: "Reviews", name: "User_id", select: "id")
+  @variable(subgraph: "Account", name: "User_id", select: "id")
   @resolver(
     subgraph: "Reviews"
     select: "{ userById(id: $id) }"
@@ -154,38 +141,24 @@ type User
     select: "{ userById(id: $id) }"
     arguments: [{ name: "User_id", type: "ID!" }]
   ) {
-  id: ID!
-    @source(subgraph: "Reviews")
-    @source(subgraph: "Account")
-  name: String!
-    @source(subgraph: "Reviews")
-    @source(subgraph: "Account")
-  email: String!
-    @source(subgraph: "Account")
+  id: ID! @source(subgraph: "Reviews") @source(subgraph: "Account")
+  name: String! @source(subgraph: "Reviews") @source(subgraph: "Account")
+  email: String! @source(subgraph: "Account")
 }
 
 type Product
-  @variable(
-    subgraph: "Reviews",
-    name: "Product_sku",
-    select: "sku")
+  @variable(subgraph: "Reviews", name: "Product_sku", select: "sku")
   @resolver(
     subgraph: "Reviews"
     select: "{ productBySKU(sku: $Product_sku) }"
     arguments: [{ name: "Product_sku", type: "String!" }]
   ) {
-  sku: String!
-    @source(subgraph: "Reviews")
-  reviews: [Review!]
-    @source(subgraph: "Reviews")
+  sku: String! @source(subgraph: "Reviews")
+  reviews: [Review!] @source(subgraph: "Reviews")
 }
 
 type Query {
-  reviews: [Review!]
-    @resolver(
-      subgraph: "Reviews"
-      select: "{ reviews }"
-    )
+  reviews: [Review!] @resolver(subgraph: "Reviews", select: "{ reviews }")
   userById(id: ID!): User
     @resolver(
       subgraph: "Reviews"
@@ -242,7 +215,7 @@ query GetReviews_1 {
     body
     author {
       name
-      __export__1 : id
+      __export__1: id
     }
   }
 }
@@ -289,7 +262,7 @@ query GetReviews_1 {
     body
     author {
       name
-      __export__1 : id
+      __export__1: id
     }
   }
 }
@@ -308,14 +281,14 @@ query GetReviews_2($__export__1: [ID!]!) {
 The Fusion query plan is another standardized component that tooling (like [Banana Cake Pop](https://eat.bananacakepop.com)) can use to give you insights into how efficiently the gateway can resolve the requested data.
 
 ![Banana Cake Pop - Query Plan Viewer](/img/blog/2023-08-25-graphql-fusion/bcp-1.png)
-*Also available in black ;)*
+_Also available in black ;)_
 
 The Fusion Query plan consists of the following query plan node kinds: `Compose`, `Defer`, `Stream`, `If`, `Introspect`, `Parallel`, `Resolve`, `ResolveByKeyBatch`, `ResolveNode`, `Sequence`, and `Subscribe`. With these abstract nodes, the query planner is able to create complex query plans that support every GraphQL feature and best practice right out of the gate.
 
 While the `Fetch` and `Batch` nodes are clear about what they do in our query plan, the compose step might be a mystery to you. In essence, the query planner can fetch data that does not align with the current structure of the request. Compose will take in the raw data fetched by resolve nodes and composes it into the GraphQL request structure. It also ensures that result coercion rules are correctly applied to be GraphQL spec-compliant.
 
 ![Banana Cake Pop - Query Plan Viewer](/img/blog/2023-08-25-graphql-fusion/bcp-5.png)
-*In this case, compose creates the result of a single selection set from multiple resolve nodes.*
+_In this case, compose creates the result of a single selection set from multiple resolve nodes._
 
 The Hot Chocolate Fusion Gateway implementation supports all supported subscription protocols, from the legacy Apollo subscription protocol over graphql-ws to graphql-sse.
 
@@ -346,12 +319,12 @@ extend type User
 While using the `node` field to fetch entity data is straightforward for exposing the `node` fields to the gateway, we found it necessary to equip the Fusion gateway with data sharding capabilities. This is the ability to dispatch a query at runtime to a specific subgraph based on user-provided data. This can be applied to simple tasks like the node field but can also be harnessed to isolate data partitions by region or any other discriminants you desire.
 
 ![Banana Cake Pop - Query Plan Viewer](/img/blog/2023-08-25-graphql-fusion/bcp-6.png)
-*`node` field query plan.*
+_`node` field query plan._
 
 If we zoom into the JSON representation of our query plan, we can see in detail the branches of our `ResolveNode` in the query plan. Depending on the type in our encoded `ID`, one of the branches will be executed. If the encoded types have different names in the subgraphs, Fusion will reencode the ID for the particular subgraph.
 
 ![Banana Cake Pop - Query Plan Viewer](/img/blog/2023-08-25-graphql-fusion/bcp-7.png)
-*JSON representation of our query plan*
+_JSON representation of our query plan_
 
 ## Going Further
 
@@ -415,9 +388,10 @@ We can express this by using the `@require` directive and referring to the requi
 ```graphql
 type Product {
   deliveryEstimate(
-    zip: String!,
-    width: Float! @require(field: "dimension { width }"),
-    height: Float! @require(field: "dimension { height }")) : Int!
+    zip: String!
+    width: Float! @require(field: "dimension { width }")
+    height: Float! @require(field: "dimension { height }")
+  ): Int!
 }
 ```
 
@@ -425,14 +399,15 @@ We could also design that slightly differently and introduce an input to our sub
 
 ```graphql
 input ProductDimensionInput {
-  width: Float!,
+  width: Float!
   height: Float!
 }
 
 type Product {
   deliveryEstimate(
-    zip: String!,
-    dimension: ProductDimensionInput! @require(field: "dimension")): Int!
+    zip: String!
+    dimension: ProductDimensionInput! @require(field: "dimension")
+  ): Int!
 }
 ```
 
@@ -445,7 +420,6 @@ Again, this brings clarity to your subgraph as the field is very clear about wha
 ## Reshaping things
 
 When we rethink a bit the shipping subgraph we actually should realize that the `deliveryEstimate` does not really need to be on the `Product` type as the argument has clear requirements which are expressed by its field arguments. Instead of having the field `deliveryEstimate` on the `Product` type itself, it could very well be exposed through the `Query` type, at least in the context of our subgraph.
-
 
 ```graphql
 type Query {
@@ -468,9 +442,10 @@ Next, we introduce some product metadata.
 ```graphql
 extend type Product {
   estimateShipping(
-    zip: String!,
-    width: Float! @require(field: "dimension { width }"),
-    height: Float! @require(field: "dimension { height }")) : Int!
+    zip: String!
+    width: Float! @require(field: "dimension { width }")
+    height: Float! @require(field: "dimension { height }")
+  ): Int!
 }
 
 extend type Query @private
@@ -481,10 +456,10 @@ Last, we want to declare how estimate wires up to our internal `Query` type.
 ```graphql
 extend type Product {
   estimateShipping(
-    zip: String!,
-    width: Float! @require(field: "dimension { width }"),
-    height: Float! @require(field: "dimension { height }")) : Int!
-        @resolve
+    zip: String!
+    width: Float! @require(field: "dimension { width }")
+    height: Float! @require(field: "dimension { height }")
+  ): Int! @resolve
 }
 
 extend type Query @private
@@ -495,10 +470,10 @@ Since the field and arguments 100% match between the `Query` type and the `Produ
 ```graphql
 extend type Product {
   calculateDelivery(
-    zip: String!,
-    width: Float! @require(field: "dimension { width }"),
-    height: Float! @require(field: "dimension { height }")) : Int!
-        @resolve(select: "estimateShipping")
+    zip: String!
+    width: Float! @require(field: "dimension { width }")
+    height: Float! @require(field: "dimension { height }")
+  ): Int! @resolve(select: "estimateShipping")
 }
 
 extend type Query @private
@@ -509,10 +484,10 @@ Again, arguments match, so we do not need to map them, but we could. Each argume
 ```graphql
 extend type Product {
   calculateShipping(
-    zip: String!,
-    width: Float! @require(field: "dimension { width }"),
-    height: Float! @require(field: "dimension { height }")) : Int!
-        @resolve(select: "estimateShipping(zip: $zip)")
+    zip: String!
+    width: Float! @require(field: "dimension { width }")
+    height: Float! @require(field: "dimension { height }")
+  ): Int! @resolve(select: "estimateShipping(zip: $zip)")
 }
 
 extend type Query @private
@@ -572,8 +547,7 @@ Like with our case for estimate delivery, we can be more or less explicit with o
 
 ```graphql
 extend type Product {
-  reviews: [Review!]
-    @resolve(select: "reviewsBySku(sku: $sku)")
+  reviews: [Review!] @resolve(select: "reviewsBySku(sku: $sku)")
 }
 ```
 
@@ -582,7 +556,7 @@ Since `sku` is available on the product, it is automatically a variable availabl
 ```graphql
 extend type Product {
   reviews: [Review!]
-    @declare(variable: "sku" select: "someOtherField { sku }")
+    @declare(variable: "sku", select: "someOtherField { sku }")
     @resolve(select: "reviewsBySku(sku: $sku)")
 }
 ```
