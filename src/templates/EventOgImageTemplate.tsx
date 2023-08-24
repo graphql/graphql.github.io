@@ -128,9 +128,9 @@ const EventOgImageTemplate = ({
                 />
               </svg>
 
-              {format(parseISO(event_start), "hh:mmaaaa") +
+              {format(parseISO(event_start), "hh:mm aaaa") +
                 " - " +
-                format(parseISO(event_end), "hh:mmaaaa") +
+                format(parseISO(event_end), "hh:mm aaaa") +
                 " PDT"}
             </span>
           </div>
