@@ -90,7 +90,10 @@ export const EventComponent: FC<{
                   />
                 </svg>
 
-                {format(parseISO(event.event_start), "hh:mmaaaa 'PDT'")}
+                {format(parseISO(event.event_start), "hh:mmaaaa") +
+                  " - " +
+                  format(parseISO(event.event_end), "hh:mmaaaa") +
+                  " PDT"}
               </span>
             </div>
             <div className="space-y-5">
