@@ -11,6 +11,7 @@ import { ReactComponent as StepZen } from "../../../../static/img/conf/Sponsors/
 import { ReactComponent as Inigo } from "../../../../static/img/conf/Sponsors/Inigo.svg"
 import { ReactComponent as Neo4j } from "../../../../static/img/conf/Sponsors/Neo4j.svg"
 import { ReactComponent as WunderGraph } from "../../../../static/img/conf/Sponsors/WunderGraph.svg"
+import { ReactComponent as Graphabase } from "../../../../static/img/conf/Sponsors/Graphabase.svg"
 
 interface Image {
   iconPath: string
@@ -92,6 +93,11 @@ const sponsorSilver: Image[] = [
     iconPath: Stellate,
     name: "Stellate",
     link: "https://stellate.co/",
+  },
+  {
+    iconPath: Graphabase,
+    name: "Graphabase",
+    link: "https://graphabase.com/",
   },
 ]
 
