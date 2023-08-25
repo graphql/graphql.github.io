@@ -1,0 +1,66 @@
+import React from "react"
+import LayoutConf from "../../components/Conf/Layout"
+import HeaderConf from "../../components/Conf/Header"
+// import ButtonConf from "../../components/Conf/Button"
+import clsx from "clsx"
+import { PageProps, HeadProps } from "gatsby"
+import SeoConf from "../../components/Conf/Seo"
+import { useLocation } from "@reach/router"
+
+export default (_props: PageProps) => {
+  const { href, search } = useLocation()
+  // const text = "Nice! I got my @GraphQLConf ticket! Get yours too!"
+  return (
+    <LayoutConf>
+      <HeaderConf />
+      <div className="bg-white h-screen">
+        <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4">
+          <h1>Your ticket for GraphQLConf</h1>
+          <section className="px-0 my-8">
+            <div className="flex gap-4 flex-row flex-wrap">
+              {/*<ButtonConf*/}
+              {/*  href={`https://twitter.com/intent/tweet?url=${href}&text=${text}`}*/}
+              {/*>*/}
+              {/*  Share on X / Twitter*/}
+              {/*</ButtonConf>*/}
+              <button
+                className={clsx(
+                  "cursor-pointer transition ease-in-out no-underline inline-flex text-center w-[fit-content] border-0 py-2 px-6 focus:outline-none hover:drop-shadow-md hover:[transform:scale(1.05)] rounded text-sm sm:text-base whitespace-nowrap",
+                  "bg-[--rhodamine] text-white font-medium"
+                )}
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(href)
+                    console.log("Content copied to clipboard")
+                  } catch (err) {
+                    console.error("Failed to copy:", err)
+                  }
+                }}
+              >
+                Share URL
+              </button>
+            </div>
+          </section>
+        </div>
+        <img
+          src={`https://og-image.the-guild.dev/conf${search}`}
+          className="block mx-auto"
+        />
+      </div>
+    </LayoutConf>
+  )
+}
+
+export function Head(_props: HeadProps) {
+  const { search } = useLocation()
+  return (
+    <SeoConf
+      title="My ticket"
+      ogImage={{
+        url: `https://og-image.the-guild.dev/conf${search}`,
+        width: 1200,
+        height: 600,
+      }}
+    />
+  )
+}
