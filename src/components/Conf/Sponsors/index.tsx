@@ -13,7 +13,6 @@ import { ReactComponent as Neo4j } from "../../../../static/img/conf/Sponsors/Ne
 import { ReactComponent as WunderGraph } from "../../../../static/img/conf/Sponsors/WunderGraph.svg"
 import { ReactComponent as Graphabase } from "../../../../static/img/conf/Sponsors/Graphabase.svg"
 
-
 interface Image {
   iconPath: string
   name: string
@@ -99,7 +98,7 @@ const sponsorSilver: Image[] = [
     iconPath: Graphabase,
     name: "Graphabase",
     link: "https://graphabase.com/",
-  }
+  },
 ]
 
 const workshopDaySponsors: Image[] = [
