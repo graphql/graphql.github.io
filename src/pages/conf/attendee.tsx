@@ -7,8 +7,8 @@ import { PageProps, HeadProps } from "gatsby"
 import SeoConf from "../../components/Conf/Seo"
 import { useLocation } from "@reach/router"
 
-export default ({ location }: PageProps) => {
-  const { href, search } = location
+export default (_props: PageProps) => {
+  const { href, search } = useLocation()
   // const text = "Nice! I got my @GraphQLConf ticket! Get yours too!"
   return (
     <LayoutConf>
@@ -52,12 +52,12 @@ export default ({ location }: PageProps) => {
 }
 
 export function Head(_props: HeadProps) {
-  const location = useLocation()
+  const { search } = useLocation()
   return (
     <SeoConf
       title="My ticket"
       ogImage={{
-        url: `https://og-image.the-guild.dev/conf${location.search}`,
+        url: `https://og-image.the-guild.dev/conf${search}`,
         width: 1200,
         height: 600,
       }}
