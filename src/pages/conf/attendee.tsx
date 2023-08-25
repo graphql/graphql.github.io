@@ -5,6 +5,7 @@ import HeaderConf from "../../components/Conf/Header"
 import clsx from "clsx"
 import { PageProps, HeadProps } from "gatsby"
 import SeoConf from "../../components/Conf/Seo"
+import { useLocation } from "@reach/router"
 
 export default ({ location }: PageProps) => {
   const { href, search } = location
@@ -50,12 +51,13 @@ export default ({ location }: PageProps) => {
   )
 }
 
-export function Head(props: HeadProps) {
+export function Head(_props: HeadProps) {
+  const location = useLocation()
   return (
     <SeoConf
       title="My ticket"
       ogImage={{
-        url: `https://og-image.the-guild.dev/conf${window.location.search}`,
+        url: `https://og-image.the-guild.dev/conf${location.search}`,
         width: 1200,
         height: 600,
       }}
