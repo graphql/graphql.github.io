@@ -53,7 +53,7 @@ export default ({ location }: PageProps) => {
 export function Head(props: HeadProps) {
   return (
     <SeoConf
-      title="My ticker"
+      title="My ticket"
       ogImage={{
         url: `https://og-image.the-guild.dev/conf${window.location.search}`,
         width: 1200,
