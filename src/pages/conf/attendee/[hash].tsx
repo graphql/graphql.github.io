@@ -1,14 +1,13 @@
 import React from "react"
-import LayoutConf from "../../components/Conf/Layout"
-import HeaderConf from "../../components/Conf/Header"
+import LayoutConf from "../../../components/Conf/Layout"
+import HeaderConf from "../../../components/Conf/Header"
 // import ButtonConf from "../../components/Conf/Button"
 import clsx from "clsx"
 import { PageProps, HeadProps } from "gatsby"
-import SeoConf from "../../components/Conf/Seo"
-import { useLocation } from "@reach/router"
+import SeoConf from "../../../components/Conf/Seo"
 
-export default (_props: PageProps) => {
-  const { href, search } = useLocation()
+export default ({ hash, location }: PageProps & { hash: string }) => {
+  const search = getSeachParams(hash)
   // const text = "Nice! I got my @GraphQLConf ticket! Get yours too!"
   return (
     <LayoutConf>
@@ -30,7 +29,7 @@ export default (_props: PageProps) => {
                 )}
                 onClick={async () => {
                   try {
-                    await navigator.clipboard.writeText(href)
+                    await navigator.clipboard.writeText(location.href)
                     console.log("Content copied to clipboard")
                   } catch (err) {
                     console.error("Failed to copy:", err)
@@ -51,13 +50,42 @@ export default (_props: PageProps) => {
   )
 }
 
-export function Head(_props: HeadProps) {
-  const { search } = useLocation()
+function getSeachParams(base64: string): string {
+  let string: string
+  try {
+    string = atob(base64)
+  } catch (error) {
+    console.error(error)
+    return ""
+  }
+
+  let list: string[] = []
+
+  try {
+    list = JSON.parse(string)
+  } catch (error) {
+    console.error(error)
+    return ""
+  }
+
+  const [fullName, jobTitle, company, github] = list
+  const searchParams = new URLSearchParams({
+    ...(fullName && { fullName }),
+    ...(jobTitle && { jobTitle }),
+    ...(company && { company }),
+    ...(github && { github }),
+  })
+  return "?" + searchParams.toString()
+}
+
+export function Head({ params }: HeadProps & { hash: string }) {
   return (
     <SeoConf
       title="My ticket"
       ogImage={{
-        url: `https://og-image.the-guild.dev/conf${search}`,
+        url: `https://og-image.the-guild.dev/conf${getSeachParams(
+          params.hash
+        )}`,
         width: 1200,
         height: 600,
       }}
