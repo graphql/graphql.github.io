@@ -55,7 +55,7 @@ function getSeachParams(base64: string): string {
   try {
     string = atob(base64)
   } catch (error) {
-    console.error(error)
+    console.warn(error)
     return ""
   }
 
@@ -64,7 +64,7 @@ function getSeachParams(base64: string): string {
   try {
     list = JSON.parse(string)
   } catch (error) {
-    console.error(error)
+    console.warn(error)
     return ""
   }
 
