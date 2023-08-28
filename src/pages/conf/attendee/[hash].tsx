@@ -8,7 +8,7 @@ import SeoConf from "../../../components/Conf/Seo"
 
 export default ({ location, params }: PageProps) => {
   const search = getSeachParams(params.hash)
-  console.log('params', params)
+  console.log("params", params.hash, search)
   // const text = "Nice! I got my @GraphQLConf ticket! Get yours too!"
   return (
     <LayoutConf>
@@ -56,7 +56,7 @@ function getSeachParams(base64: string): string {
   try {
     string = atob(base64)
   } catch (error) {
-    console.warn(error)
+    console.log(error)
     return ""
   }
 
@@ -65,7 +65,7 @@ function getSeachParams(base64: string): string {
   try {
     list = JSON.parse(string)
   } catch (error) {
-    console.warn(error)
+    console.log(error)
     return ""
   }
 
