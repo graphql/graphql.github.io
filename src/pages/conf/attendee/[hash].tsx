@@ -80,28 +80,24 @@ function getSeachParams(base64: string): string {
   return "?" + searchParams.toString()
 }
 
-export function Head({ params }: HeadProps & { hash: string }) {
+export function Head({ params, location }: HeadProps & { hash: string }) {
   return (
-   <>
-
- <SeoConf
-      title="My ticket"
-      ogImage={{
-        url: `https://og-image.the-guild.dev/conf${getSeachParams(
-          params.hash
-        )}`,
-        width: 1200,
-        height: 600,
-      }}
-    />
+    <>
+      <SeoConf
+        title="My ticket"
+        ogImage={{
+          url: `https://og-image.the-guild.dev/conf${getSeachParams(
+            params.hash
+          )}`,
+          width: 1200,
+          height: 600,
+        }}
+      />
 
       <meta
         property="og:url"
-        content={`https://og-image.the-guild.dev/conf${getSeachParams(
-          params.hash
-        )}`}
+        content={`https://graphql.org${location.pathname}`}
       />
-</>
-   
+    </>
   )
 }
