@@ -42,6 +42,7 @@ export const EventComponent: FC<{
   speakers: SchedSpeaker[]
   hideBackButton?: boolean
 }> = ({ event, speakers, hideBackButton }) => {
+  event.event_type ??= ""
   const eventType = event.event_type.endsWith("s")
     ? event.event_type.slice(0, -1)
     : event.event_type
