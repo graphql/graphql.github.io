@@ -82,7 +82,9 @@ function getSeachParams(base64: string): string {
 
 export function Head({ params }: HeadProps & { hash: string }) {
   return (
-    <SeoConf
+   <>
+
+ <SeoConf
       title="My ticket"
       ogImage={{
         url: `https://og-image.the-guild.dev/conf${getSeachParams(
@@ -92,5 +94,14 @@ export function Head({ params }: HeadProps & { hash: string }) {
         height: 600,
       }}
     />
+
+      <meta
+        property="og:url"
+        content={`https://og-image.the-guild.dev/conf${getSeachParams(
+          params.hash
+        )}`}
+      />
+</>
+   
   )
 }
