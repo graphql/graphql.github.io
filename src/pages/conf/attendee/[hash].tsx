@@ -42,10 +42,12 @@ export default ({ location, params }: PageProps) => {
             </div>
           </section>
         </div>
-        <img
-          src={`https://og-image.the-guild.dev/conf${search}`}
-          className="block mx-auto"
-        />
+        {search && (
+          <img
+            src={`https://og-image.the-guild.dev/conf${search}`}
+            className="block mx-auto"
+          />
+        )}
       </div>
     </LayoutConf>
   )
