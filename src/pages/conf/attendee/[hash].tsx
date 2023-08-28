@@ -6,10 +6,9 @@ import clsx from "clsx"
 import { PageProps, HeadProps } from "gatsby"
 import SeoConf from "../../../components/Conf/Seo"
 
-export default ({ location }: PageProps) => {
-  const search = getSeachParams(
-    location.pathname.replace("/conf/attendee/", "").replace(/\/$/, "")
-  )
+export default ({ location, params }: PageProps) => {
+  const search = getSeachParams(params.hash)
+  console.log('params', params)
   // const text = "Nice! I got my @GraphQLConf ticket! Get yours too!"
   return (
     <LayoutConf>
