@@ -37,6 +37,7 @@ interface Props {
   scheduleData: ScheduleSession[]
   filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
 }
+
 const ScheduleList: FC<Props> = ({
   showEventType,
   filterSchedule,
@@ -78,9 +79,9 @@ const ScheduleList: FC<Props> = ({
                 </div>
                 <div className="lg:flex-row flex flex-col gap-5 relative lg:items-start items-end w-full lg:pl-0 pl-[28px]">
                   <div className="block lg:hidden absolute left-3 top-0 h-full w-0.5 bg-gray-200" />
-
                   {sessions.map(session => {
-                    const eventType = session.event_type?.endsWith("s")
+                    session.event_type ??= ""
+                    const eventType = session.event_type.endsWith("s")
                       ? session.event_type.slice(0, -1)
                       : session.event_type
 
