@@ -101,7 +101,3 @@ function getSeachParams(base64: string): string {
   })
   return "?" + searchParams.toString()
 }
-
-export function Head() {
-  return <></>
-}
