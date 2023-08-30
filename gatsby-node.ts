@@ -40,7 +40,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const { createNode, createParentChildLink } = actions
+  const { createNode, createParentChildLink, createRedirect } = actions
 
   // Derive content nodes from remark nodes
   if (
@@ -147,6 +147,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
 }) => {
   const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/conf/attendee/*`,
+    toPath: `https://graphql-conf-attendee-nextjs-intermediate-app.vercel.app/*`,
+    statusCode: 200,
+  })
 
   try {
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
