@@ -42,11 +42,6 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
 }) => {
   const { createNode, createParentChildLink, createRedirect } = actions
 
-  createRedirect({
-    fromPath: `/conf/attendee/*`,
-    toPath: `https://og-image.the-guild.dev/*`,
-  })
-
   // Derive content nodes from remark nodes
   if (
     node.internal.type === "MarkdownRemark" &&
@@ -152,6 +147,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
 }) => {
   const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/conf/attendee/*`,
+    toPath: `https://og-image.the-guild.dev/*`,
+  })
+
 
   try {
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
