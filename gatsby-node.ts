@@ -40,7 +40,12 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const { createNode, createParentChildLink } = actions
+  const { createNode, createParentChildLink, createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/conf/attendee/*`,
+    toPath: `https://og-image.the-guild.dev/*`,
+  })
 
   // Derive content nodes from remark nodes
   if (
