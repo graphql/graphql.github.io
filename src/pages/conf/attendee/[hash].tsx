@@ -102,32 +102,6 @@ function getSeachParams(base64: string): string {
   return "?" + searchParams.toString()
 }
 
-export function Head({
-  params,
-  location,
-}: {
-  location: {
-    pathname: string
-  }
-  params: Record<string, string>
-}) {
-  return (
-    <>
-      <SeoConf
-        title="My ticket"
-        ogImage={{
-          url: `https://og-image.the-guild.dev/conf${getSeachParams(
-            params.hash
-          )}`,
-          width: 1200,
-          height: 630,
-        }}
-      />
-
-      <meta
-        property="og:url"
-        content={`https://graphql.org${location.pathname}`}
-      />
-    </>
-  )
+export function Head() {
+  return <></>
 }
