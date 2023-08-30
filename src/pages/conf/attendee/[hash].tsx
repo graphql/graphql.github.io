@@ -11,7 +11,6 @@ export default ({ location, params }: PageProps) => {
   // const text = "Nice! I got my @GraphQLConf ticket! Get yours too!"
   return (
     <>
-      <Head params={params} location={location} />
       <LayoutConf>
         <HeaderConf />
         <div className="bg-white h-screen">
@@ -101,7 +100,7 @@ export function Head({
             params.hash
           )}`,
           width: 1200,
-          height: 600,
+          height: 630,
         }}
       />
 
