@@ -154,7 +154,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
     statusCode: 200,
   })
 
-
   try {
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
 
