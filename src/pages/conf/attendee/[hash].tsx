@@ -6,11 +6,33 @@ import clsx from "clsx"
 import { PageProps } from "gatsby"
 import SeoConf from "../../../components/Conf/Seo"
 
-export default ({ location, params }: PageProps) => {
+export async function getServerData({ params }: PageProps) {
   const search = getSeachParams(params.hash)
+  const ogImageUrl = `https://og-image.the-guild.dev/conf${search}`
+  return {
+    props: { ogImage: ogImageUrl },
+  }
+}
+
+export default ({ location, params, serverData }: PageProps) => {
+  const ogImage = (serverData as any).ogImage || ""
   // const text = "Nice! I got my @GraphQLConf ticket! Get yours too!"
   return (
     <>
+      <SeoConf
+        title="My ticket"
+        ogImage={{
+          url: ogImage,
+          width: 1200,
+          height: 630,
+        }}
+      />
+
+      <meta
+        property="og:url"
+        content={`https://graphql.org${location.pathname}`}
+      />
+
       <LayoutConf>
         <HeaderConf />
         <div className="bg-white h-screen">
@@ -42,12 +64,7 @@ export default ({ location, params }: PageProps) => {
               </div>
             </section>
           </div>
-          {search && (
-            <img
-              src={`https://og-image.the-guild.dev/conf${search}`}
-              className="block mx-auto"
-            />
-          )}
+          {ogImage && <img src={ogImage} className="block mx-auto" />}
         </div>
       </LayoutConf>
     </>
