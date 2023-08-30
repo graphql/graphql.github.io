@@ -151,6 +151,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   createRedirect({
     fromPath: `/conf/attendee/*`,
     toPath: `https://og-image.the-guild.dev/*`,
+    statusCode: 200,
   })
 
 
