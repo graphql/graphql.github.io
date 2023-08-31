@@ -150,7 +150,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   createRedirect({
     fromPath: `/conf/attendee/*`,
-    toPath: `https://graphql-conf-attendee-nextjs-intermediate-app.vercel.app/*`,
+    toPath: `https://graphql-conf-attendee-nextjs.vercel.app/*`,
     statusCode: 200,
   })
 
