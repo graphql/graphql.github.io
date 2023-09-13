@@ -108,7 +108,7 @@ function getSessionsByDay(
     }
     sessionsByDay[day] = {
       ...sessionsByDay[day],
-      [date]: sessions,
+      [date]: sessions.sort((a, b) => a.venue.localeCompare(b.venue)),
     }
   })
 
@@ -124,7 +124,7 @@ interface Props {
 
 const ScheduleList: FC<Props> = ({
   showEventType,
-  showFilter,
+  showFilter = true,
   filterSchedule,
   scheduleData,
 }) => {
