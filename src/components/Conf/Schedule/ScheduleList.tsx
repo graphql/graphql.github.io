@@ -117,12 +117,14 @@ function getSessionsByDay(
 
 interface Props {
   showEventType?: boolean
+  showFilter?: boolean
   scheduleData: ScheduleSession[]
   filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
 }
 
 const ScheduleList: FC<Props> = ({
   showEventType,
+  showFilter,
   filterSchedule,
   scheduleData,
 }) => {
@@ -148,27 +150,29 @@ const ScheduleList: FC<Props> = ({
   return (
     <>
       <div className="h-0.5 bg-gray-200 my-6" />
-      <Filters
-        categories={filterCategories}
-        filterState={filtersState}
-        onFilterChange={(category, option, checked) => {
-          setFiltersState(prev => ({
-            ...prev,
-            [category]: checked
-              ? [...prev[category as CategoryName], option]
-              : prev[category as CategoryName].filter(
-                  option => option !== option
-                ),
-          }))
-        }}
-        onReset={() => {
-          setFiltersState({
-            Audience: [],
-            "Talk category": [],
-            "Event type": [],
-          })
-        }}
-      />
+      {showFilter && (
+        <Filters
+          categories={filterCategories}
+          filterState={filtersState}
+          onFilterChange={(category, option, checked) => {
+            setFiltersState(prev => ({
+              ...prev,
+              [category]: checked
+                ? [...prev[category as CategoryName], option]
+                : prev[category as CategoryName].filter(
+                    option => option !== option
+                  ),
+            }))
+          }}
+          onReset={() => {
+            setFiltersState({
+              Audience: [],
+              "Talk category": [],
+              "Event type": [],
+            })
+          }}
+        />
+      )}
       {Object.entries(sessionsState).length === 0 ? (
         <div className="text-gray-800 text-sm">
           <h3 className="mb-5">No sessions found</h3>
@@ -240,11 +244,16 @@ const ScheduleList: FC<Props> = ({
                               <div className="group-hover:underline flex flex-col justify-between h-full gap-y-2">
                                 {showEventType ? eventType + " / " : ""}
                                 {eventTitle}
-                                {speakers.length > 0 && (
+                                <div className="flex flex-col">
+                                  {speakers.length > 0 && (
+                                    <span className="font-light">
+                                      {speakers.join(", ")}
+                                    </span>
+                                  )}
                                   <span className="font-light">
-                                    {speakers.join(", ")}
+                                    Room: {session.venue}
                                   </span>
-                                )}
+                                </div>
                               </div>
                             </div>
                           </a>
