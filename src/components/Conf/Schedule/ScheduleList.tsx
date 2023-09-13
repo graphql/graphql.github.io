@@ -1,7 +1,8 @@
 import { format, parseISO, compareAsc } from "date-fns"
-import React, { FC, useReducer } from "react"
+import React, { FC, useEffect, useState } from "react"
 import { eventsColors } from "../../../utils/eventsColors"
 import { getEventTitle } from "../../../utils/eventTitle"
+import Filters from "./Filters"
 
 export interface ScheduleSession {
   id: string
@@ -23,110 +24,94 @@ export interface ScheduleSessionsByDay {
   [date: string]: ConcurrentSessions
 }
 
-type State = {
-  sessions: ScheduleSessionsByDay | undefined
-}
-type Action =
-  | { type: "set-audience"; tags: string[] }
-  | { type: "set-subtype"; tags: string[] }
-  | { type: "set-eventtype"; tags: string[] }
-  | { type: "reset-filters" }
-const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "set-audience": {
-      const sessions = Object.entries(state.sessions || {}).reduce(
-        (acc, [date, concurrentSessions]) => {
-          const sessions = Object.entries(concurrentSessions).reduce(
-            (acc, [date, sessions]) => {
-              const filteredSessions = sessions.filter(session =>
-                action.tags.some(tag => session.audience.includes(tag))
-              )
-              return {
-                ...acc,
-                [date]: filteredSessions,
-              }
-            },
-            {} as ConcurrentSessions
-          )
-          return {
-            ...acc,
-            [date]: sessions,
-          }
-        },
-        {} as ScheduleSessionsByDay
-      )
-      return {
-        ...state,
-        sessions,
-      }
+export type CategoryName = "Audience" | "Talk category" | "Event type"
+
+const filterCategories: Array<{ name: CategoryName; options: string[] }> = [
+  {
+    name: "Audience",
+    options: ["Beginner", "Intermediate", "Advanced"],
+  },
+  {
+    name: "Talk category",
+    options: [
+      "Beyond Javascript",
+      "Spec Fusion",
+      "Platform and Backend",
+      "GraphQL and Data",
+      "GraphQL Security",
+      "GraphQL in Production",
+      "GraphQL Clients",
+      "GraphQL Core",
+      "Scaling",
+      "Emerging Community Trends",
+    ],
+  },
+  {
+    name: "Event type",
+    options: [
+      "Workshops",
+      "Unconference",
+      "Keynote Sessions",
+      "Sponsor Showcase",
+      "Session Presentations",
+      "Lightning Talks",
+      "Events & Experiences",
+    ],
+  },
+]
+
+function getSessionsByDay(
+  scheduleData: ScheduleSession[],
+  initialFilter:
+    | ((sessions: ScheduleSession[]) => ScheduleSession[])
+    | undefined,
+  filters: Record<CategoryName, string[]>
+) {
+  const data = initialFilter ? initialFilter(scheduleData) : scheduleData
+  const filteredSortedSchedule = (data || []).sort((a, b) =>
+    compareAsc(new Date(a.event_start), new Date(b.event_start))
+  )
+
+  const concurrentSessions: ConcurrentSessions = {}
+  filteredSortedSchedule.forEach(session => {
+    const audienceFilter = filters.Audience
+    const talkCategoryFilter = filters["Talk category"]
+    const eventTypeFilter = filters["Event type"]
+
+    let include = true
+    if (audienceFilter.length > 0) {
+      include = include && audienceFilter.includes(session.audience)
+    }
+    if (talkCategoryFilter.length > 0) {
+      include = include && talkCategoryFilter.includes(session.event_subtype)
+    }
+    if (eventTypeFilter.length > 0) {
+      include = include && eventTypeFilter.includes(session.event_type)
     }
 
-    case "set-subtype": {
-      const sessions = Object.entries(state.sessions || {}).reduce(
-        (acc, [date, concurrentSessions]) => {
-          const sessions = Object.entries(concurrentSessions).reduce(
-            (acc, [date, sessions]) => {
-              const filteredSessions = sessions.filter(session =>
-                action.tags.some(tag => session.event_subtype.includes(tag))
-              )
-              return {
-                ...acc,
-                [date]: filteredSessions,
-              }
-            },
-            {} as ConcurrentSessions
-          )
-          return {
-            ...acc,
-            [date]: sessions,
-          }
-        },
-        {} as ScheduleSessionsByDay
-      )
-      return {
-        ...state,
-        sessions,
-      }
+    if (!include) {
+      return
     }
 
-    case "set-eventtype": {
-      const sessions = Object.entries(state.sessions || {}).reduce(
-        (acc, [date, concurrentSessions]) => {
-          const sessions = Object.entries(concurrentSessions).reduce(
-            (acc, [date, sessions]) => {
-              const filteredSessions = sessions.filter(session =>
-                action.tags.some(tag => session.event_type.includes(tag))
-              )
-              return {
-                ...acc,
-                [date]: filteredSessions,
-              }
-            },
-            {} as ConcurrentSessions
-          )
-          return {
-            ...acc,
-            [date]: sessions,
-          }
-        },
-        {} as ScheduleSessionsByDay
-      )
-      return {
-        ...state,
-        sessions,
-      }
+    if (!concurrentSessions[session.event_start]) {
+      concurrentSessions[session.event_start] = []
     }
+    concurrentSessions[session.event_start].push(session)
+  })
 
-    case "reset-filters": {
-      return {
-        ...state,
-        sessions: undefined,
-      }
+  const sessionsByDay: ScheduleSessionsByDay = {}
+  Object.entries(concurrentSessions).forEach(([date, sessions]) => {
+    const day = date.split(" ")[0]
+    if (!sessionsByDay[day]) {
+      sessionsByDay[day] = {}
     }
+    sessionsByDay[day] = {
+      ...sessionsByDay[day],
+      [date]: sessions,
+    }
+  })
 
-    default:
-      return state
-  }
+  return sessionsByDay
 }
 
 interface Props {
@@ -139,52 +124,50 @@ const ScheduleList: FC<Props> = ({
   filterSchedule,
   scheduleData,
 }) => {
-  const [sessionsState, dispatch] = useReducer<typeof reducer, State>(
-    reducer,
-    {} as State,
+  const [filtersState, setFiltersState] = useState<
+    Record<CategoryName, string[]>
+  >({
+    Audience: [],
+    "Talk category": [],
+    "Event type": [],
+  })
+  const [sessionsState, setSessionState] = useState<ScheduleSessionsByDay>(
     () => {
-      const data = filterSchedule ? filterSchedule(scheduleData) : scheduleData
-
-      const filteredSortedSchedule = (data || []).sort((a, b) =>
-        compareAsc(new Date(a.event_start), new Date(b.event_start))
-      )
-
-      const concurrentSessions: ConcurrentSessions = {}
-      filteredSortedSchedule.forEach(session => {
-        if (!concurrentSessions[session.event_start]) {
-          concurrentSessions[session.event_start] = []
-        }
-        concurrentSessions[session.event_start].push(session)
-      })
-
-      const sessionsByDay: ScheduleSessionsByDay = {}
-      Object.entries(concurrentSessions).forEach(([date, sessions]) => {
-        const day = date.split(" ")[0]
-        if (!sessionsByDay[day]) {
-          sessionsByDay[day] = {}
-        }
-        sessionsByDay[day] = {
-          ...sessionsByDay[day],
-          [date]: sessions,
-        }
-      })
-
-      return { sessions: sessionsByDay }
+      return getSessionsByDay(scheduleData, filterSchedule, filtersState)
     }
   )
 
-  if (sessionsState.sessions === undefined) {
-    return <p>Not available yet. Please check soon.</p>
-  }
+  useEffect(() => {
+    setSessionState(
+      getSessionsByDay(scheduleData, filterSchedule, filtersState)
+    )
+  }, [filtersState, scheduleData])
 
   return (
     <>
-      {Object.entries(sessionsState.sessions).map(
-        ([date, concurrentSessionsGroup]) => (
+      <div className="h-0.5 bg-gray-200 my-6" />
+      <Filters
+        categories={filterCategories}
+        filterState={filtersState}
+        onFilterChange={(category, option, checked) => {
+          setFiltersState(prev => ({
+            ...prev,
+            [category]: checked
+              ? [...prev[category as CategoryName], option]
+              : prev[category as CategoryName].filter(
+                  option => option !== option
+                ),
+          }))
+        }}
+      />
+      {Object.entries(sessionsState).length === 0 ? (
+        <div className="text-gray-800 text-sm">
+          <h3 className="mb-5">No sessions found</h3>
+        </div>
+      ) : (
+        Object.entries(sessionsState).map(([date, concurrentSessionsGroup]) => (
           <div key={date} className="text-gray-800 text-sm">
-            <h3 className="mt-10 mb-5">
-              {format(parseISO(date), "EEEE, MMMM d")}
-            </h3>
+            <h3 className="mb-5">{format(parseISO(date), "EEEE, MMMM d")}</h3>
             {Object.entries(concurrentSessionsGroup).map(
               ([sessionDate, sessions]) => (
                 <div key={`concurrent sessions on ${sessionDate}`}>
@@ -264,7 +247,7 @@ const ScheduleList: FC<Props> = ({
               )
             )}
           </div>
-        )
+        ))
       )}
     </>
   )
