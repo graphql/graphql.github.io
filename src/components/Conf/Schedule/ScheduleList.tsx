@@ -13,6 +13,7 @@ export interface ScheduleSession {
   event_subtype: string
   event_type: string
   name: string
+  venue: string
   speakers?: string
 }
 
