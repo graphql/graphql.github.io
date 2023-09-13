@@ -1,24 +1,34 @@
 import React from "react"
 import { Menu, Popover, Transition } from "@headlessui/react"
-import { ChevronDownIcon } from "@heroicons/react/20/solid"
+import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/20/solid"
 import clsx from "clsx"
 
 type FiltersProps = {
   categories: Array<{ name: string; options: string[] }>
   filterState: Record<string, string[]>
   onFilterChange: (category: string, option: string, checked: boolean) => void
+  onReset: () => void
 }
 
 export default function Filters({
   categories,
   filterState,
   onFilterChange,
+  onReset,
 }: FiltersProps) {
   return (
     <div className="">
       <div aria-labelledby="filter-heading">
         <div className="border-b border-gray-200  pb-4">
           <div className="flex items-center justify-between">
+            {Object.values(filterState).flat().length > 0 && (
+              <button
+                onClick={onReset}
+                className="cursor-pointer flex items-center gap-x-2 px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900"
+              >
+                Reset filters <XMarkIcon className="h-4 w-4 inline-block" />
+              </button>
+            )}
             <Menu as="div" className="relative inline-block text-left">
               <Transition
                 enter="transition ease-out duration-100"
@@ -32,19 +42,15 @@ export default function Filters({
                   <div className="py-1">
                     {categories.map(option => (
                       <Menu.Item key={option.name}>
-                        {({ active }) => (
-                          <span
-                            className={clsx(
-                              filterState[option.name].length > 0
-                                ? "font-medium text-gray-900"
-                                : "text-gray-500",
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm"
-                            )}
-                          >
-                            {option.name}
-                          </span>
-                        )}
+                        <span
+                          className={clsx(
+                            filterState[option.name].length > 0
+                              ? "font-medium text-gray-900"
+                              : "text-gray-500"
+                          )}
+                        >
+                          {option.name}
+                        </span>
                       </Menu.Item>
                     ))}
                   </div>

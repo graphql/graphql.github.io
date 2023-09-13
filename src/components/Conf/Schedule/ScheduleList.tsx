@@ -161,6 +161,13 @@ const ScheduleList: FC<Props> = ({
                 ),
           }))
         }}
+        onReset={() => {
+          setFiltersState({
+            Audience: [],
+            "Talk category": [],
+            "Event type": [],
+          })
+        }}
       />
       {Object.entries(sessionsState).length === 0 ? (
         <div className="text-gray-800 text-sm">
