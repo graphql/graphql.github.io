@@ -77,7 +77,11 @@ const SpeakersTemplate: FC<
 
               <div>
                 <h1 className="!mb-0 pb-0">Sessions</h1>
-                <ScheduleList showEventType scheduleData={schedule} />
+                <ScheduleList
+                  showFilter={false}
+                  showEventType
+                  scheduleData={schedule}
+                />
               </div>
             </div>
           </div>
