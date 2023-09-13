@@ -119,6 +119,7 @@ interface Props {
   scheduleData: ScheduleSession[]
   filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
 }
+
 const ScheduleList: FC<Props> = ({
   showEventType,
   filterSchedule,

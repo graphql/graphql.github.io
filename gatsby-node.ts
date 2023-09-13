@@ -40,7 +40,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const { createNode, createParentChildLink } = actions
+  const { createNode, createParentChildLink, createRedirect } = actions
 
   // Derive content nodes from remark nodes
   if (
@@ -92,7 +92,12 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
   actions,
 }) => {
   // This way is not "the Gatsby way", we create the pages, delete the pages, and create "code" paths page again.
-  if (page.path.startsWith("/blog") || page.path.startsWith("/tags")) {
+  if (
+    page.path.startsWith("/blog") ||
+    page.path.startsWith("/tags") ||
+    // we have manual og:image in this page that point to cf worker
+    page.path.startsWith("/conf/attendee/")
+  ) {
     return
   }
   const { createPage, deletePage } = actions
@@ -142,6 +147,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
 }) => {
   const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/conf/attendee/*`,
+    toPath: `https://graphql-conf-attendee-nextjs.vercel.app/*`,
+    statusCode: 200,
+  })
 
   try {
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN

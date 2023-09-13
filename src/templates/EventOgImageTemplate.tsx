@@ -14,7 +14,7 @@ const EventOgImageTemplate = ({
     company: speaker.company,
     position: speaker.position,
   }))
-  const { event_type, event_start: eventDate } = pageContext.event
+  const { event_type, event_start, event_end } = pageContext.event
 
   const eventType = event_type.endsWith("s")
     ? event_type.slice(0, -1)
@@ -111,7 +111,7 @@ const EventOgImageTemplate = ({
                 />
               </svg>
 
-              {format(parseISO(eventDate), "EEEE, MMM d")}
+              {format(parseISO(event_start), "EEEE, MMM d")}
             </span>
             <span style={{ display: "flex", alignItems: "center" }}>
               <svg
@@ -128,7 +128,10 @@ const EventOgImageTemplate = ({
                 />
               </svg>
 
-              {format(parseISO(eventDate), "hh:mmaaaa 'PDT'")}
+              {format(parseISO(event_start), "hh:mm aaaa") +
+                " - " +
+                format(parseISO(event_end), "hh:mm aaaa") +
+                " PDT"}
             </span>
           </div>
 

@@ -42,6 +42,7 @@ export const EventComponent: FC<{
   speakers: SchedSpeaker[]
   hideBackButton?: boolean
 }> = ({ event, speakers, hideBackButton }) => {
+  event.event_type ??= ""
   const eventType = event.event_type.endsWith("s")
     ? event.event_type.slice(0, -1)
     : event.event_type
@@ -90,7 +91,10 @@ export const EventComponent: FC<{
                   />
                 </svg>
 
-                {format(parseISO(event.event_start), "hh:mmaaaa 'PDT'")}
+                {format(parseISO(event.event_start), "hh:mm aaaa") +
+                  " - " +
+                  format(parseISO(event.event_end), "hh:mm aaaa") +
+                  " PDT"}
               </span>
             </div>
             <div className="space-y-5">

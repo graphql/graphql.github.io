@@ -8,16 +8,19 @@ import SeoConf from "../../components/Conf/Seo"
 type Button = {
   href: string
   text: string
+  active?: boolean
 }
 
 const Buttons: Button[] = [
   {
     href: "https://events.linuxfoundation.org/sponsor-graphqlconf-23",
-    text: "Explore Sponsorship Opportunity",
+    text: "Sponsorship sales have closed",
+    active: false,
   },
   {
     href: "https://powerforms.docusign.net/ba1e05a3-244d-4c94-9b3a-fd769966e479?env=na3&acct=f30e10ec-fea1-4dd8-a262-384a61edabb5&accountId=f30e10ec-fea1-4dd8-a262-384a61edabb5",
     text: "Ready To Sign",
+    active: false,
   },
   {
     href: "mailto:graphqlconf@graphql.org?subject=Sponsorships",
@@ -37,7 +40,11 @@ export default () => {
             </div>
             <div className="flex justify-center items-center gap-4 flex-col sm:flex-row">
               {Buttons.map(button => (
-                <ButtonConf key={button.text} href={button.href}>
+                <ButtonConf
+                  disabled={button.active === false}
+                  key={button.text}
+                  href={button.href}
+                >
                   {button.text}
                 </ButtonConf>
               ))}
@@ -64,17 +71,7 @@ export default () => {
                 GraphQL.
               </p>
               <br />
-              <p>
-                Help make this event one to remember by{" "}
-                <a
-                  className="font-medium"
-                  target="_blank"
-                  href="https://events.linuxfoundation.org/wp-content/uploads/2023/03/sponsor_GraphQLConf_2023_032423.pdf"
-                >
-                  becoming a sponsor
-                </a>
-                .
-              </p>
+              <p>Help make this event one to remember by becoming a sponsor.</p>
               <br />
               <p>
                 GraphQLConf will attract members of the GraphQL community from

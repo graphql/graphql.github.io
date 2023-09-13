@@ -54,7 +54,7 @@ const VenueConf = () => {
               <br />
               <b>Room Rates Start From</b>: $179.00
               <br />
-              <b>Room Block Closes</b>: September 4, 2023
+              <b>Room Block Closes</b>: 12:00 PM Pacific on September 8, 2023.
               <br />
               <i>
                 (Please note, the rate is valid until the cut-off date or the
