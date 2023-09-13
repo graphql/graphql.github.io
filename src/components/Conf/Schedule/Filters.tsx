@@ -63,7 +63,7 @@ export default function Filters({
                       className="relative inline-block text-left"
                     >
                       <div>
-                        <Popover.Button className="bg-inherit group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                        <Popover.Button className="bg-inherit p-1 px-2 group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                           <span>{section.name}</span>
                           {filterState[section.name].length ? (
                             <span className="ml-1.5 rounded bg-gray-200 px-1.5 py-0.5 text-xs font-semibold tabular-nums text-gray-700">
@@ -77,8 +77,8 @@ export default function Filters({
                         </Popover.Button>
                       </div>
 
-                      <Popover.Panel className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <form className="space-y-4">
+                      <Popover.Panel className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white p-4 shadow-lg border border-black focus:outline-none">
+                        <form className="space-y-4 border border-black">
                           {section.options.map((option, optionIdx) => (
                             <div key={option} className="flex items-center">
                               <input
