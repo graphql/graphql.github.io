@@ -57,7 +57,7 @@ export const EventComponent: FC<{
       <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
         <div className="flex flex-col lg:px-0">
           {!hideBackButton && <BackLink kind="schedule" />}
-          <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-8">
+          <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-4">
             <div className="flex gap-5 mb-1.5">
               <span className="flex items-center">
                 <svg
@@ -97,6 +97,7 @@ export const EventComponent: FC<{
                   " PDT"}
               </span>
             </div>
+            <span className="flex items-center mt-0">Room: {event.venue}</span>
             <div className="space-y-5">
               <div className="flex gap-3 flex-wrap">
                 <Tag text={eventType} featured />
