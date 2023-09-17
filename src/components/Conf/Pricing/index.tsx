@@ -1,6 +1,6 @@
 import React from "react"
 import { CheckCircledIcon } from "@radix-ui/react-icons"
-// import ButtonConf from "../Button"
+import ButtonConf from "../Button"
 
 interface Pricing {
   title: string
@@ -110,9 +110,9 @@ const PricingConf: React.FC = () => {
             {pricing.map(renderPriceCard)}
           </div>
           <div className="my-8 flex justify-center">
-            {/* <ButtonConf href="https://cvent.me/4zbxz9">
+            <ButtonConf href="https://cvent.me/4zbxz9">
               Buy a Ticket!
-            </ButtonConf> */}
+            </ButtonConf>
           </div>
 
           <div className="w-full">
