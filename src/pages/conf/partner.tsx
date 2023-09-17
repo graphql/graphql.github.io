@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode, useEffect } from "react"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
@@ -101,10 +101,35 @@ const cfp: Array<{ id: string; title: string; contents: ReactNode }> = [
 ]
 
 export default () => {
+  useEffect(() => {
+    const redirectTimer = setTimeout(() => {
+      window.location.replace("/conf/")
+    }, 5000)
+    return () => clearTimeout(redirectTimer)
+  }, [])
   return (
     <LayoutConf>
       <HeaderConf />
-      <div className="bg-white">
+      <div className="text-gray-600 items-center bg-color-[#562556] bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover bg-blend-multiply	bg-opacity-20	bg-black">
+        <div className="container flex py-16 md:py-36 items-center justify-center flex-col">
+          <div className="flex flex-col justify-center w-full gap-2 lg:gap-32 lg:flex-row">
+            <div>
+              <img
+                src="/img/conf/graphql-conf-logo.svg"
+                className="w-[300px] md:w-[500px]"
+              />
+            </div>
+          </div>
+          <div className="text-center w-full">
+            <h1 className="text-white font-semibold">Oops!</h1>
+            <p className="text-white font-semibold">Page not found!</p>
+            <p className="text-white font-semibold">
+              You will redirect to the home page
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* <div className="bg-white">
         <div className="prose lg:prose-lg mx-auto py-10 max-sm:px-4">
           <h1>Partner with GraphQLConf</h1>
           <section className="px-0 my-8">
@@ -136,7 +161,7 @@ export default () => {
             </SectionConf>
           ))}
         </div>
-      </div>
+      </div> */}
       <FooterConf />
     </LayoutConf>
   )
