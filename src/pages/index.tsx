@@ -27,7 +27,7 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
               SEPTEMBER 19-21, 2023 • SAN FRANCISCO BAY AREA, CA
             </span>
             <div>
-              <a className="button" href="/conf/#attend">
+              <a className="button" href="/conf/">
                 Register Now!
               </a>
             </div>
