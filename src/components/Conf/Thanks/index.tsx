@@ -11,8 +11,8 @@ const ThanksConf: React.FC = () => {
           Thank you to all who joined us for GraphQLConf 2023! We look forward
           to seeing you at future events
         </h2>
-        <div className="flex flex-wrap -m-4">
-          <div className="p-4 md:w-1/2 w-full">
+        <div className="flex flex-wrap ">
+          <div className="p-4 md:w-1/2 w-full rounded-2xl">
             <div className="h-full bg-gray-100 p-8 rounded">
               <svg width="50" height="50" viewBox="0 0 24 24" fill="none">
                 <path
@@ -39,7 +39,7 @@ const ThanksConf: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="p-4 md:w-1/2 w-full">
+          <div className="p-4 md:w-1/2 w-full rounded-2xl">
             <div className="h-full bg-gray-100 p-8 rounded">
               <svg
                 width="50"
