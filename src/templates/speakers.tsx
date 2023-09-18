@@ -7,47 +7,9 @@ import { keynoteSpeakers } from "../components/Conf/Speakers"
 import Speaker, { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
 import { PageProps } from "gatsby"
 
-const fetchData = async (url: string) => {
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "User-Agent": "GraphQL Conf / GraphQL Foundation",
-      },
-    })
-    const data = await response.json()
-    return data
-  } catch (error: any) {
-    throw new Error(
-      `Error fetching data from ${url}: ${error.message || error.toString()}`
-    )
-  }
-}
-
-export async function getServerData() {
-  try {
-    const speakers: SchedSpeaker[] = await fetchData(
-      `https://graphqlconf23.sched.com/api/user/list?api_key=${process.env.SCHED_ACCESS_TOKEN}&format=json&fields=username`
-    )
-
-    return {
-      props: {
-        speakers,
-      },
-    }
-  } catch (error) {
-    return {
-      status: 500,
-      headers: {},
-      props: {},
-    }
-  }
-}
-
-const SpeakersTemplate: FC<
-  PageProps<{}, {}, {}, { speakers: SchedSpeaker[] }>
-> = ({ serverData: { speakers: speakersData } }) => {
+const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
+  pageContext: { speakers: speakersData },
+}) => {
   const keynoteNames = keynoteSpeakers.map(speaker => speaker.name)
 
   // create an array for keynote speakers in fetched data maintaining the order in keynoteSpeakers
