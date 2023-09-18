@@ -67,7 +67,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 
 - [GraphQL San Francisco](http://www.meetup.com/GraphQL-SF/)
 - [GraphQL & Relay (San Francisco)](http://www.meetup.com/graphql/)
-- [GraphQL Seattle](https://www.meetup.com/Seattle-GraphQL-Meetup/)
+- [GraphQL Seattle](https://www.meetup.com/seattlegraphql/)
 - [GraphQL Toronto](https://www.meetup.com/GraphQL-Toronto/)
 - [GraphQL NYC](https://www.meetup.com/GraphQL-NYC/)
 - [GraphQL Atlanta](https://www.meetup.com/GraphQL-Atlanta/)
