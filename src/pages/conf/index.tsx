@@ -4,13 +4,11 @@ import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
 import ButtonConf from "../../components/Conf/Button"
 import SpeakersConf from "../../components/Conf/Speakers"
-import PricingConf from "../../components/Conf/Pricing"
 import AboutConf from "../../components/Conf/About"
-import VenueConf from "../../components/Conf/Venue"
-import SFConf from "../../components/Conf/SF"
 import ScheduleGlanceConf from "../../components/Conf/Schedule"
 import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
 import { CalendarIcon, GlobeIcon } from "@radix-ui/react-icons"
+import ThanksConf from "../../components/Conf/Thanks"
 
 export default () => {
   return (
@@ -45,6 +43,7 @@ export default () => {
           </div>
         </div>
       </div>
+      <ThanksConf />
       <SpeakersConf />
       <ScheduleGlanceConf />
       <AboutConf />
