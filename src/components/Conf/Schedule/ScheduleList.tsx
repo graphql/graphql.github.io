@@ -266,7 +266,6 @@ const ScheduleList: FC<Props> = ({
                                         </span>
                                       )}
                                       <span className="font-bold mt-2 flex items-center text-gray-700">
-                                        Room: {session.venue}
                                         <svg
                                           className="mr-1 mb-0.5"
                                           width="16px"
