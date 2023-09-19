@@ -256,22 +256,34 @@ const ScheduleList: FC<Props> = ({
                                       {eventType}
                                     </span>
                                   )}
-                                  <span className="font-bold mt-2 flex items-center text-gray-700">
-                                    <svg
-                                      className="mr-1 mb-0.5"
-                                      width="16px"
-                                      height="16px"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 384 512"
-                                    >
-                                      {/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
-                                      <path
-                                        fill="rgb(55, 65, 81)"
-                                        d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
-                                      />
-                                    </svg>
-                                    {session.venue}
-                                  </span>
+                                  <div className="group-hover:underline flex flex-col justify-between h-full gap-y-2">
+                                    {showEventType ? eventType + " / " : ""}
+                                    {eventTitle}
+                                    <div className="flex flex-col">
+                                      {speakers.length > 0 && (
+                                        <span className="font-light">
+                                          {speakers.join(", ")}
+                                        </span>
+                                      )}
+                                      <span className="font-bold mt-2 flex items-center text-gray-700">
+                                        Room: {session.venue}
+                                        <svg
+                                          className="mr-1 mb-0.5"
+                                          width="16px"
+                                          height="16px"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          viewBox="0 0 384 512"
+                                        >
+                                          {/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
+                                          <path
+                                            fill="rgb(55, 65, 81)"
+                                            d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                                          />
+                                        </svg>
+                                        {session.venue}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
                               </a>
                             )
