@@ -65,26 +65,23 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 
 ### North America
 
-- [GraphQL San Francisco](http://www.meetup.com/GraphQL-SF/)
-- [GraphQL & Relay (San Francisco)](http://www.meetup.com/graphql/)
+- [GraphQL San Francisco](https://www.meetup.com/sf-graphql/)
+- [GraphQL APIs (San Francisco)](http://www.meetup.com/graphql/)
+- [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
 - [GraphQL Seattle](https://www.meetup.com/seattlegraphql/)
-- [GraphQL Toronto](https://www.meetup.com/GraphQL-Toronto/)
+- [GraphQL Boston](https://www.meetup.com/graphql-boston/)
 - [GraphQL NYC](https://www.meetup.com/GraphQL-NYC/)
-- [GraphQL Atlanta](https://www.meetup.com/GraphQL-Atlanta/)
 - [GraphQL Austin](https://www.meetup.com/ATX-GraphQL/)
-- [GraphQL Los Angeles](https://www.meetup.com/Los-Angeles-GraphQL-Meetup/)
 - [GraphQL Dallas-Fort Worth](https://www.meetup.com/DFW-GraphQL-Meetup/)
-- [GraphQL Ottawa](https://www.meetup.com/GraphQL-Ottawa/)
 - [GraphQL Columbus](https://www.meetup.com/GraphQL-Columbus/)
-- [GraphQL Vancouver](https://www.meetup.com/GraphQL-Vancouver/)
 - [GraphQL Minneapolis](https://www.meetup.com/GraphQL-MN/)
 - [GraphQL Denver](https://www.meetup.com/graphql-denver)
-- [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
+- [GraphQL Chicago](https://www.meetup.com/graphql-chicago/)
+- [GraphQL Los Angeles](https://www.meetup.com/meetup-group-graphql/)
 
 ### South America
 
-- [GraphQL Florianópolis](https://www.meetup.com/GraphQL-Floripa/)
-- [GraphQL São Paulo](https://www.meetup.com/Apollo-GraphQL/)
+- [GraphQL São Paulo](https://www.meetup.com/graphql-sp/)
 - [GraphQL Buenos Aires](https://www.meetup.com/GraphQL-BA/)
 
 ### Europe
@@ -94,14 +91,12 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL Barcelona](https://www.meetup.com/GraphQL-Barcelona/)
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
 - [GraphQL Copenhagen](https://www.meetup.com/Copenhagen-GraphQL-Meetup-Group/)
-- [GraphQL Edinburgh](https://www.meetup.com/GraphQL-Edinburgh/)
-- [GraphQL Lisbon](https://www.meetup.com/GraphQL-Lisbon/)
 - [GraphQL London](https://www.meetup.com/GraphQL-London)
-- [GraphQL Luxembourg](https://www.meetup.com/GraphQL-Luxembourg/)
 - [GraphQL Milano](https://www.meetup.com/GraphQL-Milano/)
 - [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
 - [GraphQL Paris 2](https://www.meetup.com/fr-FR/parisgraphql/)
+- [GraphQL Sarajevo](https://www.meetup.com/graphql-sarajevo/)
 - [GraphQL Stockholm](https://www.meetup.com/GraphQL-Stockholm/)
 - [GraphQL Vienna](https://www.meetup.com/GraphQL-Vienna/)
 - [GraphQL Zurich](https://www.meetup.com/graphql-zurich/)
@@ -120,7 +115,9 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL Meetup (Bangkok)](https://www.meetup.com/GraphQL-Bangkok/)
 - [GraphQL Meetup (Singapore)](https://www.meetup.com/GraphQL-SG/)
 - [GraphQL Meetup (Hong Kong)](https://www.meetup.com/GraphQLHongKong/)
+- [GraphQL Shenzhen](https://www.meetup.com/graphqlshenzhen/)
 - [GraphQL Korea](https://www.facebook.com/groups/graphql.kr)
+- [GraphQL Seoul](https://www.meetup.com/graphql-seoul/)
 
 ### Africa
 
