@@ -65,7 +65,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 
 ### North America
 
-- [GraphQL San Francisco](http://www.meetup.com/GraphQL-SF/)
+- [GraphQL San Francisco](https://www.meetup.com/sf-graphql/)
 - [GraphQL APIs (San Francisco)](http://www.meetup.com/graphql/)
 - [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
 - [GraphQL Seattle](https://www.meetup.com/seattlegraphql/)
