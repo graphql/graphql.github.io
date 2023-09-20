@@ -70,7 +70,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL By the Bay (San Francisco)](https://www.meetup.com/graphql-by-the-bay/)
 - [GraphQL Seattle](https://www.meetup.com/seattlegraphql/)
 - [GraphQL Boston](https://www.meetup.com/graphql-boston/)
-- [GraphQL NYC](https://www.meetup.com/GraphQL-NYC/)
+- [GraphQL NYC](https://www.meetup.com/graphql-newyork/)
 - [GraphQL Austin](https://www.meetup.com/ATX-GraphQL/)
 - [GraphQL Dallas-Fort Worth](https://www.meetup.com/DFW-GraphQL-Meetup/)
 - [GraphQL Columbus](https://www.meetup.com/GraphQL-Columbus/)
