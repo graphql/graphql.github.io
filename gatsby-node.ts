@@ -104,7 +104,7 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
   deletePage(page)
   let context = {
     ...page.context,
-    sourcePath: path.relative(__dirname, page.path),
+    sourcePath: path.relative(__dirname, page.component),
   }
   if (page.path === "/code" || page.path === "/code/") {
     const markdownFilePaths = await glob("src/content/code/**/*.md")
