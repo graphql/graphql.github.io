@@ -5,14 +5,10 @@ import PartnersConf from "../Partners"
 
 const links = [
   [
-    { text: "Attend", href: "/conf/#attend" },
     { text: "Speakers", href: "/conf/#speakers" },
-    { text: "Partner", href: "/conf/partner/" },
     { text: "Schedule", href: "/conf/#schedule" },
-    { text: "Location", href: "/conf/#location" },
   ],
   [
-    { text: "Sponsor", href: "/conf/sponsor/" },
     { text: "FAQ", href: "/conf/faq/" },
     { text: "Contact Us", href: "/conf/faq/#contact" },
   ],

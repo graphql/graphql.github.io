@@ -9,11 +9,8 @@ interface LinkItem {
 }
 
 const links: LinkItem[] = [
-  { text: "Attend", href: "/conf/#attend" },
   { text: "Speakers", href: "/conf/speakers/" },
   { text: "Schedule", href: "/conf/schedule/" },
-  { text: "Sponsor", href: "/conf/sponsor/" },
-  { text: "Partner", href: "/conf/partner/" },
   { text: "FAQ", href: "/conf/faq/" },
 ]
 
@@ -79,12 +76,12 @@ const HeaderConf = ({ className = "" }: HeaderConfProps) => {
           </div>
 
           <div className="lg:flex items-center gap-5 mt-5 lg:mt-0 hidden">
-            <ButtonConf
+            {/* <ButtonConf
               href="https://cvent.me/4zbxz9"
               className="ml-auto lg:visible"
             >
               Buy a Ticket!
-            </ButtonConf>
+            </ButtonConf> */}
           </div>
         </nav>
 
@@ -92,9 +89,9 @@ const HeaderConf = ({ className = "" }: HeaderConfProps) => {
           className="flex items-center space-x-4 lg:hidden"
           onClick={handleDrawerClick}
         >
-          <ButtonConf href="https://cvent.me/4zbxz9" className="lg:hidden">
+          {/* <ButtonConf href="https://cvent.me/4zbxz9" className="lg:hidden">
             Buy a Ticket!
-          </ButtonConf>
+          </ButtonConf> */}
           <div className="space-y-2 cursor-pointer py-3">
             <span className="block w-8 h-0.5 bg-white"></span>
             <span className="block w-5 h-0.5 bg-white"></span>
