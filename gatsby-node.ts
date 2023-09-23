@@ -186,7 +186,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     // Create schedule events' pages
     schedule.forEach(event => {
-      const eventSpeakers = speakers.filter((e) => event.speakers?.find(({ username }) => username === e.username))
+      const eventSpeakers = speakers.filter(e =>
+        event.speakers?.find(({ username }) => username === e.username)
+      )
 
       createPage({
         path: `/conf/schedule/${event.id}`,
@@ -231,11 +233,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     speakers.forEach(speaker => {
       const speakerSessions: ScheduleSession[] =
         schedule.filter(session => {
-
-          return session.speakers?.find((e) => e.username === speaker.username)
-        }
-        ) ||
-        []
+          return session.speakers?.find(e => e.username === speaker.username)
+        }) || []
 
       createPage({
         path: `/conf/speakers/${speaker.username}`,
