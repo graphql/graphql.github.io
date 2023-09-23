@@ -54,6 +54,11 @@ export const EventComponent: FC<{
     speakers.map(s => s.name)
   )
 
+  const recordingTitle = findBestMatch(
+    `${eventTitle} ${speakers.map(e => e.name).join(" ")}`,
+    videos.map(e => e.title)
+  ).bestMatch
+
   return (
     <div className={`bg-white ${!hideBackButton ? "py-10" : ""}`}>
       <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
@@ -175,28 +180,24 @@ export const EventComponent: FC<{
               ))}
             </div>
 
-            <div>
-              <span className="block text-3xl font-bold text-[#111827] mt-5 mb-4">
-                Recording
-              </span>
-              <iframe
-                height="408px"
-                width="100%"
-                src={`https://www.youtube.com/embed/${
-                  videos.find(
-                    e =>
-                      e.title ===
-                      findBestMatch(
-                        eventTitle,
-                        videos.map(e => e.title)
-                      ).bestMatch.target
-                  )?.id
-                }`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
+            {recordingTitle.rating > 0.5 && (
+              <div>
+                <span className="block text-3xl font-bold text-[#111827] mt-5 mb-4">
+                  Recording
+                </span>
+
+                <iframe
+                  height="408px"
+                  width="100%"
+                  src={`https://www.youtube.com/embed/${
+                    videos.find(e => e.title === recordingTitle.target)?.id
+                  }`}
+                  title={recordingTitle.target}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            )}
 
             {event.files && (
               <div>
