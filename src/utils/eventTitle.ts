@@ -2,7 +2,7 @@ import { ScheduleSession } from "../components/Conf/Schedule/ScheduleList"
 
 export function getEventTitle(
   event: ScheduleSession,
-  speakers: string[] | undefined
+  speakers: string[]
 ): string {
   if (!speakers) {
     return event.name

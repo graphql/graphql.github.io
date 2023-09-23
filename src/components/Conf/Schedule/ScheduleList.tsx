@@ -3,6 +3,7 @@ import React, { FC, useEffect, useState } from "react"
 import { eventsColors } from "../../../utils/eventsColors"
 import { getEventTitle } from "../../../utils/eventTitle"
 import Filters from "./Filters"
+import { SchedSpeaker } from "../Speakers/Speaker"
 
 export interface ScheduleSession {
   id: string
@@ -14,7 +15,8 @@ export interface ScheduleSession {
   event_type: string
   name: string
   venue: string
-  speakers?: string
+  speakers?: SchedSpeaker[]
+  files?: { name: string; path: string }[]
 }
 
 export interface ConcurrentSessions {
@@ -214,8 +216,11 @@ const ScheduleList: FC<Props> = ({
                               ? session.event_type.slice(0, -1)
                               : session.event_type
 
-                            const speakers = session.speakers?.split(",") || []
-                            const eventTitle = getEventTitle(session, speakers)
+                            const speakers = session.speakers
+                            const eventTitle = getEventTitle(
+                              session,
+                              speakers?.split(",") || []
+                            )
 
                             const borderColor = eventsColors[session.event_type]
 
@@ -260,9 +265,9 @@ const ScheduleList: FC<Props> = ({
                                     {showEventType ? eventType + " / " : ""}
                                     {eventTitle}
                                     <div className="flex flex-col">
-                                      {speakers.length > 0 && (
+                                      {(speakers?.length || 0) > 0 && (
                                         <span className="font-light">
-                                          {speakers.join(", ")}
+                                          {speakers}
                                         </span>
                                       )}
                                       <span className="font-bold mt-2 flex items-center text-gray-700">
