@@ -9,6 +9,7 @@ import ScheduleGlanceConf from "../../components/Conf/Schedule"
 import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
 import { CalendarIcon, GlobeIcon } from "@radix-ui/react-icons"
 import ThanksConf from "../../components/Conf/Thanks"
+import GalleryConf from "../../components/Conf/Gallery"
 
 export default () => {
   return (
@@ -44,6 +45,7 @@ export default () => {
         </div>
       </div>
       <ThanksConf />
+      <GalleryConf />
       <SpeakersConf />
       <ScheduleGlanceConf />
       <AboutConf />
