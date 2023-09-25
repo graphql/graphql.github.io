@@ -8,47 +8,9 @@ import ScheduleList, {
   ScheduleSession,
 } from "../components/Conf/Schedule/ScheduleList"
 
-const fetchData = async (url: string) => {
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "User-Agent": "GraphQL Conf / GraphQL Foundation",
-      },
-    })
-    const data = await response.json()
-    return data
-  } catch (error: any) {
-    throw new Error(
-      `Error fetching data from ${url}: ${error.message || error.toString()}`
-    )
-  }
-}
-
-export async function getServerData() {
-  try {
-    const schedule: ScheduleSession[] = await fetchData(
-      `https://graphqlconf23.sched.com/api/session/list?api_key=${process.env.SCHED_ACCESS_TOKEN}&format=json`
-    )
-
-    return {
-      props: {
-        schedule,
-      },
-    }
-  } catch (error) {
-    return {
-      status: 500,
-      headers: {},
-      props: {},
-    }
-  }
-}
-
-const ScheduleTemplate: FC<
-  PageProps<{}, {}, {}, { schedule: ScheduleSession[] }>
-> = ({ serverData: { schedule } }) => {
+const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
+  pageContext: { schedule },
+}) => {
   return (
     <LayoutConf>
       <HeaderConf className="shadow-none" />
