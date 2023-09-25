@@ -199,4 +199,4 @@ export const videos = [
   { id: 'pg60TGzxplk', title: `GraphQL.js Working Group - 2021-01-27` },
   { id: 'rLkfz8Snw7M', title: `Input Unions - 2021-01-21` },
   { id: 'pBTKkt3ze_M', title: `GraphQL Working Group - January 7, 2021` },
-];
+]
