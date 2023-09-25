@@ -293,10 +293,6 @@ export const videos = [
     title: `Miles Bardon - Improving the GraphQL developer experience on LEGO.com`,
   },
   {
-    id: "bmdWEydYas8",
-    title: `Jamie Barton - Unify Data Sources at the Edge with GraphQL`,
-  },
-  {
     id: "XX05BNMl7lo",
     title: `Darrell Warde - A journey through the GraphQL validation system`,
   },
