@@ -21,7 +21,6 @@ import { BackLink } from "../components/Conf/Schedule/BackLink"
 const SpeakersTemplate: FC<
   PageProps<{}, { speaker: SchedSpeaker; schedule: ScheduleSession[] }>
 > = ({ pageContext: { schedule, speaker } }) => {
-  console.log("wowwowwo", speaker, schedule)
   return (
     <LayoutConf>
       <HeaderConf />

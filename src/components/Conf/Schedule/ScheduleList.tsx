@@ -5,6 +5,10 @@ import { getEventTitle } from "../../../utils/eventTitle"
 import Filters from "./Filters"
 import { SchedSpeaker } from "../Speakers/Speaker"
 
+function isString(x: any) {
+  return Object.prototype.toString.call(x) === "[object String]"
+}
+
 export interface ScheduleSession {
   id: string
   audience: string
@@ -15,7 +19,7 @@ export interface ScheduleSession {
   event_type: string
   name: string
   venue: string
-  speakers?: SchedSpeaker[]
+  speakers?: SchedSpeaker[] | string
   files?: { name: string; path: string }[]
 }
 
@@ -217,9 +221,12 @@ const ScheduleList: FC<Props> = ({
                               : session.event_type
 
                             const speakers = session.speakers
+                            const formattedSpeakers = isString(speakers || [])
+                              ? (speakers as string)?.split(",")
+                              : (speakers as SchedSpeaker[])?.map(e => e.name)
                             const eventTitle = getEventTitle(
                               session,
-                              speakers?.split(",") || []
+                              formattedSpeakers
                             )
 
                             const borderColor = eventsColors[session.event_type]
@@ -267,7 +274,7 @@ const ScheduleList: FC<Props> = ({
                                     <div className="flex flex-col">
                                       {(speakers?.length || 0) > 0 && (
                                         <span className="font-light">
-                                          {speakers}
+                                          {formattedSpeakers.join(", ")}
                                         </span>
                                       )}
                                       <span className="font-bold mt-2 flex items-center text-gray-700">
