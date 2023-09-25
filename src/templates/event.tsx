@@ -54,6 +54,7 @@ export const EventComponent: FC<{
     speakers.map(s => s.name)
   )
 
+  console.log("SEEE:", `${eventTitle} ${speakers.map(e => e.name).join(" ")}`)
   const recordingTitle = findBestMatch(
     `${eventTitle} ${speakers.map(e => e.name).join(" ")}`,
     videos.map(e => e.title)

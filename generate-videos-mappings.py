@@ -13,22 +13,37 @@ api_key = os.getenv("YOUTUBE_ACCESS_TOKEN")
 youtube = googleapiclient.discovery.build(
     api_service_name, api_version, developerKey=api_key)
 
-def get_videos(channel_id, max_results=100):
-    request = youtube.search().list(
-        part="snippet",
-        channelId=channel_id,
-        maxResults=max_results,
-        order="date", 
-        type="video" 
-    )
-    response = request.execute()
-    
+def get_videos(channel_id, max_results_per_page=50):
     videos = []
-    for item in response.get("items", []):
-        video_id = item["id"]["videoId"]
-        title = item["snippet"]["title"]
-        videos.append({'id': video_id, 'title': title})  
+    page_token = None  # Start with no pageToken
+    total_fetched = 0  # Keep track of the total number of fetched videos
+    
+    while total_fetched < 200:  # Keep looping until 200 videos have been fetched
+        request = youtube.search().list(
+            part="snippet",
+            channelId=channel_id,
+            maxResults=max_results_per_page,
+            order="date",
+            type="video",
+            pageToken=page_token  # Include the current pageToken
+        )
         
+        response = request.execute()
+        
+        for item in response.get("items", []):
+            if total_fetched >= 200:
+                break  # Break out of the loop if 200 videos have been fetched
+            
+            video_id = item["id"]["videoId"]
+            title = item["snippet"]["title"]
+            videos.append({'id': video_id, 'title': title})
+            total_fetched += 1  # Increment the total_fetched count
+        
+        page_token = response.get("nextPageToken")  # Get the next pageToken
+        
+        if not page_token:
+            break  # Exit the loop if there are no more pages
+    
     return videos
 
 def get_channel_id(channel_name):
