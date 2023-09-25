@@ -18,6 +18,8 @@ import {
 } from "../components/Conf/Speakers/SocialMedia"
 import { BackLink } from "../components/Conf/Schedule/BackLink"
 import { getEventTitle } from "../utils/eventTitle"
+import { videos } from "./videos"
+import { findBestMatch } from "string-similarity"
 
 const Tag = ({
   text,
@@ -51,6 +53,11 @@ export const EventComponent: FC<{
     event,
     speakers.map(s => s.name)
   )
+
+  const recordingTitle = findBestMatch(
+    `${eventTitle} ${speakers.map(e => e.name).join(" ")}`,
+    videos.map(e => e.title)
+  ).bestMatch
 
   return (
     <div className={`bg-white ${!hideBackButton ? "py-10" : ""}`}>
@@ -124,7 +131,6 @@ export const EventComponent: FC<{
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
             />
-
             <div className="flex lg:flex-row flex-col sm:gap-5">
               {speakers?.map(speaker => (
                 <div className="flex items-center gap-3">
@@ -173,6 +179,49 @@ export const EventComponent: FC<{
                 </div>
               ))}
             </div>
+
+            {recordingTitle.rating > 0.5 && (
+              <div>
+                <span className="block text-3xl font-bold text-[#111827] mt-5 mb-4">
+                  Recording
+                </span>
+
+                <iframe
+                  height="408px"
+                  width="100%"
+                  src={`https://www.youtube.com/embed/${
+                    videos.find(e => e.title === recordingTitle.target)?.id
+                  }`}
+                  title={recordingTitle.target}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            )}
+
+            {event.files && (
+              <div>
+                <span className="block text-3xl font-bold text-[#111827] mt-5 mb-4">
+                  Assets
+                </span>
+                {event.files?.map(({ name, path }) => (
+                  <>
+                    <a href={path} target="_blank">
+                      {name}
+                    </a>
+                    <iframe
+                      style={{
+                        height: "500px",
+                        width: "100%",
+                        resize: "both",
+                        overflow: "auto",
+                      }}
+                      src={path}
+                    ></iframe>
+                  </>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

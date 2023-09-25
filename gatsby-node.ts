@@ -158,7 +158,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
 
     const schedule: ScheduleSession[] = await fetchData(
-      `https://graphqlconf23.sched.com/api/session/list?api_key=${schedAccessToken}&format=json`
+      `https://graphqlconf23.sched.com/api/session/export?api_key=${schedAccessToken}&format=json`
     )
 
     const usernames: { username: string }[] = await fetchData(
@@ -187,7 +187,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     // Create schedule events' pages
     schedule.forEach(event => {
       const eventSpeakers = speakers.filter(e =>
-        event.speakers?.includes(e.name)
+        event.speakers?.find(({ username }) => username === e.username)
       )
 
       createPage({
@@ -232,8 +232,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
     // Create a page for each speaker
     speakers.forEach(speaker => {
       const speakerSessions: ScheduleSession[] =
-        schedule.filter(session => session.speakers?.includes(speaker.name)) ||
-        []
+        schedule.filter(session => {
+          return session.speakers?.find(e => e.username === speaker.username)
+        }) || []
 
       createPage({
         path: `/conf/speakers/${speaker.username}`,
