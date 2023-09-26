@@ -28,7 +28,7 @@ const ThanksConf: React.FC = () => {
           <div className="flex justify-center">
             <ButtonConf
               className="inline-flex text-white border-0 py-2 px-6 focus:outline-none  rounded text-lg"
-              href="/schedule/"
+              href="/conf/schedule/"
             >
               Explore recordings and slides
             </ButtonConf>
