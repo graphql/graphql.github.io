@@ -15,35 +15,35 @@ const GalleryConf = () => {
         </h2>
         <div className="flex flex-wrap md:-m-2 -m-1">
           <div className="flex flex-wrap w-1/2">
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50 cursor-pointer">
+            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
                 src={`/img/conf/Gallery/${randomArrayImages[0]}.jpg`}
               />
             </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50 cursor-pointer">
+            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
                 src={`/img/conf/Gallery/${randomArrayImages[1]}.jpg`}
               />
             </div>
-            <div className="md:p-2 p-1 w-full hover:opacity-50 cursor-pointer">
+            <div className="md:p-2 p-1 w-full hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full h-full object-cover object-center block"
                 src={`/img/conf/Gallery/${randomArrayImages[2]}.jpg`}
               />
             </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50 cursor-pointer">
+            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full h-full object-cover object-center block"
                 src={`/img/conf/Gallery/${randomArrayImages[3]}.jpg`}
               />
             </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50 cursor-pointer">
+            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full h-full object-cover object-center block"
@@ -51,22 +51,22 @@ const GalleryConf = () => {
               />
             </div>
           </div>
-          <div className="flex flex-wrap w-1/2 hover:opacity-50 cursor-pointer">
-            <div className="md:p-2 p-1 w-full">
+          <div className="flex flex-wrap w-1/2">
+            <div className="md:p-2 p-1 w-full hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full h-full object-cover object-center block"
                 src={`/img/conf/Gallery/${randomArrayImages[5]}.jpg`}
               />
             </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50 cursor-pointer">
+            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
                 src={`/img/conf/Gallery/${randomArrayImages[6]}.jpg`}
               />
             </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50 cursor-pointer">
+            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
