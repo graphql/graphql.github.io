@@ -1,7 +1,6 @@
 import { ScheduleSession } from "./src/components/Conf/Schedule/ScheduleList"
 import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
-import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
 import * as path from "path"
 import { glob } from "glob"
 import _ from "lodash"
@@ -9,6 +8,9 @@ import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
 import redirects from "./redirects.json"
+import { findBestMatch } from 'string-similarity'
+import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
+import { videos } from './src/templates/videos'
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -201,26 +203,38 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
       if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
         try {
-          createOpenGraphImage(createPage, {
-            outputDir: "../static/img/__og-image",
-            component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
-            size: {
-              width: 1200,
-              height: 630,
-            },
-            waitCondition: "networkidle0",
-            context: {
-              id: event.id,
-              title: event.name,
-              event,
-              speakers: eventSpeakers,
-            },
-          })
+          const recordingTitle = findBestMatch(
+            `${event.name} ${eventSpeakers.map(e => e.name).join(" ")}`,
+            videos.map(e => e.title)
+          ).bestMatch
+
+          if (recordingTitle.rating >= 0.5) {
+            videos[videos.findIndex((e) => e.title === recordingTitle.target)].thumbnailPath = `./static/img/__og-image/${event.id}`
+
+            createOpenGraphImage(createPage, {
+              outputDir: "../static/img/__og-image",
+              component: path.resolve("./src/templates/EventOgImageTemplate.tsx"),
+              size: {
+                width: 1280,
+                height: 720,
+              },
+              waitCondition: "networkidle0",
+              context: {
+                id: event.id,
+                title: event.name,
+                event,
+                speakers: eventSpeakers,
+              },
+            })
+          }
+
         } catch {
           console.log("Error creating OG image for", event.name)
         }
       }
     })
+    require('fs').writeFileSync("mappings.json", JSON.stringify(videos.filter((e) => e?.thumbnailPath), null, 2))
+
 
     // Create speakers list page
     createPage({
@@ -250,8 +264,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
               "./src/templates/SpeakerOgImageTemplate.tsx"
             ),
             size: {
-              width: 1200,
-              height: 630,
+              width: 1280,
+              height: 720,
             },
             waitCondition: "networkidle0",
             context: {

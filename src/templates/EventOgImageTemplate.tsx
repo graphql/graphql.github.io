@@ -35,8 +35,8 @@ const EventOgImageTemplate = ({
         border: "transparent",
         margin: -8,
         color: "white",
-        minHeight: 630,
-        width: 1200,
+        minHeight: 720,
+        width: 1280,
         display: "flex",
         alignItems: "center",
       }}

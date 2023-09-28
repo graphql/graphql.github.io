@@ -257,8 +257,8 @@ export function Head({
         description={event.description}
         ogImage={{
           url: `https://graphql.org/img/__og-image/${event.id}.png`,
-          width: 1200,
-          height: 630,
+          width: 1280,
+          height: 720,
         }}
       />
       <meta

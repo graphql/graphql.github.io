@@ -1,0 +1,357 @@
+[
+  {
+    "id": "vWQYI5fNytM",
+    "title": "Dataloader 3.0: An Alternative Algorithm to Solve N+1 Problems - Jens Neuse, WunderGraph",
+    "thumbnailPath": "./static/img/__og-image/09bc04c42310bfe14024455bce46d781"
+  },
+  {
+    "id": "8c8NfeGFMk8",
+    "title": "How to Choose a GraphQL Gateway  - Dotan Simha, The Guild",
+    "thumbnailPath": "./static/img/__og-image/70f9e59dc60cf417aa38eb890b2a8abe"
+  },
+  {
+    "id": "fuC2yM2RMjQ",
+    "title": "Breaking the Mold  Innovative Approaches to Testing GraphQL APIs - Pooja Mistry, Postman",
+    "thumbnailPath": "./static/img/__og-image/f653b9931d85c7958993ca62e7853972"
+  },
+  {
+    "id": "OhvSuqxfKcc",
+    "title": "Adoption of GraphQL in Meta Ads Manager - Bryan Yang &amp; Yuanchao Zhu, Meta",
+    "thumbnailPath": "./static/img/__og-image/afefc1feb47ec68ca6031cfec2e7d46b"
+  },
+  {
+    "id": "MzMsDZTYEjY",
+    "title": "The Benefits of Code First Over Schema First in GraphQL - Patrick Arminio, Apollo",
+    "thumbnailPath": "./static/img/__og-image/118f99976647d953d6554bac33dbf3bf"
+  },
+  {
+    "id": "tjuVrOhdyGY",
+    "title": "Shared Schema Policies &amp; Automatic Standards Across Your Company’s Teams - Dimitri Postolov",
+    "thumbnailPath": "./static/img/__og-image/ff6a2ae37d87e74c9f7739a1331804a1"
+  },
+  {
+    "id": "BpbkFr2udAY",
+    "title": "The Evolution of GraphQL Code Generation - Laurin Quast, The Guild",
+    "thumbnailPath": "./static/img/__og-image/675c416b16ad2b0c519b1ec894353fc5"
+  },
+  {
+    "id": "bnWMiI9q4bc",
+    "title": "Why AI needs GraphQL - Anant Jhingran, IBM",
+    "thumbnailPath": "./static/img/__og-image/f802d22f97a3d3d9d2733bf637758f56"
+  },
+  {
+    "id": "ig_6h1Xtb9U",
+    "title": "GraphQL in Production  Empowering Efficient Data Retrieval and Unleashing Developer Productivity",
+    "thumbnailPath": "./static/img/__og-image/1e7a35fbd833d9be1aa9719f77c86fb7"
+  },
+  {
+    "id": "ZZ73jHB1hIs",
+    "title": "Scaling the Data Access by Leveraging GraphQL Federation for Service to Service Communication",
+    "thumbnailPath": "./static/img/__og-image/0bea54e1f79d706f2da4c802f8581ae5"
+  },
+  {
+    "id": "a6Bn1thHrtg",
+    "title": "AI, GraphQL, and the Rise of Malleable Applications - Aleksandra Sikora, The Guild",
+    "thumbnailPath": "./static/img/__og-image/4feef977ceb883c69c91ccd2dd607aec"
+  },
+  {
+    "id": "kqWpIWccUBc",
+    "title": "Not Your Regular Rate Limiting - Meenakshi Dhanani, Postman",
+    "thumbnailPath": "./static/img/__og-image/48f4e69c465b793750b5aa47bb7f2b6e"
+  },
+  {
+    "id": "2hiUkWl8tLo",
+    "title": "Unify Data Sources with GraphQL at the Edge - Jamie Barton, Grafbase",
+    "thumbnailPath": "./static/img/__og-image/520b70cfea27170fd6ed21d79f6b0357"
+  },
+  {
+    "id": "JszOuY11ob8",
+    "title": "Scaling Schema Cardinality  Constructing Types at Runtime - Spencer MacKinnon",
+    "thumbnailPath": "./static/img/__og-image/e447a52591ed66a452e04d6ce3e3f09e"
+  },
+  {
+    "id": "pDkvA5KKFw4",
+    "title": "The evolution of the GraphQL Orchestrator powering Intuit Consumer Apps- Ashpak Shaikh, Intuit",
+    "thumbnailPath": "./static/img/__og-image/17f150667d13a57f28bae524443f4c60"
+  },
+  {
+    "id": "2KsP_x50tGk",
+    "title": "Deep Learnings  Migrating legacy services to Federated GraphQL - Christian Ernst, Booking.com",
+    "thumbnailPath": "./static/img/__og-image/8a1158bda6933f83f43b704bff54ff63"
+  },
+  {
+    "id": "68WiJpEQt6E",
+    "title": "Improving User Experiences with a Nullable Schema - Ernie Turner, Coinbase",
+    "thumbnailPath": "./static/img/__og-image/888b77af90aa0ff776adc9669a29cb3f"
+  },
+  {
+    "id": "k5Qec3OvKjU",
+    "title": "Fixing the Billion Dollar Mistake  Client Controlled Nullability - Stephen Spalding, Netflix",
+    "thumbnailPath": "./static/img/__og-image/50005edb4a441b0335d1b80b4ad62b1a"
+  },
+  {
+    "id": "UjDnrrTp7uI",
+    "title": "Increase Your Productivity With No Code GraphQL Mocking - Laurent Broudoux, Microcks Co Founder",
+    "thumbnailPath": "./static/img/__og-image/95e6219a5e20a9e2f9381822460932ac"
+  },
+  {
+    "id": "tpcsMFu1apY",
+    "title": "Why Your GraphQL APIs Are Increasingly Under Attack - Shahar Binyamin, Inigo",
+    "thumbnailPath": "./static/img/__og-image/3d167cf84012c4ff2dcca8fca736b0dd"
+  },
+  {
+    "id": "JvK06Ct8o14",
+    "title": "Building Geospatial GraphQL APIs By Leveraging GraphQL Database Integrations - William Lyon, Neo4j",
+    "thumbnailPath": "./static/img/__og-image/a638dad8443a364e12ed29b3bc50d128"
+  },
+  {
+    "id": "J5I7k33JZ_c",
+    "title": "GraphQL Is a Superpower for Your Product Manager and Designer - Jeff Auriemma, Apollo GraphQL",
+    "thumbnailPath": "./static/img/__og-image/de1472b4294ac91745f3648d9228d8f2"
+  },
+  {
+    "id": "Fv8ei-lq230",
+    "title": "Closing Remarks - Keith Babo, Solo.io",
+    "thumbnailPath": "./static/img/__og-image/b3a3fa420d7467c46c215fa09cd548e0"
+  },
+  {
+    "id": "pq449oB9GOU",
+    "title": "GraphQL Everywhere - How GraphQL is Being Used in Places You Never Thought Were Possible - Uri Golds",
+    "thumbnailPath": "./static/img/__og-image/b9e35d673e7b541421d45ce2043dc05e"
+  },
+  {
+    "id": "45V30LhPynY",
+    "title": "Training and Using Generative AI Models with GraphQL - Idit Levine, Solo.io",
+    "thumbnailPath": "./static/img/__og-image/47c1bf50ce5556edcae9a84795485a8f"
+  },
+  {
+    "id": "jgv7Reqc2II",
+    "title": "Is a GraphQL BFF Necessary in a Server Side React World (RSC, SAs)  - Tanmai Gopal, CEO &amp; Co-Founder",
+    "thumbnailPath": "./static/img/__og-image/e3320ba552ee773065a1a132304a36e0"
+  },
+  {
+    "id": "U4MOw7AUI6c",
+    "title": "GraphQL Saving Lives - Leveraging Federation and Domain Experts to Help People Beat Addiction",
+    "thumbnailPath": "./static/img/__og-image/5684f90e0472771532ed5ee2b237300f"
+  },
+  {
+    "id": "QRUlbRMq14Y",
+    "title": "Welcome Remarks - Keith Babo, Solo.io",
+    "thumbnailPath": "./static/img/__og-image/5a0c1b8ab4957bfd83f55480c1508fe5"
+  },
+  {
+    "id": "Jr01x-VDQRE",
+    "title": "Houdini: A GraphQL First Meta Framework - Alec Aivazis, Arista Networks",
+    "thumbnailPath": "./static/img/__og-image/ce430c038efa9a9c19743d1ccc702de9"
+  },
+  {
+    "id": "9AML1JtkFKs",
+    "title": "Building Tooling That Speaks GraphQL - Tim Hall, Postman",
+    "thumbnailPath": "./static/img/__og-image/9836d339aaf014a7ced7f87141fcee67"
+  },
+  {
+    "id": "2dnTokI7v6c",
+    "title": "Sophisticated Schema Mocking   Stephanie Saunders, Coinbase",
+    "thumbnailPath": "./static/img/__og-image/a44cec64a01063d4c6a11e54cc8d24d3"
+  },
+  {
+    "id": "l9Nm33Dj98g",
+    "title": "Exposing All Wix APIs via GraphQL Automatically Centralizing GraphQL Schema Generation - Gonen Jerbi",
+    "thumbnailPath": "./static/img/__og-image/f319907e1e15ee620a33d3cbf01f323a"
+  },
+  {
+    "id": "Zq31RkovhKI",
+    "title": "Rust-Powered Fullstack GraphQL  From Actix-Web &amp; Juniper Server to WASM Yew Client - Yassin Eldeeb",
+    "thumbnailPath": "./static/img/__og-image/0b5f6bcbfc77f97f4cdc6cdf4a171f82"
+  },
+  {
+    "id": "6rcJR1DGWJQ",
+    "title": "GraphQL Mesh - A Federated Gateway for Any API Protocol - GraphQL, OpenAPI, gRPC and More - Arda Ta",
+    "thumbnailPath": "./static/img/__og-image/de9b490bff0d1e234ec4e19bc03392b5"
+  },
+  {
+    "id": "tiOpoGdxiMo",
+    "title": "Build and Deploy Instant GraphQL APIs to the Edge - Jamie Barton, Grafbase",
+    "thumbnailPath": "./static/img/__og-image/295679e18701aa2be84f329db1118637"
+  },
+  {
+    "id": "5uOR3t64Y04",
+    "title": "Carmen San Diego GraphQL API Federation Challenge Hunt for the Elusive Master Thief - LeRenzo Malcom",
+    "thumbnailPath": "./static/img/__og-image/88bbc65fe92d08a0404215429f06c113"
+  },
+  {
+    "id": "VPhgpQ4HBKQ",
+    "title": "Mr. Toad’s Wild Ride: A Rollicking, Declarative GraphQL Workshop - Jim Barton &amp; Adam Sayah, Solo.io",
+    "thumbnailPath": "./static/img/__og-image/f11fd521e00f5b8eedf463781f893c5e"
+  },
+  {
+    "id": "75F8hHAEiXU",
+    "title": "Safely Evolve Your Federated GraphQL Schema with GraphQL Hive - Laurin Quast &amp; Kamil Kisiela",
+    "thumbnailPath": "./static/img/__og-image/55dd5ef56bd778955509d08ea81903ea"
+  },
+  {
+    "id": "9r9ven2C0mk",
+    "title": "RSC + GraphQL + RedwoodJS  A New Era in Full Stack Development - Amy Dutton, RedwoodJS",
+    "thumbnailPath": "./static/img/__og-image/b38ed79c29a2d0602160d9407bfa3422"
+  },
+  {
+    "id": "cucENpg2UMc",
+    "title": "How @Defer and @Stream Will Improve GraphQL Caching - Andreas Heiberg, Stellate",
+    "thumbnailPath": "./static/img/__og-image/a6f436251a88bb94d5e79099742c9d75"
+  },
+  {
+    "id": "TqyYJqBZYHk",
+    "title": "How to Make Your First Open Source Contribution - Donna Zhou, Atlassian",
+    "thumbnailPath": "./static/img/__og-image/81daf0dd0b26efdc784ba0a530e54a68"
+  },
+  {
+    "id": "gO65JJRqjuc",
+    "title": "Isograph — Rethink GraphQL Powered React Apps - Robert Balicki, Pinterest",
+    "thumbnailPath": "./static/img/__og-image/2517f7a1d13ad3c0652e1b3cc5b65714"
+  },
+  {
+    "id": "egdELZ72iP8",
+    "title": "Why Relay is a Must for your GraphQL APIs - Marion Schleifer, Hasura",
+    "thumbnailPath": "./static/img/__og-image/34bdd9b21a3cf2db6600a5ef840b3fb3"
+  },
+  {
+    "id": "b0iNvXu5ZlU",
+    "title": "@Defer All the Slow Things - Alessia Bellisario, Apollo GraphQL",
+    "thumbnailPath": "./static/img/__og-image/cc22599d768dc636a67a0e93cd74bab2"
+  },
+  {
+    "id": "_5pTCIpVFmA",
+    "title": "Consuming GraphQL using C# - Brandon Minnick, AWS",
+    "thumbnailPath": "./static/img/__og-image/5f920cd134d4dea87fce5e59bc4418dc"
+  },
+  {
+    "id": "pV14h7zuw4o",
+    "title": "4 Steps to a Successful GraphQL API Program - Lucy Shen, Suresh Muthu &amp; Jared Cheney, Intuit",
+    "thumbnailPath": "./static/img/__og-image/de614df0c21b5227fff20767aa065de8"
+  },
+  {
+    "id": "VdHHfrqQUYQ",
+    "title": "The New GraphiQL and the Future of Open GraphQL IDEs - Dimitri Postolov, The Guild Thomas Heyenbrock",
+    "thumbnailPath": "./static/img/__og-image/e0985f6bdb4bbf07a5ca5ba72fbcc39c"
+  },
+  {
+    "id": "KsZiwPWjspU",
+    "title": "GraphQL IRL: Pitfalls, Surprises and Successes - Kewei Qu, Meta Platforms",
+    "thumbnailPath": "./static/img/__og-image/cc423d9ba6bacb53c1b24490cb208c17"
+  },
+  {
+    "id": "4ao-zjiOGx8",
+    "title": "The Future of Efficiency Is Here: Add Planning to Your Schema! - Benjie Gillam, Graphile",
+    "thumbnailPath": "./static/img/__og-image/275443caa2eda5df06699b724efa533c"
+  },
+  {
+    "id": "jpy6JEB4LOU",
+    "title": "Supercharging GraphQL with Envoy  Unveiling the Efficiency of Declarative GraphQL - Sai Ekbote",
+    "thumbnailPath": "./static/img/__og-image/5d6afee232e35ba1880e7b25d810ef49"
+  },
+  {
+    "id": "sG7D96PdAWg",
+    "title": "Launching a Public GraphQL API and Client for Open Source Lightning Web Components - Ben Sklar",
+    "thumbnailPath": "./static/img/__og-image/72ac8d3f7585f86cb9acc77b9eb22241"
+  },
+  {
+    "id": "m4gkjQjEIBA",
+    "title": "The Graph of Everything - Federated Architecture for Any API Service - Uri Goldshtein, The Guild",
+    "thumbnailPath": "./static/img/__og-image/7a87fe1cfc351a993ed40e01d384e3c6"
+  },
+  {
+    "id": "dwf0mh2b5Rc",
+    "title": "Argo  Designing a Compact and Compressible Binary Serialization Format for GraphQL - Mike Solomon",
+    "thumbnailPath": "./static/img/__og-image/504049f2217d6c59b9f67eba97089bfe"
+  },
+  {
+    "id": "q4Kt0JxrYhw",
+    "title": "Mutating Meetup with GraphQL - Annyce Davis, Meetup",
+    "thumbnailPath": "./static/img/__og-image/3a88eedac57e223aa69979407cfcc8f0"
+  },
+  {
+    "id": "k0BiGdpiqWM",
+    "title": "GraphQL Fusion  Rethinking Distributed GraphQL - Michael Staib, ChilliCream Inc",
+    "thumbnailPath": "./static/img/__og-image/4a4e842d1cd0c06083f484d31225abd1"
+  },
+  {
+    "id": "XtQiQ0hM574",
+    "title": "Can GraphQL be FAIR - Pascal Heus AIData Lead, Postman",
+    "thumbnailPath": "./static/img/__og-image/c915230f50de5c93eb5c2bbbee3610e6"
+  },
+  {
+    "id": "8WzgUSXnso0",
+    "title": "Semi Concurrent Deduplicated Incremental Delivery - Yaacov Rydzinski",
+    "thumbnailPath": "./static/img/__og-image/fc1e6c878fc02b6c2b7534ddebfac6ff"
+  },
+  {
+    "id": "qsUbqJdWgX8",
+    "title": "Streamlining Access to NASA Earth Science Data with GraphQL - Ryan Abbott, Element 84",
+    "thumbnailPath": "./static/img/__og-image/2816d4a81204283289584830acda7826"
+  },
+  {
+    "id": "0XiDFUp32gM",
+    "title": "Go Beyond the Spec With Custom Directives - Roy Derks, StepZen, an IBM Company",
+    "thumbnailPath": "./static/img/__og-image/eb08683c706380e0236adb2097358f4c"
+  },
+  {
+    "id": "-QTURhHhNB4",
+    "title": "GraphQL Over Internet - Denis Badurina, The Guild",
+    "thumbnailPath": "./static/img/__og-image/6c2eefe955e288e974a9182dac06f8fa"
+  },
+  {
+    "id": "VKoFrrHm-hE",
+    "title": "Easily Access Blockchain Data with Subgraphs - Kevin Jones, The Graph",
+    "thumbnailPath": "./static/img/__og-image/ebee6213b39b87437eb7cc9c41ea972b"
+  },
+  {
+    "id": "Mx1wgZ8G5Vs",
+    "title": "GraphQL and CQRS, a Perfect Fit - Gerard Klijs, AxonIQ",
+    "thumbnailPath": "./static/img/__og-image/217cf30afd15a724ebb42c4d82169a26"
+  },
+  {
+    "id": "hyB2UKsEkqA",
+    "title": "GraphQL Security Vulnerabilities in the Wild - Antoine Carossio &amp; Tristan Kalos, Escape",
+    "thumbnailPath": "./static/img/__og-image/5bf24cd6483a63e62a2276fe38effb82"
+  },
+  {
+    "id": "9ZNubCzCwlk",
+    "title": "Unlocking Insights: Navigating the World of GraphQL Observability - Eitan Joffe, Inigo",
+    "thumbnailPath": "./static/img/__og-image/f8a4d2b939980ffadf787715033e2b4f"
+  },
+  {
+    "id": "w6SSMwMJ_Xw",
+    "title": "8 Years of GraphQL  Unraveling the Trade Offs - Marc Andre Giroux, Netflix",
+    "thumbnailPath": "./static/img/__og-image/017d9954f1be1c7e2ab2696c2abe6b9b"
+  },
+  {
+    "id": "DfAfLqbQLcY",
+    "title": "Spoiled for Choice Picking the Right Federation Technique for Your Project -    Bryan Robinson",
+    "thumbnailPath": "./static/img/__og-image/2b7518a6d8f2b72122c17beb92af8c89"
+  },
+  {
+    "id": "6A90KYNLAYY",
+    "title": "Open Federation - Open Remote Schema Specifications with Other Specs (OpenAPI, etc) - Uri Goldshtein",
+    "thumbnailPath": "./static/img/__og-image/e29bf518adeb99b2319fa8cb70d8f445"
+  },
+  {
+    "id": "3zLmU-W2wYA",
+    "title": "Welcome Remarks - Lee Byron, GraphQL Foundation",
+    "thumbnailPath": "./static/img/__og-image/94d334f99906d3fc2669fc804e5fae41"
+  },
+  {
+    "id": "_zNKTWcigyY",
+    "title": "The Right Size For GraphQL - Theo Browne, CEO Founder at Ping Labs",
+    "thumbnailPath": "./static/img/__og-image/b57a1a6027fdab59c05c42c9d0515e71"
+  },
+  {
+    "id": "KwiaXEEdOWo",
+    "title": "Closing Remarks - Lee Byron, GraphQL Foundation",
+    "thumbnailPath": "./static/img/__og-image/80869c56bb59f51de6ac8468c18eecdc"
+  },
+  {
+    "id": "y_2EsTt1-lg",
+    "title": "Evolution of Application Networking Patterns with GraphQL - Keith Babo, Solo io",
+    "thumbnailPath": "./static/img/__og-image/b84ea942d55fb7406e53e3af0c78017e"
+  }
+]
