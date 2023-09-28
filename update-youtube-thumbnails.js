@@ -102,7 +102,7 @@ function storeToken(token) {
 function updateThumbnails(auth) {
   var service = google.youtube("v3")
 
-  const mappings = JSON.parse(fs.readFileSync("./mappings2.json", "utf-8"))
+  const mappings = JSON.parse(fs.readFileSync("./mappings.json", "utf-8"))
 
   mappings.forEach(({ id, title, thumbnailPath }) => {
     console.log(`Setting thumbnail for video: ${title}`)
