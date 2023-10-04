@@ -1,13 +1,6 @@
-import { format, parseISO, compareAsc } from "date-fns"
-import React, { FC, useEffect, useState } from "react"
+import React, { ComponentProps, FC } from "react"
 import { eventsColors } from "../../../utils/eventsColors"
-import { getEventTitle } from "../../../utils/eventTitle"
-import Filters from "./Filters"
 import { SchedSpeaker } from "../Speakers/Speaker"
-
-function isString(x: any) {
-  return Object.prototype.toString.call(x) === "[object String]"
-}
 
 export interface ScheduleSession {
   id: string
@@ -23,171 +16,24 @@ export interface ScheduleSession {
   files?: { name: string; path: string }[]
 }
 
-export interface ConcurrentSessions {
-  [date: string]: ScheduleSession[]
-}
-
-export interface ScheduleSessionsByDay {
-  [date: string]: ConcurrentSessions
-}
-
-export type CategoryName = "Audience" | "Talk category" | "Event type"
-
-const filterCategories: Array<{ name: CategoryName; options: string[] }> = [
-  {
-    name: "Audience",
-    options: ["Beginner", "Intermediate", "Advanced"],
-  },
-  {
-    name: "Talk category",
-    options: [
-      "Beyond Javascript",
-      "Spec Fusion",
-      "Platform and Backend",
-      "GraphQL and Data",
-      "GraphQL Security",
-      "GraphQL in Production",
-      "GraphQL Clients",
-      "GraphQL Core",
-      "Scaling",
-      "Emerging Community Trends",
-    ],
-  },
-  {
-    name: "Event type",
-    options: [
-      "Workshops",
-      "Unconference",
-      "Keynote Sessions",
-      "Sponsor Showcase",
-      "Session Presentations",
-      "Lightning Talks",
-      "Events & Experiences",
-    ],
-  },
-]
-
-function getSessionsByDay(
-  scheduleData: ScheduleSession[],
-  initialFilter:
-    | ((sessions: ScheduleSession[]) => ScheduleSession[])
-    | undefined,
-  filters: Record<CategoryName, string[]>
-) {
-  const data = initialFilter ? initialFilter(scheduleData) : scheduleData
-  const filteredSortedSchedule = (data || []).sort((a, b) =>
-    compareAsc(new Date(a.event_start), new Date(b.event_start))
-  )
-
-  const concurrentSessions: ConcurrentSessions = {}
-  filteredSortedSchedule.forEach(session => {
-    const audienceFilter = filters.Audience
-    const talkCategoryFilter = filters["Talk category"]
-    const eventTypeFilter = filters["Event type"]
-
-    let include = true
-    if (audienceFilter.length > 0) {
-      include = include && audienceFilter.includes(session.audience)
-    }
-    if (talkCategoryFilter.length > 0) {
-      include = include && talkCategoryFilter.includes(session.event_subtype)
-    }
-    if (eventTypeFilter.length > 0) {
-      include = include && eventTypeFilter.includes(session.event_type)
-    }
-
-    if (!include) {
-      return
-    }
-
-    if (!concurrentSessions[session.event_start]) {
-      concurrentSessions[session.event_start] = []
-    }
-    concurrentSessions[session.event_start].push(session)
-  })
-
-  const sessionsByDay: ScheduleSessionsByDay = {}
-  Object.entries(concurrentSessions).forEach(([date, sessions]) => {
-    const day = date.split(" ")[0]
-    if (!sessionsByDay[day]) {
-      sessionsByDay[day] = {}
-    }
-    sessionsByDay[day] = {
-      ...sessionsByDay[day],
-      [date]: sessions.sort((a, b) => a.venue.localeCompare(b.venue)),
-    }
-  })
-
-  return sessionsByDay
-}
-
 interface Props {
-  showEventType?: boolean
-  showFilter?: boolean
   scheduleData: ScheduleSession[]
-  filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
 }
 
-const ScheduleList: FC<Props> = ({
-  showEventType,
-  showFilter = true,
-  filterSchedule,
-  scheduleData,
-}) => {
-  // const [filtersState, setFiltersState] = useState<
-  //   Record<CategoryName, string[]>
-  // >({
-  //   Audience: [],
-  //   "Talk category": [],
-  //   "Event type": [],
-  // })
-  // const [sessionsState, setSessionState] = useState<ScheduleSessionsByDay>(
-  //   () => {
-  //     return getSessionsByDay(scheduleData, filterSchedule, filtersState)
-  //   }
-  // )
-  //
-  // useEffect(() => {
-  //   setSessionState(
-  //     getSessionsByDay(scheduleData, filterSchedule, filtersState)
-  //   )
-  // }, [filtersState, scheduleData])
-
+const ScheduleList: FC<Props> = ({ scheduleData }) => {
   return (
     <div className="grid grid-cols-3 gap-6 not-prose">
       {scheduleData.map(session => {
-        const eventType = session.event_type.endsWith("s")
-          ? session.event_type.slice(0, -1)
-          : session.event_type
-
-        const speakers = session.speakers
-        const formattedSpeakers = isString(speakers || [])
-          ? (speakers as string)?.split(",")
-          : (speakers as SchedSpeaker[])?.map(e => e.name)
-        const eventTitle = getEventTitle(session, formattedSpeakers)
+        const speakers = session.speakers as SchedSpeaker[]
 
         const borderColor = eventsColors[session.event_type]
 
-        const countSpeakers =
-          session.speakers.length > 3 ? 3 : session.speakers.length
+        const countSpeakers = speakers.length > 3 ? 3 : speakers.length
 
         const gridColumn = `span ${countSpeakers} / span ${countSpeakers}`
-
-        return session.event_type === "Breaks" ? (
-          <div
-            key={session.id}
-            style={{
-              borderLeft: `10px solid ${borderColor}`,
-              borderRadius: "5px",
-              backgroundColor: "white",
-            }}
-            className="shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
-          >
-            {showEventType ? eventType + " / " : ""}
-            {eventTitle}
-          </div>
-        ) : (
+        return (
           <a
+            key={session.event_key}
             className="shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline"
             style={{ gridColumn }}
             href={`/conf/schedule/${session.id}`}
@@ -223,8 +69,11 @@ const ScheduleList: FC<Props> = ({
               </span>
               <b className="grow">{session.name}</b>
               <div className="flex gap-5 flex-wrap">
-                {session.speakers!.map(s => (
-                  <div className="flex items-center gap-5 mt-5">
+                {speakers.map(s => (
+                  <div
+                    className="flex items-center gap-5 mt-5"
+                    key={s.username}
+                  >
                     <img
                       src={s.avatar}
                       width="70"
@@ -246,7 +95,7 @@ const ScheduleList: FC<Props> = ({
   )
 }
 
-function ClockIcon(props) {
+function ClockIcon(props: ComponentProps<"svg">) {
   return (
     <svg
       width="23"
