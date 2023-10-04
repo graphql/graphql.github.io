@@ -116,7 +116,7 @@ export const EventComponent: FC<{
               </h1>
               <h4 className="flex space-x-4">
                 {speakers?.map(speaker => (
-                  <span className="font-normal">
+                  <span className="font-normal" key={speaker.username}>
                     <span className="font-semibold">
                       {speaker.name}
                       {speaker.company && ", "}
@@ -133,7 +133,7 @@ export const EventComponent: FC<{
             />
             <div className="flex lg:flex-row flex-col sm:gap-5">
               {speakers?.map(speaker => (
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3" key={speaker.username}>
                   <Avatar
                     className="lg:w-[120px] lg:h-[120px] w-[100px] h-[100px] rounded-full"
                     avatar={speaker.avatar}

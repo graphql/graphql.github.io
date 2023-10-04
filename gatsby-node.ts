@@ -4,7 +4,6 @@ import { GatsbyNode } from "gatsby"
 import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
 import * as path from "path"
 import { glob } from "glob"
-import _ from "lodash"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
@@ -239,7 +238,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
       createPage({
         path: `/conf/speakers/${speaker.username}`,
         component: path.resolve("./src/templates/speaker.tsx"),
-        context: { speaker, schedule: speakerSessions },
+        context: {
+          speaker,
+          schedule: speakerSessions.map(session => ({
+            ...session,
+            speakers: session.speakers
+              .map(speaker =>
+                speakers.find(s => s.username === speaker.username)
+              )
+              .filter(Boolean),
+          })),
+        },
       })
 
       if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
