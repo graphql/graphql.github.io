@@ -24,7 +24,7 @@ const ThanksConf: React.FC = () => {
       {/*      />*/}
       {/*    </div>*/}
       {/*    <div>hello</div>*/}
-      {/*    <ButtonConf href="/conf/schedule/" className="!block mx-auto">*/}
+      {/*    <ButtonConf href="/conf/sessions/" className="!block mx-auto">*/}
       {/*      Explore recordings and slides*/}
       {/*    </ButtonConf>*/}
       {/*  </div>*/}
@@ -54,7 +54,7 @@ const ThanksConf: React.FC = () => {
             <div className="flex justify-center">
               <ButtonConf
                 className="inline-flex text-white border-0 py-2 px-6 focus:outline-none  rounded text-lg"
-                href="/conf/schedule/"
+                href="/conf/sessions/"
               >
                 Explore recordings and slides
               </ButtonConf>

@@ -193,7 +193,7 @@ const ScheduleList: FC<Props> = ({
                         key={session.event_key}
                         className="shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline"
                         style={{ gridColumn }}
-                        href={`/conf/schedule/${session.id}`}
+                        href={`/conf/sessions/${session.id}`}
                       >
                         <div className="bg-[#251F30] text-white flex justify-between py-5 px-7 relative">
                           <div className="text-sm flex flex-col gap-2 [*:hover>*>&]:opacity-0 transition-opacity duration-300 opacity-100">

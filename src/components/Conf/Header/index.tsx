@@ -10,7 +10,7 @@ interface LinkItem {
 
 const links: LinkItem[] = [
   { text: "Speakers", href: "/conf/speakers/" },
-  { text: "Schedule", href: "/conf/schedule/" },
+  { text: "Sessions", href: "/conf/sessions/" },
   { text: "FAQ", href: "/conf/faq/" },
 ]
 

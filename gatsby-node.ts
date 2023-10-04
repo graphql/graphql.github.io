@@ -178,7 +178,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     // Create schedule page
     createPage({
-      path: "/conf/schedule",
+      path: "/conf/sessions",
       component: path.resolve("./src/templates/schedule.tsx"),
       context: {
         schedule: withSpeakerInfo(schedule.filter(session => session.speakers)),
@@ -192,7 +192,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       )
 
       createPage({
-        path: `/conf/schedule/${event.id}`,
+        path: `/conf/sessions/${event.id}`,
         component: path.resolve("./src/templates/event.tsx"),
         context: {
           event,
