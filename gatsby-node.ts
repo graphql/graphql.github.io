@@ -180,7 +180,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       path: "/conf/schedule",
       component: path.resolve("./src/templates/schedule.tsx"),
-      context: { schedule: withSpeakerInfo(schedule.filter(session => session.speakers)) },
+      context: {
+        schedule: withSpeakerInfo(schedule.filter(session => session.speakers)),
+      },
     })
 
     // Create schedule events' pages
@@ -225,9 +227,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       return session.map(session => ({
         ...session,
         speakers: session.speakers
-          .map(speaker =>
-            speakers.find(s => s.username === speaker.username)
-          )
+          .map(speaker => speakers.find(s => s.username === speaker.username))
           .filter(Boolean),
       }))
     }

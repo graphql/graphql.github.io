@@ -35,15 +35,13 @@ const SpeakersTemplate: FC<
                   <h1 className="!my-0 py-0">{speaker.name}</h1>
 
                   <span className="font-normal">
-                    <span className="font-semibold">
-                      {speaker.company}
-                    </span>
+                    <span className="font-semibold">{speaker.company}</span>
                     {speaker.company && ", "}
                     {speaker.position}
                   </span>
                   <ReactMarkdown
                     className="text-justify [&>p]:!my-0 !py-0"
-                    children={speaker.about.replace(/(<br>){2,}/g, '')}
+                    children={speaker.about.replace(/(<br>){2,}/g, "")}
                     rehypePlugins={[rehypeRaw]}
                     remarkPlugins={[remarkGfm]}
                   />
@@ -75,12 +73,9 @@ const SpeakersTemplate: FC<
                 />
               </div>
 
-                <h1 className="!mb-0 pb-0">Sessions</h1>
+              <h1 className="!mb-0 pb-0">Sessions</h1>
 
-                <ScheduleList
-                  showFilter={false}
-                  scheduleData={schedule}
-                />
+              <ScheduleList showFilter={false} scheduleData={schedule} />
             </div>
           </div>
         </section>
