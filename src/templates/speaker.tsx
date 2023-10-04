@@ -30,7 +30,7 @@ const SpeakersTemplate: FC<
           <div className="lg:px-0 flex flex-col">
             <BackLink kind="speakers" />
             <div className="mt-10 self-center prose lg:prose-lg max-w-[unset] lg:px-44 space-y-12">
-              <div className="flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5">
+              <div className="flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5 justify-between">
                 <div className="flex flex-col items-start gap-y-5">
                   <h1 className="!my-0 py-0">{speaker.name}</h1>
 
@@ -79,7 +79,6 @@ const SpeakersTemplate: FC<
 
                 <ScheduleList
                   showFilter={false}
-                  showEventType
                   scheduleData={schedule}
                 />
             </div>
