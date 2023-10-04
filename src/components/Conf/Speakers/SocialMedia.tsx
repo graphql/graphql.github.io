@@ -27,7 +27,7 @@ export const SocialMediaIcon = ({
 
   switch (service) {
     case "twitter":
-      return <TwitterIcon fill="#0E031C" className={classes} />
+      return <TwitterIcon className={classes} />
     case "linkedin":
       return <LinkedinIcon className={classes} />
     case "facebook":
