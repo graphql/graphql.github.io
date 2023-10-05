@@ -67,6 +67,13 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://graphql.org',
+        stripQueryString: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-feed",
       options: {
         query: `
