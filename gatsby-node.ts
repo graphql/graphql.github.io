@@ -293,6 +293,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
     toPath: "/conf/schedule",
   })
 
+  createRedirect({
+    fromPath: "/conf/schedule/*",
+    toPath: "/conf/sessions/*",
+  })
+
   // redirect swapi with 200
   createRedirect({
     fromPath: `/swapi-graphql/*`,
