@@ -30,9 +30,9 @@ export default function Page() {
         </div>
       </div>
       <ThanksConf />
-      <GalleryConf />
+      {/*<GalleryConf />*/}
       <SpeakersConf />
-      <ScheduleGlanceConf />
+      {/*<ScheduleGlanceConf />*/}
       <AboutConf />
       <FooterConf />
     </LayoutConf>

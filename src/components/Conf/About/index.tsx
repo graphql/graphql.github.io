@@ -15,44 +15,42 @@ const list = [
 const whyAttend = [
   {
     title: (
-      <span>
-        <span className="font-bold">Learn</span> about the latest developments
-        in GraphQL and related technologies, including GraphQL Core and beyond.
-      </span>
+      <>
+        <b>Learn</b> about the latest developments in GraphQL and related
+        technologies, including GraphQL Core and beyond.
+      </>
     ),
   },
   {
     title: (
-      <span>
-        <span className="font-bold">Discover</span> best practices and
-        real-world use cases through engaging presentations and panel
-        discussions.
-      </span>
+      <>
+        <b>Discover</b> best practices and real-world use cases through engaging
+        presentations and panel discussions.
+      </>
     ),
   },
   {
     title: (
-      <span>
-        <span className="font-bold">Connect</span> with leading companies that
-        are using GraphQL to transform their businesses and industries.
-      </span>
+      <>
+        <b>Connect</b> with leading companies that are using GraphQL to
+        transform their businesses and industries.
+      </>
     ),
   },
   {
     title: (
-      <span>
-        <span className="font-bold">Build</span> your skills and deepen your
-        understanding of GraphQL through workshops, tutorials, and code labs.
-      </span>
+      <>
+        <b>Build</b> your skills and deepen your understanding of GraphQL
+        through workshops, tutorials, and code labs.
+      </>
     ),
   },
   {
     title: (
-      <span>
-        <span className="font-bold">Network</span> with a diverse and vibrant
-        community of professionals who are passionate about GraphQL and its
-        potential.
-      </span>
+      <>
+        <b>Network</b> with a diverse and vibrant community of professionals who
+        are passionate about GraphQL and its potential.
+      </>
     ),
   },
 ]
@@ -130,7 +128,7 @@ export default function About() {
           {whyAttend.map((item, index) => (
             <li key={index} className="flex gap-4">
               <CheckIcon className="text-[--rhodamine] shrink-0" />
-              {item.title}
+              <span>{item.title}</span>
             </li>
           ))}
         </ul>
