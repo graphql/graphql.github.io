@@ -6566,6 +6566,13 @@ gatsby-plugin-anchor-links@1.2.1:
   dependencies:
     scroll-to-element "^2.0.3"
 
+gatsby-plugin-canonical-urls@5.12.0:
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-5.12.0.tgz#7526650cb6542870a3bc78749295102b820e7d34"
+  integrity sha512-A/PbUjDJOMHTAnM28o1xmBILJ8shpRJT9kud69zEgqxBpjKkKEVhtUTsvetvHkdhzjWuSwxIW9q/B4uBi/C3wg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+
 gatsby-plugin-dynamic-open-graph-images@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-dynamic-open-graph-images/-/gatsby-plugin-dynamic-open-graph-images-1.1.4.tgz#b7141200e0a42f3c4afe0d9f25bc0f4a5bdab6b4"
