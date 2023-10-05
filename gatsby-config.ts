@@ -67,9 +67,9 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-plugin-canonical-urls',
+      resolve: "gatsby-plugin-canonical-urls",
       options: {
-        siteUrl: 'https://graphql.org',
+        siteUrl: "https://graphql.org",
         stripQueryString: true,
       },
     },
