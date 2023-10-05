@@ -26,38 +26,28 @@ interface Image {
   link: string
 }
 
-function alphabetSort(a: Image, b: Image) {
-  if (a.name < b.name) {
-    return -1
-  }
-  if (a.name > b.name) {
-    return 1
-  }
-  return 0
-}
-
 const sponsorDiamond: Image[] = [
-  { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
-  { icon: Postman, name: "Postman", link: "https://postman.com" },
   { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
+  { icon: Postman, name: "Postman", link: "https://postman.com" },
+  { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
 ]
 
 const sponsorPlatinum: Image[] = [
-  { icon: Solo, name: "Solo.io", link: "https://solo.io" },
   { icon: Hygraph, name: "Hygraph", link: "https://hygraph.com" },
+  { icon: Solo, name: "Solo.io", link: "https://solo.io" },
 ]
 
 const sponsorGold: Image[] = [
-  { icon: TheGraph, name: "The Graph", link: "https://thegraph.com" },
   { icon: StepZen, name: "StepZen", link: "https://stepzen.com" },
   { icon: Inigo, name: "Inigo", link: "https://inigo.io" },
+  { icon: TheGraph, name: "The Graph", link: "https://thegraph.com" },
 ]
 
 const sponsorSilver: Image[] = [
-  { icon: Neo4j, name: "Neo4j", link: "https://neo4j.com" },
-  { icon: WunderGraph, name: "WunderGraph", link: "https://wundergraph.com" },
-  { icon: Stellate, name: "Stellate", link: "https://stellate.co" },
   { icon: Graphabase, name: "Graphabase", link: "https://graphabase.com" },
+  { icon: Neo4j, name: "Neo4j", link: "https://neo4j.com" },
+  { icon: Stellate, name: "Stellate", link: "https://stellate.co" },
+  { icon: WunderGraph, name: "WunderGraph", link: "https://wundergraph.com" },
 ]
 
 const workshopDaySponsors: Image[] = [
@@ -65,30 +55,22 @@ const workshopDaySponsors: Image[] = [
 ]
 
 const mediaPartners: Image[] = [
-  {
-    icon: GraphQLWeekly,
-    name: "GraphQLWeekly",
-    link: "https://graphqlweekly.com",
-  },
   { icon: GraphQLWTF, name: "GraphQLWTF", link: "https://graphql.wtf" },
+  // prettier-ignore
+  { icon: GraphQLWeekly, name: 'GraphQLWeekly', link: 'https://graphqlweekly.com' },
 ]
 
 const communityPartners: Image[] = [
-  {
-    icon: EscapeTechnologies,
-    name: "EscapeTechnologies",
-    link: "https://escape.tech",
-  },
+  // prettier-ignore
   {
     icon: AmsterdamGraphQL,
-    name: "Amsterdam GraphQL",
-    link: "https://meetup.com/amsterdam-graphql-meetup",
+    name: 'Amsterdam GraphQL',
+    link: 'https://meetup.com/amsterdam-graphql-meetup',
   },
-  {
-    icon: BangkokGraphQL,
-    name: "Bangkok GraphQL",
-    link: "https://meetup.com/graphql-bangkok",
-  },
+  // prettier-ignore
+  { icon: BangkokGraphQL, name: 'Bangkok GraphQL', link: 'https://meetup.com/graphql-bangkok', },
+  // prettier-ignore
+  { icon: EscapeTechnologies, name: 'EscapeTechnologies', link: 'https://escape.tech', },
   { icon: TypeGraphQL, name: "TypeGraphQL", link: "https://typegraphql.com" },
 ]
 
@@ -102,41 +84,41 @@ function List({
   linkClassName?: string
 }) {
   return (
-    <div className={clsx("grid gap-5 w-full", className)}>
-      {items
-        .sort((a, b) => alphabetSort(a, b))
-        .map(({ link, icon: Icon }, i) => (
-          <a
-            key={i}
-            className={clsx(
-              "relative shrink-0 bg-[#251f30] rounded-md",
-              "border border-solid border-transparent hover:border-[#e535ab]",
-              "transition-colors",
-              "hover:no-underline focus:no-underline",
-              linkClassName
-            )}
-            href={link}
-            target="_blank"
-          >
-            <Icon width="auto" height="auto" />
-            <span className="font-sans absolute right-5 top-5 leading-none text-white text-2xl">
-              ↗
-            </span>
-          </a>
-        ))}
+    <div className={clsx("grid gap-7 w-full", className)}>
+      {items.map(({ link, icon: Icon, name }, i) => (
+        <a
+          key={i}
+          className={clsx(
+            "relative shrink-0 bg-[#251f30] rounded-md",
+            "border border-solid border-transparent hover:border-[#e535ab]",
+            "transition-colors",
+            "hover:no-underline focus:no-underline hover:shadow-[#ea75c3]/20 shadow-md",
+            linkClassName
+          )}
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          title={name}
+        >
+          <Icon width="auto" height="auto" />
+          <span className="font-sans absolute right-5 top-5 leading-none text-white text-2xl">
+            ↗
+          </span>
+        </a>
+      ))}
     </div>
   )
 }
 
 const classes = {
-  heading: "text-[#ea75c3] text-3xl font-bold mb-6 text-center",
-  title: "text-center text-4xl text-white font-bold my-8",
+  heading: "text-[#ea75c3] text-3xl font-bold mb-10 mt-20 text-center",
+  title: "text-center text-4xl text-white font-bold mt-0",
 }
 
-export default function SponsersConf() {
+export default function SponsorsConf() {
   return (
-    <div id="sponsors" className="bg-[#0e031c] py-10">
-      <div className="container">
+    <div id="sponsors" className="bg-[#0e031c]">
+      <div className="container py-24">
         <h1 className={classes.title}>Sponsors</h1>
         <h3 className={classes.heading}>Diamond</h3>
         <List
@@ -168,6 +150,8 @@ export default function SponsersConf() {
           className="justify-center"
           linkClassName="p-14 h-[155px]"
         />
+      </div>
+      <div className="container py-24">
         <h1 className={classes.title}>Partners</h1>
         <h3 className={classes.heading}>Media Partners</h3>
         <List
