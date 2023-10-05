@@ -174,7 +174,7 @@ const SessionList: FC<Props> = ({
           <h3 className="mb-5">No sessions found</h3>
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-6 not-prose">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 not-prose">
           {Object.entries(sessionsState).flatMap(
             ([date, concurrentSessionsGroup]) =>
               Object.entries(concurrentSessionsGroup).flatMap(

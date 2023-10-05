@@ -1,16 +1,18 @@
-import React from "react"
-import FooterConf from "../../components/Conf/Footer"
-import HeaderConf from "../../components/Conf/Header"
-import LayoutConf from "../../components/Conf/Layout"
-import SpeakersConf from "../../components/Conf/Speakers"
-import AboutConf from "../../components/Conf/About"
-import ScheduleGlanceConf from "../../components/Conf/Schedule"
-import SeoConf, { defaults as seoDefaults } from "../../components/Conf/Seo"
+import React, { FC } from "react"
+import FooterConf from "../components/Conf/Footer"
+import HeaderConf from "../components/Conf/Header"
+import LayoutConf from "../components/Conf/Layout"
+import SpeakersConf from "../components/Conf/Speakers"
+import AboutConf from "../components/Conf/About"
+import SeoConf, { defaults as seoDefaults } from "../components/Conf/Seo"
 import { CalendarIcon, GlobeIcon } from "@radix-ui/react-icons"
-import ThanksConf from "../../components/Conf/Thanks"
-import GalleryConf from "../../components/Conf/Gallery"
+import ThanksConf from "../components/Conf/Thanks"
+import { PageProps } from "gatsby"
+import { ScheduleSession } from "../components/Conf/Schedule/session-list"
 
-export default function Page() {
+const IndexTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
+  pageContext,
+}) => {
   return (
     <LayoutConf>
       <HeaderConf />
@@ -29,10 +31,9 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <ThanksConf />
+      <ThanksConf schedule={pageContext.schedule} />
       {/*<GalleryConf />*/}
       <SpeakersConf />
-      {/*<ScheduleGlanceConf />*/}
       <AboutConf />
       <FooterConf />
     </LayoutConf>
@@ -82,3 +83,5 @@ export function Head() {
     </>
   )
 }
+
+export default IndexTemplate
