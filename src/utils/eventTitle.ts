@@ -1,4 +1,4 @@
-import { ScheduleSession } from "../components/Conf/Schedule/ScheduleList"
+import { ScheduleSession } from "../components/Conf/Schedule/session-list"
 
 export function getEventTitle(
   event: ScheduleSession,

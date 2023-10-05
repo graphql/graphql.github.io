@@ -1,6 +1,6 @@
 import React from "react"
 import { PageProps } from "gatsby"
-import { ScheduleSession } from "../components/Conf/Schedule/ScheduleList"
+import { ScheduleSession } from "../components/Conf/Schedule/session-list"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
 import { format, parseISO } from "date-fns"
 import { getEventTitle } from "../utils/eventTitle"

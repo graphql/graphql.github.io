@@ -8,8 +8,7 @@ import HeaderConf from "../components/Conf/Header"
 import LayoutConf from "../components/Conf/Layout"
 import SeoConf from "../components/Conf/Seo"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
-import { ScheduleSession } from "../components/Conf/Schedule/ScheduleList"
-import { format, parseISO } from "date-fns"
+import { ScheduleSession } from "../components/Conf/Schedule/session-list"
 import { Avatar } from "../components/Conf/Speakers/Avatar"
 import clsx from "clsx"
 import {
@@ -63,48 +62,20 @@ export const EventComponent: FC<{
     <div className={`bg-white ${!hideBackButton ? "py-10" : ""}`}>
       <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
         <div className="flex flex-col lg:px-0">
-          {!hideBackButton && <BackLink kind="schedule" />}
+          {!hideBackButton && <BackLink kind="sessions" />}
+          {recordingTitle.rating > 0.5 && (
+            <iframe
+              className="aspect-video max-w-[1000px] mx-auto w-full h-full"
+              src={`https://youtube.com/embed/${
+                videos.find(e => e.title === recordingTitle.target)?.id
+              }`}
+              title={recordingTitle.target}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          )}
+
           <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-4">
-            <div className="flex gap-5 mb-1.5">
-              <span className="flex items-center">
-                <svg
-                  className="mr-1.5 mb-0.5"
-                  width={18}
-                  height={18}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                >
-                  {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
-                  <path
-                    fill="#0E031C"
-                    d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"
-                  />
-                </svg>
-
-                {format(parseISO(event.event_start), "EEEE, MMM d")}
-              </span>
-              <span className="flex items-center">
-                <svg
-                  className="mr-1.5 mb-0.5"
-                  width={18}
-                  height={18}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
-                  <path
-                    fill="#0E031C"
-                    d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
-                  />
-                </svg>
-
-                {format(parseISO(event.event_start), "hh:mm aaaa") +
-                  " - " +
-                  format(parseISO(event.event_end), "hh:mm aaaa") +
-                  " PDT"}
-              </span>
-            </div>
-            <span className="flex items-center mt-0">Room: {event.venue}</span>
             <div className="space-y-5">
               <div className="flex gap-3 flex-wrap">
                 <Tag text={eventType} featured />
@@ -114,26 +85,10 @@ export const EventComponent: FC<{
               <h1 className="mt-0 text-2xl lg:text-3xl font-medium mb-5">
                 {eventTitle}
               </h1>
-              <h4 className="flex space-x-4">
-                {speakers?.map(speaker => (
-                  <span className="font-normal">
-                    <span className="font-semibold">
-                      {speaker.name}
-                      {speaker.company && ", "}
-                    </span>
-                    {speaker.company && speaker.company}
-                  </span>
-                ))}
-              </h4>
             </div>
-            <ReactMarkdown
-              children={event.description}
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw]}
-            />
             <div className="flex lg:flex-row flex-col sm:gap-5">
               {speakers?.map(speaker => (
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3" key={speaker.username}>
                   <Avatar
                     className="lg:w-[120px] lg:h-[120px] w-[100px] h-[100px] rounded-full"
                     avatar={speaker.avatar}
@@ -179,49 +134,23 @@ export const EventComponent: FC<{
                 </div>
               ))}
             </div>
+            <ReactMarkdown
+              children={event.description}
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+            />
 
-            {recordingTitle.rating > 0.5 && (
-              <div>
-                <span className="block text-3xl font-bold text-[#111827] mt-5 mb-4">
-                  Recording
-                </span>
-
-                <iframe
-                  height="408px"
-                  width="100%"
-                  src={`https://www.youtube.com/embed/${
-                    videos.find(e => e.title === recordingTitle.target)?.id
-                  }`}
-                  title={recordingTitle.target}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              </div>
-            )}
-
-            {event.files && (
-              <div>
-                <span className="block text-3xl font-bold text-[#111827] mt-5 mb-4">
-                  Assets
-                </span>
-                {event.files?.map(({ name, path }) => (
-                  <>
-                    <a href={path} target="_blank">
-                      {name}
-                    </a>
-                    <iframe
-                      style={{
-                        height: "500px",
-                        width: "100%",
-                        resize: "both",
-                        overflow: "auto",
-                      }}
-                      src={path}
-                    ></iframe>
-                  </>
-                ))}
-              </div>
-            )}
+            <div className="py-8">
+              {event.files?.map(({ path }) => (
+                <>
+                  <a href={path} target="_blank">
+                    View Full PDF{" "}
+                    <span className="font-sans font-light text-2xl">↗</span>
+                  </a>
+                  <iframe src={path} className="aspect-video w-full h-full" />
+                </>
+              ))}
+            </div>
           </div>
         </div>
       </section>

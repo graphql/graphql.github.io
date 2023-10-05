@@ -1,10 +1,9 @@
-import { ScheduleSession } from "./src/components/Conf/Schedule/ScheduleList"
+import { ScheduleSession } from "./src/components/Conf/Schedule/session-list"
 import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
 import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
 import * as path from "path"
 import { glob } from "glob"
-import _ from "lodash"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
@@ -177,11 +176,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
       )) as SchedSpeaker[]
     ).filter(s => s.role.includes("speaker"))
 
-    // Create schedule page
     createPage({
       path: "/conf/schedule",
       component: path.resolve("./src/templates/schedule.tsx"),
       context: { schedule },
+    })
+
+    // Create schedule page
+    createPage({
+      path: "/conf/sessions",
+      component: path.resolve("./src/templates/session.tsx"),
+      context: {
+        schedule: withSpeakerInfo(schedule.filter(session => session.speakers)),
+      },
     })
 
     // Create schedule events' pages
@@ -191,7 +198,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       )
 
       createPage({
-        path: `/conf/schedule/${event.id}`,
+        path: `/conf/sessions/${event.id}`,
         component: path.resolve("./src/templates/event.tsx"),
         context: {
           event,
@@ -222,6 +229,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
     })
 
+    function withSpeakerInfo(session: ScheduleSession[]) {
+      return session.map(session => ({
+        ...session,
+        speakers: session.speakers
+          .map(speaker => speakers.find(s => s.username === speaker.username))
+          .filter(Boolean),
+      }))
+    }
+
     // Create speakers list page
     createPage({
       path: "/conf/speakers",
@@ -239,7 +255,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
       createPage({
         path: `/conf/speakers/${speaker.username}`,
         component: path.resolve("./src/templates/speaker.tsx"),
-        context: { speaker, schedule: speakerSessions },
+        context: {
+          speaker,
+          schedule: withSpeakerInfo(speakerSessions),
+        },
       })
 
       if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
@@ -272,6 +291,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   createRedirect({
     fromPath: "/conf/program",
     toPath: "/conf/schedule",
+  })
+
+  createRedirect({
+    fromPath: "/conf/schedule/*",
+    toPath: "/conf/sessions/*",
   })
 
   // redirect swapi with 200

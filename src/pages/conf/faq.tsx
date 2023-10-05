@@ -2,7 +2,6 @@ import React, { ReactNode } from "react"
 import FooterConf from "../../components/Conf/Footer"
 import HeaderConf from "../../components/Conf/Header"
 import LayoutConf from "../../components/Conf/Layout"
-import ButtonConf from "../../components/Conf/Button"
 import SectionConf from "../../components/Conf/Section"
 import SeoConf from "../../components/Conf/Seo"
 

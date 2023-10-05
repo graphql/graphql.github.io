@@ -8,9 +8,9 @@ import LayoutConf from "../components/Conf/Layout"
 import SeoConf from "../components/Conf/Seo"
 import { HeadProps, PageProps } from "gatsby"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
-import ScheduleList, {
+import SessionList, {
   ScheduleSession,
-} from "../components/Conf/Schedule/ScheduleList"
+} from "../components/Conf/Schedule/session-list"
 import { Avatar } from "../components/Conf/Speakers/Avatar"
 import {
   SocialMediaIcon,
@@ -29,21 +29,19 @@ const SpeakersTemplate: FC<
         <section className="text-[#333333] min-h-[80vh] mx-auto flex flex-col px-2 xs:px-0 md:container">
           <div className="lg:px-0 flex flex-col">
             <BackLink kind="speakers" />
-            <div className="mt-10 self-center prose lg:prose-lg space-y-12">
-              <div className="flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5">
+            <div className="mt-10 self-center prose lg:prose-lg max-w-[unset] lg:px-44 space-y-12">
+              <div className="flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5 justify-between">
                 <div className="flex flex-col items-start gap-y-5">
                   <h1 className="!my-0 py-0">{speaker.name}</h1>
 
                   <span className="font-normal">
-                    <span className="font-semibold">
-                      {speaker.company && speaker.company}
-                    </span>
+                    <span className="font-semibold">{speaker.company}</span>
                     {speaker.company && ", "}
                     {speaker.position}
                   </span>
                   <ReactMarkdown
                     className="text-justify [&>p]:!my-0 !py-0"
-                    children={speaker.about}
+                    children={speaker.about.replace(/(<br>){2,}/g, "")}
                     rehypePlugins={[rehypeRaw]}
                     remarkPlugins={[remarkGfm]}
                   />
@@ -75,14 +73,9 @@ const SpeakersTemplate: FC<
                 />
               </div>
 
-              <div>
-                <h1 className="!mb-0 pb-0">Sessions</h1>
-                <ScheduleList
-                  showFilter={false}
-                  showEventType
-                  scheduleData={schedule}
-                />
-              </div>
+              <h1 className="!mb-0 pb-0">Sessions</h1>
+
+              <SessionList showFilter={false} scheduleData={schedule} />
             </div>
           </div>
         </section>
