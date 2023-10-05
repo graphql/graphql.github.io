@@ -11,6 +11,7 @@ interface LinkItem {
 const links: LinkItem[] = [
   { text: "Speakers", href: "/conf/speakers/" },
   { text: "Sessions", href: "/conf/sessions/" },
+  { text: "Schedule", href: "/conf/schedule/" },
   { text: "FAQ", href: "/conf/faq/" },
 ]
 

@@ -1,8 +1,13 @@
-import { compareAsc } from "date-fns"
-import React, { ComponentProps, FC, useEffect, useState } from "react"
+import { format, parseISO, compareAsc } from "date-fns"
+import React, { FC, useEffect, useState } from "react"
 import { eventsColors } from "../../../utils/eventsColors"
+import { getEventTitle } from "../../../utils/eventTitle"
 import Filters from "./Filters"
 import { SchedSpeaker } from "../Speakers/Speaker"
+
+function isString(x: any) {
+  return Object.prototype.toString.call(x) === "[object String]"
+}
 
 export interface ScheduleSession {
   id: string
@@ -117,12 +122,14 @@ function getSessionsByDay(
 }
 
 interface Props {
+  showEventType?: boolean
   showFilter?: boolean
   scheduleData: ScheduleSession[]
   filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
 }
 
 const ScheduleList: FC<Props> = ({
+  showEventType,
   showFilter = true,
   filterSchedule,
   scheduleData,
@@ -134,8 +141,10 @@ const ScheduleList: FC<Props> = ({
     "Talk category": [],
     "Event type": [],
   })
-  const [sessionsState, setSessionState] = useState<ScheduleSessionsByDay>(() =>
-    getSessionsByDay(scheduleData, filterSchedule, filtersState)
+  const [sessionsState, setSessionState] = useState<ScheduleSessionsByDay>(
+    () => {
+      return getSessionsByDay(scheduleData, filterSchedule, filtersState)
+    }
   )
 
   useEffect(() => {
@@ -145,7 +154,8 @@ const ScheduleList: FC<Props> = ({
   }, [filtersState, scheduleData])
 
   return (
-    <div className="pb-20">
+    <>
+      <div className="h-0.5 bg-gray-200 my-6" />
       {showFilter && (
         <Filters
           categories={filterCategories}
@@ -174,115 +184,132 @@ const ScheduleList: FC<Props> = ({
           <h3 className="mb-5">No sessions found</h3>
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-6 not-prose">
-          {Object.entries(sessionsState).flatMap(
-            ([date, concurrentSessionsGroup]) =>
-              Object.entries(concurrentSessionsGroup).flatMap(
-                ([sessionDate, sessions]) =>
-                  sessions.flatMap(session => {
-                    const speakers = session.speakers as SchedSpeaker[]
-
-                    const borderColor = eventsColors[session.event_type]
-
-                    const countSpeakers =
-                      speakers.length > 3 ? 3 : speakers.length
-
-                    const gridColumn = `span ${countSpeakers} / span ${countSpeakers}`
-                    return (
-                      <a
-                        key={session.event_key}
-                        className="shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline"
-                        style={{ gridColumn }}
-                        href={`/conf/sessions/${session.id}`}
-                      >
-                        <div className="bg-[#251F30] text-white flex justify-between py-5 px-7 relative">
-                          <div className="text-sm flex flex-col gap-2 [*:hover>*>&]:opacity-0 transition-opacity duration-300 opacity-100">
-                            <div className="flex gap-3">
-                              <div className="w-4 text-center">▶</div>
-                              Recording
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <ClockIcon className="w-4 h-4" />
-                              {(Number(new Date(session.event_end)) -
-                                Number(new Date(session.event_start))) /
-                                1000 /
-                                60}
-                              m
-                            </div>
-                          </div>
-                          <span className="font-sans text-lg leading-none">
-                            ↗
+        <>
+          <div className="flex space-x-4">
+            {Object.keys(sessionsState).map((date, index) => (
+              <a
+                href={`#day-${index + 1}`}
+                key={date}
+                className={"text-gray-800 text-xs"}
+              >
+                Day {index + 1}
+              </a>
+            ))}
+          </div>
+          {Object.entries(sessionsState).map(
+            ([date, concurrentSessionsGroup], index) => (
+              <div key={date} className="text-gray-800 text-sm">
+                <h3 className="mb-5" id={`day-${index + 1}`}>
+                  {format(parseISO(date), "EEEE, MMMM d")}
+                </h3>
+                {Object.entries(concurrentSessionsGroup).map(
+                  ([sessionDate, sessions]) => (
+                    <div key={`concurrent sessions on ${sessionDate}`}>
+                      <div className="lg:flex-row flex flex-col mb-4">
+                        <div className="relative">
+                          <span className="lg:mr-7 mb-5 whitespace-nowrap text-gray-500 lg:mt-0 mt-3 inline-block lg:w-28 w-20">
+                            {format(parseISO(sessionDate), "hh:mmaaaa 'PDT'")}
                           </span>
-                          <div className="transition-opacity duration-300 opacity-0 [*:hover>*>&]:opacity-100 flex items-center justify-center leading-none rounded-full bg-gray-100/10 absolute top-7 left-1/2 translate-x-1/2 p-2">
-                            ▶
-                          </div>
+                          <div className="lg:block hidden absolute right-3 top-0 h-full w-0.5 bg-gray-200" />
                         </div>
-                        <div className="p-7 flex flex-col grow">
-                          <span
-                            className="group-hover:no-underline flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl text-sm"
-                            style={{
-                              backgroundColor: borderColor,
-                            }}
-                          >
-                            {session.event_type}
-                          </span>
-                          <b className="grow">{session.name}</b>
-                          <div className="flex gap-5 flex-wrap">
-                            {speakers.map(s => (
+                        <div className="lg:flex-row flex flex-col gap-5 relative lg:items-start items-end w-full lg:pl-0 pl-[28px]">
+                          <div className="block lg:hidden absolute left-3 top-0 h-full w-0.5 bg-gray-200" />
+
+                          {sessions.map(session => {
+                            const eventType = session.event_type.endsWith("s")
+                              ? session.event_type.slice(0, -1)
+                              : session.event_type
+
+                            const speakers = session.speakers
+                            const formattedSpeakers = isString(speakers || [])
+                              ? (speakers as string)?.split(",")
+                              : (speakers as SchedSpeaker[])?.map(e => e.name)
+                            const eventTitle = getEventTitle(
+                              session,
+                              formattedSpeakers
+                            )
+
+                            const borderColor = eventsColors[session.event_type]
+
+                            return session.event_type === "Breaks" ? (
                               <div
-                                className="flex items-center gap-5 mt-5"
-                                key={s.username}
+                                key={session.id}
+                                style={{
+                                  borderLeft: `10px solid ${borderColor}`,
+                                  borderRadius: "5px",
+                                  backgroundColor: "white",
+                                }}
+                                className="shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal flex items-center py-2 px-4 rounded-md w-full h-full text-black"
                               >
-                                <img
-                                  src={s.avatar}
-                                  width="70"
-                                  height="70"
-                                  className="object-cover rounded-full shrink-0 !m-0"
-                                />
-                                <div className="flex flex-col text-sm">
-                                  <b>{s.name}</b>
-                                  <span>{s.company}</span>
-                                </div>
+                                {showEventType ? eventType + " / " : ""}
+                                {eventTitle}
                               </div>
-                            ))}
-                          </div>
+                            ) : (
+                              <a
+                                id={`session-${session.id}`}
+                                data-tooltip-id="my-tooltip"
+                                href={`/conf/schedule/${session.id}?name=${session.name}`}
+                                key={session.id}
+                                style={{
+                                  borderLeft: `10px solid ${borderColor}`,
+                                  borderRadius: "5px",
+                                  backgroundColor: "white",
+                                }}
+                                className="group no-underline hover:no-underline shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal relative py-2 px-4 rounded-md w-full h-full text-black"
+                              >
+                                <div className="flex flex-col justify-start h-full py-3 gap-y-2">
+                                  {borderColor && (
+                                    <span
+                                      className="group-hover:no-underline flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl"
+                                      style={{
+                                        backgroundColor: borderColor,
+                                      }}
+                                    >
+                                      {eventType}
+                                    </span>
+                                  )}
+                                  <div className="group-hover:underline flex flex-col justify-between h-full gap-y-2">
+                                    {showEventType ? eventType + " / " : ""}
+                                    {eventTitle}
+                                    <div className="flex flex-col">
+                                      {(speakers?.length || 0) > 0 && (
+                                        <span className="font-light">
+                                          {formattedSpeakers.join(", ")}
+                                        </span>
+                                      )}
+                                      <span className="font-bold mt-2 flex items-center text-gray-700">
+                                        <svg
+                                          className="mr-1 mb-0.5"
+                                          width="16px"
+                                          height="16px"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          viewBox="0 0 384 512"
+                                        >
+                                          {/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
+                                          <path
+                                            fill="rgb(55, 65, 81)"
+                                            d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                                          />
+                                        </svg>
+                                        {session.venue}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </a>
+                            )
+                          })}
                         </div>
-                      </a>
-                    )
-                  })
-              )
+                      </div>
+                    </div>
+                  )
+                )}
+              </div>
+            )
           )}
-        </div>
+        </>
       )}
-    </div>
-  )
-}
-
-function ClockIcon(props: ComponentProps<"svg">) {
-  return (
-    <svg
-      width="23"
-      height="23"
-      viewBox="0 0 23 23"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <circle
-        cx="11.489"
-        cy="11.6252"
-        r="8.53681"
-        stroke="white"
-        strokeWidth="1.65229"
-      />
-      <path
-        d="M11.5205 7.59863V12.0107L14.2194 14.1285"
-        stroke="white"
-        strokeWidth="1.65229"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    </>
   )
 }
 

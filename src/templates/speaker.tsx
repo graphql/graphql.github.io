@@ -8,9 +8,9 @@ import LayoutConf from "../components/Conf/Layout"
 import SeoConf from "../components/Conf/Seo"
 import { HeadProps, PageProps } from "gatsby"
 import { SchedSpeaker } from "../components/Conf/Speakers/Speaker"
-import ScheduleList, {
+import SessionList, {
   ScheduleSession,
-} from "../components/Conf/Schedule/ScheduleList"
+} from "../components/Conf/Schedule/session-list"
 import { Avatar } from "../components/Conf/Speakers/Avatar"
 import {
   SocialMediaIcon,
@@ -75,7 +75,7 @@ const SpeakersTemplate: FC<
 
               <h1 className="!mb-0 pb-0">Sessions</h1>
 
-              <ScheduleList showFilter={false} scheduleData={schedule} />
+              <SessionList showFilter={false} scheduleData={schedule} />
             </div>
           </div>
         </section>

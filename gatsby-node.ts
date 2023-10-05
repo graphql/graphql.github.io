@@ -1,4 +1,4 @@
-import { ScheduleSession } from "./src/components/Conf/Schedule/ScheduleList"
+import { ScheduleSession } from "./src/components/Conf/Schedule/session-list"
 import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
 import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
@@ -176,10 +176,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
       )) as SchedSpeaker[]
     ).filter(s => s.role.includes("speaker"))
 
+    createPage({
+      path: "/conf/schedule",
+      component: path.resolve("./src/templates/schedule.tsx"),
+      context: { schedule },
+    })
+
     // Create schedule page
     createPage({
       path: "/conf/sessions",
-      component: path.resolve("./src/templates/schedule.tsx"),
+      component: path.resolve("./src/templates/session.tsx"),
       context: {
         schedule: withSpeakerInfo(schedule.filter(session => session.speakers)),
       },
