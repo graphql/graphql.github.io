@@ -81,7 +81,7 @@ const SpeakersTemplate: FC<
         </section>
       </div>
 
-      <FooterConf includePartners={false} includeSponors={false} />
+      <FooterConf includeSponors={false} />
     </LayoutConf>
   )
 }

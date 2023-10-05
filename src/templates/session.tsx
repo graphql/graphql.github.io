@@ -20,7 +20,7 @@ const SessionsTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
           <SessionList scheduleData={schedule} />
         </div>
       </div>
-      <FooterConf includePartners={false} includeSponors={false} />
+      <FooterConf includeSponors={false} />
     </LayoutConf>
   )
 }

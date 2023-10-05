@@ -77,7 +77,7 @@ const ScheduleTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
           <ScheduleList scheduleData={schedule} />
         </div>
       </div>
-      <FooterConf includePartners={false} includeSponors={false} />
+      <FooterConf includeSponors={false} />
     </LayoutConf>
   )
 }

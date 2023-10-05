@@ -20,11 +20,10 @@ const links = [
   ],
 ]
 
-const FooterConf = ({ includeSponors = true, includePartners = true }) => {
+const FooterConf = ({ includeSponors = true }) => {
   return (
     <>
       {includeSponors && <SponsorsConf />}
-      {includePartners && <PartnersConf />}
       <footer className="text-gray-600 bg-[#171E26]">
         <div className="container px-5 md:py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 shrink-0 md:mx-0 text-left">
