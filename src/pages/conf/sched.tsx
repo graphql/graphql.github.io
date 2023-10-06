@@ -34,7 +34,7 @@ export default () => {
                 src="//graphqlconf23.sched.com/js/embed.js"
               ></Script>
             </div>
-            {/* 
+            {/*
             <h2>Workshop Day</h2>
             <p>
               Join us for a GraphQLConf Workshop Day on September 19. Workshops
@@ -53,7 +53,7 @@ export default () => {
           </section>
         </div>
       </div>
-      <FooterConf includePartners={false} includeSponors={false} />
+      <FooterConf includeSponors={false} />
     </LayoutConf>
   )
 }

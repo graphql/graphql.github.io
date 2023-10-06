@@ -4,23 +4,30 @@ import HeaderConf from "../components/Conf/Header"
 import LayoutConf from "../components/Conf/Layout"
 import SeoConf from "../components/Conf/Seo"
 import { PageProps } from "gatsby"
+import { Tabs } from "../pages/conf/gallery"
 import SessionList, {
   ScheduleSession,
 } from "../components/Conf/Schedule/session-list"
 
-const SessionsTemplate: FC<PageProps<{}, { schedule: ScheduleSession[] }>> = ({
-  pageContext: { schedule },
-}) => {
+const SessionsTemplate: FC<
+  PageProps<
+    {},
+    {
+      schedule: ScheduleSession[]
+    }
+  >
+> = ({ pageContext: { schedule }, path }) => {
   return (
     <LayoutConf>
       <HeaderConf className="shadow-none" />
 
       <div className="bg-[#F4F6F8]">
         <div className="container">
+          <Tabs path={path} />
           <SessionList scheduleData={schedule} />
         </div>
       </div>
-      <FooterConf includePartners={false} includeSponors={false} />
+      <FooterConf includeSponors={false} />
     </LayoutConf>
   )
 }

@@ -12,200 +12,160 @@ import { ReactComponent as Inigo } from "../../../../static/img/conf/Sponsors/In
 import { ReactComponent as Neo4j } from "../../../../static/img/conf/Sponsors/Neo4j.svg"
 import { ReactComponent as WunderGraph } from "../../../../static/img/conf/Sponsors/WunderGraph.svg"
 import { ReactComponent as Graphabase } from "../../../../static/img/conf/Sponsors/Graphabase.svg"
+import { ReactComponent as GraphQLWeekly } from "../../../../static/img/conf/Partners/GraphQLWeekly.svg"
+import { ReactComponent as GraphQLWTF } from "../../../../static/img/conf/Partners/GraphQLwtf.svg"
+import { ReactComponent as EscapeTechnologies } from "../../../../static/img/conf/Partners/EscapeTechnologies.svg"
+import { ReactComponent as AmsterdamGraphQL } from "../../../../static/img/conf/Partners/AmsterdamGraphQL.svg"
+import { ReactComponent as BangkokGraphQL } from "../../../../static/img/conf/Partners/BangkokGraphQL.svg"
+import { ReactComponent as TypeGraphQL } from "../../../../static/img/conf/Partners/TypeGraphQL.svg"
+import { clsx } from "clsx"
 
 interface Image {
-  iconPath: string
+  icon: string
   name: string
   link: string
 }
 
-function alphabetSort(a: Image, b: Image) {
-  if (a.name < b.name) {
-    return -1
-  }
-  if (a.name > b.name) {
-    return 1
-  }
-  return 0
-}
-
 const sponsorDiamond: Image[] = [
-  {
-    iconPath: TheGuild,
-    name: "The Guild",
-    link: "https://the-guild.dev/",
-  },
-  {
-    iconPath: Postman,
-    name: "Postman",
-    link: "https://www.postman.com/",
-  },
-  {
-    iconPath: Hasura,
-    name: "Hasura",
-    link: "https://hasura.io/",
-  },
+  { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
+  { icon: Postman, name: "Postman", link: "https://postman.com" },
+  { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
 ]
 
 const sponsorPlatinum: Image[] = [
-  {
-    iconPath: Solo,
-    name: "Solo.io",
-    link: "https://www.solo.io/",
-  },
-  {
-    iconPath: Hygraph,
-    name: "Hygraph",
-    link: "https://hygraph.com/",
-  },
+  { icon: Hygraph, name: "Hygraph", link: "https://hygraph.com" },
+  { icon: Solo, name: "Solo.io", link: "https://solo.io" },
 ]
 
 const sponsorGold: Image[] = [
-  {
-    iconPath: TheGraph,
-    name: "The Graph",
-    link: "https://thegraph.com/",
-  },
-  {
-    iconPath: StepZen,
-    name: "StepZen",
-    link: "https://stepzen.com/",
-  },
-  {
-    iconPath: Inigo,
-    name: "Inigo",
-    link: "https://inigo.io/",
-  },
+  { icon: StepZen, name: "StepZen", link: "https://stepzen.com" },
+  { icon: Inigo, name: "Inigo", link: "https://inigo.io" },
+  { icon: TheGraph, name: "The Graph", link: "https://thegraph.com" },
 ]
 
 const sponsorSilver: Image[] = [
-  {
-    iconPath: Neo4j,
-    name: "Neo4j",
-    link: "https://neo4j.com/",
-  },
-  {
-    iconPath: WunderGraph,
-    name: "WunderGraph",
-    link: "https://wundergraph.com/",
-  },
-  {
-    iconPath: Stellate,
-    name: "Stellate",
-    link: "https://stellate.co/",
-  },
-  {
-    iconPath: Graphabase,
-    name: "Graphabase",
-    link: "https://graphabase.com/",
-  },
+  { icon: Graphabase, name: "Graphabase", link: "https://graphabase.com" },
+  { icon: Neo4j, name: "Neo4j", link: "https://neo4j.com" },
+  { icon: Stellate, name: "Stellate", link: "https://stellate.co" },
+  { icon: WunderGraph, name: "WunderGraph", link: "https://wundergraph.com" },
 ]
 
 const workshopDaySponsors: Image[] = [
-  {
-    iconPath: TheGuild,
-    name: "The Guild",
-    link: "https://the-guild.dev/",
-  },
+  { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
 ]
 
-const iconClassName =
-  "flex flex-col justify-center items-center text-center w-full h-full"
+const mediaPartners: Image[] = [
+  { icon: GraphQLWTF, name: "GraphQLWTF", link: "https://graphql.wtf" },
+  // prettier-ignore
+  { icon: GraphQLWeekly, name: 'GraphQLWeekly', link: 'https://graphqlweekly.com' },
+]
 
-const SponsersConf = () => {
+const communityPartners: Image[] = [
+  // prettier-ignore
+  {
+    icon: AmsterdamGraphQL,
+    name: 'Amsterdam GraphQL',
+    link: 'https://meetup.com/amsterdam-graphql-meetup',
+  },
+  // prettier-ignore
+  { icon: BangkokGraphQL, name: 'Bangkok GraphQL', link: 'https://meetup.com/graphql-bangkok', },
+  // prettier-ignore
+  { icon: EscapeTechnologies, name: 'EscapeTechnologies', link: 'https://escape.tech', },
+  { icon: TypeGraphQL, name: "TypeGraphQL", link: "https://typegraphql.com" },
+]
+
+function List({
+  items,
+  className,
+  linkClassName,
+}: {
+  className?: string
+  items: Image[]
+  linkClassName?: string
+}) {
   return (
-    <div id="sponsors" className="bg-white py-10 static">
-      <h1 className="text-center text-4xl text-[#171E26] font-bold my-8">
-        Sponsors
-      </h1>
-      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
-        DIAMOND
-      </h3>
-      <div className="flex justify-center items-center flex-wrap gap-[40px]">
-        {sponsorDiamond
-          .sort((a, b) => alphabetSort(a, b))
-          .map((sponsor, i) => (
-            <a
-              key={i}
-              className={`zoom-diamond ${iconClassName}`}
-              href={sponsor.link}
-              target="_blank"
-            >
-              <sponsor.iconPath />
-            </a>
-          ))}
-      </div>
-      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
-        PLATINUM
-      </h3>
-      <div className="flex justify-center items-center flex-wrap gap-[20px]">
-        {sponsorPlatinum
-          .sort((a, b) => alphabetSort(a, b))
-          .map((sponsor, i) => (
-            <a
-              key={i}
-              className={`zoom-platinum ${iconClassName}`}
-              href={sponsor.link}
-              target="_blank"
-            >
-              <sponsor.iconPath />
-            </a>
-          ))}
-      </div>
-
-      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
-        GOLD
-      </h3>
-      <div className="flex justify-center items-start flex-wrap gap-[40px]">
-        {sponsorGold
-          .sort((a, b) => alphabetSort(a, b))
-          .map((sponsor, i) => (
-            <a
-              key={i}
-              className={`zoom-gold ${iconClassName}`}
-              href={sponsor.link}
-              target="_blank"
-            >
-              <sponsor.iconPath />
-            </a>
-          ))}
-      </div>
-
-      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
-        SILVER
-      </h3>
-      <div className="flex justify-center items-start flex-wrap gap-[40px]">
-        {sponsorSilver
-          .sort((a, b) => alphabetSort(a, b))
-          .map((sponsor, i) => (
-            <a
-              key={i}
-              className={`zoom-silver ${iconClassName}`}
-              href={sponsor.link}
-              target="_blank"
-            >
-              <sponsor.iconPath />
-            </a>
-          ))}
-      </div>
-
-      <h3 className="text-center text-[--rhodamine] font-bold my-10 underline underline-offset-8">
-        Workshop Day Sponsor
-      </h3>
-      <div className="flex justify-center items-center flex-wrap gap-[40px] h-[70%]">
-        {workshopDaySponsors.map((sponsor, i) => (
-          <a
-            key={i}
-            className={`zoom-platinum ${iconClassName}`}
-            href={sponsor.link}
-            target="_blank"
-          >
-            <sponsor.iconPath />
-          </a>
-        ))}
-      </div>
+    <div className={clsx("grid gap-7 w-full", className)}>
+      {items.map(({ link, icon: Icon, name }, i) => (
+        <a
+          key={i}
+          className={clsx(
+            "relative shrink-0 bg-[#251f30] rounded-md",
+            "border border-solid border-transparent hover:border-[#e535ab]",
+            "transition-colors",
+            "hover:no-underline focus:no-underline hover:shadow-[#ea75c3]/20 shadow-md",
+            linkClassName
+          )}
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          title={name}
+        >
+          <Icon width="auto" height="auto" />
+          <span className="font-sans absolute right-5 top-5 leading-none text-white text-2xl">
+            ↗
+          </span>
+        </a>
+      ))}
     </div>
   )
 }
 
-export default SponsersConf
+const classes = {
+  heading: "md:text-center text-[#ea75c3] text-3xl font-bold mb-10 mt-20",
+  title: "md:text-center text-4xl text-white font-bold mt-0",
+}
+
+export default function SponsorsConf() {
+  return (
+    <div id="sponsors" className="bg-[#0e031c]">
+      <div className="container py-24">
+        <h1 className={classes.title}>Sponsors</h1>
+        <h3 className={classes.heading}>Diamond</h3>
+        <List
+          items={sponsorDiamond}
+          className="grid-cols-1"
+          linkClassName="p-16 h-[220px]"
+        />
+        <h3 className={classes.heading}>Platinum</h3>
+        <List
+          items={sponsorPlatinum}
+          className="grid-cols-2"
+          linkClassName="p-10 md:py-14 h-[210px]"
+        />
+        <h3 className={classes.heading}>Gold</h3>
+        <List
+          items={sponsorGold}
+          className="grid-cols-2 xl:grid-cols-3"
+          linkClassName="p-8 md:py-14 h-[170px]"
+        />
+        <h3 className={classes.heading}>Silver</h3>
+        <List
+          items={sponsorSilver}
+          className="grid-cols-2 xl:grid-cols-4"
+          linkClassName="p-8 md:py-10 h-[155px]"
+        />
+        <h3 className={classes.heading}>Workshop Day Sponsor</h3>
+        <List
+          items={workshopDaySponsors}
+          className="justify-center"
+          linkClassName="p-10 h-[155px]"
+        />
+      </div>
+      <div className="container py-24">
+        <h1 className={classes.title}>Partners</h1>
+        <h3 className={classes.heading}>Media Partners</h3>
+        <List
+          items={mediaPartners}
+          className="grid-flow-col justify-center"
+          linkClassName="p-8 md:py-14 h-[155px]"
+        />
+        <h3 className={classes.heading}>Community Partners</h3>
+        <List
+          items={communityPartners}
+          className="grid-cols-2 xl:grid-cols-4"
+          linkClassName="p-8 h-[155px]"
+        />
+      </div>
+    </div>
+  )
+}

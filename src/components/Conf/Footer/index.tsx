@@ -1,7 +1,6 @@
 import React from "react"
 import SocialIcons from "../SocialIcons"
 import SponsorsConf from "../Sponsors"
-import PartnersConf from "../Partners"
 
 const links = [
   [
@@ -20,58 +19,47 @@ const links = [
   ],
 ]
 
-const FooterConf = ({ includeSponors = true, includePartners = true }) => {
+const FooterConf = ({ includeSponors = true }) => {
   return (
     <>
       {includeSponors && <SponsorsConf />}
-      {includePartners && <PartnersConf />}
-      <footer className="text-gray-600 bg-[#171E26]">
-        <div className="container px-5 md:py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-          <div className="w-64 shrink-0 md:mx-0 text-left">
-            <a
-              href="/conf/"
-              className="flex font-medium md:items-center justify-start text-gray-900"
-            >
-              <img
-                src="/img/conf/graphql-conf-logo.svg"
-                className="w-[200px]"
-              />
-            </a>
-          </div>
-          <div className="grow flex flex-wrap justify-between lg:pl-20 -mb-10 md:mt-0 mt-10 text-left">
+      <footer className="text-white bg-[#0e031c] shadow-none">
+        <div className="container flex max-sm:flex-col gap-10 max-md:justify-between sm:mb-16 xl:mb-32">
+          <a href="/conf/" className="md:w-1/3">
+            <img src="/img/conf/graphql-conf-logo.svg" className="w-[200px]" />
+          </a>
+          <div className="flex max-md:flex-col justify-between md:grow gap-5">
             {links.map((link, i) => (
-              <div key={i} className="md:w-1/3 md:px-4">
-                <div className="list-none mb-10 md:mb-20">
-                  {link.map((link, i) => (
-                    <li key={i}>
-                      <a
-                        href={link.href}
-                        className="text-white font-semibold text-base hover:text-white hover:font-semibold hover:underline"
-                      >
-                        {link.text}
-                      </a>
-                    </li>
-                  ))}
-                </div>
-              </div>
+              <ul key={i} className="list-none m-0">
+                {link.map((link, i) => (
+                  <li key={i}>
+                    <a
+                      href={link.href}
+                      className="text-white font-semibold text-base hover:no-underline"
+                    >
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             ))}
           </div>
         </div>
-        <div className="container px-5 mt-5 sm:mt-0 py-4 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-white text-sm text-center sm:text-left">
-            Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
-            All rights reserved.
+        <div className="container flex max-lg:flex-col justify-between">
+          <p className="text-sm">
+            Copyright © {new Date().getFullYear()} The GraphQL Foundation. All
+            rights reserved.
             <br />
             For web site terms of use, trademark policy and general project
-            policies please see&nbsp;
+            policies please see{" "}
             <a href="https://lfprojects.org" target="_blank">
               https://lfprojects.org
             </a>
             .
           </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start items-start">
+          <div>
             <SocialIcons />
-          </span>
+          </div>
         </div>
       </footer>
     </>

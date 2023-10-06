@@ -166,7 +166,7 @@ const EventTemplate: FC<
       <HeaderConf />
 
       <EventComponent {...pageContext} />
-      <FooterConf includePartners={false} includeSponors={false} />
+      <FooterConf includeSponors={false} />
     </LayoutConf>
   )
 }

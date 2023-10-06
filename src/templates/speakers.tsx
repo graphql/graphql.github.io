@@ -54,7 +54,7 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
           ))}
         </section>
       </div>
-      <FooterConf includePartners={false} includeSponors={false} />
+      <FooterConf includeSponors={false} />
     </LayoutConf>
   )
 }

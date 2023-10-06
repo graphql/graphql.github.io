@@ -10810,6 +10810,11 @@ react-markdown@^8.0.7:
     unist-util-visit "^4.0.0"
     vfile "^5.0.0"
 
+react-medium-image-zoom@5.1.8:
+  version "5.1.8"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.1.8.tgz#e4972849ce95ff9076fa6826b91fb6d9e8ea07ec"
+  integrity sha512-2X4oLlEopIWg7qalR1Qpy4gPrU9CTF0DvJ7HNu5u/NwdyQWupEsje2vuMbjBz7+np8MmQ4DKJ6zGr1ofCuzB3g==
+
 react-refresh@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.0.tgz#4e02825378a5f227079554d4284889354e5f553e"
