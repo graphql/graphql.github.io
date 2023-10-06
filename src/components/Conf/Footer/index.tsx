@@ -24,22 +24,19 @@ const FooterConf = ({ includeSponors = true }) => {
   return (
     <>
       {includeSponors && <SponsorsConf />}
-      <footer className="text-gray-600 bg-[#171E26]">
-        <div className="container px-5 md:py-24 mx-auto flex md:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-          <div className="w-64 shrink-0 md:mx-0 text-left">
-            <a
-              href="/conf/"
-              className="flex font-medium md:items-center justify-start text-gray-900"
-            >
+      <footer className="text-white bg-[#0e031c]">
+        <div className="container flex max-sm:flex-col gap-10 max-md:justify-between">
+          <div className="md:w-1/3">
+            <a href="/conf/">
               <img
                 src="/img/conf/graphql-conf-logo.svg"
                 className="w-[200px]"
               />
             </a>
           </div>
-          <div className="grow flex flex-wrap justify-between lg:pl-20 -mb-10 md:mt-0 mt-10 text-left">
+          <div className="flex max-md:flex-col justify-between md:grow">
             {links.map((link, i) => (
-              <div key={i} className="md:w-1/3 md:px-4">
+              <div key={i}>
                 <div className="list-none mb-10 md:mb-20">
                   {link.map((link, i) => (
                     <li key={i}>
@@ -56,21 +53,19 @@ const FooterConf = ({ includeSponors = true }) => {
             ))}
           </div>
         </div>
-        <div className="container px-5 mt-5 sm:mt-0 py-4 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-white text-sm text-center sm:text-left">
-            Copyright © {`${new Date().getFullYear()}`} The GraphQL Foundation.
-            All rights reserved.
+        <div className="container flex max-lg:flex-col justify-between">
+          <p className="text-white text-sm ">
+            Copyright © {new Date().getFullYear()} The GraphQL Foundation. All
+            rights reserved.
             <br />
             For web site terms of use, trademark policy and general project
-            policies please see&nbsp;
+            policies please see
             <a href="https://lfprojects.org" target="_blank">
               https://lfprojects.org
             </a>
             .
           </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start items-start">
-            <SocialIcons />
-          </span>
+          <SocialIcons />
         </div>
       </footer>
     </>
