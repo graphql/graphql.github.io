@@ -124,7 +124,10 @@ export default function About() {
       </div>
       <div className="container py-24">
         <h2 className={classes.title}>Why Attend?</h2>
-        <ul role="list" className="grid sm:grid-cols-2 md:grid-cols-3 ml-0 gap-5 lg:gap-14">
+        <ul
+          role="list"
+          className="grid sm:grid-cols-2 md:grid-cols-3 ml-0 gap-5 lg:gap-14"
+        >
           {whyAttend.map((item, index) => (
             <li key={index} className="flex gap-4">
               <CheckIcon className="text-[--rhodamine] shrink-0" />

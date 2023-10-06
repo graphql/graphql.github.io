@@ -87,7 +87,7 @@ export default function SpeakersConf() {
                   >
                     <LinkedInIcon width="17" height="17" />
                   </a>
-              </div>
+                </div>
               </div>
             </div>
           ))}

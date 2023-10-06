@@ -182,7 +182,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
       context: { schedule },
     })
 
-
     createPage({
       path: "/conf",
       component: path.resolve("./src/templates/conf.tsx"),

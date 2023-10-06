@@ -12,8 +12,8 @@ const GalleryPage: FC<PageProps> = ({ path }) => {
       <HeaderConf className="shadow-none" />
       <div className="bg-[#F4F6F8]">
         <div className="container">
-          <Tabs path={path}/>
-          <GalleryConf  />
+          <Tabs path={path} />
+          <GalleryConf />
         </div>
       </div>
       <FooterConf includeSponors={false} />
