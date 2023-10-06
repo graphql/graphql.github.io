@@ -1,74 +1,76 @@
-import React from "react"
+import React, { ComponentProps } from "react"
+import { images } from "../../../utils/conf-images"
+import Zoom from "react-medium-image-zoom"
+import "react-medium-image-zoom/dist/styles.css"
+
+function chunk<T>(arr: T[], len: number): T[][] {
+  var chunks = [],
+    i = 0,
+    n = arr.length
+
+  while (i < n) {
+    chunks.push(arr.slice(i, (i += len)))
+  }
+
+  return chunks
+}
+
+function Img({ src, alt = "gallery" }: ComponentProps<"img">) {
+  return (
+    <Zoom>
+      <img
+        alt={alt}
+        className="object-cover aspect-video w-full hover:opacity-75 rounded-md"
+        src={src}
+      />
+    </Zoom>
+  )
+}
 
 const GalleryConf = () => {
-  const images: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
-  const randomArrayImages: number[] = images.sort(() => Math.random() - 0.5)
-
   return (
     <div className="py-20">
       <div className="container px-3 py-6 mx-auto">
-        <div className="flex flex-wrap md:-m-2 -m-1">
-          <div className="flex flex-wrap w-1/2">
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full object-cover h-full object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[0]}.jpg`}
-              />
+        {chunk(images, 6).map((c, i) => (
+          <div key={i} className="flex max-lg:flex-col flex-wrap">
+            <div className="flex flex-wrap lg:w-1/2">
+              {c[0] && (
+                <div className="md:p-2 p-1 lg:w-1/2">
+                  <Img src={c[0]} />
+                </div>
+              )}
+              {c[1] && (
+                <div className="md:p-2 p-1 lg:w-1/2">
+                  <Img src={c[1]} />
+                </div>
+              )}
+              {c[2] && (
+                <div className="md:p-2 p-1 lg:w-full">
+                  <Img src={c[2]} />
+                </div>
+              )}
             </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full object-cover h-full object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[1]}.jpg`}
-              />
-            </div>
-            <div className="md:p-2 p-1 w-full hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full h-full object-cover object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[2]}.jpg`}
-              />
-            </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full h-full object-cover object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[3]}.jpg`}
-              />
-            </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full h-full object-cover object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[4]}.jpg`}
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap w-1/2">
-            <div className="md:p-2 p-1 w-full hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full h-full object-cover object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[5]}.jpg`}
-              />
-            </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full object-cover h-full object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[6]}.jpg`}
-              />
-            </div>
-            <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
-              <img
-                alt="gallery"
-                className="w-full object-cover h-full object-center block"
-                src={`/img/conf/Gallery/${randomArrayImages[7]}.jpg`}
-              />
+            <div className="lg:w-1/2">
+              {c[3] && (
+                <div className="md:p-2 p-1 w-full">
+                  <Img src={c[3]} />
+                </div>
+              )}
+              <div className="flex">
+                {c[4] && (
+                  <div className="md:p-2 p-1 lg:w-1/2">
+                    <Img src={c[4]} />
+                  </div>
+                )}
+                {c[5] && (
+                  <div className="md:p-2 p-1 lg:w-1/2">
+                    <Img src={c[5]} />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   )

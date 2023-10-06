@@ -23,7 +23,7 @@ const FooterConf = ({ includeSponors = true }) => {
   return (
     <>
       {includeSponors && <SponsorsConf />}
-      <footer className="text-white bg-[#0e031c]">
+      <footer className="text-white bg-[#0e031c] shadow-none">
         <div className="container flex max-sm:flex-col gap-10 max-md:justify-between sm:mb-16 xl:mb-32">
           <a href="/conf/" className="md:w-1/3">
             <img src="/img/conf/graphql-conf-logo.svg" className="w-[200px]" />
