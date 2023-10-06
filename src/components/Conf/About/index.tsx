@@ -56,7 +56,7 @@ const whyAttend = [
 ]
 
 const classes = {
-  title: "text-center text-4xl font-bold mb-20 mt-0",
+  title: "md:text-center text-4xl font-bold mb-20 mt-0",
 }
 
 export default function About() {
@@ -64,7 +64,7 @@ export default function About() {
     <div className="bg-gray-100">
       <div className="container py-24">
         <h2 className={classes.title}>About</h2>
-        <div className="grid grid-cols-2 gap-28 mb-20">
+        <div className="grid lg:grid-cols-2 gap-14 xl:gap-28 mb-20">
           <div>
             <p className="mt-0">
               GraphQLConf – is the official conference produced by the GraphQL
@@ -88,10 +88,10 @@ export default function About() {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-28">
+        <div className="grid lg:grid-cols-2 gap-14 xl:gap-28 reverse">
           <img
             src={ConfImage2}
-            className="rounded-md w-full object-cover aspect-square"
+            className="max-lg:order-2 rounded-md w-full object-cover aspect-square"
           />
           <div>
             <p className="mt-0">
@@ -105,10 +105,10 @@ export default function About() {
               GraphQLConf is particularly relevant for engineers, architects,
               and managers involved in:
             </p>
-            <ul className="grid grid-cols-2 ml-0 mb-14">
+            <ul className="grid md:grid-cols-2 ml-0 mb-14">
               {list.map((item, index) => (
-                <li key={index} className="flex gap-2 items-center">
-                  <CheckIcon className="text-[--rhodamine]" />
+                <li key={index} className="flex gap-2 md:items-center">
+                  <CheckIcon className="shrink-0 text-[--rhodamine]" />
                   <span className="font-bold">{item.title}</span>
                 </li>
               ))}
@@ -124,7 +124,7 @@ export default function About() {
       </div>
       <div className="container py-24">
         <h2 className={classes.title}>Why Attend?</h2>
-        <ul role="list" className="grid grid-cols-3 ml-0 gap-14">
+        <ul role="list" className="grid sm:grid-cols-2 md:grid-cols-3 ml-0 gap-5 lg:gap-14">
           {whyAttend.map((item, index) => (
             <li key={index} className="flex gap-4">
               <CheckIcon className="text-[--rhodamine] shrink-0" />

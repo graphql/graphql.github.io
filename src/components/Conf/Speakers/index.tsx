@@ -51,23 +51,26 @@ export default function SpeakersConf() {
     // Invisible padding so anchor links align to the header menu
     <div id="speakers" className="bg-[#0e031c] text-white py-24">
       <div className="container">
-        <h1 className="text-center text-4xl text-white font-bold mt-0">
+        <h1 className="md:text-center text-4xl text-white font-bold mt-0">
           Speakers
         </h1>
-        <div className="flex justify-around items-start flex-wrap my-20 lg:px-24">
+        <div className="flex max-md:flex-col justify-around items-start flex-wrap gap-10 lg:px-24 my-10 md:my-20">
           {speakers.map((speaker, i) => (
-            <div key={i} className="p-4 w-[220px]">
-              <div className="h-full flex flex-col items-center text-center">
-                <img
-                  alt={speaker.name}
-                  src={speaker.image}
-                  className="shrink-0 rounded-full h-36 w-36 object-cover object-center"
-                />
+            <div
+              key={i}
+              className="md:p-4 md:w-[220px] h-full flex md:flex-col md:items-center md:text-center gap-7"
+            >
+              <img
+                alt={speaker.name}
+                src={speaker.image}
+                className="shrink-0 rounded-full h-36 w-36 object-cover object-center"
+              />
+              <div>
                 <div className="text-lg text-white font-bold mt-3">
                   {speaker.name}
                 </div>
                 <div className="text-sm my-2">{speaker.title}</div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 md:justify-center">
                   <a
                     href={speaker.twitter}
                     target="_blank"
@@ -84,7 +87,7 @@ export default function SpeakersConf() {
                   >
                     <LinkedInIcon width="17" height="17" />
                   </a>
-                </div>
+              </div>
               </div>
             </div>
           ))}

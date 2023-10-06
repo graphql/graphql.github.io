@@ -49,7 +49,7 @@ export default function ThanksConf({
           {/* this div is really necessary otherwise img will appear outside from div */}
           <div>
             <img
-              alt="gallery"
+              alt="Lee Byron"
               className="object-cover rounded-md max-w-full"
               src={Lee}
             />
