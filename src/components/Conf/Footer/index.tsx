@@ -1,7 +1,6 @@
 import React from "react"
 import SocialIcons from "../SocialIcons"
 import SponsorsConf from "../Sponsors"
-import PartnersConf from "../Partners"
 
 const links = [
   [

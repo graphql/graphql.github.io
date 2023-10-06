@@ -5,14 +5,8 @@ const GalleryConf = () => {
   const randomArrayImages: number[] = images.sort(() => Math.random() - 0.5)
 
   return (
-    <div className="mb-5">
+    <div className="py-20">
       <div className="container px-3 py-6 mx-auto">
-        <h1 className="text-center text-4xl text-white mb-10 font-bold">
-          Gallery
-        </h1>
-        <h2 className="text-center text-white text-lg mt-2 mb-10">
-          Full album link will be shared as soon as edited photos are available.
-        </h2>
         <div className="flex flex-wrap md:-m-2 -m-1">
           <div className="flex flex-wrap w-1/2">
             <div className="md:p-2 p-1 w-1/2 hover:opacity-50">
