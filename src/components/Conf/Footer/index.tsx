@@ -25,47 +25,42 @@ const FooterConf = ({ includeSponors = true }) => {
     <>
       {includeSponors && <SponsorsConf />}
       <footer className="text-white bg-[#0e031c]">
-        <div className="container flex max-sm:flex-col gap-10 max-md:justify-between">
-          <div className="md:w-1/3">
-            <a href="/conf/">
-              <img
-                src="/img/conf/graphql-conf-logo.svg"
-                className="w-[200px]"
-              />
-            </a>
-          </div>
-          <div className="flex max-md:flex-col justify-between md:grow">
+        <div className="container flex max-sm:flex-col gap-10 max-md:justify-between sm:mb-16 xl:mb-32">
+          <a href="/conf/" className="md:w-1/3">
+            <img src="/img/conf/graphql-conf-logo.svg" className="w-[200px]" />
+          </a>
+          <div className="flex max-md:flex-col justify-between md:grow gap-5">
             {links.map((link, i) => (
-              <div key={i}>
-                <div className="list-none mb-10 md:mb-20">
-                  {link.map((link, i) => (
-                    <li key={i}>
-                      <a
-                        href={link.href}
-                        className="text-white font-semibold text-base hover:text-white hover:font-semibold hover:underline"
-                      >
-                        {link.text}
-                      </a>
-                    </li>
-                  ))}
-                </div>
-              </div>
+              <ul key={i} className="list-none m-0">
+                {link.map((link, i) => (
+                  <li key={i}>
+                    <a
+                      href={link.href}
+                      className="text-white font-semibold text-base hover:no-underline"
+                    >
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             ))}
           </div>
         </div>
         <div className="container flex max-lg:flex-col justify-between">
-          <p className="text-white text-sm ">
+          <p className="text-sm">
             Copyright © {new Date().getFullYear()} The GraphQL Foundation. All
             rights reserved.
             <br />
             For web site terms of use, trademark policy and general project
-            policies please see
+            policies please see{" "}
             <a href="https://lfprojects.org" target="_blank">
               https://lfprojects.org
             </a>
             .
           </p>
-          <SocialIcons />
+          <div>
+            <SocialIcons />
+          </div>
         </div>
       </footer>
     </>
