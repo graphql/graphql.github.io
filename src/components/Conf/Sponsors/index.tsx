@@ -111,8 +111,8 @@ function List({
 }
 
 const classes = {
-  heading: "text-[#ea75c3] text-3xl font-bold mb-10 mt-20 text-center",
-  title: "text-center text-4xl text-white font-bold mt-0",
+  heading: "md:text-center text-[#ea75c3] text-3xl font-bold mb-10 mt-20",
+  title: "md:text-center text-4xl text-white font-bold mt-0",
 }
 
 export default function SponsorsConf() {
@@ -124,31 +124,31 @@ export default function SponsorsConf() {
         <List
           items={sponsorDiamond}
           className="grid-cols-1"
-          linkClassName="p-14 h-[220px]"
+          linkClassName="p-16 h-[220px]"
         />
         <h3 className={classes.heading}>Platinum</h3>
         <List
           items={sponsorPlatinum}
           className="grid-cols-2"
-          linkClassName="p-14 h-[210px]"
+          linkClassName="p-10 md:py-14 h-[210px]"
         />
         <h3 className={classes.heading}>Gold</h3>
         <List
           items={sponsorGold}
-          className="grid-cols-3"
-          linkClassName="p-14 h-[170px]"
+          className="grid-cols-2 xl:grid-cols-3"
+          linkClassName="p-8 md:py-14 h-[170px]"
         />
         <h3 className={classes.heading}>Silver</h3>
         <List
           items={sponsorSilver}
-          className="grid-cols-4"
-          linkClassName="p-12 h-[155px]"
+          className="grid-cols-2 xl:grid-cols-4"
+          linkClassName="p-8 md:py-10 h-[155px]"
         />
         <h3 className={classes.heading}>Workshop Day Sponsor</h3>
         <List
           items={workshopDaySponsors}
           className="justify-center"
-          linkClassName="p-14 h-[155px]"
+          linkClassName="p-10 h-[155px]"
         />
       </div>
       <div className="container py-24">
@@ -157,13 +157,13 @@ export default function SponsorsConf() {
         <List
           items={mediaPartners}
           className="grid-flow-col justify-center"
-          linkClassName="p-14 h-[155px]"
+          linkClassName="p-8 md:py-14 h-[155px]"
         />
         <h3 className={classes.heading}>Community Partners</h3>
         <List
           items={communityPartners}
-          className="grid-cols-4"
-          linkClassName="p-10 px-14 h-[155px]"
+          className="grid-cols-2 xl:grid-cols-4"
+          linkClassName="p-8 h-[155px]"
         />
       </div>
     </div>
