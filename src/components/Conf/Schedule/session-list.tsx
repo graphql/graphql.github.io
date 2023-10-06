@@ -3,6 +3,7 @@ import React, { ComponentProps, FC, useEffect, useState } from "react"
 import { eventsColors } from "../../../utils/eventsColors"
 import Filters from "./Filters"
 import { SchedSpeaker } from "../Speakers/Speaker"
+import { clsx } from "clsx"
 
 export interface ScheduleSession {
   id: string
@@ -187,12 +188,16 @@ const SessionList: FC<Props> = ({
                     const countSpeakers =
                       speakers.length > 3 ? 3 : speakers.length
 
-                    const gridColumn = `span ${countSpeakers} / span ${countSpeakers}`
                     return (
                       <a
                         key={session.event_key}
-                        className="shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline"
-                        style={{ gridColumn }}
+                        className={clsx(
+                          "shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline",
+                          {
+                            3: "lg:col-span-3",
+                            2: "lg:col-span-2",
+                          }[countSpeakers]
+                        )}
                         href={`/conf/sessions/${session.id}`}
                       >
                         <div className="bg-[#251F30] text-white flex justify-between py-5 px-7 relative">
