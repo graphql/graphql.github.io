@@ -100,7 +100,7 @@ function List({
           rel="noreferrer"
           title={name}
         >
-          <Icon width="auto" height="auto" />
+          <Icon width="100%" height="100%" />
           <span className="font-sans absolute right-5 top-5 leading-none text-white text-2xl">
             ↗
           </span>

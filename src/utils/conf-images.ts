@@ -119,7 +119,6 @@ import filename119 from "../../static/img/conf/Gallery/graphqlconf-202393_532291
 import filename120 from "../../static/img/conf/Gallery/graphqlconf-202394_53228255057_o.jpg"
 import filename121 from "../../static/img/conf/Gallery/graphqlconf-202395_53229430163_o.jpg"
 import filename122 from "../../static/img/conf/Gallery/graphqlconf-202396_53229628185_o.jpg"
-import filename123 from "../../static/img/conf/Gallery/graphqlconf-20239_53229431483_o.jpg"
 import filename124 from "../../static/img/conf/Gallery/graphqlconf-2023graphqlconf-2023_53228255062_o.jpg"
 
 export const images = [
@@ -244,6 +243,5 @@ export const images = [
   filename120,
   filename121,
   filename122,
-  filename123,
   filename124,
 ]

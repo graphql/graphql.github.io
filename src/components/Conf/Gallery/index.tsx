@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react"
+import React, { ComponentProps, useEffect, useRef, useState } from "react"
 import { images } from "../../../utils/conf-images"
 import Zoom from "react-medium-image-zoom"
 import "react-medium-image-zoom/dist/styles.css"
@@ -15,63 +15,87 @@ function chunk<T>(arr: T[], len: number): T[][] {
   return chunks
 }
 
-function Img({ src, alt = "gallery" }: ComponentProps<"img">) {
+function Img({
+  src,
+  alt = "gallery",
+  isLast,
+  newLimit,
+}: ComponentProps<"img"> & {
+  isLast?: boolean
+  newLimit: () => any
+}) {
+  /**
+   * Select the Card component with useRef
+   */
+  const cardRef = useRef<HTMLImageElement>(null)
+
+  /**
+   * Implement Intersection Observer to check if the last Card in the array is visible on the screen, then set a new limit
+   */
+  useEffect(() => {
+    if (!cardRef?.current) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (isLast && entry.isIntersecting) {
+        newLimit()
+        observer.unobserve(entry.target)
+      }
+    })
+
+    observer.observe(cardRef.current)
+  }, [isLast])
+
   return (
     <Zoom>
       <img
         alt={alt}
         className="object-cover aspect-video w-full hover:opacity-75 rounded-md"
         src={src}
+        ref={cardRef}
       />
     </Zoom>
   )
 }
 
 const GalleryConf = () => {
+  const [page, setPage] = useState(1)
+
+  const currentImages = chunk(images, 6).slice(0, page)
+  const lastSrc = currentImages.at(-1)!.at(-1)
   return (
     <div className="py-20">
-      <div className="container px-3 py-6 mx-auto">
-        {chunk(images, 6).map((c, i) => (
-          <div key={i} className="flex max-lg:flex-col flex-wrap">
-            <div className="flex flex-wrap lg:w-1/2">
-              {c[0] && (
-                <div className="md:p-2 p-1 lg:w-1/2">
-                  <Img src={c[0]} />
-                </div>
-              )}
-              {c[1] && (
-                <div className="md:p-2 p-1 lg:w-1/2">
-                  <Img src={c[1]} />
-                </div>
-              )}
-              {c[2] && (
-                <div className="md:p-2 p-1 lg:w-full">
-                  <Img src={c[2]} />
-                </div>
-              )}
+      {currentImages.map((c, i) => {
+        function getCard(index: number) {
+          return (
+            c[index] && (
+              <Img
+                src={c[index]}
+                isLast={c[index] === lastSrc}
+                newLimit={() => setPage(page + 1)}
+              />
+            )
+          )
+        }
+
+        return (
+          <div key={i} className="grid lg:grid-cols-2 gap-2">
+            <div>
+              <div className="grid grid-cols-2 gap-2">
+                {getCard(0)}
+                {getCard(1)}
+              </div>
+              {getCard(2)}
             </div>
-            <div className="lg:w-1/2">
-              {c[3] && (
-                <div className="md:p-2 p-1 w-full">
-                  <Img src={c[3]} />
-                </div>
-              )}
-              <div className="flex">
-                {c[4] && (
-                  <div className="md:p-2 p-1 lg:w-1/2">
-                    <Img src={c[4]} />
-                  </div>
-                )}
-                {c[5] && (
-                  <div className="md:p-2 p-1 lg:w-1/2">
-                    <Img src={c[5]} />
-                  </div>
-                )}
+            <div>
+              {getCard(3)}
+              <div className="grid grid-cols-2 gap-2">
+                {getCard(4)}
+                {getCard(5)}
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        )
+      })}
     </div>
   )
 }
