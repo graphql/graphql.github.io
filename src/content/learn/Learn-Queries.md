@@ -110,7 +110,7 @@ That's why GraphQL includes reusable units called _fragments_. Fragments let you
   }
 }
 
-# used by the comparison UI component
+# used by the character-rendering UI component
 fragment comparisonFields on Character {
   name
   appearsIn
