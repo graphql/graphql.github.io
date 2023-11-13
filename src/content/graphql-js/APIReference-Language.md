@@ -4,7 +4,7 @@ layout: docs
 category: API Reference
 permalink: /graphql-js/language/
 sublinks: BREAK,getLocation,Kind,lex,parse,parseValue,printSource,visit
-next: /graphql-js/type/
+next: /graphql-js/schema-coordinates/
 ---
 
 The `graphql/language` module is responsible for parsing and operating on the GraphQL language. You can import either from the `graphql/language` module, or from the root `graphql` module. For example:
