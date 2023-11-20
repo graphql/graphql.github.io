@@ -23,7 +23,7 @@ You should see the output returned as JSON:
 {"data":{"hello":"Hello world!"}}
 ```
 
-If you prefer to use a graphical user interface to send a test query, you can use clients such as [GraphiQL](https://github.com/graphql/graphiql) and [Insomnia](https://github.com/getinsomnia/insomnia).
+If you prefer to use a graphical user interface to send a test query, you can use clients such as [GraphiQL](https://github.com/graphql/graphiql), [Insomnia](https://github.com/getinsomnia/insomnia), and [Postman](https://www.postman.com/product/graphql-client/).
 
 It's also simple to send GraphQL from the browser. Open up http://localhost:4000/graphql, open a developer console, and paste in:
 
