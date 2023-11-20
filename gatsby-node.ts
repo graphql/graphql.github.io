@@ -59,7 +59,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
       id: nodeId,
       postId: permalink.replace("/blog/", "").replace(/\/$/, ""),
       title: node.frontmatter.title,
-      tags: node.frontmatter.tags ?? [],
+      tags: node.frontmatter?.tags ?? [],
       date: node.frontmatter.date,
       authors: (node.frontmatter.byline ?? "")
         .split(",")
