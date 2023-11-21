@@ -35,6 +35,12 @@ For guidance using the GraphQL trademark and brand see our [brand guidelines](/b
 
 For media inquiries, please reach out to [pr@graphql.org](mailto:pr@graphql.org).
 
+## Meetup Promotion
+
+If you are interested in hosting a GraphQL meetup, The GraphQL Foundation is happy to promote your GraphQL event through the [official communication channels](/community/#official-channels).
+
+Please contact us in the `#meetups-admin` channel on [the community Discord channel](/community/#official-channels).
+
 ## Technical Issues
 
 To report a technical issue with GraphQL, please use the [community channels](/community/).
