@@ -5,7 +5,7 @@ const config: GatsbyConfig = {
     title: "GraphQL",
     description:
       "A query language for your API — GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.",
-    siteUrl: "http://graphql.org/",
+    siteUrl: "http://graphql-github-io-fzfi.vercel.app/",
   },
   graphqlTypegen: {
     typesOutputPath: `src/__generated__/gatsby-types.d.ts`,
@@ -120,8 +120,8 @@ const config: GatsbyConfig = {
             `,
             output: "/blog/rss.xml",
             title: "Blog | GraphQL",
-            feed_url: "http://graphql.org/blog/rss.xml",
-            site_url: "http://graphql.org",
+            feed_url: "http://graphql-github-io-fzfi.vercel.app//blog/rss.xml",
+            site_url: "http://graphql-github-io-fzfi.vercel.app/",
           },
         ],
       },
