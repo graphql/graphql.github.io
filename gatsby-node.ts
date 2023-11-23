@@ -212,7 +212,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         },
       })
 
-        `      // if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
+      // if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
       //   try {
       //     createOpenGraphImage(createPage, {
       //       outputDir: "../static/img/__og-image",
@@ -259,7 +259,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }) || []
 
       createPage({
-        path: `/ conf / speakers / ${ speaker.username } `,
+        path: `/conf/speakers/${speaker.username}`,
         component: path.resolve("./src/templates/speaker.tsx"),
         context: {
           speaker,
@@ -306,7 +306,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   // redirect swapi with 200
   createRedirect({
-    fromPath: `/ swapi - graphql/*`,
+    fromPath: `/swapi-graphql/*`,
     toPath: `https://graphql.github.io/swapi-graphql/*`,
     statusCode: 200,
   })
