@@ -1,7 +1,6 @@
 import { ScheduleSession } from "./src/components/Conf/Schedule/session-list"
 import { SchedSpeaker } from "./src/components/Conf/Speakers/Speaker"
 import { GatsbyNode } from "gatsby"
-import { createOpenGraphImage } from "gatsby-plugin-dynamic-open-graph-images"
 import * as path from "path"
 import { glob } from "glob"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
@@ -213,7 +212,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         },
       })
 
-      // if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
+        `      // if (!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS) {
       //   try {
       //     createOpenGraphImage(createPage, {
       //       outputDir: "../static/img/__og-image",
@@ -260,7 +259,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }) || []
 
       createPage({
-        path: `/conf/speakers/${speaker.username}`,
+        path: `/ conf / speakers / ${ speaker.username } `,
         component: path.resolve("./src/templates/speaker.tsx"),
         context: {
           speaker,
@@ -307,7 +306,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   // redirect swapi with 200
   createRedirect({
-    fromPath: `/swapi-graphql/*`,
+    fromPath: `/ swapi - graphql/*`,
     toPath: `https://graphql.github.io/swapi-graphql/*`,
     statusCode: 200,
   })

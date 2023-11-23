@@ -14,10 +14,6 @@ const config: GatsbyConfig = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-svgr",
     "gatsby-plugin-anchor-links",
-    // optional based on env
-    ...(!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS
-      ? ["gatsby-plugin-dynamic-open-graph-images"]
-      : []),
     {
       resolve: "gatsby-source-filesystem",
       options: {
