@@ -18,5 +18,5 @@ jobs:
           accountId: 63a1717462b73e65b1c8dcb503479aa9
           projectName: graphql-github-io
           directory: public
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: source
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
