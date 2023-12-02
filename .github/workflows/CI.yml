@@ -1,29 +1,31 @@
-name: CI
-on: pull_request
+on: [push]
 
 jobs:
-  tests:
+  publish:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: "18.15.0"
 
-      - name: Install system dependencies
-        run: |
-          sudo apt update
-          sudo apt-get update
-          sudo apt-get install libatk-bridge2.0-0
-
       - run: yarn install
 
-      - name: Set Sched's API token env
-        run: echo "SCHED_ACCESS_TOKEN=${{ secrets.SCHED_ACCESS_TOKEN }}" >> .env.production
+      - name: Build
+        run: yarn build
 
-      # Verify it compiles
-      - run: yarn build
-
-      # Doesn't pass ATM
-      # - run: yarn tsc --noEmit
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 63a1717462b73e65b1c8dcb503479aa9
+          projectName: graphql-github-io
+          directory: public
+          branch: source
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
