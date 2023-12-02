@@ -16,9 +16,7 @@
   "resolutions": {
     "graphql": "16.6.0"
   },
-  "engines": {
-    "yarn": "1.22.19"
-  },
+  "packageManager": "yarn@1.22.19",
   "dependencies": {
     "react-medium-image-zoom": "5.1.8",
     "@graphql-tools/schema": "10.0.0",
