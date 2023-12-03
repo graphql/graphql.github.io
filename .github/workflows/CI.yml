@@ -1,38 +1,17 @@
-on:
-  pull_request:
-    branches:
-      - source
-  push:
-    branches:
-      - source
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-    name: Publish to Cloudflare Pages
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+name: CI
+on: pull_request
 
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: "18.15.0"
 
       - run: yarn install
 
-      - name: Set Sched's API token env
-        run: echo "SCHED_ACCESS_TOKEN=${{ secrets.SCHED_ACCESS_TOKEN }}" >> .env.production
-
-      - uses: the-guild-org/shared-config/website-cf@main
-        name: Deploy to Cloudflare Pages
-        with:
-          cloudflareApiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          cloudflareAccountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          projectName: graphql-github-io
-          prId: ${{ github.event.pull_request.number }}
-          websiteDirectory: .
-          buildScript: yarn build
-          artifactDir: public
+      # Verify it compiles
+      - run: yarn build
