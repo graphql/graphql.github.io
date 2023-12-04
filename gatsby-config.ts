@@ -14,10 +14,6 @@ const config: GatsbyConfig = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-svgr",
     "gatsby-plugin-anchor-links",
-    // optional based on env
-    ...(!process.env.GATSBY_CLOUD && !process.env.GITHUB_ACTIONS
-      ? ["gatsby-plugin-dynamic-open-graph-images"]
-      : []),
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -125,7 +121,7 @@ const config: GatsbyConfig = {
             output: "/blog/rss.xml",
             title: "Blog | GraphQL",
             feed_url: "http://graphql.org/blog/rss.xml",
-            site_url: "http://graphql.org",
+            site_url: "http://graphql.org/",
           },
         ],
       },
