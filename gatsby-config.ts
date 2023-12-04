@@ -120,7 +120,7 @@ const config: GatsbyConfig = {
             `,
             output: "/blog/rss.xml",
             title: "Blog | GraphQL",
-            feed_url: "http://graphql.org//blog/rss.xml",
+            feed_url: "http://graphql.org/blog/rss.xml",
             site_url: "http://graphql.org/",
           },
         ],
