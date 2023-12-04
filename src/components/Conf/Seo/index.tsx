@@ -6,7 +6,7 @@ export const defaults = {
   description:
     "The official GraphQL conference hosted by the GraphQL Foundation.",
   url: "https://graphql.org/conf/",
-  image: "https://graphql-github-io-7j3.pages.dev/img/conf/social-pk.jpg",
+  image: "http://graphql.org/img/conf/social-pk.jpg",
 }
 
 export default function SeoConf(props: {
