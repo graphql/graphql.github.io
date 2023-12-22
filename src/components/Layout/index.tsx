@@ -31,7 +31,7 @@ const IndexLayout = ({
             >
               📣 GraphQL Conf 2023 • Sept 19-21 • San Francisco •{" "}
               <span className="underline underline-offset-2">
-                Register Now!
+                Watch the videos!
               </span>
             </a>
           </div>
