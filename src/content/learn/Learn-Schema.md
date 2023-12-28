@@ -297,7 +297,7 @@ Learn more about this in the [inline fragments](/learn/queries/#inline-fragments
 
 ### Union types
 
-Union types are very similar to interfaces, but they don't get to specify any common fields between the types.
+Union types are very similar to interfaces, but they don't get too specify about any common fields between the types.
 
 ```graphql
 union SearchResult = Human | Droid | Starship
