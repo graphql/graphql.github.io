@@ -1,6 +1,6 @@
 ---
 name: Postman
-description: An HTTP Client that supports editing GraphQL queries.
-url: https://learning.postman.com/docs/sending-requests/supported-api-frameworks/graphql/
+description: a robust multi-protocol API client with features like API scripting, automation, collaborative workspaces, and comprehensive support for testing and developing GraphQL APIs.
+url: https://www.postman.com/product/graphql-client/
 github: postmanlabs/postman-app-support
 ---
