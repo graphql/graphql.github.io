@@ -144,8 +144,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql,
 }) => {
-  const { createPage, createRedirect } = actions
-
+  const { createPage } = actions
 
   try {
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
