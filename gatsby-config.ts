@@ -11,7 +11,6 @@ const config: GatsbyConfig = {
     typesOutputPath: `src/__generated__/gatsby-types.d.ts`,
   },
   plugins: [
-    "gatsby-plugin-meta-redirect",
     "gatsby-plugin-postcss",
     "gatsby-plugin-svgr",
     "gatsby-plugin-anchor-links",

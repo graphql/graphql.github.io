@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/conf/attendee/*",
-      "destination": "https://graphql-conf-attendee-nextjs.vercel.app/*",
+      "source": "/conf/attendee/:path*",
+      "destination": "https://graphql-conf-attendee-nextjs.vercel.app/:path*",
       "permanent": false,
       "statusCode": 200
     },
@@ -12,13 +12,13 @@
       "permanent": false
     },
     {
-      "source": "/conf/schedule/*",
-      "destination": "/conf/sessions/*",
+      "source": "/conf/schedule/:path*",
+      "destination": "/conf/sessions/:path*",
       "permanent": false
     },
     {
-      "source": "/swapi-graphql/*",
-      "destination": "https://graphql.github.io/swapi-graphql/*",
+      "source": "/swapi-graphql/:path*",
+      "destination": "https://graphql.github.io/swapi-graphql/:path*",
       "permanent": false,
       "statusCode": 200
     },

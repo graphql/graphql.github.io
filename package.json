@@ -36,7 +36,6 @@
     "gatsby-plugin-feed": "5.10.0",
     "gatsby-plugin-google-analytics": "5.10.0",
     "gatsby-plugin-less": "7.10.0",
-    "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-webfonts": "2.3.2",
     "gatsby-source-filesystem": "5.10.0",
     "gatsby-transformer-remark": "6.10.0",
