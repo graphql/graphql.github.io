@@ -1,0 +1,104 @@
+{
+  "redirects": [
+    {
+      "source": "/conf/attendee/:path*",
+      "destination": "https://graphql-conf-attendee-nextjs.vercel.app/:path*",
+      "statusCode": 200
+    },
+    {
+      "source": "/conf/program",
+      "destination": "/conf/schedule",
+      "permanent": false
+    },
+    {
+      "source": "/conf/schedule/:path*",
+      "destination": "/conf/sessions/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/swapi-graphql/:path*",
+      "destination": "https://graphql.github.io/swapi-graphql/:path*",
+      "statusCode": 200
+    },
+    {
+      "source": "/docs/api-reference-errors",
+      "destination": "/graphql-js/error/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/api-reference-execution",
+      "destination": "/graphql-js/execution/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/api-reference-express-graphql",
+      "destination": "/graphql-js/express-graphql/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/api-reference-graphql",
+      "destination": "/graphql-js/graphql/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/api-reference-language",
+      "destination": "/graphql-js/language/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/api-reference-type-system",
+      "destination": "/graphql-js/type/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/api-reference-type-utilities",
+      "destination": "/graphql-js/utilities/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/api-reference-type-validation",
+      "destination": "/graphql-js/validation/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/getting-started",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/intro",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/introspection",
+      "destination": "/learn/introspection/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/queries",
+      "destination": "/learn/queries/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/typesystem",
+      "destination": "/learn/schema/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/validation",
+      "destination": "/learn/validation/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/videos",
+      "destination": "/community/#videos/",
+      "permanent": true
+    },
+    {
+      "source": "/help",
+      "destination": "/community/",
+      "permanent": true
+    }
+  ]
+}

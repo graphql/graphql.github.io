@@ -144,13 +144,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql,
 }) => {
-  const { createPage, createRedirect } = actions
-
-  createRedirect({
-    fromPath: `/conf/attendee/*`,
-    toPath: `https://graphql-conf-attendee-nextjs.vercel.app/*`,
-    statusCode: 200,
-  })
+  const { createPage } = actions
 
   try {
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
@@ -293,32 +287,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   } catch (error) {
     console.log("CATCH ME:", error)
   }
-
-  createRedirect({
-    fromPath: "/conf/program",
-    toPath: "/conf/schedule",
-  })
-
-  createRedirect({
-    fromPath: "/conf/schedule/*",
-    toPath: "/conf/sessions/*",
-  })
-
-  // redirect swapi with 200
-  createRedirect({
-    fromPath: `/swapi-graphql/*`,
-    toPath: `https://graphql.github.io/swapi-graphql/*`,
-    statusCode: 200,
-  })
-
-  // legacy 301 redirects from previous iterations of the site
-  redirects.forEach(({ from, to }) => {
-    createRedirect({
-      fromPath: from,
-      toPath: to,
-      statusCode: 301,
-    })
-  })
 
   const result = await graphql(`
     query allMarkdownRemark {
