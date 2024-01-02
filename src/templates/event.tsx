@@ -142,13 +142,13 @@ export const EventComponent: FC<{
 
             <div className="py-8">
               {event.files?.map(({ path }) => (
-                <>
+                <div key={path}>
                   <a href={path} target="_blank">
                     View Full PDF{" "}
                     <span className="font-sans font-light text-2xl">↗</span>
                   </a>
                   <iframe src={path} className="aspect-video w-full h-full" />
-                </>
+                </div>
               ))}
             </div>
           </div>
