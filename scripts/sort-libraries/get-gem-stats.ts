@@ -33,20 +33,22 @@ type GemStatsFetchRespone = {
 }
 
 export async function getGemStats(packageName: string): Promise<number> {
-  const response = await fetch(
-    `https://rubygems.org/api/v1/gems/${encodeURIComponent(packageName)}.json`
-  )
-  if (!response.ok) {
-    console.warn(`Get invalid response from GEM for ${packageName}:`, response)
-    return 0
-  }
-  const responseJson: GemStatsFetchRespone = await response.json()
-  if (!responseJson) {
-    console.warn(
-      `Get invalid response from GEM for ${packageName}:`,
-      responseJson
+  try {
+    const response = await fetch(
+      `https://rubygems.org/api/v1/gems/${encodeURIComponent(packageName)}.json`
     )
+
+    if (!response.ok) {
+      console.warn(
+        `Error fetching GEM stats for ${packageName}. Status: ${response.status}`
+      )
+      return 0
+    }
+
+    const responseJson: GemStatsFetchRespone = await response.json()
+    return responseJson.downloads ?? 0
+  } catch (error) {
+    console.error(`Exception fetching GEM stats for ${packageName}:`, error)
     return 0
   }
-  return responseJson.downloads ?? 0
 }
