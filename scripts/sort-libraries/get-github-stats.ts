@@ -3,82 +3,82 @@ import { format as timeago } from "timeago.js"
 
 type GitHubStatsFetchResponse =
   | {
-      errors: [
-        {
-          extensions: {
-            value: string
-            problems: [
-              {
-                path: string
-                explanation: string
-              }
-            ]
-          }
-          locations: [
+    errors: [
+      {
+        extensions: {
+          value: string
+          problems: [
             {
-              line: number
-              column: number
+              path: string
+              explanation: string
             }
           ]
-          message: string
         }
-      ]
-    }
+        locations: [
+          {
+            line: number
+            column: number
+          }
+        ]
+        message: string
+      }
+    ]
+  }
   | {
-      data: {
-        repositoryOwner: {
-          repository: {
-            defaultBranchRef: {
-              target: {
-                history: {
-                  edges: [
-                    {
-                      node: {
-                        author: {
-                          name: string
-                        }
-                        pushedDate: string
+    data: {
+      repositoryOwner: {
+        repository: {
+          defaultBranchRef: {
+            target: {
+              history: {
+                edges: [
+                  {
+                    node: {
+                      author: {
+                        name: string
                       }
-                    }
-                  ]
-                }
-              }
-            }
-            stargazers: {
-              totalCount: number
-            }
-            updatedAt: string
-            forkCount: number
-            pullRequests: {
-              totalCount: number
-            }
-            description: string
-            licenseInfo: {
-              name: string
-            }
-            releases: {
-              nodes: [
-                {
-                  publishedAt: string
-                }
-              ]
-            }
-            tags: {
-              nodes: [
-                {
-                  name: string
-                  target: {
-                    target: {
                       pushedDate: string
                     }
                   }
-                }
-              ]
+                ]
+              }
             }
+          }
+          stargazers: {
+            totalCount: number
+          }
+          updatedAt: string
+          forkCount: number
+          pullRequests: {
+            totalCount: number
+          }
+          description: string
+          licenseInfo: {
+            name: string
+          }
+          releases: {
+            nodes: [
+              {
+                publishedAt: string
+              }
+            ]
+          }
+          tags: {
+            nodes: [
+              {
+                name: string
+                target: {
+                  target: {
+                    pushedDate: string
+                  }
+                }
+              }
+            ]
           }
         }
       }
     }
+  }
 
 type GitHubInfo = {
   hasCommitsInLast3Months: boolean
@@ -168,86 +168,79 @@ export async function getGitHubStats(
       }
     }
   `
-  const lastMonth = new Date()
-  lastMonth.setMonth(lastMonth.getMonth() - 3)
-  const response = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    body: JSON.stringify({
-      query,
-      variables: { owner, repoName, since: lastMonth },
-    }),
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-  })
-  if (!response.ok) {
-    console.warn(
-      `Get invalid response from GitHub for ${owner}/${repoName}. Status: ${response.status}`
-    )
-  }
-  const responseJson: GitHubStatsFetchResponse = await response.json()
+  const lastThreeMonths = new Date()
+  lastThreeMonths.setMonth(lastThreeMonths.getMonth() - 3)
 
-  if (responseJson && "data" in responseJson) {
-    const repositoryOwner = responseJson.data.repositoryOwner
-    if (!repositoryOwner) {
-      throw `No GitHub user found for ${owner}/${repoName}`
+  try {
+    const response = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      body: JSON.stringify({
+        query,
+        variables: { owner, repoName, since: lastThreeMonths.toISOString() },
+      }),
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    })
+
+    if (!response.ok) {
+      console.warn(`Error fetching GitHub stats for ${owner}/${repoName}. Status: ${response.status}`)
+      return undefined
     }
-    const { repository: repo } = repositoryOwner
-    console.log("repo:", repo.tags)
+
+    const responseJson: GitHubStatsFetchResponse = await response.json()
+
+    if ('errors' in responseJson) {
+      console.warn(`GitHub GraphQL errors for ${owner}/${repoName}:`, responseJson.errors)
+      return undefined
+    }
+
+    const repo = responseJson.data.repositoryOwner?.repository
     if (!repo) {
-      throw `No GitHub repo found ${owner}/${repoName}`
+      console.warn(`No GitHub repository found for ${owner}/${repoName}`)
+      return undefined
     }
-    const stars = repo.stargazers.totalCount
-    const commitHistory = repo.defaultBranchRef.target.history.edges
 
-    let hasCommitsInLast3Months = false
-    commitHistory.forEach(commit => {
-      if (!commit.node.author.name.match(/bot/i)) {
-        hasCommitsInLast3Months = true
-      }
-    })
-    const formattedStars = numbro(stars).format({
-      average: true,
-    })
-    const releases: Release[] = []
-    if (
-      repo.tags &&
-      repo.tags.nodes &&
-      repo.tags.nodes.length &&
-      repo.tags.nodes[0].target.target &&
-      repo.tags.nodes[0].target.target.pushedDate
-    ) {
-      releases.push({
-        date: repo.tags.nodes[0].target.target.pushedDate,
-        formattedDate: timeago(repo.tags.nodes[0].target.target.pushedDate),
-      })
-    }
-    if (repo.releases && repo.releases.nodes && repo.releases.nodes.length) {
-      releases.push({
-        date: repo.releases.nodes[0].publishedAt,
-        formattedDate: timeago(repo.releases.nodes[0].publishedAt),
-      })
-    }
-    if (owner.includes("graphql")) {
-      console.log({ releases, repoName })
-    }
-    console.log("releases", releases)
+    const hasCommitsInLast3Months = repo.defaultBranchRef.target.history.edges.some(edge => new Date(edge.node.pushedDate) > lastThreeMonths)
+    const formattedStars = numbro(repo.stargazers.totalCount).format({ average: true })
 
-    const lastRelease = releases.filter(Boolean).sort().reverse()[0]
+    const lastRelease = getLastRelease(repo)
+
     return {
       hasCommitsInLast3Months,
-      stars,
+      stars: repo.stargazers.totalCount,
       formattedStars,
-      license: repo.licenseInfo && repo.licenseInfo.name,
-      lastRelease: lastRelease ? lastRelease.date : "",
-      formattedLastRelease: lastRelease ? lastRelease.formattedDate : "",
+      license: repo.licenseInfo?.name ?? 'Unknown',
+      lastRelease: lastRelease?.date ?? '',
+      formattedLastRelease: lastRelease?.formattedDate ?? ''
     }
-  } else {
-    console.warn(
-      `Get invalid response from GitHub for ${owner}/${repoName}. Response: ${JSON.stringify(
-        responseJson
-      )}`
-    )
+  } catch (error) {
+    console.error(`Exception fetching GitHub stats for ${githubRepo}:`, error)
+    return undefined
   }
+}
+
+function getLastRelease(repo: any): Release | undefined {
+  const releases: Release[] = []
+
+  repo.tags.nodes.forEach((node: any) => {
+    if (node.target.target?.pushedDate) {
+      releases.push({
+        date: node.target.target.pushedDate,
+        formattedDate: timeago(node.target.target.pushedDate)
+      })
+    }
+  })
+
+  repo.releases.nodes.forEach((node: any) => {
+    if (node.publishedAt) {
+      releases.push({
+        date: node.publishedAt,
+        formattedDate: timeago(node.publishedAt)
+      })
+    }
+  })
+
+  return releases.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
 }
