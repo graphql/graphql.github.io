@@ -39,7 +39,9 @@ export async function getGemStats(packageName: string): Promise<number> {
     )
 
     if (!response.ok) {
-      console.warn(`Error fetching GEM stats for ${packageName}. Status: ${response.status}`)
+      console.warn(
+        `Error fetching GEM stats for ${packageName}. Status: ${response.status}`
+      )
       return 0
     }
 

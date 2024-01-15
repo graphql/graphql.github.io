@@ -3,82 +3,82 @@ import { format as timeago } from "timeago.js"
 
 type GitHubStatsFetchResponse =
   | {
-    errors: [
-      {
-        extensions: {
-          value: string
-          problems: [
+      errors: [
+        {
+          extensions: {
+            value: string
+            problems: [
+              {
+                path: string
+                explanation: string
+              }
+            ]
+          }
+          locations: [
             {
-              path: string
-              explanation: string
+              line: number
+              column: number
             }
           ]
+          message: string
         }
-        locations: [
-          {
-            line: number
-            column: number
-          }
-        ]
-        message: string
-      }
-    ]
-  }
+      ]
+    }
   | {
-    data: {
-      repositoryOwner: {
-        repository: {
-          defaultBranchRef: {
-            target: {
-              history: {
-                edges: [
-                  {
-                    node: {
-                      author: {
-                        name: string
+      data: {
+        repositoryOwner: {
+          repository: {
+            defaultBranchRef: {
+              target: {
+                history: {
+                  edges: [
+                    {
+                      node: {
+                        author: {
+                          name: string
+                        }
+                        pushedDate: string
                       }
+                    }
+                  ]
+                }
+              }
+            }
+            stargazers: {
+              totalCount: number
+            }
+            updatedAt: string
+            forkCount: number
+            pullRequests: {
+              totalCount: number
+            }
+            description: string
+            licenseInfo: {
+              name: string
+            }
+            releases: {
+              nodes: [
+                {
+                  publishedAt: string
+                }
+              ]
+            }
+            tags: {
+              nodes: [
+                {
+                  name: string
+                  target: {
+                    target: {
                       pushedDate: string
                     }
                   }
-                ]
-              }
-            }
-          }
-          stargazers: {
-            totalCount: number
-          }
-          updatedAt: string
-          forkCount: number
-          pullRequests: {
-            totalCount: number
-          }
-          description: string
-          licenseInfo: {
-            name: string
-          }
-          releases: {
-            nodes: [
-              {
-                publishedAt: string
-              }
-            ]
-          }
-          tags: {
-            nodes: [
-              {
-                name: string
-                target: {
-                  target: {
-                    pushedDate: string
-                  }
                 }
-              }
-            ]
+              ]
+            }
           }
         }
       }
     }
-  }
 
 type GitHubInfo = {
   hasCommitsInLast3Months: boolean
@@ -185,14 +185,19 @@ export async function getGitHubStats(
     })
 
     if (!response.ok) {
-      console.warn(`Error fetching GitHub stats for ${owner}/${repoName}. Status: ${response.status}`)
+      console.warn(
+        `Error fetching GitHub stats for ${owner}/${repoName}. Status: ${response.status}`
+      )
       return undefined
     }
 
     const responseJson: GitHubStatsFetchResponse = await response.json()
 
-    if ('errors' in responseJson) {
-      console.warn(`GitHub GraphQL errors for ${owner}/${repoName}:`, responseJson.errors)
+    if ("errors" in responseJson) {
+      console.warn(
+        `GitHub GraphQL errors for ${owner}/${repoName}:`,
+        responseJson.errors
+      )
       return undefined
     }
 
@@ -202,8 +207,13 @@ export async function getGitHubStats(
       return undefined
     }
 
-    const hasCommitsInLast3Months = repo.defaultBranchRef.target.history.edges.some(edge => new Date(edge.node.pushedDate) > lastThreeMonths)
-    const formattedStars = numbro(repo.stargazers.totalCount).format({ average: true })
+    const hasCommitsInLast3Months =
+      repo.defaultBranchRef.target.history.edges.some(
+        edge => new Date(edge.node.pushedDate) > lastThreeMonths
+      )
+    const formattedStars = numbro(repo.stargazers.totalCount).format({
+      average: true,
+    })
 
     const lastRelease = getLastRelease(repo)
 
@@ -211,9 +221,9 @@ export async function getGitHubStats(
       hasCommitsInLast3Months,
       stars: repo.stargazers.totalCount,
       formattedStars,
-      license: repo.licenseInfo?.name ?? 'Unknown',
-      lastRelease: lastRelease?.date ?? '',
-      formattedLastRelease: lastRelease?.formattedDate ?? ''
+      license: repo.licenseInfo?.name ?? "Unknown",
+      lastRelease: lastRelease?.date ?? "",
+      formattedLastRelease: lastRelease?.formattedDate ?? "",
     }
   } catch (error) {
     console.error(`Exception fetching GitHub stats for ${githubRepo}:`, error)
@@ -228,7 +238,7 @@ function getLastRelease(repo: any): Release | undefined {
     if (node.target.target?.pushedDate) {
       releases.push({
         date: node.target.target.pushedDate,
-        formattedDate: timeago(node.target.target.pushedDate)
+        formattedDate: timeago(node.target.target.pushedDate),
       })
     }
   })
@@ -237,10 +247,12 @@ function getLastRelease(repo: any): Release | undefined {
     if (node.publishedAt) {
       releases.push({
         date: node.publishedAt,
-        formattedDate: timeago(node.publishedAt)
+        formattedDate: timeago(node.publishedAt),
       })
     }
   })
 
-  return releases.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+  return releases.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  )[0]
 }
