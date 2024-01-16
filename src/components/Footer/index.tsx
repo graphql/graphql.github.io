@@ -65,6 +65,7 @@ const getLinks = (sourcePath?: string): FooterLinks[] => [
       { text: "Resources", href: "/community/users/" },
       { text: "Events", href: "/community/upcoming-events/" },
       { text: "Landscape", href: "https://landscape.graphql.org" },
+      { text: "Shop", href: "https://store.graphql.org" },
     ],
   },
   {
