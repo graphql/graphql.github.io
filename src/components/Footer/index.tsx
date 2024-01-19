@@ -80,7 +80,7 @@ const getLinks = (sourcePath?: string): FooterLinks[] => [
       sourcePath && {
         text: "Edit this page",
         href:
-          "https://github.com/graphql/graphql.github.io/edit/source/" +
+          "https://github.com/graphql/graphql.github.io" +
           sourcePath,
         icon: EditIcon,
       },
