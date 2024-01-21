@@ -27,7 +27,7 @@ github: babyfish-ct/jimmer
 
 ## Links
 
-- Youtube vedio: https://www.youtube.com/watch?v=Rt5zNv0YR2E
+- Youtube video: https://www.youtube.com/watch?v=Rt5zNv0YR2E
 
 - Documentation: https://babyfish-ct.github.io/jimmer-doc/
 
