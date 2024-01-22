@@ -1,6 +1,6 @@
 ---
 name: cppgraphqlgen-clientgen
-description: A C++20 GraphQL client request generator and response parser using the schema document.
+description: A C++20 GraphQL request client generator and response parser using the schema document. If you want to consume a GraphQL service from a C++ client, you can pre-compile queries and deserialization functions for the expected results.
 url: https://github.com/microsoft/cppgraphqlgen
 github: microsoft/cppgraphqlgen
 ---
