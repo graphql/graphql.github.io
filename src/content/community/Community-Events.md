@@ -88,7 +88,7 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 - [GraphQL Barcelona](https://www.meetup.com/GraphQL-Barcelona/)
 - [GraphQL Budapest](https://www.meetup.com/Budapest-GraphQL/)
 - [GraphQL Copenhagen](https://www.meetup.com/Copenhagen-GraphQL-Meetup-Group/)
-- [GraphQL London](https://www.meetup.com/GraphQL-London)
+- [GraphQL London](https://guild.host/graphql-london/events)
 - [GraphQL Milano](https://www.meetup.com/GraphQL-Milano/)
 - [GraphQL Munich](https://www.meetup.com/GraphQL-Munich/)
 - [GraphQL Paris](https://www.meetup.com/GraphQL-Paris/)
