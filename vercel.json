@@ -32,7 +32,12 @@
     },
     {
       "source": "/docs/api-reference-express-graphql",
-      "destination": "/graphql-js/express-graphql/",
+      "destination": "/graphql-js/graphql-http/",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/express-graphql",
+      "destination": "/graphql-js/graphql-http/",
       "permanent": true
     },
     {
