@@ -30,4 +30,4 @@ Constructs an Express handler based on a GraphQL schema.
 
 See the [tutorial](/graphql-js/running-an-express-graphql-server/) for sample usage.
 
-See the [GitHub README](https://github.com/graphql/graphql-http) for more extensive documentation of the details of this method.
+See the [GitHub README](https://github.com/graphql/graphql-http) for more extensive documentation, including how to use `graphql-http` with other server frameworks.
