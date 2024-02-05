@@ -2,11 +2,13 @@
   "rewrites": [
     {
       "source": "/conf/attendee/:path*",
-      "destination": "https://graphql-conf-attendee-nextjs.vercel.app/:path*"
+      "destination": "https://graphql-conf-attendee-nextjs.vercel.app/:path*",
+      "status": 200
     },
     {
       "source": "/swapi-graphql/:path*",
-      "destination": "https://graphql.github.io/swapi-graphql/:path*"
+      "destination": "https://graphql.github.io/swapi-graphql/:path*",
+      "status": 200
     }
   ],
   "redirects": [
