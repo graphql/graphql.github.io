@@ -37,20 +37,8 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const { createNode, createParentChildLink, createRedirect } = actions
+  const { createNode, createParentChildLink } = actions
 
-
-  createRedirect({
-    fromPath: `/conf/attendee/*`,
-    toPath: `https://graphql-conf-attendee-nextjs.vercel.app/*`,
-    statusCode: 200,
-  })
-
-  createRedirect({
-    fromPath: `/swapi-graphql/*`,
-    toPath: `https://graphql.github.io/swapi-graphql/*`,
-    statusCode: 200,
-  })
 
   // Derive content nodes from remark nodes
   if (
