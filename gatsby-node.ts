@@ -6,7 +6,6 @@ import { glob } from "glob"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
-import redirects from "./redirects.json"
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -39,6 +38,19 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   createContentDigest,
 }) => {
   const { createNode, createParentChildLink, createRedirect } = actions
+
+
+  createRedirect({
+    fromPath: `/conf/attendee/*`,
+    toPath: `https://graphql-conf-attendee-nextjs.vercel.app/*`,
+    statusCode: 200,
+  })
+
+  createRedirect({
+    fromPath: `/swapi-graphql/*`,
+    toPath: `https://graphql.github.io/swapi-graphql/*`,
+    statusCode: 200,
+  })
 
   // Derive content nodes from remark nodes
   if (
