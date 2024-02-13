@@ -2,6 +2,7 @@ import React from "react"
 import type { PageProps } from "gatsby"
 import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
+import IframeResizer from "iframe-resizer-react"
 
 export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
   return (
@@ -29,20 +30,15 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
           </p>
         </div>
 
-        <iframe
-          frameBorder="0"
-          id="landscape"
-          scrolling="no"
-          style={{ width: "1px", minWidth: "100%" }}
+        <IframeResizer
           src="https://landscape.graphql.org/card-mode?category=graph-ql-foundation-member&grouping=category&embed=yes&style=borderless"
-          onLoad={() => {
-            const scriptElem = document.createElement("script")
-            scriptElem.type = "text/javascript"
-            scriptElem.src = "https://landscape.cncf.io/iframeResizer.js"
-            scriptElem.onload = () => (window as any)["iFrameResize"]()
-            document.body.appendChild(scriptElem)
+          style={{
+            width: "1px",
+            minWidth: "100%",
           }}
-        ></iframe>
+          heightCalculationMethod="lowestElement"
+          checkOrigin={false}
+        />
       </section>
     </Layout>
   )
