@@ -3,7 +3,7 @@ title: Constructing Types
 layout: docs
 category: Advanced Guides
 permalink: /graphql-js/constructing-types/
-next: /graphql-js/express-graphql/
+next: /graphql-js/graphql-http/
 ---
 
 For many apps, you can define a fixed schema when the application starts, and define it using GraphQL schema language. In some cases, it's useful to construct a schema programmatically. You can do this using the `GraphQLSchema` constructor.
@@ -14,7 +14,7 @@ For example, let's say we are building a simple API that lets you fetch user dat
 
 ```javascript
 var express = require("express")
-var { graphqlHTTP } = require("express-graphql")
+var { createHandler } = require("graphql-http/lib/use/express")
 var { buildSchema } = require("graphql")
 
 var schema = buildSchema(`
@@ -47,12 +47,11 @@ var root = {
 }
 
 var app = express()
-app.use(
+app.all(
   "/graphql",
-  graphqlHTTP({
+  createHandler({
     schema: schema,
     rootValue: root,
-    graphiql: true,
   })
 )
 app.listen(4000)
@@ -63,7 +62,7 @@ We can implement this same API without using GraphQL schema language:
 
 ```javascript
 var express = require("express")
-var { graphqlHTTP } = require("express-graphql")
+var { createHandler } = require("graphql-http/lib/use/express")
 var graphql = require("graphql")
 
 // Maps id to User object
@@ -107,11 +106,10 @@ var queryType = new graphql.GraphQLObjectType({
 var schema = new graphql.GraphQLSchema({ query: queryType })
 
 var app = express()
-app.use(
+app.all(
   "/graphql",
-  graphqlHTTP({
+  createHandler({
     schema: schema,
-    graphiql: true,
   })
 )
 app.listen(4000)

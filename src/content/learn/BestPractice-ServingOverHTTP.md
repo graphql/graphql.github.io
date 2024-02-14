@@ -67,17 +67,6 @@ Regardless of the method by which the query and variables were sent, the respons
 
 If there were no errors returned, the `"errors"` field should not be present on the response. If no data is returned, [according to the GraphQL spec](https://spec.graphql.org/October2021/#sec-Data), the `"data"` field should only be included if no errors occurred during execution.
 
-## GraphiQL
-
-GraphiQL is useful during testing and development but should be disabled in production by default. If you are using express-graphql, you can toggle it based on the NODE_ENV environment variable:
-
-```
-app.use('/graphql', graphqlHTTP({
-  schema: MySessionAwareGraphQLSchema,
-  graphiql: process.env.NODE_ENV === 'development',
-}));
-```
-
 ## Node
 
 If you are using NodeJS, we recommend looking at the [list of server implementations](/code/#javascript-server).

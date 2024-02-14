@@ -73,7 +73,7 @@ Here's some runnable code that implements this schema, keeping the data in memor
 
 ```javascript
 var express = require("express")
-var { graphqlHTTP } = require("express-graphql")
+var { createHandler } = require("graphql-http/lib/use/express")
 var { buildSchema } = require("graphql")
 
 // Construct a schema, using GraphQL schema language
@@ -136,12 +136,11 @@ var root = {
 }
 
 var app = express()
-app.use(
+app.all(
   "/graphql",
-  graphqlHTTP({
+  createHandler({
     schema: schema,
     rootValue: root,
-    graphiql: true,
   })
 )
 app.listen(4000, () => {
