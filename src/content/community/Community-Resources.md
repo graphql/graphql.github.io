@@ -28,6 +28,17 @@ Please follow these channels for updates and information:
 
 <div style="clear:both;"></div>
 
+## Community Meetups
+
+The GraphQL community unites at meetups, fostering a collaborative environment where developers share insights and best practices.
+
+These gatherings provide a valuable platform for enthusiasts to connect, exchange ideas, and stay abreast of the latest developments in the ever-evolving GraphQL ecosystem.
+
+If you want to go on a GraphQL meetup you can check out the [community events section](/community/upcoming-events/#meetups).
+
+If you are interested in hosting a GraphQL meetup, The GraphQL Foundation is happy to promote your GraphQL event through the official communication channels.
+Please contact us in the `#meetups-admin` channel on [the community Discord channel](/community/#official-channels).
+
 ## Community Grant program
 
 The [GraphQL Foundation](/foundation) funds a [Community Grant](/foundation/community-grant/) program that is administered by the [GraphQL TSC](/community/developers/#technical-governance). The goal of the community grant program is to provide support to individuals working on initiatives that benefit the core technical project and the community at large.

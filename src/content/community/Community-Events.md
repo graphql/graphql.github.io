@@ -63,6 +63,10 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
 
 ## Meetups
 
+If you are interested in hosting a GraphQL meetup, The GraphQL Foundation is happy to promote your GraphQL event through the [official communication channels](/community/#official-channels).
+
+Please contact us in the `#meetups-admin` channel on [the community Discord channel](/community/#official-channels).
+
 ### North America
 
 - [GraphQL San Francisco](https://www.meetup.com/sf-graphql/)
