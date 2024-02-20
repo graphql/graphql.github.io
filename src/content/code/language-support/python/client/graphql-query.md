@@ -1,12 +1,11 @@
 ---
 name: graphql-query
-description: Complete GraphQL query string generation for python.
+description: Complete Domain Specific Language (DSL) for GraphQL query in Python.
 url: https://denisart.github.io/graphql-query/
 github: denisart/graphql-query
 ---
 
-**graphql_query** is complete GraphQL query string builder for python. With **graphql_query**
-you can The documentation for **graphql_query** can be found at [https://denisart.github.io/graphql-query/](https://denisart.github.io/graphql-query/).
+**graphql_query** is a complete Domain Specific Language (DSL) for GraphQL query in python. The documentation for **graphql_query** can be found at [https://denisart.github.io/graphql-query/](https://denisart.github.io/graphql-query/).
 
 ```
 $ pip install graphql_query
