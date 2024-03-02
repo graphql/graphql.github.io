@@ -3,7 +3,7 @@ title: Thinking in Graphs
 layout: docs
 category: Best Practices
 permalink: /learn/thinking-in-graphs/
-next: /learn/serving-over-http/
+next: /learn/versioning/
 ---
 
 ## It's Graphs All the Way Down [\*](https://en.wikipedia.org/wiki/Turtles_all_the_way_down)
