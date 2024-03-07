@@ -12,10 +12,9 @@ next: /foundation/contact/
 ---
 
 The GraphQL Community Grant program is funded by the GraphQL Foundation and
-administered by the
-[GraphQL Technical Steering Committee (TSC)](https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md).
-The goal of the program is to provide financial support and incentives for key
-technical and community initiatives within the GraphQL Foundation's projects.
+administered by the [GraphQL Technical Steering Committee (TSC)][tsc]. The goal
+of the program is to provide financial support and incentives for key technical
+and community initiatives within the GraphQL Foundation's projects.
 
 The GraphQL Community Grant program accepts applications at any time and reviews
 them at least twice per year. Grant applications are reviewed by the TSC based
@@ -34,20 +33,18 @@ Examples include:
 - Community advocacy, such as writing a deep-dive blog documenting a specific
   feature, writing a whitepaper, or developing newcomer onboarding guides and
   materials
-- Other user experience improvement ideas for the
-  [graphql.org](https://graphql.org) website and/or
-  [github.com/graphql](https://github.com/graphql).
+- Other user experience improvement ideas for the [graphql.org][] website and/or
+  [github.com/graphql][].
 
 ## How to apply
 
-The GraphQL Community Grant Program
-[accepts applications at any time](https://grant-application.graphql.org/), and
-evaluates all undecided applications at least twice per year. All applications
-will be closed after an evaluation cycle has completed. Applicants may re-apply
-at any point.
+The GraphQL Community Grant Program [accepts applications at any
+time][application-form], and evaluates all undecided applications at least twice
+per year. All applications will be closed after an evaluation cycle has
+completed. Applicants may re-apply at any point.
 
-To apply, please complete the
-[GraphQL Community Grant Program application](https://grant-application.graphql.org).
+To apply, please complete the [GraphQL Community Grant Program
+application][application-form].
 
 ## FAQs
 
@@ -108,11 +105,16 @@ directly improves the GraphQL Foundation projects.
 ### Do I have to sign anything?
 
 Yes, if your proposal is selected you will need to sign the GraphQL Grantee
-Agreement ([preview](https://grantee-agreement-preview.graphql.org) in order to
-receive the funding. It is your responsibility to read and understand the
-contents of the agreement.
+Agreement ([preview][agreement-preview] in order to receive the funding. It is
+your responsibility to read and understand the contents of the agreement.
 
 ## More information
 
-If you have questions, please contact
-[operations@graphql.org](mailto:operations@graphql.org).
+If you have questions, please contact [operations@graphql.org][].
+
+[tsc]: https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md
+[graphql.org]: https://graphql.org
+[github.com/graphql]: https://github.com/graphql
+[operations@graphql.org]: mailto:operations@graphql.org
+[agreement-preview]: https://grantee-agreement-preview.graphql.org
+[application-form]: https://grant-application.graphql.org
