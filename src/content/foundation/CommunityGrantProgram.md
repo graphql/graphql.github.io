@@ -117,4 +117,4 @@ If you have questions, please contact [operations@graphql.org][].
 [github.com/graphql]: https://github.com/graphql
 [operations@graphql.org]: mailto:operations@graphql.org
 [agreement-preview]: https://grantee-agreement-preview.graphql.org
-[application-form]: https://grant-application.graphql.org
+[application-form]: https://docs.google.com/forms/d/e/1FAIpQLSciopqGoQE2hBhxsb5E6dq12VrD221Zv4dsGWa1nQM35FT1nA/viewform?usp=sf_link
