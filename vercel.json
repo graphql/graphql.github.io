@@ -1,10 +1,15 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/conf/attendee/:path*",
-      "destination": "https://graphql-conf-attendee-nextjs.vercel.app/:path*",
-      "statusCode": 200
+      "destination": "https://graphql-conf-attendee-nextjs.vercel.app/:path*"
     },
+    {
+      "source": "/swapi-graphql/:path*",
+      "destination": "https://graphql.github.io/swapi-graphql/:path*"
+    }
+  ],
+  "redirects": [
     {
       "source": "/conf/program",
       "destination": "/conf/schedule",
@@ -15,11 +20,7 @@
       "destination": "/conf/sessions/:path*",
       "permanent": false
     },
-    {
-      "source": "/swapi-graphql/:path*",
-      "destination": "https://graphql.github.io/swapi-graphql/:path*",
-      "statusCode": 200
-    },
+
     {
       "source": "/docs/api-reference-errors",
       "destination": "/graphql-js/error/",

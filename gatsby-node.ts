@@ -6,7 +6,6 @@ import { glob } from "glob"
 import { updateCodeData } from "./scripts/update-code-data/update-code-data"
 import { organizeCodeData } from "./scripts/update-code-data/organize-code-data"
 import { sortCodeData } from "./scripts/update-code-data/sort-code-data"
-import redirects from "./redirects.json"
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -38,7 +37,8 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   createNodeId,
   createContentDigest,
 }) => {
-  const { createNode, createParentChildLink, createRedirect } = actions
+  const { createNode, createParentChildLink } = actions
+
 
   // Derive content nodes from remark nodes
   if (
