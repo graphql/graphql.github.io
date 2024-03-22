@@ -11,9 +11,9 @@ export function IndexPage() {
   return (
     <div className="index xl:mt-10">
       <Hero />
-      <section className="flex flex-col container items-center conf-block max-w-3xl">
+      <section className="text-center flex flex-col container items-center conf-block max-w-3xl">
         <h2>A query language for your API</h2>
-        <p className="text-center">
+        <p>
           GraphQL is a query language for APIs and a runtime for fulfilling
           those queries with your existing data. GraphQL provides a complete and
           understandable description of the data in your API, gives clients the

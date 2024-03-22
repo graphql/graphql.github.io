@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { V1, V2, V3, V4, V5 } from "../code-blocks"
+import { V1, V2, V3, V4, V5 } from "../../code-blocks"
 import { clsx } from "clsx"
 
 export function WithoutVersion() {
@@ -46,6 +46,8 @@ export function WithoutVersion() {
             "window type-evolution mx-auto",
             "[&_div.nextra-code]:h-full",
             "[&_pre]:ring-0 border rounded-md border-gray-300 dark:border-neutral-700 [&_pre]:rounded-none [&_pre]:h-full",
+            // Set background as nextra code block bg color
+            '_bg-white dark:_bg-black'
           )}
           aria-hidden
         >

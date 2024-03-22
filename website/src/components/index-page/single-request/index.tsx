@@ -1,5 +1,9 @@
-import { QueryHeroFriends, ResponseHeroFriends } from "../code-blocks"
+import { QueryHeroFriends, ResponseHeroFriends } from "../../code-blocks"
 import { clsx } from "clsx"
+import classes from "./index.module.css"
+import phoneImage from "public/img/phone.svg"
+import serverImage from "public/img/server.svg"
+import NextImage from "next/image"
 
 export function SingleRequest() {
   return (
@@ -10,7 +14,7 @@ export function SingleRequest() {
       )}
     >
       <section
-        className="point2 *:w-full lg:*:w-1/2 gap-14 flex max-lg:flex-col container conf-block !justify-around [&_pre]:bg-white"
+        className="*:w-full lg:*:w-1/2 gap-14 flex max-lg:flex-col container conf-block !justify-around [&_pre]:!bg-transparent"
         id="single-request"
       >
         <div className="max-lg:text-center">
@@ -27,23 +31,24 @@ export function SingleRequest() {
             quick even on slow mobile network connections.
           </p>
         </div>
-        <div className="app-to-server [&_pre]:w-80" aria-hidden>
-          <img
-            src="/img/phone.svg"
-            width="496"
-            height="440"
-            className="phone"
+        <div
+          className="-my-8 h-[520px] relative pointer-events-none"
+          aria-hidden
+        >
+          <NextImage
+            src={serverImage}
+            alt="Server"
+            className="absolute left-1/2 -translate-x-1/2"
           />
-          <img
-            src="/img/server.svg"
-            width="496"
-            height="440"
-            className="server"
+          <NextImage
+            src={phoneImage}
+            alt="Phone"
+            className="absolute left-1/2 -translate-x-1/2 bottom-0"
           />
-          <div className="query">
+          <div className={classes.query}>
             <QueryHeroFriends />
           </div>
-          <div className="response">
+          <div className={classes.response}>
             <ResponseHeroFriends />
           </div>
         </div>

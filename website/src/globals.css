@@ -382,3 +382,52 @@ div[id^="headlessui-menu-items"] {
 .index-gradient {
   @apply bg-gradient-to-b from-transparent to-primary/5 dark:to-primary/10;
 }
+
+.type-evolution {
+  @apply w-full overflow-hidden;
+  #typeEvolveView {
+    @apply select-none h-full relative left-0 flex;
+    .v1, .v2, .v3, .v4 {
+      @apply border-r dark:border-neutral-800 w-1/2 shrink-0;
+    }
+    
+    .v5 {
+      @apply w-full shrink-0;
+    }
+    
+    &.step1 {
+      .v2 {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+    }
+    
+    &.step2 {
+      left: calc(-1 * 50%);
+      transition: left 0.5s ease-in-out;
+    }
+    
+    &.step3 {
+      left: calc(-2 * 50%);
+      transition: left 0.5s ease-in-out;
+    }
+    
+    &.step4 {
+      left: calc(-3 * 50%);
+      transition: left 0.5s ease-in-out;
+    }
+    
+    &.step5 {
+      left: calc(-4 * 50%);
+      transition: left 0.5s ease-in-out;
+    }
+    
+    &.step6 {
+      .v5 {
+        left: calc(-4 * 50%);
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+    }
+  }
+}
