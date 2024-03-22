@@ -99,7 +99,7 @@ _Printer_
 
 ### Source
 
-```js
+```ts
 export class Source {
   constructor(body: string, name?: string)
 }
@@ -112,7 +112,7 @@ it might be useful for name to be "Foo.graphql".
 
 ### getLocation
 
-```js
+```ts
 function getLocation(source: Source, position: number): SourceLocation
 
 type SourceLocation = {
@@ -126,9 +126,9 @@ line and column as a SourceLocation.
 
 ## Lexer
 
-### lex
+### `lex`
 
-```js
+```ts
 function lex(source: Source): Lexer;
 
 type Lexer = (resetPosition?: number) => Token;
@@ -137,7 +137,7 @@ export type Token = {
   kind: number;
   start: number;
   end: number;
-  value: ?string;
+  value: string;
 };
 ```
 
@@ -153,9 +153,9 @@ rewind or fast forward the lexer to a new position in the source.
 
 ## Parser
 
-### parse
+### `parse`
 
-```js
+```ts
 export function parse(
   source: Source | string,
   options?: ParseOptions
@@ -166,9 +166,9 @@ Given a GraphQL source, parses it into a Document.
 
 Throws GraphQLError if a syntax error is encountered.
 
-### parseValue
+### `parseValue`
 
-```js
+```ts
 export function parseValue(
   source: Source | string,
   options?: ParseOptions
@@ -190,7 +190,7 @@ An enum that describes the different kinds of AST nodes.
 
 ### visit
 
-```js
+```ts
 function visit(root, visitor, keyMap)
 ```
 
@@ -251,7 +251,7 @@ visit(ast, {
   Kind: {
     enter(node) {
       // enter the "Kind" node
-    }
+    },
     leave(node) {
       // leave the "Kind" node
     }
@@ -289,15 +289,15 @@ visit(ast, {
 })
 ```
 
-### BREAK
+### `BREAK`
 
 The sentinel `BREAK` value described in the documentation of `visitor`.
 
 ## Printer
 
-### print
+### `print`
 
-```js
+```ts
 function print(ast): string
 ```
 

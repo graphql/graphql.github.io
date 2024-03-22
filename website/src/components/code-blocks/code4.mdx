@@ -1,0 +1,17 @@
+```c# word-wrap=false filename="C Sharp"
+// type Character {
+public class Character {
+  // name: String
+  public String Name { get; }
+
+  // homeWorld: Planet
+  public async Task<Planet> GetHomeWorldAsync() {
+    return await FetchHomeworldAsync(_HomeworldID);
+  }
+
+  // friends: [Character]
+  public async IEnumerable<Task<Character>> GetFriendsAsync() {
+    return _FriendIDs.Select(FetchCharacterAsync);
+  }
+}
+```

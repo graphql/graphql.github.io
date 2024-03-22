@@ -15,7 +15,7 @@ npm install express graphql-http graphql ruru --save
 
 Let's modify our “hello world” example so that it's an API server rather than a script that runs a single query. We can use the 'express' module to run a webserver, and instead of executing a query directly with the `graphql` function, we can use the `graphql-http` library to mount a GraphQL API server on the “/graphql” HTTP endpoint:
 
-```javascript
+```js
 var express = require("express")
 var { createHandler } = require("graphql-http/lib/use/express")
 var { buildSchema } = require("graphql")
@@ -30,7 +30,7 @@ var schema = buildSchema(`
 
 // The root provides a resolver function for each API endpoint
 var root = {
-  hello: () => {
+  hello() {
     return "Hello world!"
   },
 }
@@ -59,7 +59,7 @@ console.log("Running a GraphQL API server at http://localhost:4000/graphql")
 
 You can run this GraphQL server with:
 
-```bash
+```sh
 node server.js
 ```
 

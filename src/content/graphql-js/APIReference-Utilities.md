@@ -114,9 +114,9 @@ var introspectionQuery: string
 A GraphQL query that queries a server's introspection system for enough
 information to reproduce that server's type system.
 
-### buildClientSchema
+### `buildClientSchema`
 
-```js
+```ts
 function buildClientSchema(
   introspection: IntrospectionQuery
 ): GraphQLSchema
@@ -132,37 +132,37 @@ server-internal mechanisms.
 
 ## Schema Representation
 
-### buildSchema
+### `buildSchema`
 
-```js
-function buildSchema(source: string | Source): GraphQLSchema {
+```ts
+function buildSchema(source: string | Source): GraphQLSchema
 ```
 
 Creates a GraphQLSchema object from GraphQL schema language. The schema will use default resolvers. For more detail on the GraphQL schema language, see the [schema language docs](/learn/schema/) or this [schema language cheat sheet](https://wehavefaces.net/graphql-shorthand-notation-cheatsheet-17cd715861b6#.9oztv0a7n).
 
-### printSchema
+### `printSchema`
 
-```js
-function printSchema(schema: GraphQLSchema): string {
+```ts
+function printSchema(schema: GraphQLSchema): string
 ```
 
 Prints the provided schema in the Schema Language format.
 
-### printIntrospectionSchema
+### `printIntrospectionSchema`
 
-```js
-function printIntrospectionSchema(schema: GraphQLSchema): string {
+```ts
+function printIntrospectionSchema(schema: GraphQLSchema): string
 ```
 
 Prints the built-in introspection schema in the Schema Language format.
 
-### buildASTSchema
+### `buildASTSchema`
 
-```js
+```ts
 function buildASTSchema(
   ast: SchemaDocument,
   queryTypeName: string,
-  mutationTypeName: ?string
+  mutationTypeName: string
 ): GraphQLSchema
 ```
 
@@ -172,25 +172,25 @@ then used with all GraphQL.js tools, but cannot be used to execute a query, as
 introspection does not represent the "resolver", "parse" or "serialize"
 functions or any other server-internal mechanisms.
 
-### typeFromAST
+### `typeFromAST`
 
 ```js
 function typeFromAST(
   schema: GraphQLSchema,
   inputTypeAST: Type
-): ?GraphQLType
+): GraphQLType
 ```
 
 Given the name of a Type as it appears in a GraphQL AST and a Schema, return the
 corresponding GraphQLType from that schema.
 
-### astFromValue
+### `astFromValue`
 
 ```js
 function astFromValue(
   value: any,
   type: GraphQLInputType
-): ?Value
+): Value
 ```
 
 Produces a GraphQL Input Value AST given a JavaScript value.
@@ -200,17 +200,17 @@ disambiguate between value primitives.
 
 ## Visitors
 
-### TypeInfo
+### `TypeInfo`
 
-```js
+```ts
 class TypeInfo {
   constructor(schema: GraphQLSchema)
-  getType(): ?GraphQLOutputType {
-  getParentType(): ?GraphQLCompositeType {
-  getInputType(): ?GraphQLInputType {
-  getFieldDef(): ?GraphQLFieldDefinition {
-  getDirective(): ?GraphQLDirective {
-  getArgument(): ?GraphQLArgument {
+  getType(): GraphQLOutputType
+  getParentType(): GraphQLCompositeType
+  getInputType(): GraphQLInputType
+  getFieldDef(): GraphQLFieldDefinition
+  getDirective(): GraphQLDirective
+  getArgument(): GraphQLArgument
 }
 ```
 
@@ -220,9 +220,9 @@ AST during a recursive descent by calling `enter(node)` and `leave(node)`.
 
 ## Value Validation
 
-### isValidJSValue
+### `isValidJSValue`
 
-```js
+```ts
 function isValidJSValue(value: any, type: GraphQLInputType): string[]
 ```
 
@@ -230,9 +230,9 @@ Given a JavaScript value and a GraphQL type, determine if the value will be
 accepted for that type. This is primarily useful for validating the
 runtime values of query variables.
 
-### isValidLiteralValue
+### `isValidLiteralValue`
 
-```js
+```ts
 function isValidLiteralValue(
   type: GraphQLInputType,
   valueAST: Value

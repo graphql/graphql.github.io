@@ -30,21 +30,21 @@ var { execute } = require("graphql") // CommonJS
 
 ### execute
 
-```js
+```ts
 export function execute(
   schema: GraphQLSchema,
   documentAST: Document,
   rootValue?: mixed,
   contextValue?: mixed,
-  variableValues?: ?{[key: string]: mixed},
-  operationName?: ?string
+  variableValues?: {[key: string]: mixed},
+  operationName?: string
 ): MaybePromise<ExecutionResult>
 
 type MaybePromise<T> = Promise<T> | T;
 
 type ExecutionResult = {
-  data: ?Object;
-  errors?: Array<GraphQLError>;
+  data: Object;
+  errors?: GraphQLError[];
 }
 ```
 

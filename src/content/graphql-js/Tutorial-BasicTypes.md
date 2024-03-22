@@ -16,7 +16,7 @@ To use a list type, surround the type in square brackets, so `[Int]` is a list o
 
 Each of these types maps straightforwardly to JavaScript, so you can just return plain old JavaScript objects in APIs that return these types. Here's an example that shows how to use some of these basic types:
 
-```javascript
+```js
 var express = require("express")
 var { createHandler } = require("graphql-http/lib/use/express")
 var { buildSchema } = require("graphql")
@@ -32,13 +32,13 @@ var schema = buildSchema(`
 
 // The root provides a resolver function for each API endpoint
 var root = {
-  quoteOfTheDay: () => {
+  quoteOfTheDay() {
     return Math.random() < 0.5 ? "Take it easy" : "Salvation lies within"
   },
-  random: () => {
+  random() {
     return Math.random()
   },
-  rollThreeDice: () => {
+  rollThreeDice() {
     return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6))
   },
 }

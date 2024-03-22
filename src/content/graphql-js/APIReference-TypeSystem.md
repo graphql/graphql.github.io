@@ -170,14 +170,14 @@ _Scalars_
 
 ### GraphQLSchema
 
-```js
+```ts
 class GraphQLSchema {
   constructor(config: GraphQLSchemaConfig)
 }
 
 type GraphQLSchemaConfig = {
   query: GraphQLObjectType;
-  mutation?: ?GraphQLObjectType;
+  mutation?: GraphQLObjectType;
 }
 ```
 
@@ -189,7 +189,7 @@ validator and executor.
 
 ```js
 var MyAppSchema = new GraphQLSchema({
-  query: MyAppQueryRootType
+  query: MyAppQueryRootType,
   mutation: MyAppMutationRootType
 });
 ```
@@ -198,17 +198,17 @@ var MyAppSchema = new GraphQLSchema({
 
 ### GraphQLScalarType
 
-```js
+```ts
 class GraphQLScalarType<InternalType> {
   constructor(config: GraphQLScalarTypeConfig<InternalType>)
 }
 
 type GraphQLScalarTypeConfig<InternalType> = {
   name: string;
-  description?: ?string;
-  serialize: (value: mixed) => ?InternalType;
-  parseValue?: (value: mixed) => ?InternalType;
-  parseLiteral?: (valueAST: Value) => ?InternalType;
+  description?: string;
+  serialize: (value: mixed) => InternalType;
+  parseValue?: (value: mixed) => InternalType;
+  parseLiteral?: (valueAST: Value) => InternalType;
 }
 ```
 
@@ -238,17 +238,17 @@ function oddValue(value) {
 
 ### GraphQLObjectType
 
-```js
+```ts
 class GraphQLObjectType {
   constructor(config: GraphQLObjectTypeConfig)
 }
 
 type GraphQLObjectTypeConfig = {
   name: string;
-  interfaces?: GraphQLInterfacesThunk | Array<GraphQLInterfaceType>;
+  interfaces?: GraphQLInterfacesThunk | GraphQLInterfaceType[];
   fields: GraphQLFieldConfigMapThunk | GraphQLFieldConfigMap;
   isTypeOf?: (value: any, info?: GraphQLResolveInfo) => boolean;
-  description?: ?string
+  description?: string
 }
 
 type GraphQLInterfacesThunk = () => Array<GraphQLInterfaceType>;
@@ -280,7 +280,7 @@ type GraphQLFieldConfig = {
   args?: GraphQLFieldConfigArgumentMap;
   resolve?: GraphQLFieldResolveFn;
   deprecationReason?: string;
-  description?: ?string;
+  description?: string;
 }
 
 type GraphQLFieldConfigArgumentMap = {
@@ -290,7 +290,7 @@ type GraphQLFieldConfigArgumentMap = {
 type GraphQLArgumentConfig = {
   type: GraphQLInputType;
   defaultValue?: any;
-  description?: ?string;
+  description?: string;
 }
 
 type GraphQLFieldConfigMap = {
@@ -337,9 +337,9 @@ var PersonType = new GraphQLObjectType({
 })
 ```
 
-### GraphQLInterfaceType
+### `GraphQLInterfaceType`
 
-```js
+```ts
 class GraphQLInterfaceType {
   constructor(config: GraphQLInterfaceTypeConfig)
 }
@@ -347,8 +347,8 @@ class GraphQLInterfaceType {
 type GraphQLInterfaceTypeConfig = {
   name: string,
   fields: GraphQLFieldConfigMapThunk | GraphQLFieldConfigMap,
-  resolveType?: (value: any, info?: GraphQLResolveInfo) => ?GraphQLObjectType,
-  description?: ?string
+  resolveType?: (value: any, info?: GraphQLResolveInfo) => GraphQLObjectType,
+  description?: string
 };
 ```
 
@@ -370,19 +370,19 @@ var EntityType = new GraphQLInterfaceType({
 
 ### GraphQLUnionType
 
-```js
+```ts
 class GraphQLUnionType {
   constructor(config: GraphQLUnionTypeConfig)
 }
 
 type GraphQLUnionTypeConfig = {
   name: string,
-  types: GraphQLObjectsThunk | Array<GraphQLObjectType>,
-  resolveType?: (value: any, info?: GraphQLResolveInfo) => ?GraphQLObjectType;
-  description?: ?string;
+  types: GraphQLObjectsThunk | GraphQLObjectType[],
+  resolveType?: (value: any, info?: GraphQLResolveInfo) => GraphQLObjectType;
+  description?: string;
 };
 
-type GraphQLObjectsThunk = () => Array<GraphQLObjectType>;
+type GraphQLObjectsThunk = () => GraphQLObjectType[];
 ```
 
 When a field can return one of a heterogeneous set of types, a Union type
@@ -408,7 +408,7 @@ var PetType = new GraphQLUnionType({
 
 ### GraphQLEnumType
 
-```js
+```ts
 class GraphQLEnumType {
   constructor(config: GraphQLEnumTypeConfig)
 }
@@ -416,7 +416,7 @@ class GraphQLEnumType {
 type GraphQLEnumTypeConfig = {
   name: string;
   values: GraphQLEnumValueConfigMap;
-  description?: ?string;
+  description?: string;
 }
 
 type GraphQLEnumValueConfigMap = {
@@ -426,14 +426,14 @@ type GraphQLEnumValueConfigMap = {
 type GraphQLEnumValueConfig = {
   value?: any;
   deprecationReason?: string;
-  description?: ?string;
+  description?: string;
 }
 
 type GraphQLEnumValueDefinition = {
   name: string;
   value?: any;
   deprecationReason?: string;
-  description?: ?string;
+  description?: string;
 }
 ```
 
@@ -459,7 +459,7 @@ var RGBType = new GraphQLEnumType({
 
 ### GraphQLInputObjectType
 
-```js
+```ts
 class GraphQLInputObjectType {
   constructor(config: GraphQLInputObjectConfig)
 }
@@ -467,7 +467,7 @@ class GraphQLInputObjectType {
 type GraphQLInputObjectConfig = {
   name: string;
   fields: GraphQLInputObjectConfigFieldMapThunk | GraphQLInputObjectConfigFieldMap;
-  description?: ?string;
+  description?: string;
 }
 
 type GraphQLInputObjectConfigFieldMapThunk = () => GraphQLInputObjectConfigFieldMap;
@@ -475,7 +475,7 @@ type GraphQLInputObjectConfigFieldMapThunk = () => GraphQLInputObjectConfigField
 type GraphQLInputObjectFieldConfig = {
   type: GraphQLInputType;
   defaultValue?: any;
-  description?: ?string;
+  description?: string;
 }
 
 type GraphQLInputObjectConfigFieldMap = {
@@ -486,7 +486,7 @@ type GraphQLInputObjectField = {
   name: string;
   type: GraphQLInputType;
   defaultValue?: any;
-  description?: ?string;
+  description?: string;
 }
 
 type GraphQLInputObjectFieldMap = {
@@ -514,7 +514,7 @@ var GeoPoint = new GraphQLInputObjectType({
 
 ### GraphQLList
 
-```js
+```ts
 class GraphQLList {
   constructor(type: GraphQLType)
 }
@@ -538,7 +538,7 @@ var PersonType = new GraphQLObjectType({
 
 ### GraphQLNonNull
 
-```js
+```ts
 class GraphQLNonNull {
   constructor(type: GraphQLType)
 }
@@ -566,39 +566,39 @@ var RowType = new GraphQLObjectType({
 ### isInputType
 
 ```js
-function isInputType(type: ?GraphQLType): boolean
+function isInputType(type: GraphQLType): boolean
 ```
 
 These types may be used as input types for arguments and directives.
 
 ### isOutputType
 
-```js
-function isOutputType(type: ?GraphQLType): boolean
+```ts
+function isOutputType(type: GraphQLType): boolean
 ```
 
 These types may be used as output types as the result of fields
 
 ### isLeafType
 
-```js
-function isLeafType(type: ?GraphQLType): boolean
+```ts
+function isLeafType(type: GraphQLType): boolean
 ```
 
 These types may describe types which may be leaf values
 
 ### isCompositeType
 
-```js
-function isCompositeType(type: ?GraphQLType): boolean
+```ts
+function isCompositeType(type: GraphQLType): boolean
 ```
 
 These types may describe the parent context of a selection set
 
 ### isAbstractType
 
-```js
-function isAbstractType(type: ?GraphQLType): boolean
+```ts
+function isAbstractType(type: GraphQLType): boolean
 ```
 
 These types may describe a combination of object types
@@ -607,8 +607,8 @@ These types may describe a combination of object types
 
 ### getNullableType
 
-```js
-function getNullableType(type: ?GraphQLType): ?GraphQLNullableType
+```ts
+function getNullableType(type: GraphQLType): GraphQLNullableType
 ```
 
 If a given type is non-nullable, this strips the non-nullability and
@@ -616,8 +616,8 @@ returns the underlying type.
 
 ### getNamedType
 
-```js
-function getNamedType(type: ?GraphQLType): ?GraphQLNamedType
+```ts
+function getNamedType(type: GraphQLType): GraphQLNamedType
 ```
 
 If a given type is non-nullable or a list, this repeated strips the
@@ -627,7 +627,7 @@ non-nullability and list wrappers and returns the underlying type.
 
 ### GraphQLInt
 
-```js
+```ts
 var GraphQLInt: GraphQLScalarType
 ```
 
@@ -635,7 +635,7 @@ A `GraphQLScalarType` that represents an int.
 
 ### GraphQLFloat
 
-```js
+```ts
 var GraphQLFloat: GraphQLScalarType
 ```
 
@@ -643,7 +643,7 @@ A `GraphQLScalarType` that represents a float.
 
 ### GraphQLString
 
-```js
+```ts
 var GraphQLString: GraphQLScalarType
 ```
 
@@ -651,7 +651,7 @@ A `GraphQLScalarType` that represents a string.
 
 ### GraphQLBoolean
 
-```js
+```ts
 var GraphQLBoolean: GraphQLScalarType
 ```
 
@@ -659,7 +659,7 @@ A `GraphQLScalarType` that represents a boolean.
 
 ### GraphQLID
 
-```js
+```ts
 var GraphQLID: GraphQLScalarType
 ```
 

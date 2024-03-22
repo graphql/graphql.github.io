@@ -11,50 +11,8 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
         <div className="agree-actions-container top">
           <AgreeActions />
         </div>
-        <p>
-          Here you’ll find dos and don’ts for use of the GraphQL brand and
-          GraphQL logo files in supported arrangement and colors.
-        </p>
-        <p>
-          “GraphQL” is a trademark managed by the{" "}
-          <a href="/foundation" target="_blank">
-            GraphQL Foundation
-          </a>
-          . Use of the trademark and logo are subject to the{" "}
-          <a
-            href="https://lfprojects.org/policies/trademark-policy/"
-            target="_blank"
-          >
-            LF Projects trademark policy
-          </a>
-          .
-        </p>
-        <p>
-          Certain fair use of the GraphQL mark are pre-approved, such as factual
-          references to the project. Others require permission first, such as
-          apparel for sale or any other commercial purpose, using the word
-          GraphQL in domain names, or using the mark on printed materials, to
-          name a few. You can find a more comprehensive list in the trademark
-          policy.
-        </p>
-        <p>
-          Please email{" "}
-          <a href="mailto:info@graphql.org?subject=Trademark%20Request">
-            info@graphql.org
-          </a>{" "}
-          with any questions or requests.
-        </p>
       </section>
       <section>
-        <h2>The GraphQL&trade; trademark</h2>
-        <p>
-          The word "GraphQL" may only be used to refer to the GraphQL project
-          and technologies which conform to the{" "}
-          <a href="https://spec.graphql.org" target="_blank">
-            GraphQL specification
-          </a>
-          .
-        </p>
         <div className="dos-donts">
           <ul className="do">
             <li>
@@ -108,9 +66,6 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
         </div>
       </section>
       <section>
-        <h2>Color &amp; Typeface</h2>
-        <p>Our core color is called Rhodamine.</p>
-        <p>The GraphQL wordmark and headlines are set in Rubik Light.</p>
         <div className="samples">
           <div className="rhodamine-sample">
             Rhodamine
@@ -188,11 +143,6 @@ export default ({ pageContext }: PageProps<{}, { sourcePath: string }>) => {
         </div>
       </section>
       <section>
-        <h2>GraphQL Logo &amp; Hexagraph</h2>
-        <p>
-          Our logomark is called the "hexagraph". The GraphQL logo is composed
-          of the hexagraph and the GraphQL wordmark set in Rubik Light.
-        </p>
         <div className="logoGrid" style={{ gap: "1.5%", flexWrap: "wrap" }}>
           <div className="square" style={{ width: "27%", minWidth: "160px" }}>
             <div style={{ padding: "25%" }}>

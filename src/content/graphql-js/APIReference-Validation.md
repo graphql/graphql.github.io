@@ -33,14 +33,14 @@ var { validate } = require("graphql/validation") // CommonJS
 
 ## Validation
 
-### validate
+### `validate`
 
-```js
+```ts
 function validate(
   schema: GraphQLSchema,
   ast: Document,
-  rules?: Array<any>
-): Array<GraphQLError>
+  rules?: any[]
+): GraphQLError[]
 ```
 
 Implements the "Validation" section of the spec.
@@ -59,9 +59,9 @@ Visitors can also supply `visitSpreadFragments: true` which will alter the
 behavior of the visitor to skip over top level defined fragments, and instead
 visit those fragments at every point a spread is encountered.
 
-### specifiedRules
+### `specifiedRules`
 
-```js
+```ts
 var specifiedRules: Array<(context: ValidationContext): any>
 ```
 

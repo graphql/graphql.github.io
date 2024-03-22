@@ -49,9 +49,9 @@ Run the `start` script to launch the server:
 yarn start
 ```
 
-Finally, open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+Finally, open http://localhost:8000 to view it in the browser.
 
-The GraphQL website is built with [Gatsby](https://www.gatsbyjs.com/docs/). This means that a hot-reloading development environment will be accessible by default.
+The GraphQL website is built with [Gatsby](https://gatsbyjs.com/docs). This means that a hot-reloading development environment will be accessible by default.
 
 ### Branching
 
@@ -70,7 +70,7 @@ Active development for graphql.org happens on the `source` branch. Be sure to cr
 
 ### Publishing the updated site
 
-Your changes will be merged into the `source` branch. Then, the CI will automatically publish a new version of http://graphql.org via [Netlify](https://docs.netlify.com/).
+Your changes will be merged into the `source` branch. Then, the CI will automatically publish a new version of https://graphql.org via [Netlify](https://docs.netlify.com).
 
 ## Updating content
 
@@ -161,6 +161,6 @@ This repository is managed by EasyCLA. Project participants must sign the free (
 
 To initiate the signature process please open a PR against this repo. The EasyCLA bot will block the merge if we still need a membership agreement from you.
 
-You can find [detailed information here](https://github.com/graphql/graphql-wg/tree/main/membership). If you have issues, please email [operations@graphql.org](mailto:operations@graphql.org).
+You can find [detailed information here](https://github.com/graphql/graphql-wg/tree/main/membership). If you have issues, please email operations@graphql.org.
 
 If your company benefits from GraphQL and you would like to provide essential financial support for the systems and people that power our community, please also consider membership in the [GraphQL Foundation](https://foundation.graphql.org/join).

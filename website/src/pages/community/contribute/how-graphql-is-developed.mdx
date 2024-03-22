@@ -1,0 +1,47 @@
+import { Cards } from "../../../components/cards"
+import {
+  GitHubIcon,
+  GoogleCalendarIcon,
+  YouTubeIcon,
+} from "../../../icons"
+
+# How GraphQL Is Developed
+
+At its core, the GraphQL project is organized around the [specification](https://spec.graphql.org), with a wide variety of supporting implementations and tools.
+
+GraphQL has an active and mutually beneficial relationship with its many implementations. The GraphQL specification is continuously evolving under the care of the [GraphQL Working Group](https://github.com/graphql/graphql-wg), which consists of GraphQL spec experts, contributors to public [reference implementations](/code), and implementers. At any given time, GraphQL specification updates are a combination of anticipatory planning with documentation of patterns and behaviors that are already proven in production, sometimes at very large scale.
+
+## Working Groups
+
+The GraphQL specification, sub-specifications, and official reference implementations are developed using the working group model. The working groups meet monthly or as-needed in order to review ideas and plan their work.
+
+<div className="border-l-2 border-primary pl-6 md:pl-10">
+  ### The GraphQL Working Group
+
+  The [GraphQL Working Group](https://github.com/graphql/graphql-wg) is the main group that plans and implements changes to the [GraphQL specification](https://spec.graphql.org). It meets actively and is the default place for discussion for topics which do not have a separate breakout working group (breakout working groups include the [Input Union WG](https://github.com/graphql/graphql-spec/blob/main/rfcs/InputUnion.md) and the [GraphQL-over-HTTP WG](https://github.com/graphql/graphql-over-http)).
+
+  <Cards
+    items={[
+      {
+        icon: GitHubIcon,
+        title: 'GitHub Working Group',
+        link: 'https://github.com/graphql/graphql-wg'
+      }, {
+        icon: GoogleCalendarIcon,
+        title: 'Meeting frequency',
+        link: 'https://calendar.graphql.org',
+        description: 'Monthly, generally the first Thursday'
+      }, {
+        icon: GitHubIcon,
+        title: 'Agenda',
+        link: 'https://github.com/graphql/graphql-wg/tree/main/agendas',
+        description: 'GitHub'
+      }, {
+        icon: YouTubeIcon,
+        title: 'Recordings',
+        link: 'https://www.youtube.com/playlist?list=PLP1igyLx8foH30_sDnEZnxV_8pYW3SDtb',
+        description: 'YouTube'
+      },
+    ]}
+  />
+</div>

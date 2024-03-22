@@ -1,5 +1,13 @@
 {
   "arrowParens": "avoid",
   "semi": false,
-  "singleQuote": false
+  "singleQuote": false,
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
 }

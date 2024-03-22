@@ -34,7 +34,7 @@ var schema = buildSchema(`
 
 // The rootValue provides a resolver function for each API endpoint
 var rootValue = {
-  hello: () => {
+  hello() {
     return "Hello world!"
   },
 }
@@ -51,13 +51,13 @@ graphql({
 
 If you run this with:
 
-```bash
+```sh
 node server.js
 ```
 
 You should see the GraphQL response printed out:
 
-```javascript
+```js
 {
   data: {
     hello: "Hello world!"

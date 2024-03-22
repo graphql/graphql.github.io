@@ -1,0 +1,14 @@
+import { Cards } from 'nextra/components'
+import metaFile from './_meta'
+
+# Frequently Asked Questions (FAQ)
+
+<Cards>
+  {Object.entries(metaFile).slice(1).map(([key]) => (
+    <Cards.Card
+      key={key}
+      title={key.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')}
+      href={`/faq/${key}`} arrow
+    />
+  ))}
+</Cards>
