@@ -148,8 +148,10 @@ export function CodePage({ allTags, data }: CodePageProps) {
 
   return (
     <>
-      <div className="container py-20">
-        <h1 className="text-7xl font-extrabold">Code Using GraphQL</h1>
+      <div className="container py-10 md:py-20">
+        <h1 className="text-4xl md:text-7xl font-extrabold">
+          Code Using GraphQL
+        </h1>
         <div className="flex my-10 items-center border-b border-current max-w-[700px] font-extrabold text-2xl pb-2.5">
           <div
             className={clsx(
@@ -196,140 +198,147 @@ export function CodePage({ allTags, data }: CodePageProps) {
           })}
         </div>
       </div>
-      <div className="px-3">
-        <RadioGroup
-          value={sort}
-          onValueChange={setSort}
-          className="container flex gap-2"
-        >
-          <div className="mr-4">Sort by:</div>
-          <div className="flex items-center">
-            <RadioGroupItem value="popularity" id="r1" />
-            <label htmlFor="r1" className="cursor-pointer pl-2">
-              Popularity
-            </label>
-          </div>
-          <div className="flex items-center">
-            <RadioGroupItem value="alphabetical" id="r2" />
-            <label htmlFor="r2" className="cursor-pointer pl-2">
-              Alphabetical
-            </label>
-          </div>
-        </RadioGroup>
+      <RadioGroup
+        value={sort}
+        onValueChange={setSort}
+        className="container flex gap-2"
+      >
+        <div className="mr-4">Sort by:</div>
+        <div className="flex items-center">
+          <RadioGroupItem value="popularity" id="r1" />
+          <label htmlFor="r1" className="cursor-pointer pl-2">
+            Popularity
+          </label>
+        </div>
+        <div className="flex items-center">
+          <RadioGroupItem value="alphabetical" id="r2" />
+          <label htmlFor="r2" className="cursor-pointer pl-2">
+            Alphabetical
+          </label>
+        </div>
+      </RadioGroup>
 
-        <div className="container grid md:grid-cols-2 gap-10 py-20">
-          {(sort === "alphabetical"
-            ? [...newData].sort((a, b) =>
-                a.frontMatter.name.localeCompare(b.frontMatter.name),
-              )
-            : newData
-          ).map(
-            ({
-              frontMatter,
-              tags,
-              formattedStars,
-              lastRelease,
-              license,
-              compiledSource,
-            }) => {
-              const { name, description, url, github, npm, gem } = frontMatter
-              const hasMetadata = formattedStars || lastRelease || license
-              return (
-                <Card key={`${name}${tags.toString()}`} className="!p-0 h-max">
-                  <div className="p-8 lg:p-12 flex flex-col gap-7 grow">
-                    <div className="flex items-center gap-6 [&_a:hover]:text-primary [&_a]:transition-colors">
-                      <span className="text-3xl font-extrabold grow break-words">
-                        {name}
-                      </span>
-                      {url && (
-                        <a href={url} target="_blank" rel="noreferrer">
-                          <GlobeIcon />
-                        </a>
-                      )}
-                      {github && (
-                        <a
-                          href={`https://github.com/${github}`}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <GitHubIcon />
-                        </a>
-                      )}
-                      {npm && (
-                        <a
-                          href={`https://npmjs.com/package/${npm}`}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <NPMIcon />
-                        </a>
-                      )}
-                      {gem && (
-                        <a
-                          href={`https://rubygems.org/gems/${gem}`}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <RubyGemsIcon />
-                        </a>
-                      )}
-                    </div>
-                    <div className="gap-2 flex roboto-mono">
-                      {tags.map(tag => (
-                        <Tag
-                          key={tag}
-                          // @ts-expect-error -- fixme
-                          as={NextLink}
-                          href={`/code?tags=${tag}`}
-                          className="hover:!bg-primary transition-colors hover:text-white cursor-pointer"
-                        >
-                          {allTagsMap.get(tag)!.name}
-                        </Tag>
-                      ))}
-                    </div>
-                    <Markdown className="[&_a]:text-primary grow line-clamp-4 lg:text-lg">
-                      {description}
-                    </Markdown>
-                    {hasMetadata && (
-                      <div
-                        className={clsx(
-                          "flex gap-5",
-                          "[&>:not(:last-child)]:border-r [&>:not(:last-child)]:border-gray-500 [&>:not(:last-child)]:pr-5",
-                        )}
+      <div className="container grid md:grid-cols-2 gap-10 py-20">
+        {(sort === "alphabetical"
+          ? [...newData].sort((a, b) =>
+              a.frontMatter.name.localeCompare(b.frontMatter.name),
+            )
+          : newData
+        ).map(
+          ({
+            frontMatter,
+            tags,
+            formattedStars,
+            lastRelease,
+            license,
+            compiledSource,
+          }) => {
+            const { name, description, url, github, npm, gem } = frontMatter
+            const hasMetadata = formattedStars || lastRelease || license
+            return (
+              <Card
+                key={`${name}${tags.toString()}`}
+                className={clsx(
+                  "!p-0 h-max",
+                  "min-w-0", // hack to avoid overflow when opening details
+                )}
+              >
+                <div className="p-8 lg:p-12 flex flex-col gap-7 grow">
+                  <div className="flex items-center gap-6 [&_a:hover]:text-primary [&_a]:transition-colors">
+                    <span className="text-3xl font-extrabold grow break-all">
+                      {name}
+                    </span>
+                    {url && (
+                      <a href={url} target="_blank" rel="noreferrer">
+                        <GlobeIcon />
+                      </a>
+                    )}
+                    {github && (
+                      <a
+                        href={`https://github.com/${github}`}
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        {lastRelease && <span>Last release {lastRelease}</span>}
-                        {formattedStars && (
-                          <span className="flex items-center gap-1">
-                            <StarIcon className="text-primary" />
-                            {formattedStars}
-                          </span>
-                        )}
-                        {license && <span>{license}</span>}
-                      </div>
+                        <GitHubIcon />
+                      </a>
+                    )}
+                    {npm && (
+                      <a
+                        href={`https://npmjs.com/package/${npm}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <NPMIcon />
+                      </a>
+                    )}
+                    {gem && (
+                      <a
+                        href={`https://rubygems.org/gems/${gem}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <RubyGemsIcon />
+                      </a>
                     )}
                   </div>
-
-                  {compiledSource && (
-                    <details className="bg-[#f0f0f0] dark:bg-[#2f2f2f]">
-                      <summary
-                        className={clsx(
-                          "flex justify-between font-bold text-primary px-12 py-5 dark:[[open]>&]:shadow-[-5px_10px_30px_20px_#1b1b1b4d]",
-                          "[[open]>&]:shadow-[0_6px_21px_0_#1b1b1b33]",
-                        )}
+                  <div className="gap-2 flex roboto-mono">
+                    {tags.map(tag => (
+                      <Tag
+                        key={tag}
+                        // @ts-expect-error -- fixme
+                        as={NextLink}
+                        href={`/code?tags=${tag}`}
+                        className="hover:!bg-primary transition-colors hover:text-white cursor-pointer"
                       >
-                        README
-                        <ChevronLeftIcon className="size-5 -rotate-90 [[open]>*>&]:rotate-90 transition-transform" />
-                      </summary>
-                      <div className="px-12 py-5" suppressHydrationWarning>
-                        <RemoteContent compiledSource={compiledSource} />
-                      </div>
-                    </details>
+                        {allTagsMap.get(tag)!.name}
+                      </Tag>
+                    ))}
+                  </div>
+                  <Markdown className="[&_a]:text-primary grow line-clamp-4 lg:text-lg">
+                    {description}
+                  </Markdown>
+                  {hasMetadata && (
+                    <div
+                      className={clsx(
+                        "flex items-center gap-5 max-md:text-xs",
+                        "[&>:not(:last-child)]:border-r [&>:not(:last-child)]:border-gray-500 [&>:not(:last-child)]:pr-5",
+                      )}
+                    >
+                      {lastRelease && <span>Last release {lastRelease}</span>}
+                      {formattedStars && (
+                        <span className="flex items-center gap-1">
+                          <StarIcon className="text-primary" />
+                          {formattedStars}
+                        </span>
+                      )}
+                      {license && <span>{license}</span>}
+                    </div>
                   )}
-                </Card>
-              )
-            },
-          )}
-        </div>
+                </div>
+
+                {compiledSource && (
+                  <details className="bg-[#f0f0f0] dark:bg-[#2f2f2f]">
+                    <summary
+                      className={clsx(
+                        "flex justify-between font-bold text-primary px-8 lg:px-12 py-5 dark:[[open]>&]:shadow-[-5px_10px_30px_20px_#1b1b1b4d]",
+                        "[[open]>&]:shadow-[0_6px_21px_0_#1b1b1b33]",
+                      )}
+                    >
+                      README
+                      <ChevronLeftIcon className="size-5 -rotate-90 [[open]>*>&]:rotate-90 transition-transform" />
+                    </summary>
+                    <div
+                      className="px-8 lg:px-12 py-5"
+                      suppressHydrationWarning
+                    >
+                      <RemoteContent compiledSource={compiledSource} />
+                    </div>
+                  </details>
+                )}
+              </Card>
+            )
+          },
+        )}
       </div>
     </>
   )

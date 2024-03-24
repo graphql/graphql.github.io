@@ -53,7 +53,7 @@ export default function Blog(props) {
               <Tag key={tag}>{tag.replaceAll("-", " ")}</Tag>
             ))}
           </div>
-          <div className="font-extrabold text-3xl text-balance">
+          <div className="font-extrabold text-xl md:text-3xl text-balance">
             {page.frontMatter.title}
           </div>
           <div className="opacity-50 text-sm my-7 flex gap-2">
@@ -75,8 +75,8 @@ export default function Blog(props) {
   )
   return (
     <>
-      <div className="py-20 px-3 container">
-        <h1 className="text-7xl font-extrabold mb-10">Blog</h1>
+      <div className="py-10 md:py-20 container">
+        <h1 className="text-4xl md:text-7xl font-extrabold mb-10">Blog</h1>
         <h3 className="text-2xl font-bold">Categories</h3>
         {tagList}
       </div>
