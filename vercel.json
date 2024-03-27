@@ -7,12 +7,12 @@
     },
     {
       "source": "/conf/program",
-      "destination": "/conf/schedule",
+      "destination": "/conf/2023/schedule",
       "permanent": false
     },
     {
       "source": "/conf/schedule/:path*",
-      "destination": "/conf/sessions/:path*",
+      "destination": "/conf/2023/sessions/:path*",
       "permanent": false
     },
     {
