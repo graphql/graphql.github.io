@@ -1,51 +1,51 @@
 {
   "altair-graphql/altair": {
     "hasCommitsInLast3Months": false,
-    "stars": 4959,
+    "stars": 4981,
     "formattedStars": "5k",
     "license": "MIT License",
-    "lastRelease": "2024-02-10T22:48:06Z",
-    "formattedLastRelease": "1 week ago"
+    "lastRelease": "2024-03-02T23:05:31Z",
+    "formattedLastRelease": "3 weeks ago"
   },
   "apache/apisix": {
     "hasCommitsInLast3Months": false,
-    "stars": 13415,
-    "formattedStars": "13k",
+    "stars": 13572,
+    "formattedStars": "14k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-01-15T03:35:34Z",
-    "formattedLastRelease": "1 month ago"
+    "lastRelease": "2024-03-25T10:09:53Z",
+    "formattedLastRelease": "2 days ago"
   },
   "apollographql/apollo-studio-community": {
     "hasCommitsInLast3Months": false,
-    "stars": 245,
-    "formattedStars": "245",
+    "stars": 247,
+    "formattedStars": "247",
     "license": "Unknown",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "ChilliCream/hotchocolate": {
     "hasCommitsInLast3Months": false,
-    "stars": 4797,
+    "stars": 4852,
     "formattedStars": "5k",
     "license": "MIT License",
-    "lastRelease": "2024-02-21T10:41:55Z",
-    "formattedLastRelease": "23 hours ago"
+    "lastRelease": "2024-03-26T20:29:04Z",
+    "formattedLastRelease": "20 hours ago"
   },
   "dgraph-io/dgraph": {
     "hasCommitsInLast3Months": false,
-    "stars": 19913,
+    "stars": 20002,
     "formattedStars": "20k",
     "license": "Other",
     "lastRelease": "2023-08-17T19:57:12Z",
-    "formattedLastRelease": "6 months ago"
+    "formattedLastRelease": "7 months ago"
   },
   "yahoo/elide": {
     "hasCommitsInLast3Months": false,
-    "stars": 980,
+    "stars": 984,
     "formattedStars": "1k",
     "license": "Other",
-    "lastRelease": "2024-01-21T04:19:44Z",
-    "formattedLastRelease": "1 month ago"
+    "lastRelease": "2024-03-23T17:37:05Z",
+    "formattedLastRelease": "3 days ago"
   },
   "graphapi-io/resources": {
     "hasCommitsInLast3Months": false,
@@ -57,23 +57,23 @@
   },
   "hasura/graphql-engine": {
     "hasCommitsInLast3Months": false,
-    "stars": 30689,
+    "stars": 30748,
     "formattedStars": "31k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-01-30T16:24:56Z",
-    "formattedLastRelease": "3 weeks ago"
+    "lastRelease": "2024-03-24T15:06:36Z",
+    "formattedLastRelease": "3 days ago"
   },
   "Kong/insomnia": {
     "hasCommitsInLast3Months": false,
-    "stars": 32470,
-    "formattedStars": "32k",
+    "stars": 32832,
+    "formattedStars": "33k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-02-06T09:52:14Z",
-    "formattedLastRelease": "2 weeks ago"
+    "lastRelease": "2024-03-27T13:34:31Z",
+    "formattedLastRelease": "3 hours ago"
   },
   "postmanlabs/postman-app-support": {
     "hasCommitsInLast3Months": false,
-    "stars": 5712,
+    "stars": 5729,
     "formattedStars": "6k",
     "license": "Unknown",
     "lastRelease": "",
@@ -81,43 +81,43 @@
   },
   "prisma/prisma": {
     "hasCommitsInLast3Months": false,
-    "stars": 36308,
-    "formattedStars": "36k",
+    "stars": 36814,
+    "formattedStars": "37k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-02-21T18:56:04Z",
-    "formattedLastRelease": "14 hours ago"
+    "lastRelease": "2024-03-12T14:56:01Z",
+    "formattedLastRelease": "2 weeks ago"
   },
   "stepzen-dev/examples": {
     "hasCommitsInLast3Months": false,
-    "stars": 39,
-    "formattedStars": "39",
+    "stars": 40,
+    "formattedStars": "40",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "TykTechnologies/tyk": {
     "hasCommitsInLast3Months": false,
-    "stars": 9116,
+    "stars": 9186,
     "formattedStars": "9k",
     "license": "Other",
-    "lastRelease": "2023-12-20T13:07:20Z",
-    "formattedLastRelease": "2 months ago"
+    "lastRelease": "2024-03-07T13:28:33Z",
+    "formattedLastRelease": "2 weeks ago"
   },
   "twinlogix/typetta": {
     "hasCommitsInLast3Months": false,
-    "stars": 96,
-    "formattedStars": "96",
+    "stars": 98,
+    "formattedStars": "98",
     "license": "Apache License 2.0",
     "lastRelease": "2023-10-16T07:50:50Z",
-    "formattedLastRelease": "4 months ago"
+    "formattedLastRelease": "5 months ago"
   },
   "webiny/webiny-js": {
     "hasCommitsInLast3Months": false,
-    "stars": 7041,
+    "stars": 7071,
     "formattedStars": "7k",
     "license": "Other",
-    "lastRelease": "2024-02-16T11:37:17Z",
-    "formattedLastRelease": "5 days ago"
+    "lastRelease": "2024-03-12T13:07:17Z",
+    "formattedLastRelease": "2 weeks ago"
   },
   "ballerina-platform/module-ballerina-graphql": {
     "hasCommitsInLast3Months": false,
@@ -125,15 +125,15 @@
     "formattedStars": "144",
     "license": "Apache License 2.0",
     "lastRelease": "2024-02-21T06:14:48Z",
-    "formattedLastRelease": "1 day ago"
+    "formattedLastRelease": "1 month ago"
   },
   "graphql-dotnet/graphql-client": {
     "hasCommitsInLast3Months": false,
-    "stars": 597,
+    "stars": 598,
     "formattedStars": "1k",
     "license": "MIT License",
-    "lastRelease": "2023-11-23T09:18:06Z",
-    "formattedLastRelease": "2 months ago"
+    "lastRelease": "2024-03-20T13:07:11Z",
+    "formattedLastRelease": "1 week ago"
   },
   "bkniffler/graphql-net-client": {
     "hasCommitsInLast3Months": false,
@@ -153,31 +153,31 @@
   },
   "byme8/ZeroQL": {
     "hasCommitsInLast3Months": false,
-    "stars": 231,
-    "formattedStars": "231",
+    "stars": 238,
+    "formattedStars": "238",
     "license": "MIT License",
     "lastRelease": "2024-02-19T19:05:47Z",
-    "formattedLastRelease": "2 days ago"
+    "formattedLastRelease": "1 month ago"
   },
   "EntityGraphQL/EntityGraphQL": {
     "hasCommitsInLast3Months": false,
-    "stars": 369,
-    "formattedStars": "369",
+    "stars": 376,
+    "formattedStars": "376",
     "license": "MIT License",
-    "lastRelease": "2024-01-25T00:49:15Z",
-    "formattedLastRelease": "4 weeks ago"
+    "lastRelease": "2024-03-19T16:00:01Z",
+    "formattedLastRelease": "1 week ago"
   },
   "graphql-dotnet/graphql-dotnet": {
     "hasCommitsInLast3Months": false,
-    "stars": 5702,
+    "stars": 5726,
     "formattedStars": "6k",
     "license": "MIT License",
     "lastRelease": "2024-02-06T15:23:47Z",
-    "formattedLastRelease": "2 weeks ago"
+    "formattedLastRelease": "1 month ago"
   },
   "chkimes/graphql-net": {
     "hasCommitsInLast3Months": false,
-    "stars": 888,
+    "stars": 889,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "",
@@ -193,24 +193,16 @@
   },
   "graphql/libgraphqlparser": {
     "hasCommitsInLast3Months": false,
-    "stars": 1052,
+    "stars": 1055,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2017-10-16T21:47:42Z",
     "formattedLastRelease": "6 years ago"
   },
-  "burner/graphqld": {
-    "hasCommitsInLast3Months": false,
-    "stars": 34,
-    "formattedStars": "34",
-    "license": "GNU Lesser General Public License v3.0",
-    "lastRelease": "2023-12-15T16:28:51Z",
-    "formattedLastRelease": "2 months ago"
-  },
   "oliyh/re-graph": {
     "hasCommitsInLast3Months": false,
-    "stars": 453,
-    "formattedStars": "453",
+    "stars": 455,
+    "formattedStars": "455",
     "license": "Unknown",
     "lastRelease": "2022-07-20T09:24:02Z",
     "formattedLastRelease": "1 year ago"
@@ -225,19 +217,27 @@
   },
   "tendant/graphql-clj": {
     "hasCommitsInLast3Months": false,
-    "stars": 281,
-    "formattedStars": "281",
+    "stars": 282,
+    "formattedStars": "282",
     "license": "Eclipse Public License 1.0",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "walmartlabs/lacinia": {
     "hasCommitsInLast3Months": false,
-    "stars": 1793,
+    "stars": 1798,
     "formattedStars": "2k",
     "license": "Other",
     "lastRelease": "",
     "formattedLastRelease": ""
+  },
+  "burner/graphqld": {
+    "hasCommitsInLast3Months": false,
+    "stars": 34,
+    "formattedStars": "34",
+    "license": "GNU Lesser General Public License v3.0",
+    "lastRelease": "2023-12-15T16:28:51Z",
+    "formattedLastRelease": "3 months ago"
   },
   "annkissam/common_graphql_client": {
     "hasCommitsInLast3Months": false,
@@ -249,15 +249,15 @@
   },
   "uesteibar/neuron": {
     "hasCommitsInLast3Months": false,
-    "stars": 323,
-    "formattedStars": "323",
+    "stars": 322,
+    "formattedStars": "322",
     "license": "Other",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "absinthe-graphql/absinthe": {
     "hasCommitsInLast3Months": false,
-    "stars": 4195,
+    "stars": 4211,
     "formattedStars": "4k",
     "license": "Other",
     "lastRelease": "2021-09-28T21:41:45Z",
@@ -273,7 +273,7 @@
   },
   "dillonkearns/elm-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 774,
+    "stars": 775,
     "formattedStars": "1k",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
     "lastRelease": "",
@@ -281,15 +281,15 @@
   },
   "jlouis/graphql-erlang": {
     "hasCommitsInLast3Months": false,
-    "stars": 312,
-    "formattedStars": "312",
+    "stars": 314,
+    "formattedStars": "314",
     "license": "Other",
     "lastRelease": "2018-06-22T12:35:43Z",
     "formattedLastRelease": "5 years ago"
   },
   "gql-dart/ferry": {
     "hasCommitsInLast3Months": false,
-    "stars": 566,
+    "stars": 575,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "",
@@ -297,31 +297,31 @@
   },
   "zino-app/graphql-flutter": {
     "hasCommitsInLast3Months": false,
-    "stars": 3208,
+    "stars": 3212,
     "formattedStars": "3k",
     "license": "MIT License",
     "lastRelease": "2023-12-28T21:29:30Z",
-    "formattedLastRelease": "1 month ago"
+    "formattedLastRelease": "2 months ago"
   },
   "Khan/genqlient": {
     "hasCommitsInLast3Months": false,
-    "stars": 945,
+    "stars": 970,
     "formattedStars": "1k",
     "license": "MIT License",
-    "lastRelease": "2023-05-06T18:25:08Z",
-    "formattedLastRelease": "9 months ago"
+    "lastRelease": "2024-03-05T07:00:55Z",
+    "formattedLastRelease": "3 weeks ago"
   },
   "hasura/go-graphql-client": {
     "hasCommitsInLast3Months": false,
-    "stars": 364,
-    "formattedStars": "364",
+    "stars": 366,
+    "formattedStars": "366",
     "license": "MIT License",
-    "lastRelease": "2024-02-03T05:40:34Z",
-    "formattedLastRelease": "2 weeks ago"
+    "lastRelease": "2024-03-04T16:49:07Z",
+    "formattedLastRelease": "3 weeks ago"
   },
   "shurcooL/graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 681,
+    "stars": 684,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "",
@@ -337,16 +337,16 @@
   },
   "99designs/gqlgen": {
     "hasCommitsInLast3Months": false,
-    "stars": 9484,
-    "formattedStars": "9k",
+    "stars": 9560,
+    "formattedStars": "10k",
     "license": "MIT License",
-    "lastRelease": "2024-02-15T16:18:26Z",
-    "formattedLastRelease": "6 days ago"
+    "lastRelease": "2024-03-11T23:13:45Z",
+    "formattedLastRelease": "2 weeks ago"
   },
   "andrewwphillips/eggql": {
     "hasCommitsInLast3Months": false,
-    "stars": 30,
-    "formattedStars": "30",
+    "stars": 32,
+    "formattedStars": "32",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
@@ -361,7 +361,7 @@
   },
   "graph-gophers/graphql-go": {
     "hasCommitsInLast3Months": false,
-    "stars": 4574,
+    "stars": 4588,
     "formattedStars": "5k",
     "license": "BSD 2-Clause \"Simplified\" License",
     "lastRelease": "2022-12-19T10:05:46Z",
@@ -369,23 +369,23 @@
   },
   "graphql-go/graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 9626,
+    "stars": 9677,
     "formattedStars": "10k",
     "license": "MIT License",
     "lastRelease": "2023-04-10T18:20:23Z",
-    "formattedLastRelease": "10 months ago"
+    "formattedLastRelease": "11 months ago"
   },
   "graphql-go/relay": {
     "hasCommitsInLast3Months": false,
-    "stars": 419,
-    "formattedStars": "419",
+    "stars": 422,
+    "formattedStars": "422",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "samsarahq/thunder": {
     "hasCommitsInLast3Months": false,
-    "stars": 1587,
+    "stars": 1588,
     "formattedStars": "2k",
     "license": "MIT License",
     "lastRelease": "",
@@ -393,19 +393,19 @@
   },
   "wundergraph/graphql-go-tools": {
     "hasCommitsInLast3Months": false,
-    "stars": 616,
+    "stars": 628,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2023-10-12T13:16:31Z",
-    "formattedLastRelease": "4 months ago"
+    "formattedLastRelease": "5 months ago"
   },
   "dosco/graphjin": {
     "hasCommitsInLast3Months": false,
-    "stars": 2812,
+    "stars": 2828,
     "formattedStars": "3k",
     "license": "Apache License 2.0",
     "lastRelease": "2023-12-14T23:23:03Z",
-    "formattedLastRelease": "2 months ago"
+    "formattedLastRelease": "3 months ago"
   },
   "grails/gorm-graphql": {
     "hasCommitsInLast3Months": false,
@@ -413,7 +413,7 @@
     "formattedStars": "80",
     "license": "Apache License 2.0",
     "lastRelease": "2023-12-08T10:48:05Z",
-    "formattedLastRelease": "2 months ago"
+    "formattedLastRelease": "3 months ago"
   },
   "grooviter/gql": {
     "hasCommitsInLast3Months": false,
@@ -425,11 +425,11 @@
   },
   "morpheusgraphql/morpheus-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 399,
-    "formattedStars": "399",
+    "stars": 400,
+    "formattedStars": "400",
     "license": "MIT License",
     "lastRelease": "2023-04-27T20:20:22Z",
-    "formattedLastRelease": "9 months ago"
+    "formattedLastRelease": "11 months ago"
   },
   "jasonsychau/graphql-w-persistent": {
     "hasCommitsInLast3Months": false,
@@ -449,19 +449,19 @@
   },
   "apollographql/apollo-kotlin": {
     "hasCommitsInLast3Months": false,
-    "stars": 3637,
+    "stars": 3655,
     "formattedStars": "4k",
     "license": "MIT License",
-    "lastRelease": "2023-12-12T13:51:15Z",
-    "formattedLastRelease": "2 months ago"
+    "lastRelease": "2024-03-20T17:46:54Z",
+    "formattedLastRelease": "6 days ago"
   },
   "ExpediaGroup/graphql-kotlin": {
     "hasCommitsInLast3Months": false,
-    "stars": 1696,
+    "stars": 1709,
     "formattedStars": "2k",
     "license": "Apache License 2.0",
     "lastRelease": "2024-01-25T02:45:25Z",
-    "formattedLastRelease": "4 weeks ago"
+    "formattedLastRelease": "2 months ago"
   },
   "americanexpress/nodes": {
     "hasCommitsInLast3Months": false,
@@ -473,163 +473,107 @@
   },
   "graphql-java-generator/graphql-gradle-plugin-project": {
     "hasCommitsInLast3Months": false,
-    "stars": 49,
-    "formattedStars": "49",
+    "stars": 51,
+    "formattedStars": "51",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "graphql-calculator/graphql-calculator": {
     "hasCommitsInLast3Months": false,
-    "stars": 102,
-    "formattedStars": "102",
+    "stars": 104,
+    "formattedStars": "104",
     "license": "Apache License 2.0",
     "lastRelease": "2021-09-03T01:56:25Z",
     "formattedLastRelease": "2 years ago"
   },
   "graphql-java-kickstart/graphql-spring-boot": {
     "hasCommitsInLast3Months": false,
-    "stars": 1501,
+    "stars": 1502,
     "formattedStars": "2k",
     "license": "MIT License",
     "lastRelease": "2023-12-07T11:07:47Z",
-    "formattedLastRelease": "2 months ago"
+    "formattedLastRelease": "3 months ago"
   },
   "graphql-java/graphql-java": {
     "hasCommitsInLast3Months": false,
-    "stars": 6004,
+    "stars": 6020,
     "formattedStars": "6k",
     "license": "MIT License",
-    "lastRelease": "2023-10-24T04:55:45Z",
-    "formattedLastRelease": "3 months ago"
+    "lastRelease": "2024-03-26T05:23:07Z",
+    "formattedLastRelease": "1 day ago"
   },
   "babyfish-ct/jimmer": {
     "hasCommitsInLast3Months": false,
-    "stars": 567,
+    "stars": 615,
     "formattedStars": "1k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-02-08T16:29:51Z",
-    "formattedLastRelease": "1 week ago"
+    "lastRelease": "2024-03-24T23:34:18Z",
+    "formattedLastRelease": "2 days ago"
   },
   "aPureBase/KGraphQL": {
     "hasCommitsInLast3Months": false,
-    "stars": 290,
-    "formattedStars": "290",
+    "stars": 292,
+    "formattedStars": "292",
     "license": "MIT License",
     "lastRelease": "2023-01-27T10:09:55Z",
     "formattedLastRelease": "1 year ago"
   },
   "eclipse/microprofile-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 93,
-    "formattedStars": "93",
+    "stars": 94,
+    "formattedStars": "94",
     "license": "Apache License 2.0",
     "lastRelease": "2022-03-21T18:26:51Z",
-    "formattedLastRelease": "1 year ago"
+    "formattedLastRelease": "2 years ago"
   },
   "netflix/dgs-framework": {
     "hasCommitsInLast3Months": false,
-    "stars": 2892,
+    "stars": 2962,
     "formattedStars": "3k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-02-20T19:04:35Z",
-    "formattedLastRelease": "1 day ago"
+    "lastRelease": "2024-03-19T16:41:26Z",
+    "formattedLastRelease": "1 week ago"
   },
   "spring-projects/spring-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 1473,
+    "stars": 1479,
     "formattedStars": "1k",
     "license": "Apache License 2.0",
     "lastRelease": "2024-02-21T10:11:39Z",
-    "formattedLastRelease": "23 hours ago"
-  },
-  "apollographql/apollo-server": {
-    "hasCommitsInLast3Months": false,
-    "stars": 13620,
-    "formattedStars": "14k",
-    "license": "MIT License",
-    "lastRelease": "2024-01-02T18:30:11Z",
     "formattedLastRelease": "1 month ago"
   },
-  "badbatch/graphql-box": {
+  "neomatrixcode/Diana.jl": {
     "hasCommitsInLast3Months": false,
-    "stars": 23,
-    "formattedStars": "23",
+    "stars": 112,
+    "formattedStars": "112",
     "license": "MIT License",
-    "lastRelease": "",
-    "formattedLastRelease": ""
-  },
-  "contra/graphql-helix": {
-    "hasCommitsInLast3Months": false,
-    "stars": 834,
-    "formattedStars": "1k",
-    "license": "MIT License",
-    "lastRelease": "2022-07-09T00:23:41Z",
+    "lastRelease": "2022-08-16T03:22:22Z",
     "formattedLastRelease": "1 year ago"
   },
-  "graphql/graphql-http": {
+  "DeloitteDigitalAPAC/GraphQLClient.jl": {
     "hasCommitsInLast3Months": false,
-    "stars": 264,
-    "formattedStars": "264",
-    "license": "MIT License",
-    "lastRelease": "2023-08-28T14:50:20Z",
-    "formattedLastRelease": "5 months ago"
-  },
-  "graphql/graphql-js": {
-    "hasCommitsInLast3Months": false,
-    "stars": 19849,
-    "formattedStars": "20k",
-    "license": "MIT License",
-    "lastRelease": "2023-09-19T07:27:40Z",
-    "formattedLastRelease": "5 months ago"
-  },
-  "enisdenjo/graphql-sse": {
-    "hasCommitsInLast3Months": false,
-    "stars": 356,
-    "formattedStars": "356",
-    "license": "MIT License",
-    "lastRelease": "2023-12-20T12:22:07Z",
-    "formattedLastRelease": "2 months ago"
-  },
-  "enisdenjo/graphql-ws": {
-    "hasCommitsInLast3Months": false,
-    "stars": 1612,
-    "formattedStars": "2k",
-    "license": "MIT License",
-    "lastRelease": "2024-02-12T17:57:24Z",
-    "formattedLastRelease": "1 week ago"
-  },
-  "dotansimha/graphql-yoga": {
-    "hasCommitsInLast3Months": false,
-    "stars": 7940,
-    "formattedStars": "8k",
-    "license": "MIT License",
-    "lastRelease": "2024-02-04T12:20:34Z",
-    "formattedLastRelease": "2 weeks ago"
-  },
-  "mercurius-js/mercurius": {
-    "hasCommitsInLast3Months": false,
-    "stars": 2277,
-    "formattedStars": "2k",
-    "license": "MIT License",
-    "lastRelease": "2023-12-26T16:36:58Z",
-    "formattedLastRelease": "1 month ago"
+    "stars": 46,
+    "formattedStars": "46",
+    "license": "Other",
+    "lastRelease": "2022-10-26T16:48:16Z",
+    "formattedLastRelease": "1 year ago"
   },
   "apollographql/apollo-client": {
     "hasCommitsInLast3Months": false,
-    "stars": 19141,
+    "stars": 19177,
     "formattedStars": "19k",
     "license": "MIT License",
-    "lastRelease": "2024-02-15T17:36:46Z",
-    "formattedLastRelease": "6 days ago"
+    "lastRelease": "2024-03-22T19:44:35Z",
+    "formattedLastRelease": "4 days ago"
   },
   "aws-amplify/amplify-js": {
     "hasCommitsInLast3Months": false,
-    "stars": 9349,
+    "stars": 9359,
     "formattedStars": "9k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-02-19T22:31:16Z",
-    "formattedLastRelease": "2 days ago"
+    "lastRelease": "2024-03-26T13:44:09Z",
+    "formattedLastRelease": "1 day ago"
   },
   "Houfeng/gq-loader": {
     "hasCommitsInLast3Months": false,
@@ -647,21 +591,45 @@
     "lastRelease": "2018-06-20T15:21:00Z",
     "formattedLastRelease": "5 years ago"
   },
+  "badbatch/graphql-box": {
+    "hasCommitsInLast3Months": false,
+    "stars": 23,
+    "formattedStars": "23",
+    "license": "MIT License",
+    "lastRelease": "",
+    "formattedLastRelease": ""
+  },
   "nearform/graphql-hooks": {
     "hasCommitsInLast3Months": false,
-    "stars": 1862,
+    "stars": 1866,
     "formattedStars": "2k",
     "license": "Other",
     "lastRelease": "2024-01-19T16:50:14Z",
-    "formattedLastRelease": "1 month ago"
+    "formattedLastRelease": "2 months ago"
+  },
+  "graphql/graphql-http": {
+    "hasCommitsInLast3Months": false,
+    "stars": 274,
+    "formattedStars": "274",
+    "license": "MIT License",
+    "lastRelease": "2023-08-28T14:50:20Z",
+    "formattedLastRelease": "6 months ago"
   },
   "jasonkuhrt/graphql-request": {
     "hasCommitsInLast3Months": false,
-    "stars": 5592,
+    "stars": 5623,
     "formattedStars": "6k",
     "license": "MIT License",
     "lastRelease": "2020-05-29T13:00:56Z",
     "formattedLastRelease": "3 years ago"
+  },
+  "enisdenjo/graphql-sse": {
+    "hasCommitsInLast3Months": false,
+    "stars": 365,
+    "formattedStars": "365",
+    "license": "MIT License",
+    "lastRelease": "2023-12-20T12:22:07Z",
+    "formattedLastRelease": "3 months ago"
   },
   "babyfish-ct/graphql-ts-client": {
     "hasCommitsInLast3Months": false,
@@ -669,11 +637,19 @@
     "formattedStars": "142",
     "license": "MIT License",
     "lastRelease": "2023-12-14T03:06:21Z",
-    "formattedLastRelease": "2 months ago"
+    "formattedLastRelease": "3 months ago"
+  },
+  "enisdenjo/graphql-ws": {
+    "hasCommitsInLast3Months": false,
+    "stars": 1642,
+    "formattedStars": "2k",
+    "license": "MIT License",
+    "lastRelease": "2024-02-12T17:57:24Z",
+    "formattedLastRelease": "1 month ago"
   },
   "hasura/graphqurl": {
     "hasCommitsInLast3Months": false,
-    "stars": 3294,
+    "stars": 3300,
     "formattedStars": "3k",
     "license": "Apache License 2.0",
     "lastRelease": "",
@@ -697,19 +673,51 @@
   },
   "facebook/relay": {
     "hasCommitsInLast3Months": false,
-    "stars": 18113,
+    "stars": 18149,
     "formattedStars": "18k",
     "license": "MIT License",
     "lastRelease": "2024-01-23T16:49:06Z",
-    "formattedLastRelease": "4 weeks ago"
+    "formattedLastRelease": "2 months ago"
   },
   "FormidableLabs/urql": {
     "hasCommitsInLast3Months": false,
-    "stars": 8366,
+    "stars": 8450,
     "formattedStars": "8k",
     "license": "MIT License",
-    "lastRelease": "2024-02-02T14:37:25Z",
+    "lastRelease": "2024-03-27T12:10:54Z",
+    "formattedLastRelease": "5 hours ago"
+  },
+  "apollographql/apollo-server": {
+    "hasCommitsInLast3Months": false,
+    "stars": 13638,
+    "formattedStars": "14k",
+    "license": "MIT License",
+    "lastRelease": "2024-03-22T19:40:52Z",
+    "formattedLastRelease": "4 days ago"
+  },
+  "graphql/graphql-js": {
+    "hasCommitsInLast3Months": false,
+    "stars": 19896,
+    "formattedStars": "20k",
+    "license": "MIT License",
+    "lastRelease": "2023-09-19T07:27:40Z",
+    "formattedLastRelease": "6 months ago"
+  },
+  "dotansimha/graphql-yoga": {
+    "hasCommitsInLast3Months": false,
+    "stars": 7974,
+    "formattedStars": "8k",
+    "license": "MIT License",
+    "lastRelease": "2024-03-13T14:22:21Z",
     "formattedLastRelease": "2 weeks ago"
+  },
+  "mercurius-js/mercurius": {
+    "hasCommitsInLast3Months": false,
+    "stars": 2294,
+    "formattedStars": "2k",
+    "license": "MIT License",
+    "lastRelease": "2024-03-19T10:55:16Z",
+    "formattedLastRelease": "1 week ago"
   },
   "networkimprov/brangr": {
     "hasCommitsInLast3Months": false,
@@ -717,27 +725,27 @@
     "formattedStars": "1",
     "license": "Mozilla Public License 2.0",
     "lastRelease": "2023-06-02T09:20:18Z",
-    "formattedLastRelease": "8 months ago"
+    "formattedLastRelease": "9 months ago"
   },
   "hayes/giraphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 2183,
+    "stars": 2211,
     "formattedStars": "2k",
     "license": "ISC License",
-    "lastRelease": "2024-02-18T21:09:14Z",
-    "formattedLastRelease": "3 days ago"
+    "lastRelease": "2024-03-05T19:54:00Z",
+    "formattedLastRelease": "3 weeks ago"
   },
   "graphql/graphiql": {
     "hasCommitsInLast3Months": false,
-    "stars": 15545,
+    "stars": 15615,
     "formattedStars": "16k",
     "license": "MIT License",
-    "lastRelease": "2024-02-01T23:32:53Z",
-    "formattedLastRelease": "2 weeks ago"
+    "lastRelease": "2024-03-01T18:28:05Z",
+    "formattedLastRelease": "3 weeks ago"
   },
   "Urigo/graphql-cli": {
     "hasCommitsInLast3Months": false,
-    "stars": 1975,
+    "stars": 1983,
     "formattedStars": "2k",
     "license": "MIT License",
     "lastRelease": "2020-10-07T12:54:45Z",
@@ -745,87 +753,87 @@
   },
   "dotansimha/graphql-code-generator": {
     "hasCommitsInLast3Months": false,
-    "stars": 10538,
+    "stars": 10596,
     "formattedStars": "11k",
     "license": "MIT License",
-    "lastRelease": "2024-02-20T17:55:40Z",
-    "formattedLastRelease": "1 day ago"
+    "lastRelease": "2024-03-27T11:16:28Z",
+    "formattedLastRelease": "6 hours ago"
   },
   "kamilkisiela/graphql-config": {
     "hasCommitsInLast3Months": false,
-    "stars": 1142,
+    "stars": 1144,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2023-10-08T22:16:50Z",
-    "formattedLastRelease": "4 months ago"
+    "formattedLastRelease": "5 months ago"
   },
   "dimaMachina/graphql-eslint/": {
     "hasCommitsInLast3Months": false,
-    "stars": 753,
+    "stars": 756,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2023-08-29T17:53:28Z",
-    "formattedLastRelease": "5 months ago"
+    "formattedLastRelease": "6 months ago"
   },
   "kamilkisiela/graphql-inspector": {
     "hasCommitsInLast3Months": false,
-    "stars": 1589,
+    "stars": 1600,
     "formattedStars": "2k",
     "license": "MIT License",
     "lastRelease": "2023-11-29T13:09:10Z",
-    "formattedLastRelease": "2 months ago"
+    "formattedLastRelease": "3 months ago"
   },
   "graphql/graphql-language-service": {
     "hasCommitsInLast3Months": false,
-    "stars": 422,
-    "formattedStars": "422",
+    "stars": 421,
+    "formattedStars": "421",
     "license": "Unknown",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "n1ru4l/graphql-live-query": {
     "hasCommitsInLast3Months": false,
-    "stars": 429,
-    "formattedStars": "429",
+    "stars": 433,
+    "formattedStars": "433",
     "license": "MIT License",
     "lastRelease": "2022-07-29T09:27:53Z",
     "formattedLastRelease": "1 year ago"
   },
   "Urigo/graphql-mesh": {
     "hasCommitsInLast3Months": false,
-    "stars": 3083,
+    "stars": 3149,
     "formattedStars": "3k",
     "license": "MIT License",
-    "lastRelease": "2024-02-21T17:47:07Z",
-    "formattedLastRelease": "16 hours ago"
+    "lastRelease": "2024-03-27T12:45:28Z",
+    "formattedLastRelease": "4 hours ago"
   },
   "maticzav/graphql-middleware": {
     "hasCommitsInLast3Months": false,
-    "stars": 1126,
+    "stars": 1128,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2023-07-07T16:38:02Z",
-    "formattedLastRelease": "7 months ago"
+    "formattedLastRelease": "8 months ago"
   },
   "Urigo/graphql-modules": {
     "hasCommitsInLast3Months": false,
-    "stars": 1282,
+    "stars": 1286,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2023-11-03T08:01:19Z",
-    "formattedLastRelease": "3 months ago"
+    "formattedLastRelease": "4 months ago"
   },
   "Urigo/graphql-scalars": {
     "hasCommitsInLast3Months": false,
-    "stars": 1825,
+    "stars": 1830,
     "formattedStars": "2k",
     "license": "MIT License",
-    "lastRelease": "2023-10-10T12:14:10Z",
-    "formattedLastRelease": "4 months ago"
+    "lastRelease": "2024-03-18T14:47:27Z",
+    "formattedLastRelease": "1 week ago"
   },
   "maticzav/graphql-shield": {
     "hasCommitsInLast3Months": false,
-    "stars": 3504,
+    "stars": 3507,
     "formattedStars": "4k",
     "license": "MIT License",
     "lastRelease": "2022-11-22T19:08:37Z",
@@ -833,59 +841,43 @@
   },
   "ardatan/graphql-tools": {
     "hasCommitsInLast3Months": false,
-    "stars": 5270,
+    "stars": 5272,
     "formattedStars": "5k",
     "license": "MIT License",
-    "lastRelease": "2024-02-21T13:28:25Z",
-    "formattedLastRelease": "20 hours ago"
+    "lastRelease": "2024-03-23T13:50:38Z",
+    "formattedLastRelease": "4 days ago"
   },
   "anvilco/graphql-introspection-tools": {
     "hasCommitsInLast3Months": false,
-    "stars": 29,
-    "formattedStars": "29",
+    "stars": 30,
+    "formattedStars": "30",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "graphile/postgraphile": {
     "hasCommitsInLast3Months": false,
-    "stars": 12320,
+    "stars": 12384,
     "formattedStars": "12k",
     "license": "Other",
     "lastRelease": "2023-10-05T16:27:00Z",
-    "formattedLastRelease": "4 months ago"
+    "formattedLastRelease": "5 months ago"
   },
   "Urigo/SOFA": {
     "hasCommitsInLast3Months": false,
-    "stars": 1037,
+    "stars": 1041,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2023-12-27T11:00:49Z",
-    "formattedLastRelease": "1 month ago"
+    "formattedLastRelease": "3 months ago"
   },
   "anvilco/spectaql": {
     "hasCommitsInLast3Months": false,
-    "stars": 1020,
+    "stars": 1031,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
-  },
-  "neomatrixcode/Diana.jl": {
-    "hasCommitsInLast3Months": false,
-    "stars": 112,
-    "formattedStars": "112",
-    "license": "MIT License",
-    "lastRelease": "2022-08-16T03:22:22Z",
-    "formattedLastRelease": "1 year ago"
-  },
-  "DeloitteDigitalAPAC/GraphQLClient.jl": {
-    "hasCommitsInLast3Months": false,
-    "stars": 45,
-    "formattedStars": "45",
-    "license": "Other",
-    "lastRelease": "2022-10-26T16:48:16Z",
-    "formattedLastRelease": "1 year ago"
   },
   "andreas/ocaml-graphql-server": {
     "hasCommitsInLast3Months": false,
@@ -905,19 +897,19 @@
   },
   "api-platform/api-platform": {
     "hasCommitsInLast3Months": false,
-    "stars": 8235,
+    "stars": 8264,
     "formattedStars": "8k",
     "license": "MIT License",
-    "lastRelease": "2024-02-20T10:05:21Z",
+    "lastRelease": "2024-03-26T07:56:13Z",
     "formattedLastRelease": "1 day ago"
   },
   "GatoGraphQL/GatoGraphQL": {
     "hasCommitsInLast3Months": false,
-    "stars": 348,
-    "formattedStars": "348",
+    "stars": 349,
+    "formattedStars": "349",
     "license": "GNU General Public License v2.0",
-    "lastRelease": "2024-02-16T03:35:21Z",
-    "formattedLastRelease": "6 days ago"
+    "lastRelease": "2024-03-27T06:49:09Z",
+    "formattedLastRelease": "10 hours ago"
   },
   "infinityloop-dev/graphpinator": {
     "hasCommitsInLast3Months": false,
@@ -925,15 +917,15 @@
     "formattedStars": "39",
     "license": "MIT License",
     "lastRelease": "2023-11-13T10:08:26Z",
-    "formattedLastRelease": "3 months ago"
+    "formattedLastRelease": "4 months ago"
   },
   "webonyx/graphql-php": {
     "hasCommitsInLast3Months": false,
-    "stars": 4587,
+    "stars": 4598,
     "formattedStars": "5k",
     "license": "MIT License",
-    "lastRelease": "2024-01-25T09:13:14Z",
-    "formattedLastRelease": "4 weeks ago"
+    "lastRelease": "2024-03-11T10:21:35Z",
+    "formattedLastRelease": "2 weeks ago"
   },
   "ivome/graphql-relay-php": {
     "hasCommitsInLast3Months": false,
@@ -945,35 +937,35 @@
   },
   "overblog/GraphQLBundle": {
     "hasCommitsInLast3Months": false,
-    "stars": 768,
+    "stars": 776,
     "formattedStars": "1k",
     "license": "MIT License",
-    "lastRelease": "2024-02-19T13:27:21Z",
-    "formattedLastRelease": "2 days ago"
+    "lastRelease": "2024-03-11T08:38:27Z",
+    "formattedLastRelease": "2 weeks ago"
   },
   "thecodingmachine/graphqlite": {
     "hasCommitsInLast3Months": false,
-    "stars": 546,
+    "stars": 551,
     "formattedStars": "1k",
     "license": "MIT License",
-    "lastRelease": "2023-06-20T23:02:01Z",
-    "formattedLastRelease": "8 months ago"
+    "lastRelease": "2024-03-20T05:52:53Z",
+    "formattedLastRelease": "1 week ago"
   },
   "nuwave/lighthouse": {
     "hasCommitsInLast3Months": false,
-    "stars": 3295,
+    "stars": 3308,
     "formattedStars": "3k",
     "license": "MIT License",
-    "lastRelease": "2024-02-19T14:51:47Z",
-    "formattedLastRelease": "2 days ago"
+    "lastRelease": "2024-03-11T10:30:48Z",
+    "formattedLastRelease": "2 weeks ago"
   },
   "railt/railt": {
     "hasCommitsInLast3Months": false,
-    "stars": 358,
-    "formattedStars": "358",
+    "stars": 360,
+    "formattedStars": "360",
     "license": "MIT License",
     "lastRelease": "2019-03-01T15:20:44Z",
-    "formattedLastRelease": "4 years ago"
+    "formattedLastRelease": "5 years ago"
   },
   "kepawni/serge": {
     "hasCommitsInLast3Months": false,
@@ -993,35 +985,35 @@
   },
   "wp-graphql/wp-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 3582,
+    "stars": 3592,
     "formattedStars": "4k",
     "license": "GNU General Public License v3.0",
-    "lastRelease": "2024-02-08T23:34:12Z",
+    "lastRelease": "2024-03-14T22:13:00Z",
     "formattedLastRelease": "1 week ago"
   },
   "mirumee/ariadne-codegen": {
     "hasCommitsInLast3Months": false,
-    "stars": 182,
-    "formattedStars": "182",
+    "stars": 195,
+    "formattedStars": "195",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
-    "lastRelease": "2023-12-05T15:11:18Z",
-    "formattedLastRelease": "2 months ago"
+    "lastRelease": "2024-03-04T15:58:27Z",
+    "formattedLastRelease": "3 weeks ago"
   },
   "graphql-python/gql": {
     "hasCommitsInLast3Months": false,
-    "stars": 1418,
+    "stars": 1449,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2024-02-08T22:50:50Z",
-    "formattedLastRelease": "1 week ago"
+    "formattedLastRelease": "1 month ago"
   },
   "denisart/graphql-query": {
     "hasCommitsInLast3Months": false,
-    "stars": 43,
-    "formattedStars": "43",
+    "stars": 45,
+    "formattedStars": "45",
     "license": "MIT License",
     "lastRelease": "2024-02-19T13:45:58Z",
-    "formattedLastRelease": "2 days ago"
+    "formattedLastRelease": "1 month ago"
   },
   "prisma-labs/python-graphql-client": {
     "hasCommitsInLast3Months": false,
@@ -1033,51 +1025,51 @@
   },
   "qlient-org/python-qlient": {
     "hasCommitsInLast3Months": false,
-    "stars": 44,
-    "formattedStars": "44",
+    "stars": 45,
+    "formattedStars": "45",
     "license": "MIT License",
     "lastRelease": "2022-07-29T16:10:08Z",
     "formattedLastRelease": "1 year ago"
   },
   "profusion/sgqlc": {
     "hasCommitsInLast3Months": false,
-    "stars": 489,
-    "formattedStars": "489",
+    "stars": 492,
+    "formattedStars": "492",
     "license": "ISC License",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "mirumee/ariadne": {
     "hasCommitsInLast3Months": false,
-    "stars": 2121,
+    "stars": 2130,
     "formattedStars": "2k",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
-    "lastRelease": "2024-01-31T15:58:31Z",
-    "formattedLastRelease": "3 weeks ago"
+    "lastRelease": "2024-03-18T10:27:12Z",
+    "formattedLastRelease": "1 week ago"
   },
   "yefeza/django-graphbox": {
     "hasCommitsInLast3Months": false,
     "stars": 9,
     "formattedStars": "9",
     "license": "MIT License",
-    "lastRelease": "2024-01-12T22:08:44Z",
-    "formattedLastRelease": "1 month ago"
+    "lastRelease": "2024-03-23T21:41:41Z",
+    "formattedLastRelease": "3 days ago"
   },
   "graphql-python/graphene": {
     "hasCommitsInLast3Months": false,
-    "stars": 7920,
+    "stars": 7953,
     "formattedStars": "8k",
     "license": "MIT License",
     "lastRelease": "2023-07-26T06:47:55Z",
-    "formattedLastRelease": "6 months ago"
+    "formattedLastRelease": "8 months ago"
   },
   "strawberry-graphql/strawberry": {
     "hasCommitsInLast3Months": false,
-    "stars": 3672,
+    "stars": 3721,
     "formattedStars": "4k",
     "license": "MIT License",
-    "lastRelease": "2024-02-06T15:23:37Z",
-    "formattedLastRelease": "2 weeks ago"
+    "lastRelease": "2024-03-27T13:04:35Z",
+    "formattedLastRelease": "4 hours ago"
   },
   "tartiflette/tartiflette": {
     "hasCommitsInLast3Months": false,
@@ -1093,11 +1085,11 @@
     "formattedStars": "141",
     "license": "Other",
     "lastRelease": "2020-02-24T18:15:36Z",
-    "formattedLastRelease": "3 years ago"
+    "formattedLastRelease": "4 years ago"
   },
   "ohler55/agoo": {
     "hasCommitsInLast3Months": false,
-    "stars": 874,
+    "stars": 882,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "",
@@ -1105,7 +1097,7 @@
   },
   "rmosolgo/graphql-ruby": {
     "hasCommitsInLast3Months": false,
-    "stars": 5317,
+    "stars": 5323,
     "formattedStars": "5k",
     "license": "MIT License",
     "lastRelease": "2021-02-12T12:11:53Z",
@@ -1113,31 +1105,31 @@
   },
   "virtualshield/rails-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 161,
-    "formattedStars": "161",
+    "stars": 165,
+    "formattedStars": "165",
     "license": "MIT License",
     "lastRelease": "2024-02-03T08:44:59Z",
-    "formattedLastRelease": "2 weeks ago"
+    "formattedLastRelease": "1 month ago"
   },
   "obmarg/cynic": {
     "hasCommitsInLast3Months": false,
-    "stars": 318,
-    "formattedStars": "318",
+    "stars": 335,
+    "formattedStars": "335",
     "license": "Mozilla Public License 2.0",
-    "lastRelease": "2024-01-22T14:31:12Z",
-    "formattedLastRelease": "1 month ago"
+    "lastRelease": "2024-03-25T15:31:57Z",
+    "formattedLastRelease": "2 days ago"
   },
   "arthurkhlghatyan/gql-client-rs": {
     "hasCommitsInLast3Months": false,
-    "stars": 46,
-    "formattedStars": "46",
+    "stars": 47,
+    "formattedStars": "47",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "async-graphql/async-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 3166,
+    "stars": 3196,
     "formattedStars": "3k",
     "license": "Apache License 2.0",
     "lastRelease": "2022-11-28T06:30:57Z",
@@ -1145,35 +1137,35 @@
   },
   "graphql-rust/juniper": {
     "hasCommitsInLast3Months": false,
-    "stars": 5472,
-    "formattedStars": "5k",
+    "stars": 5513,
+    "formattedStars": "6k",
     "license": "Other",
-    "lastRelease": "2024-01-02T14:38:09Z",
-    "formattedLastRelease": "1 month ago"
+    "lastRelease": "2024-03-20T20:40:22Z",
+    "formattedLastRelease": "6 days ago"
   },
   "ghostdogpr/caliban": {
     "hasCommitsInLast3Months": false,
-    "stars": 923,
+    "stars": 930,
     "formattedStars": "1k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-02-17T00:29:33Z",
-    "formattedLastRelease": "5 days ago"
+    "lastRelease": "2024-03-03T01:02:04Z",
+    "formattedLastRelease": "3 weeks ago"
   },
   "sangria-graphql/sangria": {
     "hasCommitsInLast3Months": false,
-    "stars": 1965,
+    "stars": 1963,
     "formattedStars": "2k",
     "license": "Apache License 2.0",
     "lastRelease": "2024-02-01T10:01:14Z",
-    "formattedLastRelease": "2 weeks ago"
+    "formattedLastRelease": "1 month ago"
   },
   "apollographql/apollo-ios": {
     "hasCommitsInLast3Months": false,
-    "stars": 3798,
+    "stars": 3814,
     "formattedStars": "4k",
     "license": "MIT License",
-    "lastRelease": "2024-02-02T23:40:08Z",
-    "formattedLastRelease": "2 weeks ago"
+    "lastRelease": "2024-03-22T20:36:20Z",
+    "formattedLastRelease": "4 days ago"
   },
   "nerdsupremacist/Graphaello": {
     "hasCommitsInLast3Months": false,
@@ -1197,23 +1189,23 @@
     "formattedStars": "5",
     "license": "MIT License",
     "lastRelease": "2023-09-25T08:40:36Z",
-    "formattedLastRelease": "4 months ago"
+    "formattedLastRelease": "6 months ago"
   },
   "maticzav/swift-graphql": {
     "hasCommitsInLast3Months": false,
-    "stars": 586,
+    "stars": 588,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2024-01-14T13:56:07Z",
-    "formattedLastRelease": "1 month ago"
+    "formattedLastRelease": "2 months ago"
   },
   "GraphQLSwift/Graphiti": {
     "hasCommitsInLast3Months": false,
-    "stars": 519,
+    "stars": 522,
     "formattedStars": "1k",
     "license": "MIT License",
     "lastRelease": "2023-11-15T02:54:16Z",
-    "formattedLastRelease": "3 months ago"
+    "formattedLastRelease": "4 months ago"
   },
   "nerdsupremacist/GraphZahl": {
     "hasCommitsInLast3Months": false,
@@ -1225,50 +1217,50 @@
   },
   "eerimoq/gqt": {
     "hasCommitsInLast3Months": false,
-    "stars": 454,
-    "formattedStars": "454",
+    "stars": 455,
+    "formattedStars": "455",
     "license": "MIT License",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "Escape-Technologies/graphql-armor": {
     "hasCommitsInLast3Months": false,
-    "stars": 449,
-    "formattedStars": "449",
+    "stars": 455,
+    "formattedStars": "455",
     "license": "MIT License",
     "lastRelease": "2023-12-20T13:32:16Z",
-    "formattedLastRelease": "2 months ago"
+    "formattedLastRelease": "3 months ago"
   },
   "microcks/microcks": {
     "hasCommitsInLast3Months": false,
-    "stars": 1117,
+    "stars": 1158,
     "formattedStars": "1k",
-    "license": "Apache License 2.0",
-    "lastRelease": "",
-    "formattedLastRelease": ""
-  },
-  "glideapps/quicktype": {
-    "hasCommitsInLast3Months": false,
-    "stars": 11243,
-    "formattedStars": "11k",
     "license": "Apache License 2.0",
     "lastRelease": "",
     "formattedLastRelease": ""
   },
   "schemathesis/schemathesis": {
     "hasCommitsInLast3Months": false,
-    "stars": 2020,
+    "stars": 2058,
     "formattedStars": "2k",
     "license": "MIT License",
-    "lastRelease": "2024-02-21T14:10:05Z",
-    "formattedLastRelease": "19 hours ago"
+    "lastRelease": "2024-03-21T22:25:47Z",
+    "formattedLastRelease": "5 days ago"
+  },
+  "glideapps/quicktype": {
+    "hasCommitsInLast3Months": false,
+    "stars": 11378,
+    "formattedStars": "11k",
+    "license": "Apache License 2.0",
+    "lastRelease": "",
+    "formattedLastRelease": ""
   },
   "wundergraph/wundergraph": {
     "hasCommitsInLast3Months": false,
-    "stars": 2137,
+    "stars": 2152,
     "formattedStars": "2k",
     "license": "Apache License 2.0",
-    "lastRelease": "2024-01-12T17:46:42Z",
-    "formattedLastRelease": "1 month ago"
+    "lastRelease": "2024-03-08T09:27:40Z",
+    "formattedLastRelease": "2 weeks ago"
   }
 }
