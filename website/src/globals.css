@@ -17,7 +17,13 @@
 }
 
 .conf-hero {
-  background: linear-gradient(360deg, #0E031C 10.63%, #0E031C 10.65%, rgba(14, 3, 28, 0) 166.98%), url('/img/conf/graphql-conf-bg.png');
+  background: linear-gradient(
+      360deg,
+      #0e031c 10.63%,
+      #0e031c 10.65%,
+      rgba(14, 3, 28, 0) 166.98%
+    ),
+    url("/img/conf/graphql-conf-bg.png");
   @apply text-white max-md:text-base h-[calc(100vh-70px)];
 }
 
@@ -39,11 +45,12 @@ footer {
   );
   mask-size: 400%;
   mask-position: 0;
-  
+
   &:hover {
     mask-position: 100%;
-    transition: mask-position 1s ease,
-    -webkit-mask-position 1s ease;
+    transition:
+      mask-position 1s ease,
+      -webkit-mask-position 1s ease;
   }
 }
 
@@ -53,7 +60,7 @@ div[role="menu"][data-headlessui-state] {
 
 div[id^="headlessui-menu-items"] {
   @apply rounded-none;
-  
+
   > a {
     @apply py-3.5;
   }
@@ -64,6 +71,16 @@ div[id^="headlessui-menu-items"] {
   @apply container;
 }
 
+.nextra-nav-container + ._max-w-\[90rem\] {
+  @apply px-0;
+}
+
+/* todo: add ability hide links with displaying sidebar in Nextra */
+.nextra-nav-container a[href="/graphql-js/"],
+.nextra-menu-mobile li:has(a[href="/graphql-js/"]) {
+  @apply hidden;
+}
+
 .nextra-nav-container > nav {
   @apply gap-6;
 }
@@ -71,21 +88,22 @@ div[id^="headlessui-menu-items"] {
 /* Move nav links to the left */
 .nextra-nav-container nav {
   @apply justify-start;
+
   > a {
     @apply first:mr-0 hover:!text-primary;
   }
-  
+
   button[id^="headlessui-menu-button"] {
     @apply hover:text-primary;
-    
+
     + div > a {
       @apply hover:text-primary;
     }
   }
-  
+
   .nextra-search {
     @apply ml-auto;
-    
+
     + * {
       @apply max-md:ml-auto;
     }
@@ -385,43 +403,48 @@ div[id^="headlessui-menu-items"] {
 
 .type-evolution {
   @apply w-full overflow-hidden;
+
   #typeEvolveView {
     @apply select-none h-full relative left-0 flex;
-    .v1, .v2, .v3, .v4 {
+
+    .v1,
+    .v2,
+    .v3,
+    .v4 {
       @apply border-r dark:border-neutral-800 w-1/2 shrink-0;
     }
-    
+
     .v5 {
       @apply w-full shrink-0;
     }
-    
+
     &.step1 {
       .v2 {
         opacity: 1;
         transition: opacity 0.5s ease-in-out;
       }
     }
-    
+
     &.step2 {
       left: calc(-1 * 50%);
       transition: left 0.5s ease-in-out;
     }
-    
+
     &.step3 {
       left: calc(-2 * 50%);
       transition: left 0.5s ease-in-out;
     }
-    
+
     &.step4 {
       left: calc(-3 * 50%);
       transition: left 0.5s ease-in-out;
     }
-    
+
     &.step5 {
       left: calc(-4 * 50%);
       transition: left 0.5s ease-in-out;
     }
-    
+
     &.step6 {
       .v5 {
         left: calc(-4 * 50%);
@@ -439,12 +462,14 @@ div[id^="headlessui-menu-items"] {
 .apiIndex li {
   margin: 0 0 5px 0;
 }
+
 .apiIndex li a {
   color: inherit;
   display: block;
   position: relative;
   text-decoration: none;
 }
+
 .apiIndex li a:hover::before {
   @apply text-primary;
   content: "#";

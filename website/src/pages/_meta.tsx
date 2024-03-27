@@ -93,7 +93,7 @@ export default {
     route: "/conf/2024",
   },
   "graphql-js": {
-    display: "children",
+    type: "page",
     title: "GraphQL.JS Tutorial",
   },
 }
