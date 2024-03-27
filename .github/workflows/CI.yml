@@ -28,4 +28,4 @@ jobs:
           echo "SCHED_ACCESS_TOKEN=${{ secrets.SCHED_ACCESS_TOKEN }}" > ./website/.env.production
 
       # Verify it compiles
-      - run: pnpm build
+      - run: NODE_ENV=production pnpm build
