@@ -58,7 +58,7 @@ function Footer() {
             { title: "Frequently Asked Questions", url: "/faq" },
             {
               title: "Training Courses",
-              url: "/community/users/#training-courses",
+              url: "/community/resources/training-courses",
             },
           ]}
         />
@@ -189,7 +189,7 @@ export default {
     key: "graphqlconf-2024",
   },
   logo: graphQLLogo,
-  docsRepositoryBase: "https://github.com/graphql/graphql.github.io",
+  docsRepositoryBase: "https://github.com/graphql/graphql.github.io/website",
   color: {
     hue: 319,
   },

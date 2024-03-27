@@ -59,7 +59,12 @@ export default function ConfLayout({
           { children: "Speakers", href: "/conf/2023/speakers" },
           { children: "Sessions", href: "/conf/2023/sessions" },
           { children: "Gallery", href: "/conf/2023/gallery" },
-          { children: "Schedule", href: "/conf/2023/schedule" },
+          // For some reason link `/conf/2023/schedule` redirects to `/conf/2023/sessions`, avoid
+          // client side routing for this route to fix it
+          {
+            children: "Schedule",
+            href: "https://graphql.org/conf/2023/schedule",
+          },
           { children: "FAQ", href: "/conf/2023/faq" },
           { children: "GraphQLConf 2024", href: "/conf/2024" },
         ]}
