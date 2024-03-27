@@ -99,7 +99,7 @@ function Footer() {
       </div>
       <div className="flex justify-between flex-wrap gap-10">
         <p className="text-sm">
-          Copyright © 2023 The GraphQL Foundation. All rights reserved.
+          Copyright © {new Date().getFullYear()} The GraphQL Foundation. All rights reserved.
           <br />
           For web site terms of use, trademark policy and general project
           policies please see{" "}
