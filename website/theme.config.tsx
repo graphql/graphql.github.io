@@ -81,6 +81,7 @@ function Footer() {
             { title: "Events & Meetups", url: "/community/upcoming-events" },
             { title: "Contribute to GraphQL", url: "#" },
             { title: "Landscape", url: "https://landscape.graphql.org" },
+            { title: "Shop", url: "https://store.graphql.org" }
           ]}
         />
         <List

@@ -2,6 +2,7 @@ import nextra from "nextra"
 import path from "node:path"
 import withLess from "next-with-less"
 import { remarkGraphiQLComment } from "./src/remark-graphiql-comment.js"
+import vercelJSON from "../vercel.json" assert { type: "json" }
 
 const withNextra = nextra({
   theme: "nextra-theme-docs",
@@ -40,5 +41,9 @@ export default withLess(
     },
     distDir: process.env.NODE_ENV === "production" ? "../public" : undefined,
     trailingSlash: true,
+    // `statusCode` is not undefined or valid statusCode for route {"source":"/conf/attendee/:path*","destination":"https://graphql-conf-attendee-nextjs.vercel.app/:path*","statusCode":200}
+    // `statusCode` is not undefined or valid statusCode for route {"source":"/swapi-graphql/:path*","destination":"https://graphql.github.io/swapi-graphql/:path*","statusCode":200}
+    // Valid redirect statusCode values are 301, 302, 303, 307, 308
+    redirects: () => vercelJSON.redirects.filter(o => o.statusCode !== 200),
   }),
 )
