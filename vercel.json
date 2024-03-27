@@ -291,6 +291,16 @@
       "permanent": true
     },
     {
+      "source": "/conf/schedule/:path*",
+      "destination": "/conf/2023/sessions/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/conf/schedule/:path*/",
+      "destination": "/conf/2023/sessions/:path*",
+      "permanent": true
+    },
+    {
       "source": "/conf/speakers/:path",
       "destination": "/conf/2023/speakers/:path",
       "permanent": true
