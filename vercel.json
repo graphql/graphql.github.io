@@ -104,6 +104,176 @@
       "source": "/help",
       "destination": "/community/",
       "permanent": true
+    },
+    {
+      "source": "/blog/graphql-a-query-language",
+      "destination": "/blog/2015-09-14-graphql",
+      "permanent": true
+    },
+    {
+      "source": "/blog/subscriptions-in-graphql-and-relay",
+      "destination": "/blog/2015-10-16-subscriptions",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mocking-with-graphql",
+      "destination": "/blog/2016-04-19-mocking",
+      "permanent": true
+    },
+    {
+      "source": "/blog/rest-api-graphql-wrapper",
+      "destination": "/blog/2016-05-02-rest-api-graphql-wrapper",
+      "permanent": true
+    },
+    {
+      "source": "/blog/production-ready",
+      "destination": "/blog/2016-09-14-production-ready",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2017-11-08-programmableweb-graphql-moving-to-neutral-open-source-foundation",
+      "destination": "/blog/2017-11-08-programmable-web",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2018-11-06-eweek-graphql-api-specification-moving-forward-with-independent-foundation",
+      "destination": "/blog/2018-11-06-eweek",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2018-11-06-infoworld-graphql-gets-its-own-foundation",
+      "destination": "/blog/2018-11-06-infoworld",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2018-11-06-linux-foundation-announces-intent-to-form-new-foundation-to-support-graphql",
+      "destination": "/blog/2018-11-06-linux-foundation-graphql",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2018-11-07-datanami-will-graphql-become-a-standard-for-the-new-data-economy",
+      "destination": "/blog/2018-11-07-datanami",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2018-11-07-sd-times-lf-announces-plans-to-form-graphql-foundation",
+      "destination": "/blog/2018-11-07-sd-times",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2018-11-12-channel-futures-graphql-api-query-language-growing",
+      "destination": "/blog/2018-11-12-channel-futures",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2019-03-12-graphql-foundation-announces-collaboration-with-jdf",
+      "destination": "/blog/2019-03-12-joint-development-foundation",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2019-10-28-graphql-foundation-launches-interactive-landscape-welcomes-new-members",
+      "destination": "/blog/2019-10-28-interactive-landscape",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2019-10-31-linux-foundation-training-announces-free-online-course-exploring-graphql",
+      "destination": "/blog/2019-10-31-linux-foundation-training",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-04-02-announcing-the-first-graphql-foundation-annual-report",
+      "destination": "/blog/2020-04-02-graphql-annual-report-2019",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-04-03-web-based-graphql-ides-for-the-win",
+      "destination": "/blog/2020-04-03-graphiql-graphql-playground",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-06-13-graphql-joins-google-season-of-docs",
+      "destination": "/blog/2020-06-13-season-of-docs",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-06-30-gsoc-2020-participant-naman",
+      "destination": "/blog/2020-06-30-gsoc-2020-naman",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-09-11-graphql-foundation-monthly-newsletter-august-2020",
+      "destination": "/blog/2020-09-11-newsletter-august-2020",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-09-21-gsod-carolyn-stransky",
+      "destination": "/blog/2020-09-21-gsod-2020-carolyn",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-10-15-graphql-foundation-monthly-newsletter-september-2020",
+      "destination": "/blog/2020-10-15-newsletter-september-2020",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-11-12-graphql-foundation-monthly-newsletter-october-2020",
+      "destination": "/blog/2020-11-12-newsletter-october-2020",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2020-12-08-improving-latency-with-defer-and-stream-directives",
+      "destination": "/blog/2020-12-08-defer-stream",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2021-02-15-graphql-foundation-monthly-newsletter-february-2021",
+      "destination": "/blog/2021-02-15-newsletter-february-2021",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2021-03-31-graphql-foundation-monthly-newsletter-march-2021",
+      "destination": "/blog/2021-03-31-newsletter-march-2021",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2021-04-30-graphql-foundation-monthly-newsletter-april-2021",
+      "destination": "/blog/2021-04-30-newsletter-april-2021",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2021-06-30-graphql-foundation-monthly-newsletter-june-2021",
+      "destination": "/blog/2021-06-30-newsletter-june-2021",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2022-11-07-graphql-foundation-graphql-http",
+      "destination": "/blog/2022-11-07-graphql-http",
+      "permanent": true
+    },
+    {
+      "source": "/community/(project-resources|developers|users)",
+      "destination": "/community/contribute/essential-links",
+      "permanent": true
+    },
+    {
+      "source": "/community",
+      "destination": "/community/resources/official-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/upcoming-events",
+      "destination": "/community/events",
+      "permanent": true
+    },
+    {
+      "source": "/community/contribute",
+      "destination": "/community/contribute/essential-links",
+      "permanent": true
+    },
+    {
+      "source": "/conf",
+      "destination": "/conf/2024",
+      "permanent": true
     }
   ]
 }
