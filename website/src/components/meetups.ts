@@ -31,6 +31,36 @@ export const meetups = [
   },
   {
     node: {
+      id: "bangkok",
+      name: "GraphQL Bangkok",
+      link: "https://www.meetup.com/graphql-bangkok",
+      city: "Bangkok",
+      latitude: 13.75,
+      longitude: 100.50,
+    },
+  },
+  {
+    node: {
+      id: "bangalore",
+      name: "GraphQL Bangalore",
+      link: "https://www.meetup.com/graphql-bangalore",
+      city: "Bangkok",
+      latitude: 12.97,
+      longitude: 77.59,
+    },
+  },
+  {
+    node: {
+      id: "sydney",
+      name: "GraphQL Sydney",
+      link: "https://graphql.sydney/",
+      city: "Sydney",
+      latitude: -33.86,
+      longitude: 151.20,
+    },
+  },
+  {
+    node: {
       id: "taipei",
       name: "GraphQL Taipei",
       link: "https://guild.host/graphql-taipei/events",
