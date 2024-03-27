@@ -71,17 +71,23 @@ function Footer() {
               url: "https://spec.graphql.org",
             },
             { title: "Libraries & Tools", url: "/code" },
-            { title: "Services & Vendors", url: "#" },
+            { title: "Services & Vendors", url: "/code/?tags=services" },
           ]}
         />
         <List
           title="Community"
           items={[
-            { title: "Resources", url: "/community/users" },
-            { title: "Events & Meetups", url: "/community/upcoming-events" },
-            { title: "Contribute to GraphQL", url: "#" },
+            {
+              title: "Resources",
+              url: "/community/resources/official-channels",
+            },
+            { title: "Events & Meetups", url: "/community/events" },
+            {
+              title: "Contribute to GraphQL",
+              url: "/community/contribute/essential-links",
+            },
             { title: "Landscape", url: "https://landscape.graphql.org" },
-            { title: "Shop", url: "https://store.graphql.org" }
+            { title: "Shop", url: "https://store.graphql.org" },
           ]}
         />
         <List
@@ -100,7 +106,8 @@ function Footer() {
       </div>
       <div className="flex justify-between flex-wrap gap-10">
         <p className="text-sm">
-          Copyright © {new Date().getFullYear()} The GraphQL Foundation. All rights reserved.
+          Copyright © {new Date().getFullYear()} The GraphQL Foundation. All
+          rights reserved.
           <br />
           For web site terms of use, trademark policy and general project
           policies please see{" "}
@@ -198,15 +205,17 @@ export default {
       let { asPath } = useRouter()
 
       if (asPath.startsWith("/community/resources/")) asPath = "/community/"
-      if (asPath.startsWith("/community/contribute/")) asPath = "/community/contribute/"
+      if (asPath.startsWith("/community/contribute/"))
+        asPath = "/community/contribute/"
       if (asPath === "/community/") {
         frontMatter.title = "Community Resources"
         frontMatter.description =
           "The GraphQL community is worldwide, and includes developers, users, supporters, and fans from around the globe. You are welcome to join us! If you're new to the community, here are a few things to get you started."
       }
       if (asPath === "/community/contribute/") {
-        frontMatter.title = 'Contribute to GraphQL'
-        frontMatter.description = 'The following resources describe how GraphQL development processes work, how to get involved, and where to get help.'
+        frontMatter.title = "Contribute to GraphQL"
+        frontMatter.description =
+          "The following resources describe how GraphQL development processes work, how to get involved, and where to get help."
       }
 
       return (
