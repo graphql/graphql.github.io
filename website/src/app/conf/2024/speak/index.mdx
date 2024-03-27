@@ -27,7 +27,7 @@ export const isExpired = new Date() > new Date("2024/05/22 12:00")
 
 Click through the tabs on this page to access the information.
 
-<div className="mt-6 grid grid-cols-2">
+<div className="mt-6 grid grid-cols-2 gap-x-4">
   {toc.map(({ value, id }) => (
     <a key={id} href={`#${id}`}>
       {value}
