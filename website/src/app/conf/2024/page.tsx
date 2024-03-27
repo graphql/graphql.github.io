@@ -14,7 +14,7 @@ export default function Page() {
     <>
       <div className="conf-hero">
         <div className="container h-full py-16 md:py-20 flex flex-col justify-center">
-          <div className="flex text-lg uppercase gap-8 leading-none mb-12">
+          <div className="flex text-xs lg:text-lg uppercase gap-4 lg:gap-8 leading-none mb-12">
             <div>September 10-12</div>
             <div className="w-px bg-current" />
             <div>San Francisco, CA</div>
@@ -42,7 +42,7 @@ export default function Page() {
               <path d="M1217.43 90.2801H1175.42V82.4447L1215.27 27.2651H1227.65V81.3097H1239V90.2801H1227.65V108.56H1217.43V90.2801ZM1217.88 81.3097V38.0516L1187.34 81.3097H1217.88Z" />
             </svg>
           </div>
-          <HostedByGraphQLFoundation className="shrink-0 h-8 lg:h-10 mt-5 mb-32 self-start" />
+          <HostedByGraphQLFoundation className="shrink-0 h-8 lg:h-10 mt-5 mb-16 lg:mb-32 self-start" />
           <div className="flex items-center gap-12 max-md:flex-col">
             <Button href="https://cvent.me/gk2dRw">Register Now!</Button>
             <a

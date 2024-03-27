@@ -11,11 +11,6 @@
       "permanent": false
     },
     {
-      "source": "/conf/schedule/:path*",
-      "destination": "/conf/2023/sessions/:path*",
-      "permanent": false
-    },
-    {
       "source": "/swapi-graphql/:path*",
       "destination": "https://graphql.github.io/swapi-graphql/:path*",
       "statusCode": 200
@@ -291,23 +286,23 @@
       "permanent": true
     },
     {
-      "source": "/conf/schedule/:path*",
-      "destination": "/conf/2023/sessions/:path*",
+      "source": "/conf/schedule/:path+",
+      "destination": "/conf/2023/sessions/:path+",
       "permanent": true
     },
     {
-      "source": "/conf/schedule/:path*/",
-      "destination": "/conf/2023/sessions/:path*",
+      "source": "/conf/schedule/:path+/",
+      "destination": "/conf/2023/sessions/:path+",
       "permanent": true
     },
     {
-      "source": "/conf/2023/schedule/:path*",
-      "destination": "/conf/2023/sessions/:path*",
+      "source": "/conf/2023/schedule/:path+",
+      "destination": "/conf/2023/sessions/:path+",
       "permanent": true
     },
     {
-      "source": "/conf/2023/schedule/:path*/",
-      "destination": "/conf/2023/sessions/:path*",
+      "source": "/conf/2023/schedule/:path+/",
+      "destination": "/conf/2023/sessions/:path+",
       "permanent": true
     },
     {
