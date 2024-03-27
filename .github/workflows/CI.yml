@@ -22,5 +22,10 @@ jobs:
 
       - run: pnpm install
 
+      # Create .env.production file with GitHub Secret
+      - name: Create .env.production file
+        run: |
+          echo "SCHED_TOKEN=${{ secrets.SCHED_ACCESS_TOKEN }}" > .env.production
+
       # Verify it compiles
       - run: pnpm build
