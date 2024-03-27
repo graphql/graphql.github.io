@@ -271,18 +271,18 @@
       "permanent": true
     },
     {
-      "source": "/conf",
-      "destination": "/conf/2024",
+      "source": "/conf/",
+      "destination": "/conf/2024/",
       "permanent": true
     },
     {
-      "source": "/conf/sessions/:path*",
-      "destination": "/conf/2023/sessions/:path*",
+      "source": "/conf/sessions/:path",
+      "destination": "/conf/2023/sessions/:path/",
       "permanent": true
     },
     {
-      "source": "/conf/speakers/:path*",
-      "destination": "/conf/2023/speakers/:path*",
+      "source": "/conf/speakers/:path/",
+      "destination": "/conf/2023/speakers/:path/",
       "permanent": true
     }
   ]

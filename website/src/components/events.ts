@@ -5,7 +5,7 @@ export const events = [
     location: "San Francisco",
     date: "2024-09-09T07:00:00+00:00",
     eventLink: "/conf/2024",
-    host: "TBD",
+    host: "JW Marriott San Francisco Union Square",
   },
   {
     name: "GraphQL Bali 001",

@@ -26,9 +26,9 @@ export function EventCard({ href, date, city, name, meta }) {
       rel="noreferrer"
     >
       {date && (
-        <div className="px-12 py-9 flex flex-col items-center bg-zinc-100 dark:bg-zinc-800 group-hover:dark:bg-zinc-700 w-48">
-          <div className="text-7xl font-bold">{date.getDate()}</div>
-          <div className="text-lg">
+        <div className="shrink-0 flex flex-col justify-center items-center bg-zinc-100 dark:bg-zinc-800 group-hover:dark:bg-zinc-700 lg:w-48 w-28">
+          <div className="text-5xl lg:text-7xl font-bold">{date.getDate()}</div>
+          <div className="text-sm lg:text-lg">
             {date.toLocaleString("en", {
               month: "short",
               year: "numeric",
@@ -36,20 +36,22 @@ export function EventCard({ href, date, city, name, meta }) {
           </div>
         </div>
       )}
-      <div className="bg-white dark:bg-neutral-900 group-hover:dark:bg-zinc-800 grow py-7 px-10 flex flex-col gap-4">
-        <b className="text-primary">{meta}</b>
-        <div className="font-bold text-2xl">{name}</div>
-        <div className="text-lg flex items-center gap-2">
-          <LocationIcon className="fill-primary h-5" />
-          {city}
+      <div className="bg-white dark:bg-neutral-900 group-hover:dark:bg-zinc-800 grow py-4 lg:py-7 px-5 lg:px-10 flex flex-col gap-4">
+        <b className="text-primary max-lg:text-xs">{meta}</b>
+        <div className="font-bold text-lg lg:text-2xl">{name}</div>
+        <div className="text-xs lg:text-lg flex flex-wrap lg:gap-x-6 gap-2">
+          <div className="flex items-center gap-2">
+            <LocationIcon className="fill-primary size-5" />
+            {city}
+          </div>
           {date && (
-            <>
-              <ClockIcon className="ml-6 fill-primary h-5" />
+            <div className="flex items-center gap-2">
+              <ClockIcon className="fill-primary size-5" />
               {date.toLocaleString("en", {
                 hour: "numeric",
                 minute: "numeric",
               })}
-            </>
+            </div>
           )}
         </div>
       </div>
