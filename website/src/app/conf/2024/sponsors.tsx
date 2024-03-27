@@ -97,7 +97,7 @@ function List({
           key={i}
           className={clsx(
             "relative shrink-0 bg-[#251f30] rounded-md",
-            'flex justify-center',
+            "flex justify-center",
             "border border-solid border-transparent hover:border-primary",
             "transition-colors",
             "hover:no-underline focus:no-underline hover:shadow-primary/20 shadow-md",
@@ -108,7 +108,11 @@ function List({
           rel="noreferrer"
           title={name}
         >
-          <NextImage alt={`${name} logo`} src={icon} className="size-auto max-w-60 shrink"  />
+          <NextImage
+            alt={`${name} logo`}
+            src={icon}
+            className="h-auto lg:max-w-60 shrink"
+          />
           <span className="font-sans absolute right-5 top-5 leading-none text-white lg:text-2xl">
             ↗
           </span>
@@ -119,7 +123,8 @@ function List({
 }
 
 const classes = {
-  heading: "text-center text-primary text-2xl lg:text-3xl font-bold mb-10 mt-20",
+  heading:
+    "text-center text-primary text-2xl lg:text-3xl font-bold mb-10 mt-20",
   title: "md:text-center text-white conf-heading",
 }
 
@@ -127,7 +132,7 @@ export function Sponsors() {
   return (
     <div id="sponsors" className="bg-conf-black">
       <div className="container conf-block">
-        <h1 className={classes.title}>Sponsors</h1>
+        <h1 className={classes.title}>Thanks to our 2023 sponsors!</h1>
         <h3 className={classes.heading}>Diamond</h3>
         <List
           items={sponsorDiamond}
