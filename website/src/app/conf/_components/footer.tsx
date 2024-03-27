@@ -2,7 +2,7 @@ import { SocialIcons } from "./social-icons"
 import NextLink from "next/link"
 import { ReactNode } from "react"
 import { clsx } from "clsx"
-import { Badge } from './badge'
+import { Badge } from "./badge"
 
 export function Footer({
   links,
@@ -22,10 +22,12 @@ export function Footer({
                 <NextLink
                   {...link}
                   className={clsx(
+                    "outline-none",
                     isDisabled
                       ? "pointer-events-none"
-                      : "hover:text-primary transition-colors",
+                      : "hover:text-primary transition-colors focus:text-primary",
                   )}
+                  tabIndex={isDisabled ? -1 : undefined}
                 >
                   {children}
                   {isDisabled && (
@@ -52,7 +54,7 @@ export function Footer({
               href="https://lfprojects.org"
               target="_blank"
               rel="noreferrer"
-              className="text-primary"
+              className="text-primary outline-none focus:ring focus:ring-primary"
             >
               https://lfprojects.org
             </a>

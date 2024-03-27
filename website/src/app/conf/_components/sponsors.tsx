@@ -98,9 +98,9 @@ function List({
           className={clsx(
             "relative shrink-0 bg-[#251f30] rounded-md",
             "flex justify-center",
-            "border border-solid border-transparent hover:border-primary",
+            "border border-solid border-transparent hover:border-primary focus:border-primary",
             "transition-colors",
-            "hover:no-underline focus:no-underline hover:shadow-primary/20 shadow-md",
+            "hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
             linkClassName,
           )}
           href={link}

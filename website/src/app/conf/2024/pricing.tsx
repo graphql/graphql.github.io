@@ -1,6 +1,6 @@
 import { Button } from "@/app/conf/_components/button"
-import { CheckIcon, ClockIcon } from '@/icons'
-import { clsx } from 'clsx'
+import { CheckIcon, ClockIcon } from "@/icons"
+import { clsx } from "clsx"
 
 interface Pricing {
   title: string
@@ -53,10 +53,10 @@ export function Pricing() {
           {pricing.map((pricing, index) => (
             <a
               key={index}
-              href="https://cvent.me/4zbxz9"
+              href="https://cvent.me/gk2dRw"
               target="_blank"
               rel="noreferrer"
-              className="px-24 py-12 bg-[#251f30] flex flex-col items-center"
+              className="px-24 py-12 bg-[#251f30] flex flex-col items-center border focus:border-primary hover:border-primary border-transparent transition-colors outline-none"
             >
               <div className="text-3xl font-bold mb-2">{pricing.title}</div>
               <div className="text-lg mb-6">{pricing.date}</div>
@@ -66,7 +66,7 @@ export function Pricing() {
             </a>
           ))}
         </div>
-        <Button href="https://cvent.me/4zbxz9" className="mx-auto !block">
+        <Button href="https://cvent.me/gk2dRw" className="mx-auto !block">
           Register Now!
         </Button>
       </div>
@@ -82,7 +82,7 @@ export function Pricing() {
         </div>
       </div>
 
-      <div className={clsx(classes.container, 'flex flex-col items-center')}>
+      <div className={clsx(classes.container, "flex flex-col items-center")}>
         <ClockIcon className="text-primary h-10 mb-10" />
         <h3 className={classes.heading}>Speakers & Schedule</h3>
         <p className="-mt-10 text-2xl">Coming soon</p>
