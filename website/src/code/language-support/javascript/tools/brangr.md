@@ -28,8 +28,8 @@ github: networkimprov/brangr
 
 ```graphql
 query {
-  heroes(_layout: { type: table }) {
-    # _layout arg not sent to service
+  <!-- prettier-ignore -->
+  heroes(_layout: { type: table }) { # _layout arg not sent to service
     first
     last
   }
