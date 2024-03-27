@@ -16,7 +16,6 @@
   "resolutions": {
     "graphql": "16.6.0"
   },
-  "packageManager": "pnpm@8.15.5",
   "dependencies": {
     "@graphql-tools/schema": "10.0.0",
     "@headlessui/react": "^1.7.17",
