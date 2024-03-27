@@ -36,7 +36,7 @@ export const meetups = [
       link: "https://www.meetup.com/graphql-bangkok",
       city: "Bangkok",
       latitude: 13.75,
-      longitude: 100.50,
+      longitude: 100.5,
     },
   },
   {
@@ -56,7 +56,7 @@ export const meetups = [
       link: "https://graphql.sydney/",
       city: "Sydney",
       latitude: -33.86,
-      longitude: 151.20,
+      longitude: 151.2,
     },
   },
   {

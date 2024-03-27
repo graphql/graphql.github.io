@@ -1,3 +1,3 @@
-'use client'
+"use client"
 
-export { default } from './faq.mdx'
+export { default } from "./faq.mdx"

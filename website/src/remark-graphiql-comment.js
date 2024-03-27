@@ -3,7 +3,7 @@ import { visit } from "unist-util-visit"
 export const remarkGraphiQLComment = () => ast => {
   const nodes = []
 
-  const MINI_GRAPHIQL_COMPONENT = 'Marked'
+  const MINI_GRAPHIQL_COMPONENT = "Marked"
 
   visit(ast, { type: "code", lang: "graphql" }, node => {
     const [firstLine] = node.value.split("\n")

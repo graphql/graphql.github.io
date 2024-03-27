@@ -95,7 +95,9 @@ mutation {
 
 ```graphql
 query {
-  queryReview(filter: { comment: { alloftext: "server easy install" }, rating: { gt: 5 } }) {
+  queryReview(
+    filter: { comment: { alloftext: "server easy install" }, rating: { gt: 5 } }
+  ) {
     comment
     by {
       username
@@ -103,7 +105,9 @@ query {
         about {
           name
           reviews(order: { asc: rating, first: 5 }) {
-            by { username }
+            by {
+              username
+            }
             comment
             rating
           }

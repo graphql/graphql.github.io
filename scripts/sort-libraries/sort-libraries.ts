@@ -15,7 +15,7 @@ export interface Library {
 }
 
 export async function sortLibs(
-  libraries: Library[]
+  libraries: Library[],
 ): Promise<{ sortedLibs: Library[]; totalStars: number }> {
   let totalStars = 0
   const libsWithScores = await Promise.all(
@@ -36,7 +36,7 @@ export async function sortLibs(
       }
       totalStars += result.stars
       return result
-    })
+    }),
   )
   const sortedLibs = libsWithScores.sort((a, b) => {
     let aScore = 0,

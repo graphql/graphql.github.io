@@ -47,7 +47,7 @@ export function WithoutVersion() {
             "[&_div.nextra-code]:h-full",
             "[&_pre]:ring-0 border rounded-md border-gray-300 dark:border-neutral-700 [&_pre]:rounded-none [&_pre]:h-full",
             // Set background as nextra code block bg color
-            '_bg-white dark:_bg-black'
+            "_bg-white dark:_bg-black",
           )}
           aria-hidden
         >

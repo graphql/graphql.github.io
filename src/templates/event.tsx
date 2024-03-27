@@ -31,7 +31,7 @@ const Tag = ({
     <span
       className={clsx(
         "border border-solid border-[#333333] font-semibold text-sm px-3 py-1 h-max rounded-full whitespace-nowrap",
-        featured ? "bg-[#F8779D] border-[#F8779D] border-2 text-white" : ""
+        featured ? "bg-[#F8779D] border-[#F8779D] border-2 text-white" : "",
       )}
     >
       {text}
@@ -50,12 +50,12 @@ export const EventComponent: FC<{
 
   const eventTitle = getEventTitle(
     event,
-    speakers.map(s => s.name)
+    speakers.map(s => s.name),
   )
 
   const recordingTitle = findBestMatch(
     `${eventTitle} ${speakers.map(e => e.name).join(" ")}`,
-    videos.map(e => e.title)
+    videos.map(e => e.title),
   ).bestMatch
 
   return (

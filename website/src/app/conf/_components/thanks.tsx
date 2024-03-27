@@ -34,9 +34,7 @@ export async function Thanks() {
       <div className="container flex gap-20 flex-col">
         <div className="flex gap-12 lg:gap-24 max-md:flex-col">
           <div className="flex flex-col gap-5">
-            <h2 className="conf-heading">
-              Thank you for Attending!
-            </h2>
+            <h2 className="conf-heading">Thank you for Attending!</h2>
             <p className="lg:text-lg">
               Thank you to all who joined us for <b>GraphQLConf&nbsp;2023</b>!
               We look forward to seeing you at future events.To experience the

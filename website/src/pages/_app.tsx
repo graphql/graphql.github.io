@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         html {
           font-family: ${robotoFlex.style.fontFamily};
         }
-        
+
         .roboto-mono {
           font-family: ${robotoMono.style.fontFamily};
         }

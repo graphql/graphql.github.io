@@ -42,7 +42,7 @@ export function Filters({
                     className={clsx(
                       filterState[option.name].length > 0
                         ? "font-medium text-gray-900"
-                        : "text-gray-500"
+                        : "text-gray-500",
                     )}
                   >
                     {option.name}

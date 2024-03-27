@@ -186,7 +186,7 @@ export async function getGitHubStats(
 
     if (!response.ok) {
       console.warn(
-        `Error fetching GitHub stats for ${owner}/${repoName}. Status: ${response.status}`
+        `Error fetching GitHub stats for ${owner}/${repoName}. Status: ${response.status}`,
       )
       return undefined
     }
@@ -196,7 +196,7 @@ export async function getGitHubStats(
     if ("errors" in responseJson) {
       console.warn(
         `GitHub GraphQL errors for ${owner}/${repoName}:`,
-        responseJson.errors
+        responseJson.errors,
       )
       return undefined
     }
@@ -209,7 +209,7 @@ export async function getGitHubStats(
 
     const hasCommitsInLast3Months =
       repo.defaultBranchRef.target.history.edges.some(
-        edge => new Date(edge.node.pushedDate) > lastThreeMonths
+        edge => new Date(edge.node.pushedDate) > lastThreeMonths,
       )
     const formattedStars = numbro(repo.stargazers.totalCount).format({
       average: true,
@@ -253,6 +253,6 @@ function getLastRelease(repo: any): Release | undefined {
   })
 
   return releases.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   )[0]
 }

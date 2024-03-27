@@ -32,7 +32,7 @@ export default {
                   href={`/tags/${tag}`}
                   className="transition-colors py-1 px-2.5 capitalize rounded bg-zinc-200 dark:bg-zinc-700 font-bold hover:!no-underline hover:!bg-primary hover:text-white dark:hover:text-zinc-900"
                 >
-                  {tag.replaceAll('-', ' ')}
+                  {tag.replaceAll("-", " ")}
                 </NextLink>
               ))}
             </div>

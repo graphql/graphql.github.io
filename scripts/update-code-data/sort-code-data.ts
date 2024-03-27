@@ -8,7 +8,7 @@ type organizeData = {
 }
 
 export async function sortCodeData(
-  organizeData: organizeData
+  organizeData: organizeData,
 ): Promise<organizeData> {
   await Promise.all([
     organizeData.languageList.sort((a, b) => {

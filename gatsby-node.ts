@@ -135,7 +135,7 @@ const fetchData = async (url: string) => {
     return data
   } catch (error) {
     throw new Error(
-      `Error fetching data from ${url}: ${error.message || error.toString()}`
+      `Error fetching data from ${url}: ${error.message || error.toString()}`,
     )
   }
 }
@@ -150,11 +150,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const schedAccessToken = process.env.SCHED_ACCESS_TOKEN
 
     const schedule: ScheduleSession[] = await fetchData(
-      `https://graphqlconf23.sched.com/api/session/export?api_key=${schedAccessToken}&format=json`
+      `https://graphqlconf23.sched.com/api/session/export?api_key=${schedAccessToken}&format=json`,
     )
 
     const usernames: { username: string }[] = await fetchData(
-      `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username`
+      `https://graphqlconf23.sched.com/api/user/list?api_key=${schedAccessToken}&format=json&fields=username`,
     )
 
     // Fetch full info of each speaker individually and concurrently
@@ -163,9 +163,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
         usernames.map(async user => {
           await new Promise(resolve => setTimeout(resolve, 2000)) // 2 second delay between requests, rate limit is 30req/min
           return fetchData(
-            `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`
+            `https://graphqlconf23.sched.com/api/user/get?api_key=${schedAccessToken}&by=username&term=${user.username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`,
           )
-        })
+        }),
       )) as SchedSpeaker[]
     ).filter(s => s.role.includes("speaker"))
 
@@ -194,7 +194,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     // Create schedule events' pages
     schedule.forEach(event => {
       const eventSpeakers = speakers.filter(e =>
-        event.speakers?.find(({ username }) => username === e.username)
+        event.speakers?.find(({ username }) => username === e.username),
       )
 
       createPage({

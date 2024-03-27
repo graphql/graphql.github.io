@@ -8,18 +8,18 @@ type HttpScoreFetchResponse = {
 export async function getHttpScore(packageName: string): Promise<number> {
   try {
     const url = `https://raw.githubusercontent.com/graphql/graphql-http/main/implementations/${encodeURIComponent(
-      packageName
+      packageName,
     )}/report.json`
     const response = await fetch(url)
 
     if (!response.ok) {
       if (response.status === 404) {
         console.warn(
-          `Resource not found for package ${packageName} at URL: ${url}`
+          `Resource not found for package ${packageName} at URL: ${url}`,
         )
       } else {
         console.warn(
-          `invalid response from HTTP score for ${packageName}. Status: ${response.status}`
+          `invalid response from HTTP score for ${packageName}. Status: ${response.status}`,
         )
       }
       return 0

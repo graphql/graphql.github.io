@@ -56,9 +56,7 @@ export function Speakers() {
     // Invisible padding so anchor links align to the header menu
     <div id="speakers" className="bg-conf-black text-white conf-block">
       <div className="container">
-        <h1 className="md:text-center text-white conf-heading">
-          Speakers
-        </h1>
+        <h1 className="md:text-center text-white conf-heading">Speakers</h1>
         <div className="flex max-md:flex-col justify-around items-start flex-wrap gap-10 lg:px-24 my-10 md:my-20">
           {speakers.map((speaker, i) => (
             <div
@@ -80,7 +78,9 @@ export function Speakers() {
                   href={`/conf/2023/speakers/${speaker.url}`}
                   className="text-white [&:hover>span]:text-primary"
                 >
-                  <span className="text-lg font-bold transition-colors">{speaker.name}</span>
+                  <span className="text-lg font-bold transition-colors">
+                    {speaker.name}
+                  </span>
                   <div className="text-sm my-2">{speaker.title}</div>
                 </NextLink>
                 <div className="flex gap-2 md:justify-center">

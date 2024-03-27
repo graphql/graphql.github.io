@@ -127,4 +127,4 @@ export const events = [
     host: "True Digital Park",
     hostLink: "https://www.truedigitalpark.com/",
   },
-].sort((a,b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

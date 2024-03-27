@@ -19,7 +19,7 @@ export const useFAQAccordion = () => {
   const [buttonCreated, setButtonCreated] = useState(false)
   const toggleChildrenClass = (element: React.ReactNode) => {
     Array.from(nextUntil(element, "button")).map(p =>
-      p.classList.toggle("show")
+      p.classList.toggle("show"),
     )
   }
 
@@ -60,7 +60,7 @@ export const useFAQAccordion = () => {
       window.history.replaceState(
         {},
         "",
-        "#" + e.target.getElementsByTagName("a")[0].id
+        "#" + e.target.getElementsByTagName("a")[0].id,
       )
       window.history.scrollRestoration = "manual"
       e.target.classList.toggle("open")

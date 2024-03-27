@@ -20,7 +20,7 @@ const SpeakersTemplate: FC<PageProps<{}, { speakers: SchedSpeaker[] }>> = ({
     .filter(Boolean) as SchedSpeaker[]
 
   const otherSpeakersData = speakersData.filter(
-    speaker => !keynoteNames.includes(speaker.name)
+    speaker => !keynoteNames.includes(speaker.name),
   )
 
   // Sort other speakers by last name alphabetically

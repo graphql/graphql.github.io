@@ -1,6 +1,6 @@
 import MDXPage from "./client-mdx"
 import { Sponsors } from "../sponsors"
-import { Metadata } from 'next'
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Sponsor",

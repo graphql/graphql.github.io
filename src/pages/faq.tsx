@@ -38,7 +38,7 @@ export default ({
                     rawMarkdownBody={rawMarkdownBody!}
                     pageContext={pageContext}
                   />
-                )
+                ),
               )}
             </div>
           </section>

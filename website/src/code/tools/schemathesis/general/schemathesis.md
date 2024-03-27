@@ -30,10 +30,7 @@ For example, running the command above against `https://bahnql.herokuapp.com/gra
           "column": 28
         }
       ],
-      "path": [
-        "search",
-        "stations"
-      ]
+      "path": ["search", "stations"]
     }
   ],
   "data": null

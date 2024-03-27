@@ -74,7 +74,7 @@ export function About() {
               adoption and advancement of GraphQL implementations in the
               industry.
             </p>
-            <br/>
+            <br />
             <p>
               In the 8 years of GraphQL being around, we have seen adoption
               across some of the largest organizations globally with homegrown

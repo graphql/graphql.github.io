@@ -3,7 +3,7 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
 import { clsx as cn } from "clsx"
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react"
 
-const RadioGroup =  RadioGroupPrimitive.Root
+const RadioGroup = RadioGroupPrimitive.Root
 
 const RadioGroupItem = forwardRef<
   ElementRef<typeof RadioGroupPrimitive.Item>,

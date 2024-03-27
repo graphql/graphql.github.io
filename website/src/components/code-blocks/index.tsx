@@ -43,6 +43,12 @@ export const V2 = () => <_V2 components={components} />
 export const V3 = () => <_V3 components={components} />
 export const V4 = () => <_V4 components={components} />
 export const V5 = () => <_V5 components={components} />
-export const QueryHeroFriends = () => <_QueryHeroFriends components={components} />
-export const ResponseHeroFriends = () => <_ResponseHeroFriends components={components} />
-export const PredictableResult = () => <_PredictableResult components={components} />
+export const QueryHeroFriends = () => (
+  <_QueryHeroFriends components={components} />
+)
+export const ResponseHeroFriends = () => (
+  <_ResponseHeroFriends components={components} />
+)
+export const PredictableResult = () => (
+  <_PredictableResult components={components} />
+)

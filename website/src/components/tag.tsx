@@ -14,7 +14,7 @@ export function Tag({
     <Component
       className={clsx(
         "py-1 px-2.5 capitalize text-xs rounded bg-zinc-200 dark:bg-zinc-700 font-bold roboto-mono",
-        className
+        className,
       )}
       {...props}
     >

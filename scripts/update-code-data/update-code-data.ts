@@ -21,7 +21,7 @@ export type CodeData = {
 
 export async function updateCodeData(
   markdownFilePaths: string[],
-  slugMap: string
+  slugMap: string,
 ): Promise<CodeData> {
   let codeData = {} as CodeData
   await Promise.all(
@@ -103,7 +103,7 @@ export async function updateCodeData(
           })
         }
       }
-    })
+    }),
   )
   return codeData
 }
