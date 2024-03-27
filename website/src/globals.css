@@ -431,3 +431,33 @@ div[id^="headlessui-menu-items"] {
     }
   }
 }
+
+.apiIndex {
+  @apply mt-6;
+}
+
+.apiIndex li {
+  margin: 0 0 5px 0;
+}
+.apiIndex li a {
+  color: inherit;
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+.apiIndex li a:hover::before {
+  @apply text-primary;
+  content: "#";
+  font-size: 16px;
+  left: -2em;
+  line-height: 20px;
+  position: absolute;
+}
+
+.apiIndex li {
+  @apply bg-white dark:bg-black;
+  @apply [box-shadow:inset_0_0_0_1px_#ddd,inset_4px_0_0_#ddd];
+  @apply dark:[box-shadow:inset_0_0_0_1px_#444,inset_4px_0_0_#444];
+  font-size: 13px;
+  padding: 7px 14px;
+}
