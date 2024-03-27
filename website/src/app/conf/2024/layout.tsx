@@ -11,7 +11,7 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        url: "http://graphql.org/img/conf/social-pk.jpg",
+        url: "/img/og-graphql-conf-2024.jpeg",
         alt: "GraphQLConf 2024 hosted by the GraphQL Foundation. September 10-12, 2024. San Francisco Bay Area, California",
       },
     ],
