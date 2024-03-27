@@ -56,7 +56,7 @@ export function Pricing() {
               href="https://cvent.me/gk2dRw"
               target="_blank"
               rel="noreferrer"
-              className="px-24 py-12 bg-[#251f30] flex flex-col items-center border focus:border-primary hover:border-primary border-transparent transition-colors outline-none"
+              className="hover:shadow-primary/20 focus:shadow-primary/20 shadow-md px-24 py-12 bg-[#251f30] flex flex-col items-center border focus:border-primary hover:border-primary border-transparent transition-colors outline-none"
             >
               <div className="text-3xl font-bold mb-2">{pricing.title}</div>
               <div className="text-lg mb-6">{pricing.date}</div>
