@@ -56,7 +56,7 @@ var express = require("express")
 var { createHandler } = require("graphql-http/lib/use/express")
 var { buildSchema } = require("graphql")
 
-var schema = buildSchema(/* GraphQL */`
+var schema = buildSchema(/* GraphQL */ `
   type Query {
     hello: String
   }
