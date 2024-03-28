@@ -85,10 +85,10 @@ urlpatterns = [
 
 9. Run the server:
 
-```bash
+```sh
 python manage.py runserver
 ```
 
-10. Open the GraphiQL interface at `http://localhost:8000/graphql/` and start querying your API!
+10. Open the GraphiQL interface at `http://localhost:8000/graphql` and start querying your API!
 
-You can find advanced examples with authentication, filters, validations and more on github or pypi.
+You can find advanced examples with authentication, filters, validations and more on GitHub or pypi.
