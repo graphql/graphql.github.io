@@ -454,6 +454,16 @@
       "source": "/conf/speakers/:path",
       "destination": "/conf/2023/speakers/:path",
       "permanent": true
+    },
+    {
+      "source": "/community",
+      "destination": "/community/resources/official-channels/",
+      "permanent": true
+    },
+    {
+      "source": "/community/",
+      "destination": "/community/resources/official-channels/",
+      "permanent": true
     }
   ]
 }
