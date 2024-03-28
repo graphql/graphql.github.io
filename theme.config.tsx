@@ -1,9 +1,4 @@
-import {
-  DocsThemeConfig,
-  ThemeSwitch,
-  useConfig,
-  Navbar,
-} from "nextra-theme-docs"
+import { DocsThemeConfig, ThemeSwitch, useConfig } from "nextra-theme-docs"
 import NextLink from "next/link"
 import {
   GraphQLWordmarkLogo,
@@ -201,53 +196,6 @@ export default {
     content: Footer,
   },
   navbar: {
-    component(props) {
-      const { frontMatter } = useConfig()
-      let { asPath } = useRouter()
-
-      if (asPath.startsWith("/community/resources/")) asPath = "/community/"
-      if (asPath.startsWith("/community/contribute/"))
-        asPath = "/community/contribute/"
-      if (asPath === "/community/") {
-        frontMatter.title = "Community Resources"
-        frontMatter.description =
-          "The GraphQL community is worldwide, and includes developers, users, supporters, and fans from around the globe. You are welcome to join us! If you're new to the community, here are a few things to get you started."
-      }
-      if (asPath === "/community/contribute/") {
-        frontMatter.title = "Contribute to GraphQL"
-        frontMatter.description =
-          "The following resources describe how GraphQL development processes work, how to get involved, and where to get help."
-      }
-
-      return (
-        <>
-          <Navbar {...props} />
-          {asPath.startsWith("/community/") && (
-            <div className="code-page lg:min-h-96 lg:max-h-96 relative overflow-hidden">
-              <div className="container conf-block relative z-10">
-                <h1 className="text-7xl font-extrabold mb-10">
-                  {frontMatter.title}
-                </h1>
-                <p className="text-2xl/[2.375rem] text-balance lg:w-2/3">
-                  {frontMatter.description}
-                </p>
-              </div>
-              <img
-                src={
-                  {
-                    "/community/": "/img/community/resources.png",
-                    "/community/events/": "/img/community/events.png",
-                    "/community/contribute/": "/img/community/contribute.png",
-                  }[asPath]
-                }
-                alt="Figure"
-                className="max-xl:hidden select-none absolute right-0 top-0 h-full -translate-x-1/4 scale-125"
-              />
-            </div>
-          )}
-        </>
-      )
-    },
     extraContent: <ThemeSwitch lite className="[&_span]:hidden" />,
   },
   toc: {
