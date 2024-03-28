@@ -18,7 +18,7 @@ jobs:
           nodeVersion: 20
           packageManager: pnpm
           workingDirectory: ./
-          packageManagerVersion: 8
+          packageManagerVersion: 8.15.5
 
       - run: pnpm install
 
