@@ -23,6 +23,7 @@ jobs:
       - name: Create .env.production file
         run: |
           echo "SCHED_ACCESS_TOKEN=${{ secrets.SCHED_ACCESS_TOKEN }}" > ./website/.env.production
+          echo "SCHED_ACCESS_TOKEN=${{ secrets.SCHED_ACCESS_TOKEN }}" > ./website/.env.development
 
       # Verify it compiles
-      - run: NODE_ENV=production pnpm build
+      - run: pnpm build
