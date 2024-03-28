@@ -69,7 +69,7 @@ export default function Page() {
       </div>
       <Pricing />
       <About />
-      <Venue/>
+      <Venue />
       <Sponsors />
     </>
   )
