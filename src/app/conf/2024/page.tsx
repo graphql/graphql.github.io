@@ -3,6 +3,7 @@ import { HostedByGraphQLFoundation } from "@/icons"
 import { Sponsors } from "./sponsors"
 import { About } from "./about"
 import { Pricing } from "./pricing"
+import { Venue } from "./venue"
 import { Button } from "@/app/conf/_components/button"
 
 export const metadata: Metadata = {
@@ -68,6 +69,7 @@ export default function Page() {
       </div>
       <Pricing />
       <About />
+      <Venue/>
       <Sponsors />
     </>
   )
