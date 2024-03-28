@@ -6,7 +6,7 @@ import slugMap from "../code/slug-map.json"
 import { NextAdapter } from "next-query-params"
 import { QueryParamProvider } from "use-query-params"
 import { CodePage } from "../components/code-page"
-import { getGitHubStats } from "../lib/get-github-stats"
+import { getGitHubStats } from "../../scripts/sort-libraries/get-github-stats"
 import githubInfo from "@/github-stats.json"
 
 {<QueryParamProvider adapter={NextAdapter}><CodePage {...props} /></QueryParamProvider>}
