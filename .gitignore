@@ -77,3 +77,4 @@ src/__generated__/
 .next/
 static/sitemap.xml
 website/out/
+/public/
