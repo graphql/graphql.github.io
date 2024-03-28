@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.0",
-    "@tailwindcss/typography": "0.5.10",
+    "@tailwindcss/typography": "0.5.12",
     "@types/codemirror": "5.60.7",
     "@types/prismjs": "1.26.0",
     "@types/react-tooltip": "^4.2.4",
