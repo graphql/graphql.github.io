@@ -68,12 +68,12 @@ export default withLess(
     // Valid redirect statusCode values are 301, 302, 303, 307, 308
     redirects: () => vercelJSON.redirects.filter(o => o.statusCode !== 200),
     async rewrites() {
-      return [
-        {
-          source: "/swapi-graphql/:path*",
-          destination: "https://graphql.github.io/swapi-graphql/:path*",
-        },
-      ]
-    },
+    return [
+      {
+        source: '/swapi-graphql/:path*',
+        destination: 'https://graphql.github.io/swapi-graphql/:path*',
+      },
+    ]
+  },
   }),
 )
