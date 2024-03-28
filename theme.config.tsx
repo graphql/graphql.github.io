@@ -190,7 +190,7 @@ export default {
   },
   logo: graphQLLogo,
   docsRepositoryBase:
-    "https://github.com/graphql/graphql.github.io/tree/source/website",
+    "https://github.com/graphql/graphql.github.io/tree/source",
   color: {
     hue: 319,
   },
