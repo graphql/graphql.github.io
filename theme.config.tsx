@@ -115,28 +115,38 @@ function Footer() {
             https://lfprojects.org
           </a>
         </p>
-        <ul className="flex gap-5">
-          {[
-            { url: "https://github.com/graphql", icon: GitHubIcon },
-            { url: "https://discord.graphql.org", icon: DiscordIcon },
-            { url: "https://twitter.com/graphql", icon: TwitterIcon },
-            {
-              url: "http://stackoverflow.com/questions/tagged/graphql",
-              icon: StackOverflowIcon,
-            },
-          ].map(({ url, icon: Icon }) => (
-            <li key={url}>
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                <Icon className="h-5 w-auto *:fill-current" />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-col gap-4 lg:items-end">
+          <ul className="flex gap-5">
+            {[
+              { url: "https://github.com/graphql", icon: GitHubIcon },
+              { url: "https://discord.graphql.org", icon: DiscordIcon },
+              { url: "https://twitter.com/graphql", icon: TwitterIcon },
+              {
+                url: "http://stackoverflow.com/questions/tagged/graphql",
+                icon: StackOverflowIcon,
+              },
+            ].map(({ url, icon: Icon }) => (
+              <li key={url}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-primary transition-colors block"
+                >
+                  <Icon className="h-5 w-auto *:fill-current" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://nextra.site"
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs hover:text-primary transition-colors"
+          >
+            Powered by Nextra
+          </a>
+        </div>
       </div>
     </div>
   )
