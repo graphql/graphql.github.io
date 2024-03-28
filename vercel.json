@@ -11,11 +11,6 @@
       "permanent": false
     },
     {
-      "source": "/swapi-graphql/:path*",
-      "destination": "https://graphql.github.io/swapi-graphql/:path*",
-      "statusCode": 200
-    },
-    {
       "source": "/docs/api-reference-errors",
       "destination": "/graphql-js/error/",
       "permanent": true
