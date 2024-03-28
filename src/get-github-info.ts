@@ -1,7 +1,7 @@
 import fg from "fast-glob"
 import fs from "fs/promises"
 import grayMatter from "gray-matter"
-import { getGitHubStats } from "@/lib/get-github-stats"
+import { getGitHubStats } from "../scripts/sort-libraries/get-github-stats"
 
 async function main() {
   const filePaths = await fg("./src/code/**/*.md")
