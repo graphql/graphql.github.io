@@ -322,6 +322,7 @@ export function CodePage({ allTags, data }: CodePageProps) {
                       className={clsx(
                         "flex justify-between font-bold text-primary px-8 lg:px-12 py-5 dark:[[open]>&]:shadow-[-5px_10px_30px_20px_#1b1b1b4d]",
                         "[[open]>&]:shadow-[0_6px_21px_0_#1b1b1b33]",
+                        "cursor-pointer",
                       )}
                     >
                       README
