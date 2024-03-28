@@ -56,20 +56,20 @@
     "@tailwindcss/typography": "^0.5.10",
     "postcss": "^8.4.33",
     "@svgr/webpack": "^8.0.1",
-    "@types/node": "^20.11.30",
-    "@types/react": "^18.2.73",
     "autoprefixer": "^10.4.17",
     "tsx": "^4.7.0",
     "react-medium-image-zoom": "5.1.8",
     "date-fns": "^2.30.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.73",
     "@types/codemirror": "5.60.7",
     "@types/string-similarity": "^4.0.2",
     "@typescript-eslint/parser": "7.4.0",
     "eslint": "8.57.0",
     "eslint-plugin-tailwindcss": "3.15.1",
-    "prettier": "3.2.4",
-    "typescript": "^5.3.3"
+    "prettier": "3.2.5",
+    "typescript": "^5.4.3"
   }
 }
