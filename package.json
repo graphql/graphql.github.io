@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "//prebuild": "tsx --env-file=.env src/get-github-info.ts",
-    "build": "next build",
+    "build": "next build && next-image-export-optimizer",
     "dev": "next",
     "format": "pnpm format:check --write",
     "format:check": "prettier --cache --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -66,6 +66,8 @@
     "@types/react": "^18.2.73",
     "@types/string-similarity": "^4.0.2",
     "@typescript-eslint/parser": "7.4.0",
+    "@typescript-eslint/eslint-plugin": "7.4.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint": "8.57.0",
     "eslint-plugin-tailwindcss": "3.15.1",
     "prettier": "3.2.5",

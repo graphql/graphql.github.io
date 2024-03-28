@@ -1,4 +1,4 @@
-import NextImage from "next/image"
+import NextImage from "next-image-export-optimizer"
 import { SessionList } from "./schedule/session-list"
 import { Button } from "./button"
 import leeImage from "public/img/conf/Gallery/3.jpg"

@@ -4,7 +4,8 @@ import marcImage from "public/img/conf/speakers/marcandre.jpg"
 import iditImage from "public/img/conf/speakers/idit.jpg"
 import uriImage from "public/img/conf/speakers/uri.jpg"
 import { LinkedInIcon, TwitterIcon } from "@/icons"
-import NextImage, { StaticImageData } from "next/image"
+import NextImage from "next-image-export-optimizer"
+import type { StaticImageData } from "next/image"
 import NextLink from "next/link"
 
 interface Speaker {

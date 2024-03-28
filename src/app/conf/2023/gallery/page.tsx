@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { images } from "./_conf-images"
-import NextImage from "next/image"
+import NextImage from "next-image-export-optimizer"
 import { Zoom } from "../../_components/zoom"
 
 export const metadata: Metadata = {

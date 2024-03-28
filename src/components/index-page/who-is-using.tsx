@@ -5,7 +5,7 @@ import pinterestLogo from "../../../public/users/logos/pinterest.png"
 import intuitLogo from "../../../public/users/logos/intuit.png"
 import courseraLogo from "../../../public/users/logos/coursera.png"
 import shopifyLogo from "../../../public/users/logos/shopify.png"
-import NextImage from "next/image"
+import NextImage from "next-image-export-optimizer"
 import { clsx } from "clsx"
 
 export function WhoIsUsing() {
