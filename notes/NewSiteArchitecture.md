@@ -164,7 +164,7 @@ This page should serve as a high-level view of what resources are available and 
   - Popular blogs
   - Twitter feed
 - Calendar of upcoming meetups or conference talks related to GraphQL (encourage edits by community)
-- Grid of recorded videos about GraphQL (conf talks, etc).
+- Grid of recorded videos about GraphQL (conf talks, etc.).
 
 ## Blog
 
