@@ -1,0 +1,58 @@
+import { Cards } from "../../../components/cards"
+import {
+  GitHubIcon,
+  DiscordIcon,
+  StarIcon,
+  CodeIcon,
+  TextIcon,
+  GoogleCalendarIcon,
+  YouTubeIcon,
+} from "../../../icons"
+
+# Essential Links
+
+<Cards
+  items={[
+    {
+      icon: TextIcon,
+      title: "The GraphQL Specification",
+      link: "https://spec.graphql.org",
+    },
+    {
+      icon: CodeIcon,
+      title: "GraphQL Reference Implementation",
+      link: "https://graphql.org/code",
+    },
+    {
+      icon: GitHubIcon,
+      title: "The official GraphQL GitHub org",
+      link: "https://github.com/graphql",
+    },
+    {
+      icon: DiscordIcon,
+      title: "The official GraphQL Discord",
+      link: "https://discord.graphql.org",
+    },
+    {
+      icon: GoogleCalendarIcon,
+      title: "The GraphQL Project Calendar",
+      link: "https://calendar.graphql.org",
+    },
+    {
+      icon: GitHubIcon,
+      title: "GraphQL Specification Membership Agreement",
+      link: "https://github.com/graphql/graphql-wg/tree/HEAD/membership",
+      description: "",
+    },
+    {
+      icon: YouTubeIcon,
+      title: "GraphQL YouTube Channel",
+      link: "https://youtube.graphql.org",
+    },
+    {
+      icon: <StarIcon className="fill-primary" />,
+      title: "The GraphQL Community Grant Program",
+      link: "https://graphql.org/foundation",
+    },
+  ]}
+/>

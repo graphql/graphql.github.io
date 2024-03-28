@@ -1,0 +1,15 @@
+.button {
+  @apply text-white leading-none rounded-md px-6 py-3 border border-white transition-colors;
+
+  &:hover,
+  &:focus {
+    @apply bg-white text-black border-black;
+  }
+}
+
+.col1, .col2, .col3 {
+  code {
+    /* fix scroll on mobile for code-blocks */
+    @apply max-sm:whitespace-pre-wrap;
+  }
+}

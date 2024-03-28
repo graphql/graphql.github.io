@@ -16,7 +16,7 @@ export function AspectRatio({ className, href, title, src }: AspectRatioProps) {
         ratio={16 / 9}
         className={clsx(
           "group relative h-full w-full overflow-hidden rounded-lg shadow-md",
-          className
+          className,
         )}
       >
         <a
@@ -31,7 +31,7 @@ export function AspectRatio({ className, href, title, src }: AspectRatioProps) {
         <div
           className={clsx(
             "absolute inset-0 bg-gray-600 object-cover group-hover:bg-gray-500",
-            "transition-colors duration-300 ease-in-out"
+            "transition-colors duration-300 ease-in-out",
           )}
         >
           <img

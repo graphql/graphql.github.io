@@ -35,7 +35,6 @@ build/Release
 
 # Dependency directories
 node_modules/
-jspm_packages/
 
 # Typescript v1 declaration files
 typings/
@@ -57,7 +56,7 @@ typings/
 
 # gatsby files
 .cache/
-public/
+/public/
 
 !static/img/__og-image/
 static/img/__og-image/*
@@ -67,7 +66,6 @@ static/img/__og-image/*
 .DS_Store
 
 # Yarn
-yarn-error.log
 .pnp/
 .pnp.js
 # Yarn Integrity file
@@ -80,3 +78,6 @@ yarn-error.log
 src/__generated__/
 
 .idea/
+.next/
+static/sitemap.xml
+website/out/

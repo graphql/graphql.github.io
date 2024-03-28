@@ -1,0 +1,23 @@
+```graphql word-wrap=false filename="Schema"
+type Query {
+  hero: Character
+}
+
+type Character {
+  name: String
+  friends: [Character]
+  homeWorld: Planet
+  species: Species
+}
+
+type Planet {
+  name: String
+  climate: String
+}
+
+type Species {
+  name: String
+  lifespan: Int
+  origin: Planet
+}
+```

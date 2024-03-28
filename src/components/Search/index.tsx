@@ -34,7 +34,7 @@ const Search = ({ searchID }: { searchID?: string }): JSX.Element => {
       }
       event.preventDefault()
       const searchInput = document.querySelector<HTMLInputElement>(
-        `#${searchInputID}`
+        `#${searchInputID}`,
       )
 
       if (searchInput) {

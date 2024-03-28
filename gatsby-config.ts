@@ -96,7 +96,7 @@ const config: GatsbyConfig = {
                   url: site.siteMetadata.siteUrl + permalink,
                   description: excerpt,
                   author: byline,
-                })
+                }),
               ),
             query: /* GraphQL */ `
               {

@@ -186,7 +186,7 @@ export function ToolsList({ pageContext, type }: ToolsListProps) {
         <div key={tool.name} id={toSlug(tool.name)}>
           {Object.entries(tool.categoryMap).map(
             ([categoryName, data]) =>
-              categoryName === type && <LibraryList data={data} />
+              categoryName === type && <LibraryList data={data} />,
           )}
         </div>
       ))}
@@ -235,7 +235,7 @@ const SortInput = (props: {
 }
 export default ({ pageContext }: PageProps<{}, PageContext>) => {
   const [sortBy, setSortBy] = useState<"popularity" | "alphabetical">(
-    "popularity"
+    "popularity",
   )
   const sortedLanguageList = sortLanguageList({
     sortType: sortBy,
@@ -319,7 +319,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                   ([libraryCategoryName]) =>
                     libraryCategories[
                       libraryCategoryName as "Client" | "Server"
-                    ]?.length
+                    ]?.length,
                 )
                 const languageSlug = toSlug(languageName)
                 return (
@@ -341,7 +341,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                                 {i < filteredCategorySlugMap.length - 1 &&
                                   " / "}
                               </Fragment>
-                            )
+                            ),
                           )}
                         </p>
                       )}
@@ -365,7 +365,7 @@ export default ({ pageContext }: PageProps<{}, PageContext>) => {
                                 }
                               />
                             </div>
-                          )
+                          ),
                       )}
                     </div>
                   </div>

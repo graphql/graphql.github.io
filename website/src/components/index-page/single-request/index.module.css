@@ -1,0 +1,59 @@
+.query,
+.response {
+  @apply absolute left-1/2;
+  @apply [&_pre]:bg-transparent [&_pre]:ring-0;
+}
+
+.query {
+  animation: query-up 8s 0s infinite ease-in both;
+  @apply -translate-x-full;
+
+  @keyframes query-up {
+    from {
+      opacity: 0;
+      top: 180px;
+    }
+
+    5%,
+    25% {
+      opacity: 1;
+    }
+
+    40% {
+      opacity: 0;
+    }
+
+    50%,
+    100% {
+      top: 70px;
+      opacity: 0;
+    }
+  }
+}
+
+.response {
+  animation: response-down 8s 2.5s infinite ease-in both;
+  @apply -translate-x-1/2;
+
+  @keyframes response-down {
+    0% {
+      opacity: 0;
+      top: 95px;
+    }
+
+    10% {
+      opacity: 0;
+    }
+
+    25%,
+    45% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+      top: 160px;
+    }
+  }
+}

@@ -70,7 +70,7 @@ app.all(
   createHandler({
     schema: schema,
     rootValue: root,
-  })
+  }),
 )
 app.listen(4000, () => console.log("Now browse to localhost:4000/graphql"))
 ```
