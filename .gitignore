@@ -54,10 +54,6 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
-.cache/
-/public/
-
 !static/img/__og-image/
 static/img/__og-image/*
 !static/img/__og-image/*.png
