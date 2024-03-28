@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  nextra@3.0.0-alpha.22:
+    hash: sg5psjislkwihbwl3padxm5zvy
+    path: patches/nextra@3.0.0-alpha.22.patch
+
 importers:
 
   .:
@@ -85,7 +90,7 @@ importers:
         version: 3.0.1(less-loader@12.2.0)(less@3.13.1)(next@14.1.4)
       nextra:
         specifier: 3.0.0-alpha.22
-        version: 3.0.0-alpha.22(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
+        version: 3.0.0-alpha.22(patch_hash=sg5psjislkwihbwl3padxm5zvy)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
       nextra-theme-docs:
         specifier: 3.0.0-alpha.22
         version: 3.0.0-alpha.22(next@14.1.4)(nextra@3.0.0-alpha.22)(react-dom@18.2.0)(react@18.2.0)
@@ -6314,14 +6319,14 @@ packages:
       intersection-observer: 0.12.2
       next: 14.1.4(@babel/core@7.24.3)(react-dom@18.2.0)(react@18.2.0)
       next-themes: 0.2.1(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)
-      nextra: 3.0.0-alpha.22(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
+      nextra: 3.0.0-alpha.22(patch_hash=sg5psjislkwihbwl3padxm5zvy)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       scroll-into-view-if-needed: 3.1.0
       zod: 3.22.4
     dev: false
 
-  /nextra@3.0.0-alpha.22(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
+  /nextra@3.0.0-alpha.22(patch_hash=sg5psjislkwihbwl3padxm5zvy)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
     resolution: {integrity: sha512-4V1kLs0MiQ1KE/Dh1cnLc100Ibyo/PY46v1NdRzrYe7uzCBcSGTiG9OwHTE/34wUwbM5N7TptiDOlV79BBZ0Ng==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -6370,6 +6375,7 @@ packages:
       - supports-color
       - typescript
     dev: false
+    patched: true
 
   /nlcst-to-string@3.1.1:
     resolution: {integrity: sha512-63mVyqaqt0cmn2VcI2aH6kxe1rLAmSROqHMA0i4qqg1tidkfExgpb0FGMikMCn86mw5dFtBtEANfmSSK7TjNHw==}
