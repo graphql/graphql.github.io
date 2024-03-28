@@ -1,9 +1,11 @@
 "use client"
 
 import { usePathname } from "next/navigation"
+import { useMounted } from "nextra/hooks"
 
 export default function Page() {
-  const pathname = usePathname()?.replace(/\/$/, "")
+  const pathname = usePathname()
+  const mounted = useMounted()
 
   const repo = {
     origin: "https://github.com",
@@ -11,7 +13,7 @@ export default function Page() {
     name: "graphql.github.io",
   }
 
-  const title = `Found broken \`${pathname}\` link. Please fix!`
+  const title = `Found broken \`${mounted ? pathname?.replace(/\/$/, "") : ""}\` link. Please fix!`
   const labels = "bug"
 
   const url = `${repo.origin}/${repo.owner}/${
