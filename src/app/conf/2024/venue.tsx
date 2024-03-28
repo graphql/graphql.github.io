@@ -1,8 +1,10 @@
 import { TrainIcon, AroundIcon, ParkingIcon, BusIcon } from "@/icons"
+import NextImage from "next-image-export-optimizer"
+import hotel from "./sf-hotel-image.png"
 
 export function Venue() {
   return (
-    <div id="location" className="-mt-16 pt-16">
+    <div id="location" className="conf-block">
       <h1 className="text-4xl text-white font-bold mb-8 mx-auto text-center">
         Location &amp; Venue
       </h1>
@@ -19,8 +21,9 @@ export function Venue() {
           </a>{" "}
           hotel in Burlingame, CA.
         </p>
-        <img
-          src="/img/conf/sf-hotel-image.png"
+        <NextImage
+          src={hotel}
+          alt="Hotel photo"
           className="object-cover w-[300px] h-[180px] md:w-[500px] md:h-[300px] rounded-xl my-8 block mx-auto"
         />
       </div>
@@ -217,10 +220,10 @@ export function Venue() {
                   Hyatt Regency SFO
                 </a>
                 <p>
-                  The Hyatt Regency SFO offers a <a>24-hour</a> complimentary
+                  The Hyatt Regency SFO offers a <b>24-hour</b> complimentary
                   San Francisco International Airport (SFO) shuttle which runs
-                  every <a>15 minutes</a> from <a>4:00AM until 1:00AM</a> and
-                  <a> every 30 minutes</a> from <a>1:00AM until 4:00AM</a>. At
+                  every <b>15 minutes</b> from <b>4:00AM until 1:00AM</b> and
+                  <b> every 30 minutes</b> from <a>1:00AM until 4:00AM</a>. At
                   SFO, go to the area marked "Hotel Shuttle." The bus is marked
                   "Hyatt Regency and Marriott.”
                 </p>
@@ -229,8 +232,8 @@ export function Venue() {
           },
         ].map(o => (
           <div key={o.title} className="flex-1">
-            <div className="h-full rounded-lg overflow-hidden relative [&_a]:text-[--rhodamine] [&_a]:font-medium [&_p]:text-white [&_p]:text-lg [&_p]:mb-6 [&>div>a]:block [&>div>a]:mt-6 [&>div>a]:mb-3">
-              <o.icon className="h-16 w-auto" />
+            <div className="h-full rounded-lg overflow-hidden relative [&_a]:text-primary [&_a]:font-medium [&_p]:text-white [&_p]:text-lg [&_p]:mb-6 [&>div>a]:block [&>div>a]:mt-6 [&>div>a]:mb-3">
+              <o.icon className="fill-primary h-16 w-auto" />
               <h1 className="my-3 sm:text-2xl text-xl font-medium text-white">
                 {o.title}
               </h1>
