@@ -9,21 +9,21 @@ easy for contributors the code page is automatically generated from a series of 
 $ tree src/code
 src/code
 ├── language-support
-│   ├── c-c
-│   │   └── tools
-│   │       └── libgraphqlparser.md
-│   ├── clojure
-│   │   ├── client
-│   │   │   └── regraph.md
-│   │   └── server
-│   │       ├── alumbra.md
-│   │       ├── graphql-clj.md
-│   │       └── lacinia.md
-│   ├── c-net
-│   │   ├── client
-│   │   │   ├── graphql-client.md
-│   │   │   ├── graphql-net-client.md
-│   │   │   └── sahb-graphqlclient.md
+│ ├── c-c
+│ │ └── tools
+│ │ └── libgraphqlparser.md
+│ ├── clojure
+│ │ ├── client
+│ │ │ └── regraph.md
+│ │ └── server
+│ │ ├── alumbra.md
+│ │ ├── graphql-clj.md
+│ │ └── lacinia.md
+│ ├── c-net
+│ │ ├── client
+│ │ │ ├── graphql-client.md
+│ │ │ ├── graphql-net-client.md
+│ │ │ └── sahb-graphqlclient.md
 // etc
 ```
 

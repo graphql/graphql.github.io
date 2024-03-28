@@ -8,7 +8,7 @@ Run Schemathesis via Docker against your GraphQL endpoint:
 
 ```bash
 docker run schemathesis/schemathesis \
-   run https://your.app.com/graphql
+  run https://your.app.com/graphql
 ```
 
 Schemathesis will generate queries matching your GraphQL schema and catch server crashes automatically.
