@@ -28,7 +28,7 @@
     "@types/string-similarity": "^4.0.0",
     "@typescript-eslint/parser": "5.59.7",
     "eslint": "8.42.0",
-    "eslint-plugin-tailwindcss": "3.14.0",
+    "eslint-plugin-tailwindcss": "3.15.1",
     "prettier": "3.2.4",
     "typescript": "^5.3.3"
   }
