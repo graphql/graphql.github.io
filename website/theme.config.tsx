@@ -189,7 +189,7 @@ export default {
     key: "graphqlconf-2024",
   },
   logo: graphQLLogo,
-  docsRepositoryBase: "https://github.com/graphql/graphql.github.io/website",
+  docsRepositoryBase: "https://github.com/graphql/graphql.github.io/tree/source/website",
   color: {
     hue: 319,
   },
