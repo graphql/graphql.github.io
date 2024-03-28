@@ -26,7 +26,7 @@ schema = strawberry.Schema(query=Query)
 ```
 
 Then run `strawberry server app` and you will have a basic schema server
-running on `http://localhost:8000/`.
+running on `http://localhost:8000`.
 
 Strawberry also has views for ASGI, Flask and Django and provides utilities
 like dataloaders and tracing.
