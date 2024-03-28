@@ -70,7 +70,7 @@ Active development for graphql.org happens on the `source` branch. Be sure to cr
 
 ### Publishing the updated site
 
-Your changes will be merged into the `source` branch. Then, the CI will automatically publish a new version of https://graphql.org via [Netlify](https://docs.netlify.com).
+Your changes will be merged into the `source` branch. Then, the CI will automatically publish a new version of https://graphql.org via [Vercel](https://vercel.com/docs).
 
 ## Updating content
 
