@@ -1,5 +1,5 @@
 export default {
-  resources: "Community Resources",
+  resources: "Resources",
   events: "",
   contribute: "Contribute to GraphQL",
 }

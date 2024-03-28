@@ -30,9 +30,6 @@ export default {
         href: "/community/contribute/essential-links",
       },
     },
-    theme: {
-      breadcrumb: false,
-    },
   },
   faq: {
     type: "page",
