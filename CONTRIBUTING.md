@@ -59,10 +59,12 @@ Active development for graphql.org happens on the `source` branch. Be sure to cr
 
 ### Project structure
 
-- `public`: Static files, like images, can then be referenced by your code starting from the base URL (`/`)
+- `public`: Static files, like images, can be referenced by your code starting from the base URL (`/`)
 - `out`: Output files that will be served by a static HTTP server
 - `src`: Markdown and the TypeScript/JavaScript files used to generate the website
-  - `components`: React components used pages
+  - `app`: A new App Router built on React Server Components which supports shared layouts, nested routing, loading states, error handling, and more
+  - `pages`: A file-system based router, when a file is added to the `pages` directory, it's automatically available as a route
+  - `components`: React components used for pages
 
 ### Publishing the updated site
 
@@ -153,7 +155,7 @@ If you run into any problems or have questions while contributing, you're always
 
 You can also ping our team in the [#website channel on the GraphQL Slack](https://graphql.slack.com/messages/website/). [Get your invite here!](https://graphql-slack.herokuapp.com/)
 
-This repository is managed by EasyCLA. Project participants must sign the free ([GraphQL Specification Membership agreement](https://preview-spec-membership.graphql.org) before making a contribution. You only need to do this one time, and it can be signed by [individual contributors](https://individual-spec-membership.graphql.org) or their [employers](https://corporate-spec-membership.graphql.org).
+This repository is managed by EasyCLA. Project participants must sign the free [GraphQL Specification Membership agreement](https://preview-spec-membership.graphql.org) before making a contribution. You only need to do this one time, and it can be signed by [individual contributors](https://individual-spec-membership.graphql.org) or their [employers](https://corporate-spec-membership.graphql.org).
 
 To initiate the signature process please open a PR against this repo. The EasyCLA bot will block the merge if we still need a membership agreement from you.
 
