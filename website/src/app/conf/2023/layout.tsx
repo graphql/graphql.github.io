@@ -63,7 +63,7 @@ export default function ConfLayout({
           // client side routing for this route to fix it
           {
             children: "Schedule",
-            href: "https://graphql.org/conf/2023/schedule",
+            href: "/conf/2023/schedule",
           },
           { children: "FAQ", href: "/conf/2023/faq" },
           { children: "GraphQLConf 2024", href: "/conf/2024" },
