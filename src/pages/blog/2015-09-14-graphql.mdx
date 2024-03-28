@@ -1,0 +1,83 @@
+---
+title: "GraphQL: A data query language"
+tags: ["blog", "spec"]
+date: 2015-09-14
+byline: "Lee Byron"
+---
+
+When we built Facebook's mobile applications, we needed a data-fetching API powerful enough to describe all of Facebook, yet simple and easy to learn so product developers can focus on building things quickly. We developed GraphQL three years ago to fill this need. Today it powers hundreds of billions of API calls a day. This year we've begun the process of open-sourcing GraphQL by drafting a specification, releasing a reference implementation, and forming a community around it here at [graphql.org](/).
+
+## Why GraphQL?
+
+Back in 2012, we began an effort to rebuild Facebook's native mobile applications.
+
+At the time, our iOS and Android apps were thin wrappers around views of our mobile website. While this brought us close to a platonic ideal of the "write one, run anywhere" mobile application, in practice it pushed our mobile-webview apps beyond their limits. As Facebook's mobile apps became more complex, they suffered poor performance and frequently crashed.
+
+As we transitioned to natively implemented models and views, we found ourselves for the first time needing an API data version of News Feed — which up until that point had only been delivered as HTML. We evaluated our options for delivering News Feed data to our mobile apps, including RESTful server resources and FQL tables (Facebook's SQL-like API). We were frustrated with the differences between the data we wanted to use in our apps and the server queries they required. We don't think of data in terms of resource URLs, secondary keys, or join tables; we think about it in terms of a graph of objects and the models we ultimately use in our apps like NSObjects or JSON.
+
+There was also a considerable amount of code to write on both the server to prepare the data and on the client to parse it. This frustration inspired a few of us to start the project that ultimately became GraphQL. GraphQL was our opportunity to rethink mobile app data-fetching from the perspective of product designers and developers. It moved the focus of development to the client apps, where designers and developers spend their time and attention.
+
+## What is GraphQL?
+
+A GraphQL query is a string that is sent to a server to be interpreted and fulfilled, which then returns JSON back to the client.
+
+```graphql
+# { "graphiql": true, "schema": "Users" }
+{
+  user(id: 4802170) {
+    id
+    name
+    isViewerFriend
+    profilePicture(size: 50) {
+      uri
+      width
+      height
+    }
+    friendConnection(first: 5) {
+      totalCount
+      friends {
+        id
+        name
+      }
+    }
+  }
+}
+```
+
+**Defines a data shape:** The first thing you'll notice is that GraphQL queries mirror their response. This makes it easy to predict the shape of the data returned from a query, as well as to write a query if you know the data your app needs. More important, this makes GraphQL really easy to learn and use. GraphQL is unapologetically driven by the data requirements of products and of the designers and developers who build them.
+
+**Hierarchical:** Another important aspect of GraphQL is its hierarchical nature. GraphQL naturally follows relationships between objects, where a RESTful service may require multiple round-trips (resource-intensive on mobile networks) or a complex join statement in SQL. This data hierarchy pairs well with graph-structured data stores and ultimately with the hierarchical user interfaces it's used within.
+
+**Strongly typed:** Each level of a GraphQL query corresponds to a particular type, and each type describes a set of available fields. Similar to SQL, this allows GraphQL to provide descriptive error messages before executing a query. It also plays well with the strongly typed native environments of Obj-C and Java.
+
+**Protocol, not storage:** Each GraphQL field on the server is backed by a function - code linking to your application layer. While we were building GraphQL to support News Feed, we already had a sophisticated feed ranking and storage model, along with existing databases and business logic. GraphQL had to leverage all this existing work to be useful, and so does not dictate or provide any backing storage. Instead, GraphQL takes advantage of your existing code by exposing your application layer, not your storage layer.
+
+**Introspective:** A GraphQL server can be queried for the types it supports. This creates a powerful platform for tools and client software to build atop this information like code generation in statically typed languages, our application framework, Relay, or IDEs like GraphiQL (pictured below). GraphiQL helps developers learn and explore an API quickly without grepping the codebase or wrangling with cURL.
+
+```graphql
+# { "graphiql": true, "schema": "Users" }
+{
+  __type(name: "User") {
+    name
+    fields {
+      name
+      type {
+        name
+      }
+    }
+  }
+}
+```
+
+**Version free:** The shape of the returned data is determined entirely by the client's query, so servers become simpler and easy to generalize. When you're adding new product features, additional fields can be added to the server, leaving existing clients unaffected. When you're sunsetting older features, the corresponding server fields can be deprecated but continue to function. This gradual, backward-compatible process removes the need for an incrementing version number. We still support three years of released Facebook applications on a single version of our GraphQL API.
+
+With GraphQL, we were able to build full-featured native News Feed on iOS in 2012, and on Android shortly after. Since then, GraphQL has become the primary way we build our mobile apps and the servers that power them. More than three years later, GraphQL powers almost all data-fetching in our mobile applications, serving millions of requests per second from nearly 1,000 shipped application versions.
+
+When we built GraphQL in 2012 we had no idea how important it would become to how we build things at Facebook and didn't anticipate its value beyond Facebook. However, earlier this year we announced Relay, our application framework for the web and React Native built atop GraphQL. The community excitement for Relay inspired us to revisit GraphQL to evaluate every detail, make improvements, fix inconsistencies, and write a specification describing GraphQL and how it works.
+
+Two months ago, we [made our progress public](https://youtube.com/watch?v=WQLzZf34FJ8) and released a working draft of the [GraphQL spec](https://spec.graphql.org) and a reference implementation: [GraphQL.js](https://github.com/graphql/graphql-js). Since then, a community has started to form around GraphQL, and versions of the GraphQL runtime are being [built in many languages](https://github.com/chentsulin/awesome-graphql), including Go, Ruby, Scala, Java, .Net, and Python. We've also begun to share some of the tools we use internally, like [GraphiQL](https://github.com/graphql/graphiql), an in-browser IDE, documentation browser, and query runner. GraphQL has also seen production usage outside Facebook, in a project for the [_Financial Times_](https://youtube.com/watch?v=S0s935RKKB4) by consultancy [Red Badger](http://red-badger.com).
+
+“GraphQL makes orchestrating data fetching so much simpler, and it pretty much functions as a perfect isolation point between the front end and the back end”
+— Viktor Charypar, software engineer at Red Badger
+
+While GraphQL is an established part of building products at Facebook, its use beyond Facebook is just beginning. Try out [GraphiQL](http://graphql-swapi.parseapp.com/graphiql) and help provide feedback on our [specification](https://github.com/facebook/graphql). We think GraphQL can greatly simplify data needs for both client product developers and server-side engineers, regardless of what languages you're using in either environment, and we're excited to continue to improve GraphQL, help a community grow around it, and see what we can build together.
