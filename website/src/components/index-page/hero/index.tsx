@@ -16,12 +16,7 @@ export function Hero() {
             "[&_h3]:font-extralight",
           )}
         >
-          <div
-            className={clsx(
-              "max-md:grow max-xl:w-full flex flex-col items-center gap-2",
-              classes.logo,
-            )}
-          >
+          <div className="max-md:grow max-xl:w-full flex flex-col items-center gap-2">
             <GraphQLLogo className="w-24" />
             <h1 className="text-primary text-3xl">GraphQL</h1>
           </div>
@@ -42,9 +37,7 @@ export function Hero() {
           </div>
         </section>
 
-        <div
-          className={clsx("flex gap-2 justify-center pt-10", classes.buttons)}
-        >
+        <div className="flex gap-2 justify-center pt-10">
           <Link className={classes.button} href="/code">
             Get Started
           </Link>

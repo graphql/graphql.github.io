@@ -13,33 +13,3 @@
     @apply max-sm:whitespace-pre-wrap;
   }
 }
-
-.col1 {
-  animation: fade 1s 1s ease-in-out both;
-}
-.col2 {
-  animation: fade 1s 1.3s ease-in-out both;
-}
-.col3 {
-  animation: fade 1s 1.6s ease-in-out both;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translate(0, 30px);
-  }
-  
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
-
-.buttons {
-  animation: fade 1.1s 2s ease-in-out both;
-}
-
-.logo {
-  animation: fade 1.2s ease-in-out both;
-}

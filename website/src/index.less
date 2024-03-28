@@ -76,7 +76,6 @@ div.index {
   }
 
   .hero {
-    background: @dark-color;
     @media screen and (min-width: 1020px) {
       min-height: 450px;
       max-height: 900px;
@@ -88,43 +87,7 @@ div.index {
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    &::before {
-      background: url("/img/graph-wash.png") repeat center center;
-      content: '';
-      height: 100%;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-
-    header {
-      background: linear-gradient(
-        fadeout(@dark-color, 20%),
-        fadeout(@dark-color, 100%)
-      );
-      box-shadow: none;
-      display: block;
-      @media screen and (min-width: 1020px) {
-        min-height: 80px;
-        max-height: 160px;
-        height: 13vh;
-      }
-
-      nav a {
-        text-shadow: 0 1px 1px @dark-color, 0 0 3px @dark-color;
-
-        &:hover, &:focus {
-          color: white;
-        }
-
-        &:first-child {
-          @media screen and (min-width: 1020px) {
-            margin-left: -1em;
-          }
-        }
-      }
-    }
+    background: url("/img/graph-wash.png"), #171e26 repeat center center;
   }
 
   section h1,
