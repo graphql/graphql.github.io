@@ -55,7 +55,7 @@
     "@svgr/webpack": "^8.0.1",
     "autoprefixer": "^10.4.17",
     "tsx": "^4.7.0",
-    "react-medium-image-zoom": "5.1.8",
+    "react-medium-image-zoom": "5.1.11",
     "date-fns": "^2.30.0"
   },
   "devDependencies": {
