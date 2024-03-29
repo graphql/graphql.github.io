@@ -17,7 +17,7 @@ import AmsterdamGraphQL from "public/img/conf/Partners/AmsterdamGraphQL.svg"
 import BangkokGraphQL from "public/img/conf/Partners/BangkokGraphQL.svg"
 import TypeGraphQL from "public/img/conf/Partners/TypeGraphQL.svg"
 import { clsx } from "clsx"
-import NextImage from "next/image"
+import NextImage from "next-image-export-optimizer"
 
 interface Image {
   icon: string

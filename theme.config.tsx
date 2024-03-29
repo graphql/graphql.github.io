@@ -8,6 +8,8 @@ import {
   TwitterIcon,
 } from "./src/icons"
 import { useRouter } from "next/router"
+// import { createElement } from "react"
+// import NextImage from "next-image-export-optimizer"
 
 const graphQLLogo = (
   <GraphQLWordmarkLogo className="h-8 nextra-logo" title="GraphQL" />
@@ -214,4 +216,10 @@ export default {
   search: {
     placeholder: "Search…",
   },
+  // TODO: @dimaMachina try to remove pnpm patch for `nextra` package later
+  // components: {
+  //   // Override `next/image` imports from `nextra-theme-docs`
+  //   img: (props: any) =>
+  //     createElement(typeof props.src === "object" ? NextImage : "img", props),
+  // },
 } satisfies DocsThemeConfig

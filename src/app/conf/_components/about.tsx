@@ -1,7 +1,7 @@
 import { ComponentProps } from "react"
-import ConfImage from "public/img/conf/Gallery/8.jpg"
-import ConfImage2 from "public/img/conf/Gallery/9.jpg"
-import NextImage from "next/image"
+import ConfImage from "../2023/gallery/images/8.jpg"
+import ConfImage2 from "../2023/gallery/images/9.jpg"
+import NextImage from "next-image-export-optimizer"
 
 const list = [
   { title: "Cloud Engineering" },

@@ -1,7 +1,7 @@
-import NextImage from "next/image"
+import NextImage from "next-image-export-optimizer"
 import { SessionList } from "./schedule/session-list"
 import { Button } from "./button"
-import leeImage from "public/img/conf/Gallery/3.jpg"
+import leeImage from "../2023/gallery/images/3.jpg"
 import { schedule, speakers } from "@/app/conf/2023/_data"
 
 function shuffle<T extends any[]>(array: T): T {

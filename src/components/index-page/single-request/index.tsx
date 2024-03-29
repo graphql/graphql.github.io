@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 import classes from "./index.module.css"
 import phoneImage from "public/img/phone.svg"
 import serverImage from "public/img/server.svg"
-import NextImage from "next/image"
+import NextImage from "next-image-export-optimizer"
 
 export function SingleRequest() {
   return (
