@@ -459,6 +459,21 @@
       "source": "/community/",
       "destination": "/community/resources/official-channels/",
       "permanent": true
+    },
+    {
+      "source": "/code",
+      "destination": "/community/tools-and-libraries/",
+      "permanent": true
+    },
+    {
+      "source": "/code/",
+      "destination": "/community/tools-and-libraries/",
+      "permanent": true
+    },
+    {
+      "source": "/foundation/:path*",
+      "destination": "/community/foundation/:path*",
+      "permanent": true
     }
   ]
 }

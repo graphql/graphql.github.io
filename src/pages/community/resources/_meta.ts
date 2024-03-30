@@ -1,12 +1,10 @@
 export default {
   "official-channels": "",
-  "community-channels": "",
-  "vendor-channels": "",
-  brand: "GraphQL Logo & Trademark",
   "training-courses": "",
+  "community-channels": "",
   "blogs-and-newsletters": "",
   videos: "",
+  "vendor-channels": "",
   books: "",
   "more-resources": "",
-  "code-of-conduct": "",
 }

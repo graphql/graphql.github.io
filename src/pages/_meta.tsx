@@ -10,16 +10,13 @@ export default {
     type: "page",
     title: "Learn",
   },
-  code: {
-    type: "page",
-    theme: {
-      layout: "raw",
-    },
-  },
   community: {
     type: "menu",
     title: "Community",
     items: {
+      "tools-and-libraries": {
+        title: "Tools and Libraries",
+      },
       resources: {
         title: "Resources",
         href: "/community/resources/official-channels",
@@ -29,6 +26,7 @@ export default {
         title: "Contribute to GraphQL",
         href: "/community/contribute/essential-links",
       },
+      foundation: { title: "Foundation" },
     },
   },
   faq: {
@@ -40,10 +38,6 @@ export default {
     title: <span className="after:content-['_↗'] after:font-sans">Spec</span>,
     href: "https://spec.graphql.org",
     newWindow: true,
-  },
-  foundation: {
-    type: "page",
-    title: "Foundation",
   },
   blog: {
     type: "page",
