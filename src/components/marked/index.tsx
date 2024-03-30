@@ -147,16 +147,8 @@ Lexer.prototype.lex = function (src) {
  */
 
 Lexer.prototype.token = function (src, top) {
-  let src = src.replace(/^ +$/gm, ""),
-    next,
-    loose,
-    cap,
-    bull,
-    b,
-    item,
-    space,
-    i,
-    l
+  src = src.replace(/^ +$/gm, "")
+  let next, loose, cap, bull, b, item, space, i, l
 
   while (src) {
     // newline
