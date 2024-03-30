@@ -1,11 +1,12 @@
 import type { AppProps } from "next/app"
+import { Roboto_Flex, Roboto_Mono } from "next/font/google"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
 import "@/globals.css"
 import "@/codemirror.less"
 import "@/index.less"
-import { Roboto_Flex, Roboto_Mono } from "next/font/google"
 
 const robotoFlex = Roboto_Flex({
-  // weight: ["300", """500", "600", "700"],
   subsets: ["latin"],
 })
 
@@ -13,7 +14,22 @@ const robotoMono = Roboto_Mono({
   subsets: ["latin"],
 })
 
+// https://developers.google.com/analytics/devguides/collection/gtagjs/pages
+function handleRouteChange(url: string) {
+  ;(window as any).gtag("config", process.env.NEXT_PUBLIC_GA_ID, {
+    page_path: url,
+  })
+}
+
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+  useEffect(() => {
+    router.events.on("routeChangeComplete", handleRouteChange)
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange)
+    }
+  }, [])
+
   return (
     <>
       <style jsx global>{`
