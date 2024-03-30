@@ -5,7 +5,7 @@ import { clsx } from "clsx"
 
 export function Hero() {
   return (
-    <div className="hero dark">
+    <div className="hero">
       <div className="container conf-block">
         <section
           className={clsx(
@@ -37,7 +37,7 @@ export function Hero() {
           </div>
         </section>
 
-        <Link className="index-button block w-fit mx-auto mt-10" href="/learn">
+        <Link className="text-white border-white index-button block w-fit mx-auto mt-10" href="/learn">
           Get Started
         </Link>
       </div>
