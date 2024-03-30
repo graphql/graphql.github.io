@@ -61,14 +61,14 @@ const QueryType = new GraphQLObjectType({
   fields: () => ({
     allPeople: {
       type: new GraphQLList(PersonType),
-      resolve: root => // Fetch the index of people from the REST API,
+      resolve: root => {} // Fetch the index of people from the REST API,
     },
     person: {
       type: PersonType,
       args: {
         id: { type: GraphQLString },
       },
-      resolve: (root, args) => // Fetch the person with ID `args.id`,
+      resolve: (root, args) => {} // Fetch the person with ID `args.id`,
     },
   }),
 });
@@ -100,7 +100,7 @@ const PersonType = new GraphQLObjectType({
     username: {type: GraphQLString},
     friends: {
       type: new GraphQLList(PersonType),
-      resolve: person => // Fetch the friends with the URLs `person.friends`,
+      resolve: person => {} // Fetch the friends with the URLs `person.friends`,
     },
   }),
 });

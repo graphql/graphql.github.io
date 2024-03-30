@@ -1,21 +1,20 @@
 /* eslint-env node */
 
+const CODE_EXT = "js,jsx,cjs,mjs,ts,tsx,cts,mts"
+
+const MARKDOWN_EXT = "md,mdx"
+
 module.exports = {
   root: true,
   overrides: [
     {
-      files: ["**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}"],
+      files: [`**/*.{${CODE_EXT}}`],
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:tailwindcss/recommended",
         "prettier",
       ],
-      parser: "@typescript-eslint/parser",
-      parserOptions: {
-        sourceType: "module",
-        ecmaVersion: "latest",
-      },
       rules: {
         "tailwindcss/classnames-order": "off",
         "@typescript-eslint/no-restricted-imports": [
@@ -46,6 +45,29 @@ module.exports = {
         tailwindcss: {
           whitelist: ["roboto-mono"],
         },
+      },
+    },
+    {
+      files: [`**/*.{${MARKDOWN_EXT}}`],
+      parser: "eslint-mdx",
+      processor: "mdx/remark",
+      plugins: ["mdx"],
+      parserOptions: {
+        ecmaVersion: 13,
+        sourceType: "module",
+      },
+      settings: {
+        "mdx/code-blocks": true,
+      },
+    },
+    {
+      files: [`**/*.{${MARKDOWN_EXT}}/*.{${CODE_EXT}}`],
+      rules: {
+        "no-unused-labels": "off",
+        "no-undef": "off",
+        "no-redeclare": "off",
+        "no-import-assign": "off",
+        "no-prototype-builtins": "off",
       },
     },
   ],
