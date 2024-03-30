@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 import nextra from "nextra"
 import path from "node:path"
 import withLess from "next-with-less"
@@ -55,7 +57,8 @@ export default withLess(
       // If you want to cache the remote images, you can set the time to live of the cache in seconds.
       // The default value is 0 seconds.
       nextImageExportOptimizer_remoteImageCacheTTL: "0",
-      NEXT_PUBLIC_GA_ID: "UA-44373548-16",
+      NEXT_PUBLIC_GA_ID:
+        process.env.NODE_ENV === "production" ? "UA-44373548-16" : "",
     },
     trailingSlash: true,
     // Only for local development, skip 200 statusCode due following error:
