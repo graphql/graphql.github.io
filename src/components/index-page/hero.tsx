@@ -1,8 +1,7 @@
 import Link from "next/link"
-import { CodeA, CodeB, CodeC } from "../../code-blocks"
+import { CodeA, CodeB, CodeC } from "../code-blocks"
 import { GraphQLLogo } from "@/icons"
 import { clsx } from "clsx"
-import classes from "./index.module.css"
 
 export function Hero() {
   return (
@@ -14,6 +13,7 @@ export function Hero() {
             "[&_h3]:text-white [&_h3]:text-2xl max-lg:[&_h3]:text-center",
             "[&_pre]:!bg-transparent [&_pre]:ring-0 [&_pre_span]:text-[--shiki-dark]",
             "[&_h3]:font-extralight",
+            "[&_code]:whitespace-pre-wrap" /* fix scroll on mobile for code-blocks */,
           )}
         >
           <div className="max-md:grow max-xl:w-full flex flex-col items-center gap-2">
@@ -21,30 +21,25 @@ export function Hero() {
             <h1 className="text-primary text-3xl">GraphQL</h1>
           </div>
 
-          <div className={classes.col1}>
+          <div>
             <h3>Describe your data</h3>
             <CodeA />
           </div>
 
-          <div className={classes.col2}>
+          <div>
             <h3>Ask for what you want</h3>
             <CodeB />
           </div>
 
-          <div className={classes.col3}>
+          <div>
             <h3>Get predictable results</h3>
             <CodeC />
           </div>
         </section>
 
-        <div className="flex gap-2 justify-center pt-10">
-          <Link className={classes.button} href="/code">
-            Get Started
-          </Link>
-          <Link className={classes.button} href="/learn">
-            Learn More
-          </Link>
-        </div>
+        <Link className="index-button block w-fit mx-auto mt-10" href="/learn">
+          Get Started
+        </Link>
       </div>
     </div>
   )

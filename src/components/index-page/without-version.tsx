@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { V1, V2, V3, V4, V5 } from "../../code-blocks"
+import { V1, V2, V3, V4, V5 } from "../code-blocks"
 import { clsx } from "clsx"
 
 export function WithoutVersion() {
@@ -24,7 +24,7 @@ export function WithoutVersion() {
   return (
     <div className="index-gradient">
       <section
-        className="point5 container conf-block flex max-lg:flex-col lg:flex-row-reverse lg:*:w-1/2 gap-14 justify-around"
+        className="container conf-block flex max-lg:flex-col lg:flex-row-reverse lg:*:w-1/2 gap-14 justify-around"
         id="without-versions"
       >
         <div className="max-lg:text-center">
