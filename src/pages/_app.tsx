@@ -4,7 +4,6 @@ import { useRouter } from "next/router"
 import { useEffect } from "react"
 import "@/globals.css"
 import "@/codemirror.less"
-import "@/index.less"
 
 const robotoFlex = Roboto_Flex({
   subsets: ["latin"],
