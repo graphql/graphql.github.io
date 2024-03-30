@@ -3,6 +3,7 @@ import { HostedByGraphQLFoundation } from "@/icons"
 import { Sponsors } from "./sponsors"
 import { About } from "./about"
 import { Pricing } from "./pricing"
+import { Venue } from "./venue"
 import { Button } from "@/app/conf/_components/button"
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function Page() {
           </div>
           <div className="flex gap-10 items-center">
             <svg
+              className="w-full"
               viewBox="0 0 1239 142"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
@@ -68,6 +70,7 @@ export default function Page() {
       </div>
       <Pricing />
       <About />
+      <Venue />
       <Sponsors />
     </>
   )
