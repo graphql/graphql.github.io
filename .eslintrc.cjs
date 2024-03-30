@@ -9,6 +9,10 @@ module.exports = {
   overrides: [
     {
       files: [`**/*.{${CODE_EXT}}`],
+      // TODO: extract graphql documents from code files
+      // to lint graphql documents marked with /* GraphQL */ comments inside js/ts codeblocks in markdown
+      // processor: '@graphql-eslint/graphql',
+      // plugins: ['@graphql-eslint'],
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -82,6 +86,10 @@ module.exports = {
         // Disable `remark-lint-first-heading-level` since in blogs we don't want to enforce the first heading to be an `h1`
         "mdx/remark": "off",
       },
+    },
+    {
+      files: ['**/*.graphql'],
+      parser: '@graphql-eslint/eslint-plugin',
     },
   ],
 }

@@ -61,6 +61,7 @@
     "use-query-params": "^2.2.1"
   },
   "devDependencies": {
+    "@graphql-eslint/eslint-plugin": "4.0.0-alpha.0",
     "@types/codemirror": "5.60.7",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.73",
