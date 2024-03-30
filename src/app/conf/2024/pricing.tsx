@@ -75,7 +75,7 @@ export function Pricing() {
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 text-2xl">
           {includes.map((item, i) => (
             <div key={i} className="flex items-center gap-4">
-              <CheckIcon className="text-primary h-7" />
+              <CheckIcon className="text-primary h-7 shrink-0" />
               <p>{item}</p>
             </div>
           ))}
