@@ -4,6 +4,22 @@ module.exports = {
   root: true,
   overrides: [
     {
+      files: '*.md{,x}',
+      parser: 'eslint-mdx',
+      processor: 'mdx/remark',
+      plugins: ['mdx'],
+      extends: ['./base', './react-base'],
+      parserOptions: {
+        ecmaVersion: 13,
+      },
+      rules: {
+
+      },
+      settings: {
+        'mdx/code-blocks': true,
+      },
+    },
+    {
       files: ["**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}"],
       extends: [
         "eslint:recommended",
@@ -11,11 +27,6 @@ module.exports = {
         "plugin:tailwindcss/recommended",
         "prettier",
       ],
-      parser: "@typescript-eslint/parser",
-      parserOptions: {
-        sourceType: "module",
-        ecmaVersion: "latest",
-      },
       rules: {
         "tailwindcss/classnames-order": "off",
         "@typescript-eslint/no-restricted-imports": [
