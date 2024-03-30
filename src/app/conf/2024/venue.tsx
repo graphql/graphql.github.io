@@ -3,7 +3,7 @@ import NextImage from "next-image-export-optimizer"
 import cityViewImage from "./sf-city-view.jpeg"
 
 const classes = {
-  heading: 'mb-6 sm:text-2xl text-xl font-bold'
+  heading: "mb-6 sm:text-2xl text-xl font-bold",
 }
 
 export function Venue() {
@@ -17,9 +17,7 @@ export function Venue() {
       </h1>
       <div className="grid lg:grid-cols-2 lg:gap-14 text-lg">
         <div>
-          <h3 className={classes.heading}>
-            Venue Information
-          </h3>
+          <h3 className={classes.heading}>Venue Information</h3>
           <a
             href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview"
             target="_blank"
@@ -38,9 +36,7 @@ export function Venue() {
           />
         </div>
         <div>
-          <h3 className={classes.heading}>
-            Hotel Information
-          </h3>
+          <h3 className={classes.heading}>Hotel Information</h3>
           Hotel Information Coming Soon!
           <br />
           <br />
@@ -79,14 +75,22 @@ export function Venue() {
                 <br />
                 Subway Station
                 <br />
-                <a href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview/#:~:text=Powell%20Street%20BART%20Station" target="_blank" rel="noreferrer">
+                <a
+                  href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview/#:~:text=Powell%20Street%20BART%20Station"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Powell Street BART Station
                 </a>
                 <br />
                 <br />
                 Train Station
                 <br />
-                <a href="https://amtrak.com/san-francisco-bay-area-northern-california-train-routes" target="_blank" rel="noreferrer">
+                <a
+                  href="https://amtrak.com/san-francisco-bay-area-northern-california-train-routes"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Amtrak
                 </a>
               </>
@@ -105,12 +109,20 @@ export function Venue() {
                 <br />
                 Distance from Venue: 14.5 miles
                 <br />
-                <a href="https://maps.app.goo.gl/qWMsVAkjy7aV7W2p9" target="_blank" rel="noreferrer">
+                <a
+                  href="https://maps.app.goo.gl/qWMsVAkjy7aV7W2p9"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Driving Directions from SFO to Venue
                 </a>
                 <br />
                 <br />
-                <a href="http://oaklandairport.com" target="_blank" rel="noreferrer">
+                <a
+                  href="http://oaklandairport.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Oakland Internation Airport (OAK)
                 </a>
                 <br />
@@ -118,7 +130,11 @@ export function Venue() {
                 <br />
                 Distance from Venue: 20 miles
                 <br />
-                <a href="https://maps.app.goo.gl/qfhWf4DqExRhmZSeA" target="_blank" rel="noreferrer">
+                <a
+                  href="https://maps.app.goo.gl/qfhWf4DqExRhmZSeA"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Driving Directions from OAK to Venue
                 </a>
               </>
