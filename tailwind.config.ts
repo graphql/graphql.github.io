@@ -1,7 +1,5 @@
 import type { Config } from "tailwindcss"
 import typography from "@tailwindcss/typography"
-// @ts-expect-error
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette"
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./theme.config.tsx"],
@@ -34,16 +32,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [typography, addVariablesForColors],
+  plugins: [typography],
   darkMode: ["class", 'html[class~="dark"]'],
+  blocklist: [
+    "h-dvh", // we override this class in globals.css
+  ],
 }
 export default config
-
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"))
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
-  )
-
-  addBase({ ":root": newVars })
-}

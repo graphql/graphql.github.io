@@ -486,3 +486,7 @@ div[id^="headlessui-menu-items"] {
   font-size: 13px;
   padding: 7px 14px;
 }
+
+.h-dvh {
+  @apply h-screen h-[100dvh]; /* one as fallback since it's 86.8% for now https://caniuse.com/?search=dvh */
+}
