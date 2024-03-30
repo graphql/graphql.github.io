@@ -13,13 +13,18 @@ const { createHandler } = require("graphql-http/lib/use/express") // CommonJS
 
 ### createHandler
 
-```js
-createHandler({
-  schema: GraphQLSchema,
-  rootValue?: ?any,
-  context?: ?any,
-  formatError?: ?Function,
-  validationRules?: ?Array<any>,
+```ts
+function createHandler({
+  schema,
+  rootValue,
+  context,
+  formatError,
+  validationRules,
+}: {
+  rootValue?: any,
+  context?: any,
+  formatError?: Function,
+  validationRules?: any[],
 }): Handler
 ```
 
