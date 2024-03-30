@@ -42,7 +42,7 @@ app.all(
   createHandler({
     schema: schema,
     rootValue: root,
-    context: (req) => ({
+    context: req => ({
       ip: req.raw.ip,
     }),
   })
