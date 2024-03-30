@@ -147,7 +147,7 @@ Lexer.prototype.lex = function (src) {
  */
 
 Lexer.prototype.token = function (src, top) {
-  var src = src.replace(/^ +$/gm, ""),
+  let src = src.replace(/^ +$/gm, ""),
     next,
     loose,
     cap,
@@ -542,11 +542,8 @@ InlineLexer.output = function (src, links, options) {
  */
 
 InlineLexer.prototype.output = function (src) {
-  let out = [],
-    link,
-    text,
-    href,
-    cap
+  const out = []
+  let link, text, href, cap
 
   while (src) {
     // escape
@@ -900,8 +897,8 @@ function marked(src, opt, callback) {
 
     if (opt) opt = merge({}, marked.defaults, opt)
 
-    let highlight = opt.highlight,
-      tokens,
+    const highlight = opt.highlight
+    let tokens,
       pending,
       i = 0
 

@@ -8,11 +8,10 @@ export const metadata: Metadata = {
 }
 
 function chunk<T>(arr: T[], len: number): T[][] {
-  let chunks = [],
-    i = 0,
-    n = arr.length
+  const chunks = []
+  let i = 0
 
-  while (i < n) {
+  while (i < arr.length) {
     chunks.push(arr.slice(i, (i += len)))
   }
 

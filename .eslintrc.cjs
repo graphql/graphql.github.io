@@ -29,6 +29,7 @@ module.exports = {
             ],
           },
         ],
+        'prefer-const': ['error', { destructuring: 'all' }],
         // TODO: fix below
         "no-useless-escape": "off",
         "prefer-rest-params": "off",
