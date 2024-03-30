@@ -20,7 +20,7 @@ yarn add microfiber
 Then in JS:
 
 ```js
-import { Microfiber } from 'microfiber'
+import { Microfiber } from "microfiber"
 
 const introspectionQueryResults = {
   // ...
