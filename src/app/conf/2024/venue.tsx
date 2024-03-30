@@ -1,6 +1,6 @@
 import { TrainIcon, AroundIcon, ParkingIcon, BusIcon } from "@/icons"
 import NextImage from "next-image-export-optimizer"
-import hotel from "./sf-hotel-image.png"
+import cityViewImage from "./sf-city-view.jpeg"
 
 export function Venue() {
   return (
@@ -12,21 +12,21 @@ export function Venue() {
         Location &amp; Venue
       </h1>
       <p className="max-w-prose lg:mx-auto">
-        GraphQLConf 2023 is hosted in the San Francisco Bay Area, where GraphQL
+        GraphQLConf 2024 is hosted in the San Francisco Bay Area, where GraphQL
         was first created. It's hosted at the{" "}
         <a
-          href="https://www.hyatt.com/en-US/group-booking/SFOBU/G-LIFO"
+          href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview"
           target="_blank"
           rel="noreferrer"
         >
-          Hyatt Regency SFO
+          JW Marriott San Francisco Union Square
         </a>{" "}
-        hotel in Burlingame, CA.
+        in CA.
       </p>
       <NextImage
-        src={hotel}
-        alt="Hotel photo"
-        className="object-cover lg:w-auto lg:h-[400px] rounded-md my-8 mx-auto"
+        src={cityViewImage}
+        alt="San Francisco city view"
+        className="object-cover aspect-video lg:max-w-[70%] rounded-md my-8 mx-auto"
       />
       <div className="grid lg:grid-cols-2 lg:gap-14">
         <div>

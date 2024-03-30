@@ -22,6 +22,7 @@ export default function Page() {
           </div>
           <div className="flex gap-10 items-center">
             <svg
+              className="w-full"
               viewBox="0 0 1239 142"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"

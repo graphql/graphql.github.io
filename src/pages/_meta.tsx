@@ -20,7 +20,7 @@ export default {
     type: "menu",
     title: "Community",
     items: {
-      index: {
+      resources: {
         title: "Resources",
         href: "/community/resources/official-channels",
       },
