@@ -74,7 +74,10 @@ module.exports = {
       },
     },
     {
-      files: `src/pages/blog/**/*.{${MARKDOWN_EXT}}`,
+      files: [
+        `src/pages/blog/**/*.{${MARKDOWN_EXT}}`,
+        `src/code/**/*.{${MARKDOWN_EXT}}`,
+      ],
       rules: {
         // Disable `remark-lint-first-heading-level` since in blogs we don't want to enforce the first heading to be an `h1`
         "mdx/remark": "off",
