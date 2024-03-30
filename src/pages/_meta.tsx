@@ -14,8 +14,8 @@ export default {
     type: "menu",
     title: "Community",
     items: {
-      'tools-and-libraries': {
-        title: 'Tools and Libraries'
+      "tools-and-libraries": {
+        title: "Tools and Libraries",
       },
       resources: {
         title: "Resources",
