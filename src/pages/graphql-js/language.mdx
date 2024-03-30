@@ -11,75 +11,67 @@ var { Source } = require("graphql") // CommonJS
 
 ## Overview
 
-_Source_
+### Source
 
 <ul class="apiIndex">
   <li>
     <a href="#source">
-      <pre>class Source</pre>
-      Represents the input string to the GraphQL server
+      <pre>class Source</pre> Represents the input string to the GraphQL server
     </a>
   </li>
   <li>
     <a href="#getlocation">
-      <pre>function getLocation</pre>
-      Converts a character offset to a row and column in the Source
+      <pre>function getLocation</pre> Converts a character offset to a row and column in the Source
     </a>
   </li>
 </ul>
 
-_Lexer_
+### Lexer
 
 <ul class="apiIndex">
   <li>
     <a href="#lex">
-      <pre>function lex</pre>
-      Lexes a GraphQL Source according to the GraphQL Grammar
+      <pre>function lex</pre> Lexes a GraphQL Source according to the GraphQL Grammar
     </a>
   </li>
 </ul>
 
-_Parser_
+### Parser
 
 <ul class="apiIndex">
   <li>
     <a href="#parse">
-      <pre>function parse</pre>
-      Parses a GraphQL Source according to the GraphQL Grammar
+      <pre>function parse</pre> Parses a GraphQL Source according to the GraphQL Grammar
     </a>
   </li>
   <li>
     <a href="#parseValue">
-      <pre>function parseValue</pre>
-      Parses a value according to the GraphQL Grammar
+      <pre>function parseValue</pre> Parses a value according to the GraphQL Grammar
     </a>
   </li>
   <li>
     <a href="#kind">
-      <pre>var Kind</pre>
-      Represents the various kinds of parsed AST nodes.
+      <pre>var Kind</pre> Represents the various kinds of parsed AST nodes.
     </a>
   </li>
 </ul>
 
-_Visitor_
+### Visitor
 
 <ul class="apiIndex">
   <li>
     <a href="#visit">
-      <pre>function visit</pre>
-      A general-purpose visitor to traverse a parsed GraphQL AST
+      <pre>function visit</pre> A general-purpose visitor to traverse a parsed GraphQL AST
     </a>
   </li>
   <li>
     <a href="#break">
-      <pre>var BREAK</pre>
-      A token to allow breaking out of the visitor.
+      <pre>var BREAK</pre> A token to allow breaking out of the visitor.
     </a>
   </li>
 </ul>
 
-_Printer_
+### Printer
 
 <ul class="apiIndex">
   <li>
