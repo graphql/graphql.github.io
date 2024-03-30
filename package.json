@@ -74,6 +74,7 @@
     "prettier": "3.2.5",
     "remark-frontmatter": "5.0.0",
     "remark-lint-first-heading-level": "3.1.2",
+    "remark-lint-heading-increment": "3.1.2",
     "typescript": "^5.4.3"
   },
   "pnpm": {

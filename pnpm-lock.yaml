@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   nextra@3.0.0-alpha.22:
-    hash: sg5psjislkwihbwl3padxm5zvy
+    hash: rggcgtpcrgz5zyoxmhwje4p6rm
     path: patches/nextra@3.0.0-alpha.22.patch
 
 importers:
@@ -90,7 +90,7 @@ importers:
         version: 3.0.1(less-loader@12.2.0)(less@3.13.1)(next@14.1.4)
       nextra:
         specifier: 3.0.0-alpha.22
-        version: 3.0.0-alpha.22(patch_hash=sg5psjislkwihbwl3padxm5zvy)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
+        version: 3.0.0-alpha.22(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
       nextra-theme-docs:
         specifier: 3.0.0-alpha.22
         version: 3.0.0-alpha.22(next@14.1.4)(nextra@3.0.0-alpha.22)(react-dom@18.2.0)(react@18.2.0)
@@ -183,6 +183,9 @@ importers:
         specifier: 5.0.0
         version: 5.0.0
       remark-lint-first-heading-level:
+        specifier: 3.1.2
+        version: 3.1.2
+      remark-lint-heading-increment:
         specifier: 3.1.2
         version: 3.1.2
       typescript:
@@ -6462,14 +6465,14 @@ packages:
       intersection-observer: 0.12.2
       next: 14.1.4(@babel/core@7.24.3)(react-dom@18.2.0)(react@18.2.0)
       next-themes: 0.2.1(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)
-      nextra: 3.0.0-alpha.22(patch_hash=sg5psjislkwihbwl3padxm5zvy)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
+      nextra: 3.0.0-alpha.22(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       scroll-into-view-if-needed: 3.1.0
       zod: 3.22.4
     dev: false
 
-  /nextra@3.0.0-alpha.22(patch_hash=sg5psjislkwihbwl3padxm5zvy)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
+  /nextra@3.0.0-alpha.22(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.1.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3):
     resolution: {integrity: sha512-4V1kLs0MiQ1KE/Dh1cnLc100Ibyo/PY46v1NdRzrYe7uzCBcSGTiG9OwHTE/34wUwbM5N7TptiDOlV79BBZ0Ng==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -7133,6 +7136,16 @@ packages:
 
   /remark-lint-first-heading-level@3.1.2:
     resolution: {integrity: sha512-uSgDMAKOolDcxfJwQU+iJK2Vbz2ZIzBAjQiN0f+9O/7XwrAH5IuVQH60w7chuxVrauVHmd1rbjmvzXVq8R30VQ==}
+    dependencies:
+      '@types/mdast': 3.0.15
+      unified: 10.1.2
+      unified-lint-rule: 2.1.2
+      unist-util-generated: 2.0.1
+      unist-util-visit: 4.1.2
+    dev: true
+
+  /remark-lint-heading-increment@3.1.2:
+    resolution: {integrity: sha512-+fMfZmFh6ie6MmbRCVW77Rha15zDmnHWKiA0Do08OTrfngPTv8ZKXYLmxhUpL+xV9ts9q+9Kz5rv0L4QD4sEwQ==}
     dependencies:
       '@types/mdast': 3.0.15
       unified: 10.1.2
