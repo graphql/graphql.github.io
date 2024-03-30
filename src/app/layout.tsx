@@ -1,6 +1,7 @@
 import { ReactElement, ReactNode } from "react"
 import { Metadata } from "next"
 import { Roboto_Flex } from "next/font/google"
+import GoogleAnalytics from "@/app/ga"
 import "../globals.css"
 
 const font = Roboto_Flex({
@@ -31,7 +32,10 @@ export default function RootLayout({
       <head>
         <style>{`html { scroll-padding-top: 5rem }`}</style>
       </head>
-      <body className="bg-conf-black">{children}</body>
+      <body className="bg-conf-black">
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   )
 }
