@@ -22,7 +22,9 @@ Then in JS:
 ```js
 import { Microfiber } from 'microfiber'
 
-const introspectionQueryResults = {...}
+const introspectionQueryResults = {
+  // ...
+}
 
 const microfiber = new Microfiber(introspectionQueryResults)
 

@@ -54,6 +54,7 @@ module.exports = {
       plugins: ["mdx"],
       parserOptions: {
         ecmaVersion: 13,
+        sourceType: "module",
       },
       settings: {
         "mdx/code-blocks": true,
@@ -66,6 +67,7 @@ module.exports = {
         "no-undef": "off",
         "no-redeclare": "off",
         "no-import-assign": "off",
+        "no-prototype-builtins": "off",
       },
     },
   ],

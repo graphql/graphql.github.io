@@ -80,7 +80,6 @@ Luckily, this takes only a little more effort: customization of mock data is rea
 It lets you do all of the following and more:
 
 ```js
-
 // customize mocking per type (i.e. Integer, Float, String)
 mockServer(schema, {
   Int: () => 6,
@@ -102,7 +101,7 @@ mockServer(schema, {
     // a list of length between 2 and 6
     friends: () => new MockList([2,6]),
     // a list of three lists of two items: [[1, 1], [2, 2], [3, 3]]
-    listOfLists: () => new MockList(3, () => new MockList(2)),
+    listOfLists: () => new MockList(3, () => new MockList(2))),
   }
 });
 
