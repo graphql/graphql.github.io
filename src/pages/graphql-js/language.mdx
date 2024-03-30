@@ -13,71 +13,70 @@ var { Source } = require("graphql") // CommonJS
 
 ### Source
 
-<ul class="apiIndex">
+<ul className="apiIndex">
   <li>
     <a href="#source">
-      <pre>class Source</pre> Represents the input string to the GraphQL server
+      `class Source` Represents the input string to the GraphQL server
     </a>
   </li>
   <li>
     <a href="#getlocation">
-      <pre>function getLocation</pre> Converts a character offset to a row and column in the Source
+      `function getLocation` Converts a character offset to a row and column in the Source
     </a>
   </li>
 </ul>
 
 ### Lexer
 
-<ul class="apiIndex">
+<ul className="apiIndex">
   <li>
     <a href="#lex">
-      <pre>function lex</pre> Lexes a GraphQL Source according to the GraphQL Grammar
+      `function lex` Lexes a GraphQL Source according to the GraphQL Grammar
     </a>
   </li>
 </ul>
 
 ### Parser
 
-<ul class="apiIndex">
+<ul className="apiIndex">
   <li>
     <a href="#parse">
-      <pre>function parse</pre> Parses a GraphQL Source according to the GraphQL Grammar
+      `function parse` Parses a GraphQL Source according to the GraphQL Grammar
     </a>
   </li>
   <li>
     <a href="#parseValue">
-      <pre>function parseValue</pre> Parses a value according to the GraphQL Grammar
+      `function parseValue` Parses a value according to the GraphQL Grammar
     </a>
   </li>
   <li>
     <a href="#kind">
-      <pre>var Kind</pre> Represents the various kinds of parsed AST nodes.
+      `var Kind` Represents the various kinds of parsed AST nodes.
     </a>
   </li>
 </ul>
 
 ### Visitor
 
-<ul class="apiIndex">
+<ul className="apiIndex">
   <li>
     <a href="#visit">
-      <pre>function visit</pre> A general-purpose visitor to traverse a parsed GraphQL AST
+      `function visit` A general-purpose visitor to traverse a parsed GraphQL AST
     </a>
   </li>
   <li>
     <a href="#break">
-      <pre>var BREAK</pre> A token to allow breaking out of the visitor.
+      `var BREAK` A token to allow breaking out of the visitor.
     </a>
   </li>
 </ul>
 
 ### Printer
 
-<ul class="apiIndex">
+<ul className="apiIndex">
   <li>
     <a href="#print">
-      <pre>function print</pre>
-      Prints an AST in a standard format.
+      `function print` Prints an AST in a standard format.
     </a>
   </li>
 </ul>
@@ -169,13 +168,13 @@ Throws GraphQLError if a syntax error is encountered.
 This is useful within tools that operate upon GraphQL Values directly and
 in isolation of complete GraphQL documents.
 
-### Kind
+### `Kind`
 
 An enum that describes the different kinds of AST nodes.
 
 ## Visitor
 
-### visit
+### `visit`
 
 ```ts
 function visit(root, visitor, keyMap)
