@@ -114,100 +114,61 @@ export function Venue() {
           {
             title: "Public Transportation",
             icon: TrainIcon,
-            content: (
-              <div>
-                <a href="https://samtrans.com" target="_blank" rel="noreferrer">
-                  SamTrans
-                </a>
-                <p>
-                  Service from Burlingame to San Francisco is available for $5
-                  (adults) or $2.50 youth and seniors.
-                </p>
-                <a href="https://bart.gov" target="_blank" rel="noreferrer">
-                  Bay Area Rapid Transit (BART)
-                </a>
-                <p>
-                  Take the Hyatt Shuttle Bus to/from SFO International Terminal
-                  to connect with BART. Approximate cost from the station to
-                  downtown San Francisco is $8.65 one-way.
-                </p>
-              </div>
-            ),
+            content: <></>,
           },
           {
             title: "Airport Information",
             icon: AroundIcon,
             content: (
-              <div>
-                <a href="https://flysfo.com" target="_blank" rel="noreferrer">
+              <>
+                <a href="#" target="_blank" rel="noreferrer">
                   San Francisco International Airport (SFO)
                 </a>
-                <p>
-                  Drive time from venue: 7 mins.
-                  <br />
-                  Distance from venue: 3.1 miles.
-                </p>
-                <a
-                  href="https://www.google.com/maps/dir/San+Francisco+International+Airport+(SFO),+San+Francisco,+CA/Hyatt+Regency+San+Francisco+Airport,+1333+Old+Bayshore+Hwy,+Burlingame,+CA+94010/@37.6056719,-122.3979086,14z/am=t/data=!4m14!4m13!1m5!1m1!1s0x808f778c55555555:0xa4f25c571acded3f!2m2!1d-122.3789554!2d37.6213129!1m5!1m1!1s0x808f762dd36adc25:0x66d848e8e05f3445!2m2!1d-122.3651261!2d37.5938725!3e0?shorturl=1"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <br />
+                Drive Time From Venue: Approximately 35 minutes
+                <br />
+                Distance from Venue: 14.5 miles
+                <br />
+                <a href="#" target="_blank" rel="noreferrer">
                   Driving Directions from SFO to Venue
                 </a>
-              </div>
+                <br />
+                <br />
+                <a href="#" target="_blank" rel="noreferrer">
+                  Oakland Internation Airport (OAK)
+                </a>
+                <br />
+                Drive Time From Venue: Approximately 36 minutes
+                <br />
+                Distance from Venue: 20 miles
+                <br />
+                <a href="#" target="_blank" rel="noreferrer">
+                  Driving Directions from OAK to Venue
+                </a>
+              </>
             ),
           },
           {
             title: "Parking",
             icon: ParkingIcon,
             content: (
-              <div>
+              <>
+                At Venue: Valet parking available onsite for $73 daily
+                <br />
+                Nearby:{" "}
                 <a
-                  href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu"
+                  href="https://sfcitypark.com/parking-locations.html"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  The Hyatt Regency SFO offers self-parking
-                </a>
-                <p className="font-bold mb-6">Self-Parking:</p>
-                0-1 hour: $12
-                <br />
-                1-6 hours: $22/hour
-                <br />
-                6+ hours or overnight: $40/night
-              </div>
-            ),
-          },
-          {
-            title: "Complimentary Shuttle Service",
-            icon: BusIcon,
-            content: (
-              <div>
-                <a
-                  href="https://www.hyatt.com/en-US/hotel/california/hyatt-regency-san-francisco-airport/sfobu?src=adm_sem_crp_chico_crp_ppc_NAM-UnitedStates-CA-Burlingame-HR-SFOBU_google_Evergreen2022_e_hyatt%20regency%20sfo"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Hyatt Regency SFO
-                </a>
-                <p>
-                  The Hyatt Regency SFO offers a <span>24-hour</span>{" "}
-                  complimentary San Francisco International Airport (SFO)
-                  shuttle which runs every <span>15 minutes</span> from{" "}
-                  <span>4:00AM until 1:00AM</span> and
-                  <span> every 30 minutes</span> from{" "}
-                  <span>1:00AM until 4:00AM</span>. At SFO, go to the area
-                  marked "Hotel Shuttle." The bus is marked "Hyatt Regency and
-                  Marriott.”
-                </p>
-              </div>
+                  Prestige Park Parking Garage
+                </a>{" "}
+                - 490 Post Street (entrance at 520 Mason Street)
+              </>
             ),
           },
         ].map(o => (
-          <div
-            key={o.title}
-            className="flex-1 text-lg [&_a]:block [&_a]:text-lg [&_a]:mt-6 [&_a]:mb-3"
-          >
+          <div key={o.title} className="flex-1 text-lg">
             <o.icon className="fill-primary h-16 w-auto" />
             <h1 className="my-3 sm:text-2xl text-xl font-medium">{o.title}</h1>
             {o.content}
