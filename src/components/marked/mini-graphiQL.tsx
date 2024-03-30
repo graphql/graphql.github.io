@@ -76,7 +76,7 @@ export class MiniGraphiQL extends Component {
 
   async _runQuery() {
     this._editorQueryID++
-    var queryID = this._editorQueryID
+    const queryID = this._editorQueryID
     try {
       const result = await graphql({
         schema: this.props.schema,
@@ -139,7 +139,7 @@ class QueryEditor extends Component {
   }
 
   componentDidMount() {
-    var CodeMirror = require("codemirror")
+    const CodeMirror = require("codemirror")
     require("codemirror/addon/hint/show-hint")
     require("codemirror/addon/comment/comment")
     require("codemirror/addon/edit/matchbrackets")
@@ -230,7 +230,7 @@ class QueryEditor extends Component {
   }
 
   _onKeyUp(cm, event) {
-    var code = event.keyCode
+    const code = event.keyCode
     if (
       (code >= 65 && code <= 90) || // letters
       (!event.shiftKey && code >= 48 && code <= 57) || // numbers
@@ -272,7 +272,7 @@ class QueryEditor extends Component {
  */
 class ResultViewer extends Component {
   componentDidMount() {
-    var CodeMirror = require("codemirror")
+    const CodeMirror = require("codemirror")
     require("codemirror-graphql/results/mode")
 
     this.viewer = CodeMirror(this.domNode, {
@@ -464,9 +464,9 @@ class VariableEditor extends Component {
  * about the type and description for the selected context.
  */
 function onHasCompletion(cm, data, onHintInformationRender) {
-  var CodeMirror = require("codemirror")
-  var wrapper
-  var information
+  const CodeMirror = require("codemirror")
+  let wrapper
+  let information
 
   // When a hint result is selected, we touch the UI.
   CodeMirror.on(data, "select", (ctx, el) => {
@@ -474,8 +474,8 @@ function onHasCompletion(cm, data, onHintInformationRender) {
     // do we create the wrapping node.
     if (!wrapper) {
       // Wrap the existing hint UI, so we have a place to put information.
-      var hintsUl = el.parentNode
-      var container = hintsUl.parentNode
+      const hintsUl = el.parentNode
+      const container = hintsUl.parentNode
       wrapper = document.createElement("div")
       container.appendChild(wrapper)
 
@@ -483,9 +483,9 @@ function onHasCompletion(cm, data, onHintInformationRender) {
       // space below the cursor. Since this modified UI appends to the bottom
       // of CodeMirror's existing UI, it could cover the cursor. This adjusts
       // the positioning of the hint UI to accomodate.
-      var top = hintsUl.style.top
-      var bottom = ""
-      var cursorTop = cm.cursorCoords().top
+      let top = hintsUl.style.top
+      let bottom = ""
+      const cursorTop = cm.cursorCoords().top
       if (parseInt(top, 10) < cursorTop) {
         top = ""
         bottom = window.innerHeight - cursorTop + 3 + "px"
@@ -516,7 +516,7 @@ function onHasCompletion(cm, data, onHintInformationRender) {
       // When CodeMirror attempts to remove the hint UI, we detect that it was
       // removed from our wrapper and in turn remove the wrapper from the
       // original container.
-      var onRemoveFn
+      let onRemoveFn
       wrapper.addEventListener(
         "DOMNodeRemoved",
         (onRemoveFn = event => {
@@ -532,10 +532,10 @@ function onHasCompletion(cm, data, onHintInformationRender) {
     }
 
     // Now that the UI has been set up, add info to information.
-    var description = ctx.description
+    const description = ctx.description
       ? marked(ctx.description, { smartypants: true })
       : "Self descriptive."
-    var type = ctx.type
+    const type = ctx.type
       ? '<span class="infoType">' + String(ctx.type) + "</span>"
       : ""
     information.innerHTML =

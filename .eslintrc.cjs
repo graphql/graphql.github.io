@@ -30,9 +30,7 @@ module.exports = {
           },
         ],
         // TODO: fix below
-        "no-var": "off",
         "no-useless-escape": "off",
-        "prefer-const": "off",
         "prefer-rest-params": "off",
         "prefer-spread": "off",
         "@typescript-eslint/no-explicit-any": "off",

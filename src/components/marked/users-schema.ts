@@ -9,7 +9,7 @@ import {
 } from "graphql"
 
 // Example data set
-var data = ppl({
+const data = ppl({
   1572451031: "Daniel Schafer",
   4802170: "Lee Byron",
   37000641: "Nick Schrock",
@@ -46,7 +46,7 @@ function makePic(user, size) {
 
 // @ts-expect-error -- fixme
 function friends(user, first) {
-  var allFriends = Object.keys(data)
+  const allFriends = Object.keys(data)
     .map(id => data[id])
     .filter(v => v !== user)
   return {
@@ -55,7 +55,7 @@ function friends(user, first) {
   }
 }
 
-var ImageType = new GraphQLObjectType({
+const ImageType = new GraphQLObjectType({
   name: "Image",
   fields: {
     width: { type: GraphQLInt },
@@ -65,7 +65,7 @@ var ImageType = new GraphQLObjectType({
 })
 
 // @ts-expect-error -- fixme
-var FriendConnection = new GraphQLObjectType({
+const FriendConnection = new GraphQLObjectType({
   name: "FriendConnection",
   fields: () => ({
     totalCount: { type: GraphQLInt },
@@ -74,7 +74,7 @@ var FriendConnection = new GraphQLObjectType({
 })
 
 // @ts-expect-error -- fixme
-var UserType = new GraphQLObjectType({
+const UserType = new GraphQLObjectType({
   name: "User",
   fields: {
     id: { type: GraphQLID },
