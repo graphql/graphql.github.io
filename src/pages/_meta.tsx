@@ -33,12 +33,6 @@ export default {
     type: "page",
     title: "FAQ",
   },
-  spec: {
-    type: "page",
-    title: <span className="after:content-['_↗'] after:font-sans">Spec</span>,
-    href: "https://spec.graphql.org",
-    newWindow: true,
-  },
   blog: {
     type: "page",
     title: "Blog",
