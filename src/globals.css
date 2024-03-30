@@ -341,7 +341,7 @@ div[id^="headlessui-menu-items"] {
 }
 
 .index-button {
-  @apply border border-black dark:border-current rounded-md transition-colors py-2.5 px-6;
+  @apply border border-current rounded-md transition-colors py-2.5 px-6;
 
   &:hover,
   &:focus {
