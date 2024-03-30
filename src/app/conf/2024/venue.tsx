@@ -2,6 +2,10 @@ import { TrainIcon, AroundIcon, ParkingIcon, BusIcon } from "@/icons"
 import NextImage from "next-image-export-optimizer"
 import cityViewImage from "./sf-city-view.jpeg"
 
+const classes = {
+  heading: 'mb-6 sm:text-2xl text-xl font-bold'
+}
+
 export function Venue() {
   return (
     <div
@@ -11,9 +15,9 @@ export function Venue() {
       <h1 className="md:text-center mb-5 lg:mb-20 conf-heading">
         Location &amp; Venue
       </h1>
-      <div className="grid lg:grid-cols-2 lg:gap-14">
+      <div className="grid lg:grid-cols-2 lg:gap-14 text-lg">
         <div>
-          <h3 className="sm:text-2xl text-xl font-medium mt-6 mb-4">
+          <h3 className={classes.heading}>
             Venue Information
           </h3>
           <a
@@ -34,7 +38,7 @@ export function Venue() {
           />
         </div>
         <div>
-          <h3 className="sm:text-2xl text-xl font-medium mt-6 mb-4">
+          <h3 className={classes.heading}>
             Hotel Information
           </h3>
           Hotel Information Coming Soon!
@@ -59,7 +63,7 @@ export function Venue() {
           .
         </div>
       </div>
-      <div className="flex max-lg:flex-col w-full gap-14 pt-16">
+      <div className="flex text-lg max-lg:flex-col w-full gap-14 pt-16">
         {[
           {
             title: "Public Transportation",
@@ -68,21 +72,21 @@ export function Venue() {
               <>
                 Bus Station
                 <br />
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="http://greyhound.com" target="_blank" rel="noreferrer">
                   San Francisco Greyhound Station
                 </a>
                 <br />
                 <br />
                 Subway Station
                 <br />
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview/#:~:text=Powell%20Street%20BART%20Station" target="_blank" rel="noreferrer">
                   Powell Street BART Station
                 </a>
                 <br />
                 <br />
                 Train Station
                 <br />
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="https://amtrak.com/san-francisco-bay-area-northern-california-train-routes" target="_blank" rel="noreferrer">
                   Amtrak
                 </a>
               </>
@@ -93,7 +97,7 @@ export function Venue() {
             icon: AroundIcon,
             content: (
               <>
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="https://flysfo.com" target="_blank" rel="noreferrer">
                   San Francisco International Airport (SFO)
                 </a>
                 <br />
@@ -101,12 +105,12 @@ export function Venue() {
                 <br />
                 Distance from Venue: 14.5 miles
                 <br />
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="https://maps.app.goo.gl/qWMsVAkjy7aV7W2p9" target="_blank" rel="noreferrer">
                   Driving Directions from SFO to Venue
                 </a>
                 <br />
                 <br />
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="http://oaklandairport.com" target="_blank" rel="noreferrer">
                   Oakland Internation Airport (OAK)
                 </a>
                 <br />
@@ -114,7 +118,7 @@ export function Venue() {
                 <br />
                 Distance from Venue: 20 miles
                 <br />
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="https://maps.app.goo.gl/qfhWf4DqExRhmZSeA" target="_blank" rel="noreferrer">
                   Driving Directions from OAK to Venue
                 </a>
               </>
@@ -140,9 +144,9 @@ export function Venue() {
             ),
           },
         ].map(o => (
-          <div key={o.title} className="flex-1 text-lg">
-            <o.icon className="fill-primary h-16 w-auto" />
-            <h1 className="my-3 sm:text-2xl text-xl font-medium">{o.title}</h1>
+          <div key={o.title} className="flex-1">
+            <o.icon className="fill-primary h-16 w-auto mb-4" />
+            <h3 className={classes.heading}>{o.title}</h3>
             {o.content}
           </div>
         ))}
