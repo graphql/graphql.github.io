@@ -1,26 +1,14 @@
 /* eslint-env node */
 
+const CODE_EXT = "js,jsx,cjs,mjs,ts,tsx,cts,mts"
+
+const MARKDOWN_EXT = "md,mdx"
+
 module.exports = {
   root: true,
   overrides: [
     {
-      files: '*.md{,x}',
-      parser: 'eslint-mdx',
-      processor: 'mdx/remark',
-      plugins: ['mdx'],
-      extends: ['./base', './react-base'],
-      parserOptions: {
-        ecmaVersion: 13,
-      },
-      rules: {
-
-      },
-      settings: {
-        'mdx/code-blocks': true,
-      },
-    },
-    {
-      files: ["**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}"],
+      files: [`**/*.{${CODE_EXT}}`],
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -57,6 +45,27 @@ module.exports = {
         tailwindcss: {
           whitelist: ["roboto-mono"],
         },
+      },
+    },
+    {
+      files: [`**/*.{${MARKDOWN_EXT}}`],
+      parser: "eslint-mdx",
+      processor: "mdx/remark",
+      plugins: ["mdx"],
+      parserOptions: {
+        ecmaVersion: 13,
+      },
+      settings: {
+        "mdx/code-blocks": true,
+      },
+    },
+    {
+      files: [`**/*.{${MARKDOWN_EXT}}/*.{${CODE_EXT}}`],
+      rules: {
+        "no-unused-labels": "off",
+        "no-undef": "off",
+        "no-redeclare": "off",
+        "no-import-assign": "off",
       },
     },
   ],
