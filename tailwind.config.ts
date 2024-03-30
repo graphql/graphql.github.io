@@ -34,8 +34,5 @@ const config: Config = {
   },
   plugins: [typography],
   darkMode: ["class", 'html[class~="dark"]'],
-  blocklist: [
-    "h-dvh", // we override this class in globals.css
-  ],
 }
 export default config
