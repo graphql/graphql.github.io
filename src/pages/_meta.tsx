@@ -21,7 +21,7 @@ export default {
     title: "Community",
     items: {
       index: {
-        title: "Community Resources",
+        title: "Resources",
         href: "/community/resources/official-channels",
       },
       events: { title: "Events & Meetups" },
