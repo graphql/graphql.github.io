@@ -37,7 +37,10 @@ export function Hero() {
           </div>
         </section>
 
-        <Link className="text-white border-white index-button block w-fit mx-auto mt-10" href="/learn">
+        <Link
+          className="text-white border-white index-button block w-fit mx-auto mt-10"
+          href="/learn"
+        >
           Get Started
         </Link>
       </div>
