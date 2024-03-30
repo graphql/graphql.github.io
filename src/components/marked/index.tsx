@@ -18,7 +18,7 @@ export function Marked(props: { children: string }) {
  * Block-Level Grammar
  */
 
-var block = {
+const block = {
   newline: /^\n+/,
   code: /^( {4}[^\n]+\n*)+/,
   fences: noop,
@@ -124,7 +124,7 @@ Lexer.rules = block
  */
 
 Lexer.lex = function (src, options) {
-  var lexer = new Lexer(options)
+  const lexer = new Lexer(options)
   return lexer.lex(src)
 }
 
@@ -437,7 +437,7 @@ Lexer.prototype.token = function (src, top) {
  * Inline-Level Grammar
  */
 
-var inline = {
+const inline = {
   escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
   autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
   url: noop,
@@ -533,7 +533,7 @@ InlineLexer.rules = inline
  */
 
 InlineLexer.output = function (src, links, options) {
-  var inline = new InlineLexer(links, options)
+  const inline = new InlineLexer(links, options)
   return inline.output(src)
 }
 
@@ -542,7 +542,7 @@ InlineLexer.output = function (src, links, options) {
  */
 
 InlineLexer.prototype.output = function (src) {
-  var out = [],
+  let out = [],
     link,
     text,
     href,
@@ -686,7 +686,7 @@ InlineLexer.prototype.output = function (src) {
 InlineLexer.prototype.sanitizeUrl = function (url) {
   if (this.options.sanitize) {
     try {
-      var prot = decodeURIComponent(url)
+      const prot = decodeURIComponent(url)
         .replace(/[^A-Za-z0-9:]/g, "")
         .toLowerCase()
       if (prot.indexOf("javascript:") === 0) {
@@ -705,7 +705,7 @@ InlineLexer.prototype.sanitizeUrl = function (url) {
 
 InlineLexer.prototype.outputLink = function (cap, link) {
   if (cap[0][0] !== "!") {
-    var shouldOpenInNewWindow =
+    const shouldOpenInNewWindow =
       link.href.charAt(0) !== "/" && link.href.charAt(0) !== "#"
 
     return createElement(
@@ -762,7 +762,7 @@ function Parser(options) {
  */
 
 Parser.parse = function (src, options) {
-  var parser = new Parser(options)
+  const parser = new Parser(options)
   return parser.parse(src)
 }
 
@@ -774,7 +774,7 @@ Parser.prototype.parse = function (src) {
   this.inline = new InlineLexer(src.links, this.options)
   this.tokens = src.reverse()
 
-  var out = []
+  const out = []
   while (this.next()) {
     out.push(this.tok())
   }
@@ -803,7 +803,7 @@ Parser.prototype.peek = function () {
  */
 
 Parser.prototype.parseText = function () {
-  var body = this.token.text
+  let body = this.token.text
 
   while (this.peek().type === "text") {
     body += "\n" + this.next().text
@@ -820,18 +820,18 @@ Parser.prototype.tok = function () {
   switch (this.token.type) {
     case "code": {
       if (this.token.lang === "graphql") {
-        var lines = this.token.text.split("\n")
-        var firstLine = lines.shift().match(/^\s*#\s*({.*})$/)
+        const lines = this.token.text.split("\n")
+        const firstLine = lines.shift().match(/^\s*#\s*({.*})$/)
         if (firstLine) {
-          var metaData
+          let metaData
           try {
             metaData = JSON.parse(firstLine[1])
           } catch (e) {
             console.error("Invalid Metadata JSON:", firstLine[1])
           }
           if (metaData) {
-            var query = lines.join("\n")
-            var variables = metaData.variables
+            const query = lines.join("\n")
+            const variables = metaData.variables
               ? JSON.stringify(metaData.variables, null, 2)
               : ""
             const schemaMap = {
@@ -871,7 +871,7 @@ function noop() {}
 noop.exec = noop
 
 function merge(obj) {
-  var i = 1,
+  let i = 1,
     target,
     key
 
@@ -900,7 +900,7 @@ function marked(src, opt, callback) {
 
     if (opt) opt = merge({}, marked.defaults, opt)
 
-    var highlight = opt.highlight,
+    let highlight = opt.highlight,
       tokens,
       pending,
       i = 0
@@ -913,8 +913,8 @@ function marked(src, opt, callback) {
 
     pending = tokens.length
 
-    var done = function (hi) {
-      var out, err
+    const done = function (hi) {
+      let out, err
 
       if (hi !== true) {
         delete opt.highlight

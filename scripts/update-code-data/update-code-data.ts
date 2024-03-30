@@ -24,7 +24,7 @@ export async function updateCodeData(
   markdownFilePaths: string[],
   slugMap: string,
 ): Promise<CodeData> {
-  let codeData = {} as CodeData
+  const codeData = {} as CodeData
   await Promise.all(
     markdownFilePaths.map(async markdownFilePath => {
       const markdownFileContent = await readFile(markdownFilePath, "utf-8")
