@@ -149,7 +149,6 @@ function Footer() {
             Powered by{" "}
             <svg
               viewBox="0 0 361 70"
-              xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
               className="shrink-0 h-3"
             >
