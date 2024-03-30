@@ -14,9 +14,31 @@ export function Venue() {
       <div className="grid lg:grid-cols-2 lg:gap-14">
         <div>
           <h3 className="sm:text-2xl text-xl font-medium mt-6 mb-4">
+            Venue Information
+          </h3>
+          <a
+            href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview"
+            target="_blank"
+            rel="noreferrer"
+          >
+            JW Marriott San Francisco Union Square
+          </a>
+          <br />
+          515 Mason Street
+          <br />
+          San Francisco, CA 94102
+          <NextImage
+            src={cityViewImage}
+            alt="San Francisco city view"
+            className="object-cover aspect-video rounded-md my-8 mx-auto"
+          />
+        </div>
+        <div>
+          <h3 className="sm:text-2xl text-xl font-medium mt-6 mb-4">
             Hotel Information
           </h3>
           Hotel Information Coming Soon!
+          <br />
           <br />
           <br />
           Please note, rooms will most likely sell out in advance of the room
@@ -35,28 +57,6 @@ export function Venue() {
             housing@linuxfoundation.org
           </a>
           .
-        </div>
-        <div>
-          <h3 className="sm:text-2xl text-xl font-medium mt-6 mb-4">
-            Venue Information
-          </h3>
-          <a
-            href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview"
-            target="_blank"
-            rel="noreferrer"
-          >
-            JW Marriott San Francisco Union Square
-          </a>
-          <br />
-          515 Mason Street
-          <br />
-          San Francisco, CA 94102
-
-          <NextImage
-            src={cityViewImage}
-            alt="San Francisco city view"
-            className="object-cover aspect-video rounded-md my-8 mx-auto"
-          />
         </div>
       </div>
       <div className="flex max-lg:flex-col w-full gap-14 pt-16">
