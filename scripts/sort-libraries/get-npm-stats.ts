@@ -11,13 +11,13 @@ export async function getNpmStats(packageName: string): Promise<number> {
   try {
     const response = await fetch(
       `https://api.npmjs.org/downloads/point/last-week/${encodeURIComponent(
-        packageName
-      )}`
+        packageName,
+      )}`,
     )
 
     if (!response.ok) {
       console.warn(
-        `Error fetching NPM stats for ${packageName}. Status: ${response.status}`
+        `Error fetching NPM stats for ${packageName}. Status: ${response.status}`,
       )
       return 0
     }

@@ -1,0 +1,21 @@
+```graphql word-wrap=false filename="Query"
+{
+  hero {
+    name
+    friends {
+      name
+      homeWorld {
+        name
+        climate
+      }
+      species {
+        name
+        lifespan
+        origin {
+          name
+        }
+      }
+    }
+  }
+}
+```

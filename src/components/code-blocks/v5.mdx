@@ -1,0 +1,16 @@
+```graphql word-wrap=false
+type Film {
+  title: String
+  episode: Int
+  releaseDate: String
+  openingCrawl: String
+  director: String @deprecated
+  directedBy: Person
+}
+
+type Person {
+  name: String
+  directed: [Film]
+  actedIn: [Film]
+}
+```

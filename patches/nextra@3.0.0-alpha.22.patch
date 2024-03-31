@@ -1,0 +1,11 @@
+diff --git a/dist/client/mdx.js b/dist/client/mdx.js
+index af0891e3c2084edd326f40e6e18107b193640e0b..885858fa17285fb75649cf0ebd2576d1411c1076 100644
+--- a/dist/client/mdx.js
++++ b/dist/client/mdx.js
+@@ -1,5 +1,5 @@
+ import { useMDXComponents as originalUseMDXComponents } from "@mdx-js/react";
+-import Image from "next/image";
++import Image from "next-image-export-optimizer";
+ import { createElement } from "react";
+ const DEFAULT_COMPONENTS = {
+   img: (props) => createElement(

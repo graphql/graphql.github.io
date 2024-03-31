@@ -1,0 +1,245 @@
+import { Rubik } from 'next/font/google'
+import NextImage from 'next-image-export-optimizer'
+import { useState } from 'react'
+import graphqlLogo from '../../public/img/logo.svg'
+import graphqlLogoWhite from '../../public/img/brand/logos/logo-white.svg'
+import graphqlLogoBlack from '../../public/img/brand/logos/logo-black.svg'
+import graphqlLogoDontColor from '../../public/img/brand/logo-dont/dont-color.svg'
+import graphqlLogoDontGradient from '../../public/img/brand/logo-dont/dont-gradient.svg'
+import graphqlLogoDontWordmark from '../../public/img/brand/logo-dont/dont-color-wordmark.svg'
+
+export const font = Rubik({
+  weight: ['300'],
+  subsets: ['latin']
+})
+
+# GraphQL Logo & Brand Guidelines
+
+Here you'll find dos and don’ts for use of the GraphQL brand and
+GraphQL logo files in supported arrangement and colors.
+
+"GraphQL" is a trademark managed by the [GraphQL Foundation](/foundation).
+Use of the trademark and logo are subject to the
+[LF Projects trademark policy](https://lfprojects.org/policies/trademark-policy).
+
+Certain fair use of the GraphQL mark are pre-approved, such as factual
+references to the project. Others require permission first, such as
+apparel for sale or any other commercial purpose, using the word
+GraphQL in domain names, or using the mark on printed materials, to
+name a few. You can find a more comprehensive list in the trademark
+policy.
+
+Please email [info@graphql.org](mailto:info@graphql.org?subject=Trademark%20Request) with any questions or requests.
+
+## The GraphQL&trade; Trademark
+
+The word "GraphQL" may only be used to refer to the GraphQL project
+and technologies which conform to the [GraphQL specification](https://spec.graphql.org).
+
+<style global jsx>{`
+.rhodamine-sample {
+  font-family: ${font.style.fontFamily};
+  font-weight: ${font.style.fontWeight};
+  padding: 1em;
+}
+.rhodamine-sample a { color: inherit; }
+.rhodamine-sample dl dd { grid-column-start: 2; }
+.rhodamine-sample dl {
+  margin: 0.5em 0;
+  font-size: .9rem;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.rhodamine-sample dl dt {
+  grid-column-start: 1;
+  padding-right: 2em;
+}
+`}</style>
+
+<div className="grid md:grid-cols-2 md:gap-5">
+<div className="dos">
+- _Do_ keep the "GraphQL" word consistent, with the first letter and QL capitalized.
+- _Do_ use "GraphQL" to clearly describe the GraphQL project or a conforming technology.
+  - GraphQL for Go
+  - Quick Start to GraphQL by &lt;company&gt;
+- _Do_ provide clear attribution for projects, services and events, balancing "GraphQL" with your own brand.
+  - &lt;service&gt; for GraphQL by &lt;company&gt;
+  - Seattle GraphQL Meetup hosted by &lt;company&gt;
+</div>
+<div className="donts">
+- _Don't_ lowercase or abbreviate "GraphQL" (for example "Graphql" or "GQL").
+- _Don't_ directly combine “GraphQL” with another trademark or generic term.
+  - Go GraphQL
+  - GraphQL Quick Start by &lt;company&gt;
+- _Don't_ use "GraphQL" in a way that could imply partnership, sponsorship, or endorsement by the GraphQL project or GraphQL Foundation either directly or by omission.
+- _Don't_ use the GraphQL brand disparagingly or in any other way that violates our [code of conduct](/codeofconduct).
+</div>
+</div>
+
+## Color & Typeface
+
+Our core color is called Rhodamine.
+
+The GraphQL wordmark and headlines are set in Rubik Light.
+
+<div className="flex gap-5 mt-6 max-sm:flex-col">
+<div className="rhodamine-sample bg-primary text-lg text-white">
+Rhodamine
+<dl>
+  <dt>P3</dt><dd>0.8824, 0, 0.5961</dd>
+  <dt>RGB</dt><dd>225, 0, 152 / #E10098</dd>
+  <dt>PMS</dt><dd>[Rhodamine Red C](https://pantone.com/color-finder/Rhodamine-Red-C)</dd>
+  <dt>CMYK</dt><dd>5, 92, 0, 0</dd>
+</dl>
+</div>
+<div className="rhodamine-sample bg-gray-100 dark:text-black">
+[Rubik Light](https://fonts.google.com/specimen/Rubik?sidebar.open=true&selection.family=Rubik:wght@300&preview.text=GraphQL&preview.text_type=custom)
+<dl>
+  <dt>Weight</dt><dd>300</dd>
+  <dt>License</dt><dd>[Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)</dd>
+</dl>
+<div className="text-4xl">GraphQL &Aring;BC&oslash;rm123</div>
+</div>
+</div>
+
+<div className="grid md:grid-cols-2 md:gap-5">
+<div className="dos">
+- _Do_ use Rhodamine alongside grayscale or neutral colors.
+- _Do_ prefer the P3 wide gamut color over RGB in digital; the PMS spot color over CMYK process in&nbsp;print.
+- _Do_ use Rubik Light with optical kerning and standard letter spacing.
+</div>
+<div className="donts">
+- _Don't_ use Rhodamine for large background areas.
+- _Don't_ directly combine Rhodamine with other bright or saturated colors.
+- _Don't_ bold, italicize, or alter the letter spacing of the GraphQL wordmark.
+</div>
+</div>
+
+## GraphQL Logo & Hexagraph
+
+Our logomark is called the "hexagraph". The GraphQL logo is composed
+of the hexagraph and the GraphQL wordmark set in Rubik Light.
+
+<div className="flex gap-3 [&_img]:min-w-0 mt-6">
+  <div className="bg-gray-100 flex p-4 sm:p-10">
+     <>![GraphQL logo](/img/brand/logos/logo.svg)</>
+  </div>
+  <div className="flex bg-gray-100 p-4 sm:p-10 gap-4 sm:gap-10">
+    <div className="flex flex-col gap-4 sm:gap-10">
+      <>![GraphQL logo with wordmark](/img/brand/logos/logo-wordmark.svg)</>
+      <>![GraphQL Foundation logo wordmark](/img/brand/logos/logo-foundation-wordmark.svg)</>
+    </div>
+    <div className="flex gap-4 sm:gap-10">
+      <>![GraphQL logo stacked](/img/brand/logos/logo-stacked.svg)</>
+      <>![GraphQL Foundation logo stacked](/img/brand/logos/logo-foundation-stacked.svg)</>
+    </div>
+  </div>
+</div>
+
+<div className="dos">
+- _Do_ prefer the horizontal logo, but use the stacked logo at larger sizes.
+- _Do_ use the provided assets, don't redraw the hexgraph.
+</div>
+
+<div className="donts donts-images">
+- <div>_Don't_ rotate or stretch the hexagraph. Position the inner triangle pointing upwards.</div>
+<>![](/img/brand/logo-dont/dont-rotate.svg)</>
+<>![](/img/brand/logo-dont/dont-stretch.svg)</>
+- <div>_Don't_ remove or add any elements within the hexagraph, or combine with another logo.</div>
+<>![](/img/brand/logo-dont/dont-remove.svg)</>
+<>![](/img/brand/logo-dont/dont-add.svg)</>
+- <div>_Don't_ decorate or add effects to any part of the logo.</div>
+<>![](/img/brand/logo-dont/dont-decorate.svg)</>
+<>![](/img/brand/logo-dont/dont-effect.svg)</>
+- <div>_Don't_ resize or reposition elements of the hexagraph.</div>
+<>![](/img/brand/logo-dont/dont-resize-1.svg)</>
+<>![](/img/brand/logo-dont/dont-resize-2.svg)</>
+- <div>_Don't_ resize or reposition the wordmark relative to the hexagraph.</div>
+<>![](/img/brand/logo-dont/dont-resize-wordmark.svg)</>
+- <div>_Don't_ change the typeface of the wordmark.</div>
+<>![](/img/brand/logo-dont/dont-change-typeface.svg)</>
+</div>
+
+### Spacing
+
+Give the logo some space to breathe. Keep a clear space of at least
+half the height of the hexagraph along on all sides.
+
+<div className="mt-6 flex flex-wrap justify-center *:max-h-36 *:w-auto gap-9">
+  <>![GraphQL Logo](/img/brand/logos/logo-space.svg)</>
+  <>![GraphQL Logo](/img/brand/logos/logo-wordmark-space.svg)</>
+</div>
+
+### Color use
+
+The GraphQL logo should appear in Rhodamine, white, or black. It may
+appear on any color background with the appropriate logo color.
+
+<div className="*:rounded-full mt-6 bg-gray-100 p-6 flex gap-6 *:p-6 flex-wrap justify-center">
+  <NextImage src={graphqlLogo} className="bg-white" />
+  <NextImage src={graphqlLogo} className="bg-gray-300" />
+  <NextImage src={graphqlLogo} className="bg-black" />
+  <NextImage src={graphqlLogoWhite} className="bg-primary" />
+  <NextImage src={graphqlLogoWhite} className="bg-black" />
+  <NextImage src={graphqlLogoWhite} className="bg-cyan-400" />
+  <NextImage src={graphqlLogoBlack} className="bg-white" />
+</div>
+
+<div className="dos">
+- _Do_ prefer Rhodamine on a white background, our default color combination.
+- _Do_ otherwise prefer use the white logo on most backgrounds unless contrast requires use of black.
+</div>
+
+<div className="*:h-[100px] *:w-auto *:rounded-full mt-6 bg-gray-100 p-6 inline-flex gap-6 *:p-6 flex-wrap justify-center">
+  <NextImage src={graphqlLogoBlack} className="bg-primary" />
+  <NextImage src={graphqlLogo} className="bg-cyan-400" />
+  <NextImage src={graphqlLogo} className="bg-[url(/img/brand/logo-dont/dont-complex-background.jpg)]" />
+  <NextImage src={graphqlLogoDontColor} className="bg-white" />
+  <NextImage src={graphqlLogoDontGradient} className="bg-white" />
+  <NextImage src={graphqlLogoDontWordmark} className="bg-white" />
+</div>
+
+<div className="donts">
+- _Don't_ use black on a background of Rhodamine.
+- _Don't_ use Rhodamine on a color or patterned background; use white instead.
+- _Don't_ use different colors or apply gradients to the logo.
+- _Don't_ use different colors for elements of the logo. Always use the same color for the hexagraph and wordmark.
+</div>
+
+---
+
+<AgreeActions/>
+
+export function AgreeActions() {
+  const [agree, setAgree] = useState(false);
+  return (
+    <div className="flex items-center flex-col gap-5 bg-zinc-100 dark:bg-zinc-800 p-5 border rounded">
+      <div className="flex gap-2">
+        <input
+          id="agree"
+          type="checkbox"
+          checked={agree}
+          onChange={(event) => setAgree(event.target.checked)}
+        />
+        <label htmlFor="agree" className="cursor-pointer">
+          I have read and accept the brand and trademark guidelines.
+        </label>
+      </div>
+      <a
+        {...(agree
+          ? { href: "/img/brand/graphql-brand-assets.zip" }
+          : { className: "cursor-not-allowed text-gray-500 dark:text-gray-400" })}
+      >
+          Download Logo Files
+      </a>
+      <a
+        {...(agree
+          ? { href: "mailto:info@graphql.org?subject=Trademark%20Request" }
+          : { className: "cursor-not-allowed text-gray-500 dark:text-gray-400" })}
+      >
+          Request Permission
+      </a>
+    </div>
+  );
+}

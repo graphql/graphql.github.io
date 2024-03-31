@@ -1,0 +1,15 @@
+```python word-wrap=false filename="Python"
+# type Character {
+class Character:
+  # name: String
+  def name(self):
+    return self._name
+
+  # homeWorld: Planet
+  def homeWorld(self):
+    return fetchHomeworld(self._homeworldID)
+
+  # friends: [Character]
+  def friends(self):
+    return map(fetchCharacter, self._friendIDs)
+```

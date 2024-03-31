@@ -1,0 +1,28 @@
+import { getPagesUnderRoute } from "nextra/context"
+import { buildDynamicMeta } from "nextra/remote"
+
+export async function getStaticProps({ params }) {
+  const { __nextra_pageMap } = await buildDynamicMeta()
+  return {
+    props: {
+      __nextra_pageMap,
+      __nextra_dynamic_opts: {
+        title: `Posts Tagged with “${params.slug}”`,
+        frontMatter: {}
+      }
+    }
+  }
+}
+
+export function getStaticPaths() {
+  const result = getPagesUnderRoute("/blog")
+  const tags = result.flatMap(item => item.frontMatter.tags)
+  return {
+    fallback: false,
+    paths: [...new Set(tags)].map(slug => ({ params: { slug } })),
+  }
+}
+
+import Blog from '../blog.mdx'
+
+<Blog/>

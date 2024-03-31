@@ -1,0 +1,26 @@
+---
+title: "Google Summer of Code 2020 Participant: Naman"
+tags: ["announcements"]
+date: 2020-06-30
+byline: Naman Kumar
+---
+
+![GSOC 2020](/img/logos/gsoc.svg)
+
+> [Naman Kumar](https://naman.sh) is a Computer Science & Engineering student from New Delhi, India and a FullStack Engineer at [ProductHunt](https://producthunt.com). He is selected for Google Summer of Code 2020 - GraphQL Foundation under the mentorship of [Ivan Goncharov](https://github.com/IvanGoncharov). In this post he will share his plans on how he is going to spend his summer contributing to the Graphql Foundation.
+
+Hi, GraphQL is a technology I use everyday at my work place and other projects building platforms with 200 to 2 million users. I am surely in love with it, acknowledging how much it improves the development speed and removes the overhead of documentation for starters.
+
+I have huge respect for Open Source organisations and really inspired by the work the whole graphql community is doing to make lives of developers easier. I have always wanted to participating in GSOC, which I assure you is a dream of every student.
+
+I got to know about the acceptance of Graphql Foundation under GSOC from Ivan’s [talk](https://www.youtube.com/watch?v=PsXxL1oJLrc&list=PLTRTpHrUcSB9jtvOwnq1yVwZl5k2DdBb2&index=24&t=0s) at GraphQL Asia Submit 2020. I was really excited about having a chance to contribute to the tools which are used not only by me but are powering applications used by billions of people on the planet.
+
+Having a keen interest in compiler design, the project idea of working on the [graphql.js](https://github.com/graphql/graphql-js/) reference parser looked really interesting to me. Fortunately being selected for the program, I am going to spend the summer of 2020 working on Graphql.js reference parser and [GraphiQL parser](https://github.com/graphql/graphiql/tree/main/packages/graphql-language-service-parser), to merge the two together. Graphql.js reference parser do not have streaming support or the best error recovery setup. The goal is to take inspiration from the GraphiQL parser and implement the streaming support in the reference parser so that it can be used by IDEs and other development tools.
+
+I spent the community bonding period getting to know both the people in the graphql community and getting myself familiar with the projects. I explored the code base and solved few minor bugs with the help of Ivan. The graphql.js reference parser which is well maintained has a really good code quality and readability which helped me gain it's understanding really quickly, on the other hand the GraphiQL parser with just 1000 lines of pure “old is gold” code base, implemented 3 years ago, looks difficult to grasp at first but with proper understanding is a very simple and cute state machine.
+
+Ivan and I also spent the time ideating about dividing the whole project into 3 milestones and breaking those into smaller goals. As the graphiql parser is not actively maintained and has zero test coverage it was really important to have the parser fully covered before we make any changes. Our goal was to enable the graphql.js parser be able to used by the IDEs and performance is a major factor we need to care about for that. Considering it, we also decided to do benchmarking of the GraphiQL parser. Ergo the first milestones includes reaching 100% test coverage for the GraphiQL parser and thorough benchmarking.
+
+The next steps will be to use the graphql.js reference parser’s lexer in the GraphiQL parser and construct a plan to merge the parsers. Once the graphql.js parser reaches the capabilities as that of the GraphiQL parser, we can migrate the GraphiQL IDE to use graphql.js parser. Near to the completion of the first milestone I am really happy with the new thing I have learned under the mentorship of Ivan and really excited to work on the upcoming tasks.
+
+> – **Naman Kumar**, GSOC 2020, GraphQL Foundation

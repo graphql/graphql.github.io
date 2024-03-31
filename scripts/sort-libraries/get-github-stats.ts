@@ -11,17 +11,17 @@ type GitHubStatsFetchResponse =
               {
                 path: string
                 explanation: string
-              }
+              },
             ]
           }
           locations: [
             {
               line: number
               column: number
-            }
+            },
           ]
           message: string
-        }
+        },
       ]
     }
   | {
@@ -39,7 +39,7 @@ type GitHubStatsFetchResponse =
                         }
                         pushedDate: string
                       }
-                    }
+                    },
                   ]
                 }
               }
@@ -60,7 +60,7 @@ type GitHubStatsFetchResponse =
               nodes: [
                 {
                   publishedAt: string
-                }
+                },
               ]
             }
             tags: {
@@ -72,7 +72,7 @@ type GitHubStatsFetchResponse =
                       pushedDate: string
                     }
                   }
-                }
+                },
               ]
             }
           }
@@ -92,15 +92,15 @@ type GitHubInfo = {
 type Release = { date: string; formattedDate: string }
 
 export async function getGitHubStats(
-  githubRepo: string
-): Promise<GitHubInfo | undefined> {
+  githubRepo: string,
+): Promise<GitHubInfo | void> {
   const [owner, repoName] = githubRepo.split("/")
   const accessToken = process.env.GITHUB_ACCESS_TOKEN
   if (!accessToken) {
     console.warn(
-      `No GITHUB_ACCESS_TOKEN environment variable found. Skipping GitHub stats for ${githubRepo}`
+      `No GITHUB_ACCESS_TOKEN environment variable found. Skipping GitHub stats for ${githubRepo}`,
     )
-    return undefined
+    return
   }
   const query = /* GraphQL */ `
     fragment defaultBranchRefFragment on Ref {
@@ -186,7 +186,7 @@ export async function getGitHubStats(
 
     if (!response.ok) {
       console.warn(
-        `Error fetching GitHub stats for ${owner}/${repoName}. Status: ${response.status}`
+        `Error fetching GitHub stats for ${owner}/${repoName}. Status: ${response.status}`,
       )
       return undefined
     }
@@ -196,7 +196,7 @@ export async function getGitHubStats(
     if ("errors" in responseJson) {
       console.warn(
         `GitHub GraphQL errors for ${owner}/${repoName}:`,
-        responseJson.errors
+        responseJson.errors,
       )
       return undefined
     }
@@ -209,7 +209,7 @@ export async function getGitHubStats(
 
     const hasCommitsInLast3Months =
       repo.defaultBranchRef.target.history.edges.some(
-        edge => new Date(edge.node.pushedDate) > lastThreeMonths
+        edge => new Date(edge.node.pushedDate) > lastThreeMonths,
       )
     const formattedStars = numbro(repo.stargazers.totalCount).format({
       average: true,
@@ -253,6 +253,6 @@ function getLastRelease(repo: any): Release | undefined {
   })
 
   return releases.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   )[0]
 }

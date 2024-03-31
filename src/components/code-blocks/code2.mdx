@@ -1,0 +1,17 @@
+```js word-wrap=false filename="JavaScript"
+// type Character {
+class Character {
+  // name: String
+  getName() {
+    return this._name
+  }
+  // homeWorld: Planet
+  getHomeWorld() {
+    return fetchHomeworld(this._homeworldID)
+  }
+  // friends: [Character]
+  getFriends() {
+    return this._friendIDs.map(fetchCharacter)
+  }
+}
+```

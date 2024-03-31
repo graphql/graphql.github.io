@@ -1,4 +1,4 @@
-## Contributing to the Code Page
+# Contributing to the Code Page
 
 Hi, thanks for reading the docs!
 
@@ -6,8 +6,8 @@ Secondly, we want to provide a really strong overview of all the libraries in th
 easy for contributors the code page is automatically generated from a series of markdown files in this repo.
 
 ```sh
-$ tree src/content/code
-src/content/code
+$ tree src/code
+src/code
 ├── language-support
 │   ├── c-c
 │   │   └── tools
@@ -45,7 +45,7 @@ npm: "graphql-http"
 
 To run an `graphql-http` hello world server:
 
-```bash
+```sh
 npm install express graphql-http graphql
 ```
 
@@ -56,7 +56,7 @@ var express = require("express")
 var { createHandler } = require("graphql-http/lib/use/express")
 var { buildSchema } = require("graphql")
 
-var schema = buildSchema(`
+var schema = buildSchema(/* GraphQL */ `
   type Query {
     hello: String
   }
@@ -70,7 +70,7 @@ app.all(
   createHandler({
     schema: schema,
     rootValue: root,
-  })
+  }),
 )
 app.listen(4000, () => console.log("Now browse to localhost:4000/graphql"))
 ```

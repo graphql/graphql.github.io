@@ -1,0 +1,210 @@
+---
+title: "Mocking your server is easy with GraphQL"
+date: 2016-04-19
+tags: ["blog"]
+byline: "Jonas Helfer"
+guestBio: engineer at Meteor working on Apollo
+---
+
+Do you think mocking your backend is always a tedious task? If you do, reading this post might change your mind…
+
+Mocking is the practice of creating a fake version of a component, so that you can develop and test other parts of your application independently. Mocking your backend is a great way to quickly build a prototype of your frontend, and it lets you test your frontend without starting up any servers. API mocking is so useful that a [quick Google search](https://www.google.com/?ion=1&espv=2#q=mock+rest+api) will turn up dozens of expensive products and services that promise to help you.
+
+Sadly, I think none of the solutions out there make it as easy as it should be. As it turns out, that’s because they’ve been trying to do it with the wrong technology!
+
+> Editor’s note : The concepts in this post are accurate, but some the code samples don’t demonstrate new usage patterns. After reading, consult the [graphql-tools docs](http://dev.apollodata.com/tools/graphql-tools/mocking.html) to see how to use mocking today.
+
+## Why mock?
+
+Mocking the data a backend would return is very useful for two main reasons:
+
+1. It lets you start developing a frontend feature when you don’t have a working backend for it yet. This is critical for projects where the frontend and backend components are often developed in parallel.
+2. It lets you run tests locally without connecting to a real backend, which is much faster and safer. As your codebase grows and your app becomes more complex, starting up all of the server infrastructure just to run some tests isn’t feasible.
+
+If mocking your backend API has such clear benefits, why doesn’t everyone do it? I think it's because mocking often seems like too much trouble to be worth it.
+
+## Why is mocking backends hard?
+
+Let’s say your backend is some REST API that is called over HTTP from the browser. You have someone working on the backend, and someone else working on the frontend. The backend code actually determines the shape of the data returned for each REST endpoint, but mocking has to be done in the frontend code. That means the mocking code will break every time the backend changes, unless both are changed at the same time. What’s worse, if you’re doing your frontend testing against a mock backend that is not up to date with your backend, your tests may pass, but your actual frontend won’t work.
+
+Rather than having to keep more dependencies up to date, the easy option is to just not mock the REST API, or have the backend be in charge of mocking itself, just so it’s all in one place. That may be easier, but it will also slow you down.
+
+The other reason I often hear for why people don’t mock the backend in their project is because it takes time to set up: first you have to include extra logic in your data fetching layer that lets you turn mocking on and off, and second you have to actually describe what that mock data should look like. For any non-trivial API that requires a lot of tedious work.
+
+Both of these reasons for why mocking backends is hard are actually due to the same underlying reason: there is no standard REST API description in machine-consumable format and contains all the information necessary for mocking and can be used by both the backend and the frontend. There are some API description standards, like Swagger, but they don’t contain all of the information you need, and can be cumbersome to write and maintain. Unless you want to pay for a service or a product — and maybe even then — mocking is a lot of work.
+
+Actually, I should say mocking used to be a lot of work, because a new technology is changing the way we think of APIs: GraphQL.
+
+## Mocking is easy with a type system!
+
+GraphQL makes mocking easy, because every GraphQL backend comes with a static type system. The types can be shared between your backend and your frontend, and they contain all of the information necessary to make mocking incredibly fast and convenient. With GraphQL, there is no excuse to not mock your backend for development or testing.
+
+Here’s how easy it is to create a mocked backend that will accept any valid GraphQL query with the GraphQL mocking tool we are building as part of our new [GraphQL server toolkit](https://github.com/apollostack/graphql-tools):
+
+```js
+// > npm install graphql-tools
+import { mockServer } from "graphql-tools"
+import schema from "./mySchema.graphql"
+
+const myMockServer = mockServer(schema)
+myMockServer.query(`{
+  allUsers: {
+    id
+    name
+  }
+}`)
+
+// returns
+// {
+//   data: {
+//     allUsers:[
+//       { id: 'ee5ae76d-9b91-4270-a007-fad2054e2e75', name: 'lorem ipsum' },
+//       { id: 'ca5c182b-99a8-4391-b4b4-4a20bd7cb13a', name: 'quis ut' }
+//     ]
+//   }
+// }
+```
+
+Every GraphQL server needs a schema, so it’s not extra code you need to write just for mocking. And the query is the one your component already uses for fetching data, so that’s also not code you write just for mocking. Not counting the import statement, it only took us one line of code to mock the entire backend!
+
+Put that in contrast to most REST APIs out there, where mocking means parsing a URL and returning data in a custom shape for each endpoint. It takes dozens of lines to mock a single endpoint that returns some realistic-looking data. With GraphQL, the shape is encoded in the query, and together with the schema we have enough information to mock the server with a single line of code.
+
+Did I mention that this one line is all you need to return mock data for any valid GraphQL query you could send? Not just some valid query, any valid query! Pretty cool, right?
+
+## Customizing mock data
+
+In the example above, the mock server will return completely random IDs and strings every time you query it. When you’ve just started building your app and only want to see what your UI code looks like in different states, that’s probably good enough, but as you start to fine-tune your layout, or want to use the mock server to test your component’s logic, you’ll probably need more realistic data.
+
+Luckily, this takes only a little more effort: customization of mock data is really where the Apollo mocking tool shines, because it lets you customize virtually everything about the mock data that it returns.
+
+It lets you do all of the following and more:
+
+```js
+// customize mocking per type (i.e. Integer, Float, String)
+mockServer(schema, {
+  Int: () => 6,
+  Float: () => 22.1,
+  String: () => 'Hello'
+})
+
+// customize mocking per field in the schema (i.e. for Person.name and Person.age)
+mockServer(schema, {
+  Person: () => ({
+    name: casual.name,
+    age: () => casual.integer(0,120)
+  })
+})
+
+// mock lists of specific or random length( and lists of lists of lists …)
+mockServer(schema, {
+  Person: () => ({
+    // a list of length between 2 and 6
+    friends: () => new MockList([2,6]),
+    // a list of three lists of two items: [[1, 1], [2, 2], [3, 3]]
+    listOfLists: () => new MockList(3, () => new MockList(2))
+  })
+})
+
+// customize mocking of a field or type based on the query arguments
+mockServer(schema, {
+  Person: () => ({
+    // the number of friends in the list now depends on numPages
+    paginatedFriends: (o, { numPages }) => new MockList(numPages * PAGE_SIZE)
+  })
+})
+
+// You can also disable mocking for specific fields, pass through to the backend, etc.
+```
+
+For each type and each field you can provide a function that will be called on to generate mock data. Mock functions on fields have precedence over mock functions on types, but they work together really nicely: The field mock functions only need to describe the properties of the objects that matter to them, type mock functions will fill in the rest.
+
+The mock functions are actually just GraphQL resolve functions in disguise. What that means is that your mocking can do anything that you could do inside a GraphQL resolve function. If you wanted, you could write your entire backend with it. I’m not saying you should, but you could.
+
+I think the real power of this tool is that while it allows almost arbitrarily complex customization, you can get started really quickly and increase the sophistication of your mocks in tiny steps whenever you need it. Each step is so simple that it will feel like a breeze.
+
+But enough talking, here’s a complete example:
+
+```js
+import { mockServer, MockList } from "graphql-tools"
+import casual from "casual-browserify"
+
+// The GraphQL schema. Described in more detail here:
+// https://medium.com/apollo-stack/the-apollo-server-bc68762e93b
+const schema = `
+  type User {
+    id: ID!
+    name: String
+    lists: [List]
+  }
+  type List {
+    id: ID!
+    name: String
+    owner: User
+    incomplete_count: Int
+    tasks(completed: Boolean): [Task]
+  }
+  type Task {
+    id: ID!
+    text: String
+    completed: Boolean
+    list: List
+  }
+  type RootQuery {
+    user(id: ID): User
+  }
+  schema {
+    query: RootQuery
+  }
+`
+
+// Mock functions are defined per type and return an
+// object with some or all of the fields of that type.
+// If a field on the object is a function, that function
+// will be used to resolve the field if the query requests it.
+const server = mockServer(schema, {
+  RootQuery: () => ({
+    user: (o, { id }) => ({ id }),
+  }),
+  List: () => ({
+    name: () => casual.word,
+    tasks: () => new MockList(4, (o, { completed }) => ({ completed })),
+  }),
+  Task: () => ({ text: casual.words(10) }),
+  User: () => ({ name: casual.name }),
+})
+
+mockServer.query(`
+query tasksForUser{
+  user(id: 6) {
+    id
+    name
+    lists {
+      name
+      completeTasks: tasks(completed: true) {
+        completed
+        text
+      }
+      incompleteTasks: tasks(completed: false) {
+        completed
+        text
+      }
+      anyTasks: tasks {
+        completed
+        text
+      }
+    }
+  }
+}`)
+```
+
+## Live demo + try it yourself
+
+To see the example in action and see what output it generates, head over to the [live demo](https://launchpad.graphql.com/98lq7vz8r) try running some queries!
+
+If you want to fiddle around with the example, just click the "Download" button in the Launchpad UI. If you’re curious about how it works or want to see what other tools we’re building for GraphQL, then head over to [apollostack/graphql-tools](https://github.com/apollostack/graphql-tools).
+
+Pretty cool, right? All of that becomes possible by using a type system. And that’s only just the beginning — we‘re working on bridging the gap between mocking and the real thing so that your mock server can gradually turn into your real server as you add more functionality to it.
+
+---
+
+_This post was originally published on [the Apollo Blog](https://medium.com/apollo-stack). We publish one or two posts every week, about the stuff we’re working on and thinking about._

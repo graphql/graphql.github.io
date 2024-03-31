@@ -1,0 +1,90 @@
+import fg from "fast-glob"
+import path from "path"
+import { compileMdx } from "nextra/compile"
+import { readFile } from "fs/promises"
+import slugMap from "../../code/slug-map.json"
+import { NextAdapter } from "next-query-params"
+import { QueryParamProvider } from "use-query-params"
+import { CodePage } from "../../components/tools-and-libraries"
+import { getGitHubStats } from "../../../scripts/sort-libraries/get-github-stats"
+import githubInfo from "@/github-stats.json"
+
+{<QueryParamProvider adapter={NextAdapter}><CodePage {...props} /></QueryParamProvider>}
+
+export const getStaticProps = async () => {
+  const filePaths = await fg("./src/code/**/*.md")
+  const results = []
+  const allTags = Object.create(null)
+  //
+  for (const filePath of filePaths) {
+    let segments = path.relative("./src/code", filePath).split("/").slice(0, -1)
+    // Do not add `language-support` as tag
+    if (segments[0] === "language-support") segments = segments.slice(1)
+    // Do not add all folders as tags under `tools` folder
+    if (segments[0] === "tools") segments.splice(1, 1)
+    const rawMdx = await readFile(filePath, "utf8")
+    let hasDescription = false
+    const { result: compiledSource, frontMatter } = await compileMdx(rawMdx, {
+      mdxOptions: {
+        format: "md",
+        remarkPlugins: [
+          () => tree => {
+            hasDescription =
+              tree.children.length > 1 &&
+              tree.children.some(node => node.type !== "yaml")
+          },
+        ],
+      },
+    })
+    //
+    for (const tag of segments) {
+      if (tag.includes("_")) {
+        throw new Error(
+          `Tag ${tag} contains an underscore, which is not allowed.`,
+        )
+      }
+      allTags[tag] ??= 0
+      allTags[tag] += 1
+    }
+    if (
+      frontMatter.url &&
+      frontMatter.github &&
+      frontMatter.url
+        .toLowerCase()
+        .replace(/\/$/, "")
+        .endsWith(frontMatter.github.toLowerCase())
+    ) {
+      throw new Error(
+        `Remove frontmatter.url since URL "${frontMatter.url}" ends with the same slug as the GitHub repo "${frontMatter.github}".`,
+      )
+    }
+    const stars = githubInfo[frontMatter.github]
+    results.push({
+      filePath,
+      tags: segments,
+      frontMatter,
+      ...(stars && {
+        stars: stars.stars,
+        formattedStars: stars.formattedStars,
+        lastRelease: stars.formattedLastRelease,
+        license: stars.license,
+      }),
+      ...(hasDescription && { compiledSource }),
+    })
+  }
+  //
+  const allTagsList = Object.entries(allTags)
+    .map(([tag, count]) => ({
+      tag,
+      count,
+      name: slugMap[tag] ?? tag,
+    }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
+  //
+  return {
+    props: {
+      data: results.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0)),
+      allTags: allTagsList,
+    },
+  }
+}

@@ -1,0 +1,51 @@
+---
+title: GraphQL for Users
+description: The following resources are intended to help users and implementers. Find something useful? Please add it to the list!
+---
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning">
+Please note that the GraphQL Foundation does not provide support or services, and cannot recommend one vendor's product over another.
+</Callout>
+
+## Where to ask questions
+
+### Stack Overflow
+
+Many members of the community use Stack Overflow to ask and answer questions. If you're running into an implementation issue or having trouble with a query, this is the best place to start.
+
+[Read through the existing questions tagged with **graphql** or ask your own!](http://stackoverflow.com/questions/tagged/graphql)
+
+### Live discussion
+
+Many GraphQL developers idle in Discord, Slack, and IRC for live
+communication and can answer quick questions.
+
+Please be patient and polite. These are not explicitly user support channels, although they're likely a good place to find someone who can answer your question if you ask nicely.
+
+<iframe
+  src="https://discordapp.com/widget?id=625400653321076807&theme=dark"
+  width="350"
+  height="250"
+  className="float-right"
+  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+/>
+
+- [GraphQL Foundation Discord](https://discord.graphql.org)
+- [GraphQL Reddit Community](https://reddit.com/r/graphql)
+- [GraphQL Community Facebook Group](https://facebook.com/groups/graphql.community)
+- [#help-graphql on the ReactiFlux Discord](http://join.reactiflux.com)
+- [#graphql on freenode IRC](https://freenode.net)
+
+<div className="clear-both" />
+
+### Vendor channels
+
+The following channels are maintained by vendors, and may be a good place to find help on their products.
+
+- [Apollo Slack](http://apollostack.com/#slack)
+- [ChilliCream Slack](http://slack.chillicream.com/)
+- [Graphile Discord](https://discord.gg/graphile)
+- [Prisma Slack](https://slack.prisma.io/)
+- [Stellate Discord](https://go.stellate.co/community)
