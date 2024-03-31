@@ -37,8 +37,10 @@ export function Cards({
             >
               {/* @ts-expect-error */}
               {typeof Icon === "function" ? <Icon className="h-6" /> : Icon}
-              <b className="mt-4 text-lg text-center">{title}</b>
-              <span className="text-xs md:text-sm">{description}</span>
+              <b className="mt-4 mb-2 text-lg text-center">{title}</b>
+              <span className="text-xs md:text-sm text-center break-all">
+                {description}
+              </span>
             </Card>
           )
         },
