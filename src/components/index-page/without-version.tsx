@@ -43,7 +43,7 @@ export function WithoutVersion() {
         </div>
         <div
           className={clsx(
-            "window type-evolution mx-auto",
+            "type-evolution mx-auto",
             "[&_div.nextra-code]:h-full",
             "[&_pre]:ring-0 border rounded-md border-gray-300 dark:border-neutral-700 [&_pre]:rounded-none [&_pre]:h-full",
             // Set background as nextra code block bg color
