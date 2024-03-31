@@ -131,7 +131,7 @@ export function Meetups() {
   }, [])
   return (
     <>
-      <div id="map" className="h-96 my-6" />
+      <div id="map" className="h-96 my-6 z-0" />
       {meetups.map(({ node }) => (
         <EventCard
           key={node.id}
