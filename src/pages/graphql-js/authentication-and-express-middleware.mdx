@@ -26,8 +26,8 @@ function loggingMiddleware(req, res, next) {
 }
 
 var root = {
-  ip(args, request) {
-    return request.ip
+  ip(args, context) {
+    return context.ip
   },
 }
 
@@ -38,7 +38,9 @@ app.all(
   createHandler({
     schema: schema,
     rootValue: root,
-    graphiql: true,
+    context: req => ({
+      ip: req.raw.ip,
+    }),
   })
 )
 app.listen(4000)
