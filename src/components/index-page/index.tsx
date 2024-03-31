@@ -9,7 +9,7 @@ import { WhoIsUsing } from "./who-is-using"
 
 export function IndexPage() {
   return (
-    <div className="index xl:mt-10">
+    <div className="index">
       <Hero />
       <section className="text-center flex flex-col container items-center conf-block max-w-3xl">
         <h2>A query language for your API</h2>

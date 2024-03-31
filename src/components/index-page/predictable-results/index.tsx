@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react"
-import { PredictableResult } from "../code-blocks"
+import { PredictableResult } from "../../code-blocks"
 import { Pre } from "nextra/components"
+import { clsx } from "clsx"
+import classes from "./index.module.css"
 
 export function PredictableResults() {
   const ref = useRef<HTMLDivElement>(null)
@@ -85,7 +87,7 @@ export function PredictableResults() {
         </div>
         <div
           ref={ref}
-          className="faux-graphiql nextra-codeblocks flex *:w-1/2 [&_pre]:!h-48"
+          className="nextra-codeblocks flex *:w-1/2 [&_pre]:!h-48"
           aria-hidden
         >
           <Pre data-filename="Query" className="p-4">
@@ -93,11 +95,16 @@ export function PredictableResults() {
             {"\n  hero {"}
             {"\n    name"}
             {"\n    height\n    mass".split("").map((char, i) => (
-              <span key={i} id={"ch" + i} className="ch">
+              <span key={i} id={"ch" + i} className="hidden">
                 {char === "\n" ? <br /> : char}
               </span>
             ))}
-            <span className="cursor" />
+            <span
+              className={clsx(
+                "inline-block !bg-primary/50 h-4 w-2 ml-px -mb-0.5",
+                classes.cursor,
+              )}
+            />
             {"\n  }"}
             {"\n}"}
           </Pre>
