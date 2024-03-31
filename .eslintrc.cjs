@@ -33,11 +33,9 @@ module.exports = {
             ],
           },
         ],
-        'prefer-const': ['error', { destructuring: 'all' }],
+        "prefer-const": ["error", { destructuring: "all" }],
         // TODO: fix below
-        "no-useless-escape": "off",
         "prefer-rest-params": "off",
-        "prefer-spread": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/ban-ts-comment": "off",
@@ -87,8 +85,8 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.graphql'],
-      parser: '@graphql-eslint/eslint-plugin',
+      files: ["**/*.graphql"],
+      parser: "@graphql-eslint/eslint-plugin",
     },
   ],
 }

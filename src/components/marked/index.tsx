@@ -430,22 +430,22 @@ Lexer.prototype.token = function (src, top) {
  */
 
 const inline = {
-  escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
+  escape: /^\\([\\`*{}[\]()#+\-.!_>])/,
   autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
   url: noop,
   tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
   link: /^!?\[(inside)\]\(href\)/,
   reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
-  nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
+  nolink: /^!?\[((?:\[[^\]]*\]|[^[\]])*)\]/,
   strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
   em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
   code: /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,
   br: /^ {2,}\n(?!\s*$)/,
   del: noop,
-  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/,
+  text: /^[\s\S]+?(?=[\\<![_*`]| {2,}\n|$)/,
 }
 
-inline._inside = /(?:\[[^\]]*\]|[^\]]|\](?=[^\[]*\]))*/
+inline._inside = /(?:\[[^\]]*\]|[^\]]|\](?=[^[]*\]))*/
 inline._href = /\s*<?([^\s]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/
 
 inline.link = replace(inline.link)("inside", inline._inside)(
@@ -602,7 +602,7 @@ InlineLexer.prototype.output = function (src) {
       link = (cap[2] || cap[1]).replace(/\s+/g, " ")
       link = this.links[link.toLowerCase()]
       if (!link || !link.href) {
-        out.push.apply(out, this.output(cap[0][0]))
+        out.push(...this.output(cap[0][0]))
         src = cap[0].substring(1) + src
         continue
       }
@@ -849,7 +849,7 @@ function replace(regex, opt) {
   return function self(name, val) {
     if (!name) return new RegExp(regex, opt)
     val = val.source || val
-    val = val.replace(/(^|[^\[])\^/g, "$1")
+    val = val.replace(/(^|[^[])\^/g, "$1")
     regex = regex.replace(name, val)
     return self
   }

@@ -8,7 +8,7 @@
     "build": "next build && next-image-export-optimizer",
     "dev": "next",
     "format": "pnpm format:check --write",
-    "format:check": "prettier --cache --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format:check": "prettier --cache --check \"**/*.{js,jsx,ts,tsx,cjs,mjs,json,yml,yaml,md}\"",
     "lint": "eslint --ignore-path .gitignore .",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "start": "next start",
