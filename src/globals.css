@@ -486,3 +486,8 @@ div[id^="headlessui-menu-items"] {
   font-size: 13px;
   padding: 7px 14px;
 }
+
+/* it means the image is still in loading state */
+.gallery-page-images-list img[style*="background-image"] {
+  filter: blur(3.5px);
+}

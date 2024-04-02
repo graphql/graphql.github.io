@@ -1,7 +1,8 @@
 import { Metadata } from "next"
 import { images } from "./_conf-images"
+import { ImageCarousel } from "../../_components/imageCarousel"
+import React from "react"
 import NextImage from "next-image-export-optimizer"
-import { Zoom } from "../../_components/zoom"
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -23,18 +24,25 @@ export default function GalleryPage() {
 
   return (
     <div className="bg-[#f4f6f8]">
-      <div className="container conf-block">
+      <div className="container conf-block gallery-page-images-list">
         {currentImages.map((c, i) => {
-          function getCard(index: number) {
+          function getCard(index: number, { size }: { size: "small" | "big" }) {
+            const { width, height } =
+              size === "small"
+                ? { width: 370, height: 208 }
+                : { width: 748, height: 420 }
+
             return (
               c[index] && (
-                <Zoom>
+                <div className="overflow-hidden rounded-md">
                   <NextImage
-                    alt="Gallery"
-                    className="object-cover aspect-video w-full hover:opacity-75 rounded-md"
+                    alt={"gallery image"}
+                    className="object-cover aspect-video w-full hover:opacity-75"
                     src={c[index]}
+                    width={width}
+                    height={height}
                   />
-                </Zoom>
+                </div>
               )
             )
           }
@@ -43,22 +51,23 @@ export default function GalleryPage() {
             <div key={i} className="grid lg:grid-cols-2 gap-2 mb-2">
               <div className="gap-2 flex flex-col">
                 <div className="grid grid-cols-2 gap-2">
-                  {getCard(0)}
-                  {getCard(1)}
+                  {getCard(0, { size: "small" })}
+                  {getCard(1, { size: "small" })}
                 </div>
-                {getCard(2)}
+                {getCard(2, { size: "big" })}
               </div>
               <div className="gap-2 flex flex-col">
-                {getCard(3)}
+                {getCard(3, { size: "big" })}
                 <div className="grid grid-cols-2 gap-2">
-                  {getCard(4)}
-                  {getCard(5)}
+                  {getCard(4, { size: "small" })}
+                  {getCard(5, { size: "small" })}
                 </div>
               </div>
             </div>
           )
         })}
       </div>
+      <ImageCarousel index={0} images={images} />
     </div>
   )
 }
