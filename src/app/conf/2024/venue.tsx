@@ -76,7 +76,7 @@ export function Venue() {
                 Subway Station
                 <br />
                 <a
-                  href="https://marriott.com/en-us/hotels/sfojw-jw-marriott-san-francisco-union-square/overview/#:~:text=Powell%20Street%20BART%20Station"
+                  href="https://bart.gov/stations/powl"
                   target="_blank"
                   rel="noreferrer"
                 >
