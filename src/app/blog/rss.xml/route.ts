@@ -67,7 +67,7 @@ export async function GET() {
       url: `${SITE_URL}/blog/${frontMatter.fileName}`,
       categories: frontMatter.tags,
       author: frontMatter.byline,
-      date: new Date(frontMatter.date).toUTCString(),
+      date: frontMatter.date.toUTCString(),
     })
   }
 

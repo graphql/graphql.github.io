@@ -15,7 +15,6 @@
     "test": "echo \"no tests\" && exit 1"
   },
   "dependencies": {
-    "hast-util-to-string": "3.0.0",
     "@graphql-tools/schema": "10.0.3",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
@@ -32,6 +31,7 @@
     "fast-glob": "^3.3.2",
     "graphql": "16.8.1",
     "gray-matter": "^4.0.3",
+    "hast-util-to-string": "3.0.0",
     "iframe-resizer-react": "^1.1.0",
     "leaflet": "^1.9.4",
     "markdown-to-jsx": "^7.4.0",
