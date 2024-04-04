@@ -15,7 +15,7 @@ const rehypeEnhanceFrontmatter: Plugin<[], Root> = () => (tree, file) => {
 
   tree = {
     ...tree,
-    children: tree.children.filter(node => node.tagName !== "pre"),
+    children: tree.children.filter(node => (node as any).tagName !== "pre"),
   }
 
   const [filePath] = file.history
