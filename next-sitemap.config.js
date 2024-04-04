@@ -1,8 +1,8 @@
 /* eslint-env node */
 
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+export default {
   siteUrl: process.env.SITE_URL || "https://graphql.org",
   generateIndexSitemap: false,
-  output: "static", // Set static output here
+  output: "export", // Set static output here
 }

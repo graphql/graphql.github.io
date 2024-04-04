@@ -10,7 +10,7 @@
     "format": "pnpm format:check --write",
     "format:check": "prettier --cache --check \"**/*.{js,jsx,ts,tsx,cjs,mjs,json,yml,yaml,md}\"",
     "lint": "eslint --ignore-path .gitignore .",
-    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "test": "echo \"no tests\" && exit 1"
   },
