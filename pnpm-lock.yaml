@@ -133,6 +133,9 @@ importers:
       timeago.js:
         specifier: 4.0.2
         version: 4.0.2
+      unified:
+        specifier: 11.0.4
+        version: 11.0.4
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
