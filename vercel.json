@@ -474,6 +474,11 @@
       "source": "/foundation/:path*",
       "destination": "/community/foundation/:path*",
       "permanent": true
+    },
+    {
+      "source": "/conf/speak/",
+      "destination": "/conf/2024/speak/",
+      "permanent": true
     }
   ]
 }
