@@ -37,7 +37,20 @@ export function Venue() {
         </div>
         <div>
           <h3 className={classes.heading}>Hotel Information</h3>
-          Hotel Information Coming Soon!
+          <b>Booking Link:</b>{" "}
+          <a
+            href="https://book.passkey.com/go/graphqlorgconf2024"
+            target="_blank"
+            rel="noreferrer"
+          >
+            https://book.passkey.com/go/graphqlorgconf2024
+          </a>
+          <br />
+          <b>Dates with Availability:</b> September 8, 9, 10, 11, 12
+          <br />
+          <b>Rates Start From:</b> $319.00+
+          <br />
+          <b>Cut-off Date:</b> August 19, 2024
           <br />
           <br />
           <br />
