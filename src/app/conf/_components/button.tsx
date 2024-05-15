@@ -6,9 +6,11 @@ interface ButtonProps {
   className?: string
   href?: string
   disabled?: boolean
+  target?: "_blank"
 }
 
 export function Button({
+  target,
   href,
   className,
   children,
@@ -33,6 +35,7 @@ export function Button({
         className,
       )}
       href={href}
+      target={target}
       {...(href?.startsWith("https://") && {
         target: "_blank",
         rel: "noreferrer",
