@@ -54,8 +54,8 @@ node server.js
 
 ## Using GraphiQL
 
-[Graph_i_QL](https://github.com/graphql/graphiql) is GraphQL's IDE; a great way of querying and exploring your GraphQL API.
-One easy way to add it to your server is via the MIT-licensed [ruru](https://github.com/graphile/crystal/blob/main/grafast/ruru/README.md) package which bundles a prebuilt Graph_i_QL with some popular enhancements.
+[GraphiQL](https://github.com/graphql/graphiql) is GraphQL's IDE; a great way of querying and exploring your GraphQL API.
+One easy way to add it to your server is via the MIT-licensed [ruru](https://github.com/graphile/crystal/blob/main/grafast/ruru/README.md) package which bundles a prebuilt GraphiQL with some popular enhancements.
 To do so, install the `ruru` module with `npm install --save ruru` and then add the following to your `server.js` file, then restart the `node server.js` command:
 
 ```js
@@ -69,6 +69,6 @@ app.get("/", (_req, res) => {
 ```
 
 If you navigate to [http://localhost:4000](http://localhost:4000), you should see an interface that lets you enter queries;
-now you can use the Graph_i_QL IDE tool to issue GraphQL queries directly in the browser.
+now you can use the GraphiQL IDE tool to issue GraphQL queries directly in the browser.
 
 At this point you have learned how to run a GraphQL server. The next step is to learn how to [issue GraphQL queries from client code](/graphql-js/graphql-clients/).
