@@ -43,6 +43,7 @@ export default function Layout({
         links={[
           { children: "FAQ", href: "/conf/2024/faq" },
           { children: "Speak", href: "/conf/2024/speak" },
+          { children: "Register", href: "https://cvent.me/gk2dRw" },
           { children: "Sponsor", href: "/conf/2024/sponsor" },
           { children: "Partner", href: "/conf/2024/partner" },
           {
@@ -72,6 +73,7 @@ export default function Layout({
         links={[
           [
             { children: "Speak", href: "/conf/2024/speak" },
+            { children: "Register", href: "https://cvent.me/gk2dRw" },
             { children: "Sponsor", href: "/conf/2024/sponsor" },
             { children: "Partner", href: "/conf/2024/partner" },
             {
