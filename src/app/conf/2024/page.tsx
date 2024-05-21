@@ -46,7 +46,7 @@ export default function Page() {
           </div>
           <HostedByGraphQLFoundation className="shrink-0 h-8 lg:h-10 mt-5 mb-16 lg:mb-32 self-start" />
           <div className="flex items-center gap-12 max-md:flex-col">
-            <Button href="https://cvent.me/gk2dRw">Register Now!</Button>
+            <Button href="#attend">Get Your Ticket!</Button>
             <a
               href="/conf/2024/speak"
               className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
@@ -54,13 +54,13 @@ export default function Page() {
               Submit to Speak
             </a>
             <a
-              href="/conf/2024/sponsor"
+              href="/conf/2024/sponsor#sponsor"
               className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
             >
               Join as a Sponsor
             </a>
             <a
-              href="/conf/2024/partner"
+              href="/conf/2024/partner#program"
               className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
             >
               Join as a Partner

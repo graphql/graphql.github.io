@@ -6,6 +6,11 @@
       "statusCode": 200
     },
     {
+      "source": "/conf/sponsor",
+      "destination": "/conf/partner",
+      "permanent": false
+    },
+    {
       "source": "/conf/program",
       "destination": "/conf/2023/schedule",
       "permanent": false

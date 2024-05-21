@@ -17,7 +17,7 @@ export function Header({
   links,
   logo,
 }: {
-  links: { href: string; children: string; "aria-disabled"?: true }[]
+  links: { href: string; children: React.ReactNode; "aria-disabled"?: true }[]
   logo: ReactNode
 }): ReactElement {
   const pathname = usePathname()
