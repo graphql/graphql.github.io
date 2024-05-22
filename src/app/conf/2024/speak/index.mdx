@@ -15,9 +15,9 @@ export const isExpired = new Date() > new Date("2024/05/22 12:00")
 <Button
   className="!text-white"
   href="https://sessionize.com/graphqlconf-2024"
-  disabled={isExpired}
+  disabled={false}
 >
-  {isExpired ? "CFP Closed" : "Submit a Proposal"}
+  {false ? "CFP Closed" : "Submit a Proposal"}
 </Button>
 
 > Please be aware that the Linux Foundation will now be utilizing Sessionize for CFP
