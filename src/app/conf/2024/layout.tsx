@@ -44,7 +44,7 @@ export default function Layout({
         links={[
           { children: <span>FAQ</span>, href: "/conf/2024/faq" },
           { children: <span>Speak</span>, href: "/conf/2024/speak" },
-          { children: <span>Register</span>, href: "#attend" },
+          { children: <span>Register</span>, href: "/conf/2024#attend" },
           { children: <span>Partner</span>, href: "/conf/2024/partner" },
           {
             children: <span>Schedule</span>,
