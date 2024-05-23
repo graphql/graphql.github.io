@@ -4,6 +4,7 @@ import { Header } from "../_components/header"
 import { Footer } from "../_components/footer"
 import { GraphQLConf, HostedByGraphQLFoundation } from "@/icons"
 import NextLink from "next/link"
+import { Button } from "../_components/button"
 
 export const metadata = {
   description:
@@ -41,22 +42,15 @@ export default function Layout({
           </NextLink>
         }
         links={[
-          { children: "FAQ", href: "/conf/2024/faq" },
-          { children: "Speak", href: "/conf/2024/speak" },
-          { children: "Register", href: "https://cvent.me/gk2dRw" },
-          { children: "Sponsor", href: "/conf/2024/sponsor" },
-          { children: "Partner", href: "/conf/2024/partner" },
+          { children: <span>FAQ</span>, href: "/conf/2024/faq" },
+          { children: <span>Speak</span>, href: "/conf/2024/speak" },
+          { children: <span>Register</span>, href: "/conf/2024#attend" },
+          { children: <span>Partner</span>, href: "/conf/2024/partner" },
           {
-            children: "Speakers",
-            href: "/conf/2024/speakers",
-            "aria-disabled": true,
-          },
-          {
-            children: "Schedule",
+            children: <span>Schedule</span>,
             href: "/conf/2024/schedule",
             "aria-disabled": true,
           },
-          { children: "GraphQLConf 2023", href: "/conf/2023" },
         ]}
       />
       {children}
@@ -74,8 +68,8 @@ export default function Layout({
           [
             { children: "Speak", href: "/conf/2024/speak" },
             { children: "Register", href: "https://cvent.me/gk2dRw" },
-            { children: "Sponsor", href: "/conf/2024/sponsor" },
-            { children: "Partner", href: "/conf/2024/partner" },
+            { children: "Sponsor", href: "/conf/2024/partner" },
+            { children: "Partner", href: "/conf/2024/partner#program" },
             {
               children: "Speakers",
               href: "/conf/2024/speakers",
@@ -86,6 +80,7 @@ export default function Layout({
               href: "/conf/2024/schedule",
               "aria-disabled": true,
             },
+            { children: "GraphQLConf 2023", href: "/conf/2023" },
           ],
           [
             { children: "FAQ", href: "/conf/2024/faq" },
