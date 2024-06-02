@@ -10,14 +10,18 @@ Proposals (CFP) and sharing your experience across a wide range of topics.
 
 For any questions regarding the CFP process, please email cfp@linuxfoundation.org.
 
-export const isExpired = new Date() > new Date("2024/05/22 12:00")
+export const isExpired = new Date(new Date().toLocaleString("en-US", {
+  timeZone: "America/Los_Angeles"
+})) > new Date(new Date("2024/06/02 23:50").toLocaleString("en-US", {
+  timeZone: "America/Los_Angeles"
+}))
 
 <Button
   className="!text-white"
   href="https://sessionize.com/graphqlconf-2024"
-  disabled={false}
+  disabled={isExpired}
 >
-  {false ? "CFP Closed" : "Submit a Proposal"}
+  {isExpired ? "CFP Closed" : "Submit a Proposal"}
 </Button>
 
 > Please be aware that the Linux Foundation will now be utilizing Sessionize for CFP
