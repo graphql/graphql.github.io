@@ -54,7 +54,7 @@ export default function Page() {
               Submit to Speak
             </a>
             <a
-              href="/conf/2024/sponsor#sponsor"
+              href="/conf/2024/partner#sponsor"
               className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
             >
               Join as a Sponsor
