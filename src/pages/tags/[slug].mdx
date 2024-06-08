@@ -15,8 +15,8 @@ export async function getStaticProps({ params }) {
 }
 
 export function getStaticPaths() {
-  const result = getPagesUnderRoute("/blog")
-  const tags = result.flatMap(item => item.frontMatter.tags)
+  const items = getPagesUnderRoute("/blog").flatMap(item => item.children || item)
+  const tags = items.flatMap(item => item.frontMatter.tags)
   return {
     fallback: false,
     paths: [...new Set(tags)].map(slug => ({ params: { slug } })),

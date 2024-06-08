@@ -5,9 +5,10 @@ import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { clsx } from "clsx"
 
-export default function Blog(props) {
+export default function Blog() {
   const { asPath } = useRouter()
-  const blogs = getPagesUnderRoute("/blog").sort(
+  const items = getPagesUnderRoute("/blog").flatMap(item => item.children || item)
+  const blogs = items.sort(
     (a, b) => b.frontMatter.date - a.frontMatter.date,
   )
   const currentTag = asPath.startsWith("/blog")
