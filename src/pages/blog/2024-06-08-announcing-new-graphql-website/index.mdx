@@ -1,0 +1,123 @@
+---
+title: Announcing New GraphQL Website
+tags: [announcements]
+date: 2024-06-08
+byline: Dimitri POSTOLOV & Uri GOLDSHTEIN
+---
+
+Hi, everyone! I'm [Dimitri POSTOLOV](https://x.com/dimaMachina_) from
+[The Guild](https://the-guild.dev), and today I'm excited to announce the new
+[GraphQL.org](/) website.
+
+2 months ago, we released a new GraphQL website. We've been working on this for
+about 2 months, and we're excited to share it with you.
+
+## A Little Dive into History
+
+An initial version of GraphQL.ORG v0 was created
+[almost 8 years ago](https://github.com/graphql/graphql.github.io/pull/76) by
+[Lee BYRON](https://x.com/leeb) in 2016.
+
+![Screenshot of initial version of GraphQL.ORG v0](./graphql-org-v0.gif)
+
+<p className="text-center">An initial version of GraphQL.ORG v0</p>
+
+Later,
+[after 4 years in 2020](https://github.com/graphql/graphql.github.io/pull/896),
+the website was migrated to Gatsby by The Guild members
+[Saihajpreet SINGH](https://x.com/singh_saihaj) and
+[Arda TANRIKULU](https://x.com/ardatanrikulu).
+
+![Screenshot of GraphQL.ORG v1 with Gatsby](./graphql-org-v1.gif)
+
+<p className="text-center">GraphQL.ORG v1 x Gatsby</p>
+
+All of us GraphQL developers spent a lot of time learning this language from the
+"Learn" page, which is shown below, and you definitely remember it!
+
+> Also, we all hated visiting this page at night due to the lack of a night
+> theme. <span className="not-italic">😅</span>
+
+![Screenshot of GraphQL.ORG v1 learn page](./graphql-org-v1-learn-page.png)
+
+<p className="text-center">GraphQL.ORG Learn page x Gatsby</p>
+
+With the new website, we've made a lot of improvements, including a dark theme,
+below how the "Learn" page looks like:
+
+{/* prettier-ignore */}
+<div className="mt-6 dark:even:[&_img]:hidden odd:[&_img]:hidden dark:odd:[&_img]:block">
+  <>![Screenshot of GraphQL.ORG v2 learn page](./graphql-org-v2-learn-page-light.png)</>
+  <>![Screenshot of GraphQL.ORG v2 learn page](./graphql-org-v2-learn-page-dark.png)</>
+  <p className="text-center">GraphQL.ORG Learn page x Nextra</p>
+</div>
+
+## What's New
+
+Here is a recap of the new features and improvements we've made to the website:
+
+### Migration to Nextra 3 & Vercel
+
+We migrated from Gatsby & Netlify to [Nextra](https://nextra.vercel.app) and
+[Next.js](https://nextjs.org). We chose Nextra because it's a great tool for
+building documentation websites, also [The Guild](https://the-guild.dev)
+maintains and improves it continuously. This migration helped us to improve the
+website's performance and bundle size.
+
+This migration was the final part before releasing the upcoming Nextra version.
+You can read my blog post about Nextra 3 in
+[The Guild blog](https://the-guild.dev/blog/nextra-3). Recently, we migrated all
+The Guild documentation websites to Nextra 3, and we can assume that it's stable
+for production.
+
+Also, at the same time while migrating this website, I started to work on the
+future Nextra 4 version with [app router support](https://nextjs.org/docs/app).
+Once the first Nextra 4 alpha is out, this website be updated too!
+
+### New Search Engine
+
+A search was migrated from Algolia to Nextra's built-in search
+[Flexsearch](https://github.com/nextapps-de/flexsearch)
+
+### Light and Dark Themes
+
+For the first time, since the creation of GraphQL.ORG, we have a dark theme! You
+can switch between light and dark themes using the toggle in the top right
+corner.
+
+### Improved Accessibility
+
+Accessibility and contrast mode have been improved to make the website more
+accessible.
+
+### Better Bundle Size and First Load Time
+
+The new website has a better bundle size and first load time compared to the
+previous version.
+
+### New [/code](/code) and [/community](/community) Pages
+
+We are excited to show [the new Code](/code) page which was renamed to "Tools
+and Libraries". You can read in the
+[GitHub repo](https://github.com/graphql/graphql.github.io/blob/source/notes/ContributingToCodePage.md)
+how to contribute to this page and add your library or tool.
+
+[The community](/community) page was redesigned and restructured. And now you
+can find all community resources in one place.
+
+### New [/conf](/conf) Page for GraphQLConf 2024
+
+With the new website, we are excited to announce the upcoming GraphQLConf 2024.
+More info can be read on [GraphQLConf 2024 page](/conf/2024) or in
+[the official announcement blogpost](/blog/2024-03-28-announcing-graphqlconf-2024).
+
+> Also, you can check [the previous conference GraphQLConf 2023](/conf/2023).
+
+## Conclusion
+
+When I started to learn GraphQL in 2018 I could never imagine that one day I
+would be working on this migration! I am excited to be a part of this journey
+and finally release the new website which is much better than the previous 🥳.
+
+Subscribe to me in [X](https://x.com/dimaMachina_) and
+[GitHub](https://github.com/dimaMachina) and see you in GraphQLConf 2024 🚀.
