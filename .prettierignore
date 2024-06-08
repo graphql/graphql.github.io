@@ -1,2 +1,5 @@
 public/
 pnpm-lock.yaml
+*.mdx
+!src/pages/blog/2024-04-11-announcing-new-graphql-website/index.mdx
+*.jpg

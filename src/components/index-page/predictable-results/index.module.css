@@ -1,11 +1,13 @@
 .cursor {
   animation: cursor-blink 0.5s infinite linear both alternate;
-  
+
   @keyframes cursor-blink {
-    0%, 30% {
+    0%,
+    30% {
       opacity: 0;
     }
-    70%, 100% {
+    70%,
+    100% {
       opacity: 1;
     }
   }
