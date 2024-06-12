@@ -29,8 +29,7 @@ const sponsorDiamond: Image[] = [
   { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
 ]
 
-const sponsorPlatinum: Image[] = [
-]
+const sponsorPlatinum: Image[] = []
 
 const sponsorGold: Image[] = [
   { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
@@ -40,14 +39,11 @@ const sponsorSilver: Image[] = [
   { icon: Stellate, name: "Stellate", link: "https://stellate.co" },
 ]
 
-const workshopDaySponsors: Image[] = [
-]
+const workshopDaySponsors: Image[] = []
 
-const mediaPartners: Image[] = [
-]
+const mediaPartners: Image[] = []
 
-const communityPartners: Image[] = [
-]
+const communityPartners: Image[] = []
 
 function List({
   items,
@@ -101,36 +97,56 @@ export function Sponsors() {
     <div id="sponsors" className="bg-conf-black">
       <div className="container conf-block">
         <h1 className={classes.title}>Thanks to our 2024 sponsors!</h1>
-        {sponsorDiamond.length && (<><h3 className={classes.heading}>Diamond</h3>
-        <List
-          items={sponsorDiamond}
-          className="flex"
-          linkClassName="p-8 lg:p-16 h-28 lg:h-[220px]"
-        /></>)}
-        {sponsorPlatinum.length && (<><h3 className={classes.heading}>Platinum</h3>
-        <List
-          items={sponsorPlatinum}
-          className="flex"
-          linkClassName="p-8 lg:py-14 h-28 lg:h-[210px]"
-        /> </>)}
-        {sponsorGold.length && (<><h3 className={classes.heading}>Gold</h3>
-        <List
-          items={sponsorGold}
-          className="flex"
-          linkClassName="p-8 lg:py-14 h-28 lg:h-[170px]"
-        /></>)}
-        {sponsorSilver.length&&(<><h3 className={classes.heading}>Silver</h3>
-        <List
-          items={sponsorSilver}
-          className="flex"
-          linkClassName="p-6 lg:p-10 h-28 lg:h-[155px]"
-        /></>)}
-        {workshopDaySponsors.length && (<><h3 className={classes.heading}>Workshop Day Sponsor</h3>
-        <List
-          items={workshopDaySponsors}
-          className="flex"
-          linkClassName="p-8 lg:p-10 h-28 lg:h-[155px]"
-        /></>)}
+        {sponsorDiamond.length && (
+          <>
+            <h3 className={classes.heading}>Diamond</h3>
+            <List
+              items={sponsorDiamond}
+              className="flex"
+              linkClassName="p-8 lg:p-16 h-28 lg:h-[220px]"
+            />
+          </>
+        )}
+        {sponsorPlatinum.length && (
+          <>
+            <h3 className={classes.heading}>Platinum</h3>
+            <List
+              items={sponsorPlatinum}
+              className="flex"
+              linkClassName="p-8 lg:py-14 h-28 lg:h-[210px]"
+            />{" "}
+          </>
+        )}
+        {sponsorGold.length && (
+          <>
+            <h3 className={classes.heading}>Gold</h3>
+            <List
+              items={sponsorGold}
+              className="flex"
+              linkClassName="p-8 lg:py-14 h-28 lg:h-[170px]"
+            />
+          </>
+        )}
+        {sponsorSilver.length && (
+          <>
+            <h3 className={classes.heading}>Silver</h3>
+            <List
+              items={sponsorSilver}
+              className="flex"
+              linkClassName="p-6 lg:p-10 h-28 lg:h-[155px]"
+            />
+          </>
+        )}
+        {workshopDaySponsors.length && (
+          <>
+            <h3 className={classes.heading}>Workshop Day Sponsor</h3>
+            <List
+              items={workshopDaySponsors}
+              className="flex"
+              linkClassName="p-8 lg:p-10 h-28 lg:h-[155px]"
+            />
+          </>
+        )}
       </div>
       {/* <div className="container py-24">
         <h1 className={classes.title}>Partners</h1>
