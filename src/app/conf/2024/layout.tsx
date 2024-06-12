@@ -43,7 +43,6 @@ export default function Layout({
         }
         links={[
           { children: <span>FAQ</span>, href: "/conf/2024/faq" },
-          { children: <span>Speak</span>, href: "/conf/2024/speak" },
           { children: <span>Register</span>, href: "/conf/2024#attend" },
           { children: <span>Partner</span>, href: "/conf/2024/partner" },
           {
@@ -66,7 +65,6 @@ export default function Layout({
         }
         links={[
           [
-            { children: "Speak", href: "/conf/2024/speak" },
             { children: "Register", href: "https://cvent.me/gk2dRw" },
             { children: "Sponsor", href: "/conf/2024/partner" },
             { children: "Partner", href: "/conf/2024/partner#program" },
