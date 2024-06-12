@@ -48,12 +48,6 @@ export default function Page() {
           <div className="flex items-center gap-12 max-md:flex-col">
             <Button href="#attend">Get Your Ticket!</Button>
             <a
-              href="/conf/2024/speak"
-              className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
-            >
-              Submit to Speak
-            </a>
-            <a
               href="/conf/2024/partner#sponsor"
               className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
             >

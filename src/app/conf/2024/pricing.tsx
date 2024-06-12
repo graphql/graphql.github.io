@@ -6,7 +6,7 @@ interface Pricing {
   title: string
   date: string
   price: string
-  dateIsExpired: Date
+  expiredDate: Date
 }
 
 const pricing: Pricing[] = [
@@ -14,19 +14,19 @@ const pricing: Pricing[] = [
     title: "Early Bird",
     date: "Through May 31, 2024",
     price: "$599",
-    dateIsExpired: new Date("2024-06-01"),
+    expiredDate: new Date("2024-06-01"),
   },
   {
     title: "Standard",
     date: "Jun 1 - Sep 4, 2024",
     price: "$799",
-    dateIsExpired: new Date("2024-09-05"),
+    expiredDate: new Date("2024-09-05"),
   },
   {
     title: "Late/Onsite",
     date: "Sep 5 Through Event",
     price: "$899",
-    dateIsExpired: new Date("2024-10-01"),
+    expiredDate: new Date("2024-10-01"),
   },
 ]
 
@@ -50,21 +50,29 @@ export function Pricing() {
       <div id="attend" className={classes.container}>
         <h1 className={classes.heading}>Pricing & Registration</h1>
         <div className="my-20 flex gap-10 justify-center max-md:items-center max-md:flex-col flex-wrap">
-          {pricing.map((pricing, index) => (
-            <a
-              key={index}
-              href="https://cvent.me/gk2dRw"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:shadow-primary/20 focus:shadow-primary/20 shadow-md px-24 py-12 bg-[#251f30] flex flex-col items-center border focus:border-primary hover:border-primary border-transparent transition-colors outline-none"
-            >
-              <div className="text-3xl font-bold mb-2">{pricing.title}</div>
-              <div className="text-lg mb-6">{pricing.date}</div>
-              <div className="text-[45px] text-primary font-bold">
-                {pricing.price}
-              </div>
-            </a>
-          ))}
+          {pricing.map((pricing, index) => {
+            const isExpired = pricing.expiredDate < new Date()
+            return (
+              <a
+                key={index}
+                href="https://cvent.me/gk2dRw"
+                target="_blank"
+                rel="noreferrer"
+                className={clsx(
+                  "shadow-md px-24 py-12 bg-[#251f30] flex flex-col items-center border border-transparent transition-colors outline-none",
+                  isExpired
+                    ? "opacity-50 line-through pointer-events-none"
+                    : "hover:shadow-primary/20 focus:shadow-primary/20 focus:border-primary hover:border-primary",
+                )}
+              >
+                <div className="text-3xl font-bold mb-2">{pricing.title}</div>
+                <div className="text-lg mb-6">{pricing.date}</div>
+                <div className="text-[45px] text-primary font-bold [text-decoration-line:inherit]">
+                  {pricing.price}
+                </div>
+              </a>
+            )
+          })}
         </div>
         <Button href="https://cvent.me/gk2dRw" className="mx-auto !block">
           Register Now!
