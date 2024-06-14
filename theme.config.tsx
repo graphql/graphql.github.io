@@ -196,7 +196,7 @@ export default {
   banner: {
     content: (
       <>
-        📣 GraphQLConf 2024 • Sept 10-12 • San Francisco • ⚠️ CFP Closes May 31!
+        📣 GraphQLConf 2024 • Sept 10-12 • San Francisco • Schedule Coming Soon!
         Submit Today •{" "}
         <NextLink
           href="/conf/2024"
