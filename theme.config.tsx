@@ -197,7 +197,7 @@ export default {
     content: (
       <>
         📣 GraphQLConf 2024 • Sept 10-12 • San Francisco • Schedule Coming Soon!
-        Submit Today •{" "}
+        •{" "}
         <NextLink
           href="/conf/2024"
           className="underline after:content-['_→'] after:font-sans"
