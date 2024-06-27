@@ -47,8 +47,7 @@ export default function Layout({
           { children: <span>Partner</span>, href: "/conf/2024/partner" },
           {
             children: <span>Schedule</span>,
-            href: "/conf/2024/schedule",
-            "aria-disabled": true,
+            href: "https://graphqlconf2024.sched.com/",
           },
         ]}
       />
@@ -75,8 +74,7 @@ export default function Layout({
             },
             {
               children: "Schedule",
-              href: "/conf/2024/schedule",
-              "aria-disabled": true,
+              href: "https://graphqlconf2024.sched.com/",
             },
             { children: "GraphQLConf 2023", href: "/conf/2023" },
           ],
