@@ -196,8 +196,8 @@ export default {
   banner: {
     content: (
       <>
-        📣 GraphQLConf 2024 • Sept 10-12 • San Francisco • Schedule Coming Soon!
-        •{" "}
+        📣 GraphQLConf 2024 • Sept 10-12 • San Francisco • Check out the
+        Schedule & Get Your Ticket •{" "}
         <NextLink
           href="/conf/2024"
           className="underline after:content-['_→'] after:font-sans"
