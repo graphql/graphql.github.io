@@ -5,11 +5,11 @@ date: 2024-06-28
 byline: Marc-André Giroux, edited by Jeff Auriemma
 ---
 
-This post is edited from its [original publication](https://www.magiroux.com/eight-years-of-graphql/) on Marc-André Giroux's blog.  Though originally intended to respond to a specific article, we at the GraphQL Foundation felt that Marc-André's post would stand well on its own with a few light edits.  What follows is a well-informed set of practices and principles that engineers should consider when using GraphQL in production.
+_This is a guest post outlining GraphQL TSC emeritus Marc-André Giroux's thoughts on practices and principles engineers should consider when using GraphQL in production. Though the [original publication](https://www.magiroux.com/eight-years-of-graphql/) was intended to respond to a specific article, we at the GraphQL Foundation felt that Marc-André's well-informed opinions would stand well on their own with a little light editing._
 
-## Use persisted queries
+## Use Persisted Queries
 
-Ok, first of all, let's start with something maybe a little bold: **Persisted Queries are basically essential for building a solid GraphQL API**. If you are not using them, you're doing GraphQL on hard mode. It's not impossible, but it leads to difficult problems that show up in GraphQL debates from time to time. After 8 years of GraphQL, this has only gotten more and more important to me. Persist all queries, as soon as possible in your GraphQL journey. You'll thank yourself later.
+Let's start with something maybe a little bold: **Persisted Queries are basically essential for building a solid GraphQL API**. If you are not using them, you're doing GraphQL on hard mode. It's not impossible, but it leads to difficult problems that show up in GraphQL debates from time to time. After 8 years of GraphQL, this has only gotten more and more important to me. Persist all queries, as soon as possible in your GraphQL journey. You'll thank yourself later.
 
 Public APIs are a bit different.  To be clear, it's not necessarily true that you can't use Persisted Queries in public APIs; one could ask customers to register queries first. But figuring out the DX for this would be an interesting task. That's why [We Don’t See Many Public GraphQL APIs](https://productionreadygraphql.com/blog/2019-10-21-why-we-dont-see-many-public-graphql-apis) out there, and why I would not pick GraphQL if I were to expose a public API today.
 
@@ -17,7 +17,7 @@ For a public API, a coarser-grained, resource-based API works great, and can be 
 
 ## Authorization
 
-Authorization is a challenge with GraphQL. The thing is it's almost always challenging no matter what API style you use. I'd go as far as saying it is a challenge with designing software in general. Here's an example from a recent post that actually highlights this very well:
+Authorization is a challenge with GraphQL. The thing is it's almost always challenging no matter what API style you use. I'd go as far as saying it is a challenge with designing software in general. Here's an example from a recent post that highlights this very well:
 
 ```graphql
 query {
