@@ -12,7 +12,7 @@ import { speakers, schedule } from "@/app/conf/2024/_data"
 import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
 import { ScheduleSession } from "../../../2023/types"
 
-export function getEventTitle(
+function getEventTitle(
   event: ScheduleSession,
   speakers: string[],
 ): string {
