@@ -12,12 +12,12 @@ import { speakers, schedule } from "@/app/conf/2024/_data"
 import { ChevronLeftIcon } from "@/icons"
 import NextLink from "next/link"
 import { eventsColors } from "../../utils"
-import { filterCategories2024 } from '@/app/conf/_components/schedule/filter-categories'
+import { filterCategories2024 } from "@/app/conf/_components/schedule/filter-categories"
 
 type SpeakerProps = { params: { id: string } }
 
 export function generateMetadata({ params }: SpeakerProps): Metadata {
-  const decodedId = decodeURIComponent(params.id);
+  const decodedId = decodeURIComponent(params.id)
   const speaker = speakers.find(s => s.username === decodedId)!
 
   const keywords = [speaker.name, speaker.company, speaker.position].filter(
@@ -35,19 +35,19 @@ export function generateMetadata({ params }: SpeakerProps): Metadata {
 }
 
 export function generateStaticParams() {
-  return speakers.map(s => ({ id: s.username }));
+  return speakers.map(s => ({ id: s.username }))
 }
 
 export default function SpeakerPage({ params }: SpeakerProps) {
-  const decodedId = decodeURIComponent(params.id);
+  const decodedId = decodeURIComponent(params.id)
   const speaker = speakers.find(s => s.username === decodedId)!
 
   const s = schedule
     .filter(s => s.speakers && s.speakers.some(s => s.username === decodedId))
     .map(s => ({
       ...s,
-      speakers: s.speakers!.map(s =>
-        speakers.find(speaker => speaker.username === s.username)!,
+      speakers: s.speakers!.map(
+        s => speakers.find(speaker => speaker.username === s.username)!,
       ),
     }))
 

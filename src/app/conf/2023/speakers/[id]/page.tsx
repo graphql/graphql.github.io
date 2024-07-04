@@ -12,7 +12,7 @@ import { speakers, schedule } from "@/app/conf/2023/_data"
 import { ChevronLeftIcon } from "@/icons"
 import NextLink from "next/link"
 import { eventsColors } from "../../utils"
-import { filterCategories2023 } from '@/app/conf/_components/schedule/filter-categories'
+import { filterCategories2023 } from "@/app/conf/_components/schedule/filter-categories"
 
 type SpeakerProps = { params: { id: string } }
 
@@ -47,8 +47,8 @@ export default function SpeakerPage({ params }: SpeakerProps) {
     .filter(s => s.speakers && s.speakers.some(s => s.username === params.id))
     .map(s => ({
       ...s,
-      speakers: s.speakers!.map(s =>
-        speakers.find(speaker => speaker.username === s.username)!,
+      speakers: s.speakers!.map(
+        s => speakers.find(speaker => speaker.username === s.username)!,
       ),
     }))
 

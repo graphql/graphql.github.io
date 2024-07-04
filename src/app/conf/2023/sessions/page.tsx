@@ -1,8 +1,8 @@
 import { Metadata } from "next"
 import { SessionList } from "@/app/conf/_components/schedule/session-list"
 import { schedule, speakers } from "@/app/conf/2023/_data"
-import { eventsColors } from '../utils'
-import { filterCategories2023 } from '../../_components/schedule/filter-categories'
+import { eventsColors } from "../utils"
+import { filterCategories2023 } from "../../_components/schedule/filter-categories"
 
 export const metadata: Metadata = {
   title: "Sessions",
@@ -13,7 +13,7 @@ export default function SessionsPage() {
     <div className="bg-[#f4f6f8]">
       <div className="container conf-block">
         <SessionList
-          year='2023'
+          year="2023"
           eventsColors={eventsColors}
           filterCategories={filterCategories2023}
           // @ts-expect-error -- fixme
