@@ -8,16 +8,17 @@ import {
   SocialMediaIconServiceType,
 } from "@/app/conf/_components/speakers/social-media"
 import { Avatar } from "@/app/conf/_components/speakers/avatar"
-import { speakers, schedule } from "@/app/conf/2023/_data"
+import { speakers, schedule } from "@/app/conf/2024/_data"
 import { ChevronLeftIcon } from "@/icons"
 import NextLink from "next/link"
 import { eventsColors } from "../../utils"
-import { filterCategories2023 } from "@/app/conf/_components/schedule/filter-categories"
+import { filterCategories2024 } from "@/app/conf/_components/schedule/filter-categories"
 
 type SpeakerProps = { params: { id: string } }
 
 export function generateMetadata({ params }: SpeakerProps): Metadata {
-  const speaker = speakers.find(s => s.username === params.id)!
+  const decodedId = decodeURIComponent(params.id)
+  const speaker = speakers.find(s => s.username === decodedId)!
 
   const keywords = [speaker.name, speaker.company, speaker.position].filter(
     Boolean,
@@ -38,13 +39,11 @@ export function generateStaticParams() {
 }
 
 export default function SpeakerPage({ params }: SpeakerProps) {
-  const speaker = speakers.find(s => s.username === params.id)
-  if (!speaker) {
-    notFound()
-  }
+  const decodedId = decodeURIComponent(params.id)
+  const speaker = speakers.find(s => s.username === decodedId)!
 
   const s = schedule
-    .filter(s => s.speakers && s.speakers.some(s => s.username === params.id))
+    .filter(s => s.speakers && s.speakers.some(s => s.username === decodedId))
     .map(s => ({
       ...s,
       speakers: s.speakers!.map(
@@ -57,7 +56,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
       <section className="flex flex-col container">
         <div className="flex flex-col">
           <NextLink
-            href="/conf/2023/speakers"
+            href="/conf/2024/speakers"
             className="text-conf-black flex items-center text-lg hover:text-primary gap-2 transition-colors"
           >
             <ChevronLeftIcon className="size-5" /> Back to Speakers
@@ -107,10 +106,10 @@ export default function SpeakerPage({ params }: SpeakerProps) {
             </div>
             <h1 className="conf-heading mb-10">Sessions</h1>
             <SessionList
-              filterCategories={filterCategories2023}
-              eventsColors={eventsColors}
-              year="2023"
               showFilter={false}
+              filterCategories={filterCategories2024}
+              eventsColors={eventsColors}
+              year="2024"
               scheduleData={s}
             />
           </div>

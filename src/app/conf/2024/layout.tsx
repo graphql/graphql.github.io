@@ -42,13 +42,17 @@ export default function Layout({
           </NextLink>
         }
         links={[
+          {
+            children: <span>Schedule</span>,
+            href: "/conf/2024/schedule",
+          },
+          {
+            children: <span>Speakers</span>,
+            href: "/conf/2024/speakers",
+          },
           { children: <span>FAQ</span>, href: "/conf/2024/faq" },
           { children: <span>Register</span>, href: "/conf/2024#attend" },
           { children: <span>Partner</span>, href: "/conf/2024/partner" },
-          {
-            children: <span>Schedule</span>,
-            href: "https://graphqlconf2024.sched.com/",
-          },
         ]}
       />
       {children}
@@ -64,6 +68,14 @@ export default function Layout({
         }
         links={[
           [
+            {
+              children: "Schedule",
+              href: "/conf/2024/schedule",
+            },
+            {
+              children: "Speakers",
+              href: "/conf/2024/speakers",
+            },
             { children: "Register", href: "https://cvent.me/gk2dRw" },
             { children: "Sponsor", href: "/conf/2024/partner" },
             { children: "Partner", href: "/conf/2024/partner#program" },
@@ -72,10 +84,7 @@ export default function Layout({
               href: "/conf/2024/speakers",
               "aria-disabled": true,
             },
-            {
-              children: "Schedule",
-              href: "https://graphqlconf2024.sched.com/",
-            },
+
             { children: "GraphQLConf 2023", href: "/conf/2023" },
           ],
           [

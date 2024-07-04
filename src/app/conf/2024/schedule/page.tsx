@@ -1,8 +1,8 @@
-import { schedule } from "@/app/conf/2023/_data"
+import { schedule } from "@/app/conf/2024/_data"
 import { ScheduleList } from "@/app/conf/_components/schedule/schedule-list"
 import { Metadata } from "next"
 import { eventsColors } from "../utils"
-import { filterCategories2023 } from "../../_components/schedule/filter-categories"
+import { filterCategories2024 } from "../../_components/schedule/filter-categories"
 
 export const metadata: Metadata = {
   title: "Schedule",
@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function SchedulePage() {
   return (
-    <>
+    <div className='bg-[url("/img/conf/golden-gate-bridge.png")] bg-no-repeat bg-contain'>
       <div className="container">
-        <div className="prose lg:prose-lg py-10 text-white max-w-full">
-          <h1 className="text-white">GraphQLConf 2023 Schedule</h1>
+        <div className="prose lg:prose-lg py-20 text-white max-w-full">
+          <h1 className="text-white">GraphQLConf 2024 Schedule</h1>
           <section className="px-0 mx-0 my-8">
             <div className="flex gap-8 mb-1.5">
               <span className="flex items-center">
@@ -27,7 +27,7 @@ export default function SchedulePage() {
                 >
                   <path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z" />
                 </svg>
-                September 19-21, 2023
+                September 10-12, 2024
               </span>
               <span className="flex items-center">
                 <svg
@@ -57,7 +57,7 @@ export default function SchedulePage() {
       <div className="bg-[#f4f6f8] conf-block">
         <div className="container">
           <a
-            href="https://graphqlconf23.sched.com"
+            href="https://graphqlconf2024.sched.com"
             target="_blank"
             rel="noreferrer"
             className="underline-offset-2 underline"
@@ -65,13 +65,13 @@ export default function SchedulePage() {
             🔗 Bookmark sessions & plan your days on Sched
           </a>
           <ScheduleList
-            filterCategories={filterCategories2023}
+            filterCategories={filterCategories2024}
             eventsColors={eventsColors}
-            year="2023"
+            year="2024"
             scheduleData={schedule}
           />
         </div>
       </div>
-    </>
+    </div>
   )
 }

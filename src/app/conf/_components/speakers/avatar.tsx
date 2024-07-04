@@ -16,7 +16,7 @@ export const Avatar: FC<Props> = ({ avatar, name, className, href }) => {
   const Component = () =>
     avatar ? (
       <img
-        className={`cursor-pointer ${className}`}
+        className={`${className}`}
         src={avatar}
         alt={`${name} Profile Image`}
       />

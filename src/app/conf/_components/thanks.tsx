@@ -3,6 +3,8 @@ import { SessionList } from "./schedule/session-list"
 import { Button } from "./button"
 import leeImage from "../2023/gallery/images/3.jpg"
 import { schedule, speakers } from "@/app/conf/2023/_data"
+import { eventsColors } from "../2023/utils"
+import { filterCategories2023 } from "./schedule/filter-categories"
 
 function shuffle<T extends any[]>(array: T): T {
   let currentIndex = array.length
@@ -53,6 +55,9 @@ export async function Thanks() {
           </div>
         </div>
         <SessionList
+          year="2023"
+          filterCategories={filterCategories2023}
+          eventsColors={eventsColors}
           showFilter={false}
           // @ts-expect-error -- fixme
           scheduleData={shuffle(filteredSessions)
