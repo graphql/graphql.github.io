@@ -12,6 +12,7 @@ import { speakers, schedule } from "@/app/conf/2024/_data"
 import { ChevronLeftIcon } from "@/icons"
 import NextLink from "next/link"
 import { eventsColors } from "../../utils"
+import { filterCategories2024 } from '@/app/conf/_components/schedule/filter-categories'
 
 type SpeakerProps = { params: { id: string } }
 
@@ -47,7 +48,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
     .map(s => ({
       ...s,
       speakers: s.speakers!.map(s =>
-        speakers.find(speaker => speaker.username === s.username),
+        speakers.find(speaker => speaker.username === s.username)!,
       ),
     }))
 
@@ -105,11 +106,11 @@ export default function SpeakerPage({ params }: SpeakerProps) {
               />
             </div>
             <h1 className="conf-heading mb-10">Sessions</h1>
-            {/* @ts-expect-error */}
             <SessionList
+              showFilter={false}
+              filterCategories={filterCategories2024}
               eventsColors={eventsColors}
               year="2024"
-              showFilter={false}
               scheduleData={s}
             />
           </div>
