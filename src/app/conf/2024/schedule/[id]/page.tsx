@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
-import { findBestMatch } from "string-similarity"
 import clsx from "clsx"
 import { Avatar } from "../../../_components/speakers/avatar"
 import { BackLink } from "../../../_components/schedule/back-link"
@@ -37,12 +36,11 @@ type SessionProps = { params: { id: string } }
 export function generateMetadata({ params }: SessionProps): Metadata {
   const event = schedule.find(s => s.id === params.id)!
 
-  console.log("EVENTTT", event)
   const keywords = [
     event.event_type,
     event.audience,
     event.event_subtype,
-    ...event.speakers!.map(s => s.name),
+    ...(event.speakers || []).map(s => s.name),
   ].filter(Boolean)
 
   return {
@@ -56,7 +54,7 @@ export function generateMetadata({ params }: SessionProps): Metadata {
 }
 
 export function generateStaticParams() {
-  return schedule.filter(s => s.speakers).map(s => ({ id: s.id }))
+  return schedule.filter(s => s.id).map(s => ({ id: s.id }))
 }
 
 const Tag = ({
@@ -83,7 +81,7 @@ export default function SessionPage({ params }: SessionProps) {
     notFound()
   }
   // @ts-expect-error -- fixme
-  event.speakers = event.speakers!.map(speaker =>
+  event.speakers = (event.speakers || []).map(speaker =>
     speakers.find(s => s.username === speaker.username),
   )
 

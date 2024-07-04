@@ -17,7 +17,8 @@ import { filterCategories2024 } from '@/app/conf/_components/schedule/filter-cat
 type SpeakerProps = { params: { id: string } }
 
 export function generateMetadata({ params }: SpeakerProps): Metadata {
-  const speaker = speakers.find(s => s.username === params.id)!
+  const decodedId = decodeURIComponent(params.id);
+  const speaker = speakers.find(s => s.username === decodedId)!
 
   const keywords = [speaker.name, speaker.company, speaker.position].filter(
     Boolean,
@@ -34,17 +35,15 @@ export function generateMetadata({ params }: SpeakerProps): Metadata {
 }
 
 export function generateStaticParams() {
-  return speakers.map(s => ({ id: s.username }))
+  return speakers.map(s => ({ id: s.username }));
 }
 
 export default function SpeakerPage({ params }: SpeakerProps) {
-  const speaker = speakers.find(s => s.username === params.id)
-  if (!speaker) {
-    notFound()
-  }
+  const decodedId = decodeURIComponent(params.id);
+  const speaker = speakers.find(s => s.username === decodedId)!
 
   const s = schedule
-    .filter(s => s.speakers && s.speakers.some(s => s.username === params.id))
+    .filter(s => s.speakers && s.speakers.some(s => s.username === decodedId))
     .map(s => ({
       ...s,
       speakers: s.speakers!.map(s =>
