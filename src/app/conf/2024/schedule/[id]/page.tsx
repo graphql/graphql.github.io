@@ -2,22 +2,42 @@ import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { findBestMatch } from "string-similarity"
 import clsx from "clsx"
-import { getEventTitle } from "./_event_title"
-import { videos } from "./_videos"
 import { Avatar } from "../../../_components/speakers/avatar"
 import { BackLink } from "../../../_components/schedule/back-link"
 import {
   SocialMediaIcon,
   SocialMediaIconServiceType,
 } from "../../../_components/speakers/social-media"
-import { speakers, schedule } from "@/app/conf/2023/_data"
+import { speakers, schedule } from "@/app/conf/2024/_data"
 import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
+import { ScheduleSession } from "../../../2023/types"
+
+export function getEventTitle(
+  event: ScheduleSession,
+  speakers: string[],
+): string {
+  let { name } = event
+
+  if (!speakers) {
+    return name
+  }
+
+  speakers?.forEach(speaker => {
+    const speakerInTitle = name.indexOf(`- ${speaker.replace("ı", "i")}`)
+    if (speakerInTitle > -1) {
+      name = name.slice(0, speakerInTitle)
+    }
+  })
+
+  return name
+}
 
 type SessionProps = { params: { id: string } }
 
 export function generateMetadata({ params }: SessionProps): Metadata {
   const event = schedule.find(s => s.id === params.id)!
 
+  console.log("EVENTTT", event)
   const keywords = [
     event.event_type,
     event.audience,
@@ -76,29 +96,13 @@ export default function SessionPage({ params }: SessionProps) {
     event.speakers!.map(s => s.name),
   )
 
-  const recordingTitle = findBestMatch(
-    `${eventTitle} ${event.speakers!.map(e => e.name).join(" ")}`,
-    videos.map(e => e.title),
-  ).bestMatch
-
   return (
     <div className="bg-[#f4f6f8]">
       <div className="container">
         <div className="py-10">
           <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
             <div className="flex flex-col lg:px-0">
-              <BackLink year="2023" kind="sessions" />
-              {recordingTitle.rating > 0.5 && (
-                <iframe
-                  className="aspect-video max-w-[1000px] mx-auto size-full rounded-md"
-                  src={`https://youtube.com/embed/${
-                    videos.find(e => e.title === recordingTitle.target)?.id
-                  }`}
-                  title={recordingTitle.target}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              )}
+              <BackLink year="2024" kind="schedule" />
 
               <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-4">
                 <div className="space-y-5">
@@ -125,7 +129,7 @@ export default function SessionPage({ params }: SessionProps) {
 
                       <div className="flex flex-col lg:gap-1 gap-1.5">
                         <a
-                          href={`/conf/2023/speakers/${speaker.username}`}
+                          href={`/conf/2024/speakers/${speaker.username}`}
                           className="text-xl mt-0 font-bold text-[#333333] underline"
                         >
                           {speaker.name}

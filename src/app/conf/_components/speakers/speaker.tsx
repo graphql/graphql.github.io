@@ -10,10 +10,11 @@ export function Speaker({
   avatar,
   username,
   socialurls,
+  year,
 }: SchedSpeaker) {
   return (
     <div className="flex flex-col items-center">
-      <NextLink href={`/conf/2023/speakers/${username}`} className="group">
+      <NextLink href={`/conf/${year}/speakers/${username}`} className="group">
         <Avatar
           className="group-hover:border-primary transition-colors border-2 border-transparent rounded-full size-[150px] lg:size-[230px]"
           avatar={avatar}

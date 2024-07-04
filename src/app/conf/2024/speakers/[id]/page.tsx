@@ -8,7 +8,7 @@ import {
   SocialMediaIconServiceType,
 } from "@/app/conf/_components/speakers/social-media"
 import { Avatar } from "@/app/conf/_components/speakers/avatar"
-import { speakers, schedule } from "@/app/conf/2023/_data"
+import { speakers, schedule } from "@/app/conf/2024/_data"
 import { ChevronLeftIcon } from "@/icons"
 import NextLink from "next/link"
 import { eventsColors } from "../../utils"
@@ -56,7 +56,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
       <section className="flex flex-col container">
         <div className="flex flex-col">
           <NextLink
-            href="/conf/2023/speakers"
+            href="/conf/2024/speakers"
             className="text-conf-black flex items-center text-lg hover:text-primary gap-2 transition-colors"
           >
             <ChevronLeftIcon className="size-5" /> Back to Speakers
@@ -108,7 +108,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
             {/* @ts-expect-error */}
             <SessionList
               eventsColors={eventsColors}
-              year="2023"
+              year="2024"
               showFilter={false}
               scheduleData={s}
             />

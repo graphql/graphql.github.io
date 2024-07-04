@@ -2,12 +2,10 @@
 
 import { compareAsc } from "date-fns"
 import { ComponentProps, ReactElement, useEffect, useState } from "react"
-import { eventsColors } from "@/app/conf/2023/utils"
 import { Filters } from "./filters"
 import { SchedSpeaker } from "../../2023/types"
 import { clsx } from "clsx"
 import NextLink from "next/link"
-import { filterCategories } from "./filter-categories"
 
 export interface ScheduleSession {
   id: string
@@ -91,12 +89,21 @@ interface Props {
   showFilter?: boolean
   scheduleData: ScheduleSession[]
   filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
+  year: "2023" | "2024"
+  filterCategories: {
+    name: CategoryName
+    options: string[]
+  }[]
+  eventsColors: Record<string, string>
 }
 
 export function SessionList({
   showFilter = true,
   filterSchedule,
   scheduleData,
+  year,
+  filterCategories,
+  eventsColors,
 }: Props): ReactElement {
   const [filtersState, setFiltersState] = useState<
     Record<CategoryName, string[]>
@@ -160,14 +167,22 @@ export function SessionList({
                       className={clsx(
                         "shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline",
                       )}
-                      href={`/conf/2023/sessions/${session.id}`}
+                      href={
+                        year === "2024"
+                          ? `/conf/${year}/schedule/${session.id}`
+                          : `/conf/${year}/sessions/${session.id}`
+                      }
                     >
                       <div className="bg-[#251F30] text-white flex justify-between py-5 px-7 relative">
                         <div className="text-sm flex flex-col gap-2 [*:hover>*>&]:opacity-0 transition-opacity duration-300 opacity-100">
-                          <div className="flex gap-3">
-                            <div className="font-mono w-4 text-center">▶</div>
-                            Recording
-                          </div>
+                          {year !== "2024" && (
+                            <div className="flex gap-3">
+                              <div className="font-mono w-4 text-center">
+                                ▶
+                              </div>
+                              Recording
+                            </div>
+                          )}
                           <div className="flex items-center gap-3">
                             <ClockIcon className="size-4" />
                             {(Number(new Date(session.event_end)) -

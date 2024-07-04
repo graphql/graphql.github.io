@@ -21,11 +21,11 @@ async function fetchData<T>(url: string): Promise<T> {
   }
 }
 
-const token = process.env.SCHED_ACCESS_TOKEN_2023
+const token = process.env.SCHED_ACCESS_TOKEN_2024
 
 async function getUsernames(): Promise<string[]> {
   const response = await fetchData<{ username: string }[]>(
-    `https://graphqlconf23.sched.com/api/user/list?api_key=${token}&format=json&fields=username`,
+    `https://graphqlconf2024.sched.com/api/user/list?api_key=${token}&format=json&fields=username`,
   )
   return response.map(user => user.username)
 }
@@ -39,7 +39,7 @@ async function getSpeakers(): Promise<SchedSpeaker[]> {
     usernames.map(username =>
       limit(() => {
         return fetchData<SchedSpeaker>(
-          `https://graphqlconf23.sched.com/api/user/get?api_key=${token}&by=username&term=${username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`,
+          `https://graphqlconf2024.sched.com/api/user/get?api_key=${token}&by=username&term=${username}&format=json&fields=username,company,position,name,about,location,url,avatar,role,socialurls`,
         )
       }),
     ),
@@ -59,7 +59,7 @@ async function getSpeakers(): Promise<SchedSpeaker[]> {
 
 async function getSchedule(): Promise<ScheduleSession[]> {
   const sessions = await fetchData<ScheduleSession[]>(
-    `https://graphqlconf23.sched.com/api/session/export?api_key=${token}&format=json`,
+    `https://graphqlconf2024.sched.com/api/session/export?api_key=${token}&format=json`,
   )
 
   const result = sessions.map(session => {

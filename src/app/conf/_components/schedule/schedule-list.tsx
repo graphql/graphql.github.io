@@ -2,7 +2,7 @@
 
 import { format, parseISO, compareAsc } from "date-fns"
 import { ReactElement, useEffect, useState } from "react"
-import { eventsColors, getEventTitle } from "@/app/conf/2023/utils"
+import { getEventTitle } from "@/app/conf/2023/utils"
 import { Filters } from "./filters"
 import { SchedSpeaker } from "../../2023/types"
 import {
@@ -11,7 +11,6 @@ import {
   ConcurrentSessions,
   ScheduleSessionsByDay,
 } from "./session-list"
-import { filterCategories } from "./filter-categories"
 
 function isString(x: any) {
   return Object.prototype.toString.call(x) === "[object String]"
@@ -37,13 +36,13 @@ function getSessionsByDay(
 
     let include = true
     if (audienceFilter.length > 0) {
-      include = include && audienceFilter.includes(session.audience)
+      include = include && audienceFilter.includes((session as any).company)
     }
     if (talkCategoryFilter.length > 0) {
-      include = include && talkCategoryFilter.includes(session.event_subtype)
+      include = include && talkCategoryFilter.includes(session.event_type)
     }
     if (eventTypeFilter.length > 0) {
-      include = include && eventTypeFilter.includes(session.event_type)
+      include = include && eventTypeFilter.includes(session.audience)
     }
 
     if (!include) {
@@ -76,6 +75,12 @@ interface Props {
   showFilter?: boolean
   scheduleData: ScheduleSession[]
   filterSchedule?: (sessions: ScheduleSession[]) => ScheduleSession[]
+  year: "2023" | "2024"
+  eventsColors: Record<string, string>
+  filterCategories: {
+    name: CategoryName
+    options: string[]
+  }[]
 }
 
 export function ScheduleList({
@@ -83,6 +88,9 @@ export function ScheduleList({
   showFilter = true,
   filterSchedule,
   scheduleData,
+  year,
+  eventsColors,
+  filterCategories,
 }: Props): ReactElement {
   const [filtersState, setFiltersState] = useState<
     Record<CategoryName, string[]>
@@ -199,7 +207,7 @@ export function ScheduleList({
                               <a
                                 id={`session-${session.id}`}
                                 data-tooltip-id="my-tooltip"
-                                href={`/conf/2023/schedule/${session.id}?name=${session.name}`}
+                                href={`/conf/${year}/schedule/${session.id}?name=${session.name}`}
                                 key={session.id}
                                 style={{
                                   borderLeft: `10px solid ${borderColor}`,
