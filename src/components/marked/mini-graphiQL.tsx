@@ -204,7 +204,7 @@ class QueryEditor extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Ensure the changes caused by this update are not interpretted as
+    // Ensure the changes caused by this update are not interpreted as
     // user-input changes which could otherwise result in an infinite
     // event loop.
     this.ignoreChangeEvent = true
@@ -397,7 +397,7 @@ class VariableEditor extends Component {
   componentDidUpdate(prevProps) {
     const CodeMirror = require("codemirror")
 
-    // Ensure the changes caused by this update are not interpretted as
+    // Ensure the changes caused by this update are not interpreted as
     // user-input changes which could otherwise result in an infinite
     // event loop.
     this.ignoreChangeEvent = true
