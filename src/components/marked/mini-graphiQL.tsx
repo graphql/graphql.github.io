@@ -482,7 +482,7 @@ function onHasCompletion(cm, data, onHintInformationRender) {
       // CodeMirror vertically inverts the hint UI if there is not enough
       // space below the cursor. Since this modified UI appends to the bottom
       // of CodeMirror's existing UI, it could cover the cursor. This adjusts
-      // the positioning of the hint UI to accomodate.
+      // the positioning of the hint UI to accommodate.
       let top = hintsUl.style.top
       let bottom = ""
       const cursorTop = cm.cursorCoords().top
