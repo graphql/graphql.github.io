@@ -6,7 +6,7 @@ github: EntityGraphQL/EntityGraphQL
 ---
 
 ```csharp
-// expose an exisiting data model with ASP.NET & EF Core
+// expose an existing data model with ASP.NET & EF Core
 public class Startup {
   public void ConfigureServices(IServiceCollection services)
   {

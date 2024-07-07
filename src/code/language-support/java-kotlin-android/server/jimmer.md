@@ -13,7 +13,7 @@ github: babyfish-ct/jimmer
 
 3.  Powerful and GraphQL friendly caching support.
 
-4.  Faster than other popular ORM solutions, please see the bechmark: https://babyfish-ct.github.io/jimmer/docs/benchmark/
+4.  Faster than other popular ORM solutions, please see the benchmark: https://babyfish-ct.github.io/jimmer/docs/benchmark/
 
 5.  More powerful than other popular ORM solutions.
 

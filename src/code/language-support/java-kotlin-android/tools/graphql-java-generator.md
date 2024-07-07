@@ -13,4 +13,4 @@ github: graphql-java-generator/graphql-gradle-plugin-project
   A Gradle plugin is coming soon.
   Please note that GraphQL Java Generator is an accelerator: the generated code doesn’t depend on any library specific to GraphQL Java Generator.
   So, it helps you to start building application based on graphql-java. Once the code is generated, you can decide to manually edit it as any standard java application, and get rid of GraphQL Java Generator.
-  Of course you can, and should, according to us :), continue using GraphQL Java Generator when your projet evolves.
+  Of course you can, and should, according to us :), continue using GraphQL Java Generator when your project evolves.

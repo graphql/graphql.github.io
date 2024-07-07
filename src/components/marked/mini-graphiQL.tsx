@@ -204,7 +204,7 @@ class QueryEditor extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Ensure the changes caused by this update are not interpretted as
+    // Ensure the changes caused by this update are not interpreted as
     // user-input changes which could otherwise result in an infinite
     // event loop.
     this.ignoreChangeEvent = true
@@ -397,7 +397,7 @@ class VariableEditor extends Component {
   componentDidUpdate(prevProps) {
     const CodeMirror = require("codemirror")
 
-    // Ensure the changes caused by this update are not interpretted as
+    // Ensure the changes caused by this update are not interpreted as
     // user-input changes which could otherwise result in an infinite
     // event loop.
     this.ignoreChangeEvent = true
@@ -482,7 +482,7 @@ function onHasCompletion(cm, data, onHintInformationRender) {
       // CodeMirror vertically inverts the hint UI if there is not enough
       // space below the cursor. Since this modified UI appends to the bottom
       // of CodeMirror's existing UI, it could cover the cursor. This adjusts
-      // the positioning of the hint UI to accomodate.
+      // the positioning of the hint UI to accommodate.
       let top = hintsUl.style.top
       let bottom = ""
       const cursorTop = cm.cursorCoords().top

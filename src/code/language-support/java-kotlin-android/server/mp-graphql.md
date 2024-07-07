@@ -19,7 +19,7 @@ MP GraphQL features include:
 - Exception handling
 - Easy integration with Jakarta and MicroProfile technologies
 
-Want to get started? Check out these resouces:
+Want to get started? Check out these resources:
 
 - Learn how to [create and deploy a server side app in Open Liberty](https://openliberty.io/guides/microprofile-graphql.html).
 - Learn how to [create a client application in Open Liberty](https://openliberty.io/guides/graphql-client.html).
