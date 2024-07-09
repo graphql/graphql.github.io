@@ -12,6 +12,7 @@ import {
 } from "../../../_components/speakers/social-media"
 import { speakers, schedule } from "@/app/conf/2023/_data"
 import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
+import { format, parseISO } from 'date-fns'
 
 type SessionProps = { params: { id: string } }
 
@@ -110,6 +111,13 @@ export default function SessionPage({ params }: SessionProps) {
                   <h1 className="mt-0 text-2xl lg:text-3xl font-medium mb-5">
                     {eventTitle}
                   </h1>
+                  <span className="text-[#333333]">
+                    {format(
+                      parseISO(event.event_start),
+                      "EEEE, MMMM d / hh:mmaaaa 'PDT'",
+                    )}{" "}
+                    - {format(parseISO(event.event_end), "hh:mmaaaa 'PDT'")}
+                  </span>
                 </div>
                 <div className="flex lg:flex-row flex-col sm:gap-5">
                   {event.speakers!.map(speaker => (
