@@ -10,6 +10,7 @@ import {
 import { speakers, schedule } from "@/app/conf/2024/_data"
 import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
 import { ScheduleSession } from "../../../2023/types"
+import { format, parseISO } from 'date-fns'
 
 function getEventTitle(event: ScheduleSession, speakers: string[]): string {
   let { name } = event
@@ -106,9 +107,10 @@ export default function SessionPage({ params }: SessionProps) {
                     <Tag text={event.audience} />
                     <Tag text={event.event_subtype} />
                   </div>
-                  <h1 className="mt-0 text-2xl lg:text-3xl font-medium mb-5">
+                  <h1 className="mt-0 text-2xl lg:text-3xl font-medium">
                     {eventTitle}
                   </h1>
+                  <span className='text-[#333333]'>{format(parseISO(event.event_start), "EEEE, MMMM d / hh:mmaaaa 'PDT'")} - {format(parseISO(event.event_end), "hh:mmaaaa 'PDT'")}</span>
                 </div>
                 <div className="flex lg:flex-row flex-col sm:gap-5">
                   {event.speakers!.map(speaker => (
