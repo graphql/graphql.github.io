@@ -12,7 +12,7 @@ import {
 } from "../../../_components/speakers/social-media"
 import { speakers, schedule } from "@/app/conf/2023/_data"
 import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from "date-fns"
 
 type SessionProps = { params: { id: string } }
 
