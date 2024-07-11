@@ -1,21 +1,8 @@
 import Stellate from "public/img/conf/Sponsors/Stellate.svg"
-import Postman from "public/img/conf/Sponsors/Postman.svg"
-import Solo from "public/img/conf/Sponsors/Solo.svg"
 import Hasura from "public/img/conf/Sponsors/Hasura.svg"
-import TheGraph from "public/img/conf/Sponsors/TheGraph.svg"
 import TheGuild from "public/img/conf/Sponsors/TheGuild.svg"
-import Hygraph from "public/img/conf/Sponsors/Hygraph.svg"
-import StepZen from "public/img/conf/Sponsors/StepZen.svg"
-import Inigo from "public/img/conf/Sponsors/Inigo.svg"
-import Neo4j from "public/img/conf/Sponsors/Neo4j.svg"
-import WunderGraph from "public/img/conf/Sponsors/WunderGraph.svg"
-import Graphabase from "public/img/conf/Sponsors/Graphabase.svg"
-import GraphQLWeekly from "public/img/conf/Partners/GraphQLWeekly.svg"
-import GraphQLWTF from "public/img/conf/Partners/GraphQLwtf.svg"
-import EscapeTechnologies from "public/img/conf/Partners/EscapeTechnologies.svg"
-import AmsterdamGraphQL from "public/img/conf/Partners/AmsterdamGraphQL.svg"
-import BangkokGraphQL from "public/img/conf/Partners/BangkokGraphQL.svg"
-import TypeGraphQL from "public/img/conf/Partners/TypeGraphQL.svg"
+import Apollo from "public/img/conf/Sponsors/Apollo.svg"
+
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
 
@@ -32,6 +19,7 @@ const sponsorDiamond: Image[] = [
 const sponsorPlatinum: Image[] = []
 
 const sponsorGold: Image[] = [
+  { icon: Apollo, name: "Apollo", link: "https://www.apollographql.com/" },
   { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
 ]
 
