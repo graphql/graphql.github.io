@@ -1,0 +1,276 @@
+---
+title: "Exploring 'True' Nullability in GraphQL"
+tags: ["spec"]
+date: 2024-08-14
+byline: Benjie Gillam
+---
+
+One of GraphQL's early decisions was to handle "partial failures"; this was a
+critical feature for Facebook - if one part of their backend infrastructure
+became degraded they wouldn't want to just render an error page, instead they
+wanted to serve the user a page with as much working data as they could.
+
+## Null propagation
+
+To accomplish this, if an error occured within a resolver, the resolver's value
+would be replaced with a `null`, and an error would be added to the `errors`
+array in the response. However, what if that field was marked as non-null? To
+solve that apparent contradiction, GraphQL introduced the "error propagation"
+behavior (also known colloquially as "null bubbling") - when a `null` (from an
+error or otherwise) occurs in a non-nullable position, the parent position
+(either a field or a list item) is made `null` and this behavior would repeat if
+the parent position was also non-nullable.
+
+This solved the issue, and meant that GraphQL's nullability promises were still
+honoured; but it wasn't without complications.
+
+### Complication 1: partial failures
+
+We want to be resilient to systems failing; but errors that occur in
+non-nullable positions cascade to surrounding parts of the query, making less
+and less data available to be rendered. This seems contrary to our "partial
+failures" aim, but it's easy to solve - we just make sure that the positions
+where we expect errors to occur are nullable so that errors don't propagate
+further. Clients now needed to ensure they handle any nulls that occur in these
+positions; but that seemed like a fair trade.
+
+### Complication 2: nullable epidemic
+
+But, it turns out, almost any field in your GraphQL schema could raise an error
+
+- errors might not only be caused by backend services becoming unavailable or
+  responding in unexpected ways; they can also be caused by simple programming
+  errors in your business logic, data consistency errors (e.g. expecting a
+  boolean but receiving a float), or any other cause.
+
+Since we don't want to "blow up" the entire response if any such issue occurred,
+we've moved to strongly encourage nullable usage throughout a schema, only
+adding the non-nullable `!` marker to positions where we're truly sure that
+field is extremely unlikely to error. This has the effect of meaning that
+developers consuming the GraphQL API have to handle null in more positions than
+they would expect, giving them a harder time.
+
+### Complication 3: normalized caching
+
+Many modern GraphQL clients use a "normalized" cache, such that updates pulled
+down from the API in one query can automatically update all the previously
+rendered data across the application. This helps ensure consistency for users,
+and is a powerful feature.
+
+But if an error occurs in a non-nullable position, it's
+[no longer safe](https://github.com/graphql/nullability-wg/issues/20) to store
+the data to the normalized cache.
+
+## The Nullability Working Group
+
+At first, we thought the solution to this was to give clients control over the
+nullability of a response, so we set up the Client-Controlled Nullability (CCN)
+Working Group. Later, we renamed the working group to the Nullability WG to show
+that it encompassed all potential solutions to this problem.
+
+### Client-controlled nullability
+
+The first CCN WG proposal was that we could adorn the queries we issue to the
+server with sigils indicating our desired nullability overrides for the given
+fields - a `?` would be added to fields where we don't mind if they're null, but
+we definitely want errors to stop there; and add a `!` to fields where we
+definitely don't want a null to occur. This would give consumers control over
+where errors/nulls were handled; but after much exploration of the topic over
+years we found numerous issues that traded one set of concerns for another.
+
+We needed a better solution.
+
+### True nullability schema
+
+Jordan Eldredge
+[proposed](https://github.com/graphql/nullability-wg/discussions/22) that making
+fields nullable to handle error propagation was hiding the "true" nullability of
+the data. Instead, he suggested, we should have the schema represent the true
+nullability, and put the responsibility on clients to use the `?` CCN operator
+to handle errors in the relevant places.
+
+However, this would mean that clients such as Relay would want to add `?` in
+every position, causing an "explosion" of question marks, because really what
+Relay desired was to disable null propagation entirely.
+
+### A new type
+
+Getting the relevant experts together at GraphQLConf 2023 re-energized the
+discussions and sparked new ideas. After seeing Stephen Spalding's "Nullability
+Sandwich" talk and chatting with Jordan, Stephen and others in amongst the
+seating, Benjie had an idea that felt right to him. He grabbed his laptop and
+sat quietly for an hour at one of the tables in the sponsors room and wrote up
+[the spec edits](https://github.com/graphql/graphql-spec/pull/1046) to represent
+a "null only on error" type. This type would allow us to express the "true"
+nullability of a field whilst also indicating that errors may happen that should
+be handled, but would not "blow up" the response.
+
+To maintain backwards compatibility, clients would need to opt in to seeing this
+new type (otherwise it would masquerade as nullable); and it would be their
+choice of how to handle the nullability of this position, knowing that the data
+would only contain a `null` there if a matching error existed in the `errors`
+list.
+
+A
+[number of alternative syntaxes](https://gist.github.com/benjie/19d784721d1658b89fd8954e7ee07034)
+were suggested for this, but none were well liked.
+
+### A new approach to client error handling
+
+Also around the time of GraphQLConf 2023 the Relay team shared
+[a presentation](https://docs.google.com/presentation/u/2/d/1rfWeBcyJkiNqyxPxUIKxgbExmfdjA70t/edit?pli=1#slide=id.p8)
+on some of the things they were thinking around errors. In particular they
+discussed the `@catch` directive which would give users control over how errors
+were represented in the data being rendered, allowing the client to
+differentiate an error from a legitimate null. Over the coming months, many
+behaviors were discussed at the Nullability WG; one particularly compelling one
+was that clients could throw the error when an errored field was read, and rely
+on framework mechanics (such as React's
+[error boundaries](https://legacy.reactjs.org/docs/error-boundaries.html)) to
+handle them.
+
+### A new mode
+
+Lee [proposed](https://github.com/graphql/graphql-wg/discussions/1410) that we
+introduce a schema directive, `@strictNullability`, whereby we would change what
+the syntax meant - `Int?` for nullable, `Int` for null-only-on-error, and `Int!`
+for never-null. This proposal was well liked, but wasn't a clear win, it
+introduced many complexities, not least migration costs.
+
+### A pivotal discussion
+
+Lee and Benjie had a call where they discussed all of this in depth, including
+their two respective solutions, their pros and cons. It was clear that neither
+solution was quite there, but we were getting closer and closer to a solution.
+This long and detailed highly technical discussion inspired Benjie to write up
+[a new proposal](https://github.com/graphql/nullability-wg/discussions/58),
+which has been iterated further, and we aim to describe below.
+
+## Our latest proposal
+
+We're now proposing a new opt-in mode to solve the nullability problem. It's
+important to note that clients and servers that don't opt-in will be completely
+unaffected by this change (and a client may opt-in without a server opting-in,
+and vice-versa, without causing any issues - in these cases, traditional mode
+will be used).
+
+### No-error-propogation mode
+
+The new proposal centers around the premise of allowing clients to disable the
+"error propagation" behavior discussed above.
+
+Clients that opt-in to this behavior take responsibility for interpretting the
+response as a whole, correlating the `data` and `errors` properties of the
+response. With error propagation disabled and the fact that any field could
+potentially throw an error, all positions in `data` can potentially contain a
+`null` value. Clients in this mode must cross-check any `null` values against
+`errors` to determine if it's a true null, or an error.
+
+### "Smart" clients
+
+The no-error-propagation mode is intended for use by "smart" clients such as
+Relay, Apollo Client, URQL and others which understand GraphQL deeply and are
+responsible for the storage and retrieval of fetched GraphQL data. These clients
+are well positioned to handle the responsibilities outlined above.
+
+By disabling error propagation, these clients will be able to safely update
+their stores (including normalized stores) even when errors occur. They can also
+re-implement traditional GraphQL error propagation on top of these new
+foundations, shielding applications developers from needing to learn this new
+behavior (whilst still allowing them to reap the benefits!). They can even take
+on advanced behaviors, such as throwing the error when the application developer
+attempts to read from an errored field, allowing the developer to handle errors
+with their own more natural error boundaries.
+
+### True nullability
+
+Just like in traditional mode, for clients operating in no-error-propagation
+mode fields are either nullable or non-nullable. However; unlike in traditional
+mode, no-error-propagation mode allows for errors to be represented in any
+position:
+
+- nullable (e.g. `Int`): a value, an error, or a true `null`;
+- non-nullable (e.g. `Int!`): a value **or an error**.
+
+_(In traditional mode, non-nullable fields cannot represent an error because the
+error propagates to the nearest nullable position.)_
+
+Since this mode allows every field, whether nullable or non-nullable, to
+represent an error, the schema can safely indicate to clients in this mode the
+true intended nullability of a field. If the schema designer knows that a field
+should never be null unless an error occurs, they would mark the field as
+non-nullable (but only for clients in no-null-propagation mode; see "schema
+developers" below).
+
+### Client reflection of true nullability
+
+Smart clients can ask the schema about the "true" nullability of each field via
+introspection, and can generate a derived SDL by combining that information with
+their knowledge of how the client handles errors. This derived SDL would look
+like the traditional representation of the schema, but with more fields
+represented as non-nullable where the true nullability of the underlying schema
+is reflected. Application developers would issue queries and mutations in the
+same way they always had, but now their generated types don't need to handle
+`null` in as many positions as before, increasing developer happiness.
+
+### Schema developers
+
+Schemas that wish to add support for indicating the "true nullability" of a
+field in no-error-propagation mode need to be able to discern which types show
+up as non-nullable in both modes (traditional non-null types), and which types
+show up as non-nullable only in no-error-propagation mode. For this later
+concern we've introduced the concept, of a "semantic" non-null type:
+
+- "strict" (traditional) non-nullable - shows up as non-nullable in both
+  traditional mode and no-null-propagation mode
+- "semantic" non-nullable, aka "null only on error" - shows up as non-nullable
+  only in no-null-propagation mode; in traditional mode it will masquerade as
+  nullable
+
+Only clients that opt-in to seeing the true nullability will see this
+difference, otherwise the nullability of the chosen mode (traditional or
+no-error-propagation) will be reflected by introspection.
+
+### Representation in SDL
+
+Application developers will only need to deal with traditional SDL that
+represents traditional nullability concerns. If these developers are using
+"smart" clients then they should get this SDL from the client rather than from
+the server, this allows them to see the nullability that the client guarantees
+based on how it will handle the "true" nullability of the schema, how it handles
+errors, and factoring in any local schema extensions that may have been added.
+
+Client-derived SDL (see "client reflection of true nullability" above) can be
+used for concerns such as code generation, which will work in the traditional
+way with no need for changes (but happier developers since there will be fewer
+nullable positions!).
+
+However, schema developers and people working on "smart" clients may need to
+represent the differences between "strict" and "semantic" non-nullable in SDL.
+For these people, we're introducing the `@extendedNullability` document
+directive. When this directive is present at the top of a document, the `!`
+symbol means that a type will appear as non-nullable only in no-null-propagation
+mode, and a new `!!` symbol will represent that a type will appear as
+non-nullable in both traditional and no-error-propagation mode.
+
+| Traditional Mode | No-null-propagation mode | Example |
+| ---------------- | ------------------------ | ------- |
+| Nullable         | Nullable                 | `Int`   |
+| Nullable         | Non-nullable             | `Int!`  |
+| Non-nullable\*   | Non-nullable             | `Int!!` |
+
+The `!!` symbol is designed to look a little scary - it should be used with
+caution (like `!` in traditional schemas) because it is the symbol that means
+that errors will propagate in traditional mode, "blowing up" parent selection
+sets.
+
+## Get involved
+
+Like all GraphQL Working Groups, the Nullability Working Group is open to all.
+Whether you work on a GraphQL client or are just a GraphQL user with thoughts on
+nullability, we want to hear from you - add yourself to an
+[upcoming working group](https://github.com/graphql/nullability-wg/) or chat
+with us in the #nullability-wg channel in
+[the GraphQL Discord](https://discord.graphql.org). This solution is not yet
+merged into the specification, so there's still time for iteration and
+alternative ideas!
