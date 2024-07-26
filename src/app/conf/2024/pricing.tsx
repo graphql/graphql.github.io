@@ -93,7 +93,10 @@ export function Pricing() {
       <div className={clsx(classes.container, "flex flex-col items-center")}>
         <ClockIcon className="text-primary h-10 mb-10" />
         <h3 className={classes.heading}>Speakers & Schedule</h3>
-        <p className="-mt-10 text-2xl">Coming soon</p>
+        <div className="flex gap-4">
+          <Button href="/speakers">View the Speakers</Button>
+          <Button href="/schedule">View the Schedule</Button>
+        </div>
       </div>
     </>
   )
