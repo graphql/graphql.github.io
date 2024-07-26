@@ -7,6 +7,7 @@ pnpm-lock.yaml
 !src/pages/blog/2025-05-31-graphiql-4/index.mdx
 !src/pages/blog/2025-06-10-graphiql-5/index.mdx
 !src/pages/blog/2025-06-19-multioption-inputs-with-oneof/index.mdx
+!src/pages/blog/2026-08-14-true-nullability.mdx
 *.jpg
 
 scripts/**/*.json
