@@ -1,5 +1,5 @@
 import FAQ from "./client-mdx"
-import { Sponsors } from "../../_components/sponsors"
+import { Sponsors } from "../sponsors"
 
 import { Metadata } from "next"
 
