@@ -2,6 +2,7 @@ import Stellate from "public/img/conf/Sponsors/Stellate.svg"
 import Hasura from "public/img/conf/Sponsors/Hasura.svg"
 import TheGuild from "public/img/conf/Sponsors/TheGuild.svg"
 import Apollo from "public/img/conf/Sponsors/Apollo.svg"
+import Tyk from "public/img/conf/Sponsors/Tyk.svg"
 
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
@@ -25,6 +26,7 @@ const sponsorGold: Image[] = [
 
 const sponsorSilver: Image[] = [
   { icon: Stellate, name: "Stellate", link: "https://stellate.co" },
+  { icon: Tyk, name: "Tyk", link: "https://tyk.io/" },
 ]
 
 const workshopDaySponsors: Image[] = []
