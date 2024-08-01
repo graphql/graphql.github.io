@@ -35,7 +35,7 @@
     "iframe-resizer-react": "^1.1.0",
     "leaflet": "^1.9.4",
     "markdown-to-jsx": "^7.4.0",
-    "marked": "5.0.2",
+    "marked": "5.1.2",
     "next": "^14.2.5",
     "next-image-export-optimizer": "^1.12.3",
     "next-query-params": "^5.0.0",

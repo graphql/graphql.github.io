@@ -71,8 +71,8 @@ importers:
         specifier: ^7.4.0
         version: 7.4.0(react@18.3.1)
       marked:
-        specifier: 5.0.2
-        version: 5.0.2
+        specifier: 5.1.2
+        version: 5.1.2
       next:
         specifier: ^14.2.5
         version: 14.2.5(@babel/core@7.24.3)(react-dom@18.3.1)(react@18.3.1)
@@ -5906,9 +5906,9 @@ packages:
       react: 18.3.1
     dev: false
 
-  /marked@5.0.2:
-    resolution: {integrity: sha512-TXksm9GwqXCRNbFUZmMtqNLvy3K2cQHuWmyBDLOrY1e6i9UvZpOTJXoz7fBjYkJkaUFzV9hBFxMuZSyQt8R6KQ==}
-    engines: {node: '>= 18'}
+  /marked@5.1.2:
+    resolution: {integrity: sha512-ahRPGXJpjMjwSOlBoTMZAK7ATXkli5qCPxZ21TG44rx1KEo44bii4ekgTDQPNRQ4Kh7JMb9Ub1PVk1NxRSsorg==}
+    engines: {node: '>= 16'}
     hasBin: true
     dev: false
 
