@@ -3,6 +3,7 @@
   "type": "module",
   "repository": "graphql/graphql.github.io website",
   "private": true,
+  "packageManager": "pnpm@8.15.5",
   "scripts": {
     "//prebuild": "tsx --env-file=.env src/get-github-info.ts",
     "build": "next build && next-image-export-optimizer",
@@ -35,19 +36,19 @@
     "leaflet": "^1.9.4",
     "markdown-to-jsx": "^7.4.0",
     "marked": "5.0.2",
-    "next": "^14.1.4",
+    "next": "^14.2.5",
     "next-image-export-optimizer": "^1.12.3",
     "next-query-params": "^5.0.0",
     "next-sitemap": "^4.2.3",
     "next-with-less": "^3.0.1",
-    "nextra": "3.0.0-alpha.22",
-    "nextra-theme-docs": "3.0.0-alpha.22",
+    "nextra": "3.0.0-alpha.28",
+    "nextra-theme-docs": "3.0.0-alpha.28",
     "numbro": "2.3.6",
     "p-limit": "^4.0.0",
     "parser-front-matter": "1.6.4",
     "postcss": "^8.4.33",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-medium-image-zoom": "5.1.8",
     "rss": "1.2.2",
     "server-only": "0.0.1",
@@ -84,7 +85,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "nextra@3.0.0-alpha.22": "patches/nextra@3.0.0-alpha.22.patch"
+      "nextra@3.0.0-alpha.28": "patches/nextra@3.0.0-alpha.22.patch"
     }
   }
 }
