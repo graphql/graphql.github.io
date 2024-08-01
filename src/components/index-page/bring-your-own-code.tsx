@@ -17,16 +17,18 @@ export function BringYourOwnCode() {
           </p>
         </div>
       </section>
-      <InfiniteMovingCards
-        direction="right"
-        speed="normal"
-        className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
-      >
-        <Code1 />
-        <Code2 />
-        <Code3 />
-        <Code4 />
-      </InfiniteMovingCards>
+      <div className="container overflow-scroll scrollbar-hide">
+        <InfiniteMovingCards
+          direction="right"
+          speed="normal"
+          className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
+        >
+          <Code1 />
+          <Code2 />
+          <Code3 />
+          <Code4 />
+        </InfiniteMovingCards>
+      </div>
     </>
   )
 }
