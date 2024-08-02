@@ -33,7 +33,7 @@ const pricing: Pricing[] = [
 const includes: string[] = [
   "All conference content",
   "Full-day GraphQL workshop",
-  "Lunch and all-day beverages",
+  "All-Day Beverages and Morning and Afternoon Break",
   "Entry to Sponsor Showcase",
   "GraphQLConf event t-shirt",
   "Access to watch all sessions post-event",
