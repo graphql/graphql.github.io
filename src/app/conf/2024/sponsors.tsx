@@ -16,6 +16,7 @@ interface Image {
 
 const sponsorDiamond: Image[] = [
   { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
+  { icon: IBM, name: "IBM", link: "https://www.ibm.com/products/api-connect" },
 ]
 
 const sponsorPlatinum: Image[] = []
@@ -23,7 +24,6 @@ const sponsorPlatinum: Image[] = []
 const sponsorGold: Image[] = [
   { icon: Apollo, name: "Apollo", link: "https://www.apollographql.com/" },
   { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
-  { icon: IBM, name: "IBM", link: "https://www.ibm.com/products/api-connect" },
 ]
 
 const sponsorSilver: Image[] = [
