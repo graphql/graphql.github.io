@@ -1,7 +1,6 @@
 import React, { ReactElement, CSSProperties, Children, ReactNode } from "react"
 import { clsx } from "clsx"
 
-
 export function InfiniteMovingSpeakers({
   children,
   pauseOnHover = true,
@@ -25,8 +24,8 @@ export function InfiniteMovingSpeakers({
       )}
       style={
         {
-          "--animation-duration": '300s',
-          "--animation-direction": 'forwards'
+          "--animation-duration": "300s",
+          "--animation-direction": "forwards",
         } as CSSProperties
       }
     >

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import { Metadata } from "next"
 import { images } from "../../2023/gallery/_conf-images"
 import NextImage from "next-image-export-optimizer"
@@ -9,17 +9,16 @@ export const metadata: Metadata = {
 }
 
 function chunk<T>(arr: T[], len: number): T[][] {
-  const chunks: T[][] = [];
-  let i = 0;
+  const chunks: T[][] = []
+  let i = 0
 
   while (i < arr.length) {
-    chunks.push(arr.slice(i, i + len));
-    i += len;
+    chunks.push(arr.slice(i, i + len))
+    i += len
   }
 
-  return chunks;
+  return chunks
 }
-
 
 export default function GalleryPage() {
   const currentImages = chunk(images, 6)

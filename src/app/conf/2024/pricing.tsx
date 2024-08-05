@@ -1,11 +1,11 @@
 import { Button } from "@/app/conf/_components/button"
 import { CheckIcon } from "@/icons"
 import { clsx } from "clsx"
-import { schedule, speakers } from './_data'
-import { InfiniteMovingSpeakers } from '../_components/infinite-moving-speakers'
-import { SessionList } from '../_components/schedule/session-list'
-import { filterCategories2024 } from '../_components/schedule/filter-categories'
-import { eventsColors } from './utils'
+import { schedule, speakers } from "./_data"
+import { InfiniteMovingSpeakers } from "../_components/infinite-moving-speakers"
+import { SessionList } from "../_components/schedule/session-list"
+import { filterCategories2024 } from "../_components/schedule/filter-categories"
+import { eventsColors } from "./utils"
 
 interface Pricing {
   title: string
@@ -33,7 +33,6 @@ function shuffle<T extends any[]>(array: T): T {
 
   return array
 }
-
 
 const pricing: Pricing[] = [
   {
@@ -117,55 +116,62 @@ export function Pricing() {
       </div>
 
       <div className={clsx(classes.container, "flex flex-col items-center")}>
-        <h3 className="text-[45px] text-center font-bold mb-20">Our Special Speakers</h3>
+        <h3 className="text-[45px] text-center font-bold mb-20">
+          Our Special Speakers
+        </h3>
 
- <InfiniteMovingSpeakers pauseOnHover={true}>
-  {speakers.filter((e) => e.avatar).map((speaker) => (
-    <div
-      key={speaker.username}
-      className="group border-[1.5px] border-[rgba(255,255,255,0.4)] cursor-pointer hover:-translate-y-3 transition-transform duration-300 relative rounded-full overflow-hidden md:size-[210px]"
-    >
-      <a href={`/conf/2024/speakers/${speaker.username}`}>
-        <img className="size-[120px] md:size-[210px] rounded-full" src={speaker.avatar} alt={speaker.name} />
-      </a>
-      <div className="pointer-events-none bg-[rgba(0,0,0,0.6)] h-[40px] text-sm md:text-base md:h-[55px] w-[120px] md:w-[210px] absolute left-0 bottom-0 opacity-1 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
-        <span className="mt-2.5 md:mt-3.5 font-medium">{speaker.name.split(" ")[0]}</span>
-      </div>
-    </div>
-  ))}
-</InfiniteMovingSpeakers>
-
+        <InfiniteMovingSpeakers pauseOnHover={true}>
+          {speakers
+            .filter(e => e.avatar)
+            .map(speaker => (
+              <div
+                key={speaker.username}
+                className="group border-[1.5px] border-[rgba(255,255,255,0.4)] cursor-pointer hover:-translate-y-3 transition-transform duration-300 relative rounded-full overflow-hidden md:size-[210px]"
+              >
+                <a href={`/conf/2024/speakers/${speaker.username}`}>
+                  <img
+                    className="size-[120px] md:size-[210px] rounded-full"
+                    src={speaker.avatar}
+                    alt={speaker.name}
+                  />
+                </a>
+                <div className="pointer-events-none bg-[rgba(0,0,0,0.6)] h-[40px] text-sm md:text-base md:h-[55px] w-[120px] md:w-[210px] absolute left-0 bottom-0 opacity-1 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
+                  <span className="mt-2.5 md:mt-3.5 font-medium">
+                    {speaker.name.split(" ")[0]}
+                  </span>
+                </div>
+              </div>
+            ))}
+        </InfiniteMovingSpeakers>
 
         <div className="mt-14 flex gap-4">
           <Button href="/conf/2024/speakers">See all Speakers</Button>
         </div>
 
+        <div className="mt-16">
+          <h3 className="text-[45px] text-center font-bold mb-16">
+            The Schedule
+          </h3>
 
+          <SessionList
+            year="2024"
+            filterCategories={filterCategories2024}
+            eventsColors={eventsColors}
+            showFilter={false}
+            // @ts-expect-error -- fixme
+            scheduleData={shuffle(schedule.filter(e => e.speakers))
+              .slice(0, 3)
+              .map(schedule => ({
+                ...schedule,
+                speakers:
+                  schedule?.speakers?.map(speaker =>
+                    speakers.find(s => s.username === speaker.username),
+                  ) || [],
+              }))}
+          />
+        </div>
 
-<div className='mt-16'>
-
-          <h3 className="text-[45px] text-center font-bold mb-16">The Schedule</h3>
-
-      <SessionList
-          year="2024"
-          filterCategories={filterCategories2024}
-          eventsColors={eventsColors}
-          showFilter={false}
-          // @ts-expect-error -- fixme
-          scheduleData={shuffle(schedule.filter((e)=>e.speakers))
-            .slice(0, 3)
-            .map(schedule => ({
-              ...schedule,
-              speakers: schedule?.speakers?.map(speaker =>
-                speakers.find(s => s.username === speaker.username),
-              ) || [],
-            }))}
-        />
-
-           
- </div>
-
-    <div className="mt-14 flex gap-4">
+        <div className="mt-14 flex gap-4">
           <Button href="/conf/2024/speakers">View full schedule</Button>
         </div>
       </div>
