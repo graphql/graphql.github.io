@@ -33,7 +33,7 @@ const pricing: Pricing[] = [
 const includes: string[] = [
   "All conference content",
   "Full-day GraphQL workshop",
-  "Lunch and all-day beverages",
+  "All-Day Beverages and Morning and Afternoon Break",
   "Entry to Sponsor Showcase",
   "GraphQLConf event t-shirt",
   "Access to watch all sessions post-event",
@@ -94,8 +94,8 @@ export function Pricing() {
         <ClockIcon className="text-primary h-10 mb-10" />
         <h3 className={classes.heading}>Speakers & Schedule</h3>
         <div className="flex gap-4">
-          <Button href="/speakers">View the Speakers</Button>
-          <Button href="/schedule">View the Schedule</Button>
+          <Button href="/conf/2024/speakers">View the Speakers</Button>
+          <Button href="/conf/2024/schedule">View the Schedule</Button>
         </div>
       </div>
     </>
