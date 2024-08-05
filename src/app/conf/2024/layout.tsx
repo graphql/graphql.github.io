@@ -46,6 +46,7 @@ export default function Layout({
           { children: "FAQ", href: "/conf/2024/faq" },
           { children: "Register", href: "/conf/2024#attend" },
           { children: "Partner", href: "/conf/2024/partner" },
+          { children: "Gallery", href: "/conf/2024/gallery" },
         ]}
       />
       {children}
@@ -66,6 +67,7 @@ export default function Layout({
             { children: "Register", href: "https://cvent.me/gk2dRw" },
             { children: "Sponsor", href: "/conf/2024/partner" },
             { children: "Partner", href: "/conf/2024/partner#program" },
+            { children: "Gallery", href: "/conf/2024/gallery" },
             { children: "Speakers", href: "/conf/2024/speakers" },
             { children: "GraphQLConf 2023", href: "/conf/2023" },
           ],
