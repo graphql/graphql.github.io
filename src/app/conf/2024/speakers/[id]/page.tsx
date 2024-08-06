@@ -29,7 +29,7 @@ export function generateMetadata({ params }: SpeakerProps): Metadata {
     description: speaker.about,
     keywords: [...layoutMetadata.keywords, ...keywords],
     openGraph: {
-      images: `/img/__og-image/${speaker.username}.png`,
+      images: `/img/__og-image/2024/${speaker.username}.png`,
     },
   }
 }

@@ -44,9 +44,9 @@ typings/
 # dotenv environment variable files
 .env*
 
-!static/img/__og-image/
+!static/img/__og-image/**
 static/img/__og-image/*
-!static/img/__og-image/*.png
+!static/img/__og-image/**/*.png
 
 # Mac files
 .DS_Store

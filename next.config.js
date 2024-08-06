@@ -4,7 +4,9 @@ import nextra from "nextra"
 import path from "node:path"
 import withLess from "next-with-less"
 import { remarkGraphiQLComment } from "./src/remark-graphiql-comment.js"
-import vercelJSON from "./vercel.json" assert { type: "json" }
+import fs from "fs"
+
+const vercelJSON = JSON.parse(fs.readFileSync("./vercel.json", "utf-8"))
 
 const withNextra = nextra({
   theme: "nextra-theme-docs",
