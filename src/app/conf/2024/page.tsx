@@ -5,12 +5,12 @@ import { About } from "./about"
 import { Pricing } from "./pricing"
 import { Venue } from "./venue"
 import { Button } from "@/app/conf/_components/button"
-import clsx from 'clsx'
-import { InfiniteMovingSpeakers } from '../_components/infinite-moving-speakers'
-import { schedule, speakers } from './_data'
-import { SessionList } from '../_components/schedule/session-list'
-import { filterCategories2024 } from '../_components/schedule/filter-categories'
-import { eventsColors } from './utils'
+import clsx from "clsx"
+import { InfiniteMovingSpeakers } from "../_components/infinite-moving-speakers"
+import { schedule, speakers } from "./_data"
+import { SessionList } from "../_components/schedule/session-list"
+import { filterCategories2024 } from "../_components/schedule/filter-categories"
+import { eventsColors } from "./utils"
 
 function shuffle<T extends any[]>(array: T): T {
   let currentIndex = array.length
