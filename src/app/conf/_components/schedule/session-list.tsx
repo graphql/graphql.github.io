@@ -105,7 +105,7 @@ export function SessionList({
   year,
   filterCategories,
   eventsColors,
-  minimalVersion
+  minimalVersion,
 }: Props): ReactElement {
   const [filtersState, setFiltersState] = useState<
     Record<CategoryName, string[]>
