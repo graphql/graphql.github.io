@@ -154,6 +154,7 @@ export function Pricing() {
           </h3>
 
           <SessionList
+            minimalVersion
             year="2024"
             filterCategories={filterCategories2024}
             eventsColors={eventsColors}

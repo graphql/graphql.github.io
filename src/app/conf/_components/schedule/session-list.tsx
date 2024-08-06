@@ -95,6 +95,7 @@ interface Props {
     options: string[]
   }[]
   eventsColors: Record<string, string>
+  minimalVersion?: boolean
 }
 
 export function SessionList({
@@ -104,6 +105,7 @@ export function SessionList({
   year,
   filterCategories,
   eventsColors,
+  minimalVersion
 }: Props): ReactElement {
   const [filtersState, setFiltersState] = useState<
     Record<CategoryName, string[]>
@@ -166,15 +168,15 @@ export function SessionList({
                       key={session.id}
                       className={`${clsx(
                         "white shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline",
-                      )} ${year === "2024" ? "bg-[#251f30]" : ""}`}
+                      )} ${minimalVersion ? "bg-[#251f30]" : ""}`}
                       href={
-                        year === "2024"
+                        minimalVersion
                           ? `/conf/${year}/schedule/${session.id}`
                           : `/conf/${year}/sessions/${session.id}`
                       }
                     >
                       <div
-                        className={`${year === "2024" ? "hidden" : ""} bg-[#251F30] text-white flex justify-between py-5 px-7 relative`}
+                        className={`${minimalVersion ? "hidden" : ""} bg-[#251F30] text-white flex justify-between py-5 px-7 relative`}
                       >
                         <div className="text-sm flex flex-col gap-2 [*:hover>*>&]:opacity-0 transition-opacity duration-300 opacity-100">
                           {year !== "2024" && (
