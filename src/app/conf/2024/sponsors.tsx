@@ -4,7 +4,7 @@ import TheGuild from "public/img/conf/Sponsors/TheGuild.svg"
 import Apollo from "public/img/conf/Sponsors/Apollo.svg"
 import Tyk from "public/img/conf/Sponsors/Tyk.svg"
 import IBM from "public/img/conf/Sponsors/IBM.svg"
-import Graphweaver from "public/img/conf/Sponsors/graphweaver.svg"
+import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
 
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
