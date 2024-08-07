@@ -4,6 +4,7 @@ import TheGuild from "public/img/conf/Sponsors/TheGuild.svg"
 import Apollo from "public/img/conf/Sponsors/Apollo.svg"
 import Tyk from "public/img/conf/Sponsors/Tyk.svg"
 import IBM from "public/img/conf/Sponsors/IBM.svg"
+import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
 
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
@@ -23,6 +24,7 @@ const sponsorPlatinum: Image[] = []
 
 const sponsorGold: Image[] = [
   { icon: Apollo, name: "Apollo", link: "https://www.apollographql.com/" },
+  { icon: Graphweaver, name: "Graphweaver", link: "https://graphweaver.com" },
   { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
 ]
 
