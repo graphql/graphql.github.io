@@ -124,7 +124,7 @@ export default function Page() {
         </InfiniteMovingSpeakers>
 
         <div className="mt-14 flex gap-4">
-          <Button href="/conf/2024/speakers">See all Speakers</Button>
+          <Button href="/conf/2024/speakers">See all speakers</Button>
         </div>
 
         <div className="mt-16">
@@ -152,7 +152,7 @@ export default function Page() {
         </div>
 
         <div className="mt-14 flex gap-4">
-          <Button href="/conf/2024/speakers">View full schedule</Button>
+          <Button href="/conf/2024/schedule">View full schedule</Button>
         </div>
       </div>
 
