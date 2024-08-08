@@ -56,6 +56,7 @@ function List({
           className={clsx(
             "relative shrink-0 bg-[#251f30] rounded-md",
             "flex justify-center",
+            "items-center", // fix vertical align in Safari/iOS
             "border border-solid border-transparent hover:border-primary focus:border-primary",
             "transition-colors",
             "hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
@@ -69,7 +70,7 @@ function List({
           <NextImage
             alt={`${name} logo`}
             src={icon}
-            className="h-auto lg:max-w-60 shrink"
+            className="lg:w-auto lg:max-w-60 max-h-full"
           />
           <span className="font-sans absolute right-5 top-5 leading-none text-white lg:text-2xl">
             ↗
