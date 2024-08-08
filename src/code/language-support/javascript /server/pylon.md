@@ -8,14 +8,14 @@ github: getcronit/pylon
 Example service:
 
 ```typescript
-import { defineService } from "@getcronit/pylon";
+import { defineService } from "@getcronit/pylon"
 
 class User {
-  name: string;
-  email: string;
+  name: string
+  email: string
   constructor(name: string, email: string) {
-    this.name = name;
-    this.email = email;
+    this.name = name
+    this.email = email
   }
 }
 
@@ -23,23 +23,23 @@ const users = [
   new User("Alice", "alice@example.com"),
   new User("Bob", "bob@example.com"),
   new User("Charlie", "charlie@example.com"),
-];
+]
 
 export default defineService({
   Query: {
     users,
     user: (name: string) => {
-      return users.find((user) => user.name === name);
+      return users.find(user => user.name === name)
     },
     Mutation: {
       addUser: (name: string, email: string) => {
-        const user = new User(name, email);
-        users.push(user);
-        return user;
+        const user = new User(name, email)
+        users.push(user)
+        return user
       },
     },
   },
-});
+})
 ```
 
 After running the service, you can query it using GraphQL:
