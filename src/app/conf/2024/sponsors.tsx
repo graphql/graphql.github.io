@@ -69,7 +69,7 @@ function List({
           <NextImage
             alt={`${name} logo`}
             src={icon}
-            className="h-auto lg:max-w-60 shrink"
+            className="lg:w-auto lg:max-w-60 max-h-full"
           />
           <span className="font-sans absolute right-5 top-5 leading-none text-white lg:text-2xl">
             ↗
