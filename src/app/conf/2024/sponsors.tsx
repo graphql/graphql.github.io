@@ -55,7 +55,7 @@ function List({
           key={i}
           className={clsx(
             "relative shrink-0 bg-[#251f30] rounded-md",
-            "flex justify-center",
+            "flex justify-center items-center",
             "border border-solid border-transparent hover:border-primary focus:border-primary",
             "transition-colors",
             "hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
