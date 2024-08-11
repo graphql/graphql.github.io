@@ -5,7 +5,7 @@
   "private": true,
   "packageManager": "pnpm@8.15.5",
   "scripts": {
-    "//prebuild": "tsx --env-file=.env src/get-github-info.ts",
+    "prebuild": "tsx --env-file=.env src/get-github-info.ts",
     "build": "next build && next-image-export-optimizer",
     "dev": "next",
     "format": "pnpm format:check --write",
