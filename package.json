@@ -5,13 +5,13 @@
   "private": true,
   "packageManager": "pnpm@8.15.5",
   "scripts": {
-    "prebuild": "tsx src/get-github-info.ts",
     "build": "next build && next-image-export-optimizer",
     "dev": "next",
     "format": "pnpm format:check --write",
     "format:check": "prettier --cache --check .",
     "lint": "eslint --ignore-path .gitignore .",
     "postbuild": "next-sitemap",
+    "prebuild": "tsx src/get-github-info.ts",
     "start": "next start",
     "test": "echo \"no tests\" && exit 1"
   },
