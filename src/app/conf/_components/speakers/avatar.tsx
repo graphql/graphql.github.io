@@ -19,6 +19,9 @@ export const Avatar: FC<Props> = ({ avatar, name, className, href }) => {
         className={`${className}`}
         src={avatar}
         alt={`${name} Profile Image`}
+        style={{
+          margin: 0,
+        }}
       />
     ) : (
       <div

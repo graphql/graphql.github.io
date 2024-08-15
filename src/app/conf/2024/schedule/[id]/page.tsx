@@ -78,6 +78,7 @@ export default function SessionPage({ params }: SessionProps) {
   if (!event) {
     notFound()
   }
+
   // @ts-expect-error -- fixme
   event.speakers = (event.speakers || []).map(speaker =>
     speakers.find(s => s.username === speaker.username),
@@ -118,10 +119,10 @@ export default function SessionPage({ params }: SessionProps) {
                     - {format(parseISO(event.event_end), "hh:mmaaaa 'PDT'")}
                   </span>
                 </div>
-                <div className="flex lg:flex-row flex-col sm:gap-5">
+                <div className="flex flex-wrap lg:flex-row flex-col gap-5 mt-8">
                   {event.speakers!.map(speaker => (
                     <div
-                      className="flex items-center gap-3"
+                      className={`flex items-center gap-3 w-full ${event?.speakers?.length || 0 > 1 ? "max-w-[320px]" : ""}`}
                       key={speaker.username}
                     >
                       <Avatar
