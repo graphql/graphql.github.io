@@ -122,7 +122,7 @@ export default function SessionPage({ params }: SessionProps) {
                 <div className="flex flex-wrap lg:flex-row flex-col gap-5 mt-8">
                   {event.speakers!.map(speaker => (
                     <div
-                      className={`flex items-center gap-3 w-full ${event?.speakers?.length || 0 > 1 ? "max-w-[320px]": ""}`}
+                      className={`flex items-center gap-3 w-full ${event?.speakers?.length || 0 > 1 ? "max-w-[320px]" : ""}`}
                       key={speaker.username}
                     >
                       <Avatar

@@ -20,7 +20,7 @@ export const Avatar: FC<Props> = ({ avatar, name, className, href }) => {
         src={avatar}
         alt={`${name} Profile Image`}
         style={{
-          margin: 0
+          margin: 0,
         }}
       />
     ) : (

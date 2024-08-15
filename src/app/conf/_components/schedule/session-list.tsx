@@ -78,7 +78,9 @@ function getSessionsByDay(
     }
     sessionsByDay[day] = {
       ...sessionsByDay[day],
-      [date]: sessions.sort((a, b) => (a?.venue ?? "").localeCompare(b?.venue ?? "")),
+      [date]: sessions.sort((a, b) =>
+        (a?.venue ?? "").localeCompare(b?.venue ?? ""),
+      ),
     }
   })
 
