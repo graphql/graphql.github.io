@@ -50,7 +50,7 @@ export function Venue() {
           <br />
           <b>Rates Start From:</b> $319.00+
           <br />
-          <b>Cut-off Date:</b> August 19, 2024
+          <b>Cut-off Date:</b> August 26, 2024
           <br />
           <br />
           <br />
