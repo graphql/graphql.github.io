@@ -16,7 +16,7 @@ export interface ScheduleSession {
   event_subtype: string
   event_type: string
   name: string
-  venue: string
+  venue?: string
   speakers?: SchedSpeaker[] | string
   files?: { name: string; path: string }[]
 }
@@ -78,7 +78,7 @@ function getSessionsByDay(
     }
     sessionsByDay[day] = {
       ...sessionsByDay[day],
-      [date]: sessions.sort((a, b) => a?.venue.localeCompare(b?.venue)),
+      [date]: sessions.sort((a, b) => (a?.venue ?? "").localeCompare(b?.venue ?? "")),
     }
   })
 
