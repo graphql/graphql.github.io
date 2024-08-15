@@ -2,4 +2,5 @@ public/
 pnpm-lock.yaml
 *.mdx
 !src/pages/blog/2024-04-11-announcing-new-graphql-website/index.mdx
+!src/pages/blog/2024-08-14-exploring-true-nullability.mdx
 *.jpg
