@@ -145,12 +145,13 @@ export function ScheduleList({
         </div>
       ) : (
         <>
-          <div className="flex space-x-4">
-            {Object.keys(sessionsState).map((date, index) => (
+          <div className="flex space-x-4 mb-4">
+            {/* Skip registeration priorm day for graphql conf 2024 */}
+            {Object.keys(sessionsState).slice(year === '2024' ? 1 : 0).map((date, index) => (
               <a
-                href={`#day-${index + 1}`}
+                href={`#day-${(year === '2024' ? 1: 0) + index + 1}`}
                 key={date}
-                className={"text-gray-800 text-xs"}
+                className={"text-gray-800 text-xs hover:underline"}
               >
                 Day {index + 1}
               </a>
