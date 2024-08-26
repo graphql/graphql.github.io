@@ -48,7 +48,12 @@ export function Venue() {
           <br />
           <b>Dates with Availability:</b> September 8, 9, 10, 11, 12
           <br />
-          <b>Rates Start From:</b> $319.00+
+          <b>Rates:</b> $299.00+
+          <br />
+          <i>
+            Hotel is offering a flash sale of $20 off the current rate. The rate
+            is $319++ and the $20 discount will be applied at hotel checkout.
+          </i>
           <br />
           <b>Cut-off Date:</b> August 26, 2024
           <br />
