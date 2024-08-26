@@ -52,7 +52,7 @@ export function Venue() {
           <br />
           <i>
             Hotel is offering a flash sale of $20 off the current rate. The rate
-            is $319++ and the $20 discount will be applied at hotel checkout.
+            is $319+ and the $20 discount will be applied at hotel checkout.
           </i>
           <br />
           <b>Cut-off Date:</b> August 26, 2024
