@@ -37,7 +37,11 @@ const sponsorSilver: Image[] = [
 const workshopDaySponsors: Image[] = []
 
 const mediaPartners: Image[] = [
-  { icon: Intuit, name: "Intuit", link: "https://opensource.intuit.com/intuit-open-source/open-source" },
+  {
+    icon: Intuit,
+    name: "Intuit",
+    link: "https://opensource.intuit.com/intuit-open-source/open-source",
+  },
 ]
 
 const communityPartners: Image[] = []
