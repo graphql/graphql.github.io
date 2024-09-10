@@ -5,6 +5,7 @@ import Apollo from "public/img/conf/Sponsors/Apollo.svg"
 import Tyk from "public/img/conf/Sponsors/Tyk.svg"
 import IBM from "public/img/conf/Sponsors/IBM.svg"
 import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
+import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
@@ -35,7 +36,9 @@ const sponsorSilver: Image[] = [
 
 const workshopDaySponsors: Image[] = []
 
-const mediaPartners: Image[] = []
+const mediaPartners: Image[] = [
+  { icon: Intuit, name: "Intuit", link: "https://opensource.intuit.com/intuit-open-source/open-source" },
+]
 
 const communityPartners: Image[] = []
 
