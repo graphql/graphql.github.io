@@ -138,6 +138,8 @@ query GetProduct {
 Typescript:
 
 ```typescript
+# Only the fields appearing in the `GetProduct` query appear in the generated types
+
 type GetProductData = {
     products: Array<GetProductData_products>
 }
