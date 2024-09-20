@@ -1,0 +1,170 @@
+---
+title: "Generating type safe clients using code generation"
+tags: ["blog"]
+date: 2024-09-19
+byline: Martin Bonnin
+---
+
+A GraphQL endpoint usually returns a JSON payload. While you can use the result as a dynamic object, the GraphQL type system gives us a lot of information about what is inside that JSON payload.
+
+If you're not using code generation, you're missing out on a lot, especially if you're using a type-safe language such as TypeScript, Swift or Kotlin.
+
+By using code generation, you get:
+
+- compile time guarantees about your code and the data it manipulates, and
+- autocomplete and inline documentation in your favorite IDE.
+
+All of that without having to write and maintain types manually!
+
+For simplicity, this post uses TypeScript for code blocks but the same concepts can be applied to Swift/Kotlin.
+
+A common mistake is to attempt to use the GraphQL schema directly for type generation, but this is not type-safe since GraphQL only returns the fields that you ask for, and allows you to alias fields in the response. Instead, types should be generated based on the GraphQL operations (requests) that you issue. Here's an illustration of the issue:
+
+## Problem: Generating code from schema types loses nullability information
+
+Let's assume this schema:
+
+```graphql
+type Product {
+  id: String!
+  """
+  The name of the product.
+  A product must always have a name.
+  """
+  name: String!
+  """
+  The description of the product.
+  May be null if the product doesn't have a description.
+  """
+  description: String
+  """
+  The price of the product.
+  May be null if the product doesn't have a description.
+  """
+  price: Float
+}
+
+
+type Query {
+  products: [Product!]!
+}
+```
+
+A translation to TypeScript might yield the following:
+
+```typescript
+// First attempt at generating code from the product type
+type Product = {
+    id: string;
+    name: string;
+    description: string | null;
+    price: string | null
+}
+```
+
+Pretty neat, right? Typescript and GraphQL look really similar... Unfortunately, this is not type safe!
+
+Let's perform a query that doesn't request the product name:
+
+```graphql
+query GetProduct {
+  products {
+    id
+    # no name here
+    description
+    price
+  }
+}
+```
+
+Returned product:
+
+```json
+{
+  "id": "42",
+  "description": null,
+  "price": 15.5
+}
+```
+
+It's now impossible to map that returned value to our type because `name` must be non-null.
+
+We can also apply aliases:
+
+```graphql
+query GetProduct {
+  products {
+    id
+    productName: name
+    description
+    price
+  }
+}
+```
+
+Returned product:
+
+```json
+{
+  "id": "42",
+  "productName": "My Product",
+  "description": null,
+  "price": 15.5
+}
+```
+
+Note that the `productName`, despite being non-null, does not match up with the expected `name` field.
+
+We simply cannot safely use the schema types to represent requests unless we fetch every single field on every single type, which would go against GraphQL's very nature!
+
+Thankfully, we can solve this by generating code based on operations instead (queries, mutations, and subscriptions).
+
+## Solution: Generating code from GraphQL operations
+
+By generating code from GraphQL operations, we are now certain that the TypeScript fields always represent GraphQL fields that have been requested.
+
+Reusing our first example:
+
+```graphql
+query GetProduct {
+  products {
+    id
+    description
+    price
+  }
+}
+```
+
+TypeScript:
+
+```typescript
+# Only the fields appearing in the `GetProduct` query appear in the generated types
+
+type GetProductData = {
+    products: Array<GetProductData_products>
+}
+
+type GetProductData_products = {
+    id: string;
+    description: string | null;
+    price: string | null
+}
+```
+
+With this `GetProductData_products` type:
+
+* `name` is not present in the generated type because it was not queried.
+* `id` is not-nullable, as intended. A product always has an `id`.
+* `description` and `price` are nullable, as intended. If `null`, it means the product doesn't have a description/price.
+
+This is what we expected!
+
+## Conclusion
+
+By using code generation based on operations, you get type safety from your backend all the way to your UI. On top of that, your IDE can use the generated code to provide autocomplete and a better experience overall.
+
+All the major code generators ([graphql-code-generator](https://github.com/dotansimha/graphql-code-generator), [Relay](https://relay.dev/), [Apollo iOS](https://github.com/apollographql/apollo-ios), [Apollo Kotlin](https://github.com/apollographql/apollo-kotlin), ...) generate code based on operations.
+
+If you have not already, try them out!
+
+And look out for a new post soon on the improvements we're hoping to bring to GraphQL nullability!
