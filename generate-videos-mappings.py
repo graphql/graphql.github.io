@@ -67,7 +67,7 @@ if channel_id:
     videos = get_videos(channel_id)
 
     
-    with open('src/templates/videos.ts', 'w') as f:
+    with open('videos.ts', 'w') as f:
         f.write('export const videos = [\n')
         for video in videos:
             f.write(f"  {{ id: '{video['id']}', title: `{video['title']}` }},\n")

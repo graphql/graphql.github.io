@@ -6,6 +6,16 @@
       "statusCode": 200
     },
     {
+      "source": "/conf/gallery",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/albums/72177720320386221/",
+      "permanent": true
+    },
+    {
+      "source": "/conf/gallery/",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/albums/72177720320386221/",
+      "permanent": true
+    },
+    {
       "source": "/conf/sponsor",
       "destination": "/conf/partner",
       "permanent": false
