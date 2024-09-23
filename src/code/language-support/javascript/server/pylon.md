@@ -39,12 +39,12 @@ export const graphql = {
     user: (name: string) => {
       return users.find(user => user.name === name)
     },
-    Mutation: {
-      addUser: (name: string, email: string) => {
-        const user = new User(name, email)
-        users.push(user)
-        return user
-      },
+  },
+  Mutation: {
+    addUser: (name: string, email: string) => {
+      const user = new User(name, email)
+      users.push(user)
+      return user
     },
   },
 }
