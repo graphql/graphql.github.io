@@ -12,8 +12,7 @@ import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
 import { ScheduleSession } from "../../../2023/types"
 import { format, parseISO } from "date-fns"
 import { videos } from "../../_videos"
-import { findBestMatch } from 'string-similarity'
-
+import { findBestMatch } from "string-similarity"
 
 function getEventTitle(event: ScheduleSession, speakers: string[]): string {
   let { name } = event
@@ -96,8 +95,7 @@ export default function SessionPage({ params }: SessionProps) {
     event.speakers!.map(s => s.name),
   )
 
-
-    const recordingTitle = findBestMatch(
+  const recordingTitle = findBestMatch(
     `${eventTitle} ${event.speakers!.map(e => e.name).join(" ")}`,
     videos.map(e => e.title),
   ).bestMatch
@@ -110,7 +108,7 @@ export default function SessionPage({ params }: SessionProps) {
             <div className="flex flex-col lg:px-0">
               <BackLink year="2024" kind="schedule" />
 
-{recordingTitle.rating > 0.5 && (
+              {recordingTitle.rating > 0.5 && (
                 <iframe
                   className="aspect-video max-w-[1000px] mx-auto size-full rounded-md"
                   src={`https://youtube.com/embed/${
@@ -121,7 +119,7 @@ export default function SessionPage({ params }: SessionProps) {
                   allowFullScreen
                 />
               )}
-              
+
               <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-4">
                 <div className="space-y-5">
                   <div className="flex gap-3 flex-wrap">
