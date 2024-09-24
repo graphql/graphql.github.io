@@ -196,8 +196,7 @@ export default {
   banner: {
     content: (
       <>
-        🎬 That's a Wrap for GraphQLConf 2024! • Watch the
-        Videos •{" "}
+        🎬 That's a Wrap for GraphQLConf 2024! • Watch the Videos •{" "}
         <NextLink
           href="/conf/2024"
           className="underline after:content-['_→'] after:font-sans"
