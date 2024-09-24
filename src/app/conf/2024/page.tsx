@@ -78,7 +78,7 @@ export default function Page() {
           </div>
           <HostedByGraphQLFoundation className="shrink-0 h-8 lg:h-10 mt-5 mb-12 self-start" />
           <div className="flex items-center gap-12 max-md:flex-col">
-            <Button href="#attend">Explore all recordings and slides!</Button>
+            <Button href="/schedule">Explore all recordings and slides!</Button>
           </div>
         </div>
       </div>
