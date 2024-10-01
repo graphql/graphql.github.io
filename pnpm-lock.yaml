@@ -113,8 +113,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-medium-image-zoom:
-        specifier: 5.1.8
-        version: 5.1.8(react-dom@18.3.1)(react@18.3.1)
+        specifier: 5.2.10
+        version: 5.2.10(react-dom@18.3.1)(react@18.3.1)
       rss:
         specifier: 1.2.2
         version: 1.2.2
@@ -7519,8 +7519,8 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
 
-  /react-medium-image-zoom@5.1.8(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-2X4oLlEopIWg7qalR1Qpy4gPrU9CTF0DvJ7HNu5u/NwdyQWupEsje2vuMbjBz7+np8MmQ4DKJ6zGr1ofCuzB3g==}
+  /react-medium-image-zoom@5.2.10(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-JBYf4u0zsocezIDtrjwStD+8sX+c8XuLsdz+HxPbojRj0sCicua0XOQKysuPetoFyX+YgStfj+vEtZ+699O/pg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
