@@ -1,3 +1,5 @@
+import Link from "next/link"
+import NextImage from "next-image-export-optimizer"
 import { Hero } from "./hero"
 import { PredictableResults } from "./predictable-results"
 import { SingleRequest } from "./single-request"
@@ -6,27 +8,42 @@ import { PowerFulTools } from "./powerful-tools"
 import { WithoutVersion } from "./without-version"
 import { BringYourOwnCode } from "./bring-your-own-code"
 import { WhoIsUsing } from "./who-is-using"
+import SupergraphImg from "public/img/diagrams/supergraph.png"
 
 export function IndexPage() {
   return (
     <div className="index">
       <Hero />
-      <section className="text-center flex flex-col container items-center conf-block max-w-3xl">
-        <h2>A query language for your API</h2>
-        <p>
-          GraphQL is a query language for APIs and a runtime for fulfilling
-          those queries with your existing data. GraphQL provides a complete and
-          understandable description of the data in your API, gives clients the
-          power to ask for exactly what they need and nothing more, makes it
-          easier to evolve APIs over time, and enables powerful developer tools.
+      <section className="flex flex-col container">
+        <h2>GraphQL for API consumers</h2>
+        <p>GraphQL transforms the way API consumers access and interact with data, efficiently fetch the right slice of data. Whether you are building consumer facing applications or internal apps, GraphQL provides a seamless and efficient way to consume APIs. 
         </p>
+        <PredictableResults />
+        <SingleRequest />
+        <PowerFulTools />
       </section>
-      <PredictableResults />
-      <SingleRequest />
-      <TypeSystem />
-      <PowerFulTools />
-      <WithoutVersion />
-      <BringYourOwnCode />
+      <section className="flex flex-col container">
+        <h2>GraphQL for API producers</h2>
+        <p>GraphQL provides API producers with a powerful framework for designing flexible and maintainable APIs. By defining a single, unified schema, producers can easily integrate data from multiple sources, simplifying API management. GraphQL provides a single endpoint with elevated semantic context on the data being served.
+        </p>
+        <TypeSystem />
+        <BringYourOwnCode />
+        <WithoutVersion />
+      </section>
+      <section className="flex flex-col container conf-block lg:flex-row">
+        <div>
+          <h2>GraphQL is the lingua franca for API producers</h2>
+          <p>GraphQL provides a unified semantic layer that consolidates multiple discrete resources. GraphQL enables federation across multiple services and data providing a "Supergraph" experience.
+          </p>
+        </div>
+        <div>
+        <NextImage
+          src={SupergraphImg}
+          alt="GraphQL Supergraph"
+          className=""
+        />
+        </div>
+      </section>
       <WhoIsUsing />
     </div>
   )
