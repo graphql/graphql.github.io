@@ -248,7 +248,10 @@ export const videos = [
     id: "-BS8tP7Z368",
     title: `Building a Serverless GraphQL Subscription Gateway - Christian Stan &amp;  Kenneth Wußmann w/MOIA GmbH`,
   },
-  { id: "RwHdt46W1PI", title: `The Guild Acquires Stellate and Announces Hive Gateway v1 and GraphQL Federation` },
+  {
+    id: "RwHdt46W1PI",
+    title: `The Guild Acquires Stellate and Announces Hive Gateway v1 and GraphQL Federation`,
+  },
   {
     id: "mpmaJIZPlsA",
     title: `Sponsored Session: From Prototype to Production: Building Custom GraphQL APIs - Kevin Brown, Exogee`,
