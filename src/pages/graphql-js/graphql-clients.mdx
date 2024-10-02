@@ -61,7 +61,7 @@ var query = /* GraphQL */`query RollDice($dice: Int!, $sides: Int) {
   rollDice(numDice: $dice, numSides: $sides)
 }`
 
-fetch("/graphql", {
+fetch("http://localhost:4000/graphql", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
