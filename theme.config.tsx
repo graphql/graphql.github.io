@@ -201,7 +201,7 @@ export default {
           href="/conf/2024"
           className="underline after:content-['_→'] after:font-sans"
         >
-          Read more
+          Check out the recorded talks and workshops
         </NextLink>
       </>
     ),

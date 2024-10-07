@@ -11,6 +11,8 @@ import { speakers, schedule } from "@/app/conf/2024/_data"
 import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
 import { ScheduleSession } from "../../../2023/types"
 import { format, parseISO } from "date-fns"
+import { videos } from "../../_videos"
+import { findBestMatch } from "string-similarity"
 
 function getEventTitle(event: ScheduleSession, speakers: string[]): string {
   let { name } = event
@@ -93,6 +95,11 @@ export default function SessionPage({ params }: SessionProps) {
     event.speakers!.map(s => s.name),
   )
 
+  const recordingTitle = findBestMatch(
+    `${eventTitle} ${event.speakers!.map(e => e.name).join(" ")}`,
+    videos.map(e => e.title),
+  ).bestMatch
+
   return (
     <div className="bg-[#f4f6f8]">
       <div className="container">
@@ -100,6 +107,18 @@ export default function SessionPage({ params }: SessionProps) {
           <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
             <div className="flex flex-col lg:px-0">
               <BackLink year="2024" kind="schedule" />
+
+              {recordingTitle.rating > 0.5 && (
+                <iframe
+                  className="aspect-video max-w-[1000px] mx-auto size-full rounded-md"
+                  src={`https://youtube.com/embed/${
+                    videos.find(e => e.title === recordingTitle.target)?.id
+                  }`}
+                  title={recordingTitle.target}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              )}
 
               <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-4">
                 <div className="space-y-5">

@@ -2,7 +2,6 @@ import { Metadata } from "next"
 import { HostedByGraphQLFoundation } from "@/icons"
 import { Sponsors } from "./sponsors"
 import { About } from "./about"
-import { Pricing } from "./pricing"
 import { Venue } from "./venue"
 import { Button } from "@/app/conf/_components/button"
 import clsx from "clsx"
@@ -11,6 +10,8 @@ import { schedule, speakers } from "./_data"
 import { SessionList } from "../_components/schedule/session-list"
 import { filterCategories2024 } from "../_components/schedule/filter-categories"
 import { eventsColors } from "./utils"
+import NextImage from "next-image-export-optimizer"
+import leeImage from "./gallery/images/lee.png"
 
 function shuffle<T extends any[]>(array: T): T {
   let currentIndex = array.length
@@ -53,7 +54,7 @@ export default function Page() {
           </div>
           <div className="flex gap-10 items-center">
             <svg
-              className="w-full"
+              className="w-[50%]"
               viewBox="0 0 1239 142"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
@@ -75,21 +76,31 @@ export default function Page() {
               <path d="M1217.43 90.2801H1175.42V82.4447L1215.27 27.2651H1227.65V81.3097H1239V90.2801H1227.65V108.56H1217.43V90.2801ZM1217.88 81.3097V38.0516L1187.34 81.3097H1217.88Z" />
             </svg>
           </div>
-          <HostedByGraphQLFoundation className="shrink-0 h-8 lg:h-10 mt-5 mb-16 lg:mb-32 self-start" />
+          <HostedByGraphQLFoundation className="shrink-0 h-8 lg:h-10 mt-5 mb-12 self-start" />
           <div className="flex items-center gap-12 max-md:flex-col">
-            <Button href="#attend">Get Your Ticket!</Button>
-            <a
-              href="/conf/2024/partner#sponsor"
-              className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
-            >
-              Join as a Sponsor
-            </a>
-            <a
-              href="/conf/2024/partner#program"
-              className="whitespace-nowrap with-arrow w-40 hover:text-primary transition-colors"
-            >
-              Join as a Partner
-            </a>
+            <Button href="/schedule">Explore all recordings and slides!</Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="container flex gap-20 flex-col py-8">
+        <div className="flex gap-12 lg:gap-24 max-md:flex-col">
+          <div className="flex flex-col gap-5 text-white flex-1">
+            <h2 className="conf-heading">Thank you for Attending!</h2>
+            <p className="lg:text-lg">
+              Thank you to all who joined us for GraphQLConf 2024! We look
+              forward to seeing you at future events. To experience the best of
+              this year's event, be sure to watch session recordings and slides
+              from speakers, available on the event schedule for each talk.
+            </p>
+          </div>
+          {/* this div is really necessary otherwise img will appear outside from div */}
+          <div className="flex-1 flex justify-end">
+            <NextImage
+              alt="Lee Byron"
+              className="object-cover rounded-md aspect-video"
+              src={leeImage}
+            />
           </div>
         </div>
       </div>
@@ -156,9 +167,7 @@ export default function Page() {
         </div>
       </div>
 
-      <Pricing />
       <About />
-      <Venue />
       <Sponsors />
     </>
   )

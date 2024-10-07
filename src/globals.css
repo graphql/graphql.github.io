@@ -24,7 +24,7 @@
       rgba(14, 3, 28, 0) 166.98%
     ),
     url("/img/conf/graphql-conf-bg.png");
-  @apply text-white max-md:text-base h-[calc(100vh-70px)];
+  @apply text-white max-md:text-base;
 }
 
 .with-arrow:after {

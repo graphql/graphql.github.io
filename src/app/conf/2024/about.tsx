@@ -1,6 +1,6 @@
 import { ComponentProps } from "react"
-import ConfImage from "../2023/gallery/images/8.jpg"
-import ConfImage2 from "../2023/gallery/images/9.jpg"
+import ConfImage from "./gallery/images/hero1.jpg"
+import ConfImage2 from "./gallery/images/hero2.jpg"
 import NextImage from "next-image-export-optimizer"
 
 const list = [
