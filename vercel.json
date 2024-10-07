@@ -6,14 +6,24 @@
       "statusCode": 200
     },
     {
-      "source": "/conf/gallery",
+      "source": "/conf/2024/gallery",
       "destination": "https://www.flickr.com/photos/linuxfoundation/albums/72177720320386221/",
       "permanent": true
     },
     {
-      "source": "/conf/gallery/",
+      "source": "/conf/2024/gallery/",
       "destination": "https://www.flickr.com/photos/linuxfoundation/albums/72177720320386221/",
       "permanent": true
+    },
+    {
+      "source": "/conf/gallery",
+      "destination": "https://www.graphql.org/conf/2024/gallery",
+      "permanent": false
+    },
+    {
+      "source": "/conf/gallery/",
+      "destination": "https://www.graphql.org/conf/2024/gallery/",
+      "permanent": false
     },
     {
       "source": "/conf/sponsor",
