@@ -11,7 +11,7 @@ co-maintainer of GraphQL.js!
 
 Yaacov’s journey into open source and GraphQL is unique, having earned degrees
 in both Medicine and Computer Science. Whereas most maintainers are employed as
-software developers, Yaacov is a technical radiologist by day and star GraphQL
+software developers, Yaacov is a radiologist by day and star GraphQL
 contributor by night. Yaacov brings real-world, end-user experience building
 APIs and tools for the medical field - sounds like a superhero to us!
 
