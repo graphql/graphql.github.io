@@ -514,6 +514,11 @@
       "source": "/conf/speak/",
       "destination": "/conf/2024/speak/",
       "permanent": true
+    },
+    {
+      "source": "/schedule/",
+      "destination": "/conf/2024/schedule/",
+      "permanent": true
     }
   ]
 }
