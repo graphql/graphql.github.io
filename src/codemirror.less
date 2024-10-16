@@ -816,6 +816,24 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     inset 4px 0 0 #eee;
   border-radius: 3px;
   margin-left: -4px;
+
+  .editor-name {
+    position: sticky;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgb(209, 213, 219);
+    background-color: rgb(243, 244, 246);
+    color: rgb(55, 65, 81);
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    .dark & {
+      border-bottom-color: rgb(23, 23, 23);
+      background-color: rgb(8, 8, 8);
+      color: rgb(209, 213, 219);
+      font-weight: 400;
+    }
+  }
 }
 
 .query-editor .CodeMirror {
@@ -846,19 +864,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     margin: 0 7px;
     background: none;
   }
-
-  .variable-editor::before {
-    background: #eee;
-    color: white;
-    content: "VARIABLES";
-    display: block;
-    font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    line-height: 1;
-    padding: 3px 12px 2px;
-    text-shadow: 0 -1px #ddd;
-  }
 }
 
 .result-window {
@@ -879,6 +884,13 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .result-window .CodeMirror {
   background: none;
   height: 100%;
+  padding-bottom: 45px;
   margin: 0 7px;
   box-sizing: border-box;
+}
+
+.query-editor,
+.variable-editor,
+.result-window {
+  overflow: hidden;
 }
