@@ -1,14 +1,22 @@
 ---
 name: Pylon
-description: A code-first approach to GraphQL API development that generates schemas from TypeScript in real-time, enhancing development speed, type safety, and error reduction, with instant reflection of code changes in the API. For more information, go to https://pylon.cronit.io
+description: A code-first framework for GraphQL API development, where your schema reflects your functionality. Run `npm create pylon@latest` to get started.
 url: https://pylon.cronit.io
 github: getcronit/pylon
 ---
 
+1. **Create**
+
+```bash
+npm create pylon@latest
+```
+
+2. **Develop**
+
 Example service:
 
 ```typescript
-import { defineService } from "@getcronit/pylon"
+import { app } from "@getcronit/pylon"
 
 class User {
   name: string
@@ -25,24 +33,26 @@ const users = [
   new User("Charlie", "charlie@example.com"),
 ]
 
-export default defineService({
+export const graphql = {
   Query: {
     users,
     user: (name: string) => {
       return users.find(user => user.name === name)
     },
-    Mutation: {
-      addUser: (name: string, email: string) => {
-        const user = new User(name, email)
-        users.push(user)
-        return user
-      },
+  },
+  Mutation: {
+    addUser: (name: string, email: string) => {
+      const user = new User(name, email)
+      users.push(user)
+      return user
     },
   },
-})
+}
+
+export default app
 ```
 
-After running the service, you can query it using GraphQL:
+3. **Query**
 
 ```graphql
 query User {
