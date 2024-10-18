@@ -311,7 +311,7 @@ class ResultViewer extends Component {
   render() {
     return (
       <div className="result-window" ref={e => (this.domNode = e)}>
-        <span className="editor-name">Response</span>
+        <span className="editor-name rounded-tr">Response</span>
       </div>
     )
   }
