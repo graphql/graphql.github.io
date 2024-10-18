@@ -258,7 +258,7 @@ class QueryEditor extends Component {
   render() {
     return (
       <div className="query-editor" ref={e => (this.domNode = e)}>
-        <span className="editor-name">Operation</span>
+        <span className="editor-name rounded-tl">Operation</span>
       </div>
     )
   }
