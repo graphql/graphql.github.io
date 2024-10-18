@@ -256,7 +256,11 @@ class QueryEditor extends Component {
   }
 
   render() {
-    return <div className="query-editor" ref={e => (this.domNode = e)} />
+    return (
+      <div className="query-editor" ref={e => (this.domNode = e)}>
+        <span className="editor-name rounded-tl">Operation</span>
+      </div>
+    )
   }
 }
 
@@ -305,7 +309,11 @@ class ResultViewer extends Component {
   }
 
   render() {
-    return <div className="result-window" ref={e => (this.domNode = e)} />
+    return (
+      <div className="result-window" ref={e => (this.domNode = e)}>
+        <span className="editor-name rounded-tr">Response</span>
+      </div>
+    )
   }
 }
 
@@ -424,7 +432,11 @@ class VariableEditor extends Component {
   }
 
   render() {
-    return <div className="variable-editor" ref={e => (this.domNode = e)} />
+    return (
+      <div className="variable-editor" ref={e => (this.domNode = e)}>
+        <span className="editor-name">Variables</span>
+      </div>
+    )
   }
 
   _didLint(annotations) {
