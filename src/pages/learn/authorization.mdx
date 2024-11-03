@@ -1,52 +1,92 @@
 # Authorization
 
-> Delegate authorization logic to the business logic layer
+<p className="learn-subtitle">Delegate authorization logic to the business logic layer</p>
+
+Most APIs will need to secure access to certain types of data depending on who requested it, and GraphQL is no different. GraphQL execution should begin after [authentication](/graphql-js/authentication-and-express-middleware/) middleware confirms the user's identity and passes that information to the GraphQL layer. But after that, you still need to determine if the authenticated user is allowed to view the data provided by the specific fields that were included in the request. On this page, we'll explore how a GraphQL schema can support authorization.
+
+## Type and field authorization
 
 Authorization is a type of business logic that describes whether a given user/session/context has permission to perform an action or see a piece of data. For example:
 
 _"Only authors can see their drafts"_
 
-Enforcing this kind of behavior should happen in the [business logic layer](/learn/thinking-in-graphs/#business-logic-layer). It is tempting to place authorization logic in the GraphQL layer like so:
-
-```js
-const postType = new GraphQLObjectType({
-  name: 'Post',
-  fields: {
-    body: {
-      type: GraphQLString,
-      resolve(post, args, context, { rootValue }) {
-        // return the post body only if the user is the post's author
-        if (context.user && (context.user.id === post.authorId)) {
-          return post.body
-        }
-        return null
-      }
-    }
-  }
-})
+Enforcing this behavior should happen in the [business logic layer](/learn/thinking-in-graphs/#business-logic-layer). Let's consider the following `Post` type defined in a schema:
+ 
+```graphql
+type Post {
+  authorId: ID!
+  body: String
+}
 ```
 
-Notice that we define "author owns a post" by checking whether the post's `authorId` field equals the current user’s `id`. Can you spot the problem? We would need to duplicate this code for each entry point into the service. Then if the authorization logic is not kept perfectly in sync, users could see different data depending on which API they use. Yikes! We can avoid that by having a [single source of truth](/learn/thinking-in-graphs/#business-logic-layer) for authorization.
+In this example, we can imagine that when a request initially reaches the server, authentication middleware will first check the user's credentials and add information about their identity to the `context` object of the GraphQL request so that this data is available in every field resolver for the duration of its execution.
 
-Defining authorization logic inside the resolver is fine when learning GraphQL or prototyping. However, for a production codebase, delegate authorization logic to the business logic layer. Here’s an example:
+If a post's body should only be visible to the user who authored it, then we will need to check that the authenticated user's ID matches the post's `authorId` value. It may be tempting to place authorization logic in the resolver for the post's `body` field like so:
 
 ```js
-// Authorization logic lives inside postRepository
-const postRepository = require('postRepository');
-
-const postType = new GraphQLObjectType({
-  name: 'Post',
-  fields: {
-    body: {
-      type: GraphQLString,
-      resolve(post, args, context, { rootValue }) {
-        return postRepository.getBody(context.user, post)
-      }
-    }
+function Post_body(obj, args, context, info) {
+  // return the post body only if the user is the post's author
+  if (context.user && (context.user.id === obj.authorId)) {
+    return obj.body
   }
-})
+  return null
+}
 ```
 
-In the example above, we see that the business logic layer requires the caller to provide a user object. If you are using GraphQL.js, the User object should be populated on the `context` argument or `rootValue` in the fourth argument of the resolver.
+Notice that we define "author owns a post" by checking whether the post's `authorId` field equals the current user’s `id`. Can you spot the problem? We would need to duplicate this code for each entry point into the service. Then if the authorization logic is not kept perfectly in sync, users could see different data depending on which API they use. Yikes! We can avoid that by having a [single source of truth](/learn/thinking-in-graphs/#business-logic-layer) for authorization, instead of putting it the GraphQL layer.
 
-We recommend passing a fully-hydrated User object instead of an opaque token or API key to your business logic layer. This way, we can handle the distinct concerns of [authentication](/graphql-js/authentication-and-express-middleware/) and authorization in different stages of the request processing pipeline.
+Defining authorization logic inside the resolver is fine when learning GraphQL or prototyping. However, for a production codebase, delegate authorization logic to the business logic layer. Here’s an example of how authorization of the `Post` type's fields could be implemented separately:
+
+```js
+// authorization logic lives inside `postRepository`
+export const postRepository = {
+  getBody({ user, post }) {
+    if (user?.id && (user.id === post.authorId)) {
+      return post.body
+    }
+    return null
+  }
+}
+```
+
+The resolver function for the post's `body` field would then call a `postRepository` method instead of implementing the authorization logic directly:
+
+```js
+import { postRepository } from 'postRepository'
+
+function Post_body(obj, args, context, info) {
+  // return the post body only if the user is the post's author
+  return postRepository.getBody({ user: context.user, post: obj })
+}
+```
+
+In the example above, we see that the business logic layer requires the caller to provide a user object, which is available in the `context` object for the GraphQL request. We recommend passing a fully-hydrated user object instead of an opaque token or API key to your business logic layer. This way, we can handle the distinct concerns of [authentication](/graphql-js/authentication-and-express-middleware/) and authorization in different stages of the request processing pipeline.
+
+## Using type system directives
+
+In the example above, we saw how authorization logic can be delegated to the business logic layer through a function that is called in a field resolver. 
+
+Another approach when implementing authorization checks for a GraphQL API is to use [type system directives](/learn/schema/#directives), where a directive such as `@auth` is defined in the schema with arguments that can indicate what roles or permissions a user must have to access the data provided by the and fields where the directive is applied. For example:
+
+```graphql
+directive @auth(rule: Rule) on FIELD_DEFINITION
+
+enum Rule {
+  IS_AUTHOR
+}
+
+type Post {
+  authorId: ID!
+  body: String @auth(rule: IS_AUTHOR)
+}
+```
+
+It would be up to the GraphQL implementation to determine how an `@auth` directive affects execution when a client makes a request that includes the `body` field for `Post` type. However, the authorization logic should remain delegated to the business logic layer.
+
+## Recap
+
+To recap these recommendations for authorization in GraphQL:
+
+- Authorization logic should be delegated to the business logic layer, not the GraphQL layer
+- After execution begins, a GraphQL server should make decisions about whether the client that made the request is authorized to access data for the included fields
+- Type system directives may be defined and added to the types and fields in a schema to apply generalized authorization rules
