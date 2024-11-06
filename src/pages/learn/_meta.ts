@@ -18,6 +18,7 @@ export default {
   "serving-over-http": "",
   authorization: "",
   pagination: "",
+  "schema-design": "Schema Design",
   "global-object-identification": "",
   caching: "",
 }
