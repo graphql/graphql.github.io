@@ -64,9 +64,9 @@ In the example above, we see that the business logic layer requires the caller t
 
 ## Using type system directives
 
-In the example above, we saw how authorization logic can be delegated to the business logic layer through a function that is called in a field resolver. 
+In the example above, we saw how authorization logic can be delegated to the business logic layer through a function that is called in a field resolver. In general, it is recommended to perform all authorization logic in that layer, but if you decide to implement authorization in the GraphQL layer instead then this may be accommplished using [type system directives](/learn/schema/#directives).
 
-Another approach when implementing authorization checks for a GraphQL API is to use [type system directives](/learn/schema/#directives), where a directive such as `@auth` is defined in the schema with arguments that can indicate what roles or permissions a user must have to access the data provided by the and fields where the directive is applied. For example:
+For example, a directive such as `@auth` could be defined in the schema with arguments that indicate what roles or permissions a user must have to access the data provided by the types and fields where the directive is applied:
 
 ```graphql
 directive @auth(rule: Rule) on FIELD_DEFINITION
