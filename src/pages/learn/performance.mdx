@@ -26,7 +26,7 @@ Sending hashed queries instead of their plaintext versions has the additional be
 
 GraphQL is designed in a way that allows you to write clean code on the server, where every field on every type has a focused single-purpose function for resolving that value. However, without additional consideration, a naive GraphQL service could be very "chatty" or repeatedly load data from your databases.
 
-Consider the following query—to fetch a hero along with a list of their friends, we can imagine that as the field resolvers execute there will be one request to the underlying data source to get the character object, and then three subsequent requests to load the friends' character objects:
+Consider the following query—to fetch a hero along with a list of their friends, we can imagine that as the field resolvers execute there will be one request to the underlying data source to get the character object, another to fetch their friends, and then three subsequent requests to load the lists of starships for each human friend:
 
 ```graphql
 # { "graphiql": true }
@@ -34,15 +34,21 @@ query HeroWithFriends {
   # 1 request for the hero
   hero {
     name
-    # 3 more requests for each friend
+    # 1 request for the hero's N friends
     friends {
       name
+      # N starship requests - one for each of the hero's N human friends
+      ... on Human {
+        starships {
+          name
+        }
+      }
     }
   }
 }
 ```
 
-This is known as the N+1 problem, where the first request to an underlying data source leads to N subsequent requests to resolve the data for all of the requested fields.
+This is known as the N+1 problem, where an initial request to an underlying data source (for a hero's friends) leads to N subsequent requests to resolve the data for all of the requested fields (for the friends' starship data).
 
 This is commonly solved by a batching technique, where multiple requests for data from a backend are collected over a short period and then dispatched in a single request to an underlying database or microservice by using a tool like Facebook's [DataLoader](https://github.com/facebook/dataloader). Additionally, certain GraphQL implementations may have built-in capabilities that allow you to translate operation selection sets into optimized queries to underlying data sources.
 
