@@ -1,0 +1,122 @@
+import { Callout } from "nextra/components"
+
+# Response
+
+<p className="learn-subtitle">Learn how GraphQL returns data to clients</p>
+
+After a GraphQL document has been [validated](/learn/validation/) and [executed](/learn/execution/), the server will return a [response](https://spec.graphql.org/draft/#sec-Response) to the requesting client. One of GraphQL's strengths is that the server response reflects the shape of the client's original request, but a response may also contain helpful information if something unexpected happened before or during the execution of an operation. On this page, we'll take a deeper exploration of this final phase in the lifecycle of a GraphQL request.
+
+## Data
+
+As we have seen in the examples throughout this guide, when a GraphQL request is executed the response is returned on a top-level `data` key. For example:
+
+```graphql
+# { "graphiql": true }
+query {
+  human(id: 1002) {
+    name
+    appearsIn
+    starships {
+      name
+    }
+  }
+}
+```
+
+The inclusion of the `data` key isn't an arbitrary decision made by the underlying GraphQL implementation—it's described by the [GraphQL specification](https://spec.graphql.org/draft/#sec-Data). Under this key, you will find the result of the execution of the requested operation, which may include partial data for the requested fields if errors were raised during the execution of some field resolvers.
+
+One thing that the GraphQL specification doesn't require is a specific serialization format for the response. That said, responses are typically formatted as JSON, as in the example above.
+
+Additionally, the GraphQL specification doesn't require the use of a particular transport protocol for requests either, although it is [common for HTTP to be used](/learn/serving-over-http/) for stateless query and mutations operations. Long-lived, stateful subscription operations are often supported by WebSockets or server-sent events instead.
+
+<Callout type="info">
+There is [a draft GraphQL over HTTP specification](https://graphql.github.io/graphql-over-http/draft/) available with further guidelines for using HTTP with GraphQL clients and servers.
+</Callout>
+
+## Errors
+
+In addition to the `data` key, the GraphQL specification outlines how [errors](https://spec.graphql.org/draft/#sec-Errors) should be formatted in the response. Whether the GraphQL implementation provides partial data with the error information in the response will depend on the type of error that was raised. Let's look at the different kinds of errors that can occur during the lifecycle of a GraphQL request.
+
+### Request errors
+
+Request errors typically occur because the client made a mistake. For example, there may be a _syntax error_ in the document, such as a missing bracket or the use of an unknown root operation type keyword:
+
+```graphql
+# { "graphiql": true }
+operation { 
+  updateHumanName(id: "1000", name: "Luke Starkiller" ) {
+    id
+    name
+  }
+}
+```
+
+The `message` key inside the `errors` object provides some helpful information for the developer to understand what kind of error was raised, and the `locations` key, if present, indicates where the error occurred in the document.
+
+Sometimes, a GraphQL request may be syntactically correct, but when the server parses and [validates](/learn/validation/) the document against the schema, it finds an issue with part of the operation and raises a _validation error_.
+
+For example, the client may request a field that does not exist on the `Starship` type:
+
+```graphql
+# { "graphiql": true }
+query {
+  starship(id: 3000) {
+    width
+  }
+}
+```
+
+Validation errors also occur when clients specify incorrect variable types for their corresponding field arguments:
+
+```graphql
+# { "graphiql": true, "variables": { "ep": "JEDI" } }
+query HeroForEpisode($ep: String!) {
+  hero(episode: $ep) {
+    name
+  }
+}
+```
+
+In the previous examples, we can see that when a request error occurs the `data` key will not be included because the server returns an error response to the client before the field resolvers are executed.
+
+### Field errors
+
+Field errors are raised if something unexpected happens during execution. For example, a resolver may raise an error directly, or may return invalid data such as a null value for a field that has a Non-Null output type.
+
+In these cases, GraphQL will attempt to continue executing the other fields and return a partial response, with the `data` key appearing alongside the `errors` key.
+
+Let's look at an example:
+
+```graphql
+# { "graphiql": true }
+mutation {
+  firstShip: deleteStarship(id: "3001")
+  secondShip: deleteStarship(id: "3010")
+}
+```
+
+The mutation above attempts to delete two starships in a single operation, but no starship exists with an ID of `3010` so the server throws an error. In the response, we can see information about the error that occurred for the field that was aliased as `secondShip`. Under the `data` key, we also see that the ID of the first ship was returned to indicate successful deletion, while the second ship produced a null result due to the error raised in its resolver function.
+
+### Network errors
+
+As with network calls to any type of API, network errors that are not specific to GraphQL may happen at any point during a request. These kinds of errors will block communication between the client and server before the request is complete, such as an SSL error or a connection timeout. Depending on the GraphQL server and client libraries that you choose, there may be features built into them that support special network error handling such as retries for failed operations.
+
+## Extensions
+
+The final top-level key allowed by the GraphQL specification in a response is the `extentions` key. This key is reserved for GraphQL implementations to provide additional information about the response and though it must be an object if present, there are no other restrictions on what it may contain.
+
+For example, some GraphQL servers may include telemetry data or information about rate limit consumption under this key. Note that what data is available in `extensions` and whether this data is available in production or development environments will depend entirely on the specific GraphQL implementation.
+
+## Next steps
+
+To recap what we've learned about GraphQL response formats:
+
+- The GraphQL specification allows three top-level keys in a response: `data`, `errors`, and `extensions`
+- At least one of `data` or `errors` will be present on the response (when it contains both it is a "partial response")
+- The `data` key contains the result of the executed operation
+- Information about raised errors is included in the `errors` key of the response
+- Request errors (such as syntax or validation errors) are raised before execution begins so `data` won't be included in the response
+- When a field error occurs during execution, there will be a description of the issue in the `errors` key and there may be partial data included with the `data` key
+- GraphQL implementations may include additional arbitrary information about the response in the `extensions` key
+
+Now that you understand the different phases of a GraphQL request and how responses are provided to clients, head over to the [Introspection](/learn/introspection) page to learn about how a GraphQL server can query information about its own schema.

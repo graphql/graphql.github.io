@@ -1,0 +1,163 @@
+import { Callout } from "nextra/components"
+
+# Mutations
+
+<p className="learn-subtitle">Learn how to modify data with a GraphQL server</p>
+
+Most discussions of GraphQL focus on data fetching, but any complete data platform needs a way to modify server-side data as well.
+
+In REST, any request might cause some side-effects on the server, but by convention, it's suggested that one doesn't use `GET` requests to modify data. GraphQL is similar—technically any field resolver could be implemented to cause a data write—but the [GraphQL specification states](https://spec.graphql.org/draft/#sel-GANRNDAB6DBmMn6D) that "the resolution of fields other than top-level mutation fields must always be side effect-free and idempotent." Thus, for any spec-compliant GraphQL schemas, only the top-level fields in mutation operations are allowed to cause side effects.
+
+On this page, you'll learn how to use mutation operations to write data using GraphQL, and do so in a way that supports client use cases.
+
+<Callout type="info">
+All of the features of GraphQL operations that apply to queries also apply to mutations, so review the [Queries](/learn/queries/) page first before proceeding.
+</Callout>
+
+## Add new data
+
+When creating new data with a REST API, you would send a `POST` request to a specific endpoint and include information about the entities to be created in the body of the request. GraphQL takes a different approach.
+
+Let's look at an example mutation that's defined in our schema:
+
+```graphql
+enum Episode {
+  NEWHOPE
+  EMPIRE
+  JEDI
+}
+
+input ReviewInput {
+  stars: Int!
+  commentary: String
+}
+
+type Mutation {
+  createReview(episode: Episode, review: ReviewInput!): Review
+}
+```
+
+Like queries, mutation fields are added to one of the [root operation types](https://spec.graphql.org/draft/#sec-Root-Operation-Types) that provide an entry point to the API. In this case, we define the `createReview` field on the `Mutation` type. 
+
+Mutation fields can also accept arguments and you might notice that the `review` argument has an input type set to `ReviewInput`. This is known as [Input Object type](/learn/schema/#input-object-types), which allows us to pass in a structured object containing information the mutation can use instead of individual scalar values only.
+
+Also like just like queries, if the mutation field returns an Object type, then you specify a selection set of its fields in the operation:
+
+```graphql
+# { "graphiql": true, "variables": { "ep": "JEDI", "review": { "stars": 5, "commentary": "This is a great movie!" } } }
+mutation CreateReviewForEpisode($ep: Episode!, $review: ReviewInput!) {
+  createReview(episode: $ep, review: $review) {
+    stars
+    commentary
+  }
+}
+```
+
+While the `createReview` field could be defined with any valid output type in the schema, it's conventional to specify an output type that relates to whatever is modified during the mutation—in this case, the `Review` type. This can be useful for clients that need to fetch the new state of an object after an update.
+
+Recall that GraphQL is meant to work with your existing code and data, so the actual creation of the review is up to you when clients send this operation to the GraphQL server. A hypothetical function that writes the new review to a database during a `createReview` mutation might look like this:
+
+```js
+Mutation: {
+  createReview(obj, args, context, info) {
+    return context.db
+      .createNewReview(args.episode, args.review)
+      .then((reviewData) => new Review(reviewData))
+  }
+}
+```
+
+You can learn more about how GraphQL provides data for fields on the [Execution page](/learn/execution).
+
+## Update existing data
+
+Similarly, we use mutations to update existing data. To change a human's name, we'll define a new mutation field and set that field's output type to the `Human` type so we can return the updated human's information to client after the server successfully writes the data:
+
+```graphql
+type Mutation {
+  updateHumanName(id: ID!, name: String!): Human
+}
+```
+
+This operation will update Luke Skywalker's name:
+
+```graphql
+# { "graphiql": true, "variables": { "id": "1000", "name": "Luke Starkiller" } }
+mutation UpdateHumanName($id: ID!, $name: String!) { 
+  updateHumanName(id: $id, name: $name ) {
+    id
+    name
+  }
+}
+```
+
+## Purpose-built mutations
+
+The previous example demonstrates an important distinction from REST. To update a human's properties using a REST API, you would likely send any updated data to a generalized endpoint for that resource using a `PATCH` request. With GraphQL, instead of simply creating an `updateHuman` mutation, you can define more specific mutation fields such as `updateHumanName`that are designed for the task at hand.
+
+Purpose-built mutation fields can help make a schema more expressive by allowing the input types for field arguments to be Non-Null types (a generic `updateHuman` mutation would likely need to accept many nullable arguments to handle different update scenarios). Defining this requirement in the schema also eliminates the need for other runtime logic to determine that the appropriate values were submitted to perform the client's desired write operation.
+
+GraphQL also allows us to express relationships between data that would be more difficult to model semantically with a basic CRUD-style request. For example, a user may wish to save a personal rating for a film. While the rating belongs to the user and doesn't modify anything related to a film itself, we can ergonomically associate it with a `Film` object as follows:
+
+```graphql
+# { "graphiql": true, "variables": { "episode": "EMPIRE", "rating": "THUMBS_UP" } }
+mutation RateFilm($episode: Episode!, $rating: FilmRating!) { 
+  rateFilm(episode: $episode, rating: $rating) {
+    episode
+    viewerRating
+  }
+}
+```
+
+As a general rule, a GraphQL API should be designed to help clients get and modify data in a way that makes sense for them, so the fields defined in a schema should be informed by those use cases.
+
+## Remove existing data
+
+Just as we can send a `DELETE` request to delete a resource with a REST API, we can use mutations to delete some existing data as well by defining another field on the `Mutation` type:
+
+```graphql
+type Mutation {
+  deleteStarship(id: ID!): ID!
+}
+```
+
+Here's an example of the new mutation field:
+
+```graphql
+# { "graphiql": true, "variables": { "id": "3003" } }
+mutation DeleteStarship($id: ID!) { 
+  deleteStarship(id: $id)
+}
+```
+
+As with mutations that create and update data, the GraphQL specification doesn't indicate what should be returned from a successful mutation operation that deletes data, but we do have to specify some type as an output type for the field in the schema. Commonly, the deleted entity's ID or a payload object containing data about the entity will be used to indicate that the operation was successful.
+
+## Multiple fields in mutations
+
+A mutation can contain multiple fields, just like a query. There's one important distinction between queries and mutations, other than the name:
+
+**While query fields are executed in parallel, mutation fields run in series.**
+
+Let's look at an example:
+
+```graphql
+# { "graphiql": true }
+mutation { 
+  firstShip: deleteStarship(id: "3001")
+  secondShip: deleteStarship(id: "3002")
+}
+```
+
+[Serial execution](https://spec.graphql.org/draft/#sec-Normal-and-Serial-Execution) of these top-level fields means that if we send two `deleteStarship` mutations in one request, the first is guaranteed to finish before the second begins, ensuring that we don't end up in a race condition with ourselves.
+
+Note that serial execution of top-level `Mutation` fields differs from the notion of a database transaction. Some mutation fields may resolve successfully while others return errors, and there's no way for GraphQL to revert the successful portions of the operation when this happens. So in the previous example, if the first starship is removed successfully but the `secondShip` field raises an error, there is no built-in way for GraphQL to revert the execution of the `firstShip` field afterward.
+
+## Next steps
+
+To recap what we've learned about mutations:
+
+- Clients can create, update, and delete data using a GraphQL API, depending on what capabilities are exposed in the schema
+- Depending on client requirements, mutations can be designed to accommodate granular use cases for write operations 
+- Top-level fields on the `Mutation` type will execute serially, unlike fields on other types which are often executed in parallel
+
+Now that we know how to use a GraphQL server to read and write data, we're ready to learn how to fetch data in real time using [subscriptions](/learn/subscriptions). You may also wish to learn more about how GraphQL queries and mutations can be [served over HTTP](/learn/serving-over-http/).

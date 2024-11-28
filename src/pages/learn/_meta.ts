@@ -4,10 +4,13 @@ export default {
     title: "Learn",
   },
   index: "Introduction",
-  queries: "Queries and Mutations",
   schema: "Schemas and Types",
+  queries: "",
+  mutations: "",
+  subscriptions: "",
   validation: "",
   execution: "",
+  response: "",
   introspection: "",
   "-- 2": {
     type: "separator",
@@ -21,4 +24,5 @@ export default {
   "global-object-identification": "",
   caching: "",
   performance: "",
+  security: "",
 }

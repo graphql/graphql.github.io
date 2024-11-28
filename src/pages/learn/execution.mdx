@@ -1,8 +1,14 @@
+import { Callout } from "nextra/components"
+
 # Execution
 
-After being validated, a GraphQL query is executed by a GraphQL server which returns a result that mirrors the shape of the requested query, typically as JSON.
+<p className="learn-subtitle">Learn how GraphQL provides data for requested fields</p>
 
-GraphQL cannot execute a query without a type system, let's use an example type system to illustrate executing a query. This is a part of the same type system used throughout the examples in these articles:
+After a parsed document is [validated](/learn/validation/), a client's request will be [executed](https://spec.graphql.org/draft/#sec-Execution) by the GraphQL server and the returned result will mirror the shape of the requested query. On this page, you'll learn about the execution phase of GraphQL operations where data is read from or written to an existing source depending on what fields are requested by a client.
+
+## Field resolvers
+
+GraphQL cannot execute operations without a type system, so let's use an example type system to illustrate executing a query. This is a part of the same type system used throughout the examples in this guide:
 
 ```graphql
 type Query {
@@ -26,11 +32,11 @@ type Starship {
 }
 ```
 
-In order to describe what happens when a query is executed, let's use an example to walk through.
+To describe what happens when a query is executed, let's walk through an example:
 
 ```graphql
 # { "graphiql": true }
-{
+query {
   human(id: 1002) {
     name
     appearsIn
@@ -41,66 +47,66 @@ In order to describe what happens when a query is executed, let's use an example
 }
 ```
 
-You can think of each field in a GraphQL query as a function or method of the previous type which returns the next type. In fact, this is exactly how GraphQL works. Each field on each type is backed by a function called the _resolver_ which is provided by the GraphQL server developer. When a field is executed, the corresponding _resolver_ is called to produce the next value.
+You can think of each field in a GraphQL query as a function or method of the previous type which returns the next type. This is exactly how GraphQL works—each field on each type is backed by a _resolver function_ that is written by the GraphQL server developer. When a field is executed, the corresponding resolver is called to produce the next value.
 
-If a field produces a scalar value like a string or number, then the execution completes. However if a field produces an object value then the query will contain another selection of fields which apply to that object. This continues until scalar values are reached. GraphQL queries always end at scalar values.
+If a field produces a scalar value like a string or number, then the execution completes. However, if a field produces an object value then the query will contain another selection of fields that apply to that object. This continues until the leaf values are reached. GraphQL queries always end at Scalar or Enum types.
 
-## Root fields & resolvers
+## Root fields and resolvers
 
-At the top level of every GraphQL server is a type that represents all of the possible entry points into the GraphQL API, it's often called the _Root_ type or the _Query_ type.
+At the top level of every GraphQL server is an Object type that represents the possible entry points into the GraphQL API, it's often called "the `query` root operation type" or the `Query` type. If the API supports mutations to write data and subscriptions to fetch real-time data as well, then it will have `Mutation` and `Subscription` types that expose fields to perform these kinds of operations too. You can learn more about these types on the [Schema and Types page](/learn/schema/#the-query-mutation-and-subscription-types).
 
-In this example, our Query type provides a field called `human` which accepts the argument `id`. The resolver function for this field likely accesses a database and then constructs and returns a `Human` object.
-
-```js
-Query: {
-  human(obj, args, context, info) {
-    return context.db.loadHumanByID(args.id).then(
-      userData => new Human(userData)
-    )
-  }
-}
-```
-
-This example is written in JavaScript, however GraphQL servers can be built in [many different languages](/code/). A resolver function receives four arguments:
-
-- `obj` The previous object, which for a field on the root Query type is often not used.
-- `args` The arguments provided to the field in the GraphQL query.
-- `context` A value which is provided to every resolver and holds important contextual information like the currently logged in user, or access to a database.
-- `info` A value which holds field-specific information relevant to the current query as well as the schema details, also refer to [type GraphQLResolveInfo for more details](/graphql-js/type/#graphqlobjecttype).
-
-## Asynchronous resolvers
-
-Let's take a closer look at what's happening in this resolver function.
+In this example, our `Query` type provides a field called `human` which accepts the argument `id`. The resolver function for this field likely accesses a database and then constructs and returns a `Human` type:
 
 ```js
-human(obj, args, context, info) {
+function Query_human(obj, args, context, info) {
   return context.db.loadHumanByID(args.id).then(
     userData => new Human(userData)
   )
 }
 ```
 
-The `context` is used to provide access to a database which is used to load the data for a user by the `id` provided as an argument in the GraphQL query. Since loading from a database is an asynchronous operation, this returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). In JavaScript, Promises are used to work with asynchronous values, but the same concept exists in many languages, often called _Futures_, _Tasks_ or _Deferred_. When the database returns, we can construct and return a new `Human` object.
+This example is written in JavaScript, however GraphQL servers can be built in [many different languages](/code/). In the reference implementation, a resolver function receives four arguments:
 
-Notice that while the resolver function needs to be aware of Promises, the GraphQL query does not. It simply expects the `human` field to return something which it can then ask the `name` of. During execution, GraphQL will wait for Promises, Futures, and Tasks to complete before continuing and will do so with optimal concurrency.
+- `obj`: The previous object (for a field on the root `Query` type, this argument is often not used).
+- `args`: The arguments provided to the field in the GraphQL operation.
+- `context`: A value provided to every resolver that may hold important contextual information like the currently logged in user, or access to a database.
+- `info`: generally only used in advanced use-cases, this is a value holding field-specific information relevant to the current operation as well as the schema details; refer to [type GraphQLResolveInfo](/graphql-js/type/#graphqlobjecttype) for more details.
 
-## Trivial resolvers
+<Callout type="info">
+Note that while a query operation could technically write data to the underlying data system during its execution, mutation operations are conventionally used for requests that produce side effects during their execution. And because mutation operations produce side effects, GraphQL implementations can be expected to execute these fields serially.
+</Callout>
 
-Now that a `Human` object is available, GraphQL execution can continue with the fields requested on it.
+## Asynchronous resolvers
+
+Let's take a closer look at what's happening in this resolver function:
 
 ```js
-Human: {
-  name(obj, args, context, info) {
-    return obj.name
-  }
+function Query_human(obj, args, context, info) {
+  return context.db.loadHumanByID(args.id).then(
+    userData => new Human(userData)
+  )
 }
 ```
 
-A GraphQL server is powered by a type system which is used to determine what to do next. Even before the `human` field returns anything, GraphQL knows that the next step will be to resolve fields on the `Human` type since the type system tells it that the `human` field will return a `Human`.
+The `id` argument in the GraphQL query specifies the user whose data is requested, while `context` provides access to retrieve this data from a database. Since loading from a database is an asynchronous operation, this returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). In JavaScript, Promises are used to work with asynchronous values, but the same concept exists in many languages, often called _Futures_, _Tasks_, or _Deferred_. When the database returns the data, we can construct and return a new `Human` object.
 
-Resolving the name in this case is very straight-forward. The name resolver function is called and the `obj` argument is the `new Human` object returned from the previous field. In this case, we expect that Human object to have a `name` property which we can read and return directly.
+Notice that while the resolver function needs to be aware of Promises, the GraphQL query does not. It simply expects the `human` field to return something that can be further resolved to a scalar `name` value. During execution, GraphQL will wait for Promises, Futures, and Tasks to be completed before continuing and will do so with optimal concurrency.
 
-In fact, many GraphQL libraries will let you omit resolvers this simple and will just assume that if a resolver isn't provided for a field, that a property of the same name should be read and returned.
+## Trivial resolvers
+
+Now that a `Human` object is available, GraphQL execution can continue with the fields requested for this type:
+
+```js
+function Human_name(obj, args, context, info) {
+  return obj.name
+}
+```
+
+A GraphQL server is powered by a type system that is used to determine what to do next. Even before the `human` field returns anything, GraphQL knows the next step will be to resolve fields on the `Human` type since the type system tells it that the `human` field will return this output type.
+
+Resolving the name in this case is straightforward. The name resolver function is called and the `obj` argument is the new `Human` object returned from the previous field. In this case, we expect this object to have a `name` property, which we can read and return directly.
+
+Many GraphQL libraries let you omit resolvers this simple, assuming that if a resolver isn't provided for a field, a property of the same name should be read and returned.
 
 ## Scalar coercion
 
@@ -114,39 +120,37 @@ Human: {
 }
 ```
 
-Notice that our type system claims `appearsIn` will return Enum values with known values, however this function is returning numbers! Indeed if we look up at the result we'll see that the appropriate Enum values are being returned. What's going on?
+Notice that our type system claims `appearsIn` will return Enum types with known values, however, this function is returning numbers! Indeed if we look up at the result we'll see that the appropriate values for the Enum type are being returned. What's going on?
 
-This is an example of scalar coercion. The type system knows what to expect and will convert the values returned by a resolver function into something that upholds the API contract. In this case, there may be an Enum defined on our server which uses numbers like `4`, `5`, and `6` internally, but represents them as Enum values in the GraphQL type system.
+This is an example of _scalar coercion_. The type system knows what to expect and will convert the values returned by a resolver function into something that upholds the API contract. In this case, there may be an Enum type defined on our server that uses numbers like `4`, `5`, and `6` internally, but represents them as the expected values in the GraphQL type system.
 
 ## List resolvers
 
-We've already seen a bit of what happens when a field returns a list of things with the `appearsIn` field above. It returned a _list_ of enum values, and since that's what the type system expected, each item in the list was coerced to the appropriate enum value. What happens when the `starships` field is resolved?
+We've already seen some of what happens when a field returns a list of things with the `appearsIn` field above. It returned a [List type](/learn/schema/#lists) containing Enum type values, and since that's what the type system expected, each item in the list was coerced to the appropriate value. What happens when the `starships` field is resolved?
 
 ```js
-Human: {
-  starships(obj, args, context, info) {
-    return obj.starshipIDs.map(
-      id => context.db.loadStarshipByID(id).then(
-        shipData => new Starship(shipData)
-      )
+function Human_starships (obj, args, context, info) {
+  return obj.starshipIDs.map(
+    id => context.db.loadStarshipByID(id).then(
+      shipData => new Starship(shipData)
     )
-  }
+  )
 }
 ```
 
-The resolver for this field is not just returning a Promise, it's returning a _list_ of Promises. The `Human` object had a list of ids of the `Starships` they piloted, but we need to go load all of those ids to get real Starship objects.
+The resolver for this field is not just returning a Promise, it's returning a _list_ of Promises. The `Human` object had a list of IDs of the `Starships` they piloted, but we need to load all of those IDs to get real Starship objects.
 
-GraphQL will wait for all of these Promises concurrently before continuing, and when left with a list of objects, it will concurrently continue yet again to load the `name` field on each of these items.
+GraphQL will wait for all of these Promises concurrently before continuing, and when left with a list of objects, it will continue yet again to load the `name` field on each of these items concurrently.
 
 ## Producing the result
 
-As each field is resolved, the resulting value is placed into a key-value map with the field name (or alias) as the key and the resolved value as the value. This continues from the bottom leaf fields of the query all the way back up to the original field on the root Query type. Collectively these produce a structure that mirrors the original query which can then be sent (typically as JSON) to the client which requested it.
+As each field is resolved, the resulting value is placed into a key-value map with the field name (or alias) as the key and the resolved value as the value. This continues from the bottom leaf fields of the query back up to the original field on the root `Query` type. Collectively these produce a structure that mirrors the original query which can then be sent (typically as JSON) to the client that requested it.
 
 Let's take one last look at the original query to see how all these resolving functions produce a result:
 
 ```graphql
 # { "graphiql": true }
-{
+query {
   human(id: 1002) {
     name
     appearsIn
@@ -156,3 +160,18 @@ Let's take one last look at the original query to see how all these resolving fu
   }
 }
 ```
+
+As we can see, each field in the nested selection sets resolves to a scalar leaf value during execution of the query.
+
+## Next steps
+
+To recap what we've learned about execution:
+
+- Each field in a GraphQL type system will have a corresponding resolver function that provides data for the field from an existing data source
+- Execution begins at the top-level `Query`, `Mutation`, or `Subscription` fields
+- Resolvers may execute asynchronously
+- Scalar coercion converts values into the types expected by the schema
+- When a field on an Object type returns a List type of other objects, additional data may need to be fetched from the underlying data source to transform any foreign key-like references (such as IDs) into the related objects
+- Once all of the requested fields have been resolved to the expected leaf values, the result is sent to the client, typically as JSON
+
+Now that we understand how operations are executed, we can move to the last stage of the lifecycle of a GraphQL request where the [response](/learn/response/) is delivered to a client.

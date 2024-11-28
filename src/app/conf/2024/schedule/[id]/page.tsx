@@ -68,7 +68,7 @@ const Tag = ({
     <span
       className={clsx(
         "border border-solid border-[#333333] font-semibold text-sm px-3 py-1 h-max rounded-full whitespace-nowrap",
-        featured ? "bg-[#F8779D] border-[#F8779D] border-2 text-white" : "",
+        featured && "bg-[#F8779D] border-[#F8779D] border-2 text-white",
       )}
     >
       {text}
@@ -100,111 +100,106 @@ export default function SessionPage({ params }: SessionProps) {
     videos.map(e => e.title),
   ).bestMatch
 
+  const videoId = videos.find(e => e.title === recordingTitle.target)?.id
+
+  if (!videoId) {
+    throw new Error(`Video "${recordingTitle.target}" not found`)
+  }
+
   return (
     <div className="bg-[#f4f6f8]">
       <div className="container">
         <div className="py-10">
           <section className="text-[#333333] min-h-[80vh] flex-col mx-auto px-2 xs:px-0 lg:justify-between justify-center md:container">
-            <div className="flex flex-col lg:px-0">
-              <BackLink year="2024" kind="schedule" />
+            <BackLink year="2024" kind="schedule" />
+            <iframe
+              className="aspect-video w-full max-w-4xl mx-auto rounded-md mt-6"
+              src={`https://youtube.com/embed/${videoId}`}
+              title={recordingTitle.target}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
 
-              {recordingTitle.rating > 0.5 && (
-                <iframe
-                  className="aspect-video max-w-[1000px] mx-auto size-full rounded-md"
-                  src={`https://youtube.com/embed/${
-                    videos.find(e => e.title === recordingTitle.target)?.id
-                  }`}
-                  title={recordingTitle.target}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              )}
-
-              <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-4">
-                <div className="space-y-5">
-                  <div className="flex gap-3 flex-wrap">
-                    <Tag text={eventType} featured />
-                    <Tag text={event.audience} />
-                    <Tag text={event.event_subtype} />
-                  </div>
-                  <h1 className="mt-0 text-2xl lg:text-3xl font-medium">
-                    {eventTitle}
-                  </h1>
-                  <span className="text-[#333333]">
-                    {format(
-                      parseISO(event.event_start),
-                      "EEEE, MMMM d / hh:mmaaaa 'PDT'",
-                    )}{" "}
-                    - {format(parseISO(event.event_end), "hh:mmaaaa 'PDT'")}
-                  </span>
+            <div className="mt-10 flex flex-col self-center prose lg:prose-lg sm:space-y-4 mx-auto">
+              <div className="space-y-5">
+                <div className="flex gap-3 flex-wrap">
+                  <Tag text={eventType} featured />
+                  <Tag text={event.audience} />
+                  <Tag text={event.event_subtype} />
                 </div>
-                <div className="flex flex-wrap lg:flex-row flex-col gap-5 mt-8">
-                  {event.speakers!.map(speaker => (
-                    <div
-                      className={`flex items-center gap-3 w-full ${event?.speakers?.length || 0 > 1 ? "max-w-[320px]" : ""}`}
-                      key={speaker.username}
-                    >
-                      <Avatar
-                        className="lg:size-[120px] size-[100px] rounded-full"
-                        avatar={speaker.avatar}
-                        name={speaker.name}
-                      />
+                <h1 className="mt-0 text-2xl lg:text-3xl font-medium">
+                  {eventTitle}
+                </h1>
+                <span className="text-[#333333]">
+                  {format(
+                    parseISO(event.event_start),
+                    "EEEE, MMMM d / hh:mmaaaa 'PDT'",
+                  )}{" "}
+                  - {format(parseISO(event.event_end), "hh:mmaaaa 'PDT'")}
+                </span>
+              </div>
+              <div className="flex flex-wrap lg:flex-row flex-col gap-5 mt-8">
+                {event.speakers!.map(speaker => (
+                  <div
+                    className={`flex items-center gap-3 w-full ${event?.speakers?.length || 0 > 1 ? "max-w-[320px]" : ""}`}
+                    key={speaker.username}
+                  >
+                    <Avatar
+                      className="lg:size-[120px] size-[100px] rounded-full"
+                      avatar={speaker.avatar}
+                      name={speaker.name}
+                    />
 
-                      <div className="flex flex-col lg:gap-1 gap-1.5">
-                        <a
-                          href={`/conf/2024/speakers/${speaker.username}`}
-                          className="text-xl mt-0 font-bold text-[#333333] underline"
-                        >
-                          {speaker.name}
-                        </a>
-
-                        <span className="font-normal">
-                          <span className="font-semibold">
-                            {speaker.company}
-                          </span>
-                          {speaker.company && ", "}
-                          {speaker.position}
-                        </span>
-                        {speaker.socialurls?.length ? (
-                          <div className="mt-0 text-[#333333]">
-                            <div className="flex space-x-2">
-                              {speaker.socialurls.map(social => (
-                                <a
-                                  key={social.url}
-                                  href={social.url}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  className="flex items-center text-black"
-                                >
-                                  <SocialMediaIcon
-                                    service={
-                                      social.service.toLowerCase() as SocialMediaIconServiceType
-                                    }
-                                  />
-                                </a>
-                              ))}
-                            </div>
-                          </div>
-                        ) : null}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p>{event.description}</p>
-
-                <div className="py-8">
-                  {event.files?.map(({ path }) => (
-                    <div key={path}>
-                      <a href={path} target="_blank" rel="noreferrer">
-                        View Full PDF{" "}
-                        <span className="font-sans font-light text-2xl">
-                          ↗
-                        </span>
+                    <div className="flex flex-col lg:gap-1 gap-1.5">
+                      <a
+                        href={`/conf/2024/speakers/${speaker.username}`}
+                        className="text-xl mt-0 font-bold text-[#333333] underline"
+                      >
+                        {speaker.name}
                       </a>
-                      <iframe src={path} className="aspect-video size-full" />
+
+                      <span className="font-normal">
+                        <span className="font-semibold">{speaker.company}</span>
+                        {speaker.company && ", "}
+                        {speaker.position}
+                      </span>
+                      {speaker.socialurls?.length ? (
+                        <div className="mt-0 text-[#333333]">
+                          <div className="flex space-x-2">
+                            {speaker.socialurls.map(social => (
+                              <a
+                                key={social.url}
+                                href={social.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center text-black"
+                              >
+                                <SocialMediaIcon
+                                  service={
+                                    social.service.toLowerCase() as SocialMediaIconServiceType
+                                  }
+                                />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
+              <p>{event.description}</p>
+
+              <div className="py-8">
+                {event.files?.map(({ path }) => (
+                  <div key={path}>
+                    <a href={path} target="_blank" rel="noreferrer">
+                      View Full PDF{" "}
+                      <span className="font-sans font-light text-2xl">↗</span>
+                    </a>
+                    <iframe src={path} className="aspect-video size-full" />
+                  </div>
+                ))}
               </div>
             </div>
           </section>

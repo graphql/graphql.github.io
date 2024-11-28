@@ -166,7 +166,7 @@ class QueryEditor extends Component {
       },
       hintOptions: {
         schema: this.props.schema,
-        closeOnUnfocus: false,
+        closeOnUnfocus: true,
         completeSingle: false,
       },
       extraKeys: {
@@ -529,18 +529,26 @@ function onHasCompletion(cm, data, onHintInformationRender) {
       // removed from our wrapper and in turn remove the wrapper from the
       // original container.
       let onRemoveFn
-      wrapper.addEventListener(
-        "DOMNodeRemoved",
-        (onRemoveFn = event => {
-          if (event.target === hintsUl) {
-            wrapper.removeEventListener("DOMNodeRemoved", onRemoveFn)
-            wrapper.parentNode.removeChild(wrapper)
-            wrapper = null
-            information = null
-            onRemoveFn = null
+      const observer = new MutationObserver(mutationsList => {
+        for (const mutation of mutationsList) {
+          // Check if the hintsUl element was removed
+          if (mutation.removedNodes) {
+            mutation.removedNodes.forEach(node => {
+              if (node === hintsUl) {
+                // Cleanup logic
+                observer.disconnect() // Stop observing
+                wrapper.parentNode.removeChild(wrapper)
+                wrapper = null
+                information = null
+                onRemoveFn = null
+              }
+            })
           }
-        }),
-      )
+        }
+      })
+
+      // Start observing the wrapper for child node removals
+      observer.observe(wrapper, { childList: true, subtree: false })
     }
 
     // Now that the UI has been set up, add info to information.
