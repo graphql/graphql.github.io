@@ -9,6 +9,7 @@ import {
 } from "@/icons"
 import { Card, Tag } from "@/components"
 import NextLink from "next/link"
+import NextHead from "next/head"
 import { useMounted } from "nextra/hooks"
 import Markdown from "markdown-to-jsx"
 import { evaluate } from "nextra/components"
@@ -66,16 +67,20 @@ export function CodePage({ allTags, data }: CodePageProps) {
   const [search, setSearch] = useState("")
   const [queryParamsTags, setTags] = useQueryParam("tags", TagParam)
 
-  const handleQuery = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    const tag = e.currentTarget.dataset.tag!
+  const handleQuery = useCallback(
+    (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+      e.preventDefault()
+      const tag = e.currentTarget.dataset.tag!
 
-    setTags(prevTags => {
-      if (prevTags!.includes(tag)) {
-        return prevTags!.filter(t => t !== tag)
-      }
-      return [...prevTags!, tag]
-    })
-  }, [])
+      setTags(prevTags => {
+        if (prevTags!.includes(tag)) {
+          return prevTags!.filter(t => t !== tag)
+        }
+        return [...prevTags!, tag]
+      })
+    },
+    [setTags],
+  )
 
   const mounted = useMounted()
   const [isBackspacePressed, setIsBackspacePressed] = useState(false)
@@ -144,10 +149,37 @@ export function CodePage({ allTags, data }: CodePageProps) {
     }
   }, [mounted, data, queryParamsTags])
 
+  const selectedTagsAsString = useMemo(() => {
+    const tags = queryParamsTags
+      .slice()
+      .map(tag => allTagsMap.get(tag as string)?.name ?? tag)
+      .filter((tag): tag is string => typeof tag === "string")
+
+    if (tags.length === 0) {
+      return ""
+    }
+
+    if (tags.length === 1) {
+      return tags[0]
+    }
+
+    return `${tags.slice(0, -1).join(", ")} and ${tags.slice(-1)[0]}`
+  }, [queryParamsTags, allTagsMap])
+
   const [sort, setSort] = useState("popularity")
 
   return (
     <>
+      <NextHead>
+        <title>
+          {selectedTagsAsString ? selectedTagsAsString + " | " : ""}Tools and
+          Libraries | GraphQL
+        </title>
+        <meta
+          name="description"
+          content={`A collection of tools and libraries for GraphQL${selectedTagsAsString ? ` related to ${selectedTagsAsString}` : ""}`}
+        />
+      </NextHead>
       <div className="container py-10 md:py-20">
         <h1 className="text-4xl md:text-7xl font-extrabold">
           Code Using GraphQL
@@ -180,7 +212,8 @@ export function CodePage({ allTags, data }: CodePageProps) {
               !search || name.toLowerCase().includes(search.toLowerCase())
             if (!isTagMatchSearch) return
             return (
-              <button
+              <NextLink
+                href={`/community/tools-and-libraries/?tags=${tag}`}
                 key={tag}
                 data-tag={tag}
                 className={clsx(
@@ -193,7 +226,7 @@ export function CodePage({ allTags, data }: CodePageProps) {
                 title={`${mounted && (queryParamsTags as string[]).includes(tag) ? "Remove" : "Add"} tag "${name}"`}
               >
                 {name} ({count})
-              </button>
+              </NextLink>
             )
           })}
         </div>
@@ -287,7 +320,7 @@ export function CodePage({ allTags, data }: CodePageProps) {
                         key={tag}
                         // @ts-expect-error -- fixme
                         as={NextLink}
-                        href={`/code?tags=${tag}`}
+                        href={`/community/tools-and-libraries/?tags=${tag}`}
                         className="hover:!bg-primary transition-colors hover:text-white cursor-pointer"
                       >
                         {allTagsMap.get(tag)!.name}
@@ -351,6 +384,17 @@ const RemoteContent = memo(function RemoteContent({
   compiledSource: string
 }) {
   const { default: MDXContent } = evaluate(compiledSource)
-  const components = getComponents({ isRawLayout: false })
+  const components = getComponents({
+    isRawLayout: false,
+    components: {
+      // Rendering README.md with headings messes up the headings hierarchy of the page
+      h1: props => <strong {...props} />,
+      h2: props => <strong {...props} />,
+      h3: props => <strong {...props} />,
+      h4: props => <strong {...props} />,
+      h5: props => <strong {...props} />,
+      h6: props => <strong {...props} />,
+    },
+  })
   return <MDXContent components={components} />
 })
