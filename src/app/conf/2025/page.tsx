@@ -83,7 +83,7 @@ export default function Page() {
               together!
             </h2>
 
-            <div className="relative w-full h-[500px] flex items-center justify-center">
+            <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div
                   className="grid gap-0"
@@ -117,6 +117,75 @@ export default function Page() {
       </div>
 
       <Sponsors />
+
+      <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="grid gap-0"
+                  style={{
+                    gridTemplateColumns: "repeat(18, 60px)",
+                    gridTemplateRows: "repeat(6, 60px)",
+                    padding: "50px",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  {Array.from({ length: 18 * 6 }).map((_, index) => (
+                    <div
+                      key={index}
+                      className="border border-white/10"
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                      }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+
+              <button className="relative z-10 px-44 py-6 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2">
+                Notify Me About Speaking
+                <span className="text-xl">➔</span>
+              </button>
+            </div>
+
+
+             <div className="container py-24">
+        <h1 className="text-white conf-heading mb-2">Register</h1>
+        <p className='text-white text-lg font-normal mb-10'>Join a diverse community of GraphQL developers, architects, and enthusiasts while experiencing premium content and networking opportunities in a vendor-neutral environment.</p>
+        
+        <div className='flex flex-wrap gap-20'>
+
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Corporate</h1>
+          <p >The Corporate Registration type is for registrants whose company is paying for their attendance. This includes for-profit companies. You will help keep the conference affordable for everyone, especially students and those needing financial aid.</p>
+        </div>
+
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Individuals</h1>
+          <p >The Individual Registration type is for registrants who are currently not working for a company, work for a non-profit or research institution or are attending at their own expense. You will receive confirmation within five business days of registering if your individual registration is approved or needs additional information.</p>
+        </div>
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Academics</h1>
+          <p >Academics registrations are for current full-time students and faculty members. Full-time faculty and students will need to upload a valid copy of their Faculty or Student ID when registering. If you have any questions, please email graphql_events@linuxfoundation.org.</p>
+        </div>
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Speakers</h1>
+          <p >You should have received a registration link in your acceptance email. If you did not, please contact cfp@linuxfoundation.org for more details.</p>
+        </div>
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Sponsors</h1>
+          <p >A registration link was shared in an email to your company’s sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email events@linuxfoundation.org.</p>
+        </div>
+        
+        </div>
+
+<div className='flex justify-center my-14'>
+         <button className="relative z-10 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2">
+                Get Tickets
+                <span className="text-xl">➔</span>
+              </button>
+              </div>
+      </div>
     </div>
   )
 }

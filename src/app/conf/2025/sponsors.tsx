@@ -62,7 +62,7 @@ function List({
   linkClassName?: string
 }) {
   return (
-    <div className={clsx("flex gap-6", className)}>
+    <div className={clsx("flex gap-6 flex-col md:flex-row", className)}>
       {items.map(({ link, icon, name }, i) => (
         <a
           key={i}
@@ -164,21 +164,40 @@ export function Sponsors() {
           </>
         )}
       </div>
-      {/* <div className="container py-24">
-        <h1 className={classes.title}>Partners</h1>
-        <h3 className={classes.heading}>Media Partners</h3>
-        <List
-          items={mediaPartners}
-          className="grid-cols-2 xl:w-1/2 mx-auto"
-          linkClassName="p-9 lg:p-12 h-28 lg:h-[155px]"
-        />
-        <h3 className={classes.heading}>Community Partners</h3>
-        <List
-          items={communityPartners}
-          className="grid-cols-2 xl:grid-cols-4"
-          linkClassName="p-6 lg:p-10 h-28 lg:h-[155px]"
-        />
-      </div> */}
+      <div className="container py-24">
+        <h1 className="text-white conf-heading mb-2">Why Sponsor?</h1>
+        <p className='text-white text-lg font-normal mb-10'>Connect with the global GraphQL community and showcase your brand to industry leaders and decision-makers.</p>
+        
+        <div className='flex flex-wrap gap-20'>
+
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Brand Visibility</h1>
+          <p >Showcase your brand to thousands of GraphQL enthusiasts and decision-makers.</p>
+        </div>
+
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Lead Generation</h1>
+          <p >Connect with potential customers and partners in the GraphQL ecosystem.</p>
+        </div>
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Thought Leadership</h1>
+          <p >Position your company as a leader in the GraphQL space.</p>
+        </div>
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Talent Acquisition</h1>
+          <p >Meet and recruit top GraphQL developers and engineers.</p>
+        </div>
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Product Feedback</h1>
+          <p >Gather valuable feedback from the GraphQL community.</p>
+        </div>
+        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
+          <h1 className='font-bold text-2xl mb-2'>Community Impact</h1>
+          <p >Support and shape the future of GraphQL technology.</p>
+        </div></div>
+      </div>
+
+      
     </div>
   )
 }
