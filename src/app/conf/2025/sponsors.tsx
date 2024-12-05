@@ -9,11 +9,11 @@ import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
-import { Rubik } from 'next/font/google'
+import { Rubik } from "next/font/google"
 
 const rubik = Rubik({
-  weight: ['700','600','500','400' ,'300'],
-  subsets: ["latin"]
+  weight: ["700", "600", "500", "400", "300"],
+  subsets: ["latin"],
 })
 
 interface Image {
@@ -102,17 +102,21 @@ const classes = {
 
 export function Sponsors() {
   return (
-    <div id="sponsors" className="bg-conf-black" style={{
-       fontFamily: rubik.style.fontFamily,
-    }}>
+    <div
+      id="sponsors"
+      className="bg-conf-black"
+      style={{
+        fontFamily: rubik.style.fontFamily,
+      }}
+    >
       <div className="container conf-block">
         <h1 className={classes.title}>Thanks to our 2024 sponsors!</h1>
         {sponsorDiamond.length && (
           <>
             <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
-  <div className="size-2.5 bg-[#E10098]"></div>
-  <h3 className="text-white font-medium">DIAMOND</h3>
-</div>
+              <div className="size-2.5 bg-[#E10098]"></div>
+              <h3 className="text-white font-medium">DIAMOND</h3>
+            </div>
             <List
               items={sponsorDiamond}
               className="flex"
@@ -123,9 +127,9 @@ export function Sponsors() {
         {sponsorPlatinum.length && (
           <>
             <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
-  <div className="size-2.5 bg-[#E10098]"></div>
-  <h3 className="text-white font-medium">PLATINUM</h3>
-</div>
+              <div className="size-2.5 bg-[#E10098]"></div>
+              <h3 className="text-white font-medium">PLATINUM</h3>
+            </div>
             <List
               items={sponsorPlatinum}
               className="flex"
@@ -135,10 +139,10 @@ export function Sponsors() {
         )}
         {sponsorGold.length && (
           <>
-             <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
-  <div className="size-2.5 bg-[#E10098]"></div>
-  <h3 className="text-white font-medium">GOLD</h3>
-</div>
+            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
+              <div className="size-2.5 bg-[#E10098]"></div>
+              <h3 className="text-white font-medium">GOLD</h3>
+            </div>
             <List
               items={sponsorGold}
               className="flex"
@@ -148,10 +152,10 @@ export function Sponsors() {
         )}
         {sponsorSilver.length && (
           <>
-             <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
-  <div className="size-2.5 bg-[#E10098]"></div>
-  <h3 className="text-white font-medium">SILVER</h3>
-</div>
+            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
+              <div className="size-2.5 bg-[#E10098]"></div>
+              <h3 className="text-white font-medium">SILVER</h3>
+            </div>
             <List
               items={sponsorSilver}
               className="flex"

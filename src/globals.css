@@ -28,14 +28,12 @@
 }
 
 .conf-hero-2025 {
-    background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.65);
   background-image: url("/img/conf/graphql-conf-bg.png");
   @apply text-white max-md:text-base;
-    background-position: right center;
+  background-position: right center;
   background-blend-mode: darken;
 }
-
-
 
 .with-arrow:after {
   @apply content-['_→'] font-sans text-xl;
