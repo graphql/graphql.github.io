@@ -1,7 +1,7 @@
 ---
 title: "Learn Documentation Update, October - November 2024"
 tags: ["grants"]
-date: 2024-12-02
+date: 2024-12-12
 byline: Mandi Wise
 ---
 
