@@ -10,6 +10,7 @@ import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
 import { Rubik } from "next/font/google"
+import InfoGrid from '../_components/info-grid'
 
 const rubik = Rubik({
   weight: ["700", "600", "500", "400", "300"],
@@ -165,39 +166,35 @@ export function Sponsors() {
         )}
       </div>
       <div className="container py-24">
-        <h1 className="text-white conf-heading mb-2">Why Sponsor?</h1>
-        <p className='text-white text-lg font-normal mb-10'>Connect with the global GraphQL community and showcase your brand to industry leaders and decision-makers.</p>
-        
-        <div className='flex flex-wrap gap-20'>
 
-        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
-          <h1 className='font-bold text-2xl mb-2'>Brand Visibility</h1>
-          <p >Showcase your brand to thousands of GraphQL enthusiasts and decision-makers.</p>
-        </div>
-
-        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
-          <h1 className='font-bold text-2xl mb-2'>Lead Generation</h1>
-          <p >Connect with potential customers and partners in the GraphQL ecosystem.</p>
-        </div>
-        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
-          <h1 className='font-bold text-2xl mb-2'>Thought Leadership</h1>
-          <p >Position your company as a leader in the GraphQL space.</p>
-        </div>
-        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
-          <h1 className='font-bold text-2xl mb-2'>Talent Acquisition</h1>
-          <p >Meet and recruit top GraphQL developers and engineers.</p>
-        </div>
-        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
-          <h1 className='font-bold text-2xl mb-2'>Product Feedback</h1>
-          <p >Gather valuable feedback from the GraphQL community.</p>
-        </div>
-        <div className='border border-[#E10098] p-8 w-max text-white max-w-[400px]'>
-          <h1 className='font-bold text-2xl mb-2'>Community Impact</h1>
-          <p >Support and shape the future of GraphQL technology.</p>
-        </div></div>
+              <InfoGrid title='Why Sponsor?' subtitle='Connect with the global GraphQL community and showcase your brand to industry leaders and decision-makers.'
+              listItems={[{
+                title: "Brand Visibility",
+                description: "Showcase your brand to thousands of GraphQL enthusiasts and decision-makers."
+              }, 
+              
+              {
+                title: "Lead Generation",
+                description: "Connect with potential customers and partners in the GraphQL ecosystem."
+              },
+              {
+                title: "Thought Leadership",
+                description: "Position your company as a leader in the GraphQL space."
+              },
+              {
+                title: "Talent Acquisition",
+                description: "Meet and recruit top GraphQL developers and engineers."
+              },
+              {
+                title: "Product Feedback",
+                description: "Gather valuable feedback from the GraphQL community."
+              },
+              {
+                title: "Community Impact",
+                description: "Support and shape the future of GraphQL technology."
+              },
+              ]} />
       </div>
-
-      
     </div>
   )
 }
