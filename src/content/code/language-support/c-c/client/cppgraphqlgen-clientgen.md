@@ -7,6 +7,7 @@ github: microsoft/cppgraphqlgen
 
 The `clientgen` utility is based on `schemagen` and shares the same external dependencies. The command line arguments
 are almost the same, except it takes an extra file for the request document and there is no equivalent to `--stubs`:
+
 ```
 Usage:  clientgen [options] <schema file> <request file> <output filename prefix> <output namespace>
 Command line options:
