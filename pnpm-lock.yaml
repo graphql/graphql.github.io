@@ -9,203 +9,201 @@ patchedDependencies:
     hash: rggcgtpcrgz5zyoxmhwje4p6rm
     path: patches/nextra@3.0.0-alpha.22.patch
 
-importers:
+dependencies:
+  '@graphql-tools/schema':
+    specifier: 10.0.3
+    version: 10.0.3(graphql@16.8.1)
+  '@headlessui/react':
+    specifier: ^1.7.17
+    version: 1.7.19(react-dom@18.3.1)(react@18.3.1)
+  '@heroicons/react':
+    specifier: ^2.0.18
+    version: 2.0.18(react@18.3.1)
+  '@radix-ui/react-icons':
+    specifier: ^1.3.0
+    version: 1.3.0(react@18.3.1)
+  '@radix-ui/react-radio-group':
+    specifier: ^1.1.3
+    version: 1.1.3(@types/react@18.2.73)(react-dom@18.3.1)(react@18.3.1)
+  '@tailwindcss/nesting':
+    specifier: 0.0.0-insiders.565cd3e
+    version: 0.0.0-insiders.565cd3e(postcss@8.4.40)
+  '@tailwindcss/typography':
+    specifier: ^0.5.10
+    version: 0.5.10(tailwindcss@3.4.1)
+  autoprefixer:
+    specifier: ^10.4.17
+    version: 10.4.17(postcss@8.4.40)
+  clsx:
+    specifier: ^2.1.0
+    version: 2.1.0
+  codemirror:
+    specifier: 5.65.1
+    version: 5.65.1
+  codemirror-graphql:
+    specifier: 1.3.2
+    version: 1.3.2(@codemirror/language@0.20.2)(codemirror@5.65.1)(graphql@16.8.1)
+  date-fns:
+    specifier: ^2.30.0
+    version: 2.30.0
+  fast-glob:
+    specifier: ^3.3.2
+    version: 3.3.2
+  graphql:
+    specifier: 16.8.1
+    version: 16.8.1
+  gray-matter:
+    specifier: ^4.0.3
+    version: 4.0.3
+  hast-util-to-string:
+    specifier: 3.0.0
+    version: 3.0.0
+  iframe-resizer-react:
+    specifier: ^1.1.0
+    version: 1.1.0(prop-types@15.8.1)(react-dom@18.3.1)(react@18.3.1)
+  leaflet:
+    specifier: ^1.9.4
+    version: 1.9.4
+  markdown-to-jsx:
+    specifier: ^7.4.0
+    version: 7.4.7(react@18.3.1)
+  marked:
+    specifier: 5.1.2
+    version: 5.1.2
+  next:
+    specifier: ^14.2.5
+    version: 14.2.10(@babel/core@7.26.0)(react-dom@18.3.1)(react@18.3.1)
+  next-image-export-optimizer:
+    specifier: ^1.12.3
+    version: 1.12.3(next@14.2.10)(react@18.3.1)
+  next-query-params:
+    specifier: ^5.0.0
+    version: 5.0.0(next@14.2.10)(react@18.3.1)(use-query-params@2.2.1)
+  next-sitemap:
+    specifier: ^4.2.3
+    version: 4.2.3(next@14.2.10)
+  next-with-less:
+    specifier: ^3.0.1
+    version: 3.0.1(less-loader@12.2.0)(less@4.2.1)(next@14.2.10)
+  nextra:
+    specifier: 3.0.0-alpha.28
+    version: 3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.10)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3)
+  nextra-theme-docs:
+    specifier: 3.0.0-alpha.28
+    version: 3.0.0-alpha.28(next@14.2.10)(nextra@3.0.0-alpha.28)(react-dom@18.3.1)(react@18.3.1)
+  numbro:
+    specifier: 2.3.6
+    version: 2.3.6
+  p-limit:
+    specifier: ^4.0.0
+    version: 4.0.0
+  parser-front-matter:
+    specifier: 1.6.4
+    version: 1.6.4
+  postcss:
+    specifier: ^8.4.33
+    version: 8.4.40
+  react:
+    specifier: ^18.3.1
+    version: 18.3.1
+  react-dom:
+    specifier: ^18.3.1
+    version: 18.3.1(react@18.3.1)
+  react-medium-image-zoom:
+    specifier: 5.1.8
+    version: 5.1.8(react-dom@18.3.1)(react@18.3.1)
+  rss:
+    specifier: 1.2.2
+    version: 1.2.2
+  server-only:
+    specifier: 0.0.1
+    version: 0.0.1
+  string-similarity:
+    specifier: ^4.0.4
+    version: 4.0.4
+  string-strip-html:
+    specifier: ^13.4.5
+    version: 13.4.5
+  tailwindcss:
+    specifier: ^3.4.1
+    version: 3.4.1
+  timeago.js:
+    specifier: 4.0.2
+    version: 4.0.2
+  unified:
+    specifier: 11.0.4
+    version: 11.0.4
+  unist-util-visit:
+    specifier: ^5.0.0
+    version: 5.0.0
+  use-query-params:
+    specifier: ^2.2.1
+    version: 2.2.1(react-dom@18.3.1)(react@18.3.1)
 
-  .:
-    dependencies:
-      '@graphql-tools/schema':
-        specifier: 10.0.3
-        version: 10.0.3(graphql@16.8.1)
-      '@headlessui/react':
-        specifier: ^1.7.17
-        version: 1.7.19(react-dom@18.3.1)(react@18.3.1)
-      '@heroicons/react':
-        specifier: ^2.0.18
-        version: 2.0.18(react@18.3.1)
-      '@radix-ui/react-icons':
-        specifier: ^1.3.0
-        version: 1.3.0(react@18.3.1)
-      '@radix-ui/react-radio-group':
-        specifier: ^1.1.3
-        version: 1.1.3(@types/react@18.2.73)(react-dom@18.3.1)(react@18.3.1)
-      '@tailwindcss/nesting':
-        specifier: 0.0.0-insiders.565cd3e
-        version: 0.0.0-insiders.565cd3e(postcss@8.4.40)
-      '@tailwindcss/typography':
-        specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@3.4.1)
-      autoprefixer:
-        specifier: ^10.4.17
-        version: 10.4.17(postcss@8.4.40)
-      clsx:
-        specifier: ^2.1.0
-        version: 2.1.0
-      codemirror:
-        specifier: 5.65.1
-        version: 5.65.1
-      codemirror-graphql:
-        specifier: 1.3.2
-        version: 1.3.2(@codemirror/language@0.20.2)(codemirror@5.65.1)(graphql@16.8.1)
-      date-fns:
-        specifier: ^2.30.0
-        version: 2.30.0
-      fast-glob:
-        specifier: ^3.3.2
-        version: 3.3.2
-      graphql:
-        specifier: 16.8.1
-        version: 16.8.1
-      gray-matter:
-        specifier: ^4.0.3
-        version: 4.0.3
-      hast-util-to-string:
-        specifier: 3.0.0
-        version: 3.0.0
-      iframe-resizer-react:
-        specifier: ^1.1.0
-        version: 1.1.0(prop-types@15.8.1)(react-dom@18.3.1)(react@18.3.1)
-      leaflet:
-        specifier: ^1.9.4
-        version: 1.9.4
-      markdown-to-jsx:
-        specifier: ^7.4.0
-        version: 7.4.7(react@18.3.1)
-      marked:
-        specifier: 5.1.2
-        version: 5.1.2
-      next:
-        specifier: ^14.2.5
-        version: 14.2.10(@babel/core@7.26.0)(react-dom@18.3.1)(react@18.3.1)
-      next-image-export-optimizer:
-        specifier: ^1.12.3
-        version: 1.12.3(next@14.2.10)(react@18.3.1)
-      next-query-params:
-        specifier: ^5.0.0
-        version: 5.0.0(next@14.2.10)(react@18.3.1)(use-query-params@2.2.1)
-      next-sitemap:
-        specifier: ^4.2.3
-        version: 4.2.3(next@14.2.10)
-      next-with-less:
-        specifier: ^3.0.1
-        version: 3.0.1(less-loader@12.2.0)(less@4.2.1)(next@14.2.10)
-      nextra:
-        specifier: 3.0.0-alpha.28
-        version: 3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.10)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3)
-      nextra-theme-docs:
-        specifier: 3.0.0-alpha.28
-        version: 3.0.0-alpha.28(next@14.2.10)(nextra@3.0.0-alpha.28)(react-dom@18.3.1)(react@18.3.1)
-      numbro:
-        specifier: 2.3.6
-        version: 2.3.6
-      p-limit:
-        specifier: ^4.0.0
-        version: 4.0.0
-      parser-front-matter:
-        specifier: 1.6.4
-        version: 1.6.4
-      postcss:
-        specifier: ^8.4.33
-        version: 8.4.40
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
-      react-medium-image-zoom:
-        specifier: 5.1.8
-        version: 5.1.8(react-dom@18.3.1)(react@18.3.1)
-      rss:
-        specifier: 1.2.2
-        version: 1.2.2
-      server-only:
-        specifier: 0.0.1
-        version: 0.0.1
-      string-similarity:
-        specifier: ^4.0.4
-        version: 4.0.4
-      string-strip-html:
-        specifier: ^13.4.5
-        version: 13.4.5
-      tailwindcss:
-        specifier: ^3.4.1
-        version: 3.4.1
-      timeago.js:
-        specifier: 4.0.2
-        version: 4.0.2
-      unified:
-        specifier: 11.0.4
-        version: 11.0.4
-      unist-util-visit:
-        specifier: ^5.0.0
-        version: 5.0.0
-      use-query-params:
-        specifier: ^2.2.1
-        version: 2.2.1(react-dom@18.3.1)(react@18.3.1)
-    devDependencies:
-      '@graphql-eslint/eslint-plugin':
-        specifier: 4.0.0-alpha.0
-        version: 4.0.0-alpha.0(@babel/core@7.26.0)(@types/node@20.11.30)(eslint@8.57.0)(graphql@16.8.1)
-      '@svgr/webpack':
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.4.3)
-      '@types/codemirror':
-        specifier: 5.60.7
-        version: 5.60.7
-      '@types/hast':
-        specifier: 3.0.4
-        version: 3.0.4
-      '@types/node':
-        specifier: ^20.11.30
-        version: 20.11.30
-      '@types/react':
-        specifier: ^18.2.73
-        version: 18.2.73
-      '@types/rss':
-        specifier: 0.0.32
-        version: 0.0.32
-      '@types/string-similarity':
-        specifier: ^4.0.2
-        version: 4.0.2
-      '@typescript-eslint/eslint-plugin':
-        specifier: 7.18.0
-        version: 7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.0)(typescript@5.4.3)
-      '@typescript-eslint/parser':
-        specifier: 7.18.0
-        version: 7.18.0(eslint@8.57.0)(typescript@5.4.3)
-      eslint:
-        specifier: 8.57.0
-        version: 8.57.0
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@8.57.0)
-      eslint-plugin-mdx:
-        specifier: ^3.1.5
-        version: 3.1.5(eslint@8.57.0)
-      eslint-plugin-tailwindcss:
-        specifier: 3.15.1
-        version: 3.15.1(tailwindcss@3.4.1)
-      prettier:
-        specifier: 3.2.5
-        version: 3.2.5
-      prettier-plugin-pkg:
-        specifier: ^0.18.1
-        version: 0.18.1(prettier@3.2.5)
-      remark-frontmatter:
-        specifier: 5.0.0
-        version: 5.0.0
-      remark-lint-first-heading-level:
-        specifier: 3.1.2
-        version: 3.1.2
-      remark-lint-heading-increment:
-        specifier: 3.1.2
-        version: 3.1.2
-      tsx:
-        specifier: ^4.7.0
-        version: 4.7.0
-      typescript:
-        specifier: ^5.4.3
-        version: 5.4.3
+devDependencies:
+  '@graphql-eslint/eslint-plugin':
+    specifier: 4.0.0-alpha.0
+    version: 4.0.0-alpha.0(@babel/core@7.26.0)(@types/node@20.11.30)(eslint@8.57.0)(graphql@16.8.1)
+  '@svgr/webpack':
+    specifier: ^8.0.1
+    version: 8.0.1(typescript@5.4.3)
+  '@types/codemirror':
+    specifier: 5.60.7
+    version: 5.60.7
+  '@types/hast':
+    specifier: 3.0.4
+    version: 3.0.4
+  '@types/node':
+    specifier: ^20.11.30
+    version: 20.11.30
+  '@types/react':
+    specifier: ^18.2.73
+    version: 18.2.73
+  '@types/rss':
+    specifier: 0.0.32
+    version: 0.0.32
+  '@types/string-similarity':
+    specifier: ^4.0.2
+    version: 4.0.2
+  '@typescript-eslint/eslint-plugin':
+    specifier: 7.18.0
+    version: 7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.0)(typescript@5.4.3)
+  '@typescript-eslint/parser':
+    specifier: 7.18.0
+    version: 7.18.0(eslint@8.57.0)(typescript@5.4.3)
+  eslint:
+    specifier: 8.57.0
+    version: 8.57.0
+  eslint-config-prettier:
+    specifier: ^9.1.0
+    version: 9.1.0(eslint@8.57.0)
+  eslint-plugin-mdx:
+    specifier: ^3.1.5
+    version: 3.1.5(eslint@8.57.0)
+  eslint-plugin-tailwindcss:
+    specifier: 3.15.1
+    version: 3.15.1(tailwindcss@3.4.1)
+  prettier:
+    specifier: 3.2.5
+    version: 3.2.5
+  prettier-plugin-pkg:
+    specifier: ^0.18.1
+    version: 0.18.1(prettier@3.2.5)
+  remark-frontmatter:
+    specifier: 5.0.0
+    version: 5.0.0
+  remark-lint-first-heading-level:
+    specifier: 3.1.2
+    version: 3.1.2
+  remark-lint-heading-increment:
+    specifier: 3.1.2
+    version: 3.1.2
+  tsx:
+    specifier: ^4.7.0
+    version: 4.7.0
+  typescript:
+    specifier: ^5.4.3
+    version: 5.4.3
 
 packages:
 
