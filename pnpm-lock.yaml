@@ -9,203 +9,201 @@ patchedDependencies:
     hash: rggcgtpcrgz5zyoxmhwje4p6rm
     path: patches/nextra@3.0.0-alpha.22.patch
 
-importers:
+dependencies:
+  '@graphql-tools/schema':
+    specifier: 10.0.3
+    version: 10.0.3(graphql@16.8.1)
+  '@headlessui/react':
+    specifier: ^1.7.17
+    version: 1.7.19(react-dom@18.3.1)(react@18.3.1)
+  '@heroicons/react':
+    specifier: ^2.0.18
+    version: 2.0.18(react@18.3.1)
+  '@radix-ui/react-icons':
+    specifier: ^1.3.0
+    version: 1.3.0(react@18.3.1)
+  '@radix-ui/react-radio-group':
+    specifier: ^1.1.3
+    version: 1.1.3(@types/react@18.2.73)(react-dom@18.3.1)(react@18.3.1)
+  '@tailwindcss/nesting':
+    specifier: 0.0.0-insiders.565cd3e
+    version: 0.0.0-insiders.565cd3e(postcss@8.4.40)
+  '@tailwindcss/typography':
+    specifier: ^0.5.10
+    version: 0.5.10(tailwindcss@3.4.1)
+  autoprefixer:
+    specifier: ^10.4.17
+    version: 10.4.17(postcss@8.4.40)
+  clsx:
+    specifier: ^2.1.0
+    version: 2.1.0
+  codemirror:
+    specifier: 5.65.1
+    version: 5.65.1
+  codemirror-graphql:
+    specifier: 1.3.2
+    version: 1.3.2(@codemirror/language@0.20.2)(codemirror@5.65.1)(graphql@16.8.1)
+  date-fns:
+    specifier: ^2.30.0
+    version: 2.30.0
+  fast-glob:
+    specifier: ^3.3.2
+    version: 3.3.2
+  graphql:
+    specifier: 16.8.1
+    version: 16.8.1
+  gray-matter:
+    specifier: ^4.0.3
+    version: 4.0.3
+  hast-util-to-string:
+    specifier: 3.0.0
+    version: 3.0.0
+  iframe-resizer-react:
+    specifier: ^1.1.0
+    version: 1.1.0(prop-types@15.8.1)(react-dom@18.3.1)(react@18.3.1)
+  leaflet:
+    specifier: ^1.9.4
+    version: 1.9.4
+  markdown-to-jsx:
+    specifier: ^7.4.0
+    version: 7.4.7(react@18.3.1)
+  marked:
+    specifier: 5.1.2
+    version: 5.1.2
+  next:
+    specifier: ^14.2.10
+    version: 14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+  next-image-export-optimizer:
+    specifier: ^1.12.3
+    version: 1.12.3(next@14.2.10)(react@18.3.1)
+  next-query-params:
+    specifier: ^5.0.0
+    version: 5.0.0(next@14.2.10)(react@18.3.1)(use-query-params@2.2.1)
+  next-sitemap:
+    specifier: ^4.2.3
+    version: 4.2.3(next@14.2.10)
+  next-with-less:
+    specifier: ^3.0.1
+    version: 3.0.1(less-loader@12.2.0)(less@4.2.0)(next@14.2.10)
+  nextra:
+    specifier: 3.0.0-alpha.28
+    version: 3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.10)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3)
+  nextra-theme-docs:
+    specifier: 3.0.0-alpha.28
+    version: 3.0.0-alpha.28(next@14.2.10)(nextra@3.0.0-alpha.28)(react-dom@18.3.1)(react@18.3.1)
+  numbro:
+    specifier: 2.3.6
+    version: 2.3.6
+  p-limit:
+    specifier: ^4.0.0
+    version: 4.0.0
+  parser-front-matter:
+    specifier: 1.6.4
+    version: 1.6.4
+  postcss:
+    specifier: ^8.4.33
+    version: 8.4.40
+  react:
+    specifier: ^18.3.1
+    version: 18.3.1
+  react-dom:
+    specifier: ^18.3.1
+    version: 18.3.1(react@18.3.1)
+  react-medium-image-zoom:
+    specifier: 5.1.8
+    version: 5.1.8(react-dom@18.3.1)(react@18.3.1)
+  rss:
+    specifier: 1.2.2
+    version: 1.2.2
+  server-only:
+    specifier: 0.0.1
+    version: 0.0.1
+  string-similarity:
+    specifier: ^4.0.4
+    version: 4.0.4
+  string-strip-html:
+    specifier: ^13.4.5
+    version: 13.4.5
+  tailwindcss:
+    specifier: ^3.4.1
+    version: 3.4.1
+  timeago.js:
+    specifier: 4.0.2
+    version: 4.0.2
+  unified:
+    specifier: 11.0.4
+    version: 11.0.4
+  unist-util-visit:
+    specifier: ^5.0.0
+    version: 5.0.0
+  use-query-params:
+    specifier: ^2.2.1
+    version: 2.2.1(react-dom@18.3.1)(react@18.3.1)
 
-  .:
-    dependencies:
-      '@graphql-tools/schema':
-        specifier: 10.0.3
-        version: 10.0.3(graphql@16.8.1)
-      '@headlessui/react':
-        specifier: ^1.7.17
-        version: 1.7.19(react-dom@18.3.1)(react@18.3.1)
-      '@heroicons/react':
-        specifier: ^2.0.18
-        version: 2.0.18(react@18.3.1)
-      '@radix-ui/react-icons':
-        specifier: ^1.3.0
-        version: 1.3.0(react@18.3.1)
-      '@radix-ui/react-radio-group':
-        specifier: ^1.1.3
-        version: 1.1.3(@types/react@18.2.73)(react-dom@18.3.1)(react@18.3.1)
-      '@tailwindcss/nesting':
-        specifier: 0.0.0-insiders.565cd3e
-        version: 0.0.0-insiders.565cd3e(postcss@8.4.40)
-      '@tailwindcss/typography':
-        specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@3.4.1)
-      autoprefixer:
-        specifier: ^10.4.17
-        version: 10.4.17(postcss@8.4.40)
-      clsx:
-        specifier: ^2.1.0
-        version: 2.1.0
-      codemirror:
-        specifier: 5.65.1
-        version: 5.65.1
-      codemirror-graphql:
-        specifier: 1.3.2
-        version: 1.3.2(@codemirror/language@0.20.2)(codemirror@5.65.1)(graphql@16.8.1)
-      date-fns:
-        specifier: ^2.30.0
-        version: 2.30.0
-      fast-glob:
-        specifier: ^3.3.2
-        version: 3.3.2
-      graphql:
-        specifier: 16.8.1
-        version: 16.8.1
-      gray-matter:
-        specifier: ^4.0.3
-        version: 4.0.3
-      hast-util-to-string:
-        specifier: 3.0.0
-        version: 3.0.0
-      iframe-resizer-react:
-        specifier: ^1.1.0
-        version: 1.1.0(prop-types@15.8.1)(react-dom@18.3.1)(react@18.3.1)
-      leaflet:
-        specifier: ^1.9.4
-        version: 1.9.4
-      markdown-to-jsx:
-        specifier: ^7.4.0
-        version: 7.4.7(react@18.3.1)
-      marked:
-        specifier: 5.1.2
-        version: 5.1.2
-      next:
-        specifier: ^14.2.5
-        version: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
-      next-image-export-optimizer:
-        specifier: ^1.12.3
-        version: 1.12.3(next@14.2.5)(react@18.3.1)
-      next-query-params:
-        specifier: ^5.0.0
-        version: 5.0.0(next@14.2.5)(react@18.3.1)(use-query-params@2.2.1)
-      next-sitemap:
-        specifier: ^4.2.3
-        version: 4.2.3(next@14.2.5)
-      next-with-less:
-        specifier: ^3.0.1
-        version: 3.0.1(less-loader@12.2.0)(less@4.2.0)(next@14.2.5)
-      nextra:
-        specifier: 3.0.0-alpha.28
-        version: 3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3)
-      nextra-theme-docs:
-        specifier: 3.0.0-alpha.28
-        version: 3.0.0-alpha.28(next@14.2.5)(nextra@3.0.0-alpha.28)(react-dom@18.3.1)(react@18.3.1)
-      numbro:
-        specifier: 2.3.6
-        version: 2.3.6
-      p-limit:
-        specifier: ^4.0.0
-        version: 4.0.0
-      parser-front-matter:
-        specifier: 1.6.4
-        version: 1.6.4
-      postcss:
-        specifier: ^8.4.33
-        version: 8.4.40
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
-      react-medium-image-zoom:
-        specifier: 5.1.8
-        version: 5.1.8(react-dom@18.3.1)(react@18.3.1)
-      rss:
-        specifier: 1.2.2
-        version: 1.2.2
-      server-only:
-        specifier: 0.0.1
-        version: 0.0.1
-      string-similarity:
-        specifier: ^4.0.4
-        version: 4.0.4
-      string-strip-html:
-        specifier: ^13.4.5
-        version: 13.4.5
-      tailwindcss:
-        specifier: ^3.4.1
-        version: 3.4.1
-      timeago.js:
-        specifier: 4.0.2
-        version: 4.0.2
-      unified:
-        specifier: 11.0.4
-        version: 11.0.4
-      unist-util-visit:
-        specifier: ^5.0.0
-        version: 5.0.0
-      use-query-params:
-        specifier: ^2.2.1
-        version: 2.2.1(react-dom@18.3.1)(react@18.3.1)
-    devDependencies:
-      '@graphql-eslint/eslint-plugin':
-        specifier: 4.0.0-alpha.0
-        version: 4.0.0-alpha.0(@babel/core@7.25.2)(@types/node@20.11.30)(eslint@8.57.0)(graphql@16.8.1)
-      '@svgr/webpack':
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.4.3)
-      '@types/codemirror':
-        specifier: 5.60.7
-        version: 5.60.7
-      '@types/hast':
-        specifier: 3.0.4
-        version: 3.0.4
-      '@types/node':
-        specifier: ^20.11.30
-        version: 20.11.30
-      '@types/react':
-        specifier: ^18.2.73
-        version: 18.2.73
-      '@types/rss':
-        specifier: 0.0.32
-        version: 0.0.32
-      '@types/string-similarity':
-        specifier: ^4.0.2
-        version: 4.0.2
-      '@typescript-eslint/eslint-plugin':
-        specifier: 7.4.0
-        version: 7.4.0(@typescript-eslint/parser@7.4.0)(eslint@8.57.0)(typescript@5.4.3)
-      '@typescript-eslint/parser':
-        specifier: 7.4.0
-        version: 7.4.0(eslint@8.57.0)(typescript@5.4.3)
-      eslint:
-        specifier: 8.57.0
-        version: 8.57.0
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@8.57.0)
-      eslint-plugin-mdx:
-        specifier: ^3.1.5
-        version: 3.1.5(eslint@8.57.0)
-      eslint-plugin-tailwindcss:
-        specifier: 3.15.1
-        version: 3.15.1(tailwindcss@3.4.1)
-      prettier:
-        specifier: 3.2.5
-        version: 3.2.5
-      prettier-plugin-pkg:
-        specifier: ^0.18.1
-        version: 0.18.1(prettier@3.2.5)
-      remark-frontmatter:
-        specifier: 5.0.0
-        version: 5.0.0
-      remark-lint-first-heading-level:
-        specifier: 3.1.2
-        version: 3.1.2
-      remark-lint-heading-increment:
-        specifier: 3.1.2
-        version: 3.1.2
-      tsx:
-        specifier: ^4.7.0
-        version: 4.7.0
-      typescript:
-        specifier: ^5.4.3
-        version: 5.4.3
+devDependencies:
+  '@graphql-eslint/eslint-plugin':
+    specifier: 4.0.0-alpha.0
+    version: 4.0.0-alpha.0(@babel/core@7.25.2)(@types/node@20.11.30)(eslint@8.57.0)(graphql@16.8.1)
+  '@svgr/webpack':
+    specifier: ^8.0.1
+    version: 8.0.1(typescript@5.4.3)
+  '@types/codemirror':
+    specifier: 5.60.7
+    version: 5.60.7
+  '@types/hast':
+    specifier: 3.0.4
+    version: 3.0.4
+  '@types/node':
+    specifier: ^20.11.30
+    version: 20.11.30
+  '@types/react':
+    specifier: ^18.2.73
+    version: 18.2.73
+  '@types/rss':
+    specifier: 0.0.32
+    version: 0.0.32
+  '@types/string-similarity':
+    specifier: ^4.0.2
+    version: 4.0.2
+  '@typescript-eslint/eslint-plugin':
+    specifier: 7.4.0
+    version: 7.4.0(@typescript-eslint/parser@7.4.0)(eslint@8.57.0)(typescript@5.4.3)
+  '@typescript-eslint/parser':
+    specifier: 7.4.0
+    version: 7.4.0(eslint@8.57.0)(typescript@5.4.3)
+  eslint:
+    specifier: 8.57.0
+    version: 8.57.0
+  eslint-config-prettier:
+    specifier: ^9.1.0
+    version: 9.1.0(eslint@8.57.0)
+  eslint-plugin-mdx:
+    specifier: ^3.1.5
+    version: 3.1.5(eslint@8.57.0)
+  eslint-plugin-tailwindcss:
+    specifier: 3.15.1
+    version: 3.15.1(tailwindcss@3.4.1)
+  prettier:
+    specifier: 3.2.5
+    version: 3.2.5
+  prettier-plugin-pkg:
+    specifier: ^0.18.1
+    version: 0.18.1(prettier@3.2.5)
+  remark-frontmatter:
+    specifier: 5.0.0
+    version: 5.0.0
+  remark-lint-first-heading-level:
+    specifier: 3.1.2
+    version: 3.1.2
+  remark-lint-heading-increment:
+    specifier: 3.1.2
+    version: 3.1.2
+  tsx:
+    specifier: ^4.7.0
+    version: 4.7.0
+  typescript:
+    specifier: ^5.4.3
+    version: 5.4.3
 
 packages:
 
@@ -239,7 +237,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/highlight': 7.24.2
-      picocolors: 1.0.0
+      picocolors: 1.0.1
     dev: true
 
   /@babel/code-frame@7.24.7:
@@ -600,7 +598,7 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.0
+      picocolors: 1.0.1
     dev: true
 
   /@babel/highlight@7.24.7:
@@ -1992,7 +1990,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       dataloader: 2.2.2
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
       value-or-promise: 1.0.12
     dev: true
 
@@ -2023,7 +2021,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       dataloader: 2.2.2
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
       value-or-promise: 1.0.12
     dev: true
 
@@ -2038,7 +2036,7 @@ packages:
       graphql: 16.8.1
       graphql-ws: 5.12.1(graphql@16.8.1)
       isomorphic-ws: 5.0.0(ws@8.13.0)
-      tslib: 2.6.2
+      tslib: 2.6.3
       ws: 8.13.0
     transitivePeerDependencies:
       - bufferutil
@@ -2057,7 +2055,7 @@ packages:
       extract-files: 11.0.0
       graphql: 16.8.1
       meros: 1.3.0(@types/node@20.11.30)
-      tslib: 2.6.2
+      tslib: 2.6.3
       value-or-promise: 1.0.12
     transitivePeerDependencies:
       - '@types/node'
@@ -2072,7 +2070,7 @@ packages:
       '@types/ws': 8.5.10
       graphql: 16.8.1
       isomorphic-ws: 5.0.0(ws@8.13.0)
-      tslib: 2.6.2
+      tslib: 2.6.3
       ws: 8.13.0
     transitivePeerDependencies:
       - bufferutil
@@ -2088,7 +2086,7 @@ packages:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.8.1)
       '@repeaterjs/repeater': 3.0.5
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
       value-or-promise: 1.0.12
     dev: true
 
@@ -2101,7 +2099,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       globby: 11.1.0
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
       unixify: 1.0.0
     dev: true
 
@@ -2130,7 +2128,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
       resolve-from: 5.0.0
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /@graphql-tools/json-file-loader@7.4.18(graphql@16.8.1):
@@ -2141,7 +2139,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       globby: 11.1.0
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
       unixify: 1.0.0
     dev: true
 
@@ -2154,7 +2152,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
       p-limit: 3.1.0
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /@graphql-tools/merge@8.4.2(graphql@16.8.1):
@@ -2164,7 +2162,7 @@ packages:
     dependencies:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /@graphql-tools/merge@9.0.3(graphql@16.8.1):
@@ -2199,7 +2197,7 @@ packages:
       '@graphql-tools/merge': 8.4.2(graphql@16.8.1)
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
       value-or-promise: 1.0.12
     dev: true
 
@@ -2219,7 +2217,7 @@ packages:
       '@whatwg-node/fetch': 0.8.8
       graphql: 16.8.1
       isomorphic-ws: 5.0.0(ws@8.16.0)
-      tslib: 2.6.2
+      tslib: 2.6.3
       value-or-promise: 1.0.12
       ws: 8.16.0
     transitivePeerDependencies:
@@ -2261,7 +2259,7 @@ packages:
       '@graphql-tools/schema': 9.0.19(graphql@16.8.1)
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.6.3
       value-or-promise: 1.0.12
     dev: true
 
@@ -2714,12 +2712,12 @@ packages:
     resolution: {integrity: sha512-Yac/bV5sBGkkEXmAX5FWPS9Mmo2rthrOPRQQNfycJPkjUAUclomCPH7QFVCDQ4Mp2k2K1SSM6m0zrxYrOwtFQw==}
     dev: false
 
-  /@next/env@14.2.5:
-    resolution: {integrity: sha512-/zZGkrTOsraVfYjGP8uM0p6r0BDT6xWpkjdVbcz66PJVSpwXX3yNiRycxAuDfBKGWBrZBXRuK/YVlkNgxHGwmA==}
+  /@next/env@14.2.10:
+    resolution: {integrity: sha512-dZIu93Bf5LUtluBXIv4woQw2cZVZ2DJTjax5/5DOs3lzEOeKLy7GxRSr4caK9/SCPdaW6bCgpye6+n4Dh9oJPw==}
     dev: false
 
-  /@next/swc-darwin-arm64@14.2.5:
-    resolution: {integrity: sha512-/9zVxJ+K9lrzSGli1///ujyRfon/ZneeZ+v4ptpiPoOU+GKZnm8Wj8ELWU1Pm7GHltYRBklmXMTUqM/DqQ99FQ==}
+  /@next/swc-darwin-arm64@14.2.10:
+    resolution: {integrity: sha512-V3z10NV+cvMAfxQUMhKgfQnPbjw+Ew3cnr64b0lr8MDiBJs3eLnM6RpGC46nhfMZsiXgQngCJKWGTC/yDcgrDQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
@@ -2727,8 +2725,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-darwin-x64@14.2.5:
-    resolution: {integrity: sha512-vXHOPCwfDe9qLDuq7U1OYM2wUY+KQ4Ex6ozwsKxp26BlJ6XXbHleOUldenM67JRyBfVjv371oneEvYd3H2gNSA==}
+  /@next/swc-darwin-x64@14.2.10:
+    resolution: {integrity: sha512-Y0TC+FXbFUQ2MQgimJ/7Ina2mXIKhE7F+GUe1SgnzRmwFY3hX2z8nyVCxE82I2RicspdkZnSWMn4oTjIKz4uzA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -2736,8 +2734,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-gnu@14.2.5:
-    resolution: {integrity: sha512-vlhB8wI+lj8q1ExFW8lbWutA4M2ZazQNvMWuEDqZcuJJc78iUnLdPPunBPX8rC4IgT6lIx/adB+Cwrl99MzNaA==}
+  /@next/swc-linux-arm64-gnu@14.2.10:
+    resolution: {integrity: sha512-ZfQ7yOy5zyskSj9rFpa0Yd7gkrBnJTkYVSya95hX3zeBG9E55Z6OTNPn1j2BTFWvOVVj65C3T+qsjOyVI9DQpA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2745,8 +2743,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-musl@14.2.5:
-    resolution: {integrity: sha512-NpDB9NUR2t0hXzJJwQSGu1IAOYybsfeB+LxpGsXrRIb7QOrYmidJz3shzY8cM6+rO4Aojuef0N/PEaX18pi9OA==}
+  /@next/swc-linux-arm64-musl@14.2.10:
+    resolution: {integrity: sha512-n2i5o3y2jpBfXFRxDREr342BGIQCJbdAUi/K4q6Env3aSx8erM9VuKXHw5KNROK9ejFSPf0LhoSkU/ZiNdacpQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2754,8 +2752,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-gnu@14.2.5:
-    resolution: {integrity: sha512-8XFikMSxWleYNryWIjiCX+gU201YS+erTUidKdyOVYi5qUQo/gRxv/3N1oZFCgqpesN6FPeqGM72Zve+nReVXQ==}
+  /@next/swc-linux-x64-gnu@14.2.10:
+    resolution: {integrity: sha512-GXvajAWh2woTT0GKEDlkVhFNxhJS/XdDmrVHrPOA83pLzlGPQnixqxD8u3bBB9oATBKB//5e4vpACnx5Vaxdqg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2763,8 +2761,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-musl@14.2.5:
-    resolution: {integrity: sha512-6QLwi7RaYiQDcRDSU/os40r5o06b5ue7Jsk5JgdRBGGp8l37RZEh9JsLSM8QF0YDsgcosSeHjglgqi25+m04IQ==}
+  /@next/swc-linux-x64-musl@14.2.10:
+    resolution: {integrity: sha512-opFFN5B0SnO+HTz4Wq4HaylXGFV+iHrVxd3YvREUX9K+xfc4ePbRrxqOuPOFjtSuiVouwe6uLeDtabjEIbkmDA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2772,8 +2770,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-arm64-msvc@14.2.5:
-    resolution: {integrity: sha512-1GpG2VhbspO+aYoMOQPQiqc/tG3LzmsdBH0LhnDS3JrtDx2QmzXe0B6mSZZiN3Bq7IOMXxv1nlsjzoS1+9mzZw==}
+  /@next/swc-win32-arm64-msvc@14.2.10:
+    resolution: {integrity: sha512-9NUzZuR8WiXTvv+EiU/MXdcQ1XUvFixbLIMNQiVHuzs7ZIFrJDLJDaOF1KaqttoTujpcxljM/RNAOmw1GhPPQQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
@@ -2781,8 +2779,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-ia32-msvc@14.2.5:
-    resolution: {integrity: sha512-Igh9ZlxwvCDsu6438FXlQTHlRno4gFpJzqPjSIBZooD22tKeI4fE/YMRoHVJHmrQ2P5YL1DoZ0qaOKkbeFWeMg==}
+  /@next/swc-win32-ia32-msvc@14.2.10:
+    resolution: {integrity: sha512-fr3aEbSd1GeW3YUMBkWAu4hcdjZ6g4NBl1uku4gAn661tcxd1bHs1THWYzdsbTRLcCKLjrDZlNp6j2HTfrw+Bg==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
@@ -2790,8 +2788,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-x64-msvc@14.2.5:
-    resolution: {integrity: sha512-tEQ7oinq1/CjSG9uSTerca3v4AZ+dFa+4Yu6ihaG8Ud8ddqLQgFGcnwYls13H5X5CPDPZJdYxyeMui6muOLd4g==}
+  /@next/swc-win32-x64-msvc@14.2.10:
+    resolution: {integrity: sha512-UjeVoRGKNL2zfbcQ6fscmgjBAS/inHBh63mjIlfPg/NG8Yn2ztqylXt5qilYb6hoHIwaU2ogHknHWWmahJjgZQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -2851,14 +2849,14 @@ packages:
     dependencies:
       asn1js: 3.0.5
       pvtsutils: 1.3.5
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /@peculiar/json-schema@1.1.12:
     resolution: {integrity: sha512-coUfuoMeIB7B8/NMekxaDzLhaYmp0HZNPEjYRm9goRou8UZIC3z21s0sL9AWoCw4EG876QyO3kYrc61WNF9B/w==}
     engines: {node: '>=8.0.0'}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /@peculiar/webcrypto@1.4.6:
@@ -2868,7 +2866,7 @@ packages:
       '@peculiar/asn1-schema': 2.3.8
       '@peculiar/json-schema': 1.1.12
       pvtsutils: 1.3.5
-      tslib: 2.6.2
+      tslib: 2.6.3
       webcrypto-core: 1.7.9
     dev: true
 
@@ -3353,7 +3351,7 @@ packages:
     resolution: {integrity: sha512-KGYxvIOXcceOAbEk4bi/dVLEK9z8sZ0uBB3Il5b1rhfClSpcX0yfRO0KmTkqR2cnQDymwLB+25ZyMzICg/cm/A==}
     dependencies:
       '@swc/counter': 0.1.3
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: false
 
   /@tailwindcss/nesting@0.0.0-insiders.565cd3e(postcss@8.4.40):
@@ -3723,7 +3721,7 @@ packages:
       busboy: 1.6.0
       fast-querystring: 1.1.2
       fast-url-parser: 1.1.3
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /abbrev@2.0.0:
@@ -3827,7 +3825,7 @@ packages:
     dependencies:
       pvtsutils: 1.3.5
       pvutils: 1.1.3
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /astring@1.8.6:
@@ -4237,7 +4235,7 @@ packages:
     resolution: {integrity: sha512-4PFfn4b5ZN6FMNGSZlyb7wUhuN8wvj8t/VQHZdM4JsDcruGJ8L2kf9zao98QIrBPFCpdk27qst/AGTl7pL3ypQ==}
     engines: {node: '>=16.0.0'}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: false
 
   /cross-spawn@5.1.0:
@@ -4727,7 +4725,7 @@ packages:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /dset@3.1.3:
@@ -6077,7 +6075,7 @@ packages:
   /lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /lru-cache@10.2.0:
@@ -7064,7 +7062,7 @@ packages:
     dev: false
     optional: true
 
-  /next-image-export-optimizer@1.12.3(next@14.2.5)(react@18.3.1):
+  /next-image-export-optimizer@1.12.3(next@14.2.10)(react@18.3.1):
     resolution: {integrity: sha512-BQ3LIN6ocooul10g+N/7jJljpionhhqR58RE0Z+uzJ/+NeRcK5hEjNZmmg8BGZB9M4JFLk8LzcvbYOkWPRjrNQ==}
     engines: {node: '>=16.0.0'}
     hasBin: true
@@ -7073,26 +7071,26 @@ packages:
       react: ^18.0.0-0
     dependencies:
       cli-progress: 3.12.0
-      next: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       sharp: 0.33.3
       typescript: 5.4.3
     dev: false
 
-  /next-query-params@5.0.0(next@14.2.5)(react@18.3.1)(use-query-params@2.2.1):
+  /next-query-params@5.0.0(next@14.2.10)(react@18.3.1)(use-query-params@2.2.1):
     resolution: {integrity: sha512-Zm9nc0QgrTMaQwGdbICcTDaYS4oRcXo628Ye6JQGdp/9JzlhzDpzcGRqciK0S62yAyE3b5ozFpgzY0gDUEbLtw==}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       use-query-params: ^2.0.0
     dependencies:
-      next: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       tslib: 2.6.2
       use-query-params: 2.2.1(react-dom@18.3.1)(react@18.3.1)
     dev: false
 
-  /next-sitemap@4.2.3(next@14.2.5):
+  /next-sitemap@4.2.3(next@14.2.10):
     resolution: {integrity: sha512-vjdCxeDuWDzldhCnyFCQipw5bfpl4HmZA7uoo3GAaYGjGgfL4Cxb1CiztPuWGmS+auYs7/8OekRS8C2cjdAsjQ==}
     engines: {node: '>=14.18'}
     hasBin: true
@@ -7103,7 +7101,7 @@ packages:
       '@next/env': 13.5.6
       fast-glob: 3.3.2
       minimist: 1.2.8
-      next: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
     dev: false
 
   /next-themes@0.3.0(react-dom@18.3.1)(react@18.3.1):
@@ -7116,7 +7114,7 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /next-with-less@3.0.1(less-loader@12.2.0)(less@4.2.0)(next@14.2.5):
+  /next-with-less@3.0.1(less-loader@12.2.0)(less@4.2.0)(next@14.2.10):
     resolution: {integrity: sha512-lVJQ+dNWGpR1ccWM/LjY+8i28DC2oPa1Ivrc+h4+DFPJJN6O2EGKZIFBGrd9GLbwAEjFzKPs7yUk6bnrbY0qcw==}
     peerDependencies:
       less: '*'
@@ -7126,11 +7124,11 @@ packages:
       clone-deep: 4.0.1
       less: 4.2.0
       less-loader: 12.2.0(less@4.2.0)
-      next: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
     dev: false
 
-  /next@14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-0f8aRfBVL+mpzfBjYfQuLWh2WyAwtJXCRfkPF4UJ5qd2YwrHczsrSzXU4tRMV0OAxR8ZJZWPFn6uhSC56UTsLA==}
+  /next@14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-sDDExXnh33cY3RkS9JuFEKaS4HmlWmDKP1VJioucCG6z5KuA008DPsDZOzi8UfqEk3Ii+2NCQSJrfbEWtZZfww==}
     engines: {node: '>=18.17.0'}
     hasBin: true
     peerDependencies:
@@ -7147,31 +7145,31 @@ packages:
       sass:
         optional: true
     dependencies:
-      '@next/env': 14.2.5
+      '@next/env': 14.2.10
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001600
+      caniuse-lite: 1.0.30001646
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       styled-jsx: 5.1.1(@babel/core@7.25.2)(react@18.3.1)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 14.2.5
-      '@next/swc-darwin-x64': 14.2.5
-      '@next/swc-linux-arm64-gnu': 14.2.5
-      '@next/swc-linux-arm64-musl': 14.2.5
-      '@next/swc-linux-x64-gnu': 14.2.5
-      '@next/swc-linux-x64-musl': 14.2.5
-      '@next/swc-win32-arm64-msvc': 14.2.5
-      '@next/swc-win32-ia32-msvc': 14.2.5
-      '@next/swc-win32-x64-msvc': 14.2.5
+      '@next/swc-darwin-arm64': 14.2.10
+      '@next/swc-darwin-x64': 14.2.10
+      '@next/swc-linux-arm64-gnu': 14.2.10
+      '@next/swc-linux-arm64-musl': 14.2.10
+      '@next/swc-linux-x64-gnu': 14.2.10
+      '@next/swc-linux-x64-musl': 14.2.10
+      '@next/swc-win32-arm64-msvc': 14.2.10
+      '@next/swc-win32-ia32-msvc': 14.2.10
+      '@next/swc-win32-x64-msvc': 14.2.10
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
     dev: false
 
-  /nextra-theme-docs@3.0.0-alpha.28(next@14.2.5)(nextra@3.0.0-alpha.28)(react-dom@18.3.1)(react@18.3.1):
+  /nextra-theme-docs@3.0.0-alpha.28(next@14.2.10)(nextra@3.0.0-alpha.28)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-6n200ue1EKv/Eo7chkoKDLJ2gQ01R+hfdwp5xhzpSaqdiudqtsbUlDPEuwBBW0mQbLCUN80yNQanV4GjUg6/oA==}
     peerDependencies:
       next: '>=13'
@@ -7186,16 +7184,16 @@ packages:
       flexsearch: 0.7.43
       focus-visible: 5.2.0
       intersection-observer: 0.12.2
-      next: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
       next-themes: 0.3.0(react-dom@18.3.1)(react@18.3.1)
-      nextra: 3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3)
+      nextra: 3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.10)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
       zod: 3.22.4
     dev: false
 
-  /nextra@3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3):
+  /nextra@3.0.0-alpha.28(patch_hash=rggcgtpcrgz5zyoxmhwje4p6rm)(@types/react@18.2.73)(next@14.2.10)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.3):
     resolution: {integrity: sha512-sw/Jdp/c1jS1Hpk2aPs7Y2G3c5lU3ijyXTATr9zUfn35zpneNf+70No8XKxXFo+nWO0CRHwVB15Ya+DNsvaYtQ==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -7219,7 +7217,7 @@ packages:
       gray-matter: 4.0.3
       hast-util-to-estree: 3.1.0
       katex: 0.16.10
-      next: 14.2.5(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
+      next: 14.2.10(@babel/core@7.25.2)(react-dom@18.3.1)(react@18.3.1)
       p-limit: 6.1.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -7256,7 +7254,7 @@ packages:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /node-fetch@2.7.0:
@@ -7632,7 +7630,7 @@ packages:
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       source-map-js: 1.2.0
     dev: false
 
@@ -7703,7 +7701,7 @@ packages:
   /pvtsutils@1.3.5:
     resolution: {integrity: sha512-ARvb14YB9Nm2Xi6nBq1ZX6dAM0FsJnuk+31aUp4TrcZEdKUlSqOqsxJHUPJDNE3qiIp+iUPEIeR6Je/tgV7zsA==}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /pvutils@1.1.3:
@@ -8633,7 +8631,6 @@ packages:
 
   /tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
-    dev: false
 
   /tsx@4.7.0:
     resolution: {integrity: sha512-I+t79RYPlEYlHn9a+KzwrvEwhJg35h/1zHsLC2JXvhC2mdynMv6Zxzvhv5EMV6VF5qJlLlkSnMVvdZV3PSIGcg==}
@@ -9077,7 +9074,7 @@ packages:
       '@peculiar/json-schema': 1.1.12
       asn1js: 3.0.5
       pvtsutils: 1.3.5
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /webidl-conversions@3.0.1:

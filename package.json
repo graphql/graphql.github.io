@@ -36,7 +36,7 @@
     "leaflet": "^1.9.4",
     "markdown-to-jsx": "^7.4.0",
     "marked": "5.1.2",
-    "next": "^14.2.5",
+    "next": "^14.2.10",
     "next-image-export-optimizer": "^1.12.3",
     "next-query-params": "^5.0.0",
     "next-sitemap": "^4.2.3",
