@@ -59,8 +59,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       hast-util-to-string:
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
       iframe-resizer-react:
         specifier: ^1.1.0
         version: 1.1.0(prop-types@15.8.1)(react-dom@18.3.1)(react@18.3.1)
@@ -5522,8 +5522,8 @@ packages:
       zwitch: 2.0.4
     dev: false
 
-  /hast-util-to-string@3.0.0:
-    resolution: {integrity: sha512-OGkAxX1Ua3cbcW6EJ5pT/tslVb90uViVkcJ4ZZIMW/R33DX/AkcJcRrPebPwJkHYwlDHXz4aIwvAAaAdtrACFA==}
+  /hast-util-to-string@3.0.1:
+    resolution: {integrity: sha512-XelQVTDWvqcl3axRfI0xSeoVKzyIFPwsAGSLIsKdJKQMXDYJS4WYrBNF/8J7RdhIcFI2BOHgAifggsvsxp/3+A==}
     dependencies:
       '@types/hast': 3.0.4
     dev: false
@@ -7882,7 +7882,7 @@ packages:
       shiki: ^1.3.0
     dependencies:
       '@types/hast': 3.0.4
-      hast-util-to-string: 3.0.0
+      hast-util-to-string: 3.0.1
       parse-numeric-range: 1.3.0
       rehype-parse: 9.0.0
       shiki: 1.2.1
