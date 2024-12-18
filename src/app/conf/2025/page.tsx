@@ -292,7 +292,7 @@ export default function Page() {
             href="https://cvent.me/PBNYEe?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=register_section"
             target="_blank"
             rel="noreferrer"
-            className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-primary hover:bg-primary flex items-center justify-center gap-2"
+            className="px-20 md:px-28 py-4 text-center text-white text-3xl font-semibold bg-primary/85 hover:bg-primary/100 transition-colors"
           >
             Get Tickets
           </a>

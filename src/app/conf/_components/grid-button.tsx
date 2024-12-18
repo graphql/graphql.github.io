@@ -42,15 +42,13 @@ const GridButton: React.FC<GridButtonProps> = ({
           href={disabled ? undefined : href}
           target="_blank"
           rel="noreferrer"
-          className="relative z-0 col-span-8 row-span-2 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2"
+          className="px-20 flex items-center justify-center md:px-28 py-4 text-center text-white text-3xl font-semibold bg-primary/85 hover:bg-primary/100 transition-colors"
           style={{
             gridColumn: "6 / span 8",
             gridRow: "3 / span 2",
           }}
         >
-          <button className="text-white text-3xl font-semibold flex items-center justify-center gap-2">
-            {title}
-          </button>
+          {title}
         </a>
       </div>
     </div>

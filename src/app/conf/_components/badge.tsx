@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 
 const badgeVariants = {
   default:
-    "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
+    "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/85",
 }
 
 export function Badge({
