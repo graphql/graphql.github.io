@@ -41,14 +41,6 @@ const sponsorSilver: Image[] = [
   { icon: Tyk, name: "Tyk", link: "https://tyk.io/" },
 ]
 
-const mediaPartners: Image[] = [
-  {
-    icon: Intuit,
-    name: "Intuit",
-    link: "https://opensource.intuit.com/intuit-open-source/open-source",
-  },
-]
-
 function List({
   items,
   className,
@@ -157,20 +149,6 @@ export function Sponsors() {
               items={sponsorSilver}
               className="flex"
               linkClassName="p-6 lg:p-10 h-28 lg:h-[155px]"
-            />
-          </>
-        )}
-
-        {mediaPartners.length && (
-          <>
-            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
-              <div className="size-2.5 bg-[#E10098]"></div>
-              <h3 className="text-white font-medium">MEDIA PARTNERS</h3>
-            </div>
-            <List
-              items={mediaPartners}
-              className="flex"
-              linkClassName="p-6 lg:p-10 h-28 lg:h-[120px]"
             />
           </>
         )}
