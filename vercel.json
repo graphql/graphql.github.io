@@ -432,8 +432,8 @@
     },
     {
       "source": "/conf/",
-      "destination": "/conf/2024/",
-      "permanent": true
+      "destination": "/conf/2025/",
+      "permanent": false
     },
     {
       "source": "/conf/2024/sessions/:path/",
@@ -512,13 +512,13 @@
     },
     {
       "source": "/conf/speak/",
-      "destination": "/conf/2024/speak/",
-      "permanent": true
+      "destination": "/conf/2025#speakers",
+      "permanent": false 
     },
     {
       "source": "/schedule/",
       "destination": "/conf/2024/schedule/",
-      "permanent": true
+      "permanent": false
     }
   ]
 }
