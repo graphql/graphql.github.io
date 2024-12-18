@@ -5,7 +5,6 @@ import Apollo from "public/img/conf/Sponsors/Apollo.svg"
 import Tyk from "public/img/conf/Sponsors/Tyk.svg"
 import IBM from "public/img/conf/Sponsors/IBM.svg"
 import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
-import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
@@ -123,7 +122,7 @@ export function Sponsors() {
               items={sponsorPlatinum}
               className="flex"
               linkClassName="p-8 lg:py-14 h-28 lg:h-[210px]"
-            />{" "}
+            />
           </>
         )}
         {sponsorGold.length && (
