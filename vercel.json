@@ -513,7 +513,7 @@
     {
       "source": "/conf/speak/",
       "destination": "/conf/2025#speakers",
-      "permanent": false 
+      "permanent": false
     },
     {
       "source": "/schedule/",
