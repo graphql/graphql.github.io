@@ -204,12 +204,13 @@ export default {
   banner: {
     content: (
       <>
-        🎬 That's a Wrap for GraphQLConf 2024! • Watch the Videos •{" "}
+        📣 GraphQLConf 2025 • Sept 08-10 • Amsterdam • Early bird tickets
+        available &amp; sponsorship opportunities open •{" "}
         <NextLink
-          href="/conf/2024"
+          href="/conf/2025"
           className="underline after:content-['_→'] after:font-sans"
         >
-          Check out the recorded talks and workshops
+          Learn more
         </NextLink>
       </>
     ),
