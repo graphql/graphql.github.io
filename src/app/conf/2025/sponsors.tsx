@@ -41,8 +41,6 @@ const sponsorSilver: Image[] = [
   { icon: Tyk, name: "Tyk", link: "https://tyk.io/" },
 ]
 
-const workshopDaySponsors: Image[] = []
-
 const mediaPartners: Image[] = [
   {
     icon: Intuit,
@@ -50,8 +48,6 @@ const mediaPartners: Image[] = [
     link: "https://opensource.intuit.com/intuit-open-source/open-source",
   },
 ]
-
-const communityPartners: Image[] = []
 
 function List({
   items,
@@ -68,12 +64,13 @@ function List({
         <a
           key={i}
           className={clsx(
-            "relative shrink-0 rounded-md",
+            "relative shrink-0",
             "flex justify-center",
             "items-center", // fix vertical align in Safari/iOS
             "border border-solid border-transparent hover:border-primary focus:border-primary",
             "transition-colors",
-            "hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
+            "group",
+            "group-hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
             linkClassName,
           )}
           href={link}
@@ -86,7 +83,7 @@ function List({
             src={icon}
             className="lg:w-auto lg:max-w-60 max-h-full"
           />
-          <span className="font-sans absolute right-5 top-5 leading-none text-white lg:text-2xl">
+          <span className="group-hover:block hidden font-sans absolute right-5 top-5 leading-none text-white lg:text-2xl">
             ↗
           </span>
         </a>
@@ -163,7 +160,22 @@ export function Sponsors() {
             />
           </>
         )}
+
+        {mediaPartners.length && (
+          <>
+            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
+              <div className="size-2.5 bg-[#E10098]"></div>
+              <h3 className="text-white font-medium">MEDIA PARTNERS</h3>
+            </div>
+            <List
+              items={mediaPartners}
+              className="flex"
+              linkClassName="p-6 lg:p-10 h-28 lg:h-[120px]"
+            />
+          </>
+        )}
       </div>
+
       <div className="container py-24" id="sponsors">
         <InfoGrid
           title="Why Sponsor?"

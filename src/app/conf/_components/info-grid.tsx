@@ -27,7 +27,7 @@ export const InfoGrid: React.FC<InfoGridProps> = ({
       {listItems.map(({ title, description }, index) => (
         <div
           key={index}
-          className="snap-start flex-shrink-0 lg-w[80%] w-[70%] lg:w-full lg:max-w-sm border border-[#E10098] p-6 rounded-lg shadow-lg text-white"
+          className="snap-start flex-shrink-0 lg-w[80%] w-[70%] lg:w-full lg:max-w-sm border border-[#E10098] p-6 shadow-lg text-white"
         >
           <h2 className="text-2xl font-bold mb-2">{title}</h2>
           <p className="text-base">{description}</p>
