@@ -50,7 +50,7 @@ function List({
   linkClassName?: string
 }) {
   return (
-    <div className={clsx("flex gap-6 flex-col lg:flex-row", className)}>
+    <div className={clsx("flex gap-6 max-lg:flex-col", className)}>
       {items.map(({ link, icon, name }, i) => (
         <a
           key={i}
