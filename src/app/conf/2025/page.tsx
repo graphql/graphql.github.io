@@ -233,7 +233,7 @@ export default function Page() {
       <div className="container flex gap-20 flex-col pt-24">
         <div className="flex gap-12 lg:gap-24 max-md:flex-col">
           <div className="flex flex-col gap-5 text-white flex-1">
-            <h2 className="text-3xl lg:text-[45px]/[4rem] font-[400]">
+            <h2 className="text-3xl lg:text-[45px]/[4rem] font-normal">
               Celebrating 10 Years of GraphQL. Three transformative days of
               expert insights and innovation to shape the next decade of APIs
               together!
