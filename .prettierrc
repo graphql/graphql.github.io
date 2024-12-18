@@ -1,0 +1,22 @@
+{
+  "arrowParens": "avoid",
+  "semi": false,
+  "singleQuote": false,
+  "useTabs": false,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": { "parser": "html" }
+    },
+    {
+      "files": "*.mdx",
+      "options": {
+        "proseWrap": "always",
+        "semi": false,
+        "trailingComma": "none"
+      }
+    }
+  ],
+  "plugins": ["prettier-plugin-pkg"]
+}
