@@ -8,8 +8,8 @@ import { SessionList } from "../_components/schedule/session-list"
 import { filterCategories2024 } from "../_components/schedule/filter-categories"
 import NextImage from "next-image-export-optimizer"
 import { Rubik } from "next/font/google"
-import GridButton from '../_components/grid-button'
-import InfoGrid from '../_components/info-grid'
+import GridButton from "../_components/grid-button"
+import InfoGrid from "../_components/info-grid"
 
 const rubik = Rubik({
   weight: ["700", "600", "500", "400", "300"],
@@ -85,45 +85,62 @@ export default function Page() {
               together!
             </h2>
 
-            <GridButton title='Get Tickets' href="/conf/2025/tickets" disabled />
+            <GridButton
+              title="Get Tickets"
+              href="/conf/2025/tickets"
+              disabled
+            />
           </div>
         </div>
       </div>
 
       <Sponsors />
 
-      <GridButton title='Notify Me About Speaking' href="/conf/2025/notify" disabled />
-             <div className="container py-24">
-              <InfoGrid title='Register' subtitle='Join a diverse community of GraphQL developers, architects, and enthusiasts while experiencing premium content and networking opportunities in a vendor-neutral environment.'
-              listItems={[{
-                title: "Corporate",
-                description: "The Corporate Registration type is for registrants whose company is paying for their attendance. This includes for-profit companies. You will help keep the conference affordable for everyone, especially students and those needing financial aid."
-              }, 
-              
-              {
-                title: "Individuals",
-                description: "The Individual Registration type is for registrants who are currently not working for a company, work for a non-profit or research institution or are attending at their own expense. You will receive confirmation within five business days of registering if your individual registration is approved or needs additional information."
-              },
-              {
-                title: "Academics",
-                description: "Academics registrations are for current full-time students and faculty members. Full-time faculty and students will need to upload a valid copy of their Faculty or Student ID when registering. If you have any questions, please email graphql_events@linuxfoundation.org"
-              },
-              {
-                title: "Speakers",
-                description: "You should have received a registration link in your acceptance email. If you did not, please contact cfp@linuxfoundation.org for more details."
-              },
-              {
-                title: "Sponsors",
-                description: "A registration link was shared in an email to your company’s sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email events@linuxfoundation.org."
-              },
-              ]} />
+      <GridButton
+        title="Notify Me About Speaking"
+        href="/conf/2025/notify"
+        disabled
+      />
+      <div className="container py-24">
+        <InfoGrid
+          title="Register"
+          subtitle="Join a diverse community of GraphQL developers, architects, and enthusiasts while experiencing premium content and networking opportunities in a vendor-neutral environment."
+          listItems={[
+            {
+              title: "Corporate",
+              description:
+                "The Corporate Registration type is for registrants whose company is paying for their attendance. This includes for-profit companies. You will help keep the conference affordable for everyone, especially students and those needing financial aid.",
+            },
 
-<div className='flex justify-center my-14'>
-         <button className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2">
-                Get Tickets
-                <span className="text-xl">➔</span>
-              </button>
-              </div>
+            {
+              title: "Individuals",
+              description:
+                "The Individual Registration type is for registrants who are currently not working for a company, work for a non-profit or research institution or are attending at their own expense. You will receive confirmation within five business days of registering if your individual registration is approved or needs additional information.",
+            },
+            {
+              title: "Academics",
+              description:
+                "Academics registrations are for current full-time students and faculty members. Full-time faculty and students will need to upload a valid copy of their Faculty or Student ID when registering. If you have any questions, please email graphql_events@linuxfoundation.org",
+            },
+            {
+              title: "Speakers",
+              description:
+                "You should have received a registration link in your acceptance email. If you did not, please contact cfp@linuxfoundation.org for more details.",
+            },
+            {
+              title: "Sponsors",
+              description:
+                "A registration link was shared in an email to your company’s sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email events@linuxfoundation.org.",
+            },
+          ]}
+        />
+
+        <div className="flex justify-center my-14">
+          <button className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2">
+            Get Tickets
+            <span className="text-xl">➔</span>
+          </button>
+        </div>
       </div>
     </div>
   )

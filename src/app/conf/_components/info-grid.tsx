@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
 type InfoGridProps = {
-  title: string;
-  subtitle: string;
-  listItems: { title: string; description: string }[];
-};
+  title: string
+  subtitle: string
+  listItems: { title: string; description: string }[]
+}
 
 const InfoGrid: React.FC<InfoGridProps> = ({ title, subtitle, listItems }) => (
   <>
@@ -12,9 +12,12 @@ const InfoGrid: React.FC<InfoGridProps> = ({ title, subtitle, listItems }) => (
     <p className="text-white text-lg font-normal mb-8">{subtitle}</p>
 
     {/* Horizontal Scrollable Grid */}
-    <div style={{
-          scrollSnapType: "x mandatory"
-    }} className="flex gap-6 overflow-x-auto scroll-snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-visible">
+    <div
+      style={{
+        scrollSnapType: "x mandatory",
+      }}
+      className="flex gap-6 overflow-x-auto scroll-snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-visible"
+    >
       {listItems.map(({ title, description }, index) => (
         <div
           key={index}
@@ -26,6 +29,6 @@ const InfoGrid: React.FC<InfoGridProps> = ({ title, subtitle, listItems }) => (
       ))}
     </div>
   </>
-);
+)
 
-export default InfoGrid;
+export default InfoGrid

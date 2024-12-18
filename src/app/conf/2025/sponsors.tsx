@@ -10,7 +10,7 @@ import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
 import { Rubik } from "next/font/google"
-import InfoGrid from '../_components/info-grid'
+import InfoGrid from "../_components/info-grid"
 
 const rubik = Rubik({
   weight: ["700", "600", "500", "400", "300"],
@@ -166,34 +166,43 @@ export function Sponsors() {
         )}
       </div>
       <div className="container py-24">
+        <InfoGrid
+          title="Why Sponsor?"
+          subtitle="Connect with the global GraphQL community and showcase your brand to industry leaders and decision-makers."
+          listItems={[
+            {
+              title: "Brand Visibility",
+              description:
+                "Showcase your brand to thousands of GraphQL enthusiasts and decision-makers.",
+            },
 
-              <InfoGrid title='Why Sponsor?' subtitle='Connect with the global GraphQL community and showcase your brand to industry leaders and decision-makers.'
-              listItems={[{
-                title: "Brand Visibility",
-                description: "Showcase your brand to thousands of GraphQL enthusiasts and decision-makers."
-              }, 
-              
-              {
-                title: "Lead Generation",
-                description: "Connect with potential customers and partners in the GraphQL ecosystem."
-              },
-              {
-                title: "Thought Leadership",
-                description: "Position your company as a leader in the GraphQL space."
-              },
-              {
-                title: "Talent Acquisition",
-                description: "Meet and recruit top GraphQL developers and engineers."
-              },
-              {
-                title: "Product Feedback",
-                description: "Gather valuable feedback from the GraphQL community."
-              },
-              {
-                title: "Community Impact",
-                description: "Support and shape the future of GraphQL technology."
-              },
-              ]} />
+            {
+              title: "Lead Generation",
+              description:
+                "Connect with potential customers and partners in the GraphQL ecosystem.",
+            },
+            {
+              title: "Thought Leadership",
+              description:
+                "Position your company as a leader in the GraphQL space.",
+            },
+            {
+              title: "Talent Acquisition",
+              description:
+                "Meet and recruit top GraphQL developers and engineers.",
+            },
+            {
+              title: "Product Feedback",
+              description:
+                "Gather valuable feedback from the GraphQL community.",
+            },
+            {
+              title: "Community Impact",
+              description:
+                "Support and shape the future of GraphQL technology.",
+            },
+          ]}
+        />
       </div>
     </div>
   )

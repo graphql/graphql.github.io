@@ -1,14 +1,14 @@
-import React from "react";
+import React from "react"
 
 type GridButtonProps = {
-  title: string;
-  href: string;
+  title: string
+  href: string
   disabled?: boolean
-};
+}
 
 const GridButton: React.FC<GridButtonProps> = ({ title, href, disabled }) => {
   return (
-      <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
       <div
         className="grid gap-0 md:scale-100 scale-75"
         style={{
@@ -29,21 +29,22 @@ const GridButton: React.FC<GridButtonProps> = ({ title, href, disabled }) => {
             }}
           ></div>
         ))}
-        <a href={disabled ? undefined : href} className="relative z-0 col-span-8 row-span-2 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2"
+        <a
+          href={disabled ? undefined : href}
+          className="relative z-0 col-span-8 row-span-2 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2"
           style={{
             gridColumn: "6 / span 8",
             gridRow: "3 / span 2",
-          }}>
-          <button
-            className="text-white text-3xl font-semibold flex items-center justify-center gap-2"
-          >
-           {title}
+          }}
+        >
+          <button className="text-white text-3xl font-semibold flex items-center justify-center gap-2">
+            {title}
             <span className="text-xl">➔</span>
           </button>
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default GridButton;
+export default GridButton
