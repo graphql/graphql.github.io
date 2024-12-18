@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { HostedByGraphQLFoundation } from "@/icons";
+import { HostedByGraphQLFoundation } from "@/icons"
 import { Sponsors } from "./sponsors"
 import { Rubik } from "next/font/google"
 import GridButton from "../_components/grid-button"

@@ -12,16 +12,15 @@ Getting started with GraphQL Protect is as simple as pulling the provided contai
 GraphQL Protect offers the following protection mechanism, and more:
 
 1. [x] **Trusted Documents** (Persisted Operations)
-4. [x] **Max Aliases**
-5. [x] **Max Tokens**
-6. [x] **Max Depth**
-7. [x] **Max Batch**
-2. [x] **Block Field Suggestions**
-3. [x] **Obfuscate upstream errors**
+2. [x] **Max Aliases**
+3. [x] **Max Tokens**
+4. [x] **Max Depth**
+5. [x] **Max Batch**
+6. [x] **Block Field Suggestions**
+7. [x] **Obfuscate upstream errors**
 8. [x] **Enforce POST**
 9. [x] **Access Logging**
 10. [x] [... and more!](https://github.com/ldebruijn/graphql-protect?tab=readme-ov-file#features)
-
 
 Protecting your GraphQL API against abuse has never been easier, start protecting your API today.
 
