@@ -16,16 +16,13 @@ const GridButton: React.FC<GridButtonProps> = ({
   return (
     <div
       id={id}
-      className="relative w-full h-[500px] flex items-center justify-center overflow-hidden"
+      className="relative w-full flex items-center justify-center overflow-hidden"
     >
       <div
-        className="grid gap-0 md:scale-100 scale-75"
+        className="grid"
         style={{
           gridTemplateColumns: "repeat(18, 60px)",
           gridTemplateRows: "repeat(6, 60px)",
-          width: "1080px",
-          height: "360px",
-          boxSizing: "border-box",
         }}
       >
         {Array.from({ length: 18 * 5 + 2 }).map((_, index) => (

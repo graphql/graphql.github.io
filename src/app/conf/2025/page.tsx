@@ -232,20 +232,15 @@ export default function Page() {
         ></div>
       </div>
 
-      <div className="container flex gap-20 flex-col pt-24">
-        <div className="flex gap-12 lg:gap-24 max-md:flex-col">
-          <div className="flex flex-col gap-5 text-white flex-1">
-            <h2 className="text-3xl lg:text-[45px]/[4rem] font-normal">
-              Celebrating 10 Years of GraphQL. Three transformative days of
-              expert insights and innovation to shape the next decade of APIs
-              together!
-            </h2>
-            <GridButton
-              title="Get Tickets"
-              href="https://cvent.me/PBNYEe?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=cta"
-            />
-          </div>
-        </div>
+      <div className="container text-white flex flex-col mt-14 gap-14 md:mt-20 md:gap-20">
+        <h2 className="text-3xl lg:text-5xl font-normal">
+          Celebrating 10 Years of GraphQL. Three transformative days of expert
+          insights and innovation to shape the next decade of APIs together!
+        </h2>
+        <GridButton
+          title="Get Tickets"
+          href="https://cvent.me/PBNYEe?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=cta"
+        />
       </div>
 
       <Sponsors />
