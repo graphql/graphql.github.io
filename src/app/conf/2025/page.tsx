@@ -11,6 +11,8 @@ import {
   ExternalLink,
   ArrowRight,
 } from "lucide-react"
+import styles from "./index.module.css"
+import clsx from "clsx"
 
 const rubik = Rubik({
   weight: ["700", "600", "500", "400", "300"],
@@ -158,7 +160,7 @@ const FAQS = [
 
 function FAQSection() {
   return (
-    <div id="faq" className="text-white py-16 px-4 md:px-8">
+    <div id="faq" className={clsx("text-white py-16 px-4 md:px-8", styles.faq)}>
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

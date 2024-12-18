@@ -1,0 +1,6 @@
+.faq {
+  /* Safari specific style - we are using icon for consistency */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+}
