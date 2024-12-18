@@ -7,12 +7,12 @@ import NextLink from "next/link"
 
 export const metadata = {
   description:
-    "The official GraphQL conference hosted by the GraphQL Foundation.",
+    "Join the official GraphQL Conference by the GraphQL Foundation in Amsterdam, Netherlands, from September 8-10, 2025. Discover the future of GraphQL with leading experts, workshops, and networking opportunities.",
   openGraph: {
     images: [
       {
         url: "/img/og-graphql-conf-2025.jpeg",
-        alt: "GraphQLConf 2025 hosted by the GraphQL Foundation. September 10-12, 2025. San Francisco Bay Area, California",
+        alt: "GraphQLConf 2025 hosted by the GraphQL Foundation. September 08-10, 2025. Amsterdam, Netherlands",
       },
     ],
   },
