@@ -163,16 +163,16 @@ function FAQSection() {
     <div id="faq" className={clsx("text-white py-16 px-4 md:px-8", styles.faq)}>
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="select-none text-4xl md:text-5xl font-bold mb-4">
             Frequently
             <br />
             Asked Questions
           </h2>
-          <p className="text-sm">
+          <p className="text-sm select-none">
             PLEASE CONTACT{" "}
             <a
               href="mailto:graphqlconf@graphql.org"
-              className="text-primary hover:underline uppercase"
+              className="text-primary hover:underline uppercase select-text"
             >
               graphqlconf@graphql.org
             </a>
@@ -187,7 +187,7 @@ function FAQSection() {
             >
               <summary className="py-6 flex items-center justify-start gap-2 text-left cursor-pointer list-none focus:outline-none">
                 <ArrowRight className="shrink-0 size-5 transition-transform duration-200 group-hover:translate-x-1 group-open:rotate-90" />
-                <span className="text-lg">{faq.question}</span>
+                <span className="text-lg select-none">{faq.question}</span>
               </summary>
               <p
                 className="pb-6 ml-7 -mt-4 text-gray-300 whitespace-pre-wrap [&>a]:underline"
