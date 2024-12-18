@@ -1262,5 +1262,13 @@
     "license": "Apache License 2.0",
     "lastRelease": "2024-03-08T09:27:40Z",
     "formattedLastRelease": "2 weeks ago"
+  },
+  "ldebruijn/graphql-protect": {
+    "hasCommitsInLast3Months": true,
+    "stars": 24,
+    "formattedStars": "24",
+    "license": "MIT",
+    "lastRelease": "2024-08-28T11:28:00Z",
+    "formattedLastRelease": "2 weeks ago"
   }
 }
