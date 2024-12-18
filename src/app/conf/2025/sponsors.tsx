@@ -101,7 +101,7 @@ export function Sponsors() {
         <h1 className={classes.title}>Thanks to our 2024 sponsors!</h1>
         {sponsorDiamond.length && (
           <>
-            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
+            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
               <div className="size-2.5 bg-[#E10098]"></div>
               <h3 className="text-white font-medium">DIAMOND</h3>
             </div>
@@ -114,7 +114,7 @@ export function Sponsors() {
         )}
         {sponsorPlatinum.length && (
           <>
-            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
+            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
               <div className="size-2.5 bg-[#E10098]"></div>
               <h3 className="text-white font-medium">PLATINUM</h3>
             </div>
@@ -127,7 +127,7 @@ export function Sponsors() {
         )}
         {sponsorGold.length && (
           <>
-            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
+            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
               <div className="size-2.5 bg-[#E10098]"></div>
               <h3 className="text-white font-medium">GOLD</h3>
             </div>
@@ -140,7 +140,7 @@ export function Sponsors() {
         )}
         {sponsorSilver.length && (
           <>
-            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-[rgba(255,255,255,0.4)]">
+            <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
               <div className="size-2.5 bg-[#E10098]"></div>
               <h3 className="text-white font-medium">SILVER</h3>
             </div>
