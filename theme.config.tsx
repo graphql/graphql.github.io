@@ -179,11 +179,19 @@ export default {
     return (
       <>
         <title>{title}</title>
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={title} key="meta-og-title" />
         {description && (
           <>
-            <meta name="description" content={description} />
-            <meta property="og:description" content={description} />
+            <meta
+              name="description"
+              content={description}
+              key="meta-description"
+            />
+            <meta
+              property="og:description"
+              content={description}
+              key="meta-og-description"
+            />
           </>
         )}
         {canonical && <link rel="canonical" href={canonical} />}

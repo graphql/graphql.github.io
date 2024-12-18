@@ -104,7 +104,7 @@ query {
       reviews(order: { desc: rating }, first: 10) {
         about {
           name
-          reviews(order: { asc: rating, first: 5 }) {
+          reviews(order: { asc: rating }, first: 5) {
             by {
               username
             }
