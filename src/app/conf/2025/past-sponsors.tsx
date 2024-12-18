@@ -9,28 +9,46 @@ import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
 
-interface Image {
+type LogosType = {
   icon: string
   name: string
   link: string
 }
 
-const sponsorDiamond: Image[] = [
-  { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
-  { icon: IBM, name: "IBM", link: "https://www.ibm.com/products/api-connect" },
-]
-
-const sponsorPlatinum: Image[] = []
-
-const sponsorGold: Image[] = [
-  { icon: Apollo, name: "Apollo", link: "https://www.apollographql.com/" },
-  { icon: Graphweaver, name: "Graphweaver", link: "https://graphweaver.com" },
-  { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
-]
-
-const sponsorSilver: Image[] = [
-  { icon: Stellate, name: "Stellate", link: "https://stellate.co" },
-  { icon: Tyk, name: "Tyk", link: "https://tyk.io/" },
+const SPONSORS: Array<{
+  title: string
+  logos: Array<LogosType>
+}> = [
+  {
+    title: "Diamond",
+    logos: [
+      { icon: TheGuild, name: "The Guild", link: "https://the-guild.dev" },
+      {
+        icon: IBM,
+        name: "IBM",
+        link: "https://www.ibm.com/products/api-connect",
+      },
+    ],
+  },
+  {
+    title: "Gold",
+    logos: [
+      { icon: Apollo, name: "Apollo", link: "https://www.apollographql.com/" },
+      {
+        icon: Graphweaver,
+        name: "Graphweaver",
+        link: "https://graphweaver.com",
+      },
+      { icon: Hasura, name: "Hasura", link: "https://hasura.io" },
+    ],
+  },
+  {
+    title: "Silver",
+    logos: [
+      { icon: Stellate, name: "Stellate", link: "https://stellate.co" },
+      { icon: Tyk, name: "Tyk", link: "https://tyk.io/" },
+    ],
+  },
 ]
 
 function List({
@@ -39,7 +57,7 @@ function List({
   linkClassName,
 }: {
   className?: string
-  items: Image[]
+  items: Array<LogosType>
   linkClassName?: string
 }) {
   return (
@@ -80,58 +98,20 @@ export function PastSponsors() {
   return (
     <section>
       <h1 className="conf-heading mb-12">Thanks to our 2024 sponsors!</h1>
-      {sponsorDiamond.length > 0 && (
+      {SPONSORS.map(({ title, logos }, i) => (
         <>
           <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
-            <div className="size-2.5 bg-[#E10098]"></div>
-            <h3 className=" font-medium">DIAMOND</h3>
+            {/* Square box */}
+            <div className="size-2.5 bg-primary" />
+            <h3 className=" font-medium uppercase">{title}</h3>
           </div>
           <List
-            items={sponsorDiamond}
+            items={logos}
             className="flex"
             linkClassName="p-8 lg:p-16 h-28 lg:h-[220px]"
           />
         </>
-      )}
-      {sponsorPlatinum.length > 0 && (
-        <>
-          <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
-            <div className="size-2.5 bg-[#E10098]"></div>
-            <h3 className=" font-medium">PLATINUM</h3>
-          </div>
-          <List
-            items={sponsorPlatinum}
-            className="flex"
-            linkClassName="p-8 lg:py-14 h-28 lg:h-[210px]"
-          />
-        </>
-      )}
-      {sponsorGold.length > 0 && (
-        <>
-          <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
-            <div className="size-2.5 bg-[#E10098]"></div>
-            <h3 className=" font-medium">GOLD</h3>
-          </div>
-          <List
-            items={sponsorGold}
-            className="flex"
-            linkClassName="p-8 lg:py-14 h-28 lg:h-[170px]"
-          />
-        </>
-      )}
-      {sponsorSilver.length > 0 && (
-        <>
-          <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
-            <div className="size-2.5 bg-[#E10098]"></div>
-            <h3 className="font-medium">SILVER</h3>
-          </div>
-          <List
-            items={sponsorSilver}
-            className="flex"
-            linkClassName="p-6 lg:p-10 h-28 lg:h-[155px]"
-          />
-        </>
-      )}
+      ))}
     </section>
   )
 }
