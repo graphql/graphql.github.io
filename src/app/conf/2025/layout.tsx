@@ -41,11 +41,11 @@ export default function Layout({
           </NextLink>
         }
         links={[
-          { children: "Sponsor", href: "/conf/2025/sponsor" },
-          { children: "Speakers", href: "/conf/2025/speakers" },
-          { children: "Register", href: "/conf/2025/register" },
-          { children: "Recap", href: "/conf/2025/recap" },
-          { children: "FAQ", href: "/conf/2025/faq" },
+          { children: "Sponsor", href: "#sponsors" },
+          { children: "Speakers", href: "#speakers" },
+          { children: "Register", href: "#register" },
+          { children: "Recap", href: "/conf/2024" },
+          { children: "FAQ", href: "#faq" },
         ]}
         is2025
       />
@@ -62,14 +62,12 @@ export default function Layout({
         }
         links={[
           [
-            { children: "Schedule", href: "/conf/2025/schedule" },
-            { children: "Speakers", href: "/conf/2025/speakers" },
-            { children: "Gallery", href: "/conf/2025/gallery" },
-            { children: "Speakers", href: "/conf/2025/speakers" },
-            { children: "GraphQLConf 2023", href: "/conf/2023" },
+            { children: "Sponsor", href: "#sponsors" },
+            { children: "Speakers", href: "#speakers" },
+            { children: "GraphQLConf 2024", href: "/conf/2024" },
           ],
           [
-            { children: "FAQ", href: "/conf/2025/faq" },
+            { children: "FAQ", href: "#faq" },
             { children: "Contact Us", href: "/conf/2025/faq/#contact" },
           ],
           [

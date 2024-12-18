@@ -83,6 +83,11 @@ export function Header({
               <NextLink
                 key={link.href}
                 {...link}
+                // if external link, open in new tab
+                {...(link.href.startsWith("https") && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                })}
                 className={clsx(
                   "px-4",
                   isDisabled

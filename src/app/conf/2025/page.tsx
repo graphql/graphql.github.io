@@ -1,53 +1,22 @@
 import { Metadata } from "next"
 import { HostedByGraphQLFoundation } from "@/icons"
 import { Sponsors } from "./sponsors"
-import { Button } from "@/app/conf/_components/button"
-import clsx from "clsx"
-import { InfiniteMovingSpeakers } from "../_components/infinite-moving-speakers"
-import { SessionList } from "../_components/schedule/session-list"
-import { filterCategories2024 } from "../_components/schedule/filter-categories"
-import NextImage from "next-image-export-optimizer"
 import { Rubik } from "next/font/google"
 import GridButton from "../_components/grid-button"
-import InfoGrid from "../_components/info-grid"
+import { InfoGrid } from "../_components/info-grid"
 
 const rubik = Rubik({
   weight: ["700", "600", "500", "400", "300"],
   subsets: ["latin"],
 })
 
-function shuffle<T extends any[]>(array: T): T {
-  let currentIndex = array.length
-  let randomIndex: number
-
-  // While there remain elements to shuffle.
-  while (currentIndex > 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex)
-    currentIndex--
-
-    // And swap it with the current element.
-    ;[array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ]
-  }
-
-  return array
-}
-
-const classes = {
-  heading: "text-[45px] text-center font-bold mb-20",
-  container: "conf-block container text-white",
-}
-
 export const metadata: Metadata = {
-  title: "GraphQLConf 2024 — Sept 10-12",
+  title: "GraphQLConf 2025 — Sept 08-10",
 }
 
 export default function Page() {
   return (
-    <div
+    <main
       style={{
         fontFamily: rubik.style.fontFamily,
       }}
@@ -84,11 +53,9 @@ export default function Page() {
               expert insights and innovation to shape the next decade of APIs
               together!
             </h2>
-
             <GridButton
               title="Get Tickets"
-              href="/conf/2025/tickets"
-              disabled
+              href="https://cvent.me/PBNYEe?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=cta"
             />
           </div>
         </div>
@@ -97,12 +64,14 @@ export default function Page() {
       <Sponsors />
 
       <GridButton
+        id="speakers"
         title="Notify Me About Speaking"
-        href="/conf/2025/notify"
-        disabled
+        href="https://forms.gle/jRsE2u8pokLX93RGA"
       />
+
       <div className="container py-24">
         <InfoGrid
+          id="register"
           title="Register"
           subtitle="Join a diverse community of GraphQL developers, architects, and enthusiasts while experiencing premium content and networking opportunities in a vendor-neutral environment."
           listItems={[
@@ -111,7 +80,6 @@ export default function Page() {
               description:
                 "The Corporate Registration type is for registrants whose company is paying for their attendance. This includes for-profit companies. You will help keep the conference affordable for everyone, especially students and those needing financial aid.",
             },
-
             {
               title: "Individuals",
               description:
@@ -136,12 +104,16 @@ export default function Page() {
         />
 
         <div className="flex justify-center my-14">
-          <button className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2">
+          <a
+            href="https://cvent.me/PBNYEe?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=register_section"
+            target="_blank"
+            rel="noreferrer"
+            className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2"
+          >
             Get Tickets
-            <span className="text-xl">➔</span>
-          </button>
+          </a>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

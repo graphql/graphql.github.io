@@ -10,7 +10,7 @@ import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
 import { Rubik } from "next/font/google"
-import InfoGrid from "../_components/info-grid"
+import { InfoGrid } from "../_components/info-grid"
 
 const rubik = Rubik({
   weight: ["700", "600", "500", "400", "300"],
@@ -104,7 +104,6 @@ const classes = {
 export function Sponsors() {
   return (
     <div
-      id="sponsors"
       className="bg-conf-black"
       style={{
         fontFamily: rubik.style.fontFamily,
@@ -165,7 +164,7 @@ export function Sponsors() {
           </>
         )}
       </div>
-      <div className="container py-24">
+      <div className="container py-24" id="sponsors">
         <InfoGrid
           title="Why Sponsor?"
           subtitle="Connect with the global GraphQL community and showcase your brand to industry leaders and decision-makers."
@@ -203,6 +202,17 @@ export function Sponsors() {
             },
           ]}
         />
+
+        <div className="flex justify-center my-14">
+          <a
+            href="https://events.linuxfoundation.org/wp-content/uploads/2024/12/sponsor_GraphQLConf_2025.pdf?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=sponsor_section"
+            target="_blank"
+            rel="noreferrer"
+            className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2"
+          >
+            Download Prospectus
+          </a>
+        </div>
       </div>
     </div>
   )

@@ -81,7 +81,7 @@ export default {
   conf: {
     type: "page",
     title: "GraphQLConf",
-    route: "/conf/2024",
+    route: "/conf/2025",
   },
   "graphql-js": {
     type: "page",

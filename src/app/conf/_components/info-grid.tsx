@@ -3,11 +3,17 @@ import React from "react"
 type InfoGridProps = {
   title: string
   subtitle: string
+  id?: string
   listItems: { title: string; description: string }[]
 }
 
-const InfoGrid: React.FC<InfoGridProps> = ({ title, subtitle, listItems }) => (
-  <>
+export const InfoGrid: React.FC<InfoGridProps> = ({
+  title,
+  subtitle,
+  listItems,
+  id,
+}) => (
+  <section id={id}>
     <h1 className="text-white text-5xl font-bold mb-4">{title}</h1>
     <p className="text-white text-lg font-normal mb-8">{subtitle}</p>
 
@@ -28,7 +34,5 @@ const InfoGrid: React.FC<InfoGridProps> = ({ title, subtitle, listItems }) => (
         </div>
       ))}
     </div>
-  </>
+  </section>
 )
-
-export default InfoGrid
