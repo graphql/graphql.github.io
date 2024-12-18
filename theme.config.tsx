@@ -205,7 +205,7 @@ export default {
     content: (
       <>
         📣 GraphQLConf 2025 • Sept 08-10 • Amsterdam • Early bird tickets
-        available & sponsorship opportunities open •{" "}
+        available &amp; sponsorship opportunities open •{" "}
         <NextLink
           href="/conf/2025"
           className="underline after:content-['_→'] after:font-sans"
