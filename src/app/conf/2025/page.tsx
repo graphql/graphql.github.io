@@ -87,18 +87,15 @@ export default function Page() {
             },
             {
               title: "Academics",
-              description:
-                "Academics registrations are for current full-time students and faculty members. Full-time faculty and students will need to upload a valid copy of their Faculty or Student ID when registering. If you have any questions, please email graphql_events@linuxfoundation.org",
+              description: `Academics registrations are for current full-time students and faculty members. Full-time faculty and students will need to upload a valid copy of their Faculty or Student ID when registering. If you have any questions, please email <a href="mailto:graphql_events@linuxfoundation.org">graphql_events@linuxfoundation.org</a>`,
             },
             {
               title: "Speakers",
-              description:
-                "You should have received a registration link in your acceptance email. If you did not, please contact cfp@linuxfoundation.org for more details.",
+              description: `You should have received a registration link in your acceptance email. If you did not, please contact <a href="mailto:cfp@linuxfoundation.org">cfp@linuxfoundation.org</a> for more details.`,
             },
             {
               title: "Sponsors",
-              description:
-                "A registration link was shared in an email to your company’s sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email events@linuxfoundation.org.",
+              description: `A registration link was shared in an email to your company's sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email <a href="mailto:events@linuxfoundation.org.">events@linuxfoundation.org.</a>`,
             },
           ]}
         />
@@ -108,7 +105,7 @@ export default function Page() {
             href="https://cvent.me/PBNYEe?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=register_section"
             target="_blank"
             rel="noreferrer"
-            className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-[#E10098] hover:bg-[#ef00a3] flex items-center justify-center gap-2"
+            className="relative z-0 px-28 py-4 text-white text-3xl font-semibold bg-primary hover:bg-primary flex items-center justify-center gap-2"
           >
             Get Tickets
           </a>
