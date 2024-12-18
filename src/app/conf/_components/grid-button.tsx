@@ -1,18 +1,14 @@
 import React from "react"
 
-type GridButtonProps = {
-  title: string
-  href: string
-  disabled?: boolean
-  id?: string
-}
-
-const GridButton: React.FC<GridButtonProps> = ({
+export function GridButton({
   title,
   href,
-  disabled,
   id,
-}) => {
+}: {
+  title: string
+  href: string
+  id?: string
+}) {
   return (
     <div
       id={id}
@@ -36,7 +32,7 @@ const GridButton: React.FC<GridButtonProps> = ({
           ></div>
         ))}
         <a
-          href={disabled ? undefined : href}
+          href={href}
           target="_blank"
           rel="noreferrer"
           className="px-20 flex items-center justify-center md:px-28 py-4 text-center text-white text-3xl font-semibold bg-primary/85 hover:bg-primary/100 transition-colors"
@@ -52,4 +48,3 @@ const GridButton: React.FC<GridButtonProps> = ({
   )
 }
 
-export default GridButton
