@@ -158,7 +158,7 @@ const FAQS = [
 
 function FAQSection() {
   return (
-    <div className="text-white py-16 px-4 md:px-8">
+    <div id="faq" className="text-white py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -177,7 +177,7 @@ function FAQSection() {
           </p>
         </div>
 
-        <div className="">
+        <div>
           {FAQS.map((faq, index) => (
             <details
               key={index}
