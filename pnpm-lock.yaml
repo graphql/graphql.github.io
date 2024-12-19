@@ -84,7 +84,7 @@ importers:
         version: 1.12.3(next@14.2.21)(react@18.3.1)
       next-query-params:
         specifier: ^5.0.0
-        version: 5.0.0(next@14.2.21)(react@18.3.1)(use-query-params@2.2.1)
+        version: 5.0.1(next@14.2.21)(react@18.3.1)(use-query-params@2.2.1)
       next-sitemap:
         specifier: ^4.2.3
         version: 4.2.3(next@14.2.21)
@@ -7047,8 +7047,8 @@ packages:
       typescript: 5.4.3
     dev: false
 
-  /next-query-params@5.0.0(next@14.2.21)(react@18.3.1)(use-query-params@2.2.1):
-    resolution: {integrity: sha512-Zm9nc0QgrTMaQwGdbICcTDaYS4oRcXo628Ye6JQGdp/9JzlhzDpzcGRqciK0S62yAyE3b5ozFpgzY0gDUEbLtw==}
+  /next-query-params@5.0.1(next@14.2.21)(react@18.3.1)(use-query-params@2.2.1):
+    resolution: {integrity: sha512-QFumNTpdc/MtT1IresYoMKkRWOaplutzKJoRl6Uv9mIOdc3jGyWD7yCHE79AiGYlRCyo+4oMVvkLYpdV2trFKA==}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -7056,7 +7056,7 @@ packages:
     dependencies:
       next: 14.2.21(@babel/core@7.24.3)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
-      tslib: 2.6.2
+      tslib: 2.8.1
       use-query-params: 2.2.1(react-dom@18.3.1)(react@18.3.1)
     dev: false
 
@@ -8589,6 +8589,7 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+    dev: true
 
   /tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
