@@ -62,7 +62,7 @@
     "use-query-params": "^2.2.1"
   },
   "devDependencies": {
-    "@graphql-eslint/eslint-plugin": "4.0.0-alpha.0",
+    "@graphql-eslint/eslint-plugin": "4.3.0",
     "@svgr/webpack": "^8.0.1",
     "@types/codemirror": "5.60.7",
     "@types/hast": "3.0.4",
