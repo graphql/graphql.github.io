@@ -22,13 +22,7 @@ function Hero() {
     <section className="conf-hero-2025 relative">
       <div className="h-full py-16 md:py-28 flex flex-col justify-center">
         <div className="flex items-center justify-center flex-col">
-          <h1
-            style={{
-              fontSize: "min(calc(10px + 80vw / 12), 150px)",
-              fontWeight: "bold",
-              fontFamily: rubik.style.fontFamily,
-            }}
-          >
+          <h1 className="font-bold text-5xl md:text-7xl text-center">
             GraphQLConf <span className="font-light">2025</span>
           </h1>
           <HostedByGraphQLFoundation className="w-full shrink-0 h-8 lg:h-10 mb-6 self-start" />
