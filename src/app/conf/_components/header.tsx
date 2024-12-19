@@ -34,7 +34,7 @@ export function Header({
   }, [pathname])
 
   return (
-    <header className="border-b border-[#565060] sticky top-0 bg-conf-black z-10">
+    <header className="sticky top-0 z-10 border-b border-[#565060] bg-conf-black">
       <div
         className={`container flex items-center ${is2025 ? "justify-between" : ""} h-[70px] gap-5`}
       >
@@ -58,27 +58,27 @@ export function Header({
         {mobileDrawerOpen && (
           <div
             onClick={handleDrawerClick}
-            className="bg-black/70 fixed inset-0 z-10"
+            className="fixed inset-0 z-10 bg-black/70"
           />
         )}
 
         <nav
           className={clsx(
-            "gap-7 items-end",
-            "max-lg:py-6 max-lg:px-4 inset-y-0 right-0 z-20 max-lg:fixed max-lg:min-w-[50%]",
+            "items-end gap-7",
+            "inset-y-0 right-0 z-20 max-lg:fixed max-lg:min-w-[50%] max-lg:px-4 max-lg:py-6",
             mobileDrawerOpen ? "translate-x-0" : "max-lg:translate-x-full",
-            "bg-conf-black flex max-lg:flex-col",
+            "flex bg-conf-black max-lg:flex-col",
           )}
         >
           {mobileDrawerOpen && (
             <button className="size-6">
               <CrossIcon
                 onClick={handleDrawerClick}
-                className="lg:hidden text-white"
+                className="text-white lg:hidden"
               />
             </button>
           )}
-          <div className="lg:block lg:gap-0 lg:mt-0 flex flex-col gap-5 text-gray-400 font-semibold w-full">
+          <div className="flex w-full flex-col gap-5 font-semibold text-gray-400 lg:mt-0 lg:block lg:gap-0">
             {links.map(({ "aria-disabled": isDisabled, children, ...link }) => (
               <NextLink
                 key={link.href}
@@ -92,7 +92,7 @@ export function Header({
                   "px-4",
                   isDisabled
                     ? "pointer-events-none"
-                    : "hover:text-primary focus:text-white transition-colors",
+                    : "transition-colors hover:text-primary focus:text-white",
                   pathname === link.href && "text-white", // underline decoration-from-font underline-offset-4
                 )}
               >
@@ -108,7 +108,7 @@ export function Header({
         </nav>
 
         <button
-          className="lg:hidden text-white size-6 ml-auto"
+          className="ml-auto size-6 text-white lg:hidden"
           onClick={handleDrawerClick}
         >
           <HamburgerIcon />

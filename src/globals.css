@@ -36,7 +36,7 @@
 }
 
 .with-arrow:after {
-  @apply content-['_→'] font-sans text-xl;
+  @apply font-sans text-xl content-['_→'];
   @apply transition-all duration-75 hover:ml-1;
 }
 
@@ -124,15 +124,15 @@ div[id^="headlessui-menu-items"] {
 /*}*/
 
 .miniGraphiQL {
-  @apply !shadow-none border-2 dark:border-neutral-900 dark:!bg-neutral-900/10 !rounded-md dark:brightness-200;
+  @apply !rounded-md border-2 !shadow-none dark:border-neutral-900 dark:!bg-neutral-900/10 dark:brightness-200;
 }
 
 .result-window {
-  @apply !shadow-none border-l-2 dark:border-neutral-900 !rounded-none;
+  @apply !rounded-none border-l-2 !shadow-none dark:border-neutral-900;
 }
 
 .variable-editor {
-  @apply before:!bg-transparent border-t-2 dark:border-neutral-900;
+  @apply border-t-2 before:!bg-transparent dark:border-neutral-900;
 }
 
 .CodeMirror-selected {
@@ -186,14 +186,14 @@ div[id^="headlessui-menu-items"] {
   @apply flex flex-wrap;
 
   li {
-    @apply flex gap-3 grow md:basis-1/3;
+    @apply flex grow gap-3 md:basis-1/3;
 
     div {
       @apply grow;
     }
 
     img {
-      @apply bg-gray-200 p-4 h-20;
+      @apply h-20 bg-gray-200 p-4;
     }
   }
 }
@@ -219,10 +219,10 @@ div[id^="headlessui-menu-items"] {
   }
 
   & > ul:first-child li {
-    @apply list-none relative;
+    @apply relative list-none;
 
     &:before {
-      @apply size-4 absolute content-[''] top-1 -left-6;
+      @apply absolute -left-6 top-1 size-4 content-[''];
     }
   }
 }
@@ -269,7 +269,7 @@ div[id^="headlessui-menu-items"] {
 }
 
 .conf-heading {
-  @apply text-3xl lg:text-[50px]/[4rem] font-bold text-balance;
+  @apply text-balance text-3xl font-bold lg:text-[50px]/[4rem];
 }
 
 .conf-block {
@@ -277,17 +277,17 @@ div[id^="headlessui-menu-items"] {
 }
 
 .tag {
-  @apply hover:text-white hover:border-transparent hover:bg-primary;
-  @apply text-sm border border-current rounded px-2.5 py-1 font-bold transition-colors;
+  @apply hover:border-transparent hover:bg-primary hover:text-white;
+  @apply rounded border border-current px-2.5 py-1 text-sm font-bold transition-colors;
 }
 
 .index {
   p {
-    @apply text-lg lg:text-xl/9 mb-5 max-w-2xl;
+    @apply mb-5 max-w-2xl text-lg lg:text-xl/9;
   }
 
   h2 {
-    @apply text-3xl lg:text-5xl font-bold mb-10 text-balance;
+    @apply mb-10 text-balance text-3xl font-bold lg:text-5xl;
   }
 
   pre {
@@ -301,7 +301,7 @@ div[id^="headlessui-menu-items"] {
 }
 
 .add {
-  @apply !bg-green-200 dark:!bg-green-200/50 text-green-300;
+  @apply !bg-green-200 text-green-300 dark:!bg-green-200/50;
 
   &::before {
     @apply absolute start-1.5 content-['+'];
@@ -309,7 +309,7 @@ div[id^="headlessui-menu-items"] {
 }
 
 .remove {
-  @apply !bg-red-200 dark:!bg-red-200/50 text-red-300;
+  @apply !bg-red-200 text-red-300 dark:!bg-red-200/50;
 
   &::before {
     @apply absolute start-1.5 content-['-'];
@@ -349,11 +349,11 @@ div[id^="headlessui-menu-items"] {
 }
 
 .index-button {
-  @apply border border-current rounded-md transition-colors py-2.5 px-6;
+  @apply rounded-md border border-current px-6 py-2.5 transition-colors;
 
   &:hover,
   &:focus {
-    @apply bg-primary border-transparent text-white;
+    @apply border-transparent bg-primary text-white;
   }
 }
 
@@ -413,13 +413,13 @@ div[id^="headlessui-menu-items"] {
   @apply w-full overflow-hidden;
 
   #typeEvolveView {
-    @apply select-none h-full relative left-0 flex;
+    @apply relative left-0 flex h-full select-none;
 
     .v1,
     .v2,
     .v3,
     .v4 {
-      @apply border-r dark:border-neutral-800 w-1/2 shrink-0;
+      @apply w-1/2 shrink-0 border-r dark:border-neutral-800;
     }
 
     .v5 {

@@ -17,7 +17,7 @@ export default {
         return (
           <>
             <h1 className="text-balance">{title}</h1>
-            <div className="text-gray-500 text-center">
+            <div className="text-center text-gray-500">
               <time dateTime={date.toISOString()}>
                 {date.toLocaleDateString("en", {
                   month: "long",
@@ -27,12 +27,12 @@ export default {
               </time>{" "}
               by {byline}
             </div>
-            <div className="mt-6 gap-2 flex justify-center roboto-mono">
+            <div className="roboto-mono mt-6 flex justify-center gap-2">
               {tags.map((tag: string) => (
                 <NextLink
                   key={tag}
                   href={`/tags/${tag}`}
-                  className="transition-colors py-1 px-2.5 capitalize rounded bg-zinc-200 dark:bg-zinc-700 font-bold hover:!no-underline hover:!bg-primary hover:text-white dark:hover:text-zinc-900"
+                  className="rounded bg-zinc-200 px-2.5 py-1 font-bold capitalize transition-colors hover:!bg-primary hover:text-white hover:!no-underline dark:bg-zinc-700 dark:hover:text-zinc-900"
                 >
                   {tag.replaceAll("-", " ")}
                 </NextLink>

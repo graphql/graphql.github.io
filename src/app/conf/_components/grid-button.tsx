@@ -12,7 +12,7 @@ export function GridButton({
   return (
     <div
       id={id}
-      className="relative w-full flex items-center justify-center overflow-hidden"
+      className="relative flex w-full items-center justify-center overflow-hidden"
     >
       <div
         className="grid"
@@ -35,7 +35,7 @@ export function GridButton({
           href={href}
           target="_blank"
           rel="noreferrer"
-          className="px-20 flex items-center justify-center md:px-28 py-4 text-center text-white text-3xl font-semibold bg-primary/85 hover:bg-primary/100 transition-colors"
+          className="flex items-center justify-center bg-primary/85 px-20 py-4 text-center text-3xl font-semibold text-white transition-colors hover:bg-primary/100 md:px-28"
           style={{
             gridColumn: "6 / span 8",
             gridRow: "3 / span 2",

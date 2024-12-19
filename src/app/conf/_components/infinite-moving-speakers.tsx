@@ -31,7 +31,7 @@ export function InfiniteMovingSpeakers({
     >
       <ul
         className={clsx(
-          "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
           "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}

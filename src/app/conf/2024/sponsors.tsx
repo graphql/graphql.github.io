@@ -56,17 +56,17 @@ function List({
   linkClassName?: string
 }) {
   return (
-    <div className={clsx("grid gap-7 w-full flex-1", className)}>
+    <div className={clsx("grid w-full flex-1 gap-7", className)}>
       {items.map(({ link, icon, name }, i) => (
         <a
           key={i}
           className={clsx(
-            "relative shrink-0 bg-[#251f30] rounded-md",
+            "relative shrink-0 rounded-md bg-[#251f30]",
             "flex justify-center",
             "items-center", // fix vertical align in Safari/iOS
             "border border-solid border-transparent hover:border-primary focus:border-primary",
             "transition-colors",
-            "hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
+            "shadow-md outline-none hover:shadow-primary/20 focus:shadow-primary/20",
             linkClassName,
           )}
           href={link}
@@ -77,9 +77,9 @@ function List({
           <NextImage
             alt={`${name} logo`}
             src={icon}
-            className="lg:w-auto lg:max-w-60 max-h-full"
+            className="max-h-full lg:w-auto lg:max-w-60"
           />
-          <span className="font-sans absolute right-5 top-5 leading-none text-white lg:text-2xl">
+          <span className="absolute right-5 top-5 font-sans leading-none text-white lg:text-2xl">
             ↗
           </span>
         </a>
@@ -97,7 +97,7 @@ const classes = {
 export function Sponsors() {
   return (
     <div id="sponsors" className="bg-conf-black">
-      <div className="container conf-block">
+      <div className="conf-block container">
         <h1 className={classes.title}>Thanks to our 2024 sponsors!</h1>
         {sponsorDiamond.length && (
           <>

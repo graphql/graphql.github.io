@@ -78,6 +78,7 @@
     "eslint-plugin-tailwindcss": "3.17.5",
     "prettier": "3.4.2",
     "prettier-plugin-pkg": "^0.18.1",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "remark-frontmatter": "5.0.0",
     "remark-lint-first-heading-level": "3.1.2",
     "remark-lint-heading-increment": "3.1.2",

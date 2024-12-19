@@ -15,11 +15,11 @@ export function Card({
   return (
     <Component
       className={clsx(
-        "border border-zinc-200 dark:border-[#414141] p-8 lg:p-12 bg-white dark:bg-neutral-800",
+        "border border-zinc-200 bg-white p-8 dark:border-[#414141] dark:bg-neutral-800 lg:p-12",
         "rounded-none",
         isLink && [
-          "hover:!border-primary hover:dark:bg-neutral-700/50 hover:shadow-2xl hover:shadow-primary/10",
-          "dark:shadow-none transition-colors",
+          "hover:!border-primary hover:shadow-2xl hover:shadow-primary/10 hover:dark:bg-neutral-700/50",
+          "transition-colors dark:shadow-none",
         ],
         className,
       )}

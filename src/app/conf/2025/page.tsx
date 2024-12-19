@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 function Hero() {
   return (
     <section className="conf-hero-2025 relative">
-      <div className="h-full py-16 md:py-28 flex flex-col justify-center">
-        <div className="flex items-center justify-center flex-col">
+      <div className="flex h-full flex-col justify-center py-16 md:py-28">
+        <div className="flex flex-col items-center justify-center">
           <h1
             style={{
               fontSize: "min(calc(10px + 80vw / 12), 150px)",
@@ -31,14 +31,14 @@ function Hero() {
           >
             GraphQLConf <span className="font-light">2025</span>
           </h1>
-          <HostedByGraphQLFoundation className="w-full shrink-0 h-8 lg:h-10 mb-6 self-start" />
-          <span className={`${rubik.className} font-medium text-xl`}>
+          <HostedByGraphQLFoundation className="mb-6 h-8 w-full shrink-0 self-start lg:h-10" />
+          <span className={`${rubik.className} text-xl font-medium`}>
             September 08 - 10, 2025 | Amsterdam, Netherlands
           </span>
         </div>
       </div>
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-px bg-white/10"
+        className="absolute bottom-0 left-1/2 h-px w-[90%] -translate-x-1/2 bg-white/10"
         aria-hidden="true"
       />
     </section>
@@ -48,7 +48,7 @@ function Hero() {
 function Intro() {
   return (
     <section className="flex flex-col gap-20 md:gap-32">
-      <h2 className="text-3xl lg:text-5xl font-normal">
+      <h2 className="text-3xl font-normal lg:text-5xl">
         Celebrating 10 Years of GraphQL. Three transformative days of expert
         insights and innovation to shape the next decade of APIs together!
       </h2>
@@ -70,7 +70,7 @@ export default function Page() {
       className="text-white"
     >
       <Hero />
-      <div className="container flex flex-col gap-20 md:gap-32 my-20 md:my-32">
+      <div className="container my-20 flex flex-col gap-20 md:my-32 md:gap-32">
         <Intro />
         <PastSponsors />
         <Sponsor />

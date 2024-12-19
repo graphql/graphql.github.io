@@ -19,8 +19,8 @@ export function Button({
   return disabled ? (
     <span
       className={clsx(
-        "cursor-default transition ease-in-out no-underline inline-flex text-center w-fit border-0 py-2 px-6 rounded text-sm sm:text-base whitespace-nowrap",
-        "bg-gray-400 text-white font-medium",
+        "inline-flex w-fit cursor-default whitespace-nowrap rounded border-0 px-6 py-2 text-center text-sm no-underline transition ease-in-out sm:text-base",
+        "bg-gray-400 font-medium text-white",
         className,
       )}
     >
@@ -30,8 +30,8 @@ export function Button({
     <a
       aria-disabled={disabled}
       className={clsx(
-        "cursor-pointer transition ease-in-out no-underline inline-flex text-center w-fit border-0 py-2 px-6 focus:outline-none hover:drop-shadow-md rounded text-sm sm:text-base whitespace-nowrap",
-        "bg-primary hover:bg-primary/40 text-white font-medium",
+        "inline-flex w-fit cursor-pointer whitespace-nowrap rounded border-0 px-6 py-2 text-center text-sm no-underline transition ease-in-out hover:drop-shadow-md focus:outline-none sm:text-base",
+        "bg-primary font-medium text-white hover:bg-primary/40",
         className,
       )}
       href={href}

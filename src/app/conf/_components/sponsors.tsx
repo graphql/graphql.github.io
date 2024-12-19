@@ -91,16 +91,16 @@ function List({
   linkClassName?: string
 }) {
   return (
-    <div className={clsx("grid gap-7 w-full", className)}>
+    <div className={clsx("grid w-full gap-7", className)}>
       {items.map(({ link, icon, name }, i) => (
         <a
           key={i}
           className={clsx(
-            "relative shrink-0 bg-[#251f30] rounded-md",
+            "relative shrink-0 rounded-md bg-[#251f30]",
             "flex justify-center",
             "border border-solid border-transparent hover:border-primary focus:border-primary",
             "transition-colors",
-            "hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
+            "shadow-md outline-none hover:shadow-primary/20 focus:shadow-primary/20",
             linkClassName,
           )}
           href={link}
@@ -111,9 +111,9 @@ function List({
           <NextImage
             alt={`${name} logo`}
             src={icon}
-            className="h-auto lg:max-w-60 shrink"
+            className="h-auto shrink lg:max-w-60"
           />
-          <span className="font-sans absolute right-5 top-5 leading-none text-white lg:text-2xl">
+          <span className="absolute right-5 top-5 font-sans leading-none text-white lg:text-2xl">
             ↗
           </span>
         </a>
@@ -131,7 +131,7 @@ const classes = {
 export function Sponsors() {
   return (
     <div id="sponsors" className="bg-conf-black">
-      <div className="container conf-block">
+      <div className="conf-block container">
         <h1 className={classes.title}>Sponsors</h1>
         <h3 className={classes.heading}>Diamond</h3>
         <List
@@ -160,7 +160,7 @@ export function Sponsors() {
         <h3 className={classes.heading}>Workshop Day Sponsor</h3>
         <List
           items={workshopDaySponsors}
-          className="grid-cols-2 lg:grid-cols-1 lg:w-1/2 mx-auto"
+          className="mx-auto grid-cols-2 lg:w-1/2 lg:grid-cols-1"
           linkClassName="p-8 lg:p-10 h-28 lg:h-[155px]"
         />
       </div>
@@ -169,7 +169,7 @@ export function Sponsors() {
         <h3 className={classes.heading}>Media Partners</h3>
         <List
           items={mediaPartners}
-          className="grid-cols-2 xl:w-1/2 mx-auto"
+          className="mx-auto grid-cols-2 xl:w-1/2"
           linkClassName="p-9 lg:p-12 h-28 lg:h-[155px]"
         />
         <h3 className={classes.heading}>Community Partners</h3>

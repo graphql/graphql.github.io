@@ -34,10 +34,10 @@ export default function Layout({
         logo={
           <NextLink
             href="/conf/2024"
-            className="text-white flex gap-2 items-center nextra-logo"
+            className="nextra-logo flex items-center gap-2 text-white"
           >
             <GraphQLConf className="h-6" />
-            <span className="text-xl/none select-none">2024</span>
+            <span className="select-none text-xl/none">2024</span>
           </NextLink>
         }
         links={[
@@ -50,12 +50,12 @@ export default function Layout({
       {children}
       <Footer
         logo={
-          <NextLink href="/conf/2024" className="text-white nextra-logo">
-            <div className="flex gap-2 items-center">
+          <NextLink href="/conf/2024" className="nextra-logo text-white">
+            <div className="flex items-center gap-2">
               <GraphQLConf className="h-6" />
-              <span className="text-xl/none select-none">2024</span>
+              <span className="select-none text-xl/none">2024</span>
             </div>
-            <HostedByGraphQLFoundation className="h-5 mt-2" />
+            <HostedByGraphQLFoundation className="mt-2 h-5" />
           </NextLink>
         }
         links={[

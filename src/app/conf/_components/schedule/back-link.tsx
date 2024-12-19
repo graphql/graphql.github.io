@@ -10,7 +10,7 @@ export function BackLink({
   return (
     <NextLink
       href={`/conf/${year}/${kind}`}
-      className="w-max rounded-md underline-offset-2 cursor-pointer transition-all text-sm no-underline text-[#333333]"
+      className="w-max cursor-pointer rounded-md text-sm text-[#333333] no-underline underline-offset-2 transition-all"
     >
       <span>&lt; &nbsp;Back to {capitalize(kind)}</span>
     </NextLink>

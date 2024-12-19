@@ -72,7 +72,7 @@ function List({
             "border border-solid border-transparent hover:border-primary focus:border-primary",
             "transition-colors",
             "group",
-            "group-hover:shadow-primary/20 focus:shadow-primary/20 shadow-md outline-none",
+            "shadow-md outline-none focus:shadow-primary/20 group-hover:shadow-primary/20",
             linkClassName,
           )}
           href={link}
@@ -83,9 +83,9 @@ function List({
           <NextImage
             alt={`${name} logo`}
             src={icon}
-            className="lg:w-auto lg:max-w-60 max-h-full"
+            className="max-h-full lg:w-auto lg:max-w-60"
           />
-          <span className="group-hover:block hidden font-sans absolute right-5 top-5 leading-none  lg:text-2xl">
+          <span className="absolute right-5 top-5 hidden font-sans leading-none group-hover:block lg:text-2xl">
             ↗
           </span>
         </a>
@@ -100,10 +100,10 @@ export function PastSponsors() {
       <h1 className="conf-heading mb-12">Thanks to our 2024 sponsors!</h1>
       {SPONSORS.map(({ title, logos }, i) => (
         <>
-          <div className="flex items-center gap-2 mb-2 border-b-2 border-dotted pb-1.5 border-white/40">
+          <div className="mb-2 flex items-center gap-2 border-b-2 border-dotted border-white/40 pb-1.5">
             {/* Square box */}
             <div className="size-2.5 bg-primary" />
-            <h3 className=" font-medium uppercase">{title}</h3>
+            <h3 className="font-medium uppercase">{title}</h3>
           </div>
           <List
             items={logos}

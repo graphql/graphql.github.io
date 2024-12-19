@@ -11,7 +11,7 @@ export function IndexPage() {
   return (
     <div className="index">
       <Hero />
-      <section className="text-center flex flex-col container items-center conf-block max-w-3xl">
+      <section className="conf-block container flex max-w-3xl flex-col items-center text-center">
         <h2>A query language for your API</h2>
         <p>
           GraphQL is a query language for APIs and a runtime for fulfilling

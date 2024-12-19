@@ -8,7 +8,7 @@ export default {
   members: "Foundation Members",
   landscape: {
     title: (
-      <span className="after:content-['_↗'] after:font-sans">
+      <span className="after:font-sans after:content-['_↗']">
         GraphQL Landscape
       </span>
     ),

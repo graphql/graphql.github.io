@@ -188,10 +188,10 @@ export function CodePage({ allTags, data }: CodePageProps) {
         />
       </NextHead>
       <div className="container py-10 md:py-20">
-        <h1 className="text-4xl md:text-7xl font-extrabold">
+        <h1 className="text-4xl font-extrabold md:text-7xl">
           Code Using GraphQL
         </h1>
-        <div className="flex my-10 items-center border-b border-current max-w-[700px] font-extrabold text-2xl pb-2.5">
+        <div className="my-10 flex max-w-[700px] items-center border-b border-current pb-2.5 text-2xl font-extrabold">
           <div
             className={clsx(
               "flex shrink-0",
@@ -206,14 +206,14 @@ export function CodePage({ allTags, data }: CodePageProps) {
             onKeyDown={handleKeyDown}
             placeholder="Search..."
             className={clsx(
-              "grow bg-transparent block",
+              "block grow bg-transparent",
               "focus-visible:ring-0 focus-visible:ring-offset-0",
               "focus-visible:border-b-primary",
             )}
           />
           <MagnifyingGlassIcon className="shrink-0" />
         </div>
-        <div className="flex flex-wrap gap-3 md:gap-5 roboto-mono">
+        <div className="roboto-mono flex flex-wrap gap-3 md:gap-5">
           {queryTags.map(({ tag, count, name }) => {
             const isTagMatchSearch =
               !search || name.toLowerCase().includes(search.toLowerCase())
@@ -258,7 +258,7 @@ export function CodePage({ allTags, data }: CodePageProps) {
         </div>
       </RadioGroup>
 
-      <div className="container grid md:grid-cols-2 gap-10 py-20">
+      <div className="container grid gap-10 py-20 md:grid-cols-2">
         {(sort === "alphabetical"
           ? [...newData].sort((a, b) =>
               a.frontMatter.name.localeCompare(b.frontMatter.name),
@@ -279,13 +279,13 @@ export function CodePage({ allTags, data }: CodePageProps) {
               <Card
                 key={`${name}${tags.toString()}`}
                 className={clsx(
-                  "!p-0 h-max",
+                  "h-max !p-0",
                   "min-w-0", // hack to avoid overflow when opening details
                 )}
               >
-                <div className="p-8 lg:p-12 flex flex-col gap-7 grow">
+                <div className="flex grow flex-col gap-7 p-8 lg:p-12">
                   <div className="flex items-center gap-6 [&_a:hover]:text-primary [&_a]:transition-colors">
-                    <span className="text-3xl font-extrabold grow break-all">
+                    <span className="grow break-all text-3xl font-extrabold">
                       {name}
                     </span>
                     {url && (
@@ -321,20 +321,20 @@ export function CodePage({ allTags, data }: CodePageProps) {
                       </a>
                     )}
                   </div>
-                  <div className="gap-2 flex roboto-mono">
+                  <div className="roboto-mono flex gap-2">
                     {tags.map(tag => (
                       <Tag
                         key={tag}
                         // @ts-expect-error -- fixme
                         as={NextLink}
                         href={`/community/tools-and-libraries/?tags=${tag}`}
-                        className="hover:!bg-primary transition-colors hover:text-white cursor-pointer"
+                        className="cursor-pointer transition-colors hover:!bg-primary hover:text-white"
                       >
                         {allTagsMap.get(tag)!.name}
                       </Tag>
                     ))}
                   </div>
-                  <Markdown className="[&_a]:text-primary grow line-clamp-4 lg:text-lg">
+                  <Markdown className="line-clamp-4 grow lg:text-lg [&_a]:text-primary">
                     {description}
                   </Markdown>
                   {hasMetadata && (
@@ -360,16 +360,16 @@ export function CodePage({ allTags, data }: CodePageProps) {
                   <details className="bg-[#f0f0f0] dark:bg-[#2f2f2f]">
                     <summary
                       className={clsx(
-                        "flex justify-between font-bold text-primary px-8 lg:px-12 py-5 dark:[[open]>&]:shadow-[-5px_10px_30px_20px_#1b1b1b4d]",
+                        "flex justify-between px-8 py-5 font-bold text-primary lg:px-12 dark:[[open]>&]:shadow-[-5px_10px_30px_20px_#1b1b1b4d]",
                         "[[open]>&]:shadow-[0_6px_21px_0_#1b1b1b33]",
                         "cursor-pointer",
                       )}
                     >
                       README
-                      <ChevronLeftIcon className="size-5 -rotate-90 [[open]>*>&]:rotate-90 transition-transform" />
+                      <ChevronLeftIcon className="size-5 -rotate-90 transition-transform [[open]>*>&]:rotate-90" />
                     </summary>
                     <div
-                      className="px-8 lg:px-12 py-5"
+                      className="px-8 py-5 lg:px-12"
                       suppressHydrationWarning
                     >
                       <RemoteContent compiledSource={compiledSource} />

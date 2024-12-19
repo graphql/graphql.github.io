@@ -24,7 +24,7 @@ export function WithoutVersion() {
   return (
     <div className="index-gradient">
       <section
-        className="container conf-block flex max-lg:flex-col lg:flex-row-reverse lg:*:w-1/2 gap-14 justify-around"
+        className="conf-block container flex justify-around gap-14 max-lg:flex-col lg:flex-row-reverse lg:*:w-1/2"
         id="without-versions"
       >
         <div className="max-lg:text-center">
@@ -45,7 +45,7 @@ export function WithoutVersion() {
           className={clsx(
             "type-evolution mx-auto",
             "[&_div.nextra-code]:h-full",
-            "[&_pre]:ring-0 border rounded-md border-gray-300 dark:border-neutral-700 [&_pre]:rounded-none [&_pre]:h-full",
+            "rounded-md border border-gray-300 dark:border-neutral-700 [&_pre]:h-full [&_pre]:rounded-none [&_pre]:ring-0",
             // Set background as nextra code block bg color
             "_bg-white dark:_bg-black",
           )}

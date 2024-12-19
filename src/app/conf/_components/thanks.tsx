@@ -32,9 +32,9 @@ export async function Thanks() {
     .filter(item => item.speakers!.length === 1)
 
   return (
-    <div className="bg-gray-100 conf-block">
-      <div className="container flex gap-20 flex-col">
-        <div className="flex gap-12 lg:gap-24 max-md:flex-col">
+    <div className="conf-block bg-gray-100">
+      <div className="container flex flex-col gap-20">
+        <div className="flex gap-12 max-md:flex-col lg:gap-24">
           <div className="flex flex-col gap-5">
             <h2 className="conf-heading">Thank you for Attending!</h2>
             <p className="lg:text-lg">
@@ -49,7 +49,7 @@ export async function Thanks() {
           <div>
             <NextImage
               alt="Lee Byron"
-              className="object-cover rounded-md aspect-video"
+              className="aspect-video rounded-md object-cover"
               src={leeImage}
             />
           </div>
@@ -69,7 +69,7 @@ export async function Thanks() {
               ),
             }))}
         />
-        <Button href="/conf/2023/sessions" className="!block mx-auto">
+        <Button href="/conf/2023/sessions" className="mx-auto !block">
           Explore recordings and slides
         </Button>
       </div>

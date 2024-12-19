@@ -7,7 +7,7 @@ import NextImage from "next-image-export-optimizer"
 export function SingleRequest() {
   return (
     <section
-      className="*:w-full lg:*:w-1/2 gap-14 flex max-lg:flex-col container conf-block !justify-around [&_pre]:!bg-transparent"
+      className="conf-block container flex !justify-around gap-14 *:w-full max-lg:flex-col lg:*:w-1/2 [&_pre]:!bg-transparent"
       id="single-request"
     >
       <div className="max-lg:text-center">
@@ -24,7 +24,7 @@ export function SingleRequest() {
           slow mobile network connections.
         </p>
       </div>
-      <div className="-my-8 h-[520px] relative pointer-events-none" aria-hidden>
+      <div className="pointer-events-none relative -my-8 h-[520px]" aria-hidden>
         <NextImage
           src={serverImage}
           alt="Server"
@@ -33,7 +33,7 @@ export function SingleRequest() {
         <NextImage
           src={phoneImage}
           alt="Phone"
-          className="absolute left-1/2 -translate-x-1/2 bottom-0"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2"
         />
         <div className={classes.query}>
           <QueryHeroFriends />

@@ -55,23 +55,23 @@ const speakers: Speaker[] = [
 export function Speakers() {
   return (
     // Invisible padding so anchor links align to the header menu
-    <div id="speakers" className="bg-conf-black text-white conf-block">
+    <div id="speakers" className="conf-block bg-conf-black text-white">
       <div className="container">
-        <h1 className="md:text-center text-white conf-heading">Speakers</h1>
-        <div className="flex max-md:flex-col justify-around items-start flex-wrap gap-10 lg:px-24 my-10 md:my-20">
+        <h1 className="conf-heading text-white md:text-center">Speakers</h1>
+        <div className="my-10 flex flex-wrap items-start justify-around gap-10 max-md:flex-col md:my-20 lg:px-24">
           {speakers.map((speaker, i) => (
             <div
               key={i}
-              className="md:p-4 md:w-[220px] h-full flex md:flex-col items-center md:text-center gap-5"
+              className="flex h-full items-center gap-5 md:w-[220px] md:flex-col md:p-4 md:text-center"
             >
               <NextLink
                 href={`/conf/2023/speakers/${speaker.url}`}
-                className="[&:hover+div>a>span]:text-primary shrink-0"
+                className="shrink-0 [&:hover+div>a>span]:text-primary"
               >
                 <NextImage
                   alt={speaker.name}
                   src={speaker.image}
-                  className="shrink-0 rounded-full size-36 object-cover object-center border-2 border-transparent hover:border-primary transition-colors"
+                  className="size-36 shrink-0 rounded-full border-2 border-transparent object-cover object-center transition-colors hover:border-primary"
                 />
               </NextLink>
               <div>
@@ -82,14 +82,14 @@ export function Speakers() {
                   <span className="text-lg font-bold transition-colors">
                     {speaker.name}
                   </span>
-                  <div className="text-sm my-2">{speaker.title}</div>
+                  <div className="my-2 text-sm">{speaker.title}</div>
                 </NextLink>
                 <div className="flex gap-2 md:justify-center">
                   <a
                     href={speaker.twitter}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-current hover:text-primary transition-colors"
+                    className="text-current transition-colors hover:text-primary"
                   >
                     <TwitterIcon width="17" height="17" />
                   </a>
@@ -97,7 +97,7 @@ export function Speakers() {
                     href={speaker.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-current hover:text-primary transition-colors"
+                    className="text-current transition-colors hover:text-primary"
                   >
                     <LinkedInIcon width="17" height="17" />
                   </a>
@@ -107,7 +107,7 @@ export function Speakers() {
           ))}
         </div>
         <div className="flex flex-col items-center">
-          <p className="max-w-[600px] text-center mb-10">
+          <p className="mb-10 max-w-[600px] text-center">
             GraphQLConf brings together the creators of some of the most
             important technologies behind GraphQL. These speakers will share
             their experience, insights and knowledge as they discuss the

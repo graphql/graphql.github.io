@@ -42,18 +42,18 @@ const FAQS = [
 export function FAQ() {
   return (
     <div id="faq" className={styles.faq}>
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
         <div>
-          <h2 className="select-none text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="mb-4 select-none text-4xl font-bold md:text-5xl">
             Frequently
             <br />
             Asked Questions
           </h2>
-          <p className="text-sm select-none">
+          <p className="select-none text-sm">
             PLEASE CONTACT{" "}
             <a
               href="mailto:graphqlconf@graphql.org"
-              className="text-primary hover:underline uppercase select-text"
+              className="select-text uppercase text-primary hover:underline"
             >
               graphqlconf@graphql.org
             </a>
@@ -64,14 +64,14 @@ export function FAQ() {
           {FAQS.map((faq, index) => (
             <details
               key={index}
-              className="group border-b border-white/10 border-dashed"
+              className="group border-b border-dashed border-white/10"
             >
-              <summary className="py-6 flex items-center justify-start gap-2 text-left cursor-pointer list-none focus:outline-none">
-                <ArrowRight className="shrink-0 size-5 transition-transform duration-200 group-hover:translate-x-1 group-open:rotate-90" />
-                <span className="text-lg select-none">{faq.question}</span>
+              <summary className="flex cursor-pointer list-none items-center justify-start gap-2 py-6 text-left focus:outline-none">
+                <ArrowRight className="size-5 shrink-0 transition-transform duration-200 group-open:rotate-90 group-hover:translate-x-1" />
+                <span className="select-none text-lg">{faq.question}</span>
               </summary>
               <p
-                className="pb-6 ml-7 -mt-4 text-gray-300 whitespace-pre-wrap [&>a]:underline"
+                className="-mt-4 ml-7 whitespace-pre-wrap pb-6 text-gray-300 [&>a]:underline"
                 dangerouslySetInnerHTML={{ __html: faq.answer }}
               />
             </details>

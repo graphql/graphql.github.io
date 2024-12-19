@@ -63,9 +63,9 @@ const classes = {
 export function About() {
   return (
     <div className="bg-gray-100">
-      <div className="container conf-block">
+      <div className="conf-block container">
         <h2 className={classes.title}>About</h2>
-        <div className="grid lg:grid-cols-2 gap-14 xl:gap-28 mb-20">
+        <div className="mb-20 grid gap-14 lg:grid-cols-2 xl:gap-28">
           <div className="lg:text-lg">
             <p>
               GraphQLConf – is the official conference produced by the GraphQL
@@ -85,16 +85,16 @@ export function About() {
           </div>
           <NextImage
             src={ConfImage}
-            className="rounded-md w-full object-cover aspect-video"
+            className="aspect-video w-full rounded-md object-cover"
             alt="GraphQL Conf Image"
           />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-14 xl:gap-28">
+        <div className="grid gap-14 lg:grid-cols-2 xl:gap-28">
           <NextImage
             alt="GraphQL Conf Image"
             src={ConfImage2}
-            className="max-lg:order-2 rounded-md w-full object-cover aspect-square"
+            className="aspect-square w-full rounded-md object-cover max-lg:order-2"
           />
           <div className="flex flex-col gap-14">
             <p className="lg:text-lg">
@@ -104,11 +104,11 @@ export function About() {
               where we need to innovate & collaborate to help business succeed
               with GraphQL.
             </p>
-            <h4 className="font-bold text-2xl">
+            <h4 className="text-2xl font-bold">
               GraphQLConf is particularly relevant for engineers, architects,
               and managers involved in:
             </h4>
-            <ul className="grid md:grid-cols-2 gap-3">
+            <ul className="grid gap-3 md:grid-cols-2">
               {list.map((item, index) => (
                 <li key={index} className="flex gap-2 md:items-center">
                   <CheckIcon className="shrink-0 text-primary" />
@@ -125,15 +125,15 @@ export function About() {
           </div>
         </div>
       </div>
-      <div className="container conf-block">
+      <div className="conf-block container">
         <h2 className={classes.title}>Why Attend?</h2>
         <ul
           role="list"
-          className="grid sm:grid-cols-2 md:grid-cols-3 ml-0 gap-5 lg:gap-14"
+          className="ml-0 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-14"
         >
           {whyAttend.map((item, index) => (
             <li key={index} className="flex gap-4">
-              <CheckIcon className="text-primary shrink-0" />
+              <CheckIcon className="shrink-0 text-primary" />
               <span>{item.title}</span>
             </li>
           ))}

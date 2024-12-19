@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function SessionsPage() {
   return (
     <div className="bg-[#f4f6f8]">
-      <div className="container conf-block">
+      <div className="conf-block container">
         <SessionList
           year="2023"
           eventsColors={eventsColors}

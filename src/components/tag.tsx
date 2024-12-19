@@ -13,7 +13,7 @@ export function Tag({
     // @ts-expect-error -- fixme
     <Component
       className={clsx(
-        "py-1 px-2.5 capitalize text-xs rounded bg-zinc-200 dark:bg-zinc-700 font-bold roboto-mono",
+        "roboto-mono rounded bg-zinc-200 px-2.5 py-1 text-xs font-bold capitalize dark:bg-zinc-700",
         className,
       )}
       {...props}
