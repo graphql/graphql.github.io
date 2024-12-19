@@ -84,6 +84,8 @@ export function Venue() {
                 <strong>
                   <a
                     className="hover:underline flex items-center gap-1"
+                    target="_blank"
+                    rel="noreferrer"
                     href={hotel.link}
                   >
                     {hotel.name}
