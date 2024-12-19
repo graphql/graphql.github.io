@@ -51,11 +51,11 @@ export function Venue() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="flex gap-2 flex-col">
           <h2 className="text-3xl">Conference</h2>
-          <p>
+          <address className="not-italic">
             <strong>Pakhuis De Zwijger</strong>
             <br /> Piet Heinkade 179, 1019 HC <br />
             Amsterdam, Netherlands
-          </p>
+          </address>
           <div className="flex flex-col gap-2">
             <h3 className="text-xl mt-4 font-semibold">
               How to get to the venue?
@@ -80,7 +80,7 @@ export function Venue() {
           </p>
           <div className="mt-10 flex flex-col gap-4">
             {HOTELS.map(hotel => (
-              <div key={hotel.name}>
+              <address className="not-italic" key={hotel.name}>
                 <strong>
                   <a
                     className="hover:underline flex items-center gap-1"
@@ -92,11 +92,11 @@ export function Venue() {
                     <ExternalLink size={14} />
                   </a>
                 </strong>
-                <p
+                <span
                   className="whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{ __html: hotel.description }}
                 />
-              </div>
+              </address>
             ))}
           </div>
         </div>

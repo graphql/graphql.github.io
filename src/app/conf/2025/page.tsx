@@ -32,9 +32,12 @@ function Hero() {
             GraphQLConf <span className="font-light">2025</span>
           </h1>
           <HostedByGraphQLFoundation className="w-full shrink-0 h-8 lg:h-10 mb-6 self-start" />
-          <span className={`${rubik.className} font-medium text-xl`}>
-            <time dateTime="2025-09-08">September 08</time> -{" "}
-            <time dateTime="2025-09-10">10, 2025</time> | Amsterdam, Netherlands
+          <span className="font-medium text-xl flex flex-row gap-2">
+            <time dateTime="2025-09-08">September 08</time>
+            <span>-</span>
+            <time dateTime="2025-09-10">10, 2025</time>
+            <span>|</span>
+            <address className="not-italic">Amsterdam, Netherlands</address>
           </span>
         </div>
       </div>
