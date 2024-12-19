@@ -24,20 +24,20 @@ export default function ConfPage() {
 
 function Hero() {
   return (
-    <div className="text-white max-md:text-base bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover bg-blend-multiply bg-black/20">
+    <div className="bg-black/20 bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover text-white bg-blend-multiply max-md:text-base">
       <div className="container py-16 md:py-20">
-        <div className="flex gap-6 items-center">
+        <div className="flex items-center gap-6">
           <GraphQLConf className="h-14" />
-          <span className="text-5xl select-none">2023</span>
+          <span className="select-none text-5xl">2023</span>
         </div>
-        <HostedByGraphQLFoundation className="h-10 mt-5" />
-        <div className="flex md:items-center max-md:gap-3 gap-5 mt-5 max-md:flex-col">
-          <div className="flex items-center max-md:gap-3 gap-5">
+        <HostedByGraphQLFoundation className="mt-5 h-10" />
+        <div className="mt-5 flex gap-5 max-md:flex-col max-md:gap-3 md:items-center">
+          <div className="flex items-center gap-5 max-md:gap-3">
             <CalendarIcon className="h-6" />
             <span>September 19-21, 2023</span>
           </div>
           <span />
-          <div className="flex items-center max-md:gap-3 gap-5">
+          <div className="flex items-center gap-5 max-md:gap-3">
             <GlobeIcon className="size-6" />
             <span>San Francisco Bay Area, CA</span>
           </div>

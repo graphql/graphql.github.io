@@ -6,19 +6,19 @@ import { clsx } from "clsx"
 export function Hero() {
   return (
     <div className="[background:url('/img/graph-wash.png'),#171e26_repeat_center_center] xl:py-20">
-      <div className="container conf-block">
+      <div className="conf-block container">
         <section
           className={clsx(
-            "flex-wrap gap-14 justify-center items-center flex max-sm:flex-col",
-            "[&_h3]:text-white [&_h3]:text-2xl max-lg:[&_h3]:text-center",
+            "flex flex-wrap items-center justify-center gap-14 max-sm:flex-col",
+            "[&_h3]:text-2xl [&_h3]:text-white max-lg:[&_h3]:text-center",
             "[&_pre]:!bg-transparent [&_pre]:ring-0 [&_pre_span]:text-[--shiki-dark]",
             "[&_h3]:font-extralight",
             "[&_code]:whitespace-pre-wrap" /* fix scroll on mobile for code-blocks */,
           )}
         >
-          <div className="max-md:grow max-xl:w-full flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-2 max-xl:w-full max-md:grow">
             <GraphQLLogo className="w-24" />
-            <h1 className="text-primary text-3xl">GraphQL</h1>
+            <h1 className="text-3xl text-primary">GraphQL</h1>
           </div>
 
           <div>
@@ -38,7 +38,7 @@ export function Hero() {
         </section>
 
         <Link
-          className="text-white border-white index-button block w-fit mx-auto mt-10"
+          className="index-button mx-auto mt-10 block w-fit border-white text-white"
           href="/learn"
         >
           Get Started

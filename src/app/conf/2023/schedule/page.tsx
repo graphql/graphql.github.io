@@ -12,13 +12,13 @@ export default function SchedulePage() {
   return (
     <>
       <div className="container">
-        <div className="prose lg:prose-lg py-10 text-white max-w-full">
+        <div className="prose max-w-full py-10 text-white lg:prose-lg">
           <h1 className="text-white">GraphQLConf 2023 Schedule</h1>
-          <section className="px-0 mx-0 my-8">
-            <div className="flex gap-8 mb-1.5">
+          <section className="mx-0 my-8 px-0">
+            <div className="mb-1.5 flex gap-8">
               <span className="flex items-center">
                 <svg
-                  className="mr-3 mb-0.5"
+                  className="mb-0.5 mr-3"
                   width={20}
                   height={20}
                   xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export default function SchedulePage() {
               </span>
               <span className="flex items-center">
                 <svg
-                  className="mr-3 mb-0.5"
+                  className="mb-0.5 mr-3"
                   width="20px"
                   height="20px"
                   xmlns="http://www.w3.org/2000/svg"
@@ -54,13 +54,13 @@ export default function SchedulePage() {
         </div>
       </div>
 
-      <div className="bg-[#f4f6f8] conf-block">
+      <div className="conf-block bg-[#f4f6f8]">
         <div className="container">
           <a
             href="https://graphqlconf23.sched.com"
             target="_blank"
             rel="noreferrer"
-            className="underline-offset-2 underline"
+            className="underline underline-offset-2"
           >
             🔗 Bookmark sessions & plan your days on Sched
           </a>

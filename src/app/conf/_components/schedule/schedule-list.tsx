@@ -115,7 +115,7 @@ export function ScheduleList({
 
   return (
     <>
-      <div className="h-0.5 bg-gray-200 my-6" />
+      <div className="my-6 h-0.5 bg-gray-200" />
       {showFilter && (
         <Filters
           categories={filterCategories}
@@ -140,12 +140,12 @@ export function ScheduleList({
         />
       )}
       {Object.entries(sessionsState).length === 0 ? (
-        <div className="text-gray-800 text-sm">
+        <div className="text-sm text-gray-800">
           <h3 className="mb-5">No sessions found</h3>
         </div>
       ) : (
         <>
-          <div className="flex space-x-4 mb-4">
+          <div className="mb-4 flex space-x-4">
             {/* Skip registeration prior day for graphql conf 2024 */}
             {Object.keys(sessionsState)
               .slice(year === "2024" ? 1 : 0)
@@ -153,7 +153,7 @@ export function ScheduleList({
                 <a
                   href={`#day-${(year === "2024" ? 1 : 0) + index + 1}`}
                   key={date}
-                  className={"text-gray-800 text-xs hover:underline"}
+                  className={"text-xs text-gray-800 hover:underline"}
                 >
                   Day {index + 1}
                 </a>
@@ -161,22 +161,22 @@ export function ScheduleList({
           </div>
           {Object.entries(sessionsState).map(
             ([date, concurrentSessionsGroup], index) => (
-              <div key={date} className="text-gray-800 text-sm">
+              <div key={date} className="text-sm text-gray-800">
                 <h3 className="mb-5" id={`day-${index + 1}`}>
                   {format(parseISO(date), "EEEE, MMMM d")}
                 </h3>
                 {Object.entries(concurrentSessionsGroup).map(
                   ([sessionDate, sessions]) => (
                     <div key={`concurrent sessions on ${sessionDate}`}>
-                      <div className="lg:flex-row flex flex-col mb-4">
+                      <div className="mb-4 flex flex-col lg:flex-row">
                         <div className="relative">
-                          <span className="lg:mr-7 mb-5 whitespace-nowrap text-gray-500 lg:mt-0 mt-3 inline-block lg:w-28 w-20">
+                          <span className="mb-5 mt-3 inline-block w-20 whitespace-nowrap text-gray-500 lg:mr-7 lg:mt-0 lg:w-28">
                             {format(parseISO(sessionDate), "hh:mmaaaa 'PDT'")}
                           </span>
-                          <div className="lg:block hidden absolute right-3 top-0 h-full w-0.5 bg-gray-200" />
+                          <div className="absolute right-3 top-0 hidden h-full w-0.5 bg-gray-200 lg:block" />
                         </div>
-                        <div className="lg:flex-row flex flex-col gap-5 relative lg:items-start items-end w-full lg:pl-0 pl-[28px]">
-                          <div className="block lg:hidden absolute left-3 top-0 h-full w-0.5 bg-gray-200" />
+                        <div className="relative flex w-full flex-col items-end gap-5 pl-[28px] lg:flex-row lg:items-start lg:pl-0">
+                          <div className="absolute left-3 top-0 block h-full w-0.5 bg-gray-200 lg:hidden" />
 
                           {sessions.map(session => {
                             const eventType = session.event_type.endsWith("s")
@@ -203,7 +203,7 @@ export function ScheduleList({
                                   borderRadius: "5px",
                                   backgroundColor: "white",
                                 }}
-                                className="shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal flex items-center py-2 px-4 rounded-md size-full text-black"
+                                className="flex size-full items-center rounded-md px-4 py-2 font-normal text-black shadow-[-5px_10px_30px_20px_#d0d3da33]"
                               >
                                 {showEventType ? eventType + " / " : ""}
                                 {eventTitle}
@@ -219,12 +219,12 @@ export function ScheduleList({
                                   borderRadius: "5px",
                                   backgroundColor: "white",
                                 }}
-                                className="group no-underline hover:no-underline shadow-[-5px_10px_30px_20px_#d0d3da33] font-normal relative py-2 px-4 rounded-md size-full text-black"
+                                className="group relative size-full rounded-md px-4 py-2 font-normal text-black no-underline shadow-[-5px_10px_30px_20px_#d0d3da33] hover:no-underline"
                               >
-                                <div className="flex flex-col justify-start h-full py-3 gap-y-2">
+                                <div className="flex h-full flex-col justify-start gap-y-2 py-3">
                                   {borderColor && (
                                     <span
-                                      className="group-hover:no-underline flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl"
+                                      className="mb-3 flex items-center justify-center self-start rounded-3xl border px-3 py-1 text-white group-hover:no-underline"
                                       style={{
                                         backgroundColor: borderColor,
                                       }}
@@ -232,7 +232,7 @@ export function ScheduleList({
                                       {eventType}
                                     </span>
                                   )}
-                                  <div className="group-hover:underline flex flex-col justify-between h-full gap-y-2">
+                                  <div className="flex h-full flex-col justify-between gap-y-2 group-hover:underline">
                                     {showEventType ? eventType + " / " : ""}
                                     {eventTitle}
                                     <div className="flex flex-col">
@@ -241,9 +241,9 @@ export function ScheduleList({
                                           {formattedSpeakers.join(", ")}
                                         </span>
                                       )}
-                                      <span className="font-bold mt-2 flex items-center text-gray-700">
+                                      <span className="mt-2 flex items-center font-bold text-gray-700">
                                         <svg
-                                          className="mr-1 mb-0.5"
+                                          className="mb-0.5 mr-1"
                                           width="16px"
                                           height="16px"
                                           xmlns="http://www.w3.org/2000/svg"

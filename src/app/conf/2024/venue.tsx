@@ -10,12 +10,12 @@ export function Venue() {
   return (
     <div
       id="location"
-      className="container conf-block text-white [&_a]:text-primary"
+      className="conf-block container text-white [&_a]:text-primary"
     >
-      <h1 className="md:text-center mb-5 lg:mb-20 conf-heading">
+      <h1 className="conf-heading mb-5 md:text-center lg:mb-20">
         Location &amp; Venue
       </h1>
-      <div className="grid lg:grid-cols-2 lg:gap-14 text-lg">
+      <div className="grid text-lg lg:grid-cols-2 lg:gap-14">
         <div>
           <h3 className={classes.heading}>Venue Information</h3>
           <a
@@ -32,7 +32,7 @@ export function Venue() {
           <NextImage
             src={cityViewImage}
             alt="San Francisco city view"
-            className="object-cover aspect-video rounded-md my-8 mx-auto"
+            className="mx-auto my-8 aspect-video rounded-md object-cover"
           />
         </div>
         <div>
@@ -77,7 +77,7 @@ export function Venue() {
           .
         </div>
       </div>
-      <div className="flex text-lg max-lg:flex-col w-full gap-14 pt-16">
+      <div className="flex w-full gap-14 pt-16 text-lg max-lg:flex-col">
         {[
           {
             title: "Public Transportation",
@@ -179,7 +179,7 @@ export function Venue() {
           },
         ].map(o => (
           <div key={o.title} className="flex-1">
-            <o.icon className="fill-primary h-16 w-auto mb-4" />
+            <o.icon className="mb-4 h-16 w-auto fill-primary" />
             <h3 className={classes.heading}>{o.title}</h3>
             {o.content}
           </div>

@@ -12,8 +12,8 @@ export function Footer({
   logo: ReactNode
 }) {
   return (
-    <footer className="py-10 lg:py-20 bg-conf-black text-white">
-      <div className="container flex justify-between items-start flex-wrap gap-10 mb-10 xl:mb-32">
+    <footer className="bg-conf-black py-10 text-white lg:py-20">
+      <div className="container mb-10 flex flex-wrap items-start justify-between gap-10 xl:mb-32">
         {logo}
         {links.map((link, i) => (
           <ul key={i} className="max-md:w-full">
@@ -25,7 +25,7 @@ export function Footer({
                     "outline-none",
                     isDisabled
                       ? "pointer-events-none"
-                      : "hover:text-primary transition-colors focus:text-primary",
+                      : "transition-colors hover:text-primary focus:text-primary",
                   )}
                   tabIndex={isDisabled ? -1 : undefined}
                 >
@@ -41,8 +41,8 @@ export function Footer({
           </ul>
         ))}
       </div>
-      <div className="container text-sm flex max-lg:flex-col gap-10 justify-between">
-        <div className="flex flex-col max-md:gap-5 font-light">
+      <div className="container flex justify-between gap-10 text-sm max-lg:flex-col">
+        <div className="flex flex-col font-light max-md:gap-5">
           <p>
             Copyright © {new Date().getFullYear()} The GraphQL Foundation. All
             rights reserved.

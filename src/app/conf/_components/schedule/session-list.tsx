@@ -152,11 +152,11 @@ export function SessionList({
         />
       )}
       {Object.entries(sessionsState).length === 0 ? (
-        <div className="text-gray-800 text-sm">
+        <div className="text-sm text-gray-800">
           <h3 className="mb-5">No sessions found</h3>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 not-prose">
+        <div className="not-prose grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {Object.entries(sessionsState).flatMap(
             ([, concurrentSessionsGroup]) =>
               Object.entries(concurrentSessionsGroup).flatMap(([, sessions]) =>
@@ -169,7 +169,7 @@ export function SessionList({
                     <NextLink
                       key={session.id}
                       className={`${clsx(
-                        "white shadow-2xl rounded-md overflow-hidden flex flex-col text-current hover:no-underline focus:no-underline",
+                        "white flex flex-col overflow-hidden rounded-md text-current shadow-2xl hover:no-underline focus:no-underline",
                       )} ${minimalVersion ? "bg-[#251f30]" : ""}`}
                       href={
                         minimalVersion
@@ -178,12 +178,12 @@ export function SessionList({
                       }
                     >
                       <div
-                        className={`${minimalVersion ? "hidden" : ""} bg-[#251F30] text-white flex justify-between py-5 px-7 relative`}
+                        className={`${minimalVersion ? "hidden" : ""} relative flex justify-between bg-[#251F30] px-7 py-5 text-white`}
                       >
-                        <div className="text-sm flex flex-col gap-2 [*:hover>*>&]:opacity-0 transition-opacity duration-300 opacity-100">
+                        <div className="flex flex-col gap-2 text-sm opacity-100 transition-opacity duration-300 [*:hover>*>&]:opacity-0">
                           {year !== "2024" && (
                             <div className="flex gap-3">
-                              <div className="font-mono w-4 text-center">
+                              <div className="w-4 text-center font-mono">
                                 ▶
                               </div>
                               Recording
@@ -203,18 +203,18 @@ export function SessionList({
                         </span>
                         <div
                           className={clsx(
-                            "right-1/2 translate-x-1/2 absolute",
-                            "font-mono leading-none text-2xl",
-                            "transition-opacity duration-300 opacity-0 size-12",
-                            "[*:hover>*>&]:opacity-100 rounded-full bg-white/30 pl-[18px] pt-2.5",
+                            "absolute right-1/2 translate-x-1/2",
+                            "font-mono text-2xl leading-none",
+                            "size-12 opacity-0 transition-opacity duration-300",
+                            "rounded-full bg-white/30 pl-[18px] pt-2.5 [*:hover>*>&]:opacity-100",
                           )}
                         >
                           ▶
                         </div>
                       </div>
-                      <div className="p-7 flex flex-col">
+                      <div className="flex flex-col p-7">
                         <span
-                          className="group-hover:no-underline flex py-1 px-3 mb-3 self-start justify-center items-center text-white border rounded-3xl text-sm"
+                          className="mb-3 flex items-center justify-center self-start rounded-3xl border px-3 py-1 text-sm text-white group-hover:no-underline"
                           style={{
                             backgroundColor: borderColor,
                           }}
@@ -222,10 +222,10 @@ export function SessionList({
                           {session.event_type}
                         </span>
                         <b>{session.name}</b>
-                        <div className="flex gap-5 flex-wrap">
+                        <div className="flex flex-wrap gap-5">
                           {speakers.map(s => (
                             <div
-                              className="flex items-center gap-5 mt-5"
+                              className="mt-5 flex items-center gap-5"
                               key={s.username}
                             >
                               <img
@@ -233,7 +233,7 @@ export function SessionList({
                                 alt={`${s.name} avatar`}
                                 width="70"
                                 height="70"
-                                className="object-cover rounded-full shrink-0 !m-0"
+                                className="!m-0 shrink-0 rounded-full object-cover"
                               />
                               <div className="flex flex-col text-sm">
                                 <b>{s.name}</b>

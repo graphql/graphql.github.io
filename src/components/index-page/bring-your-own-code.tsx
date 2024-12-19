@@ -4,11 +4,11 @@ import { InfiniteMovingCards } from "./infinite-moving-cards"
 export function BringYourOwnCode() {
   return (
     <>
-      <section className="container conf-block" id="bring-your-own-code">
+      <section className="conf-block container" id="bring-your-own-code">
         <div className="mx-auto text-center">
           <h2>Bring your own data and code</h2>
           {/*Illustration of each field becoming a function?]*/}
-          <p className="lg:w-2/3 mx-auto">
+          <p className="mx-auto lg:w-2/3">
             GraphQL creates a uniform API across your entire application without
             being limited by a specific storage engine. Write GraphQL APIs that
             leverage your existing data and code with GraphQL engines available
@@ -20,7 +20,7 @@ export function BringYourOwnCode() {
       <InfiniteMovingCards
         direction="right"
         speed="normal"
-        className="mx-auto [&_pre]:h-[calc(100%-48px)] [&_div.nextra-code]:h-full"
+        className="mx-auto [&_div.nextra-code]:h-full [&_pre]:h-[calc(100%-48px)]"
       >
         <Code1 />
         <Code2 />

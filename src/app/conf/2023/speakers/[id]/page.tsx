@@ -54,17 +54,17 @@ export default function SpeakerPage({ params }: SpeakerProps) {
 
   return (
     <div className="bg-[#f4f6f8] py-14 text-conf-black">
-      <section className="flex flex-col container">
+      <section className="container flex flex-col">
         <div className="flex flex-col">
           <NextLink
             href="/conf/2023/speakers"
-            className="text-conf-black flex items-center text-lg hover:text-primary gap-2 transition-colors"
+            className="flex items-center gap-2 text-lg text-conf-black transition-colors hover:text-primary"
           >
             <ChevronLeftIcon className="size-5" /> Back to Speakers
           </NextLink>
 
           <div className="max-w-5xl self-center">
-            <div className="pt-14 pb-20 flex flex-col sm:flex-row gap-0 sm:gap-10 gap-y-5 justify-between max-lg:flex-col-reverse">
+            <div className="flex flex-col justify-between gap-0 gap-y-5 pb-20 pt-14 max-lg:flex-col-reverse sm:flex-row sm:gap-10">
               <div className="flex flex-col items-start gap-y-5">
                 <h1 className="conf-heading">{speaker.name}</h1>
 
@@ -85,7 +85,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
                           href={social.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center w-max"
+                          className="flex w-max items-center"
                         >
                           <SocialMediaIcon
                             service={
@@ -100,7 +100,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
               </div>
 
               <Avatar
-                className="self-center sm:self-start size-[280px] rounded-full"
+                className="size-[280px] self-center rounded-full sm:self-start"
                 avatar={speaker.avatar}
                 name={speaker.name}
               />

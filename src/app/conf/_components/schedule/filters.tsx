@@ -16,13 +16,13 @@ export function Filters({
   onReset,
 }: FiltersProps) {
   return (
-    <div className="flex justify-center pb-10 gap-3">
+    <div className="flex justify-center gap-3 pb-10">
       {Object.values(filterState).flat().length > 0 && (
         <button
           onClick={onReset}
-          className="cursor-pointer flex items-center gap-x-2 px-2 py-1 bg-gray-200 hover:bg-gray-300 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900"
+          className="flex cursor-pointer items-center gap-x-2 rounded-md bg-gray-200 px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-300 hover:text-gray-900"
         >
-          Reset filters <XMarkIcon className="size-4 inline-block" />
+          Reset filters <XMarkIcon className="inline-block size-4" />
         </button>
       )}
       <Menu as="div" className="relative inline-block text-left">
@@ -61,7 +61,7 @@ export function Filters({
             id={`desktop-menu-${sectionIdx}`}
             className="relative inline-block text-left"
           >
-            <Popover.Button className="cursor-pointer bg-inherit p-1 px-2 group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+            <Popover.Button className="group inline-flex cursor-pointer items-center justify-center bg-inherit p-1 px-2 text-sm font-medium text-gray-700 hover:text-gray-900">
               <span>{section.name}</span>
               {filterState[section.name].length ? (
                 <span className="ml-1.5 rounded bg-gray-200 px-1.5 py-0.5 text-xs font-semibold tabular-nums text-gray-700">
@@ -88,7 +88,7 @@ export function Filters({
                       }}
                       checked={filterState[section.name].includes(option)}
                       type="checkbox"
-                      className="cursor-pointer size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                      className="size-4 cursor-pointer rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label
                       htmlFor={`filter-${section.name}-${optionIdx}`}

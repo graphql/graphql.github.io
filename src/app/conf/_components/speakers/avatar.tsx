@@ -25,7 +25,7 @@ export const Avatar: FC<Props> = ({ avatar, name, className, href }) => {
       />
     ) : (
       <div
-        className={`text-[#202020] hover:underline cursor-pointer  ${className} flex justify-center items-center`}
+        className={`cursor-pointer text-[#202020] hover:underline ${className} flex items-center justify-center`}
       >
         <span className="text-4xl font-medium">
           {nameInitialsAvatarFallback}

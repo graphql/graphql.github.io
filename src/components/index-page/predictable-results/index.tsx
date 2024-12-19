@@ -69,7 +69,7 @@ export function PredictableResults() {
   return (
     <div className="index-gradient">
       <section
-        className="gap-14 justify-around container flex flex-col conf-block lg:flex-row-reverse lg:items-start lg:*:w-1/2"
+        className="conf-block container flex flex-col justify-around gap-14 lg:flex-row-reverse lg:items-start lg:*:w-1/2"
         id="predictable-results"
       >
         <div className="max-lg:text-center">
@@ -101,7 +101,7 @@ export function PredictableResults() {
             ))}
             <span
               className={clsx(
-                "inline-block !bg-primary/50 h-4 w-2 ml-px -mb-0.5",
+                "-mb-0.5 ml-px inline-block h-4 w-2 !bg-primary/50",
                 classes.cursor,
               )}
             />

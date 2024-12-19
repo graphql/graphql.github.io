@@ -12,7 +12,7 @@ export default function FAQPage() {
     <>
       <div className="bg-[#f4f6f8]">
         <div className="container">
-          <div className="prose lg:prose-lg conf-block prose-a:text-primary max-w-4xl mx-auto">
+          <div className="conf-block prose mx-auto max-w-4xl lg:prose-lg prose-a:text-primary">
             <FAQ />
           </div>
         </div>

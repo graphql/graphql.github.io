@@ -36,7 +36,7 @@ export function TypeSystem() {
     <div className="index-gradient">
       <section
         className={clsx(
-          "container conf-block flex gap-14 max-lg:flex-col lg:flex-row-reverse",
+          "conf-block container flex gap-14 max-lg:flex-col lg:flex-row-reverse",
           "lg:*:w-1/2",
         )}
         id="type-system"
@@ -57,7 +57,7 @@ export function TypeSystem() {
           </p>
         </div>
         <div
-          className="grid nextra-codeblocks grid-cols-2 [&_.highlighted]:!bg-primary/50"
+          className="nextra-codeblocks grid grid-cols-2 [&_.highlighted]:!bg-primary/50"
           aria-hidden
           ref={queryRef}
         >

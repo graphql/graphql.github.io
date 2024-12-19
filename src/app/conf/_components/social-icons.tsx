@@ -14,7 +14,7 @@ const anchorProps = {
 
 export function SocialIcons() {
   return (
-    <div className="flex gap-5 items-center *:outline-none hover:*:text-primary *:transition-colors focus:*:text-primary focus:*:ring focus:*:ring-primary [&_svg]:h-5">
+    <div className="flex items-center gap-5 *:outline-none *:transition-colors hover:*:text-primary focus:*:text-primary focus:*:ring focus:*:ring-primary [&_svg]:h-5">
       <a href="https://github.com/graphql" {...anchorProps}>
         <GitHubIcon />
       </a>

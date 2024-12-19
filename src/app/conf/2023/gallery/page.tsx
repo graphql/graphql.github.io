@@ -23,7 +23,7 @@ export default function GalleryPage() {
 
   return (
     <div className="bg-[#f4f6f8]">
-      <div className="container conf-block">
+      <div className="conf-block container">
         {currentImages.map((c, i) => {
           function getCard(index: number) {
             return (
@@ -31,7 +31,7 @@ export default function GalleryPage() {
                 <Zoom>
                   <NextImage
                     alt="Gallery"
-                    className="object-cover aspect-video w-full hover:opacity-75 rounded-md"
+                    className="aspect-video w-full rounded-md object-cover hover:opacity-75"
                     src={c[index]}
                   />
                 </Zoom>
@@ -40,15 +40,15 @@ export default function GalleryPage() {
           }
 
           return (
-            <div key={i} className="grid lg:grid-cols-2 gap-2 mb-2">
-              <div className="gap-2 flex flex-col">
+            <div key={i} className="mb-2 grid gap-2 lg:grid-cols-2">
+              <div className="flex flex-col gap-2">
                 <div className="grid grid-cols-2 gap-2">
                   {getCard(0)}
                   {getCard(1)}
                 </div>
                 {getCard(2)}
               </div>
-              <div className="gap-2 flex flex-col">
+              <div className="flex flex-col gap-2">
                 {getCard(3)}
                 <div className="grid grid-cols-2 gap-2">
                   {getCard(4)}

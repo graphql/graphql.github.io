@@ -14,7 +14,7 @@ export function Cards({
   }[]
 }) {
   return (
-    <div className="grid grid-cols-2 mt-6 gap-4">
+    <div className="mt-6 grid grid-cols-2 gap-4">
       {items.map(({ icon: Icon, title, link, description }) => {
         const isExternal = link.startsWith("https://")
         return (
@@ -26,14 +26,14 @@ export function Cards({
             className={clsx(
               "flex flex-col items-center",
               isExternal &&
-                "relative after:content-['_↗'] after:font-sans after:absolute after:right-4 after:top-4",
+                "relative after:absolute after:right-4 after:top-4 after:font-sans after:content-['_↗']",
             )}
           >
             {/* @ts-expect-error */}
             {typeof Icon === "function" ? <Icon className="h-6" /> : Icon}
-            <b className="mt-4 mb-2 text-lg text-center">{title}</b>
+            <b className="mb-2 mt-4 text-center text-lg">{title}</b>
             <span
-              className={`text-xs md:text-sm text-center${description ? "" : " break-all"}`}
+              className={`text-xs md:text-sm text-center${description ? "" : "break-all"}`}
             >
               {description ? description : link.replace(/^https?:\/\//, "")}
             </span>

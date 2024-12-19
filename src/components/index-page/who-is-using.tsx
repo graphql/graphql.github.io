@@ -12,14 +12,14 @@ export function WhoIsUsing() {
   return (
     <div className="index-gradient">
       <section id="whos-using">
-        <div className="container conf-block flex flex-col items-center">
+        <div className="conf-block container flex flex-col items-center">
           <h2>Who's using GraphQL?</h2>
           <p className="text-balance text-center">
             Facebook's mobile apps have been powered by GraphQL since 2012. A
             GraphQL spec was open sourced in 2015 and is now available in many
             environments and used by teams of all sizes.
           </p>
-          <div className="flex flex-wrap gap-10 lg:gap-16 justify-center mt-10 mb-20">
+          <div className="mb-20 mt-10 flex flex-wrap justify-center gap-10 lg:gap-16">
             {/* Waiting for permission from some of the below */}
             {[
               {
@@ -65,7 +65,7 @@ export function WhoIsUsing() {
                   src={src}
                   alt={alt}
                   title={alt}
-                  className={clsx("h-16 lg:h-28 w-auto", className)}
+                  className={clsx("h-16 w-auto lg:h-28", className)}
                 />
               </a>
             ))}

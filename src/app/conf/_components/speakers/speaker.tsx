@@ -16,12 +16,12 @@ export function Speaker({
     <div className="flex flex-col items-center">
       <NextLink href={`/conf/${year}/speakers/${username}`} className="group">
         <Avatar
-          className="group-hover:border-primary transition-colors border-2 border-transparent rounded-full size-[150px] lg:size-[230px]"
+          className="size-[150px] rounded-full border-2 border-transparent transition-colors group-hover:border-primary lg:size-[230px]"
           avatar={avatar}
           name={name}
         />
-        <div className="flex flex-col justify-center items-center mt-1.5 max-w-[150px] lg:max-w-[230px] text-center">
-          <span className="group-hover:text-primary transition-colors group-hover:no-underline text-[22px] font-bold text-[#181E26] hover:underline cursor-pointer">
+        <div className="mt-1.5 flex max-w-[150px] flex-col items-center justify-center text-center lg:max-w-[230px]">
+          <span className="cursor-pointer text-[22px] font-bold text-[#181E26] transition-colors hover:underline group-hover:text-primary group-hover:no-underline">
             {name}
           </span>
           <span className="text-sm font-bold text-[#212a35]">
@@ -30,7 +30,7 @@ export function Speaker({
           <p className="text-sm text-[#2A3544]">{position || "–"}</p>
         </div>
       </NextLink>
-      <div className="flex gap-2 pt-2 items-stretch">
+      <div className="flex items-stretch gap-2 pt-2">
         {socialurls.map(e => (
           <a key={e.service} href={e.url} target="_blank" rel="noreferrer">
             <SocialMediaIcon

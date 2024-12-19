@@ -47,9 +47,9 @@ const HOW_TO_GET_TO_VENUE = [
 export function Venue() {
   return (
     <section>
-      <h1 className="text-5xl font-bold mb-4">Venue</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="flex gap-2 flex-col">
+      <h1 className="mb-4 text-5xl font-bold">Venue</h1>
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div className="flex flex-col gap-2">
           <h2 className="text-3xl">Conference</h2>
           <address className="not-italic">
             <strong>Pakhuis De Zwijger</strong>
@@ -57,7 +57,7 @@ export function Venue() {
             Amsterdam, Netherlands
           </address>
           <div className="flex flex-col gap-2">
-            <h3 className="text-xl mt-4 font-semibold">
+            <h3 className="mt-4 text-xl font-semibold">
               How to get to the venue?
             </h3>
             {HOW_TO_GET_TO_VENUE.map(({ title, description, icon }) => (
@@ -66,7 +66,7 @@ export function Venue() {
                   {icon}
                   <h5 className="text-lg">{title}</h5>
                 </div>
-                <p className="max-w-96 ml-9">{description}</p>
+                <p className="ml-9 max-w-96">{description}</p>
               </div>
             ))}
           </div>
@@ -83,7 +83,7 @@ export function Venue() {
               <address className="not-italic" key={hotel.name}>
                 <strong>
                   <a
-                    className="hover:underline flex items-center gap-1"
+                    className="flex items-center gap-1 hover:underline"
                     target="_blank"
                     rel="noreferrer"
                     href={hotel.link}

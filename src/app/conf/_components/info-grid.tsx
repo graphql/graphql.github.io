@@ -14,22 +14,22 @@ export const InfoGrid: React.FC<InfoGridProps> = ({
   id,
 }) => (
   <section id={id}>
-    <h1 className="text-white text-5xl font-bold mb-4">{title}</h1>
-    <p className="text-white text-lg font-normal mb-8">{subtitle}</p>
+    <h1 className="mb-4 text-5xl font-bold text-white">{title}</h1>
+    <p className="mb-8 text-lg font-normal text-white">{subtitle}</p>
 
     {/* Horizontal Scrollable Grid */}
     <div
       style={{
         scrollSnapType: "x mandatory",
       }}
-      className="flex gap-6 overflow-x-auto scroll-snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-visible"
+      className="scroll-snap-x flex snap-mandatory gap-6 overflow-x-auto lg:grid lg:grid-cols-3 lg:overflow-visible"
     >
       {listItems.map(({ title, description }, index) => (
         <div
           key={index}
-          className="snap-start flex-shrink-0 lg-w[80%] w-[70%] lg:w-full lg:max-w-sm border border-primary p-6 shadow-lg text-white"
+          className="lg-w[80%] w-[70%] flex-shrink-0 snap-start border border-primary p-6 text-white shadow-lg lg:w-full lg:max-w-sm"
         >
-          <h2 className="text-2xl font-bold mb-2">{title}</h2>
+          <h2 className="mb-2 text-2xl font-bold">{title}</h2>
           <p
             className="text-base [&>a]:underline [&>a]:hover:text-primary"
             dangerouslySetInnerHTML={{ __html: description }}

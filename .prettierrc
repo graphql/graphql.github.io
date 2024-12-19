@@ -18,5 +18,5 @@
       }
     }
   ],
-  "plugins": ["prettier-plugin-pkg"]
+  "plugins": ["prettier-plugin-pkg", "prettier-plugin-tailwindcss"]
 }

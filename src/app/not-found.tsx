@@ -22,8 +22,8 @@ export default function Page() {
   }/issues/new?title=${encodeURIComponent(title)}&labels=${labels}`
 
   return (
-    <div className="flex h-dvh items-center justify-center flex-col">
-      <h1 className="text-white text-4xl">404: Page Not Found</h1>
+    <div className="flex h-dvh flex-col items-center justify-center">
+      <h1 className="text-4xl text-white">404: Page Not Found</h1>
       <a
         href={url}
         target="_blank"

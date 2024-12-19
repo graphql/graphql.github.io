@@ -49,7 +49,7 @@ export function Pricing() {
     <>
       <div id="attend" className={classes.container}>
         <h1 className={classes.heading}>Pricing & Registration</h1>
-        <div className="my-20 flex gap-10 justify-center max-md:items-center max-md:flex-col flex-wrap">
+        <div className="my-20 flex flex-wrap justify-center gap-10 max-md:flex-col max-md:items-center">
           {pricing.map((pricing, index) => {
             const isExpired = pricing.expiredDate < new Date()
             return (
@@ -59,15 +59,15 @@ export function Pricing() {
                 target="_blank"
                 rel="noreferrer"
                 className={clsx(
-                  "shadow-md px-24 py-12 bg-[#251f30] flex flex-col items-center border border-transparent transition-colors outline-none",
+                  "flex flex-col items-center border border-transparent bg-[#251f30] px-24 py-12 shadow-md outline-none transition-colors",
                   isExpired
-                    ? "opacity-50 line-through pointer-events-none"
-                    : "hover:shadow-primary/20 focus:shadow-primary/20 focus:border-primary hover:border-primary",
+                    ? "pointer-events-none line-through opacity-50"
+                    : "hover:border-primary hover:shadow-primary/20 focus:border-primary focus:shadow-primary/20",
                 )}
               >
-                <div className="text-3xl font-bold mb-2">{pricing.title}</div>
-                <div className="text-lg mb-6">{pricing.date}</div>
-                <div className="text-[45px] text-primary font-bold [text-decoration-line:inherit]">
+                <div className="mb-2 text-3xl font-bold">{pricing.title}</div>
+                <div className="mb-6 text-lg">{pricing.date}</div>
+                <div className="text-[45px] font-bold text-primary [text-decoration-line:inherit]">
                   {pricing.price}
                 </div>
               </a>
@@ -80,10 +80,10 @@ export function Pricing() {
       </div>
       <div className={classes.container}>
         <h3 className={classes.heading}>What's Included?</h3>
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10 text-2xl">
+        <div className="grid gap-10 text-2xl md:grid-cols-2 xl:grid-cols-3">
           {includes.map((item, i) => (
             <div key={i} className="flex items-center gap-4">
-              <CheckIcon className="text-primary h-7 shrink-0" />
+              <CheckIcon className="h-7 shrink-0 text-primary" />
               <p>{item}</p>
             </div>
           ))}
