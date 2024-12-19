@@ -41,7 +41,7 @@ export function Sponsor() {
 
       <div className="mt-8 flex justify-center">
         <a
-          href="https://events.linuxfoundation.org/wp-content/uploads/2024/12/sponsor_GraphQLConf_2025.pdf?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=sponsor_section"
+          href="https://events.linuxfoundation.org/sponsor-GraphQLConf-25?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=sponsor_section"
           target="_blank"
           rel="noreferrer"
           className="bg-primary/85 px-20 py-4 text-center text-3xl font-semibold transition-colors hover:bg-primary/100 md:px-28"
