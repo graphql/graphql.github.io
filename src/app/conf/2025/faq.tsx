@@ -67,7 +67,7 @@ export function FAQ() {
               className="group border-b border-white/10 border-dashed"
             >
               <summary className="py-6 flex items-center justify-start gap-2 text-left cursor-pointer list-none focus:outline-none">
-                <ArrowRight className="shrink-0 size-5 transition-transform duration-200 group-hover:translate-x-1 group-open:rotate-90" />
+                <ArrowRight className="shrink-0 size-5 transition-transform duration-200 group-open:rotate-90" />
                 <span className="text-lg select-none">{faq.question}</span>
               </summary>
               <p
