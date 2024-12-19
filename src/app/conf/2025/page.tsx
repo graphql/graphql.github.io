@@ -33,7 +33,8 @@ function Hero() {
           </h1>
           <HostedByGraphQLFoundation className="w-full shrink-0 h-8 lg:h-10 mb-6 self-start" />
           <span className={`${rubik.className} font-medium text-xl`}>
-            September 08 - 10, 2025 | Amsterdam, Netherlands
+            <time dateTime="2025-09-08">September 08</time> -{" "}
+            <time dateTime="2025-09-10">10, 2025</time> | Amsterdam, Netherlands
           </span>
         </div>
       </div>
