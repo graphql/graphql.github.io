@@ -80,7 +80,7 @@ export default function SessionPage({ params }: SessionProps) {
   if (!event) {
     notFound()
   }
-  console.log("event", event)
+
   // @ts-expect-error -- fixme
   event.speakers = (event.speakers || []).map(speaker =>
     speakers.find(s => s.username === speaker.username),
@@ -99,9 +99,9 @@ export default function SessionPage({ params }: SessionProps) {
     `${eventTitle} ${event.speakers!.map(e => e.name).join(" ")}`,
     videos.map(e => e.title),
   ).bestMatch
-  console.log("recordingTitle", recordingTitle)
+
   const videoId = videos.find(e => e.title === recordingTitle.target)?.id
-  console.log("videoId", videoId)
+
   if (!videoId) {
     throw new Error(`Video "${recordingTitle.target}" not found`)
   }
