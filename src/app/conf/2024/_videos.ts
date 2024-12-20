@@ -89,6 +89,11 @@ export const videos = [
     title: `Build Confidently: How @Catch and Error Handling Pave Way in Field Nullability - Itamar Kestenbaum`,
   },
   {
+    id: "zRCxwnpVjlg",
+    title:
+      "Semantic Nullability: A Path Toward Safe Non-Null Fields - Jordan Eldredge, Meta",
+  },
+  {
     id: "4OVAjJx8tno",
     title: `Consuming GraphQL in TypeSafe Languages - Anthony Miller, Apollo GraphQL`,
   },
