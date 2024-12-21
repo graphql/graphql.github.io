@@ -98,8 +98,8 @@ importers:
         specifier: 3.0.0-alpha.28
         version: 3.0.0-alpha.28(next@14.2.21)(nextra@3.0.0-alpha.28)(react-dom@18.3.1)(react@18.3.1)
       numbro:
-        specifier: 2.3.6
-        version: 2.3.6
+        specifier: 2.5.0
+        version: 2.5.0
       p-limit:
         specifier: ^4.0.0
         version: 4.0.0
@@ -7093,8 +7093,8 @@ packages:
     resolution: {integrity: sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw==}
     dev: false
 
-  /numbro@2.3.6:
-    resolution: {integrity: sha512-pxpoTT3hVxQGaOA2RTzXR/muonQNd1K1HPJbWo7QOmxPwiPmoFCFfsG9XXgW3uqjyzezJ0P9IvCPDXUtJexjwg==}
+  /numbro@2.5.0:
+    resolution: {integrity: sha512-xDcctDimhzko/e+y+Q2/8i3qNC9Svw1QgOkSkQoO0kIPI473tR9QRbo2KP88Ty9p8WbPy+3OpTaAIzehtuHq+A==}
     dependencies:
       bignumber.js: 8.1.1
     dev: false
