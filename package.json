@@ -34,7 +34,7 @@
     "hast-util-to-string": "3.0.1",
     "iframe-resizer-react": "^1.1.0",
     "leaflet": "^1.9.4",
-    "lucide-react": "^0.468.0",
+    "lucide-react": "^0.469.0",
     "markdown-to-jsx": "^7.4.0",
     "marked": "5.1.2",
     "next": "^14.2.5",
