@@ -1,10 +1,10 @@
-import { GlobeIcon } from "@radix-ui/react-icons"
 import { Metadata } from "next"
 import { About } from "../_components/about"
 import { Speakers } from "../_components/speakers"
 import { Sponsors } from "../_components/sponsors"
 import { Thanks } from "../_components/thanks"
 import { CalendarIcon, GraphQLConf, HostedByGraphQLFoundation } from "@/icons"
+import { Globe } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "GraphQLConf 2023 — Sept 19-21 • SF Bay Area",
@@ -38,7 +38,7 @@ function Hero() {
           </div>
           <span />
           <div className="flex items-center gap-5 max-md:gap-3">
-            <GlobeIcon className="size-6" />
+            <Globe className="size-6" />
             <span>San Francisco Bay Area, CA</span>
           </div>
         </div>
