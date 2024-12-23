@@ -66,7 +66,7 @@
     "@svgr/webpack": "^8.0.1",
     "@types/codemirror": "5.60.7",
     "@types/hast": "3.0.4",
-    "@types/node": "^20.11.30",
+    "@types/node": "^22.10.2",
     "@types/react": "^18.2.73",
     "@types/rss": "0.0.32",
     "@types/string-similarity": "^4.0.2",
