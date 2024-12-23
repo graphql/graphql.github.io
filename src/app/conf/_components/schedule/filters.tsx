@@ -1,6 +1,6 @@
 import { Menu, Popover, Transition } from "@headlessui/react"
-import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/20/solid"
 import { clsx } from "clsx"
+import { ChevronDown, X } from "lucide-react"
 
 type FiltersProps = {
   categories: { name: string; options: string[] }[]
@@ -22,7 +22,7 @@ export function Filters({
           onClick={onReset}
           className="flex cursor-pointer items-center gap-x-2 rounded-md bg-gray-200 px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-300 hover:text-gray-900"
         >
-          Reset filters <XMarkIcon className="inline-block size-4" />
+          Reset filters <X className="inline-block size-4" />
         </button>
       )}
       <Menu as="div" className="relative inline-block text-left">
@@ -68,7 +68,7 @@ export function Filters({
                   {filterState[section.name].length}
                 </span>
               ) : null}
-              <ChevronDownIcon
+              <ChevronDown
                 className="-mr-1 ml-1 size-5 shrink-0 text-gray-400 group-hover:text-gray-500"
                 aria-hidden="true"
               />
