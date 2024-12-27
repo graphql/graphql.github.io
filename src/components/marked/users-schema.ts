@@ -67,6 +67,7 @@ const ImageType = new GraphQLObjectType({
 // @ts-expect-error -- fixme
 const FriendConnection = new GraphQLObjectType({
   name: "FriendConnection",
+  // @ts-expect-error -- fixme
   fields: () => ({
     totalCount: { type: GraphQLInt },
     friends: { type: new GraphQLList(UserType) },
