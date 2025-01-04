@@ -3,7 +3,7 @@
   "type": "module",
   "repository": "graphql/graphql.github.io website",
   "private": true,
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@9.15.2",
   "scripts": {
     "build": "next build && next-image-export-optimizer",
     "dev": "next",
