@@ -73,7 +73,7 @@ export default withLess(
       return [
         {
           source: "/swapi-graphql/:path*",
-          destination: "https://graphql.github.io/swapi-graphql/:path*",
+          destination: "https://graphql.github.io/swapi-graphql/graphql",
         },
       ]
     },
