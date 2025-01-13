@@ -11,7 +11,7 @@ On July 12, we hosted an an enlightening Q&A session on scaling UI development w
 
 For those who couldn't make it, we've captured the highlights and insights shared during the discussion. Read on, and join us for our next Q&A Session on July 26 for another discussion about GraphQL at Scale on the [GraphQL Community Discord](https://discord.graphql.org) server!
 
-1. **Scaling UI development with Relay GraphQL**: The Hasura team discussed how Relay GraphQL can facilitate scaling UI development, emphasizing how it can be a practical solution to prevent in-house development of similar mechanisms. 
+1. **Scaling UI development with Relay GraphQL**: The Hasura team discussed how Relay GraphQL can facilitate scaling UI development, emphasizing how it can be a practical solution to prevent in-house development of similar mechanisms.
 
 2. **Relay and React Server Component (RSC)**: They discussed their learnings from comparing and trying Relay with React's next-gen features like RSC and server actions. They pointed out that Relay fits well into things like RSC and solves issues that RSC alone does not handle, such as "compose API fetching across different types of components and craft the best / minimal set of queries."
 
@@ -25,8 +25,8 @@ For those who couldn't make it, we've captured the highlights and insights share
 
 7. **Relay and backend practices**: The Hasura team mentioned that they have not enforced nullable-by-default schemas yet and they can handle breaking changes rapidly due to their ability to iterate quickly on their GraphQL server.
 
-The discussion provided valuable insights into how Relay GraphQL can ease and scale UI development. Notably, the real-world experiences shared by the Hasura team brought home the potential and practical advantages of using Relay in handling large-scale UI projects. 
+The discussion provided valuable insights into how Relay GraphQL can ease and scale UI development. Notably, the real-world experiences shared by the Hasura team brought home the potential and practical advantages of using Relay in handling large-scale UI projects.
 
 For those who missed it or wish to revisit, the [full transcript](https://discord.com/channels/625400653321076807/1098318659727921275/1128737562412974211) is available on our [Discord channel](https://discord.graphql.org).
 
-Stay tuned for more such interactive Q&A sessions about modern topics and opportunities with GraphQL. If you have an idea or request for a Q&A session, please let us know! 
+Stay tuned for more such interactive Q&A sessions about modern topics and opportunities with GraphQL. If you have an idea or request for a Q&A session, please let us know!
