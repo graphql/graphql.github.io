@@ -69,18 +69,18 @@ export default withLess(
           headers: [
             {
               key: "Access-Control-Allow-Origin",
-              value: "*"
+              value: "*",
             },
             {
               key: "Access-Control-Allow-Methods",
-              value: "GET, POST, OPTIONS"
+              value: "GET, POST, OPTIONS",
             },
             {
               key: "Access-Control-Allow-Headers",
-              value: "Content-Type"
+              value: "Content-Type",
             },
-          ]
-        }
+          ],
+        },
       ]
     },
     trailingSlash: true,
