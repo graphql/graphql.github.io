@@ -62,6 +62,27 @@ export default withLess(
       NEXT_PUBLIC_GA_ID:
         process.env.NODE_ENV === "production" ? "UA-44373548-16" : "",
     },
+    headers: async () => {
+      return [
+        {
+          source: "/graphql",
+          headers: [
+            {
+              key: "Access-Control-Allow-Origin",
+              value: "*",
+            },
+            {
+              key: "Access-Control-Allow-Methods",
+              value: "GET, POST, OPTIONS",
+            },
+            {
+              key: "Access-Control-Allow-Headers",
+              value: "Content-Type",
+            },
+          ],
+        },
+      ]
+    },
     trailingSlash: true,
     // Only for local development, skip 200 statusCode due following error:
     //

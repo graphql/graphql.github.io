@@ -26,4 +26,5 @@ export default {
   caching: "",
   performance: "",
   security: "",
+  federation: "",
 }

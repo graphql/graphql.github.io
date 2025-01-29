@@ -1,6 +1,61 @@
 {
   "redirects": [
     {
+      "source": "/graphql-js",
+      "destination": "https://graphql-js.org",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/getting-started",
+      "destination": "https://graphql-js.org",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/graphql",
+      "destination": "https://graphql-js.org/api-v16/graphql",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/error",
+      "destination": "https://graphql-js.org/api-v16/error",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/execution",
+      "destination": "https://graphql-js.org/api-v16/execution",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/language",
+      "destination": "https://graphql-js.org/api-v16/language",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/type",
+      "destination": "https://graphql-js.org/api-v16/type",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/utilities",
+      "destination": "https://graphql-js.org/api-v16/utilities",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/validation",
+      "destination": "https://graphql-js.org/api-v16/validation",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/graphql-http",
+      "destination": "https://graphql-js.org/api-v16/graphql-http",
+      "permanent": true
+    },
+    {
+      "source": "/graphql-js/:path*",
+      "destination": "https://graphql-js.org/:path*",
+      "permanent": true
+    },
+    {
       "source": "/conf/attendee/:path*",
       "destination": "https://graphql-conf-attendee-nextjs.vercel.app/:path*",
       "statusCode": 200
