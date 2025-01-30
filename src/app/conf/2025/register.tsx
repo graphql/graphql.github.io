@@ -6,18 +6,8 @@ export function Register() {
       <InfoGrid
         id="register"
         title="Register"
-        subtitle="Join a diverse community of GraphQL developers, architects, and enthusiasts while experiencing premium content and networking opportunities in a vendor-neutral environment."
+        subtitle="Join a diverse community of GraphQL developers, architects, and enthusiasts while experiencing premium content and networking opportunities in a vendor-neutral environment. We never sell attendee lists or contact information, nor do we authorize others to do so. If you receive an email claiming to sell an attendee list for a Linux Foundation event, please forward it to events@linuxfoundation.org."
         listItems={[
-          {
-            title: "Corporate",
-            description:
-              "The Corporate Registration type is for registrants whose company is paying for their attendance. This includes for-profit companies. You will help keep the conference affordable for everyone, especially students and those needing financial aid.",
-          },
-          {
-            title: "Individuals",
-            description:
-              "The Individual Registration type is for registrants who are currently not working for a company, work for a non-profit or research institution or are attending at their own expense. You will receive confirmation within five business days of registering if your individual registration is approved or needs additional information.",
-          },
           {
             title: "Academics",
             description: `Academics registrations are for current full-time students and faculty members. Full-time faculty and students will need to upload a valid copy of their Faculty or Student ID when registering. If you have any questions, please email <a href="mailto:graphql_events@linuxfoundation.org">graphql_events@linuxfoundation.org</a>`,
@@ -28,10 +18,39 @@ export function Register() {
           },
           {
             title: "Sponsors",
-            description: `A registration link was shared in an email to your company's sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email <a href="mailto:events@linuxfoundation.org.">events@linuxfoundation.org.</a>`,
+            description: `A registration link was shared in an email to your company's sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email <a href="mailto:events@linuxfoundation.org">events@linuxfoundation.org.</a>`,
+          },
+          {
+            title: "Media",
+            description: `If you are a member of the media interested in attending this event and have not received a complimentary access code to attend, contact us at <a href="mailto:events@linuxfoundation.org">events@linuxfoundation.org</a>.`,
           },
         ]}
       />
+
+      <div className="mt-10">
+        <h2 className="mb-4 text-5xl font-bold text-white">Rates</h2>
+        <p>The registraion deadlines is 23:59 on the respective date.</p>
+        <div className="mt-8 grid gap-6 md:grid-cols-3 md:gap-2">
+          {[
+            { title: "Early Bird", dates: "Through 13 July", price: "$599" },
+            { title: "Standard", dates: "Through 13 July", price: "$799" },
+            {
+              title: "Late",
+              dates: "1 September - 10 September",
+              price: "$899",
+            },
+          ].map((item, index) => (
+            <div
+              key={item.title}
+              className="w-full flex-shrink-0 snap-start items-center justify-center border border-primary p-6 text-center text-white shadow-lg lg:w-full lg:max-w-sm"
+            >
+              <h3 className="mb-2 text-2xl font-bold">{item.title}</h3>
+              <time>{item.dates}</time>
+              <p className="mt-2 text-3xl font-bold">{item.price}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="mt-8 flex justify-center">
         <a
