@@ -34,8 +34,7 @@ const FAQS = [
   },
   {
     question: "How do I request a visa letter?",
-    answer:
-      "You must be registered for the event before requesting a visa letter. Please note: it can take up to an hour for our registration system and visa letter system to sync. Request a visa letter. ",
+    answer: `You must be registered for the event before requesting a visa letter. Please note: it can take up to an hour for our registration system and visa letter system to sync. <a target="_blank" href="https://events.linuxfoundation.org/about/visa-request/">Request a visa letter</a>.`,
   },
   {
     question: "Where can I find health and safety information for the event?",
