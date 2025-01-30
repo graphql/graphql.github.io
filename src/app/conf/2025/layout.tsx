@@ -51,6 +51,7 @@ export default function Layout({
           { children: "Speakers", href: "/conf/2025/#speakers" },
           { children: "Register", href: "/conf/2025/#register" },
           { children: "Recap", href: "/conf/2024" },
+          { children: "Resources", href: "/conf/2025/resources" },
           { children: "FAQ", href: "/conf/2025/#faq" },
         ]}
         is2025
