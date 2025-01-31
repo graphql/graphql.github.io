@@ -29,8 +29,7 @@ const FAQS = [
   },
   {
     question: "Can I get certificate of attendance?",
-    answer:
-      'To request a Certificate of Attendance, please submit a request <a target="blank" href="https://docs.google.com/forms/d/1RpI8h6AGK2rCl3aIlyEY0D6fU3tsZ5yr1Ba6c3h6p9Y/viewform?edit_requested=true">here</a>. Please Note: We verify attendance through the registration system, and Certificate of Attendance letters are sent out after the event is completed.',
+    answer: `You can download your Certificate of Attendance directly from your <a target="_blank" href="https://openprofile.dev/myevents">LFX dashboard</a> by navigating to the "Past Events" section in the LF Events column. Please Note: We verify attendance through the registration system, and certificates will only be available for download after the event is completed.`,
   },
   {
     question: "How do I request a visa letter?",

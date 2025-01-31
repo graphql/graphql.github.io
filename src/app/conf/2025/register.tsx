@@ -18,11 +18,11 @@ export function Register() {
           },
           {
             title: "Sponsors",
-            description: `A registration link was shared in an email to your company's sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email <a href="mailto:events@linuxfoundation.org">events@linuxfoundation.org.</a>`,
+            description: `A registration link was shared in an email to your company's sponsorship contact. Please reach out to your company’s sponsorship contact if you need to register as a Sponsor. For further questions, please email <a href="mailto:graphql_events@linuxfoundation.org">graphql_events@linuxfoundation.org</a>.`,
           },
           {
             title: "Media",
-            description: `If you are a member of the media interested in attending this event and have not received a complimentary access code to attend, contact us at <a href="mailto:events@linuxfoundation.org">events@linuxfoundation.org</a>.`,
+            description: `If you are a member of the media interested in attending this event and have not received a complimentary access code to attend, contact us at <a href="mailto:graphql_events@linuxfoundation.org">graphql_events@linuxfoundation.org</a>.`,
           },
         ]}
       />
@@ -33,7 +33,7 @@ export function Register() {
         <div className="mt-8 grid gap-6 md:grid-cols-3 md:gap-2">
           {[
             { title: "Early Bird", dates: "Through 13 July", price: "$599" },
-            { title: "Standard", dates: "Through 13 July", price: "$799" },
+            { title: "Standard", dates: "14 July - 31 August", price: "$799" },
             {
               title: "Late",
               dates: "1 September - 10 September",
