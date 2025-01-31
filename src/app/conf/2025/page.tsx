@@ -6,6 +6,7 @@ import { Venue } from "./venue"
 import { FAQ } from "./faq"
 import { Register } from "./register"
 import { PastSponsors } from "./past-sponsors"
+import { Speakers } from "./speakers"
 
 export const metadata: Metadata = {
   title: "GraphQLConf 2025 — Sept 08-10",
@@ -63,11 +64,7 @@ export default function Page() {
         <Intro />
         <PastSponsors />
         <Sponsor />
-        <GridButton
-          id="speakers"
-          title="Notify Me About Speaking"
-          href="https://forms.gle/jRsE2u8pokLX93RGA"
-        />
+        <Speakers />
         <Register />
         <Venue />
         <FAQ />
