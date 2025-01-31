@@ -4,6 +4,7 @@ import {
   SquareParking,
   TicketsPlane,
 } from "lucide-react"
+import Link from "next/link"
 
 const HOTELS = [
   {
@@ -38,8 +39,7 @@ const HOW_TO_GET_TO_VENUE = [
   },
   {
     title: "Parking at venue",
-    description:
-      "Limited parking is available at the venue. We recommend using public transportation when possible.",
+    description: `Limited parking is available at the venue. We recommend using public transportation when possible. Learn more about parking at <a class="hover:text-primary underline" href="https://dezwijger.nl/about-us-en/contact" target="_blank">Pakhuis de Zwijger</a>. If you require an accessible parking spot, park at Vriesseveem 4 or Withoedenveem 16 where you can park if you have a Disability Parking Card.`,
     icon: <SquareParking size={20} />,
   },
 ]
@@ -52,7 +52,15 @@ export function Venue() {
         <div className="flex flex-col gap-2">
           <h2 className="text-3xl">Conference</h2>
           <address className="not-italic">
-            <strong>Pakhuis De Zwijger</strong>
+            <strong>
+              <Link
+                className="underline hover:text-primary"
+                target="_blank"
+                href="https://dezwijger.nl/"
+              >
+                Pakhuis De Zwijger
+              </Link>
+            </strong>
             <br /> Piet Heinkade 179, 1019 HC <br />
             Amsterdam, Netherlands
           </address>
@@ -66,7 +74,12 @@ export function Venue() {
                   {icon}
                   <h5 className="text-lg">{title}</h5>
                 </div>
-                <p className="ml-9 max-w-96">{description}</p>
+                <p
+                  className="ml-9 max-w-96"
+                  dangerouslySetInnerHTML={{
+                    __html: description,
+                  }}
+                />
               </div>
             ))}
           </div>
