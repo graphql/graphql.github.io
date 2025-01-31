@@ -16,11 +16,11 @@ const FAQS = [
   {
     question: "Are there group discounts for teams?",
     answer:
-      'If you have a group of 5 or more people, you can receive a 10% discount on all passes. All pass types must be the same, and all registrations must be processed under one group registration and must be paid with the same credit card. To create a group, select “Add Another Person” to your registration. When 5 or more people are added the 10% discount will be automatically applied. <a href="mailto:registration@linuxfoundation.org">Contact us</a> for any questions.',
+      'If you have a group of 5 or more people, you can receive a 10% discount on all passes. All pass types must be the same, and all registrations must be processed under one group registration and must be paid with the same credit card. To create a group, select “Add Another Person” to your registration. When 5 or more people are added the 10% discount will be automatically applied. <a href="mailto:registration@linuxfoundation.org">registration@linuxfoundation.org</a> for any questions.',
   },
   {
     question: "What is the refund and cancellation policy?",
-    answer: `If you must cancel for any reason, please sign back into your registration, click the “Register/Modify” button and select “Unregister.” If you need further assistance, <a href="mailto:registration@linuxfoundation.org">contact us</a>.<br/><br/>Refunds will only be issued for cancellations received two weeks prior to the event start date, including bulk ticket request refunds, and will appear as a credit on the card's statement 7-10 business days after cancellation. Individual refund requests for late cancellations due to sickness or emergency will be considered on a case by case basis - <a href="mailto:registration@linuxfoundation.org">contact us</a>.<br/><br/>Refunds can only be issued on the card the original payment was made.`,
+    answer: `If you must cancel for any reason, please sign back into your registration, click the “Register/Modify” button and select “Unregister.” If you need further assistance, please contact <a href="mailto:registration@linuxfoundation.org">registration@linuxfoundation.org</a>.<br/><br/>Refunds will only be issued for cancellations received two weeks prior to the event start date, including bulk ticket request refunds, and will appear as a credit on the card's statement 7-10 business days after cancellation. Individual refund requests for late cancellations due to sickness or emergency will be considered on a case by case basis - <a href="mailto:registration@linuxfoundation.org">registration@linuxfoundation.org</a>.<br/><br/>Refunds can only be issued on the card the original payment was made.`,
   },
   {
     question: "Can I transfer my registration?",
@@ -53,7 +53,7 @@ const FAQS = [
   {
     question: "Cannot find the answer to your question?",
     answer:
-      'You are welcome to email us <a href="mailto:graphqlconf@graphql.org">graphqlconf@graphql.org</a>.',
+      'You are welcome to email us <a href="mailto:graphql_events@linuxfoundation.org ">graphql_events@linuxfoundation.org</a>.',
   },
 ]
 
