@@ -48,7 +48,7 @@ export default function Layout({
         }
         links={[
           { children: "Sponsor", href: "/conf/2025/#sponsors" },
-          { children: "Speakers", href: "/conf/2025/#speakers" },
+          { children: "Submit to Speak", href: "/conf/2025/#speakers" },
           { children: "Register", href: "/conf/2025/#register" },
           { children: "Recap", href: "/conf/2024" },
           { children: "Resources", href: "/conf/2025/resources" },

@@ -235,7 +235,8 @@ export function Speakers() {
         Putting on an amazing conference depends on great content, which is
         where you come in! Join other GraphQL leaders and community members as a
         presenter by submitting to our Call for Proposals (CFP) and sharing your
-        experience across a wide range of topics.
+        experience across a wide range of topics. Please click through all of
+        the tabs below before submitting a proposal.
       </p>
       <p className="mb-4">
         For any questions regarding the CFP process, please email{" "}
@@ -268,8 +269,15 @@ export function Speakers() {
         Please be aware that the Linux Foundation uses Sessionize for CFP
         submissions. Sessionize is a cloud-based event content management
         software designed to be intuitive and user-friendly. If you need
-        guidance, please review how to submit your session for an event to see
-        step-by-step instructions and helpful screenshots.
+        guidance, please review{" "}
+        <a
+          className="underline hover:text-primary"
+          target="_blank"
+          href="https://sessionize.com/playbook/submit-your-session-for-an-event"
+        >
+          how to submit your session
+        </a>{" "}
+        for an event to see step-by-step instructions and helpful screenshots.
       </p>
       <div className="mb-6">
         <div className="flex border-b">
