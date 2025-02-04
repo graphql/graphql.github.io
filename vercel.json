@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/graphql-js",
-      "destination": "https://graphql-js.org",
+      "destination": "https://graphql-js.org/docs",
       "permanent": true
     },
     {
