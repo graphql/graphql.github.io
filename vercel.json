@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/graphql-js",
-      "destination": "https://graphql-js.org/docs",
+      "destination": "https://graphql-js.org",
       "permanent": true
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "source": "/graphql-js/:path*",
-      "destination": "https://graphql-js.org/:path*",
+      "destination": "https://graphql-js.org/docs/:path*",
       "permanent": true
     },
     {
