@@ -85,6 +85,12 @@ export default {
   },
   "graphql-js": {
     type: "page",
-    title: "GraphQL.JS Tutorial",
+    title: (
+      <span className="after:font-sans after:content-['_↗']">
+        GraphQL.JS Tutorial
+      </span>
+    ),
+    href: "https://www.graphql-js.org/docs/getting-started/",
+    newWindow: true,
   },
 }

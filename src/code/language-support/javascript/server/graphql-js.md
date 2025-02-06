@@ -1,7 +1,7 @@
 ---
 name: GraphQL.js
 description: The reference implementation of the GraphQL specification, designed for running GraphQL in a Node.js environment.
-url: /graphql-js/
+url: https://www.graphql-js.org/
 github: graphql/graphql-js
 npm: "graphql"
 ---

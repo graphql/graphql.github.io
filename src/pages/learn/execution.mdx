@@ -70,7 +70,7 @@ This example is written in JavaScript, however GraphQL servers can be built in [
 - `obj`: The previous object (for a field on the root `Query` type, this argument is often not used).
 - `args`: The arguments provided to the field in the GraphQL operation.
 - `context`: A value provided to every resolver that may hold important contextual information like the currently logged in user, or access to a database.
-- `info`: generally only used in advanced use-cases, this is a value holding field-specific information relevant to the current operation as well as the schema details; refer to [type GraphQLResolveInfo](/graphql-js/type/#graphqlobjecttype) for more details.
+- `info`: generally only used in advanced use-cases, this is a value holding field-specific information relevant to the current operation as well as the schema details; refer to [type GraphQLResolveInfo](https://www.graphql-js.org/api-v16/type/#graphqlobjecttype) for more details.
 
 <Callout type="info">
 Note that while a query operation could technically write data to the underlying data system during its execution, mutation operations are conventionally used for requests that produce side effects during their execution. And because mutation operations produce side effects, GraphQL implementations can be expected to execute these fields serially.

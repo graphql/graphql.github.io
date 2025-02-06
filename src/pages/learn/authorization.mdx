@@ -2,7 +2,7 @@
 
 <p className="learn-subtitle">Delegate authorization logic to the business logic layer</p>
 
-Most APIs will need to secure access to certain types of data depending on who requested it, and GraphQL is no different. GraphQL execution should begin after [authentication](/graphql-js/authentication-and-express-middleware/) middleware confirms the user's identity and passes that information to the GraphQL layer. But after that, you still need to determine if the authenticated user is allowed to view the data provided by the specific fields that were included in the request. On this page, we'll explore how a GraphQL schema can support authorization.
+Most APIs will need to secure access to certain types of data depending on who requested it, and GraphQL is no different. GraphQL execution should begin after [authentication](https://www.graphql-js.org/docs/authentication-and-express-middleware/) middleware confirms the user's identity and passes that information to the GraphQL layer. But after that, you still need to determine if the authenticated user is allowed to view the data provided by the specific fields that were included in the request. On this page, we'll explore how a GraphQL schema can support authorization.
 
 ## Type and field authorization
 
@@ -60,7 +60,7 @@ function Post_body(obj, args, context, info) {
 }
 ```
 
-In the example above, we see that the business logic layer requires the caller to provide a user object, which is available in the `context` object for the GraphQL request. We recommend passing a fully-hydrated user object instead of an opaque token or API key to your business logic layer. This way, we can handle the distinct concerns of [authentication](/graphql-js/authentication-and-express-middleware/) and authorization in different stages of the request processing pipeline.
+In the example above, we see that the business logic layer requires the caller to provide a user object, which is available in the `context` object for the GraphQL request. We recommend passing a fully-hydrated user object instead of an opaque token or API key to your business logic layer. This way, we can handle the distinct concerns of [authentication](https://www.graphql-js.org/docs/authentication-and-express-middleware/) and authorization in different stages of the request processing pipeline.
 
 ## Using type system directives
 
