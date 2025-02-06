@@ -1,7 +1,7 @@
 ---
 title: "Welcoming New TSC Members"
 tags: ["foundation"]
-date: 2025-2-5
+date: 2025-02-05
 byline: Lee Byron
 ---
 
@@ -15,9 +15,9 @@ In addition, we also re-elected three existing members, [Kewei Qu](https://githu
 
 ## Open Working Groups and the Role of the TSC
 
-GraphQL is an open project. All are welcome to join our (https://github.com/graphql/graphql-wg/)[working group] meetings, champion proposals for project-wide improvements, or contribute directly across our open source projects.
+GraphQL is an open project. All are welcome to join our [working group](https://github.com/graphql/graphql-wg/) meetings, champion proposals for project-wide improvements, or contribute directly across our open source projects.
 
-It's been critical to keep access to these working groups open, but it does mean a rotating cast of contributors over time. The primary role of the TSC is to provide continuity as the stewards of this group and our processes, and co-owners of our technical projects.
+It has been critical to keep access to these working groups open, but it does mean a rotating cast of contributors over time. The primary role of the TSC is to provide continuity as the stewards of this group and our processes, and co-owners of our technical projects.
 
 While the TSC is a closed group, our focus is always on strengthening the work that happens in our open Working Group meetings—that is where technical work moves forward.
 
