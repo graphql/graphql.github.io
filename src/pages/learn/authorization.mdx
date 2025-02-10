@@ -33,7 +33,7 @@ function Post_body(obj, args, context, info) {
 }
 ```
 
-Notice that we define "author owns a post" by checking whether the post's `authorId` field equals the current user’s `id`. Can you spot the problem? We would need to duplicate this code for each entry point into the service. Then if the authorization logic is not kept perfectly in sync, users could see different data depending on which API they use. Yikes! We can avoid that by having a [single source of truth](/learn/thinking-in-graphs/#business-logic-layer) for authorization, instead of putting it the GraphQL layer.
+Notice that we define "author owns a post" by checking whether the post's `authorId` field equals the current user’s `id`. Can you spot the problem? We would need to duplicate this code for each entry point into the service. Then if the authorization logic is not kept perfectly in sync, users could see different data depending on which API they use. Yikes! We can avoid that by having a [single source of truth](/learn/thinking-in-graphs/#business-logic-layer) for authorization, instead of putting it in the GraphQL layer.
 
 Defining authorization logic inside the resolver is fine when learning GraphQL or prototyping. However, for a production codebase, delegate authorization logic to the business logic layer. Here’s an example of how authorization of the `Post` type's fields could be implemented separately:
 
