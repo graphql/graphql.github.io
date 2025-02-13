@@ -5,6 +5,7 @@ import { Sponsor } from "./sponsorship"
 import { Venue } from "./venue"
 import { FAQ } from "./faq"
 import { Register } from "./register"
+import { Sponsors } from "./sponsors"
 import { PastSponsors } from "./past-sponsors"
 import { Speakers } from "./speakers"
 
