@@ -19,7 +19,7 @@ import { ApolloServer } from "@apollo/server"
 import { startStandaloneServer } from "@apollo/server/standalone"
 import { buildSchema } from "graphql"
 
-const schema = buildSchema(`
+const typeDefs = buildSchema(`
    type Query {
       hello: String
    }
