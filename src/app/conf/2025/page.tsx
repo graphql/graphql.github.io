@@ -6,7 +6,6 @@ import { Venue } from "./venue"
 import { FAQ } from "./faq"
 import { Register } from "./register"
 import { Sponsors } from "./sponsors"
-import { PastSponsors } from "./past-sponsors"
 import { Speakers } from "./speakers"
 
 export const metadata: Metadata = {
@@ -63,7 +62,7 @@ export default function Page() {
       <Hero />
       <div className="container my-20 flex flex-col gap-20 md:my-32 md:gap-32">
         <Intro />
-        <PastSponsors />
+        <Sponsors />
         <Sponsor />
         <Speakers />
         <Register />
