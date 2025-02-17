@@ -29,7 +29,6 @@ To learn more about the TSC and how we work, check out these resources:
 - **[TSC Charter](https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md)** — this lists out in detail how the TSC is governed, which contains more detail about when and how we take votes, and what we're accountable for.
 - **[GraphQL Working Group](https://github.com/graphql/graphql-wg/)** — this is where we organize meetings and contribution across the Working Group, where you'll find past and upcoming agendas and can join an upcoming meeting simply by adding yourself to the next agenda file in a PR.
 
-
 I'm beyond lucky to get to work with such a talented group of volunteers both directly on the TSC and across the GraphQL community.
 
 Welcome, Martin and Pascal!
