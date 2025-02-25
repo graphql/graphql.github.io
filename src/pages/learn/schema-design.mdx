@@ -12,8 +12,26 @@ In contrast, GraphQL only returns the data that's explicitly requested, so new c
 
 ## Nullability
 
-Most type systems which recognise "null" provide both the common type and the _nullable_ version of that type, whereby default types do not include "null" unless explicitly declared. However, in a GraphQL type system, every field is _nullable_ by default. This is because there are many things that can go awry in a networked service backed by databases and other services. A database could go down, an asynchronous action could fail, an exception could be thrown. Beyond simply system failures, authorization can often be granular, where individual fields within a request can have different authorization rules.
+Most type systems which recognise "null" provide both the common type and the _nullable_ version of that type, whereby default types do not include "null" unless explicitly declared.
 
-By defaulting every field to _nullable_, any of these reasons may result in just that field returned "null" rather than having a complete failure for the request. Instead, GraphQL provides [non-null](/learn/schema/#lists-and-non-null) variants of types which make a guarantee to clients that if requested, the field will never return "null". Instead, if an error occurs, the previous parent field will be "null" instead.
+Earlier releases of GraphQL recommended to make positions nullable by default in order for errors to be represented as "null" in the response data. This was an issue for clients because they had to guess whether "null" was a possible semantic value for the field that they needed to handle in addition to the error cases.
 
-When designing a GraphQL schema, it's important to keep in mind all the problems that could go wrong and if "null" is an appropriate value for a failed field. Typically it is, but occasionally, it's not. In those cases, use non-null types to make that guarantee.
+Newer releases of GraphQL support the `@experimental_disableErrorPropagation` directive, allowing errors to be represented as "null" as long as there is a matching error in the "errors" section of the response.
+
+Moving forward, schema authors should use the semantic nullability when possible. This helps client developers make informed decisions about when to handle "null".
+
+For positions that have no reason to ever be semantically null, `!` should be used to indicate to the client that checking for `null` is not required on this position. This position may still return an error. See the [errors section](#field-errors) below for more details.
+
+Two exceptions to that general rule are:
+* **Preserving option value**: if a position is currently never null but may return null in the future, it can be indicated by marking the position nullable in advance. Doing so has a cost in terms of client logic and overall data correctness and those decisions should be carefully evaluated and documented.
+* **Support for non error handling clients**: some clients are not able to looks into the `errors` array and distinguish a semantic `null` from an error. Marking positions as nullable help those clients getting more complete partial data.
+
+## Field errors
+
+[Field errors](https://spec.graphql.org/draft/#field-error) are errors raised during the execution of a particular field which results in partial response data. This may occur due to an internal error during value resolution or failure to coerce the resulting value.
+
+A field error is typically the fault of a GraphQL service.
+
+Clients wanting to display partial data should opt out of error propagation using `@experimental_disableErrorPropagation` and parse the `errors` section of the response. This ensures the server returns as much data as is available.
+
+Because they are typically not cached and harder to process that regular data, field errors in GraphQL work best are exceptional and transient.
