@@ -35,3 +35,28 @@ A field error is typically the fault of a GraphQL service.
 Clients wanting to display partial data should opt out of error propagation using `@experimental_disableErrorPropagation` and parse the `errors` section of the response. This ensures the server returns as much data as is available.
 
 Because they are typically not cached and harder to process that regular data, field errors in GraphQL work best are exceptional and transient.
+
+## Documentation
+
+GraphQL has built-in support for documentation. Every type and field in your schema can be described to provide context to your developers about how to use them.
+
+```graphql
+"""
+A user of the service.
+"""
+type User {
+    """
+    The full name of the user.
+    """
+    name: String!
+    """
+    The url of the user picture.
+    `null` if the user did not configure a picture.
+    """
+    pictureUrl: String
+}
+```
+
+Schema authors are encouraged to add description to their type and field definitions. Those descriptions can be reused by tools like code generation to build a shared understanding of the data model.
+
+Whenever a position is nullable descriptions should explicit in what cases `null` is returned so that users can make informed decisions.
