@@ -28,7 +28,7 @@ const HOW_TO_GET_TO_VENUE = [
   {
     title: "Public Transportation",
     description:
-      'Take tram 26 from Amsterdam Central Station to the "Rietlandpark" stop. The venue is a 5-minute walk from there.',
+      'Take tram 26 from Amsterdam Central Station to the "Kattenburgerstraat" stop. The venue is in front of the tram stop.',
     icon: <BusFront size={20} />,
   },
   {
