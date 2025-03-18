@@ -148,7 +148,7 @@ div[id^="headlessui-menu-items"] {
 }
 
 ::selection {
-  @apply bg-primary/50 dark:bg-primary;
+  @apply bg-primary/50 dark:bg-primary/50;
 }
 
 @media (prefers-color-scheme: dark) {
