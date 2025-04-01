@@ -21,7 +21,10 @@ function TabHeading({
 function DatesTab() {
   return (
     <>
-      <TabHeading>Dates to Remember</TabHeading>
+      <p className="text-sm">
+        <em>Last Updated: 2025-04-02</em>
+      </p>
+      <TabHeading className="mt-6">Dates to Remember</TabHeading>
       <ul className="list-disc space-y-2 pl-6">
         <li>CFP Opens: Tuesday, 4 February</li>
         <li>CFP Close: Sunday, 4 May at 23:59 CEST (UTC+2)</li>
@@ -39,7 +42,10 @@ function DatesTab() {
 function TopicsTab() {
   return (
     <>
-      <TabHeading>Suggested Topics</TabHeading>
+      <p className="text-sm">
+        <em>Last Updated: 2025-04-02</em>
+      </p>
+      <TabHeading className="mt-6">Suggested Topics</TabHeading>
       <ul className="list-disc space-y-2 pl-6">
         <li>GraphQL Working Group</li>
         <ul className="list-disc space-y-2 pl-6">
@@ -79,7 +85,10 @@ function TopicsTab() {
 function NotesTab() {
   return (
     <>
-      <TabHeading>Important Notes</TabHeading>
+      <p className="text-sm">
+        <em>Last Updated: 2025-04-02</em>
+      </p>
+      <TabHeading className="mt-6">Important Notes</TabHeading>
       <ul className="list-disc space-y-2 pl-6">
         <li>
           All speakers are required to adhere to our{" "}
@@ -183,7 +192,10 @@ function NotesTab() {
 function TypesTab() {
   return (
     <>
-      <TabHeading>Submission Types</TabHeading>
+      <p className="text-sm">
+        <em>Last Updated: 2025-04-02</em>
+      </p>
+      <TabHeading className="mt-6">Submission Types</TabHeading>
       <ul className="list-disc space-y-2 pl-6">
         <li>
           Session Presentation: Typically 30 minutes in length, 1-2 speakers
@@ -204,7 +216,10 @@ function TypesTab() {
 function ProcessTab() {
   return (
     <>
-      <TabHeading>The Talk Selection Process</TabHeading>
+      <p className="text-sm">
+        <em>Last Updated: 2025-04-02</em>
+      </p>
+      <TabHeading className="mt-6">The Talk Selection Process</TabHeading>
       The GraphQL Foundation strives to select conference talks based on fair
       criteria in a transparent manner. There are three groups involved in the
       selection process, each with their own focus to help create an engaging
