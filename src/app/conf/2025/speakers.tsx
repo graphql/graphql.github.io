@@ -220,22 +220,24 @@ function ProcessTab() {
         <em>Last Updated: 2025-04-02</em>
       </p>
       <TabHeading className="mt-6">The Talk Selection Process</TabHeading>
-      The GraphQL Foundation strives to select conference talks based on fair
-      criteria in a transparent manner. There are three groups involved in the
-      selection process, each with their own focus to help create an engaging
-      and balanced conference schedule:
+      <p>
+        The GraphQL Foundation strives to select conference talks based on fair
+        criteria in a transparent manner. There are three groups involved in the
+        selection process, each with their own focus to help create an engaging
+        and balanced conference schedule:
+      </p>
       <ul className="list-disc space-y-2 pl-6">
         <li>The Technical Steering Committee (TSC)</li>
         <li>The new Subject Matter Experts initiative (SMEs)</li>
         <li>The Program Committee</li>
       </ul>
       <TabHeading className="mt-6">The Technical Steering Committee</TabHeading>
-      The TSC are a group of 11 individuals who are elected to serve a two year
-      term to provide technical oversight of all GraphQL development efforts.
-      When evaluating conference talks they <strong>
-        focus on quality
-      </strong>{" "}
-      and use the following criteria:
+      <p>
+        The TSC are a group of 11 individuals who are elected to serve a two
+        year term to provide technical oversight of all GraphQL development
+        efforts. When evaluating conference talks they{" "}
+        <strong>focus on quality</strong> and use the following criteria:
+      </p>
       <ul className="list-disc space-y-2 pl-6">
         <li>Relevance</li>
         <li>Originality</li>
@@ -244,32 +246,39 @@ function ProcessTab() {
         <li>Importance</li>
       </ul>
       <TabHeading className="mt-6">Subject Matter Experts</TabHeading>
-      The SME initiative is new for 2025. This will be a panel of volunteers
-      drawn from industry experts, working group members, security and
-      observability experts, and maintainers and contributors to open source
-      GraphQL projects. When evaluating the talks, they will{" "}
-      <strong>focus on how exciting and engaging the talks are</strong> and use
-      the following criteria:
+      <p>
+        The SME initiative is new for 2025. This will be a panel of volunteers
+        drawn from industry experts, working group members, security and
+        observability experts, and maintainers and contributors to open source
+        GraphQL projects. When evaluating the talks, they will{" "}
+        <strong>focus on how exciting and engaging the talks are</strong> and
+        use the following criteria:
+      </p>
       <ul className="list-disc space-y-2 pl-6">
         <li>Subject Content</li>
         <li>Originality</li>
         <li>Audience Engagement</li>
       </ul>
       <TabHeading className="mt-6">The Program Committee</TabHeading>
-      The Program Committee is made up of representatives from the GraphQL
-      Foundation board and interested members of the GraphQL community who have
-      had experience organizing conferences. They shape the schedule from the
-      highest-rated talks, ensuring balance across industries and affiliations,
-      and also including a range of speaker experience and demographics, to
-      ensure a varied and well-rounded representation of the GraphQL ecosystem.
+      <p>
+        The Program Committee is made up of representatives from the GraphQL
+        Foundation board and interested members of the GraphQL community who
+        have had experience organizing conferences. They shape the schedule from
+        the highest-rated talks, ensuring balance across industries and
+        affiliations, and also including a range of speaker experience and
+        demographics, to ensure a varied and well-rounded representation of the
+        GraphQL ecosystem.
+      </p>
       <TabHeading className="mt-6">
         Have More Questions? First Time Submitting? Don't Feel Intimidated
       </TabHeading>
-      Linux Foundation events are an excellent way to get to know the community
-      and share your ideas and the work that you are doing and we strongly
-      encourage first-time speakers to submit talks for our events. In the
-      instance that you aren't sure about your abstract, reach out to us and we
-      will be more than happy to work with you on your proposal.
+      <p>
+        Linux Foundation events are an excellent way to get to know the
+        community and share your ideas and the work that you are doing and we
+        strongly encourage first-time speakers to submit talks for our events.
+        In the instance that you aren't sure about your abstract, reach out to
+        us and we will be more than happy to work with you on your proposal.
+      </p>
     </>
   )
 }
