@@ -220,7 +220,7 @@ function ProcessTab() {
         <em>Last Updated: 2025-04-02</em>
       </p>
       <TabHeading className="mt-6">The Talk Selection Process</TabHeading>
-      <p>
+      <p className="mb-4">
         The GraphQL Foundation strives to select conference talks based on fair
         criteria in a transparent manner. There are three groups involved in the
         selection process, each with their own focus to help create an engaging
@@ -232,7 +232,7 @@ function ProcessTab() {
         <li>The Program Committee</li>
       </ul>
       <TabHeading className="mt-6">The Technical Steering Committee</TabHeading>
-      <p>
+      <p className="mb-4">
         The TSC are a group of 11 individuals who are elected to serve a two
         year term to provide technical oversight of all GraphQL development
         efforts. When evaluating conference talks they{" "}
@@ -246,7 +246,7 @@ function ProcessTab() {
         <li>Importance</li>
       </ul>
       <TabHeading className="mt-6">Subject Matter Experts</TabHeading>
-      <p>
+      <p className="mb-4">
         The SME initiative is new for 2025. This will be a panel of volunteers
         drawn from industry experts, working group members, security and
         observability experts, and maintainers and contributors to open source
