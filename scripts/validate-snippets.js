@@ -1,0 +1,152 @@
+#!/usr/bin/env node
+
+import fs from "node:fs"
+import glob from "glob"
+import { parse } from "graphql"
+import chalk from "chalk"
+
+const MDX_GLOB = "./src/pages/learn/**/*.mdx"
+const CODE_BLOCK_REGEX = /```(\w+)\s*\r?\n([\s\S]*?)\r?\n```/g
+const IGNORE_COMMENT = "snippet-ignore"
+
+let totalFiles = 0
+let totalSnippets = 0
+let totalErrors = 0
+
+// TODO: Add JS linting after JS code snippet modernization
+// async function lintJavaScript(code, filePath) {
+//   const eslint = new ESLint({
+//     useEslintrc: true,
+//     baseConfig: {
+//       parserOptions: {
+//         ecmaVersion: "latest",
+//         sourceType: "module",
+//       },
+//     },
+//   })
+
+//   let preparedCode = code.trim()
+
+//   if (preparedCode.startsWith("function")) {
+//     preparedCode = "/* eslint-disable no-unused-vars */\n" + preparedCode
+//   }
+
+//   const results = await eslint.lintText(preparedCode, { filePath })
+//   return results.flatMap(result => result.messages)
+// }
+
+function validateGraphQL(code) {
+  try {
+    parse(code)
+    return []
+  } catch (error) {
+    return [{ message: error.message }]
+  }
+}
+
+function extractSnippets(content, filePath) {
+  const snippets = []
+  let match
+
+  while ((match = CODE_BLOCK_REGEX.exec(content)) !== null) {
+    const [fullMatch, lang, code] = match
+    const beforeBlock = content.slice(0, match.index)
+    const lineNumber = beforeBlock.split(/\r?\n/).length
+
+    if (beforeBlock.includes(IGNORE_COMMENT)) {
+      continue
+    }
+
+    snippets.push({ lang, code, lineNumber, filePath })
+  }
+
+  return snippets
+}
+
+async function validateSnippet(snippet) {
+  const { lang, code, lineNumber, filePath } = snippet
+
+  if (!code.trim()) return []
+
+  // TODO: Add section after JS code snippet modernization
+  // if (["js", "javascript", "ts", "typescript"].includes(lang)) {
+  //   const messages = await lintJavaScript(code, filePath)
+  //   return messages.map(msg => ({
+  //     type: "JS/TS",
+  //     file: filePath,
+  //     line: lineNumber + (msg.line || 1),
+  //     message: msg.message,
+  //   }))
+  // }
+
+  if (lang === "graphql") {
+    const messages = validateGraphQL(code)
+    return messages.map(msg => ({
+      type: "GraphQL",
+      file: filePath,
+      line: lineNumber + (msg.line || 1),
+      message: msg.message,
+    }))
+  }
+
+  return []
+}
+
+async function main() {
+  console.log(`Validating code snippets in: ${MDX_GLOB}`)
+
+  const files = glob.sync(MDX_GLOB)
+  totalFiles = files.length
+
+  if (totalFiles === 0) {
+    console.log(chalk.green("No MDX files found to validate."))
+    return
+  }
+
+  const errors = []
+
+  for (const file of files) {
+    const content = fs.readFileSync(file, "utf8")
+    const snippets = extractSnippets(content, file)
+    totalSnippets += snippets.length
+
+    for (const snippet of snippets) {
+      const snippetErrors = await validateSnippet(snippet)
+      errors.push(...snippetErrors)
+    }
+  }
+
+  totalErrors = errors.length
+
+  if (totalErrors > 0) {
+    errors.forEach(err => {
+      const errorMessage = `${err.type} Error in ${err.file} at line ${err.line}: ${err.message}`
+      console.error(chalk.red(errorMessage))
+
+      if (process.env.GITHUB_ACTIONS) {
+        console.log(`::error file=${err.file},line=${err.line}::${err.message}`)
+      }
+    })
+
+    console.error(
+      chalk.red("\nCode snippet validation failed. Check error logs."),
+    )
+    console.error(`Files checked: ${totalFiles}`)
+    console.error(`Snippets checked: ${totalSnippets}`)
+    console.error(`Errors found: ${totalErrors}`)
+    process.exit(1)
+  } else {
+    console.log(
+      chalk.green(
+        "\nCode snippet validation passed. All code snippets are valid.",
+      ),
+    )
+    console.log(`Files checked: ${totalFiles}`)
+    console.log(`Snippets checked: ${totalSnippets}`)
+  }
+}
+
+main().catch(err => {
+  console.error(err)
+  process.exit(1)
+})

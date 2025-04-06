@@ -1,18 +1,14 @@
 /* eslint-env node */
 
-const CODE_EXT = "js,jsx,cjs,mjs,ts,tsx,cts,mts"
-
-const MARKDOWN_EXT = "md,mdx"
+const CODE_EXT = "js,jsx,cjs,mjs,ts,tsx,cts,mts";
+const MARKDOWN_EXT = "md,mdx";
 
 module.exports = {
   root: true,
+  plugins: ["@graphql-eslint", "mdx", "@typescript-eslint", "tailwindcss"],
   overrides: [
     {
       files: [`**/*.{${CODE_EXT}}`],
-      // TODO: extract graphql documents from code files
-      // to lint graphql documents marked with /* GraphQL */ comments inside js/ts codeblocks in markdown
-      // processor: '@graphql-eslint/graphql',
-      // plugins: ['@graphql-eslint'],
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -34,7 +30,6 @@ module.exports = {
           },
         ],
         "prefer-const": ["error", { destructuring: "all" }],
-        // TODO: fix below
         "prefer-rest-params": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unused-vars": "off",
@@ -51,27 +46,45 @@ module.exports = {
     {
       files: [`**/*.{${MARKDOWN_EXT}}`],
       parser: "eslint-mdx",
+      extends: ["plugin:mdx/recommended"],
       processor: "mdx/remark",
-      plugins: ["mdx"],
       parserOptions: {
         ecmaVersion: 13,
         sourceType: "module",
       },
       settings: {
         "mdx/code-blocks": true,
+        "mdx/language-mapper": {
+          js: "espree",
+          graphql: "@graphql-eslint/parser",
+          ts: "@typescript-eslint/parser",
+          typescript: "@typescript-eslint/parser",
+        },
       },
       rules: {
         "mdx/remark": "error",
       },
     },
     {
-      files: [`**/*.{${MARKDOWN_EXT}}/*.{${CODE_EXT}}`],
+      files: ["**/*.graphql"],
+      parser: "@graphql-eslint/parser",
       rules: {
-        "no-unused-labels": "off",
-        "no-undef": "off",
-        "no-redeclare": "off",
-        "no-import-assign": "off",
-        "no-prototype-builtins": "off",
+        "@graphql-eslint/no-syntax-errors": "error",
+        "@graphql-eslint/unique-operation-name": "error",
+        "@graphql-eslint/unique-fragment-name": "error",
+        "@graphql-eslint/no-anonymous-operations": "warn",
+        "@graphql-eslint/lone-anonymous-operation": "error",
+        "@graphql-eslint/no-duplicate-fields": "error",
+        "@graphql-eslint/no-unused-fragments": "warn",
+        "@graphql-eslint/no-duplicate-fragment-names": "error",
+        "@graphql-eslint/no-undefined-variables": "error",
+        "@graphql-eslint/unique-variable-names": "error"
+      },
+    },
+    {
+      files: [`**/*.{${CODE_EXT}}`, `**/*.{${MARKDOWN_EXT}}`],
+      parserOptions: {
+        plugins: ["graphql"],
       },
     },
     {
@@ -84,9 +97,5 @@ module.exports = {
         "mdx/remark": "off",
       },
     },
-    {
-      files: ["**/*.graphql"],
-      parser: "@graphql-eslint/eslint-plugin",
-    },
   ],
-}
+};
