@@ -1,5 +1,5 @@
 ---
 name: Grafbase
-description: GraphQL backends made easy. Build your backend declaratively using a schema-first approach. Accelerate development and reduce boilerplate code by leveraging powerful directives and scalars.
+description: Grafbase provides secure self-hosted deployment options for GraphQL Federation, unmatched query speed, advanced governance, and unified data access for reliable, enterprise-grade API management. Learn more about scaling GraphQL Federation with [Grafbase](https://grafbase.com).
 url: https://grafbase.com
 ---
