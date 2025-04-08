@@ -10,6 +10,7 @@ There are many ways to get involved. Follow this guide and feel free to [reach o
 
 - [Development guide](#development-guide)
   - [Running the site locally](#running-the-site-locally)
+  - [Checking for broken links](#checking-for-broken-links)
   - [Branching](#branching)
   - [Project structure](#project-structure)
   - [Publishing the updated site](#publishing-the-updated-site)
@@ -52,6 +53,21 @@ pnpm dev
 Finally, open http://localhost:3000 to view it in the browser.
 
 The GraphQL website is built with [Nextra](https://nextra.site). This means that a hot-reloading development environment will be accessible by default.
+
+### Checking for broken links
+
+We use [Lychee](https://github.com/lycheeverse/lychee), a Rust-based CLI tool, to check for broken links in our documentation.
+
+To install Lychee locally:
+
+1. Install Rust: https://www.rust-lang.org/tools/install
+2. After installing Rust, run:
+
+```bash
+cargo install lychee
+```
+
+With Rust and Lychee installed, run the link checker: `pnpm run check:links`.
 
 ### Branching
 
