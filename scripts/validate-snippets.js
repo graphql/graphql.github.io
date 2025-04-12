@@ -1,12 +1,18 @@
 #!/usr/bin/env node
 
 import fs from "node:fs"
+import path from "node:path"
 import glob from "glob"
 import { parse } from "graphql"
 import chalk from "chalk"
+import { fileURLToPath } from "node:url"
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const projectRoot = path.resolve(__dirname, "../")
 
 const MDX_GLOB = "./src/pages/learn/**/*.mdx"
-const CODE_BLOCK_REGEX = /```(\w+)\s*\r?\n([\s\S]*?)\r?\n```/g
+const CODE_BLOCK_REGEX = /^(`{3,})(\w+)\s*\n([\s\S]*?)\r?\n\1$/gm
 const IGNORE_COMMENT = "snippet-ignore"
 
 let totalFiles = 0
@@ -49,7 +55,7 @@ function extractSnippets(content, filePath) {
   let match
 
   while ((match = CODE_BLOCK_REGEX.exec(content)) !== null) {
-    const [fullMatch, lang, code] = match
+    const [fullMatch, openingBackticks, lang, code] = match
     const beforeBlock = content.slice(0, match.index)
     const lineNumber = beforeBlock.split(/\r?\n/).length
 
@@ -93,9 +99,9 @@ async function validateSnippet(snippet) {
 }
 
 async function main() {
-  console.log(`Validating code snippets in: ${MDX_GLOB}`)
+  console.log(`Validating code snippets in: ${projectRoot}/${MDX_GLOB}`)
 
-  const files = glob.sync(MDX_GLOB)
+  const files = glob.sync(MDX_GLOB, { cwd: projectRoot })
   totalFiles = files.length
 
   if (totalFiles === 0) {

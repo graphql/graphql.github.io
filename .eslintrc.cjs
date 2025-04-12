@@ -1,7 +1,7 @@
 /* eslint-env node */
 
-const CODE_EXT = "js,jsx,cjs,mjs,ts,tsx,cts,mts";
-const MARKDOWN_EXT = "md,mdx";
+const CODE_EXT = "js,jsx,cjs,mjs,ts,tsx,cts,mts"
+const MARKDOWN_EXT = "md,mdx"
 
 module.exports = {
   root: true,
@@ -78,7 +78,7 @@ module.exports = {
         "@graphql-eslint/no-unused-fragments": "warn",
         "@graphql-eslint/no-duplicate-fragment-names": "error",
         "@graphql-eslint/no-undefined-variables": "error",
-        "@graphql-eslint/unique-variable-names": "error"
+        "@graphql-eslint/unique-variable-names": "error",
       },
     },
     {
@@ -98,4 +98,4 @@ module.exports = {
       },
     },
   ],
-};
+}
