@@ -12,24 +12,36 @@ on:
       - main
 
 jobs:
-  link-check:
-    name: Broken link checker
-    runs-on: ubuntu-latest
+link-check:
+  name: Broken link checker
+  runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+        cache: "pnpm"
 
-      - name: Install lychee
-        run: cargo install lychee
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
 
-      - name: Check links
-        run: lychee --verbose --no-progress './src/pages/learn/**/*.mdx' --base https://graphql.org
+    - name: Build static site
+      run: pnpm build
+
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+
+    - name: Install lychee
+      run: cargo install lychee
+
+    - name: Check links
+      run: lychee --verbose --no-progress './out/**/*.html'
 
 code-validate:
   name: Code snippet and GraphQL validation
