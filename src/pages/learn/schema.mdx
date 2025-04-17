@@ -413,7 +413,7 @@ Most of the examples we've covered on this page demonstrate how Object, Scalar, 
 
 So far, we've only talked about using scalar values (like Enums or String types) as an input type for a field argument. However, you can also pass complex objects as arguments using an [Input Object type](https://spec.graphql.org/draft/#sec-Input-Objects), which is the last kind of named types in GraphQL that we'll explore.
 
-This is particularly valuable in the case of [mutations](/learn/queries/#mutations), where you might want to pass in a whole object to be created. In SDL, Input Object types look similar to regular Object types, but with the keyword `input` instead of `type`:
+This is particularly valuable in the case of [mutations](/learn/mutations/), where you might want to pass in a whole object to be created. In SDL, Input Object types look similar to regular Object types, but with the keyword `input` instead of `type`:
 
 ```graphql
 input ReviewInput {
