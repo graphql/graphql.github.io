@@ -11,7 +11,7 @@ GraphQL Foundation’s Governing Board gathered on March 20 for a productive mee
 
 On the technical front, the **Technical Steering Committee (TSC)** shared updates on nullability, upcoming changes to graphql-js, and ongoing work on the incremental delivery specification. The team also encouraged feedback from Board Members and the community on behalf of GraphQL over HTTP.
 
-The new **Community Working Group**, under the TSC, reported strong early engagement, including work on a refreshed GraphQL.org landing page and an open, async collaboration model based on GitHub issues.
+The new [**Community Working Group**](https://github.com/graphql/community-wg), under the TSC, reported strong early engagement, including work on a refreshed GraphQL.org landing page and an open, async collaboration model based on GitHub issues.
 
 The **Marketing & Content Committee** reported that efforts are underway to produce a series of case studies and better support industry-specific adoption stories. The team is also exploring more tailored messaging and additional social media campaigns to promote the conference, Local initiatives, and GraphQL-related news.
 
