@@ -2,7 +2,7 @@
 
 import fs from "node:fs"
 import path from "node:path"
-import glob from "glob"
+import { glob } from "glob"
 import { parse } from "graphql"
 import chalk from "chalk"
 import { fileURLToPath } from "node:url"
