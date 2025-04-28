@@ -67,7 +67,7 @@ jobs:
         run: pnpm i
 
       - name: Run validation w/ annotations
-        run: pnpm lint:docs:ci
+        run: pnpm lint:docs
 
       - name: Validate code snippets
         run: pnpm validate:snippets
