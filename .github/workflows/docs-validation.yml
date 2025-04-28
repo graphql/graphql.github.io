@@ -1,64 +1,73 @@
-# Docs validation workflow runs on each PR on main w/ broken link checker
-# and code snippet validation
-
 name: Docs validation
 
-on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+on: pull_request
 
 jobs:
-link-check:
-  name: Broken link checker
-  runs-on: ubuntu-latest
+  prettier-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - uses: the-guild-org/shared-config/setup@main
+        name: setup env
+        with:
+          packageManager: pnpm
+          workingDirectory: ./
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: "20"
-        cache: "pnpm"
+      - name: Install Dependencies
+        run: pnpm i
 
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
+      - name: Run Prettier Check
+        run: pnpm format:check
 
-    - name: Build static site
-      run: pnpm build
+  link-check:
+    name: Broken link checker
+    runs-on: ubuntu-latest
 
-    - name: Set up Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Install lychee
-      run: cargo install lychee
+      - uses: the-guild-org/shared-config/setup@main
+        name: setup env
+        with:
+          packageManager: pnpm
+          workingDirectory: ./
 
-    - name: Check links
-      run: lychee --verbose --no-progress './out/**/*.html'
+      - name: Install Dependencies
+        run: pnpm i
 
-code-validate:
-  name: Code snippet and GraphQL validation
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
+      - name: Build static site
+        run: pnpm build
 
-    - uses: actions/setup-node@v4
-      with:
-        node-version: "20"
-        cache: "pnpm"
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
 
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
+      - name: Install lychee
+        run: cargo install lychee
 
-    - name: Run validation w/ annotations
-      run: pnpm lint:docs:ci
+      - name: Check links
+        run: lychee --verbose --no-progress './out/**/*.html'
 
-    - name: Validate code snippets
-      run: pnpm validate:snippets
+  code-validate:
+    name: Code snippet and GraphQL validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: the-guild-org/shared-config/setup@main
+        name: setup env
+        with:
+          packageManager: pnpm
+          workingDirectory: ./
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Run validation w/ annotations
+        run: pnpm lint:docs:ci
+
+      - name: Validate code snippets
+        run: pnpm validate:snippets
