@@ -91,8 +91,8 @@ export default function Layout({
               href: "/conf/2025/resources/#code-of-conduct",
             },
             {
-              children: "Diversity & Inclusion",
-              href: "/conf/2025/resources/#diversity--inclusion",
+              children: "Inclusion & Accessibility",
+              href: "/conf/2025/resources/#inclusion--accessibility",
             },
           ],
         ]}
