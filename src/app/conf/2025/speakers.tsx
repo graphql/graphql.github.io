@@ -27,7 +27,7 @@ function DatesTab() {
       <TabHeading className="mt-6">Dates to Remember</TabHeading>
       <ul className="list-disc space-y-2 pl-6">
         <li>CFP Opens: Tuesday, 4 February</li>
-        <li>CFP Close: Sunday, 4 May at 23:59 CEST (UTC+2)</li>
+        <li>CFP Close: Sunday, 11 May at 23:59 CEST (UTC+2)</li>
         <li>CFP Notifications: Monday, 9 June</li>
         <li>Schedule Announced: Wednesday, 11 June</li>
         <li>Slides due date: Friday, 5 September</li>
