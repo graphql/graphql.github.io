@@ -104,7 +104,7 @@ As with network calls to any type of API, network errors that are not specific t
 
 ## Extensions
 
-The final top-level key allowed by the GraphQL specification in a response is the `extentions` key. This key is reserved for GraphQL implementations to provide additional information about the response and though it must be an object if present, there are no other restrictions on what it may contain.
+The final top-level key allowed by the GraphQL specification in a response is the `extensions` key. This key is reserved for GraphQL implementations to provide additional information about the response and though it must be an object if present, there are no other restrictions on what it may contain.
 
 For example, some GraphQL servers may include telemetry data or information about rate limit consumption under this key. Note that what data is available in `extensions` and whether this data is available in production or development environments will depend entirely on the specific GraphQL implementation.
 
