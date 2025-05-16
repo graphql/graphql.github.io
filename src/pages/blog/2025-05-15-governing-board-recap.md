@@ -9,7 +9,7 @@ The GraphQL Foundation Governing Board met April 17 to discuss ongoing community
 
 ### **🖥️ Website Redesign Underway**
 
-The first version of the new GraphQL.org design is live for community feedback on [GitHub](https://github.com/graphql/community-wg/issues/21#issuecomment-2766734209)! Championed by The Guild, the new site focuses on communicating GraphQL’s value to different types of users. Check it out on GitHub and [Figma](http://figma.com/proto/aPUvZDSxJfYDJtPd7GF2sB/GraphQL.org?page-id=10%3A13019&node-id=649-3367&viewport=-2607%2C336%2C0.13&t=eZKIRpRkrWRATgQb-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=649%3A3367&show-proto-sidebar=1 )—your feedback is welcome.
+The first version of the new GraphQL.org design is live for community feedback on [GitHub](https://github.com/graphql/community-wg/issues/21#issuecomment-2766734209)! Championed by The Guild, the new site focuses on communicating GraphQL’s value to different types of users. Check it out on GitHub and [Figma](http://figma.com/proto/aPUvZDSxJfYDJtPd7GF2sB/GraphQL.org?page-id=10%3A13019&node-id=649-3367&viewport=-2607%2C336%2C0.13&t=eZKIRpRkrWRATgQb-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=649%3A3367&show-proto-sidebar=1)—your feedback is welcome.
 
 ### **🌍 Planning GraphQL All-Hands**
 
@@ -25,4 +25,4 @@ We're exploring aligning our fiscal planning with GraphQLConf to better match ou
 
 ### **🎤 GraphQLConf 2025**
 
-We’re expanding community involvement in the CFP process by becoming a **Subject Matter Expert**—we’re looking for volunteers to help rank talks for the conference program. Also, we're proud to support an [ALS charity swim team](https://graphql.org/blog/graphql-stream-team/) happening before the conference. The CFP closed **May 12**. 
+We’re expanding community involvement in the CFP process by becoming a **Subject Matter Expert**—we’re looking for volunteers to help rank talks for the conference program. Also, we're proud to support an [ALS charity swim team](https://graphql.org/blog/graphql-stream-team/) happening before the conference. The CFP closed **May 12**.
