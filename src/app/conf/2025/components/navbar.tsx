@@ -31,6 +31,15 @@ export function Navbar({ links, year }: NavbarProps): ReactElement {
 
   useEffect(() => {
     document.body.style.overflow = mobileDrawerOpen ? "hidden" : "auto"
+    if (mobileDrawerOpen) {
+      const closeOnEscape = (event: KeyboardEvent) => {
+        if (event.key === "Escape") setMobileDrawerOpen(false)
+      }
+      document.addEventListener("keydown", closeOnEscape)
+      return () => {
+        document.removeEventListener("keydown", closeOnEscape)
+      }
+    }
   }, [mobileDrawerOpen])
 
   return (
