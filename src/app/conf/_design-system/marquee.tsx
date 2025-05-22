@@ -1,8 +1,8 @@
 "use client"
 
 import { clsx } from "clsx"
-import { useMotionValue, animate, motion } from "motion/react"
-import { useState, useEffect, Fragment } from "react"
+import { useMotionValue, animate, motion, useReducedMotion } from "motion/react"
+import { useState, useEffect, Fragment, useId } from "react"
 import useMeasure from "react-use-measure"
 
 export interface MarqueeProps extends React.HTMLAttributes<HTMLElement> {
@@ -29,13 +29,23 @@ export function Marquee({
   separator,
   ...rest
 }: MarqueeProps) {
+  const shouldReduceMotion = useReducedMotion()
   const [currentSpeed, setCurrentSpeed] = useState(speed)
   const [ref, { width, height }] = useMeasure()
-  const translation = useMotionValue(0)
+
+  // ensure the marquees don't start in the same place.
+  const initialShiftPx = useSomeValue() * -64
+
+  const translation = useMotionValue(initialShiftPx)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [key, setKey] = useState(0)
 
   useEffect(() => {
+    if (shouldReduceMotion) {
+      setCurrentSpeed(0)
+      return
+    }
+
     let controls
     const size = direction === "horizontal" ? width : height
     const contentSize = size + gap
@@ -81,6 +91,7 @@ export function Marquee({
     isTransitioning,
     direction,
     reverse,
+    shouldReduceMotion,
   ])
 
   const hoverProps =
@@ -135,6 +146,7 @@ export function Marquee({
     : {}
 
   const multiples = 2
+
   return (
     <div className={clsx("overflow-hidden", className)} {...rest}>
       <motion.div
@@ -155,7 +167,7 @@ export function Marquee({
           hoverProps.onPointerUp?.(event)
         }}
       >
-        {Array.from({ length: 2 }).map((_, i) => (
+        {Array.from({ length: multiples }).map((_, i) => (
           <Fragment key={i}>
             {children}
             {i < multiples - 1 && separator}
@@ -164,4 +176,12 @@ export function Marquee({
       </motion.div>
     </div>
   )
+}
+
+function useSomeValue() {
+  const id = useId()
+  const num =
+    id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) - 950
+
+  return Math.abs(Math.sin(num))
 }
