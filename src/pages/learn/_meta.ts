@@ -27,4 +27,5 @@ export default {
   performance: "",
   security: "",
   federation: "",
+  "migrate-graphql-http": "",
 }
