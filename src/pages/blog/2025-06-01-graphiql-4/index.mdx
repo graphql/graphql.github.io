@@ -56,7 +56,32 @@ transition for everyone, I've broken it down into several incremental releases:
   GitHub](https://github.com/graphql/graphiql/issues/3874).
 </Callout>
 
-## How to Update
+## What's New
+
+GraphiQL 4 serves as a gateway to the upcoming GraphiQL 5, which will be powered
+by the Monaco editor, the same editor used in VSCode. Upgrading to GraphiQL 4 is
+an essential step if you're already using React 19.
+
+We've extracted **Doc Explorer** and **History** into standalone plugins,
+allowing full customization of GraphiQL's built-in plugins in the **GraphiQL
+5**.
+
+Under the hood, we've replaced React context with zustand, making the internal
+state management simpler and more maintainable, and enabling faster iteration on
+new features.
+
+### Time to Say Goodbye to UMD Builds!
+
+With React 19,
+[UMD builds have been removed](https://react.dev/blog/2024/04/25/react-19-upgrade-guide#umd-builds-removed).
+The React team now recommends using ESM-based CDNs like
+[esm.sh](https://esm.sh).
+
+We've updated the
+[CDN example](https://github.com/graphql/graphiql/tree/main/examples/graphiql-cdn)
+to show how to use GraphiQL with [esm.sh](https://esm.sh).
+
+### How to Update
 
 Follow the step-by-step guide in our
 [GraphiQL 4 migration documentation](https://github.com/graphql/graphiql/blob/main/docs/migration/graphiql-4.0.0.md).
