@@ -27,4 +27,5 @@ export default {
   performance: "",
   security: "",
   federation: "",
+  "debug-errors": "Common `graphql-http` Errors",
 }
