@@ -4,11 +4,9 @@ When building or consuming a GraphQL API over HTTP, it's common to run into
 errors, especially during development. Understanding how to recognize and resolve these issues
 can save you time and frustration.
 
-This guide outlines common `graphql-http` errors, what they mean, and how to debug them 
-effectively. These examples assume you're using the 
-[GraphQL over HTTP specification](https://graphql.github.io/graphql-over-http/draft/)
-and an implementation such as [`graphql-http`](https://github.com/graphql/graphql-http) or any 
-server that follows the spec.
+This guide outlines common errors, what they mean, and how to debug them 
+effectively. These examples relate to servers that implement the 
+[GraphQL over HTTP specification](https://graphql.github.io/graphql-over-http/draft/). Different servers may produce different error messages and status codes in some circumstances, so this document should be treated as a general guide rather than a canonical reference.
 
 ## `400 Bad Request`: Syntax or parse errors
 
