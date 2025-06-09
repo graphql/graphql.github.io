@@ -4,9 +4,12 @@ When building or consuming a GraphQL API over HTTP, it's common to run into
 errors, especially during development. Understanding how to recognize and resolve these issues
 can save you time and frustration.
 
-This guide outlines common errors, what they mean, and how to debug them 
-effectively. These examples relate to servers that implement the 
-[GraphQL over HTTP specification](https://graphql.github.io/graphql-over-http/draft/). Different servers may produce different error messages and status codes in some circumstances, so this document should be treated as a general guide rather than a canonical reference.
+This guide outlines common HTTP and GraphQL errors, what they mean, and how to debug them 
+effectively. It follows the recommendations of the
+[GraphQL over HTTP spec (draft)](https://graphql.github.io/graphql-over-http/draft/),
+which standardizes how GraphQL works over HTTP, including request formats, status codes,
+and media types. Keep in mind that implementations may vary, so treat this as a general guide rather
+than a definitive reference.
 
 ## `400 Bad Request`: Syntax or parse errors
 
@@ -25,7 +28,7 @@ or the JSON body isn't valid.
 
 - Validate your JSON body using a linter or formatter.
 - Make sure you're sending a `POST` request with a `Content-Type: application/json` header.
-- Verify that the GraphQL query is syntactically correct. Use an IDE or a linter to verify it.
+- Check your GraphQL query for syntax errors. Use an IDE or linter to verify it.
 
 ## `405 Method Not Allowed`: Wrong HTTP Method
 
@@ -105,7 +108,7 @@ Something went wrong on the server.
 
 ### What it means
 
-The HTTP layer succeeded, but the GraphQL request produced errors.
+The HTTP layer succeeded, but the GraphQL operation produced errors.
 
 ### Common causes
 
@@ -116,11 +119,11 @@ The HTTP layer succeeded, but the GraphQL request produced errors.
 
 ### How to debug
 
-Check the `errors` array in the response body.
+Check the `errors` array in the response body. If the response includes a `data` property, then 
+your query document is likely valid and you most likely hit a runtime exception - perhaps due to
+invalid input, access denial, or a bug in server logic.
 
-If the response includes a `data` property then your query document is likely valid and you most likely hit a runtime exception - perhaps something went wrong on the server, you supplied invalid data, you're not allowed to do that, or some other runtime exception occurred.
-
-If the response does not include a `data` property it's likely there was a mistake in your request - an invalid GraphQL document or bad values for variables. A typical validation error response looks like:
+If there's no `data` field, the request likely failed during validation. For example:
 
 ```json
 {
@@ -133,4 +136,22 @@ If the response does not include a `data` property it's likely there was a mista
 }
 ```
 
-Compare your query against the schema using introspection or an IDE.
+Use introspection or an IDE to verify your query matches the schema.
+
+## Understanding GraphQL response formats
+
+Most GraphQL servers return responses using the `application/json` media type. However,
+the [GraphQL over HTTP spec](https://graphql.github.io/graphql-over-http/draft/) recommends 
+using a more specific type: `application/graphql-response+json`.
+
+This media type identifies the payload as a GraphQL response and helps clients
+distinguish it from other types of JSON.
+
+### What to know
+
+- Servers may respond with `application/graphql-response+json` instead of
+`application/json`.
+- Clients can request this media type using the `Accept` header: `Accept: application/graphql-response+json`
+- This content type is optional, but support for it is growing.
+- If your client uses content negotiation, ensure your server can response with the appropriate
+type or fallback to `application/json`.
