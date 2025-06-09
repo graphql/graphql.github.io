@@ -118,7 +118,11 @@ The HTTP layer succeeded, but the GraphQL request produced errors.
 
 ### How to debug
 
-Check the `errors` array in the response body. A typical response looks like:
+Check the `errors` array in the response body.
+
+If the response includes a `data` property then your query document is likely valid and you most likely hit a runtime exception - perhaps something went wrong on the server, you supplied invalid data, you're not allowed to do that, or some other runtime exception occurred.
+
+If the response does not include a `data` property it's likely there was a mistake in your request - an invalid GraphQL document or bad values for variables. A typical validation error response looks like:
 
 ```json
 {
