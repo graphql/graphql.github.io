@@ -31,5 +31,5 @@ export default {
     type: "separator",
     title: "GraphQL over HTTP",
   },
-  "debug-errors": "Common `graphql-http` Errors",
+  "debug-errors": "Common GraphQL over HTTP Errors",
 }
