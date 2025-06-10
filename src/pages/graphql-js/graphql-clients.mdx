@@ -32,8 +32,13 @@ fetch("/graphql", {
   },
   body: JSON.stringify({ query: "{ hello }" }),
 })
-  .then(r => r.json())
-  .then(data => console.log("data returned:", data))
+  .then(response => response.json())
+  .then(data => {
+    console.log("Data returned:", data);
+  })
+  .catch(error => {
+    console.error("Request failed:", error);
+  });
 ```
 
 You should see the data returned, logged in the console:
@@ -55,11 +60,14 @@ type Query {
 You could access this from JavaScript with the code:
 
 ```js
-var dice = 3
-var sides = 6
-var query = /* GraphQL */`query RollDice($dice: Int!, $sides: Int) {
-  rollDice(numDice: $dice, numSides: $sides)
-}`
+const dice = 3;
+const sides = 6;
+
+const query = /* GraphQL */ `
+  query RollDice($dice: Int!, $sides: Int) {
+    rollDice(numDice: $dice, numSides: $sides)
+  }
+`;
 
 fetch("/graphql", {
   method: "POST",
@@ -72,8 +80,13 @@ fetch("/graphql", {
     variables: { dice, sides },
   }),
 })
-  .then(r => r.json())
-  .then(data => console.log("data returned:", data))
+  .then(response => response.json())
+  .then(data => {
+    console.log("Data returned:", data);
+  })
+  .catch(error => {
+    console.error("Request failed:", error);
+  });
 ```
 
 Using this syntax for variables is a good idea because it automatically prevents bugs due to escaping, and it makes it easier to monitor your server.
