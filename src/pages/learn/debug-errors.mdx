@@ -16,7 +16,7 @@ than a definitive reference.
 ### What it means
 
 The server couldn't parse your request. Either the GraphQL query string is malformed,
-or the JSON body isn't valid.
+or the JSON body isn't valid. This is the primary error status recommended by the GraphQL over HTTP specification.
 
 ### Common causes
 
@@ -48,44 +48,6 @@ and may allow `GET` for queries.
 - Make sure your server supports `GET` for queries.
 - Refer to the [GraphQL over HTTP spec](https://graphql.github.io/graphql-over-http/draft/) to 
 confirm method support.
-
-## `415 Unsupported Media Type`
-
-### What it means
-
-The server doesn't understand the request's `Content-Type`.
-
-### Common causes
-
-- Sending a GraphQL query with `Content-Type: text/plain` or another unsupported type
-- Omitting the `Content-Type` header in a `POST` request
-
-### How to debug
-
-- Set the header explicitly: `Content-Type: application/json`.
-- If you're using `application/graphql`, verify your server supports it. This content type
-is optional.
-
-## `422 Unprocessable Entity`: Missing or invalid `query`
-
-### What it means
-
-The server received the request, but the `query` field was missing or invalid.
-
-### Common causes
-
-- Sending `{}` with no `query` key
-- Sending variables or an operation name without a query
-
-### How to debug
-
-Always include a `query` field in your request body. For example:
-
-```json
-{
-  "query": "{ user(id: 1) { name } }"
-}
-```
 
 ## `500 Internal Server Error`: Unexpected server failures
 
@@ -137,6 +99,18 @@ If there's no `data` field, the request likely failed during validation. For exa
 ```
 
 Use introspection or an IDE to verify your query matches the schema.
+
+## Implementation-specific status codes
+
+Some GraphQL server implementations may use additional HTTP status codes that are not explicitly recommended 
+by the specification. These vary by implementation.
+
+- `415 Unsupported Media Type`: The server doesn't understand the request's `Content-Type`. This can occur
+when a GraphQL query is sent with `Content-Type: text/plain` or another unsupported type. 
+- `422 Unprocessable Entity`: Some implementations use this for GraphQL validation errors instead of `200` + errors array.
+
+These error codes are not recommended by the specification for most cases. Different GraphQL servers handle 
+validation errors differently. When in doubt, use error codes supported by the specification.
 
 ## Understanding GraphQL response formats
 
