@@ -1,0 +1,183 @@
+# Handling File Uploads
+
+GraphQL doesn't natively support file uploads. The [GraphQL specification](https://spec.graphql.org/draft/) is transport-agnostic
+and historically assumed `application/json`, but the evolving [GraphQL over HTTP specification](https://graphql.github.io/graphql-over-http/draft/)
+introduces support for additional media types: `application/graphql-response+json`.
+
+Since uploading files typically requires `multipart/form-data`, adding upload capabilities still
+means extending the HTTP layer yourself. This guide explains how to handle file uploads using
+[`graphql-http`](https://github.com/graphql/graphql-http), a minimal, spec-compliant GraphQL server implementation for JavaScript.
+
+## Why file uploads require extra work
+
+A standard GraphQL request sends a query or mutation and optional variables as JSON. But file 
+uploads require binary data, which JSON can't represent. Instead, clients typically use 
+`multipart/form-data`, the same encoding used for HTML file forms. This format is incompatible 
+with how GraphQL servers like `graphql-http` handle requests by default.
+
+To bridge this gap, the GraphQL community developed a convention: the [GraphQL multipart 
+request specification](https://github.com/jaydenseric/graphql-multipart-request-spec). This 
+approach allows files to be uploaded as part of a GraphQL mutation, with the server handling the 
+`multipart/form-data` payload and injecting the uploaded file into the appropriate variable.
+
+## The multipart upload format
+
+The multipart spec defines a three-part request format:
+
+- `operations`: A JSON string representing the GraphQL operation
+- `map`: A JSON object that maps file field name to variable paths
+- One or more files: Attached to the form using the same field names referenced in the `map`
+
+### Example
+
+```graphql
+mutation UploadFile($file: Upload!) {
+  uploadFile(file: $file) {
+    filename
+    mimetype
+  }
+}
+```
+
+And the corresponding `map` field:
+
+```json
+{
+  "0": ["variables.file"]
+}
+```
+
+The server is responsible for parsing the multipart body, interpreting the `map`, and replacing 
+variable paths with the corresponding file streams.
+
+## Implementing uploads with graphql-http
+
+The `graphql-http` package doesn’t handle multipart requests out of the box. To support file 
+uploads, you’ll need to:
+
+1. Parse the multipart form request.
+2. Map the uploaded file(s) to GraphQL variables.
+3. Inject those into the request body before passing it to `createHandler()`.
+
+Here's how to do it in an Express-based server using JavaScript and the [`busboy`](https://www.npmjs.com/package/busboy),
+a popular library for parsing `multipart/form-data`.
+
+### Example: Express + graphql-http + busboy
+
+```js
+import express from 'express';
+import busboy from 'busboy';
+import { createHandler } from 'graphql-http/lib/use/express';
+import { schema } from './schema.js';
+
+const app = express();
+
+app.post('/graphql', (req, res, next) => {
+  const contentType = req.headers['content-type'] || '';
+
+  if (contentType.startsWith('multipart/form-data')) {
+    const bb = busboy({ headers: req.headers });
+    let operations, map;
+    const files = {};
+
+    bb.on('field', (name, val) => {
+      if (name === 'operations') operations = JSON.parse(val);
+      else if (name === 'map') map = JSON.parse(val);
+    });
+
+    bb.on('file', (fieldname, file, { filename, mimeType }) => {
+      files[fieldname] = { file, filename, mimeType };
+    });
+
+    bb.on('close', () => {
+      for (const [key, paths] of Object.entries(map)) {
+        for (const path of paths) {
+          const keys = path.split('.');
+          let target = operations;
+          while (keys.length > 1) target = target[keys.shift()];
+          target[keys[0]] = files[key].file;
+        }
+      }
+      req.body = operations;
+      next();
+    });
+
+    req.pipe(bb);
+  } else {
+    next();
+  }
+}, createHandler({ schema }));
+
+app.listen(4000);
+```
+
+This example:
+
+- Parses `multipart/form-data` uploads.
+- Extracts GraphQL query and variables from the `operations` field.
+- Inserts file streams in place of `Upload` variables.
+- Passes the modified request to `graphql-http`.
+
+## Defining the upload scalar
+
+The GraphQL schema must include a custom scalar type for uploaded files:
+
+```graphql
+scalar Upload
+
+extend type Mutation {
+  uploadFile(file: Upload!): FileMetadata
+}
+
+type FileMetadata {
+  filename: String!
+  mimetype: String!
+}
+```
+
+In your resolvers, treat `file` as a readable stream:
+
+```js
+export const resolvers = {
+  Upload: GraphQLScalarType, // implement as needed, or treat as opaque in resolver
+  Mutation: {
+    uploadFile: async (_, { file }) => {
+      const chunks = [];
+      for await (const chunk of file) {
+        chunks.push(chunk);
+      }
+      // process or store the file as needed
+      return {
+        filename: 'uploaded-file.txt',
+        mimetype: 'text/plain',
+      };
+    }
+  }
+};
+```
+
+You can define `Upload` as a passthrough scalar if your server middleware already
+handles file parsing:
+
+```js
+import { GraphQLScalarType } from 'graphql';
+
+export const Upload = new GraphQLScalarType({
+  name: 'Upload',
+  serialize: () => { throw new Error('Upload serialization unsupported'); },
+  parseValue: value => value,
+  parseLiteral: () => { throw new Error('Upload literals unsupported'); }
+});
+```
+
+## Best practices
+
+- Streaming: Don’t read entire files into memory. Instead, stream files to disk or an external 
+storage service. This reduces memory pressure and improves 
+scalability.
+- Security: Always validate file types, restrict maximum file sizes, and sanitize filenames to prevent 
+path traversal or injection vulnerabilities.
+- Alternatives: For large files or more scalable architectures, consider using pre-signed URLs 
+with an object storage service like S3. The client uploads the file directly, and the GraphQL 
+mutation receives the file URL instead.
+- Client support: Use a client library that supports the GraphQL multipart request specification.

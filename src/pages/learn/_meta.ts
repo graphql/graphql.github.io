@@ -19,6 +19,7 @@ export default {
   "best-practices": "",
   "thinking-in-graphs": "",
   "serving-over-http": "",
+  "file-uploads": "",
   authorization: "",
   pagination: "",
   "schema-design": "Schema Design",
