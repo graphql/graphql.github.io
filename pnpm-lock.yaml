@@ -74,8 +74,8 @@ importers:
         specifier: ^7.7.2
         version: 7.7.2(react@18.3.1)
       marked:
-        specifier: 5.1.2
-        version: 5.1.2
+        specifier: 15.0.12
+        version: 15.0.12
       motion:
         specifier: ^12.11.0
         version: 12.11.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3684,9 +3684,9 @@ packages:
     peerDependencies:
       react: '>= 0.14.0'
 
-  marked@5.1.2:
-    resolution: {integrity: sha512-ahRPGXJpjMjwSOlBoTMZAK7ATXkli5qCPxZ21TG44rx1KEo44bii4ekgTDQPNRQ4Kh7JMb9Ub1PVk1NxRSsorg==}
-    engines: {node: '>= 16'}
+  marked@15.0.12:
+    resolution: {integrity: sha512-8dD6FusOQSrpv9Z1rdNMdlSgQOIP880DHqnohobOmYLElGEqAL/JvxvuxZO16r4HtjTlfPRDC1hbvxC9dPN2nA==}
+    engines: {node: '>= 18'}
     hasBin: true
 
   math-intrinsics@1.1.0:
@@ -9310,7 +9310,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  marked@5.1.2: {}
+  marked@15.0.12: {}
 
   math-intrinsics@1.1.0: {}
 

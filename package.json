@@ -40,7 +40,7 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^0.469.0",
     "markdown-to-jsx": "^7.7.2",
-    "marked": "5.1.2",
+    "marked": "15.0.12",
     "motion": "^12.11.0",
     "next": "^14.2.22",
     "next-image-export-optimizer": "^1.18.0",
