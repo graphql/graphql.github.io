@@ -190,11 +190,11 @@
   {
     "username": "aleymet",
     "company": "Bouygues Telecom",
-    "position": "Senior Architect",
+    "position": "Principal Engineer, Senior Architect (freelance)",
     "name": "Arnaud Leymet",
     "about": "A dedicated Senior Solutions Architect & Staff Engineer with a proven ability to lead projects and drive software development initiatives. I thrive in dynamic environments, leveraging my strong technical skills, deep product knowledge and collaborative approach to drive innovation and deliver composable and impactful solutions.",
     "location": "",
-    "url": "",
+    "url": "https://arnley.com",
     "avatar": "//avatars.sched.co/4/80/23098717/avatar.jpg.320x320px.jpg?ed8",
     "socialurls": [],
     "_years": [
@@ -590,7 +590,7 @@
     "username": "BoD",
     "company": "Apollo Graph",
     "position": "Android Developer",
-    "name": "Benoit",
+    "name": "Benoit Lubek",
     "about": "Currently working on Apollo-Kotlin, the Kotlin SDK for GraphQL, Benoit has been writing software for 20 years, with a focus on Android since its v1. When he’s not coding, you can find him enjoying movies or geocaching.",
     "location": "",
     "url": "",
@@ -1046,6 +1046,26 @@
       2025
     ],
     "~syncedDetailsAt": 1749570708151
+  },
+  {
+    "username": "fionabronwen",
+    "company": "Pinterest",
+    "position": "Senior Software Engineer",
+    "name": "Fiona Huang",
+    "about": "Fiona Huang is a Senior Software Engineer at Pinterest 📌 working on GraphQL on the Core API Platform team. Previously, she worked on planet scale APIs at Google, GraphQL at Twitter, and APIs at Braintree. Fiona enjoys data modeling 👩🏻‍💻, coffee ☕, croissants 🥐, and superfluous emoji usage ✨.",
+    "location": "New York, NY",
+    "url": "",
+    "avatar": "//avatars.sched.co/1/64/23098747/avatar.jpg.320x320px.jpg?c82",
+    "socialurls": [
+      {
+        "service": "LinkedIn",
+        "url": "https://www.linkedin.com/in/fionabthompson/"
+      }
+    ],
+    "_years": [
+      2025
+    ],
+    "~syncedDetailsAt": 1749766970989
   },
   {
     "username": "fthompson11",
@@ -1940,12 +1960,12 @@
   },
   {
     "username": "marco.reni",
-    "company": "Mediaset",
+    "company": "Mediaset - MFE",
     "position": "Architect",
     "name": "Marco Reni",
     "about": "Marco Reni is an Architect at Mediaset (MFE), the biggest broadcaster in Italy and one of the largest free broadcasters in Europe. He is in charge of all the frontend architectures and services. Over the years, he has taken responsibility of several high profile projects - including the new Voting Platform - leveraging his background as a Backend/DevOps Engineer. In his free time he likes to play the piano, play board games, eat ramen and take photos while traveling around the world.",
-    "location": "",
-    "url": "",
+    "location": "Milan, Italy",
+    "url": "https://www.marcoreni.it/",
     "avatar": "//avatars.sched.co/7/39/23098780/avatar.jpg.320x320px.jpg?6ae",
     "socialurls": [],
     "_years": [
@@ -2996,6 +3016,20 @@
       2023
     ],
     "~syncedDetailsAt": 1749568381879
+  },
+  {
+    "username": "tshikhare",
+    "company": "Netflix",
+    "position": "",
+    "name": "Tejas Shikhare",
+    "about": "",
+    "location": "",
+    "url": "",
+    "avatar": "//avatars.sched.co/f/06/21543712/avatar.jpg.320x320px.jpg?47e",
+    "socialurls": [],
+    "_years": [
+      2025
+    ]
   },
   {
     "username": "tushar.mathur",

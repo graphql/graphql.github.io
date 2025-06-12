@@ -10,7 +10,7 @@ export type ScheduleSession = {
   name: string
   venue: string
   /**
-   * This is actually audience.
+   * This can actually be audience too.
    */
   company: string
   speakers?: SchedSpeaker[]

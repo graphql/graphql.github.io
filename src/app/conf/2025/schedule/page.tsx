@@ -15,7 +15,7 @@ const year = "2025"
 const FILTERS: FiltersConfig = {
   event_type: "Session Format",
   event_subtype: "Talk Category",
-  company: "Audience",
+  audience: "Audience",
 }
 
 export const metadata: Metadata = {
