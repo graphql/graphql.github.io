@@ -918,7 +918,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708151
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "eitan15",
@@ -1045,7 +1045,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708151
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "fionabronwen",
@@ -1095,7 +1095,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708151
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "gabrielschulhof",
@@ -1217,7 +1217,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708151
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "hello2358",
@@ -1297,7 +1297,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708151
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "jamie855",
@@ -1351,7 +1351,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708151
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "jared_cheney.7rad60v",
@@ -1386,7 +1386,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708152
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "jeff.auriemma",
@@ -1427,7 +1427,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708152
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "jens63",
@@ -1466,7 +1466,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570708152
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "jesperrasmussen",
@@ -1486,7 +1486,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "jim.barton",
@@ -1525,7 +1525,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "jordaneldredge",
@@ -1564,7 +1564,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "juancarlosjr97",
@@ -1579,7 +1579,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "kamilkisiela",
@@ -1862,7 +1862,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "loginsessionize",
@@ -1877,7 +1877,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "lyonwj1",
@@ -1941,7 +1941,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "mansi.mittal",
@@ -1956,7 +1956,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "marco.reni",
@@ -1967,11 +1967,16 @@
     "location": "Milan, Italy",
     "url": "https://www.marcoreni.it/",
     "avatar": "//avatars.sched.co/7/39/23098780/avatar.jpg.320x320px.jpg?6ae",
-    "socialurls": [],
+    "socialurls": [
+      {
+        "service": "LinkedIn",
+        "url": "https://linkedin.com/in/marcoreni"
+      }
+    ],
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "marion84",
@@ -2100,7 +2105,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749570727785
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "mauricio.montalvo.guzman",
@@ -2604,7 +2609,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "sasanders26",
@@ -2767,7 +2772,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   },
   {
     "username": "siva27",
@@ -2864,7 +2869,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   },
   {
     "username": "suresh_muthu",
@@ -2995,7 +3000,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   },
   {
     "username": "tristan119",
@@ -3029,7 +3034,8 @@
     "socialurls": [],
     "_years": [
       2025
-    ]
+    ],
+    "~syncedDetailsAt": 1749767421807
   },
   {
     "username": "tushar.mathur",
@@ -3134,7 +3140,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   },
   {
     "username": "vmjohnson999",
@@ -3149,7 +3155,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   },
   {
     "username": "watson17",
@@ -3179,7 +3185,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   },
   {
     "username": "yaacovcr",
@@ -3258,7 +3264,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   },
   {
     "username": "zach.fetters",
@@ -3273,6 +3279,6 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749580595155
+    "~syncedDetailsAt": 1749767421808
   }
 ]
