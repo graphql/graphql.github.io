@@ -61,3 +61,5 @@ src/__generated__/
 .next/
 public/sitemap.xml
 out/
+
+tsconfig.tsbuildinfo

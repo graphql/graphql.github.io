@@ -4,7 +4,7 @@ import { Venue } from "./components/venue"
 import { FAQ } from "./faq"
 import { CallForProposals } from "./components/call-for-proposals"
 import { RegisterToday } from "./components/register-today"
-import { Hero } from "./components/hero"
+import { Hero, HeroDateAndLocation } from "./components/hero"
 import WhatToExpectSection from "./components/what-to-expect"
 import TopMindsSection from "./components/top-minds"
 import { GetYourTicket } from "./components/get-your-ticket"
@@ -16,21 +16,23 @@ import { CtaCardSection } from "./components/cta-card-section"
 import { Button } from "../_design-system/button"
 import { GET_TICKETS_LINK } from "./links"
 import { GalleryStrip } from "./components/gallery-strip"
+import { Testimonials } from "./components/testimonials"
+import { HeroImage } from "./components/hero/hero-image"
+import { HERO_MARQUEE_ITEMS } from "./utils"
 
 export const metadata: Metadata = {
   title: "GraphQLConf 2025 — Sept 08-10",
 }
 
-const HERO_MARQUEE_ITEMS = [
-  ["COMMUNITY", "DEVELOPER EXPERIENCE", "APIs", "TOOLS & LIBRARIES"],
-  ["OPEN SOURCE", "FEDERATION", "ECOSYSTEMS", "TRACING & OBSERVABILITY"],
-  ["BEST PRACTICES", "WORKSHOPS", "SCHEMAS", "SECURITY"],
-]
-
 export default function Page() {
   return (
     <main className="gql-all-anchors-focusable">
-      <Hero />
+      <Hero year="2025" bottom={<HeroImage />}>
+        <HeroDateAndLocation />
+        <Button className="md:w-fit" href={GET_TICKETS_LINK}>
+          Get your tickets
+        </Button>
+      </Hero>
       <div className="gql-conf-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
         <MarqueeRows
           variant="primary"
@@ -78,6 +80,7 @@ export default function Page() {
           />
           <Venue />
           <GalleryStrip />
+          <Testimonials />
           <GraphQLFoundationCard />
           <FAQ />
           <CtaCardSection

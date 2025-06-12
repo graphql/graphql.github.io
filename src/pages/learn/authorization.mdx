@@ -25,11 +25,11 @@ If a post's body should only be visible to the user who authored it, then we wil
 
 ```js
 function Post_body(obj, args, context, info) {
-  // return the post body only if the user is the post's author
-  if (context.user && (context.user.id === obj.authorId)) {
-    return obj.body
+  // Return the post body only if the user is the post's author
+  if (context.user && context.user.id === obj.authorId) {
+    return obj.body;
   }
-  return null
+  return null;
 }
 ```
 
@@ -38,25 +38,26 @@ Notice that we define "author owns a post" by checking whether the post's `autho
 Defining authorization logic inside the resolver is fine when learning GraphQL or prototyping. However, for a production codebase, delegate authorization logic to the business logic layer. Here’s an example of how authorization of the `Post` type's fields could be implemented separately:
 
 ```js
-// authorization logic lives inside `postRepository`
+// Authorization logic lives inside `postRepository`
 export const postRepository = {
   getBody({ user, post }) {
-    if (user?.id && (user.id === post.authorId)) {
-      return post.body
-    }
-    return null
-  }
-}
+    const isAuthor = user?.id === post.authorId;
+    return isAuthor ? post.body : null;
+  },
+};
 ```
 
 The resolver function for the post's `body` field would then call a `postRepository` method instead of implementing the authorization logic directly:
 
 ```js
-import { postRepository } from 'postRepository'
+import { postRepository } from "postRepository";
 
-function Post_body(obj, args, context, info) {
-  // return the post body only if the user is the post's author
-  return postRepository.getBody({ user: context.user, post: obj })
+function resolvePostBody(obj, args, context, info) {
+  // Return the post body only if the user is the post's author
+  return postRepository.getBody({
+    user: context.user,
+    post: obj,
+  });
 }
 ```
 

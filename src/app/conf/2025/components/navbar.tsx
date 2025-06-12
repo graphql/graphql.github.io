@@ -21,6 +21,7 @@ export function Navbar({ links, year }: NavbarProps): ReactElement {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
 
   const handleDrawerClick = useCallback(() => {
+    // todo: block scrolling on body
     setMobileDrawerOpen(prev => !prev)
   }, [])
 
@@ -52,7 +53,7 @@ export function Navbar({ links, year }: NavbarProps): ReactElement {
       <NavbarPlaceholder className="bg-pri-base before:bg-white/30 dark:bg-pri-darker dark:before:bg-blk/40" />
       <header
         className={clsx(
-          "gql-all-anchors-focusable sticky top-0 z-10 w-full border-b border-blk/60 font-mono text-neu-900 antialiased dark:border-white/80",
+          "gql-all-anchors-focusable sticky top-0 z-[100] w-full border-b border-blk/60 font-mono text-neu-900 antialiased dark:border-white/80",
           mobileDrawerOpen && "!border-neu-900 dark:!border-white",
         )}
       >
@@ -60,7 +61,7 @@ export function Navbar({ links, year }: NavbarProps): ReactElement {
         <div className="flex h-[var(--navbar-h)] items-center justify-between gap-5 px-4 md:px-6 2xl:px-10">
           <GraphQLConfLogoLink year={year} />
 
-          <div className="mr-auto flex h-full flex-col justify-center whitespace-pre border-x border-blk/60 px-4 typography-menu dark:border-white/80 max-xl:hidden">
+          <div className="typography-menu mr-auto flex h-full flex-col justify-center whitespace-pre border-x border-blk/60 px-4 dark:border-white/80 max-xl:hidden">
             <p className="flex items-center gap-2 text-sm">
               <time dateTime="2025-09-08">September 08</time>
               <span>-</span>
@@ -81,7 +82,7 @@ export function Navbar({ links, year }: NavbarProps): ReactElement {
 
           <nav
             className={clsx(
-              "inset-0 z-20 flex gap-7 typography-menu max-lg:fixed max-lg:mt-[calc(var(--navbar-h)+1px)] max-lg:flex-col max-md:min-w-[50%] sm:max-lg:p-4 lg:items-end",
+              "typography-menu inset-0 z-20 flex gap-7 max-lg:fixed max-lg:mt-[calc(var(--navbar-h)+1px)] max-lg:flex-col max-md:min-w-[50%] sm:max-lg:p-4 lg:items-end",
               mobileDrawerOpen ? "translate-x-0" : "max-lg:translate-x-full",
             )}
           >

@@ -7,3 +7,6 @@ pnpm-lock.yaml
 !src/pages/blog/2025-06-01-graphiql-4/index.mdx
 !src/pages/blog/2025-06-19-multioption-inputs-with-oneof/index.mdx
 *.jpg
+
+scripts/sync-sched/*.json
+src/github-stats.json

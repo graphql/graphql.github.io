@@ -4,7 +4,7 @@
   --grid-col-content: 1;
 
   @apply xl:[--grid-col-content:3];
-  @apply grid grid-cols-1 gap-6 typography-body-md xl:my-12 xl:grid-cols-[auto_1fr_var(--prose-width)_1fr];
+  @apply typography-body-md grid grid-cols-1 gap-6 xl:my-12 xl:grid-cols-[auto_1fr_var(--prose-width)_1fr];
 
   & > * {
     grid-column: var(--grid-col-content);

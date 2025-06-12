@@ -2,11 +2,12 @@
 
 import { format, parseISO, compareAsc } from "date-fns"
 import { ReactElement, useEffect, useState } from "react"
+
+import { SchedSpeaker, ScheduleSession } from "@/app/conf/_api/sched-types"
 import { getEventTitle } from "@/app/conf/2023/utils"
+
 import { Filters } from "./filters"
-import { SchedSpeaker } from "../../2023/types"
 import {
-  ScheduleSession,
   CategoryName,
   ConcurrentSessions,
   ScheduleSessionsByDay,
@@ -185,10 +186,9 @@ export function ScheduleList({
 
                             const speakers = session.speakers
                             const formattedSpeakers = isString(speakers || [])
-                              ? (speakers as string)?.split(",")
+                              ? (speakers as unknown as string)?.split(",")
                               : (speakers as SchedSpeaker[])?.map(e => e.name)
                             const eventTitle = getEventTitle(
-                              // @ts-expect-error fixme
                               session,
                               formattedSpeakers,
                             )

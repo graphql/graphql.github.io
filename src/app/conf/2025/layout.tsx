@@ -40,9 +40,9 @@ export default function Layout({
       <Navbar
         year={2025}
         links={[
-          { children: "Sponsor", href: "/conf/2025/#sponsors" },
-          { children: "Submit to Speak", href: "/conf/2025/#speakers" },
-          { children: "Register", href: "/conf/2025/#register" },
+          { children: "Schedule", href: "/conf/2025/schedule" },
+          { children: "Speakers", href: "/conf/2025/speakers" },
+          { children: "Sponsors", href: "/conf/2025/#sponsors" },
           { children: "Recap", href: "/conf/2024" },
           { children: "Resources", href: "/conf/2025/resources" },
           { children: "FAQ", href: "/conf/2025/#faq" },

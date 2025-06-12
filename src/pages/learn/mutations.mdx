@@ -58,13 +58,13 @@ While the `createReview` field could be defined with any valid output type in th
 Recall that GraphQL is meant to work with your existing code and data, so the actual creation of the review is up to you when clients send this operation to the GraphQL server. A hypothetical function that writes the new review to a database during a `createReview` mutation might look like this:
 
 ```js
-Mutation: {
-  createReview(obj, args, context, info) {
+const Mutation = {
+  createReview(_obj, args, context, _info) {
     return context.db
       .createNewReview(args.episode, args.review)
-      .then((reviewData) => new Review(reviewData))
-  }
-}
+      .then(reviewData => new Review(reviewData));
+  },
+};
 ```
 
 You can learn more about how GraphQL provides data for fields on the [Execution page](/learn/execution).
