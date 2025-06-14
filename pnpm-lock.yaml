@@ -162,8 +162,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.8.3)
       '@types/codemirror':
-        specifier: 5.60.7
-        version: 5.60.7
+        specifier: 5.60.16
+        version: 5.60.16
       '@types/hast':
         specifier: 3.0.4
         version: 3.0.4
@@ -1849,8 +1849,8 @@ packages:
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
 
-  '@types/codemirror@5.60.7':
-    resolution: {integrity: sha512-QXIC+RPzt/1BGSuD6iFn6UMC9TDp+9hkOANYNPVsjjrDdzKphfRkwQDKGp2YaC54Yhz0g6P5uYTCCibZZEiMAA==}
+  '@types/codemirror@5.60.16':
+    resolution: {integrity: sha512-V/yHdamffSS075jit+fDxaOAmdP2liok8NSNJnAZfDJErzOheuygHZEhAJrfmk5TEyM32MhkZjwo/idX791yxw==}
 
   '@types/concat-stream@2.0.3':
     resolution: {integrity: sha512-3qe4oQAPNwVNwK4C9c8u+VJqv9kez+2MR4qJpoPFfXtgxxif1QbFusvXzK0/Wra2VX07smostI2VMmJNSpZjuQ==}
@@ -7189,7 +7189,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.5
 
-  '@types/codemirror@5.60.7':
+  '@types/codemirror@5.60.16':
     dependencies:
       '@types/tern': 0.23.9
 

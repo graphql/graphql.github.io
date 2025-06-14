@@ -71,7 +71,7 @@
     "@graphql-eslint/eslint-plugin": "4.3.0",
     "@next/eslint-plugin-next": "^15.3.3",
     "@svgr/webpack": "^8.1.0",
-    "@types/codemirror": "5.60.7",
+    "@types/codemirror": "5.60.16",
     "@types/hast": "3.0.4",
     "@types/node": "^22.10.5",
     "@types/react": "^18.3.18",
