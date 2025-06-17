@@ -213,3 +213,26 @@ function shapeSpeaker(user: SchedSpeaker): SchedSpeaker {
 
   return res
 }
+
+/**
+ * Merges speaker data from API with existing local data,
+ * preserving important local fields when API returns empty values.
+ */
+export function mergeSpeaker(
+  oldSpeaker: SchedSpeaker,
+  newSpeaker: SchedSpeaker,
+): SchedSpeaker {
+  return {
+    ...oldSpeaker,
+    ...newSpeaker,
+    socialurls: newSpeaker.socialurls?.length
+      ? newSpeaker.socialurls
+      : oldSpeaker.socialurls,
+    ["_years"]: [
+      ...new Set([
+        ...(oldSpeaker["_years"] || []),
+        ...(newSpeaker["_years"] || []),
+      ]),
+    ].sort(),
+  }
+}

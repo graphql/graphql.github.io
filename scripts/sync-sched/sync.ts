@@ -10,6 +10,7 @@ import {
   getSchedule,
   getSpeakerDetails,
   getSpeakers,
+  mergeSpeaker,
   RequestContext,
 } from "@/app/conf/_api/sched-client"
 import type { ConferenceYear, SchedSpeaker } from "@/app/conf/_api/sched-types"
@@ -489,29 +490,6 @@ function deepStrictEqualWithoutInternals(a: unknown, b: unknown): boolean {
   }
 
   return true
-}
-
-/**
- * Merges speaker data from API with existing local data,
- * preserving important local fields when API returns empty values.
- */
-function mergeSpeaker(
-  oldSpeaker: SchedSpeaker,
-  newSpeaker: SchedSpeaker,
-): SchedSpeaker {
-  return {
-    ...oldSpeaker,
-    ...newSpeaker,
-    socialurls: newSpeaker.socialurls?.length
-      ? newSpeaker.socialurls
-      : oldSpeaker.socialurls,
-    ["_years"]: [
-      ...new Set([
-        ...(oldSpeaker["_years"] || []),
-        ...(newSpeaker["_years"] || []),
-      ]),
-    ].sort(),
-  }
 }
 
 // #endregion utility
