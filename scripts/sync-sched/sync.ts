@@ -143,14 +143,15 @@ async function sync(
     }
   }
 
-  const equal: string[][] = (await existingSpeakers).equal
-
   const updatedSpeakers = [
     ...keptRemovedSpeakers,
     ...speakerComparison.unchanged,
     ...speakerComparison.changed.map(change => change.new),
     ...speakerComparison.added,
   ].sort((a, b) => a.username.localeCompare(b.username))
+
+  const equal: string[][] = (await existingSpeakers).equal
+  updateEqualitySets(equal, updatedSpeakers)
 
   const writeSpeakers = writeFile(
     speakersFilePath,
@@ -279,6 +280,40 @@ function partitionRemovedSpeakers(
   }
 
   return { keptRemovedSpeakers, actuallyRemovedSpeakers }
+}
+
+type EqualitySet = string[][]
+
+function updateEqualitySets(old: EqualitySet, speakers: SchedSpeaker[]) {
+  for (const a of speakers) {
+    for (const b of speakers) {
+      if (a.username === b.username) continue
+
+      // if the name or one of the social URLs is the same we add the username to a set
+      if (
+        a.name === b.name ||
+        a.socialurls?.some(url =>
+          b.socialurls?.some(bUrl => bUrl.url === url.url),
+        )
+      ) {
+        const existing = old.find(
+          set => set.includes(a.username) || set.includes(b.username),
+        )
+        if (existing) {
+          const length = existing.length
+          const newSet = [...new Set([...existing, a.username, b.username])]
+          if (newSet.length !== length) {
+            existing.length = 0
+            existing.push(...newSet)
+            console.log("Found more duplicate speakers:", newSet)
+          }
+        } else {
+          old.push([a.username, b.username])
+          console.log("Found duplicate speakers:", a.username, b.username)
+        }
+      }
+    }
+  }
 }
 
 // #region utility
