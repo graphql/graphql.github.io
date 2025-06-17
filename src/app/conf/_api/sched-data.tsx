@@ -21,6 +21,8 @@ export function readSpeakers(year: ConferenceYear): SchedSpeaker[] {
           .filter(x => !!x)
           // we prefer the data from the most recent years
           .sort((a, b) => Math.max(...a._years) - Math.max(...b._years))
+          // and the `year` of the conference we're fetching data for
+          .concat([speaker])
           .reduce(mergeSpeaker)
       )
     }
