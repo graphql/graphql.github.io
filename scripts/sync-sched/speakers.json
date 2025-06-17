@@ -81,7 +81,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "ajhingran",
@@ -137,7 +137,7 @@
       2023,
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "alex_reilly.7ldur4l",
@@ -205,7 +205,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "amanda1988",
@@ -220,7 +220,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "amy1908",
@@ -295,7 +295,7 @@
       2024,
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "andrei.bocan",
@@ -311,7 +311,7 @@
       2024,
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "andrew.doyle1",
@@ -574,7 +574,7 @@
       2024,
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "benoit_lubek.28dhc1v7",
@@ -1075,7 +1075,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "fthompson11",
@@ -1401,7 +1401,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "jeff.auriemma",
@@ -1501,7 +1501,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "jim.barton",
@@ -1584,12 +1584,12 @@
   {
     "username": "juancarlosjr97",
     "company": "RS Group",
-    "position": "Mr",
+    "position": "Senior Software Engineer",
     "name": "Juan Carlos Blanco Delgado",
-    "about": "Juan Carlos Blanco Delgado is a software engineer from Venezuela, now residing in the UK and working for RS Group. He is passionate about the Open Source community and holds certifications in AWS and Terraform HashiCorp. Juan Carlos enjoys climbing, cycling, running, snowboarding, swimming, listening to mushy songs, and watching and reading about films. Above all, he loves coding and creating cool stuff!",
+    "about": "Juan Carlos (JC) is a Senior Software Engineer at RS Group, where he leads the development of the federated graph and supports teams in integrating and evolving their services within it. He is passionate about the open source community and loves sharing knowledge. Outside of work, JC enjoys running, climbing, cycling and snowboarding, and building cool things (recently with Rust)!",
     "location": "",
     "url": "",
-    "avatar": "//avatars.sched.co/8/00/23098768/avatar.jpg.320x320px.jpg?e48",
+    "avatar": "//avatars.sched.co/8/00/23098768/avatar.jpg.320x320px.jpg?181",
     "socialurls": [],
     "_years": [
       2025
@@ -1971,7 +1971,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "marco.reni",
@@ -1991,7 +1991,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "marion84",
@@ -2032,6 +2032,21 @@
       2025
     ],
     "~syncedDetailsAt": 1750079069699
+  },
+  {
+    "username": "martinbonnin42",
+    "company": "Apollo",
+    "position": "Mobile Engineer",
+    "name": "Martin Bonnin",
+    "about": "Martin is a maintainer of Apollo Kotlin. He has been writing Android applications since Cupcake and fell in love with Kotlin in 2017. Martin loves naming things and the sound of his laptop fan compiling all these type-safe programs. When not busy rewriting all his bash scripts in Kotlin, Martin loves to hike the Pyrénées or play a good game of Hearthstone.",
+    "location": "",
+    "url": "",
+    "avatar": "//avatars.sched.co/c/ef/23098783/avatar.jpg.320x320px.jpg?7ff",
+    "socialurls": [],
+    "_years": [
+      2025
+    ],
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "marybriskin",
@@ -2120,7 +2135,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "mauricio.montalvo.guzman",
@@ -2225,7 +2240,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "michael.bleigh",
@@ -2264,7 +2279,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "omribruchim",
@@ -2395,14 +2410,15 @@
     "name": "Kewei Qu",
     "about": "TBD",
     "location": "",
-    "url": "https://investor.fb.com/home/default.aspx",
+    "url": "",
     "avatar": "//avatars.sched.co/9/1a/18743864/avatar.jpg.320x320px.jpg?7fa",
     "socialurls": [],
     "_years": [
       2023,
-      2024
+      2024,
+      2025
     ],
-    "~syncedDetailsAt": 1749502056389
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "rachit_sengupta",
@@ -2476,7 +2492,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "rickbijkerk54",
@@ -2491,7 +2507,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "robert.balicki",
@@ -2559,18 +2575,18 @@
   },
   {
     "username": "saihaj",
-    "company": "",
-    "position": "",
+    "company": "The Guild",
+    "position": "Head of Growth & Product Engineering - Stellate",
     "name": "Saihajpreet Singh",
-    "about": "",
+    "about": "I’ve been active in the GraphQL community for years, maintaining many projects. I also support the ecosystem through efforts like managing GraphQL Weekly, representing The Guild in the GraphQL Foundation, and driving broader community initiatives, balancing technical leadership with community engagement.",
     "location": "",
     "url": "",
-    "avatar": "",
+    "avatar": "//avatars.sched.co/2/e9/22528045/avatar.jpg.320x320px.jpg?00f",
     "socialurls": [],
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1749497416063
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "saihajpreet.singh",
@@ -2609,7 +2625,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "sanvertarmur",
@@ -2624,7 +2640,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "sasanders26",
@@ -2787,7 +2803,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "siva27",
@@ -2884,7 +2900,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "suresh_muthu",
@@ -3015,7 +3031,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "tristan119",
@@ -3050,7 +3066,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750078730763
+    "~syncedDetailsAt": 1750090472229
   },
   {
     "username": "tushar.mathur",
@@ -3155,7 +3171,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511853
   },
   {
     "username": "vmjohnson999",
@@ -3205,7 +3221,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750090511854
   },
   {
     "username": "yaacovcr",
@@ -3284,7 +3300,7 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750167799402
   },
   {
     "username": "zach.fetters",
@@ -3299,6 +3315,6 @@
     "_years": [
       2025
     ],
-    "~syncedDetailsAt": 1750079069699
+    "~syncedDetailsAt": 1750167799402
   }
 ]
