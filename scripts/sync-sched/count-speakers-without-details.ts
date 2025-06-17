@@ -16,7 +16,7 @@ import type { SchedSpeaker } from "@/app/conf/_api/sched-types"
     console.log("Reading speakers.json...")
 
     const speakersData = await readFile(speakersFilePath, "utf-8")
-    const speakers: SchedSpeaker[] = JSON.parse(speakersData)
+    const speakers: SchedSpeaker[] = JSON.parse(speakersData).speakers
 
     const speakersWithoutDetails = speakers.filter(
       speaker => !speaker["~syncedDetailsAt"],

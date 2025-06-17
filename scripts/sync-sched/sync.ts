@@ -112,7 +112,7 @@ async function sync(
   )
 
   const speakerComparison = compare(
-    await existingSpeakers,
+    await existingSpeakers.then(data => data.speakers),
     await thisYearSpeakers.then(speakers =>
       speakers.map(s => ({
         ...s,
@@ -126,12 +126,27 @@ async function sync(
   await updateSpeakerDetails(ctx, speakerComparison, detailsRequestsQuota, year)
 
   printComparison(speakerComparison, "speakers", "username", {
-    // we don't remove speakers
     printRemoved: false,
   })
 
+  const { keptRemovedSpeakers, actuallyRemovedSpeakers } =
+    partitionRemovedSpeakers(speakerComparison.removed, year)
+
+  if (actuallyRemovedSpeakers.length > 0) {
+    console.log(
+      bold(
+        `${actuallyRemovedSpeakers.length} speakers removed (only appeared in ${year}):`,
+      ),
+    )
+    for (const speaker of actuallyRemovedSpeakers) {
+      console.log(red(`- ${speaker.username}`))
+    }
+  }
+
+  const equal: string[][] = (await existingSpeakers).equal
+
   const updatedSpeakers = [
-    ...speakerComparison.removed,
+    ...keptRemovedSpeakers,
     ...speakerComparison.unchanged,
     ...speakerComparison.changed.map(change => change.new),
     ...speakerComparison.added,
@@ -139,7 +154,14 @@ async function sync(
 
   const writeSpeakers = writeFile(
     speakersFilePath,
-    JSON.stringify(updatedSpeakers, null, 2),
+    JSON.stringify(
+      {
+        equal,
+        speakers: updatedSpeakers,
+      },
+      null,
+      2,
+    ),
   )
 
   await writeSchedule
@@ -238,6 +260,25 @@ async function updateSpeakerDetails(
 
 function help() {
   return console.log("Usage: tsx sync.ts --year <year>")
+}
+
+function partitionRemovedSpeakers(
+  removedSpeakers: SchedSpeaker[],
+  currentYear: ConferenceYear,
+) {
+  const keptRemovedSpeakers: SchedSpeaker[] = []
+  const actuallyRemovedSpeakers: SchedSpeaker[] = []
+
+  for (const speaker of removedSpeakers) {
+    // We only remove the speakers removed from Sched if they didn't have talks in other years.
+    if (speaker._years?.length === 1 && speaker._years[0] === currentYear) {
+      actuallyRemovedSpeakers.push(speaker)
+    } else {
+      keptRemovedSpeakers.push(speaker)
+    }
+  }
+
+  return { keptRemovedSpeakers, actuallyRemovedSpeakers }
 }
 
 // #region utility
