@@ -74,10 +74,17 @@ The HTTP layer succeeded, but the GraphQL operation produced errors.
 
 ### Common causes
 
+- Runtime errors during execution
+- Violating schema constraints (e.g. returning the wrong data type, or `null` in a non-nullable position)
+
+Older servers and clients (those not using
+`Content-Type: application/graphql-response+json`) may also use 200 OK in the case of
+complete request failure (no `data`). Common causes include:
+
 - Querying a field that doesn't exist
 - Passing incorrect arguments to a field
-- Violating schema constraints, such as non-nullability
-- Runtime errors during execution
+- Omitting a selection set on a non-leaf field
+- Failure to specify the `operationName` when multiple operations exist in the request
 
 ### How to debug
 
@@ -114,18 +121,21 @@ validation errors differently. When in doubt, use error codes supported by the s
 
 ## Understanding GraphQL response formats
 
-Most GraphQL servers return responses using the `application/json` media type. However,
-the [GraphQL over HTTP spec](https://graphql.github.io/graphql-over-http/draft/) recommends 
-using a more specific type: `application/graphql-response+json`.
+Traditionally, GraphQL servers have returned responses using the `application/json` media type.
+However, the [GraphQL over HTTP spec](https://graphql.github.io/graphql-over-http/draft/) recommends 
+that clients request (and servers respond with) a more specific type: `application/graphql-response+json`.
 
-This media type identifies the payload as a GraphQL response and helps clients
-distinguish it from other types of JSON.
+This newer media type identifies the payload as a GraphQL response and helps clients
+distinguish it from other types of JSON, making the response safe to process even if
+it uses a non-2xx status code. A trusted proxy, gateway, or other intermediary
+might describe an error using JSON, but would never do so using `application/graphql-response+json`
+unless it was a valid GraphQL response.
 
 ### What to know
 
-- Servers may respond with `application/graphql-response+json` instead of
+- Servers may respond with `application/graphql-response+json` or
 `application/json`.
-- Clients can request this media type using the `Accept` header: `Accept: application/graphql-response+json`
-- This content type is optional, but support for it is growing.
+- Clients can request this media type using the `Accept` header: `Accept: application/graphql-response+json, application/json;q=0.9` (prefer the new media type over the old one, but accept both)
+- This content type is recommended, and support for it is growing.
 - If your client uses content negotiation, ensure your server can response with the appropriate
 type or fallback to `application/json`.
