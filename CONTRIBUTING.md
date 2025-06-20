@@ -154,7 +154,7 @@ Once it's ready for review, please [open a pull request](https://github.com/grap
 
 This repository holds the [graphql.org blog](https://graphql.org/blog/) at [source/src/pages/blog](https://github.com/graphql/graphql.github.io/tree/source/src/pages/blog). Blog posts may contain announcements, news, best practices and more.  
 
-Contributions are very welcome!
+Contributions are very welcome! Please see the [BLOG_STYLE_GUIDE](BLOG_STYLE_GUIDE.md) for more information.
 
 ## Making changes to the code
 
