@@ -7,7 +7,7 @@ This guide explains why file uploads via GraphQL are problematic and presents sa
 
 ## Why uploads are challenging
 
-The [GraphQL specification](https://spec.graphql.org/draft/) is transport-agnostic and assumes requests are encoded as JSON. 
+The [GraphQL specification](https://spec.graphql.org/draft/) is transport-agnostic and serialization-agnostic (though HTTP and JSON are the most prevalent combination seen in the community).
 File uploads, by contrast, require `multipart/form-data` encoding to transfer binary data—something JSON can’t handle.
 
 Supporting uploads over GraphQL usually involves adopting community conventions, like the 
