@@ -28,10 +28,10 @@ export function RegisterToday({ className }: RegisterTodayProps) {
       />
       <div className="flex flex-col justify-between">
         <div>
-          <h2 className="text-neu-900 typography-h2">
+          <h2 className="typography-h2 text-neu-900">
             Let's celebrate 10 years of GraphQL together
           </h2>
-          <p className="mt-6 text-neu-800 typography-h3 md:mt-10">
+          <p className="typography-h3 mt-6 text-neu-800 md:mt-10">
             Join three transformative days of expert insights and innovation to
             shape the next decade of APIs!
           </p>

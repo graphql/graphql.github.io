@@ -21,11 +21,11 @@ export function Footer({
   logo: ReactNode
 }) {
   return (
-    <footer className="gql-all-anchors-focusable relative !bg-neu-100 text-neu-900 typography-menu dark:!bg-neu-0 max-md:px-0 max-md:pt-0">
+    <footer className="gql-all-anchors-focusable typography-menu relative !bg-neu-100 text-neu-900 dark:!bg-neu-0 max-md:px-0 max-md:pt-0">
       <Stripes />
       <div className="flex flex-wrap justify-between gap-4 p-4 max-md:w-full md:px-6 lg:py-10 2xl:px-10">
         {logo}
-        <div className="flex gap-x-4 typography-body-lg max-sm:grid max-sm:grid-cols-2 max-sm:items-start max-sm:text-lg sm:gap-y-2">
+        <div className="typography-body-lg flex gap-x-4 max-sm:grid max-sm:grid-cols-2 max-sm:items-start max-sm:text-lg sm:gap-y-2">
           <p className="flex items-center whitespace-pre">
             <time dateTime="2025-09-08">September 08</time>
             <span>-</span>

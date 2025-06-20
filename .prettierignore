@@ -4,4 +4,8 @@ pnpm-lock.yaml
 !src/pages/blog/2024-04-11-announcing-new-graphql-website/index.mdx
 !src/pages/blog/2024-08-15-graphql-local-initiative.mdx
 !src/pages/community/foundation/community-grant.mdx
+!src/pages/blog/2025-06-01-graphiql-4/index.mdx
 *.jpg
+
+scripts/sync-sched/*.json
+src/github-stats.json

@@ -17,7 +17,7 @@ export default function ResourcesPage() {
         h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
           return (
             <h3
-              className="border-t border-neu-100 pt-2 text-pri-base typography-menu dark:border-neu-50 dark:text-pri-light"
+              className="typography-menu border-t border-neu-100 pt-2 text-pri-base dark:border-neu-50 dark:text-pri-light"
               {...props}
             >
               {props.children}

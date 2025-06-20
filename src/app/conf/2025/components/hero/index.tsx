@@ -1,63 +1,60 @@
-import Image from "next-image-export-optimizer"
+import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
+import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
 
-import { Button } from "../../../_design-system/button"
-import { CalendarIcon } from "../../../_design-system/pixelarticons/calendar-icon"
-import { GET_TICKETS_LINK } from "../../links"
-import { PinIcon } from "../../../_design-system/pixelarticons/pin-icon"
-import graphqlFoundationWordmarkSvg from "../../assets/graphql-foundation-wordmark.svg"
+import GraphQLFoundationWordmark from "../../assets/graphql-foundation-wordmark.svg?svgr"
 
 import { ImageLoaded } from "../image-loaded"
 import blurBean from "./blur-bean-cropped.webp"
-import heroPhoto from "./hero-photo.jpeg"
 
-export function Hero() {
+export function Hero({
+  pageName,
+  year,
+  children,
+  bottom,
+}: {
+  pageName?: string
+  year: string
+  children: React.ReactNode
+  bottom?: React.ReactNode
+}) {
   return (
     <article className="gql-conf-navbar-strip relative isolate flex flex-col justify-center bg-pri-base text-neu-0 selection:bg-blk/40 before:bg-white/30 dark:bg-pri-darker dark:text-neu-900 dark:selection:bg-white/40 before:dark:bg-blk/40">
       <article className="relative">
-        <Stripes />
+        <HeroStripes />
         <div className="gql-conf-container mx-auto flex max-w-full flex-col gap-12 overflow-hidden p-4 pt-6 sm:p-8 sm:pt-12 md:gap-12 md:bg-left md:p-12 lg:px-24 lg:pb-16 lg:pt-24">
           <div className="flex gap-10 max-md:flex-col md:justify-between">
-            <h1 className="flex flex-wrap gap-2 typography-d1">
-              <span>GraphQLConf</span>
-              <span className="text-sec-base">2025</span>
-            </h1>
+            {pageName ? (
+              <div>
+                <span className="typography-h3 text-sec-base">
+                  GraphQLConf {year}
+                </span>
+                <h1 className="typography-d1">{pageName}</h1>
+              </div>
+            ) : (
+              <h1 className="typography-d1 flex flex-wrap gap-2">
+                <span>GraphQLConf</span>
+                <span className="text-sec-base">{year}</span>
+              </h1>
+            )}
             <div className="flex h-min items-center gap-4">
-              <span className="whitespace-pre typography-body-sm">
+              <span className="typography-body-sm whitespace-pre">
                 hosted by
               </span>
-              <img
-                src={graphqlFoundationWordmarkSvg.src}
-                alt="GraphQL Foundation"
-                width={128}
-                height={34.877}
-              />
+              <GraphQLFoundationWordmark width={128} height={34.877} />
             </div>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <DateAndLocation />
-            <Button className="md:w-fit" href={GET_TICKETS_LINK}>
-              Get your tickets
-            </Button>
-          </div>
+          <div className="flex flex-col gap-8">{children}</div>
         </div>
       </article>
-      <div className="z-[2] bg-blk">
-        <Image
-          src={heroPhoto}
-          width={1920}
-          height={560}
-          alt="five speakers at GraphQLConf 2024"
-          className="mx-auto h-[560px] w-[1920px] max-w-full object-cover"
-        />
-      </div>
+      {bottom}
     </article>
   )
 }
 
-function DateAndLocation() {
+export function HeroDateAndLocation() {
   return (
-    <div className="flex flex-col gap-4 typography-body-md md:flex-row md:gap-6">
+    <div className="typography-body-md flex flex-col gap-4 md:flex-row md:gap-6">
       <div className="flex items-center gap-2">
         <CalendarIcon className="size-5 sm:size-6" />
         <time dateTime="2025-09-08">September 08</time>
@@ -77,7 +74,7 @@ const maskEven =
 const maskOdd =
   "repeating-linear-gradient(to right, black, black 12px, transparent 12px, transparent 24px)"
 
-function Stripes() {
+export function HeroStripes() {
   return (
     <ImageLoaded
       role="presentation"

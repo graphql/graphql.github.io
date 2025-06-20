@@ -8,7 +8,6 @@ async function main() {
 
   const githubStats: Record<string, unknown> = {}
 
-  // @ts-expect-error
   for (const [index, filePath] of filePaths.entries()) {
     const content = await fs.readFile(filePath, "utf8")
     const { data } = grayMatter(content)

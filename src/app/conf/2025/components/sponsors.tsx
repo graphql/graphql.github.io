@@ -1,4 +1,5 @@
 import Grafbase from "public/img/conf/Sponsors/Grafbase.svg?svgr"
+import Apollo from "public/img/conf/Sponsors/Apollo.svg?svgr"
 
 import { clsx } from "clsx"
 import { ChevronRight } from "../../_design-system/pixelarticons/chevron-right"
@@ -11,7 +12,9 @@ interface Sponsor {
 
 const sponsorDiamond: Sponsor[] = []
 
-const sponsorGold: Sponsor[] = []
+const sponsorGold: Sponsor[] = [
+  { icon: Apollo, name: "Apollo", link: "https://www.apollographql.com" },
+]
 
 const sponsorSilver: Sponsor[] = [
   { icon: Grafbase, name: "Grafbase", link: "https://grafbase.com/" },

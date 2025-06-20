@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <div className='bg-[url("/img/conf/golden-gate-bridge.png")] bg-contain bg-no-repeat'>
       <div className="flex w-full justify-center">
-        <div className="xs:px-0 prose px-2 py-20 md:container lg:prose-lg">
+        <div className="prose px-2 py-20 md:container lg:prose-lg">
           <h1 className="text-white">GraphQLConf 2024 Speakers</h1>
           <p className="text-white sm:w-2/3">
             Meet the unique lineup of insightful speakers we've carefully
@@ -22,7 +22,7 @@ export default function Page() {
       <div className="bg-white">
         <section className="conf-block container flex flex-wrap justify-center gap-8 lg:justify-between">
           {speakers.map(speaker => (
-            <Speaker key={speaker.username} {...speaker} year="2024" />
+            <Speaker key={speaker.username} {...speaker} year={2024} />
           ))}
         </section>
       </div>

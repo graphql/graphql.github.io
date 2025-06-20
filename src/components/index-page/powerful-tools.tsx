@@ -9,6 +9,7 @@ export function PowerFulTools() {
           your editor, highlight potential issues before sending a query, and
           take advantage of improved code intelligence. GraphQL makes it easy to
           build powerful tools like{" "}
+          {/* eslint-disable-next-line react/jsx-no-target-blank */}
           <a
             href="https://github.com/graphql/graphiql"
             target="_blank"
