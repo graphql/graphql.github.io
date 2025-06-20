@@ -8,7 +8,11 @@ This guide explains why file uploads via GraphQL are problematic and presents sa
 ## Why uploads are challenging
 
 The [GraphQL specification](https://spec.graphql.org/draft/) is transport-agnostic and serialization-agnostic (though HTTP and JSON are the most prevalent combination seen in the community).
-File uploads, by contrast, require `multipart/form-data` encoding to transfer binary data—something JSON can’t handle.
+GraphQL was designed to work with relatively small requests from clients, and was not designed with handling binary data in mind.
+
+File uploads, by contrast, typically handle binary data such as images and PDFs &mdash; something many encodings, including JSON, cannot handle directly.
+One option is to encode within our encoding (e.g. use a base64-encoded string within our JSON), but this is inefficient and is not suitable for larger binary files as it does not support streamed processing easily.
+Instead, `multipart/form-data` is a common choice for transferring binary data; but it is not without its own set of complexities.
 
 Supporting uploads over GraphQL usually involves adopting community conventions, like the 
 [GraphQL multipart request specification](https://github.com/jaydenseric/graphql-multipart-request-spec). While useful in some 
