@@ -75,7 +75,8 @@ If your application truly requires file uploads through GraphQL, proceed with ca
 - Use a well-maintained implementation of the 
 [GraphQL multipart request spec](https://github.com/jaydenseric/graphql-multipart-request-spec).
 - Enforce a rule that upload variables are only referenced once.
-- Always stream uploads to disk or cloud storage—never buffer them in memory.
+- Stream uploads to disk or cloud storage—avoid buffering them in memory.
+- Ensure that streams are always terminated when the request ends, whether or not they were consumed.
 - Apply strict request size limits and validate all fields.
 - Treat file names, types, and contents as untrusted data.
 
