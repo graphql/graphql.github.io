@@ -1,68 +1,76 @@
-# Handling File Uploads
+# Handling File Uploads in GraphQL
 
-GraphQL doesn't natively support file uploads. The [GraphQL specification](https://spec.graphql.org/draft/) is transport-agnostic
-and historically assumed `application/json`, but the evolving [GraphQL over HTTP specification](https://graphql.github.io/graphql-over-http/draft/)
-introduces support for additional media types: `application/graphql-response+json`.
+GraphQL was not designed with file uploads in mind. While it’s technically possible to implement them, doing so requires 
+extending the transport layer and introduces several risks, both in security and reliability. 
 
-Since uploading files typically requires `multipart/form-data`, adding upload capabilities still
-means extending the HTTP layer yourself. This guide explains how to handle file uploads using
-[`graphql-http`](https://github.com/graphql/graphql-http), a minimal, spec-compliant GraphQL server implementation for JavaScript.
+This guide explains why file uploads via GraphQL are problematic and presents safer alternatives.
 
-## Why file uploads require extra work
+## Why uploads are challenging
 
-A standard GraphQL request sends a query or mutation and optional variables as JSON. But file 
-uploads require binary data, which JSON can't represent. Instead, clients typically use 
-`multipart/form-data`, the same encoding used for HTML file forms. This format is incompatible 
-with how GraphQL servers like `graphql-http` handle requests by default.
+The [GraphQL specification](https://spec.graphql.org/draft/) is transport-agnostic and assumes requests are encoded as JSON. 
+File uploads, by contrast, require `multipart/form-data` encoding to transfer binary data—something JSON can’t handle.
 
-To bridge this gap, the GraphQL community developed a convention: the [GraphQL multipart 
-request specification](https://github.com/jaydenseric/graphql-multipart-request-spec). This 
-approach allows files to be uploaded as part of a GraphQL mutation, with the server handling the 
-`multipart/form-data` payload and injecting the uploaded file into the appropriate variable.
+Supporting uploads over GraphQL usually involves adopting community conventions, like the 
+[GraphQL multipart request specification](https://github.com/jaydenseric/graphql-multipart-request-spec). While useful in some 
+environments, these solutions often introduce complexity, fragility, and security risks.
 
-## The multipart upload format
+## Risks to be aware of
 
-The multipart spec defines a three-part request format:
+### Memory exhaustion from repeated variables
 
-- `operations`: A JSON string representing the GraphQL operation
-- `map`: A JSON object that maps file field name to variable paths
-- One or more files: Attached to the form using the same field names referenced in the `map`
+GraphQL operations allow the same variable to be referenced multiple times. If a file upload variable is used more than 
+once, its stream may be consumed multiple times—or worse, not at all. This can lead to unpredictable behavior or denial of service (DoS).
 
-### Example
+### Stream leaks on failed operations
 
-```graphql
-mutation UploadFile($file: Upload!) {
-  uploadFile(file: $file) {
-    filename
-    mimetype
-  }
-}
-```
+GraphQL executes in phases: validation, then execution. If an error occurs during validation or authorization, your 
+server might never reach the resolver that consumes a file stream. If file streams are left unconsumed, memory usage can 
+spike, potentially exhausting server resources.
 
-And the corresponding `map` field:
+### Cross-Site Request Forgery (CSRF)
 
-```json
-{
-  "0": ["variables.file"]
-}
-```
+`multipart/form-data` is classified as a “simple” request by CORS and does not trigger preflight checks. Without strict CSRF 
+protections, malicious sites may be able to upload files on behalf of unsuspecting users.
 
-The server is responsible for parsing the multipart body, interpreting the `map`, and replacing 
-variable paths with the corresponding file streams.
+### Oversized or excess payloads
 
-## Implementing uploads with graphql-http
+Attackers can upload arbitrarily large files or extra files not referenced in the GraphQL operation. If your server accepts and 
+buffers these files in memory, you may face reliability issues or be vulnerable to resource exhaustion.
 
-The `graphql-http` package doesn’t handle multipart requests out of the box. To support file 
-uploads, you’ll need to:
+### Untrusted file metadata
 
-1. Parse the multipart form request.
-2. Map the uploaded file(s) to GraphQL variables.
-3. Inject those into the request body before passing it to `createHandler()`.
+Uploaded file names, MIME types, and even contents are arbitrary and should be treated as untrusted input. Failing to sanitize 
+file names can lead to path traversal vulnerabilities. Assuming a file’s MIME type is safe can lead to parsing exploits.
 
-Here's how to do it in an Express-based server using JavaScript and the [`busboy`](https://www.npmjs.com/package/busboy),
-a popular library for parsing `multipart/form-data`.
+## Recommendation: Use signed URLs
 
-### Example: Express + graphql-http + busboy
+The most secure and scalable approach is to **avoid uploading files through GraphQL entirely**. Instead:
+
+1. Use a GraphQL mutation to request a signed upload URL from your storage provider (e.g., Amazon S3).
+2. Upload the file directly from the client using that URL.
+3. Submit a second mutation to associate the uploaded file with your application’s data.
+
+This approach isolates the file upload concern to infrastructure purpose-built for it, while keeping GraphQL focused on structured data.
+
+## If you still choose to support uploads
+
+If your application truly requires file uploads through GraphQL, proceed with caution. At a minimum, you should:
+
+- Use a well-maintained implementation of the 
+[GraphQL multipart request spec](https://github.com/jaydenseric/graphql-multipart-request-spec).
+- Enforce a rule that upload variables are only referenced once.
+- Always stream uploads to disk or cloud storage—never buffer them in memory.
+- Apply strict request size limits and validate all fields.
+- Treat file names, types, and contents as untrusted data.
+
+## Example (not recommended for production)
+
+The example below demonstrates how uploads could be wired up using Express, `graphql-http`, and busboy. 
+It’s included only to illustrate the mechanics and is not production-ready.
+
+<Callout type="warning" emoji="⚠️">
+  We strongly discourage using this code in production.
+</Callout>
 
 ```js
 import express from 'express';
@@ -110,74 +118,3 @@ app.post('/graphql', (req, res, next) => {
 
 app.listen(4000);
 ```
-
-This example:
-
-- Parses `multipart/form-data` uploads.
-- Extracts GraphQL query and variables from the `operations` field.
-- Inserts file streams in place of `Upload` variables.
-- Passes the modified request to `graphql-http`.
-
-## Defining the upload scalar
-
-The GraphQL schema must include a custom scalar type for uploaded files:
-
-```graphql
-scalar Upload
-
-extend type Mutation {
-  uploadFile(file: Upload!): FileMetadata
-}
-
-type FileMetadata {
-  filename: String!
-  mimetype: String!
-}
-```
-
-In your resolvers, treat `file` as a readable stream:
-
-```js
-export const resolvers = {
-  Upload: GraphQLScalarType, // implement as needed, or treat as opaque in resolver
-  Mutation: {
-    uploadFile: async (_, { file }) => {
-      const chunks = [];
-      for await (const chunk of file) {
-        chunks.push(chunk);
-      }
-      // process or store the file as needed
-      return {
-        filename: 'uploaded-file.txt',
-        mimetype: 'text/plain',
-      };
-    }
-  }
-};
-```
-
-You can define `Upload` as a passthrough scalar if your server middleware already
-handles file parsing:
-
-```js
-import { GraphQLScalarType } from 'graphql';
-
-export const Upload = new GraphQLScalarType({
-  name: 'Upload',
-  serialize: () => { throw new Error('Upload serialization unsupported'); },
-  parseValue: value => value,
-  parseLiteral: () => { throw new Error('Upload literals unsupported'); }
-});
-```
-
-## Best practices
-
-- Streaming: Don’t read entire files into memory. Instead, stream files to disk or an external 
-storage service. This reduces memory pressure and improves 
-scalability.
-- Security: Always validate file types, restrict maximum file sizes, and sanitize filenames to prevent 
-path traversal or injection vulnerabilities.
-- Alternatives: For large files or more scalable architectures, consider using pre-signed URLs 
-with an object storage service like S3. The client uploads the file directly, and the GraphQL 
-mutation receives the file URL instead.
-- Client support: Use a client library that supports the GraphQL multipart request specification.
