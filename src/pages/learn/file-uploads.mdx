@@ -14,9 +14,11 @@ File uploads, by contrast, typically handle binary data such as images and PDFs 
 One option is to encode within our encoding (e.g. use a base64-encoded string within our JSON), but this is inefficient and is not suitable for larger binary files as it does not support streamed processing easily.
 Instead, `multipart/form-data` is a common choice for transferring binary data; but it is not without its own set of complexities.
 
-Supporting uploads over GraphQL usually involves adopting community conventions, like the 
-[GraphQL multipart request specification](https://github.com/jaydenseric/graphql-multipart-request-spec). While useful in some 
-environments, these solutions often introduce complexity, fragility, and security risks.
+Supporting uploads over GraphQL usually involves adopting community conventions, the most prevalent of which is the 
+[GraphQL multipart request specification](https://github.com/jaydenseric/graphql-multipart-request-spec).
+This specification has been successfully implemented in many languages and frameworks, but users
+implementing it must pay very close attention to ensure that they do not introduce
+security or reliability concerns.
 
 ## Risks to be aware of
 
