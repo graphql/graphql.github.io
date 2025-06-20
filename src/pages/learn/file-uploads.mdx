@@ -63,7 +63,10 @@ The most secure and scalable approach is to avoid uploading files through GraphQ
 
 1. Use a GraphQL mutation to request a signed upload URL from your storage provider (e.g., Amazon S3).
 2. Upload the file directly from the client using that URL.
-3. Submit a second mutation to associate the uploaded file with your application’s data.
+3. Submit a second mutation to associate the uploaded file with your application’s data (or use an automatically triggered process, such as Amazon Lambda, to do the same).
+
+You should ensure that these file uploads are only retained for a short period such that an attacker completing only steps 1 and 2 will not exhaust your storage.
+When processing the file upload (step 3), the file should be moved to more permanent storage as appropriate.
 
 This separates responsibilities cleanly, protects your server from binary data handling, and aligns with best practices for 
 modern web architecture.
