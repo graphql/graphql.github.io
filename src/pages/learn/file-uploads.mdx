@@ -34,7 +34,8 @@ A safe practice is to use trusted documents or a validation rule to ensure each 
 GraphQL executes in phases: validation, then execution. If validation fails or an authorization check blocks execution, uploaded 
 file streams may never be consumed. If your server buffers or retains these streams, it can cause memory leaks.
 
-To avoid this, consider writing incoming files to temporary storage immediately, and passing references (like filenames) into 
+To avoid this, ensure that all streams are terminated when the request finishes, whether or not they were consumed in resolvers.
+An alternative to consider is writing incoming files to temporary storage immediately, and passing references (like filenames) into 
 resolvers. Ensure this storage is cleaned up after request completion, regardless of success or failure.
 
 ### Cross-Site Request Forgery (CSRF)
