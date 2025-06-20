@@ -10,15 +10,16 @@ Welcome to the GraphQL Blog Style Guide! This document outlines best practices a
 
 - **Audience First**: Assume the reader has a technical background (developers, engineers) but may be new to GraphQL concepts.
 - **Clarity is Key**: Prioritize clear, concise explanations over jargon. Break down complex ideas with examples.
-- **Vendor neutral**: The GraphQL Blog is about GraphQL as a technology. Vendor specific content and personal promotion doesn't belong in the GraphQL blog.  
+- **Vendor neutral**: The GraphQL Blog is about GraphQL as a technology. Vendor specific content and personal promotion doesn't belong in the GraphQL blog.
 
 ## ℹ️ Content
 
-The GraphQL blog welcomes contributions. Anyone may submit a blog post idea by [opening an issue](https://github.com/graphql/graphql.github.io/issues/new) or a draft by [opening a pull request](https://github.com/graphql/graphql.github.io/pulls). 
+The GraphQL blog welcomes contributions. Anyone may submit a blog post idea by [opening an issue](https://github.com/graphql/graphql.github.io/issues/new) or a draft by [opening a pull request](https://github.com/graphql/graphql.github.io/pulls).
 
 Maintainers are responsible for approving and merging the pull requests.
 
 Example content:
+
 - Announcements: events, new versions of [GraphQL tools or specifications](https://github.com/orgs/graphql/repositories), updates about the GraphQL foundation, collaborations, etc...
 - Best practices: share learnings and make the best of GraphQL.
 - Case studies: explain how GraphQL helped solve a problem.
@@ -32,16 +33,19 @@ This list is non-exhaustive. If there is something you would like to see on the 
 ## 📚 Structure
 
 ### Title
+
 - Clear, concise, and descriptive.
 - Avoid clickbait. Example:  
   ✅ "Understanding GraphQL Subscriptions"  
   ❌ "This One GraphQL Trick Will Blow Your Mind"
 
 ### Introduction
+
 - Hook the reader in 1–2 sentences.
 - Set clear expectations about what the post covers and who it's for.
 
 ### Body
+
 - Use clear headers (`##`, `###`) to organize sections.
 - Limit paragraphs to 3–5 sentences.
 - Use bullet points or numbered lists for step-by-step content.
@@ -49,6 +53,7 @@ This list is non-exhaustive. If there is something you would like to see on the 
 - Use callouts for **tips**, **warnings**, or **best practices**.
 
 ### Conclusion
+
 - Summarize key takeaways.
 - Link to related resources, docs, or posts.
 - Include a call to action if applicable (e.g., "Try it out", "Join the discussion").
@@ -71,6 +76,7 @@ This list is non-exhaustive. If there is something you would like to see on the 
 - Avoid overly long code samples—focus on what supports the topic.
 - Explain what the code is doing either before or after the block.
 - Stick to consistent naming conventions (e.g., `getUser`, `createPostMutation`).
+
 ---
 
 ## ✅ Do
