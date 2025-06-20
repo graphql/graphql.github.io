@@ -18,39 +18,49 @@ environments, these solutions often introduce complexity, fragility, and securit
 
 ### Memory exhaustion from repeated variables
 
-GraphQL operations allow the same variable to be referenced multiple times. If a file upload variable is used more than 
-once, its stream may be consumed multiple times—or worse, not at all. This can lead to unpredictable behavior or denial of service (DoS).
+GraphQL operations allow the same variable to be referenced multiple times. If a file upload variable is reused, the underlying 
+stream may be read multiple times or prematurely drained. This can result in incorrect behavior or memory exhaustion.
+
+A safe practice is to use trusted documents or a validation rule to ensure each upload variable is referenced exactly once.
 
 ### Stream leaks on failed operations
 
-GraphQL executes in phases: validation, then execution. If an error occurs during validation or authorization, your 
-server might never reach the resolver that consumes a file stream. If file streams are left unconsumed, memory usage can 
-spike, potentially exhausting server resources.
+GraphQL executes in phases: validation, then execution. If validation fails or an authorization check blocks execution, uploaded 
+file streams may never be consumed. If your server buffers or retains these streams, it can cause memory leaks.
+
+To avoid this, consider writing incoming files to temporary storage immediately, and passing references (like filenames) into 
+resolvers. Ensure this storage is cleaned up after request completion, regardless of success or failure.
 
 ### Cross-Site Request Forgery (CSRF)
 
-`multipart/form-data` is classified as a “simple” request by CORS and does not trigger preflight checks. Without strict CSRF 
-protections, malicious sites may be able to upload files on behalf of unsuspecting users.
+`multipart/form-data` is classified as a “simple” request in the CORS spec and does not trigger a preflight check. Without 
+explicit CSRF protection, your GraphQL server may unknowingly accept uploads from malicious origins.
 
 ### Oversized or excess payloads
 
-Attackers can upload arbitrarily large files or extra files not referenced in the GraphQL operation. If your server accepts and 
-buffers these files in memory, you may face reliability issues or be vulnerable to resource exhaustion.
+Attackers may submit very large uploads or include extraneous files under unused variable names. Servers that accept and 
+buffer these can be overwhelmed.
+
+Enforce request size caps and reject any files not explicitly referenced in the map field of the multipart payload.
 
 ### Untrusted file metadata
 
-Uploaded file names, MIME types, and even contents are arbitrary and should be treated as untrusted input. Failing to sanitize 
-file names can lead to path traversal vulnerabilities. Assuming a file’s MIME type is safe can lead to parsing exploits.
+Information such as file names, MIME types, and contents should never be trusted. To mitigate risk:
+
+- Sanitize filenames to prevent path traversal or injection issues.
+- Sniff file types independently of declared MIME types, and reject mismatches.
+- Validate file contents. Be aware of format-specific exploits like zip bombs or maliciously crafted PDFs.
 
 ## Recommendation: Use signed URLs
 
-The most secure and scalable approach is to **avoid uploading files through GraphQL entirely**. Instead:
+The most secure and scalable approach is to avoid uploading files through GraphQL entirely. Instead:
 
 1. Use a GraphQL mutation to request a signed upload URL from your storage provider (e.g., Amazon S3).
 2. Upload the file directly from the client using that URL.
 3. Submit a second mutation to associate the uploaded file with your application’s data.
 
-This approach isolates the file upload concern to infrastructure purpose-built for it, while keeping GraphQL focused on structured data.
+This separates responsibilities cleanly, protects your server from binary data handling, and aligns with best practices for 
+modern web architecture.
 
 ## If you still choose to support uploads
 
