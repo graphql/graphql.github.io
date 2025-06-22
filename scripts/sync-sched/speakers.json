@@ -479,7 +479,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "ardatanrikulu",
@@ -579,7 +579,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "benjie3",
@@ -620,7 +620,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "brandon.r.minnick",
@@ -808,7 +808,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "danadajian",
@@ -894,7 +894,7 @@
         2023,
         2025
       ],
-      "~syncedDetailsAt": 1750180706589
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "dotan1",
@@ -1008,7 +1008,7 @@
         2023,
         2025
       ],
-      "~syncedDetailsAt": 1750180787145
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "erikwrede2",
@@ -1293,7 +1293,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750180812528
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "ivan.goncharov.ua",
@@ -1428,7 +1428,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181278081
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "jeff737",
@@ -2399,7 +2399,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750167799402
+      "~syncedDetailsAt": 1750605030205
     },
     {
       "username": "rachit_sengupta",
@@ -2802,6 +2802,26 @@
       "~syncedDetailsAt": 1749502079623
     },
     {
+      "username": "skwok5",
+      "company": "LinkedIn",
+      "position": "Senior Software Engineer",
+      "name": "Spencer Kwok",
+      "about": "I specialize in federated GraphQL for frontend and backend services across LinkedIn's application ecosystem.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/f/e4/23138920/avatar.jpg.320x320px.jpg?2f3",
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/spencerkwok/"
+        }
+      ],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1750605030205
+    },
+    {
       "username": "spencer211",
       "company": "Okta",
       "position": "Software Architect",
@@ -3037,12 +3057,12 @@
     {
       "username": "tshikhare",
       "company": "Netflix",
-      "position": "",
+      "position": "Software Engineer",
       "name": "Tejas Shikhare",
-      "about": "",
+      "about": "Tejas is a member of the GraphQL Platform Team at Netflix. He spent the last six years building Netflix's Federated GraphQL platform infrastructure and tooling while also helping to migrate Netflix’s consumer-facing APIs to GraphQL. Most recently, he has been exploring GraphQL's applicability to the emerging trend of Server-Driven UI. In addition to GraphQL, he enjoys working with distributed systems and has a passion for building developer tools and education.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/f/06/21543712/avatar.jpg.320x320px.jpg?47e",
+      "avatar": "//avatars.sched.co/f/06/21543712/avatar.jpg.320x320px.jpg?c60",
       "socialurls": [],
       "_years": [
         2025

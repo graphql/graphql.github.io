@@ -3272,7 +3272,7 @@
     "event_key": "924498",
     "active": "Y",
     "pinned": "N",
-    "name": "LinkedIn's Code-First Approach To Federated GraphQL With gRPC - Ethan Shen, LinkedIn",
+    "name": "LinkedIn's Code-First Approach To Federated GraphQL With gRPC - Ethan Shen & Spencer Kwok, LinkedIn",
     "event_start": "2025-09-10 13:45",
     "event_end": "2025-09-10 14:15",
     "event_type": "GraphQL in Production",
@@ -3286,11 +3286,18 @@
     "venue_id": "2152809",
     "speakers": [
       {
+        "username": "skwok5",
+        "id": "23138920",
+        "name": "Spencer Kwok",
+        "company": "LinkedIn",
+        "custom_order": 0
+      },
+      {
         "username": "ethan_shen.28dgusli",
         "id": "23098744",
         "name": "Ethan Shen",
         "company": "LinkedIn",
-        "custom_order": 0
+        "custom_order": 1
       }
     ],
     "event_start_year": "2025",
