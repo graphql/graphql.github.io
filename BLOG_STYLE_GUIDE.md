@@ -17,6 +17,7 @@ Welcome to the GraphQL Blog Style Guide! This document outlines best practices a
 The GraphQL blog welcomes contributions. Anyone may submit a blog post idea by [opening an issue](https://github.com/graphql/graphql.github.io/issues/new) or a draft by [opening a pull request](https://github.com/graphql/graphql.github.io/pulls).
 
 Maintainers are responsible for approving and merging the pull requests.
+When merging a blog post, they should also schedule an announcement on our social channels (at time of writing this is managed via [Typefully](https://typefully.com)).
 
 Example content:
 
