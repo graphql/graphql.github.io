@@ -67,16 +67,15 @@ This list is non-exhaustive. If there is something you would like to see on the 
 ## ✅ Do
 
 - Cite sources if you reference third-party tools or documentation.
-- Avoid assumptions: don’t assume the reader knows your stack.
 - Use inclusive language: prefer "you/the user" over gendered or assumptive terms.
 - Use present tense.
 
 ## ❌ Don't
 
-- Overuse of metaphors. Use them sparingly to aid understanding.
-- Outdated examples or deprecated syntax.
-- Avoid passive voice when possible.
-- Avoid future tense.
+- Don’t assume the reader knows your stack.
+- Don't overuse of metaphors. Use them sparingly to aid understanding.
+- Don't overuse passive voice. Active voice often brings more clarity.
+- Don't overuse future tense. The present tense often brings more clarity.
 
 ---
 
