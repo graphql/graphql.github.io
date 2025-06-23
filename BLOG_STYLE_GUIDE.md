@@ -64,25 +64,6 @@ This list is non-exhaustive. If there is something you would like to see on the 
 
 ---
 
-## 🧑‍💻 Code Style
-
-- Use fenced code blocks with language identifiers:
-  <pre>
-  \`\`\`graphql
-  query GetUser {
-    user(id: "1") {
-      name
-    }
-  }
-  \`\`\`
-  </pre>
-
-- Avoid overly long code samples—focus on what supports the topic.
-- Explain what the code is doing either before or after the block.
-- Stick to consistent naming conventions (e.g., `getUser`, `createPostMutation`).
-
----
-
 ## ✅ Do
 
 - Cite sources if you reference third-party tools or documentation.
