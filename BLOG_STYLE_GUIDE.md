@@ -8,7 +8,7 @@ Welcome to the GraphQL Blog Style Guide! This document outlines best practices a
 
 ## ✍️ General Writing Principles
 
-- **Audience First**: Assume the reader has a technical background (developers, engineers) but may be new to GraphQL concepts.
+- **Audience First**: Think about who the audience of your post is. For release notes, you can assume some familiarity with the project. For other technical posts, you should typically assume the reader has a technical background (developers, engineers) but may be new to GraphQL concepts. For broader posts (case studies, events, grants, reports) avoid overly technical language.
 - **Clarity is Key**: Prioritize clear, concise explanations over jargon. Break down complex ideas with examples.
 - **Vendor neutral**: The GraphQL Blog is about GraphQL as a technology. Vendor specific content and personal promotion doesn't belong in the GraphQL blog.
 
