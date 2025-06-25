@@ -2,7 +2,7 @@ import { clsx } from "clsx"
 import NextImage from "next-image-export-optimizer"
 
 import { Button } from "../../../_design-system/button"
-import { GET_TICKETS_LINK, BECOME_A_SPEAKER_LINK } from "../../links"
+import { GET_TICKETS_LINK } from "../../links"
 
 import speakerImage from "./speaker.webp"
 
@@ -38,8 +38,8 @@ export function RegisterToday({ className }: RegisterTodayProps) {
         </div>
         <div className="mt-10 flex gap-x-6 gap-y-4 max-sm:flex-col">
           <Button href={GET_TICKETS_LINK}>Register today</Button>
-          <Button variant="secondary" href={BECOME_A_SPEAKER_LINK}>
-            Become a speaker
+          <Button variant="secondary" href="#sponsors">
+            Become a Sponsor
           </Button>
         </div>
       </div>
