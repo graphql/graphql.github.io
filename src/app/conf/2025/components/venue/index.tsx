@@ -50,7 +50,7 @@ export function Venue(props: VenueProps) {
           </Button>
         </article>
         <div className="relative flex-1">
-          <h3 className="mb-6 typography-h3">How to get to the venue?</h3>
+          <h3 className="typography-h3 mb-6">How to get to the venue?</h3>
           <Accordion
             className="[&_svg]:fill-neu-900"
             items={[
@@ -81,6 +81,7 @@ export function Venue(props: VenueProps) {
                       className="typography-link"
                       href="https://dezwijger.nl/about-us-en/contact"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Pakhuis de Zwijger
                     </a>
@@ -92,7 +93,7 @@ export function Venue(props: VenueProps) {
               },
             ]}
           />
-          <h3 className="my-6 typography-h3">Where to stay?</h3>
+          <h3 className="typography-h3 my-6">Where to stay?</h3>
           <Accordion
             className="[&_svg]:fill-neu-900"
             items={[

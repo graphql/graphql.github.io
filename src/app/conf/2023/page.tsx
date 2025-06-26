@@ -24,7 +24,7 @@ export default function ConfPage() {
 
 function Hero() {
   return (
-    <div className="bg-black/20 bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover text-white bg-blend-multiply max-md:text-base">
+    <div className="bg-blk/20 bg-[url('/img/conf/graphql-conf-bg.png')] bg-cover text-white bg-blend-multiply max-md:text-base">
       <div className="container py-16 md:py-20">
         <div className="flex items-center gap-6">
           <GraphQLConf className="h-14" />

@@ -2,11 +2,12 @@
 
 import { format, parseISO, compareAsc } from "date-fns"
 import { ReactElement, useEffect, useState } from "react"
+
+import { SchedSpeaker, ScheduleSession } from "@/app/conf/_api/sched-types"
 import { getEventTitle } from "@/app/conf/2023/utils"
+
 import { Filters } from "./filters"
-import { SchedSpeaker } from "../../2023/types"
 import {
-  ScheduleSession,
   CategoryName,
   ConcurrentSessions,
   ScheduleSessionsByDay,
@@ -171,7 +172,13 @@ export function ScheduleList({
                       <div className="mb-4 flex flex-col lg:flex-row">
                         <div className="relative">
                           <span className="mb-5 mt-3 inline-block w-20 whitespace-nowrap text-gray-500 lg:mr-7 lg:mt-0 lg:w-28">
-                            {format(parseISO(sessionDate), "hh:mmaaaa 'PDT'")}
+                            {parseISO(sessionDate).toLocaleTimeString(
+                              undefined,
+                              {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              },
+                            )}
                           </span>
                           <div className="absolute right-3 top-0 hidden h-full w-0.5 bg-gray-200 lg:block" />
                         </div>
@@ -185,10 +192,9 @@ export function ScheduleList({
 
                             const speakers = session.speakers
                             const formattedSpeakers = isString(speakers || [])
-                              ? (speakers as string)?.split(",")
+                              ? (speakers as unknown as string)?.split(",")
                               : (speakers as SchedSpeaker[])?.map(e => e.name)
                             const eventTitle = getEventTitle(
-                              // @ts-expect-error fixme
                               session,
                               formattedSpeakers,
                             )
