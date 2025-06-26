@@ -16,12 +16,12 @@ export function RegisterSection({ className, ...props }: RegisterSectionProps) {
     >
       <div>
         <h2 className="typography-h2">Register</h2>
-        <p className="mt-6 typography-body-lg">
+        <p className="typography-body-lg mt-6">
           Join a diverse community of GraphQL developers, architects, and
           enthusiasts while experiencing premium content and networking
           opportunities in a vendor-neutral environment.
         </p>
-        <p className="mt-6 typography-body-sm md:mt-16">
+        <p className="typography-body-sm mt-6 md:mt-16">
           We never sell attendee lists or contact information, nor do we
           authorize others to do so. If you receive an email claiming to sell an
           attendee list for a Linux Foundation event, please forward it to
@@ -31,7 +31,7 @@ export function RegisterSection({ className, ...props }: RegisterSectionProps) {
       <div className="flex flex-col gap-6 md:gap-8">
         <article className="border border-neu-400 p-6">
           <h3 className="typography-h3">Speakers</h3>
-          <p className="mt-6 typography-body-lg">
+          <p className="typography-body-lg mt-6">
             You should have received a registration link in your acceptance
             email. If you did not, please contact us for more details:{" "}
             <a
@@ -51,7 +51,7 @@ export function RegisterSection({ className, ...props }: RegisterSectionProps) {
         </article>
         <article className="border border-neu-400 p-6">
           <h3 className="typography-h3">Sponsors</h3>
-          <p className="mt-6 typography-body-lg">
+          <p className="typography-body-lg mt-6">
             A registration link was shared in an email to your company's
             sponsorship contact. Please reach out to them if you need to
             register as a Sponsor. For further questions, please email us:{" "}
@@ -72,7 +72,7 @@ export function RegisterSection({ className, ...props }: RegisterSectionProps) {
         </article>
         <article className="border border-neu-400 p-6">
           <h3 className="typography-h3">Media</h3>
-          <p className="mt-6 typography-body-lg">
+          <p className="typography-body-lg mt-6">
             If you are a member of the media interested in attending this event,
             write us an email.
           </p>

@@ -9,11 +9,11 @@ When you are using the `GraphQLSchema` constructor to create a schema, instead o
 For example, let's say we are building a simple API that lets you fetch user data for a few hardcoded users based on an id. Using `buildSchema` we could write a server with:
 
 ```js
-var express = require("express")
-var { createHandler } = require("graphql-http/lib/use/express")
-var { buildSchema } = require("graphql")
+import express from "express";
+import { createHandler } from "graphql-http/lib/use/express";
+import { buildSchema } from "graphql";
 
-var schema = buildSchema(`
+const schema = buildSchema(`
   type User {
     id: String
     name: String
@@ -22,10 +22,10 @@ var schema = buildSchema(`
   type Query {
     user(id: String): User
   }
-`)
+`);
 
 // Maps id to User object
-var fakeDatabase = {
+const fakeDatabase = {
   a: {
     id: "a",
     name: "alice",
@@ -34,35 +34,39 @@ var fakeDatabase = {
     id: "b",
     name: "bob",
   },
-}
+};
 
-var root = {
+const root = {
   user({ id }) {
-    return fakeDatabase[id]
+    return fakeDatabase[id];
   },
-}
+};
 
-var app = express()
+const app = express();
 app.all(
   "/graphql",
   createHandler({
-    schema: schema,
+    schema,
     rootValue: root,
   })
-)
-app.listen(4000)
-console.log("Running a GraphQL API server at localhost:4000/graphql")
+);
+app.listen(4000);
+console.log("Running a GraphQL API server at localhost:4000/graphql");
 ```
 
 We can implement this same API without using GraphQL schema language:
 
 ```js
-var express = require("express")
-var { createHandler } = require("graphql-http/lib/use/express")
-var graphql = require("graphql")
+import express from "express";
+import { createHandler } from "graphql-http/lib/use/express";
+import {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLSchema,
+} from "graphql";
 
 // Maps id to User object
-var fakeDatabase = {
+const fakeDatabase = {
   a: {
     id: "a",
     name: "alice",
@@ -71,45 +75,45 @@ var fakeDatabase = {
     id: "b",
     name: "bob",
   },
-}
+};
 
 // Define the User type
-var userType = new graphql.GraphQLObjectType({
+const userType = new GraphQLObjectType({
   name: "User",
   fields: {
-    id: { type: graphql.GraphQLString },
-    name: { type: graphql.GraphQLString },
+    id: { type: GraphQLString },
+    name: { type: GraphQLString },
   },
-})
+});
 
 // Define the Query type
-var queryType = new graphql.GraphQLObjectType({
+const queryType = new GraphQLObjectType({
   name: "Query",
   fields: {
     user: {
       type: userType,
       // `args` describes the arguments that the `user` query accepts
       args: {
-        id: { type: graphql.GraphQLString },
+        id: { type: GraphQLString },
       },
       resolve: (_, { id }) => {
-        return fakeDatabase[id]
+        return fakeDatabase[id];
       },
     },
   },
-})
+});
 
-var schema = new graphql.GraphQLSchema({ query: queryType })
+const schema = new GraphQLSchema({ query: queryType });
 
-var app = express()
+const app = express();
 app.all(
   "/graphql",
   createHandler({
-    schema: schema,
+    schema,
   })
-)
-app.listen(4000)
-console.log("Running a GraphQL API server at localhost:4000/graphql")
+);
+app.listen(4000);
+console.log("Running a GraphQL API server at localhost:4000/graphql");
 ```
 
 When we use this method of creating the API, the root level resolvers are implemented on the `Query` and `Mutation` types rather than on a `root` object.

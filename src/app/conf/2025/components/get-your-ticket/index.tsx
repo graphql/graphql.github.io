@@ -17,10 +17,10 @@ export function GetYourTicket({ className }: { className?: string }) {
       <Stripes />
       <div className="gql-conf-container gql-conf-section relative">
         <header className="flex flex-wrap justify-between gap-6 md:items-end">
-          <h2 className="whitespace-pre text-white typography-h2">
+          <h2 className="typography-h2 whitespace-pre text-white">
             Get your ticket
           </h2>
-          <p className="text-neu-800 typography-body-lg">
+          <p className="typography-body-lg text-neu-800">
             The registration deadline is 23:59 CET on the respective date.
           </p>
         </header>

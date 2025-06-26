@@ -99,7 +99,7 @@ export function Sponsors() {
     <div id="sponsors" className="bg-conf-black">
       <div className="conf-block container">
         <h1 className={classes.title}>Thanks to our 2024 sponsors!</h1>
-        {sponsorDiamond.length && (
+        {sponsorDiamond.length > 0 && (
           <>
             <h3 className={classes.heading}>Diamond</h3>
             <List
@@ -109,7 +109,7 @@ export function Sponsors() {
             />
           </>
         )}
-        {sponsorPlatinum.length && (
+        {sponsorPlatinum.length > 0 && (
           <>
             <h3 className={classes.heading}>Platinum</h3>
             <List
@@ -119,7 +119,7 @@ export function Sponsors() {
             />{" "}
           </>
         )}
-        {sponsorGold.length && (
+        {sponsorGold.length > 0 && (
           <>
             <h3 className={classes.heading}>Gold</h3>
             <List
@@ -129,7 +129,7 @@ export function Sponsors() {
             />
           </>
         )}
-        {sponsorSilver.length && (
+        {sponsorSilver.length > 0 && (
           <>
             <h3 className={classes.heading}>Silver</h3>
             <List
@@ -139,7 +139,7 @@ export function Sponsors() {
             />
           </>
         )}
-        {workshopDaySponsors.length && (
+        {workshopDaySponsors.length > 0 && (
           <>
             <h3 className={classes.heading}>Workshop Day Sponsor</h3>
             <List

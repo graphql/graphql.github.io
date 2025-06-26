@@ -1,7 +1,12 @@
-import { Avatar } from "./avatar"
-import { SocialMediaIcon, SocialMediaIconServiceType } from "./social-media"
-import { SchedSpeaker } from "@/app/conf/2023/types"
 import NextLink from "next/link"
+import { ConferenceYear, SchedSpeaker } from "@/app/conf/_api/sched-types"
+
+import { SocialMediaIcon, SocialMediaIconServiceType } from "./social-media"
+import { Avatar } from "./avatar"
+
+export interface SpeakerProps extends SchedSpeaker {
+  year: ConferenceYear
+}
 
 export function Speaker({
   name,
@@ -11,7 +16,7 @@ export function Speaker({
   username,
   socialurls,
   year,
-}: SchedSpeaker) {
+}: SpeakerProps) {
   return (
     <div className="flex flex-col items-center">
       <NextLink href={`/conf/${year}/speakers/${username}`} className="group">

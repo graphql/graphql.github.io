@@ -58,10 +58,8 @@ At the top level of every GraphQL server is an Object type that represents the p
 In this example, our `Query` type provides a field called `human` which accepts the argument `id`. The resolver function for this field likely accesses a database and then constructs and returns a `Human` type:
 
 ```js
-function Query_human(obj, args, context, info) {
-  return context.db.loadHumanByID(args.id).then(
-    userData => new Human(userData)
-  )
+function resolveHumanQuery(obj, args, context, info) {
+  return context.db.loadHumanByID(args.id).then(userData => new Human(userData));
 }
 ```
 
@@ -81,10 +79,8 @@ Note that while a query operation could technically write data to the underlying
 Let's take a closer look at what's happening in this resolver function:
 
 ```js
-function Query_human(obj, args, context, info) {
-  return context.db.loadHumanByID(args.id).then(
-    userData => new Human(userData)
-  )
+function resolveHuman(obj, args, context, info) {
+  return context.db.loadHumanByID(args.id).then(userData => new Human(userData));
 }
 ```
 
@@ -97,8 +93,8 @@ Notice that while the resolver function needs to be aware of Promises, the Graph
 Now that a `Human` object is available, GraphQL execution can continue with the fields requested for this type:
 
 ```js
-function Human_name(obj, args, context, info) {
-  return obj.name
+function resolveHumanName(obj, args, context, info) {
+  return obj.name;
 }
 ```
 
@@ -113,11 +109,11 @@ Many GraphQL libraries let you omit resolvers this simple, assuming that if a re
 While the `name` field is being resolved, the `appearsIn` and `starships` fields can be resolved concurrently. The `appearsIn` field could also have a trivial resolver, but let's take a closer look:
 
 ```js
-Human: {
+const Human = {
   appearsIn(obj) {
-    return obj.appearsIn // returns [ 4, 5, 6 ]
-  }
-}
+    return obj.appearsIn; // e.g. [4, 5, 6]
+  },
+};
 ```
 
 Notice that our type system claims `appearsIn` will return Enum types with known values, however, this function is returning numbers! Indeed if we look up at the result we'll see that the appropriate values for the Enum type are being returned. What's going on?
@@ -129,12 +125,12 @@ This is an example of _scalar coercion_. The type system knows what to expect an
 We've already seen some of what happens when a field returns a list of things with the `appearsIn` field above. It returned a [List type](/learn/schema/#lists) containing Enum type values, and since that's what the type system expected, each item in the list was coerced to the appropriate value. What happens when the `starships` field is resolved?
 
 ```js
-function Human_starships (obj, args, context, info) {
-  return obj.starshipIDs.map(
-    id => context.db.loadStarshipByID(id).then(
-      shipData => new Starship(shipData)
+function resolveHumanStarships(obj, args, context, info) {
+  return Promise.all(
+    obj.starshipIDs.map(id =>
+      context.db.loadStarshipByID(id).then(shipData => new Starship(shipData))
     )
-  )
+  );
 }
 ```
 

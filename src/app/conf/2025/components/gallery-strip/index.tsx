@@ -29,7 +29,7 @@ export function GalleryStrip({ className, ...rest }: GalleryStripProps) {
             key={year}
             onClick={() => setSelectedYear(year)}
             className={clsx(
-              "gql-focus-visible p-1 typography-menu",
+              "gql-focus-visible typography-menu p-1",
               selectedYear === year
                 ? "bg-sec-light text-neu-900 dark:text-neu-0"
                 : "text-neu-800",

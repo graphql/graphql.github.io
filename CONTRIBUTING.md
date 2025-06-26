@@ -20,6 +20,7 @@ There are many ways to get involved. Follow this guide and feel free to [reach o
   - [Add a resource to the Community page](#add-a-resource-to-the-community-page)
   - [Add a question to the FAQ](#add-a-question-to-the-faq)
   - [Write a new section or guide](#write-a-new-section-or-guide)
+  - [Add a blog post](#add-a-blog-post)
 - [Making changes to the code](#making-changes-to-the-code)
   - [Browser support](#browser-support)
 - [Contributing something else](#contributing-something-else)
@@ -148,6 +149,12 @@ There are still several [Best Practices guides that no one has written](https://
 Then, use our [development guide](#development-guide) to determine where your new page best fits. Our documentation is written and formatted in [Markdown](https://nextra.site/docs/guide/markdown).
 
 Once it's ready for review, please [open a pull request](https://github.com/graphql/graphql.github.io/pulls).
+
+### Add a blog post
+
+This repository holds the [graphql.org blog](https://graphql.org/blog/) at [source/src/pages/blog](https://github.com/graphql/graphql.github.io/tree/source/src/pages/blog). Blog posts may contain announcements, news, best practices and more.
+
+Contributions are very welcome!
 
 ## Making changes to the code
 

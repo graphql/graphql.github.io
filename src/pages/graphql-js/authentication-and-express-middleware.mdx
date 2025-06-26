@@ -10,41 +10,41 @@ To use middleware with a GraphQL resolver, just use the middleware like you woul
 For example, let's say we wanted our server to log the IP address of every request, and we also want to write an API that returns the IP address of the caller. We can do the former with middleware, and the latter by accessing the `request` object in a resolver. Here's server code that implements this:
 
 ```js
-var express = require("express")
-var { createHandler } = require("graphql-http/lib/use/express")
-var { buildSchema } = require("graphql")
+import express from "express";
+import { createHandler } from "graphql-http/lib/use/express";
+import { buildSchema } from "graphql";
 
-var schema = buildSchema(`
+const schema = buildSchema(`
   type Query {
     ip: String
   }
-`)
+`);
 
 function loggingMiddleware(req, res, next) {
-  console.log("ip:", req.ip)
-  next()
+  console.log("ip:", req.ip);
+  next();
 }
 
-var root = {
+const root = {
   ip(args, context) {
-    return context.ip
+    return context.ip;
   },
-}
+};
 
-var app = express()
-app.use(loggingMiddleware)
+const app = express();
+app.use(loggingMiddleware);
 app.all(
   "/graphql",
   createHandler({
-    schema: schema,
+    schema,
     rootValue: root,
-    context: req => ({
+    context: (req) => ({
       ip: req.raw.ip,
     }),
   })
-)
-app.listen(4000)
-console.log("Running a GraphQL API server at localhost:4000/graphql")
+);
+app.listen(4000);
+console.log("Running a GraphQL API server at localhost:4000/graphql");
 ```
 
 In a REST API, authentication is often handled with a header, that contains an auth token which proves what user is making this request. Express middleware processes these headers and puts authentication data on the Express `request` object. Some middleware modules that handle authentication like this are [Passport](http://passportjs.org/), [express-jwt](https://github.com/auth0/express-jwt), and [express-session](https://github.com/expressjs/session). Each of these modules works with `graphql-http`.

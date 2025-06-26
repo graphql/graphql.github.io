@@ -11,3 +11,8 @@ declare module "*.svg?svgr" {
   const content: React.FC<React.SVGProps<SVGElement>>
   export default content
 }
+
+declare module "*.mdx?raw" {
+  const content: string
+  export default content
+}

@@ -491,6 +491,11 @@
       "permanent": false
     },
     {
+      "source": "/conf/2024/sessions",
+      "destination": "/conf/2024/schedule",
+      "permanent": true
+    },
+    {
       "source": "/conf/2024/sessions/:path/",
       "destination": "/conf/2024/schedule/:path",
       "permanent": true
