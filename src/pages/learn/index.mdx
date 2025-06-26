@@ -25,14 +25,14 @@ type User {
 Along with functions for each field on each type:
 
 ```js
-// Provide data for the `me` field on the `Query` type
-function Query_me(query, args, context, info) {
-  return context.request.auth.user
+// Resolver for the `me` field on the `Query` type
+function resolveQueryMe(_parent, _args, context, _info) {
+  return context.request.auth.user;
 }
 
-// Provide data for the `name` field on the `User` type
-function User_name(user, args, context, info) {
-  return context.db.getUserFullName(user.id)
+// Resolver for the `name` field on the `User` type
+function resolveUserName(user, _args, context, _info) {
+  return context.db.getUserFullName(user.id);
 }
 ```
 

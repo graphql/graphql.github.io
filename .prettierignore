@@ -7,3 +7,6 @@ pnpm-lock.yaml
 !src/pages/blog/2025-05-31-graphiql-4/index.mdx
 !src/pages/blog/2025-06-10-graphiql-5/index.mdx
 *.jpg
+
+scripts/sync-sched/*.json
+src/github-stats.json

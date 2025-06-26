@@ -13,7 +13,7 @@ export function BecomeASponsor() {
         <header className="flex flex-col gap-x-48 gap-y-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="typography-h2">Become a Sponsor</h2>
-            <p className="mt-6 text-pretty typography-body-lg">
+            <p className="typography-body-lg mt-6 text-pretty">
               Connect with the global GraphQL community and showcase your brand
               to industry leaders and decision-makers.
             </p>
@@ -75,10 +75,10 @@ function DefinitionListItem({
         "flex border-b border-neu-300 last:border-b-0 max-sm:flex-col",
       )}
     >
-      <dt className="flex min-w-[320px] shrink-0 items-center whitespace-pre border-b border-neu-300 p-4 typography-body-lg max-sm:w-full sm:border-b-0 sm:border-r">
+      <dt className="typography-body-lg flex min-w-[320px] shrink-0 items-center whitespace-pre border-b border-neu-300 p-4 max-sm:w-full sm:border-b-0 sm:border-r">
         {term}
       </dt>
-      <dd className="flex items-center p-4 typography-body-md">{definition}</dd>
+      <dd className="typography-body-md flex items-center p-4">{definition}</dd>
     </div>
   )
 }

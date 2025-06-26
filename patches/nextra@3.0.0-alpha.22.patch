@@ -9,3 +9,18 @@ index af0891e3c2084edd326f40e6e18107b193640e0b..885858fa17285fb75649cf0ebd2576d1
  import { createElement } from "react";
  const DEFAULT_COMPONENTS = {
    img: (props) => createElement(
+diff --git a/package.json b/package.json
+index 0625691ebc1d79d7b7d22bb3b001f00a57519772..53d4b0c951a762ae056004789c9aca819e0ade62 100644
+--- a/package.json
++++ b/package.json
+@@ -20,6 +20,10 @@
+       "import": "./dist/server/remark-plugins/index.js",
+       "types": "./dist/server/remark-plugins/index.d.ts"
+     },
++    "./rehype-plugins": {
++      "import": "./dist/server/rehype-plugins/index.js",
++      "types": "./dist/server/rehype-plugins/index.d.ts"
++    },
+     "./hooks": {
+       "import": "./dist/client/hooks/index.js",
+       "types": "./dist/client/hooks/index.d.ts"

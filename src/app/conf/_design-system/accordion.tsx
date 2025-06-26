@@ -46,11 +46,11 @@ export function Accordion({
           }}
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-2 border-sec-darker p-2 px-3 focus:outline-none group-open/q:border-b dark:border-sec-dark [&::-webkit-details-marker]:hidden">
-            <span className="select-none typography-body-lg">{item.title}</span>
+            <span className="typography-body-lg select-none">{item.title}</span>
             <ArrowDown className="size-10 shrink-0 text-sec-darker group-open/q:rotate-180" />
           </summary>
           <div className="flex items-start p-3">
-            <div className="text-pretty typography-body-md">
+            <div className="typography-body-md text-pretty">
               {item.description}
             </div>
             {item.link && (

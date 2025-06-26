@@ -34,7 +34,11 @@ function getEventTitle(event: ScheduleSession, speakers: string[]): string {
 type SessionProps = { params: { id: string } }
 
 export function generateMetadata({ params }: SessionProps): Metadata {
-  const event = schedule.find(s => s.id === params.id)!
+  const event = schedule.find(s => s.id === params.id)
+
+  if (!event) {
+    notFound()
+  }
 
   const keywords = [
     event.event_type,
@@ -77,14 +81,20 @@ const Tag = ({
 
 export default function SessionPage({ params }: SessionProps) {
   const event = schedule.find(s => s.id === params.id)
+
   if (!event) {
     notFound()
   }
 
-  // @ts-expect-error -- fixme
-  event.speakers = (event.speakers || []).map(speaker =>
-    speakers.find(s => s.username === speaker.username),
-  )
+  event.speakers = (event.speakers || []).map(speaker => {
+    const s = speakers.find(s => s.username === speaker.username)
+    if (!s) {
+      throw new Error(
+        `Speaker "${speaker.username}" not found for "${event.name}"`,
+      )
+    }
+    return s
+  })
 
   const eventType = event.event_type.endsWith("s")
     ? event.event_type.slice(0, -1)
@@ -110,7 +120,7 @@ export default function SessionPage({ params }: SessionProps) {
     <div className="bg-[#f4f6f8]">
       <div className="container">
         <div className="py-10">
-          <section className="xs:px-0 mx-auto min-h-[80vh] flex-col justify-center px-2 text-[#333333] md:container lg:justify-between">
+          <section className="mx-auto min-h-[80vh] flex-col justify-center px-2 text-[#333333] md:container lg:justify-between">
             <BackLink year="2024" kind="schedule" />
             <iframe
               className="mx-auto mt-6 aspect-video w-full max-w-4xl rounded-md"
