@@ -59,11 +59,6 @@ export function ScheduleSessionCard({
       (new Date(session.event_end).getTime() -
         new Date(session.event_start).getTime()) /
       (blockEnd.getTime() - new Date(session.event_start).getTime())
-
-    console.log({
-      eventTitle,
-      blockTimeFraction,
-    })
   }
 
   return session.event_type === "Breaks" ? (
@@ -214,7 +209,7 @@ function AddToCalendarLink({
       >
         <MenuItems
           anchor="bottom end"
-          className="mt-2 w-40 origin-top-right border border-neu-400 bg-neu-0 focus:outline-none dark:bg-neu-900"
+          className="mt-2 w-40 origin-top-right border border-neu-400 bg-neu-0 focus:outline-none"
         >
           <div className="p-1">
             {Object.entries(calendars).map(([name, calendar]) => (
@@ -223,7 +218,7 @@ function AddToCalendarLink({
                   href={calendar(calendarEvent)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group typography-body-xs flex w-full items-center px-2 py-1 text-neu-800 [&[data-active]]:bg-neu-100 [&[data-active]]:text-neu-900"
+                  className="group typography-body-xs flex w-full items-center px-2 py-1 text-neu-800 [&[data-active]]:bg-neu-100 [&[data-active]]:text-neu-900 dark:[&[data-active]]:bg-neu-50"
                 >
                   {name}
                 </a>
