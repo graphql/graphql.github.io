@@ -739,7 +739,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "christian.ernst",
@@ -843,7 +843,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "danielle.man",
@@ -905,11 +905,20 @@
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/3/1e/23098735/avatar.jpg.320x320px.jpg?7a3",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "Twitter",
+          "url": "https://x.com/dotansimha"
+        },
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/dotan-simha-36767b29/"
+        }
+      ],
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "dotansimha",
@@ -944,7 +953,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "eitan15",
@@ -1071,7 +1080,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "fionabronwen",
@@ -1106,7 +1115,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "gabrielschulhof",
@@ -1228,7 +1237,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "hello2358",
@@ -1308,7 +1317,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jamie855",
@@ -1362,7 +1371,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jared_cheney.7rad60v",
@@ -1439,11 +1448,16 @@
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/3/b5/23098759/avatar.jpg.320x320px.jpg?613",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://linkedin.com/in/jeffdolle"
+        }
+      ],
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jens63",
@@ -1482,7 +1496,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jesperrasmussen",
@@ -1541,7 +1555,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "jordaneldredge",
@@ -1580,7 +1594,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "juancarlosjr97",
@@ -1604,7 +1618,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "kamilkisiela",
@@ -1634,7 +1648,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "keerthan.ekbote",
@@ -1781,7 +1795,7 @@
       "about": "Laurin Quast is a developer that started exploring GraphQL, by leading API development at a start-up. Realizing that there are still many unsolved problems and challenges within the space, he started contributing to famous JavaScript libraries, such as GraphQL Code Generator and Tools. Diving deeper, the transition into becoming a full-time open-source developer at The Guild was inevitable. Currently, he is working on Hive helping teams scale GraphQL across teams and organizations.",
       "location": "",
       "url": "https://the-guild.dev/",
-      "avatar": "//avatars.sched.co/2/a6/18743819/avatar.jpg.320x320px.jpg?705",
+      "avatar": "//avatars.sched.co/2/a6/18743819/avatar.jpg.320x320px.jpg?ebc",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1797,7 +1811,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "ldebruijn",
@@ -1833,7 +1847,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "lee_byron.25krdom6",
@@ -1887,7 +1901,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "lyonwj1",
@@ -1936,7 +1950,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "mail1232",
@@ -1951,7 +1965,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "mansi.mittal",
@@ -2026,7 +2040,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "martinbonnin42",
@@ -2156,7 +2170,7 @@
         2023,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "mgiroux7",
@@ -2206,7 +2220,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "michael.astle",
@@ -2291,7 +2305,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "patrick.arminio",
@@ -2505,7 +2519,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "robrichard87",
@@ -2521,7 +2535,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181915102
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "ruben.cagnie",
@@ -2552,7 +2566,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181953774
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "saihaj",
@@ -2614,7 +2628,7 @@
       "position": "Senior Software Engineer 2",
       "name": "Sanver Tarmur",
       "about": "Sanver is a Senior Software Engineer II at Booking.com with 15 years of industry experience. In recent years, he has been leading the Federated GraphQL transformation at Booking.com, focusing on scaling, enhancing the security of the GraphQL platform, and improving the developer experience for internal Graph users.",
-      "location": "",
+      "location": "Amsterdam",
       "url": "",
       "avatar": "//avatars.sched.co/0/9e/23098798/avatar.jpg.320x320px.jpg?318",
       "socialurls": [],
@@ -2856,7 +2870,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181966765
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "stefan239",
@@ -3142,7 +3156,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181973559
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "vincent.desmares",
@@ -3192,7 +3206,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "watson17",

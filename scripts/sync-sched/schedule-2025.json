@@ -894,7 +894,7 @@
     "event_end": "2025-09-08 14:55",
     "event_type": "GraphQL in Production",
     "description": "In Booking.com we are heavily using Federated GraphQL approach, more than 150 backend sub-graph services are integrated from different domains of the company such as accommodations, partner, flights, cars, trips, and fintech.\n \n \nOur federated GraphQL layer hosts daily 11b+ incoming requests, Federation in the back distributes 14b+ requests to the sub-graphs per day. We have a diverse set of clients such as Booking traveller, partner native apps/web clients, 140+ SSR (Server Side Rendering) services for Web/Mobile rendering, and AI chatbots. This level of adoption brings unique challenges in terms of security and traffic management. In Booking.com we have a large attack surface since our GraphQL schema is huge, to be specific we have ~7k types with 27k+ fields. In this session, we will share our schema driven approaches to mitigate risks due to authN/Z leaks, DDoS attacks or exposure of sensitive PII/PCI data. These methodologies are designed with a high degree of generality, ensuring their applicability and scalability across every other Federated GraphQL system.",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio",
