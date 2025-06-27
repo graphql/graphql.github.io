@@ -1,6 +1,13 @@
-import React from "react"
-import { ics } from "calendar-link"
+import React, { Fragment } from "react"
+import { ics, google, outlook, CalendarEvent } from "calendar-link"
 import { clsx } from "clsx"
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Transition,
+} from "@headlessui/react"
 
 import { SchedSpeaker, ScheduleSession } from "@/app/conf/_api/sched-types"
 import { Anchor } from "@/app/conf/_design-system/anchor"
@@ -85,7 +92,9 @@ export function ScheduleSessionCard({
         id={`session-${session.id}`}
         href={`/conf/${year}/schedule/${session.id}?name=${session.name}`}
         className="absolute inset-0 z-[1] ring-inset ring-neu-400 hover:ring-1 dark:ring-neu-100"
-        aria-label={`Read more about "${eventTitle}" by ${speakers.map(s => s.name).join(", ")}`}
+        aria-label={`Read more about "${eventTitle}" by ${speakers
+          .map(s => s.name)
+          .join(", ")}`}
       />
       <span className="flex h-full flex-col justify-start">
         {eventType && (
@@ -159,27 +168,70 @@ function AddToCalendarLink({
   speakers: SchedSpeaker[]
   className?: string
 }) {
+  const calendarEvent: CalendarEvent = {
+    title: eventTitle,
+    start: session.event_start,
+    end: session.event_end,
+    description: session.description,
+    location: session.venue,
+    organizer: {
+      name: `GraphQLConf ${new Date().getFullYear()}`,
+      email: "graphql_events@linuxfoundation.org",
+    },
+    guests: speakers.map(s => s.name),
+  }
+
+  const calendars = {
+    ICS: ics,
+    Google: google,
+    Outlook: outlook,
+  }
+
   return (
-    <a
-      className={clsx(
-        "relative z-[2] -m-1 flex gap-0.5 p-1 ring-neu-400 hover:bg-neu-50/50 hover:ring-1 dark:ring-neu-100",
-        className,
-      )}
-      href={ics({
-        title: eventTitle,
-        start: session.event_start,
-        end: session.event_end,
-        description: session.description,
-        location: session.venue,
-        organizer: {
-          name: `GraphQLConf ${new Date().getFullYear()}`,
-          email: "graphql_events@linuxfoundation.org",
-        },
-        guests: speakers.map(s => s.name),
-      })}
+    <Menu
+      as="div"
+      className={clsx("relative z-[2] inline-block text-left", className)}
     >
-      <CalendarIcon className="size-4 shrink-0 text-pri-base" />
-      <span className="typography-body-xs">Add to calendar</span>
-    </a>
+      <div>
+        <MenuButton
+          className={clsx(
+            "inline-flex w-full items-center justify-center gap-0.5 p-1",
+            "ring-neu-400 hover:bg-neu-50/50 hover:ring-1 focus:outline-none focus:ring-1 dark:ring-neu-100 [&[aria-expanded=true]]:ring-2",
+          )}
+        >
+          <CalendarIcon className="size-4 shrink-0 text-pri-base" />
+          <span className="typography-body-xs">Add to calendar</span>
+        </MenuButton>
+      </div>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <MenuItems
+          anchor="bottom end"
+          className="mt-2 w-40 origin-top-right border border-neu-400 bg-neu-0 focus:outline-none dark:bg-neu-900"
+        >
+          <div className="p-1">
+            {Object.entries(calendars).map(([name, calendar]) => (
+              <MenuItem key={name}>
+                <a
+                  href={calendar(calendarEvent)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group typography-body-xs flex w-full items-center px-2 py-1 text-neu-800 [&[data-active]]:bg-neu-100 [&[data-active]]:text-neu-900"
+                >
+                  {name}
+                </a>
+              </MenuItem>
+            ))}
+          </div>
+        </MenuItems>
+      </Transition>
+    </Menu>
   )
 }
