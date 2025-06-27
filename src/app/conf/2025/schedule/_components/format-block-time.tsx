@@ -7,7 +7,7 @@ const timeFormat = new Intl.DateTimeFormat(undefined, {
 export const formatBlockTime = (start: string, end?: Date) => {
   const startDate = parseISO(start)
   if (end) {
-    return timeFormat.formatRange(startDate, end)
+    return timeFormat.formatRange(startDate, end).replace("AM –", "–")
   }
   return timeFormat.format(startDate)
 }

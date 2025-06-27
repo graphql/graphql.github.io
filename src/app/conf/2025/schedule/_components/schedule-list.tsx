@@ -225,7 +225,7 @@ export function ScheduleList({
                       >
                         <div className="mr-px flex flex-col max-lg:ml-px lg:flex-row">
                           <div className="relative border-neu-50 bg-neu-50 dark:bg-neu-0 max-lg:-mx-px max-lg:my-px max-lg:border-x lg:mr-px">
-                            <span className="typography-body-sm mt-3 inline-block w-20 whitespace-nowrap pb-0.5 pl-4 lg:mr-6 lg:w-28 lg:pb-4 lg:pl-0">
+                            <span className="typography-body-sm mt-3 inline-block w-28 whitespace-nowrap pb-0.5 pl-4 lg:mr-6 lg:pb-4 lg:pl-0">
                               {formatBlockTime(sessionDate, blockEnd)}
                             </span>
                           </div>
