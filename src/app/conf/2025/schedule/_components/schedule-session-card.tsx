@@ -64,7 +64,23 @@ export function ScheduleSessionCard({
       {eventTitle}
     </div>
   ) : (
-    <div className="group relative size-full bg-neu-0 p-4 font-normal no-underline ring-neu-400 focus-visible:z-[1] dark:ring-neu-100 dark:hover:bg-neu-0/80 [&:has(>a:hover)]:bg-neu-0/90 [&:has(>a:hover)]:ring-1">
+    <div
+      // eslint-disable-next-line tailwindcss/no-contradicting-classname
+      className={clsx(
+        "[--bg:hsl(var(--color-neu-0))] [&:has(>a:hover)]:[--bg:hsl(var(--color-neu-0)/.9)] dark:[&:has(>a:hover)]:[--bg:hsl(var(--color-neu-0)/.8)]",
+        "group relative size-full p-4 font-normal no-underline ring-neu-400 focus-visible:z-[1] dark:ring-neu-100 [&:has(>a:hover)]:ring-1",
+        blockTimeFraction < 1 && "[--bg:hsl(var(--color-neu-0)/50)]",
+      )}
+      style={
+        {
+          "--time": `${blockTimeFraction * 100}%`,
+          background:
+            blockTimeFraction < 1
+              ? `linear-gradient(to bottom, var(--bg), var(--bg) var(--time), hsl(var(--color-neu-0)/.8) var(--time), hsl(var(--color-neu-0)/.8))`
+              : "var(--bg)",
+        } as {}
+      }
+    >
       <Anchor
         id={`session-${session.id}`}
         href={`/conf/${year}/schedule/${session.id}?name=${session.name}`}
@@ -146,7 +162,7 @@ function AddToCalendarLink({
   return (
     <a
       className={clsx(
-        "relative z-[2] -m-1 flex gap-0.5 p-1 ring-neu-100 hover:bg-neu-50/50 hover:ring-1",
+        "relative z-[2] -m-1 flex gap-0.5 p-1 ring-neu-400 hover:bg-neu-50/50 hover:ring-1 dark:ring-neu-100",
         className,
       )}
       href={ics({
