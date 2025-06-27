@@ -1,4 +1,6 @@
 import React from "react"
+import { ics } from "calendar-link"
+import { clsx } from "clsx"
 
 import { SchedSpeaker, ScheduleSession } from "@/app/conf/_api/sched-types"
 import { Anchor } from "@/app/conf/_design-system/anchor"
@@ -7,6 +9,7 @@ import { Tag } from "@/app/conf/_design-system/tag"
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
 
 import { getEventTitle } from "../../utils"
+import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
 
 function isString(x: unknown): x is string {
   return Object.prototype.toString.call(x) === "[object String]"
@@ -83,13 +86,56 @@ export function ScheduleSessionCard({
                 ))}
               </span>
             )}
-            <span className="typography-body-xs mt-2 flex items-center gap-0.5">
-              <PinIcon className="size-4 text-pri-base" />
-              {session.venue}
+            <span className="mt-4 flex items-center justify-between gap-2 xl:mt-6">
+              <span className="typography-body-xs flex items-center gap-0.5">
+                <PinIcon className="size-4 text-pri-base" />
+                {session.venue}
+              </span>
+              <AddToCalendarLink
+                eventTitle={eventTitle}
+                session={session}
+                speakers={session.speakers || []}
+              />
             </span>
           </span>
         </span>
       </span>
     </div>
+  )
+}
+
+function AddToCalendarLink({
+  eventTitle,
+  session,
+  speakers,
+  className,
+}: {
+  eventTitle: string
+  session: ScheduleSession
+  speakers: SchedSpeaker[]
+  className?: string
+}) {
+  return (
+    <a
+      className={clsx(
+        "relative z-[2] -m-1 flex gap-0.5 p-1 ring-neu-100 hover:bg-neu-50/50 hover:ring-1",
+        className,
+      )}
+      href={ics({
+        title: eventTitle,
+        start: session.event_start,
+        end: session.event_end,
+        description: session.description,
+        location: session.venue,
+        organizer: {
+          name: `GraphQLConf ${new Date().getFullYear()}`,
+          email: "graphql_events@linuxfoundation.org",
+        },
+        guests: speakers.map(s => s.name),
+      })}
+    >
+      <CalendarIcon className="size-4 shrink-0 text-pri-base" />
+      <span className="typography-body-xs">Add to calendar</span>
+    </a>
   )
 }
