@@ -214,7 +214,9 @@ export function ScheduleList({
                         ?.toLowerCase()
                         .includes("break")
                     const hasDashedBorder =
-                      blockEnd && blockEnd === nextBlockStart && !isBreak
+                      blockEnd &&
+                      blockEnd.getTime() === nextBlockStart?.getTime() &&
+                      !isBreak
 
                     return (
                       <div
@@ -234,6 +236,7 @@ export function ScheduleList({
                                 session={session}
                                 year={year}
                                 eventsColors={eventsColors}
+                                blockEnd={blockEnd}
                               />
                             ))}
                           </div>

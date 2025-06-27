@@ -7,6 +7,7 @@ import { Anchor } from "@/app/conf/_design-system/anchor"
 import { Tag } from "@/app/conf/_design-system/tag"
 
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
+import ClockIcon from "@/app/conf/_design-system/pixelarticons/clock.svg?svgr"
 
 import { getEventTitle } from "../../utils"
 import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
@@ -19,10 +20,12 @@ export function ScheduleSessionCard({
   session,
   year,
   eventsColors,
+  blockEnd,
 }: {
   session: ScheduleSession
   year: `202${number}`
   eventsColors: Record<string, string>
+  blockEnd: Date
 }) {
   let eventType = session.event_type
 
@@ -42,6 +45,19 @@ export function ScheduleSessionCard({
   if (eventType === eventTitle) eventType = ""
 
   const eventColor = eventsColors[session.event_type]
+
+  let blockTimeFraction = 1
+  if (blockEnd.getTime() !== new Date(session.event_end).getTime()) {
+    blockTimeFraction =
+      (new Date(session.event_end).getTime() -
+        new Date(session.event_start).getTime()) /
+      (blockEnd.getTime() - new Date(session.event_start).getTime())
+
+    console.log({
+      eventTitle,
+      blockTimeFraction,
+    })
+  }
 
   return session.event_type === "Breaks" ? (
     <div className="flex size-full items-center bg-neu-0 px-4 py-2 font-normal">
@@ -86,15 +102,27 @@ export function ScheduleSessionCard({
                 ))}
               </span>
             )}
-            <span className="mt-4 flex items-center justify-between gap-2 xl:mt-6">
+            <span className="mt-4 flex items-center gap-2 xl:mt-6">
               <span className="typography-body-xs flex items-center gap-0.5">
                 <PinIcon className="size-4 text-pri-base" />
                 {session.venue}
               </span>
+              {blockTimeFraction < 1 && (
+                <span className="typography-body-xs flex items-center gap-0.5">
+                  <ClockIcon className="size-4 text-pri-base" />
+                  {Math.round(
+                    (new Date(session.event_end).getTime() -
+                      new Date(session.event_start).getTime()) /
+                      (1000 * 60),
+                  )}{" "}
+                  min
+                </span>
+              )}
               <AddToCalendarLink
                 eventTitle={eventTitle}
                 session={session}
                 speakers={session.speakers || []}
+                className="ml-auto"
               />
             </span>
           </span>
