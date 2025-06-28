@@ -20,7 +20,7 @@
     "validate:snippets": "node scripts/validate-snippets.js"
   },
   "dependencies": {
-    "@graphql-tools/schema": "10.0.15",
+    "@graphql-tools/schema": "10.0.23",
     "@headlessui/react": "^2.2.4",
     "@radix-ui/react-radio-group": "^1.2.2",
     "@tailwindcss/container-queries": "^0.1.1",
