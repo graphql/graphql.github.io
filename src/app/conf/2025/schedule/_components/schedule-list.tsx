@@ -16,6 +16,7 @@ import {
   FilterStates,
   ResetFiltersButton,
 } from "./filters"
+import { formatBlockTime } from "./format-block-time"
 
 export interface FiltersConfig
   extends Partial<
@@ -99,19 +100,6 @@ function getSessionsByDay(
       }),
     ),
   }
-}
-
-const timeFormat = new Intl.DateTimeFormat(undefined, {
-  hour: "2-digit",
-  minute: "2-digit",
-})
-const formatBlockTime = (start: string, end?: string) => {
-  const startDate = parseISO(start)
-  if (end) {
-    const endDate = parseISO(end)
-    return timeFormat.formatRange(startDate, endDate)
-  }
-  return timeFormat.format(startDate)
 }
 
 export interface ScheduleListProps {
@@ -205,8 +193,18 @@ export function ScheduleList({
                 </h3>
                 {Object.entries(concurrentSessionsGroup).map(
                   ([sessionDate, sessions], i, blocks) => {
-                    const blockEnd = sessions[0]?.event_end
-                    const nextBlockStart = blocks[i + 1]?.[0]
+                    const blockEnd = new Date(
+                      Math.max(
+                        ...sessions.map(session =>
+                          new Date(session.event_end).getTime(),
+                        ),
+                      ),
+                    )
+
+                    const nextBlock = blocks[i + 1]
+                    const nextBlockStart = nextBlock?.[0]
+                      ? new Date(nextBlock[0])
+                      : undefined
 
                     const isBreak =
                       sessions[0]?.event_type
@@ -216,7 +214,9 @@ export function ScheduleList({
                         ?.toLowerCase()
                         .includes("break")
                     const hasDashedBorder =
-                      blockEnd && blockEnd === nextBlockStart && !isBreak
+                      blockEnd &&
+                      blockEnd.getTime() === nextBlockStart?.getTime() &&
+                      !isBreak
 
                     return (
                       <div
@@ -225,7 +225,7 @@ export function ScheduleList({
                       >
                         <div className="mr-px flex flex-col max-lg:ml-px lg:flex-row">
                           <div className="relative border-neu-50 bg-neu-50 dark:bg-neu-0 max-lg:-mx-px max-lg:my-px max-lg:border-x lg:mr-px">
-                            <span className="typography-body-sm mt-3 inline-block w-20 whitespace-nowrap pb-0.5 pl-4 lg:mr-6 lg:w-28 lg:pb-4 lg:pl-0">
+                            <span className="typography-body-sm mt-3 inline-block w-28 whitespace-nowrap pb-0.5 pl-4 lg:mr-6 lg:pb-4 lg:pl-0">
                               {formatBlockTime(sessionDate, blockEnd)}
                             </span>
                           </div>
@@ -236,6 +236,7 @@ export function ScheduleList({
                                 session={session}
                                 year={year}
                                 eventsColors={eventsColors}
+                                blockEnd={blockEnd}
                               />
                             ))}
                           </div>

@@ -533,6 +533,7 @@ div[id^="headlessui-menu-items"] {
 }
 
 /* without this Headless UI breaks sticky navbar */
-html:has([role="listbox"][data-open]) {
+html:has([role="listbox"][data-open]),
+html:has([role="menu"][data-open]) {
   overflow: visible !important;
 }
