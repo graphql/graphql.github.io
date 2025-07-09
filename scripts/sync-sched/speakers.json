@@ -1047,7 +1047,7 @@
     },
     {
       "username": "erikwrede2",
-      "company": "fulfillmenttools",
+      "company": "Strawberry-GraphQL",
       "position": "Software Engineer",
       "name": "Erik Wrede",
       "about": "Erik is a Software Engineer and GraphQL enthusiast that enjoys building full-stack GraphQL solutions. As a member of the GraphQL-Python Maintainer Team and Core Dev at Strawberry-GraphQL, he’s passionate about improving the developer experience and creating exciting new GraphQL tooling. Erik is excited about building performant and scalable solutions and is always eager to chat about new features, developments and the latest advancements in tech.",
@@ -1065,9 +1065,10 @@
         }
       ],
       "_years": [
-        2024
+        2024,
+        2025
       ],
-      "~syncedDetailsAt": 1749501888881
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "ernie.turner1",
@@ -1150,7 +1151,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182478137
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "gabe210",
@@ -1461,7 +1462,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182512347
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "jeff.auriemma",
@@ -1566,7 +1567,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182512347
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "jim.barton",
@@ -2050,7 +2051,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182515121
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "marion84",
@@ -2174,23 +2175,23 @@
       "socialurls": [
         {
           "service": "Twitter",
-          "url": "https://twitter.com/matteocollina"
+          "url": "https://twitter.com/matteocollins"
         }
       ],
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182515122
+      "~syncedDetailsAt": 1752072949898
     },
     {
       "username": "mauricio.montalvo.guzman",
       "company": "Pinterest",
       "position": "Senior Software Engineer",
       "name": "Mauricio Montalvo",
-      "about": "I’m a software engineer with 11 years of professional experience, I consider myself full stack but my career has been focused in FE development in the last years, I love creating UIs using ReactJS and GraphQL.\nAt Pinterest, I’m part of the Web team that’s exploring the introduction of GraphQL in our systems, I’ve worked on this for 2 years now, leading a GQL migration project since Q3 2023.\n\nI think helping others and sharing knowledge is one of the best ways to improve in your career as a dev.",
+      "about": "I’m a software engineer with 11 years of professional experience, I consider myself full stack but my career has been focused in FE development in the last years, I love creating UIs using ReactJS and GraphQL.\nAt Pinterest, I’m part of the Web team that’s exploring the introduction of GraphQL in our systems, I’ve worked on this for 3years now, leading a GQL migration project since Q3 2023.\n\nI think helping others and sharing knowledge is one of the best ways to improve in your career as a dev.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/8/d4/21066831/avatar.jpg.320x320px.jpg?2b4",
+      "avatar": "//avatars.sched.co/8/d4/21066831/avatar.jpg.320x320px.jpg?3d6",
       "socialurls": [],
       "_years": [
         2024,
@@ -2286,7 +2287,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752072949898
     },
     {
       "username": "michael.bleigh",
@@ -2554,6 +2555,21 @@
         2025
       ],
       "~syncedDetailsAt": 1750287964144
+    },
+    {
+      "username": "rkhatwan",
+      "company": "Bouygues Telecom",
+      "position": "",
+      "name": "Ravi Khatwani",
+      "about": "",
+      "location": "",
+      "url": "",
+      "avatar": "",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "robert.balicki",
@@ -3061,6 +3077,21 @@
       "~syncedDetailsAt": 1749568381878
     },
     {
+      "username": "thorekoritzius",
+      "company": "Independent",
+      "position": "Machine Learning Software Engineer",
+      "name": "Thore Koritzius",
+      "about": "Thore is an ML Engineer with a passion for building and deploying multimodal LLMs. He enjoys working on the full stack of AI systems—from training embedding models and optimizing RAG pipelines to deploying on-premises LLM infrastructure. Thore is also a GraphQL and Rust enthusiast who loves exploring modern developer tools and building high-performance systems. His journey into AI started with research on Physics-Informed Neural Networks during his Master’s thesis, and he's been excited about pushing the boundaries of applied machine learning ever since.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/c/bd/23218043/avatar.jpg.320x320px.jpg?02e",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1752072949897
+    },
+    {
       "username": "tim.hall.engr",
       "company": "Postman",
       "position": "Technical Lead",
@@ -3132,7 +3163,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182478137
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "tushar.mathur",

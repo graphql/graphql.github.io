@@ -303,7 +303,7 @@
     "event_key": "910351",
     "active": "Y",
     "pinned": "N",
-    "name": "GraphQL Federation on Top of 1700+ Swaggers - Arnaud Leymet, Bouygues Telecom",
+    "name": "GraphQL Federation on Top of 1700+ Swaggers - Arnaud Leymet & Ravi Khatwani, Bouygues Telecom",
     "event_start": "2025-09-08 10:45",
     "event_end": "2025-09-08 11:15",
     "event_type": "GraphQL in Production",
@@ -317,11 +317,18 @@
     "venue_id": "2152806",
     "speakers": [
       {
+        "username": "rkhatwan",
+        "id": "23218006",
+        "name": "Ravi Khatwani",
+        "company": "Bouygues Telecom",
+        "custom_order": 0
+      },
+      {
         "username": "aleymet",
         "id": "23098717",
         "name": "Arnaud Leymet",
         "company": "Bouygues Telecom",
-        "custom_order": 0
+        "custom_order": 1
       }
     ],
     "event_start_year": "2025",
@@ -3795,6 +3802,59 @@
     "description": ""
   },
   {
+    "event_key": "929628",
+    "active": "Y",
+    "pinned": "N",
+    "name": "LLMs + GraphQL + MCP: A Blueprint for Scalable AI Tooling - Erik Wrede, Strawberry-GraphQL & Thore Koritzius, Independent",
+    "event_start": "2025-09-10 15:50",
+    "event_end": "2025-09-10 16:20",
+    "event_type": "AI / LLMs",
+    "description": "Plugging an LLM into GraphQL sounds simple—until it drowns in thousands of fields, types, and connections. Most models today can’t reason effectively over large APIs without brittle prompt hacks or hardcoded shortcuts.\n\nModel Context Protocol (MCP) is the cutting-edge solution for enabling seamless, dynamic interactions between LLMs and external tooling. It standardizes the way models interact with various tools, breaking down barriers between APIs and AI systems.\n\nIn this talk, you’ll discover how to turn any GraphQL endpoint into an MCP-compatible server with minimal overhead. Reuse your existing GraphQL infrastructure to avoid reinventing authorization, schema management, and validation enabling scalable, robust LLM integrations. We’ll compare existing tools and automated schema discovery against hand-crafted mappers based on benchmarks of public GraphQL APIs. Join us to learn about our experiences and recommendations for your next GenAI project, powered by GraphQL.",
+    "goers": "0",
+    "seats": "0",
+    "invite_only": "N",
+    "venue": "IJzaal",
+    "audience": "Intermediate",
+    "id": "0edcd2dd0e8d11fb19db1974a0114df0",
+    "venue_id": "2152806",
+    "speakers": [
+      {
+        "username": "erikwrede2",
+        "id": "21102110",
+        "name": "Erik Wrede",
+        "company": "Strawberry-GraphQL",
+        "custom_order": 0
+      },
+      {
+        "username": "thorekoritzius",
+        "id": "23218043",
+        "name": "Thore Koritzius",
+        "company": "Independent",
+        "custom_order": 1
+      }
+    ],
+    "event_start_year": "2025",
+    "event_start_month": "September",
+    "event_start_month_short": "Sep",
+    "event_start_day": "10",
+    "event_start_weekday": "Wednesday",
+    "event_start_weekday_short": "Wed",
+    "event_start_time": "15:50",
+    "event_end_year": "2025",
+    "event_end_month": "September",
+    "event_end_month_short": "Sep",
+    "event_end_day": "10",
+    "event_end_weekday": "Wednesday",
+    "event_end_weekday_short": "Wed",
+    "event_end_time": "16:20",
+    "start_date": "2025-09-10",
+    "start_time": "15:50:00",
+    "start_time_ts": 1757512200,
+    "end_date": "2025-09-10",
+    "end_time": "16:20:00",
+    "event_subtype": ""
+  },
+  {
     "event_key": "929627",
     "active": "Y",
     "pinned": "N",
@@ -3803,7 +3863,7 @@
     "event_end": "2025-09-10 16:20",
     "event_type": "GraphQL in Production",
     "description": "Pinterest is adopting GraphQL. Given our app's size, we can't simply rewrite everything in one fell swoop. So, we created the Relay Migration API (RMA) — a set of tools to incrementally migrate your React components to consume GraphQL-shaped data while making requests to REST endpoints.\n\nI'll share how we've significantly evolved the RMA after migrating four key surfaces, focusing on the advanced challenges we faced:\n\nRMA recreates objects on every render by default, breaking components expecting stable references. We implemented a caching layer, similar to Relay's, to return consistent objects between renders. RMA originally read from static source objects, creating stale data when Redux state changed. Our solution: a selective subscription system that re-computes GraphQL data only when source fields change, keeping data current while eliminating unnecessary renders. And in cases where Redux and GraphQL schemas fundamentally differ, we built bidirectional mapping with schema validation to ensure data consistency.\nJoin us to learn how the Relay migration API has evolved and how it helps you accelerate your GraphQL migrations without disrupting existing applications!",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal",
