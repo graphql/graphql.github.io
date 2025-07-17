@@ -4,6 +4,7 @@ import NextLink from "next/link"
 export default {
   // only for blog posts inside folders we need to specify breadcrumb title
   "2024-06-11-announcing-new-graphql-website": "Announcing New GraphQL Website",
+  "2025-07-17-graphiql-5": "GraphiQL 5 Release; Press F1!",
   "*": {
     display: "hidden",
     theme: {
