@@ -112,7 +112,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182397854
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "ajhingran",
@@ -251,7 +251,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182397854
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "amy1908",
@@ -501,9 +501,10 @@
         }
       ],
       "_years": [
-        2023
+        2023,
+        2025
       ],
-      "~syncedDetailsAt": 1749502266902
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "arkenflame",
@@ -548,7 +549,7 @@
       "name": "Denis Badurina",
       "about": "I am a self-taught senior software architect, with a distinguishing trait of resiliently finding simple solutions to complex problems using communication through words and code. Starting from my first Lego set, I've been in love with development throughout my whole life. As a creator, having the ability to turn thoughts into reality is a gift I find essential. Forever learning through practical applications, bad decisions and positive thoughts - I, ultimately, turned a hobby into an obsession.",
       "location": "Sarajevo",
-      "url": "https://the-guild.dev/",
+      "url": "",
       "avatar": "//avatars.sched.co/6/a9/18743810/avatar.jpg.320x320px.jpg?ec6",
       "socialurls": [
         {
@@ -562,9 +563,10 @@
       ],
       "_years": [
         2023,
-        2024
+        2024,
+        2025
       ],
-      "~syncedDetailsAt": 1749497439360
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "benjamin154",
@@ -739,7 +741,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "christian.ernst",
@@ -843,7 +845,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "danielle.man",
@@ -876,6 +878,45 @@
       "~syncedDetailsAt": 1749503546034
     },
     {
+      "username": "dipro",
+      "company": "monday.com",
+      "position": "",
+      "name": "Dipro Bhowmik",
+      "about": "",
+      "location": "",
+      "url": "",
+      "avatar": "",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1751472966787
+    },
+    {
+      "username": "dkuc",
+      "company": "Apollo GraphQL",
+      "position": "Principal Software Engineer",
+      "name": "Derek Kuc",
+      "about": "Derek is an open source enthusiast working at Apollo on all things Federation. Prior to joining Apollo, Derek was a principal engineer at Expedia where he helped adopt GraphQL and open source graphql-kotlin.\n\nDerek also doesn’t think that anyone reads those bios so if you want to prove me wrong - high five me at the conference!",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/3/24/23173220/avatar.jpg.320x320px.jpg?c0e",
+      "socialurls": [
+        {
+          "service": "Twitter",
+          "url": "https://x.com/derek_kuc"
+        },
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/dkuc/"
+        }
+      ],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1751472966787
+    },
+    {
       "username": "donnasiqizhou",
       "company": "Atlassian",
       "position": "Software Engineer",
@@ -905,11 +946,20 @@
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/3/1e/23098735/avatar.jpg.320x320px.jpg?7a3",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "Twitter",
+          "url": "https://x.com/dotansimha"
+        },
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/dotan-simha-36767b29/"
+        }
+      ],
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "dotansimha",
@@ -930,21 +980,6 @@
         2023
       ],
       "~syncedDetailsAt": 1749503782817
-    },
-    {
-      "username": "duckki.dev",
-      "company": "Apollo GraphQL",
-      "position": "Staff Software Engineer",
-      "name": "Duckki Oe",
-      "about": "Duckki is an engineer at Apollo GraphQL, working on Apollo Federation. With a decade of experience building static analysis tools to detect bugs and security vulnerabilities, he’s passionate about making GraphQL more reliable and efficient. Duckki holds a PhD from the University of Iowa and is committed to advancing tools and techniques that help developers maximize the potential of GraphQL.",
-      "location": "",
-      "url": "",
-      "avatar": "//avatars.sched.co/7/61/23098738/avatar.jpg.320x320px.jpg?53a",
-      "socialurls": [],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1750181396119
     },
     {
       "username": "eitan15",
@@ -1012,7 +1047,7 @@
     },
     {
       "username": "erikwrede2",
-      "company": "fulfillmenttools",
+      "company": "Strawberry-GraphQL",
       "position": "Software Engineer",
       "name": "Erik Wrede",
       "about": "Erik is a Software Engineer and GraphQL enthusiast that enjoys building full-stack GraphQL solutions. As a member of the GraphQL-Python Maintainer Team and Core Dev at Strawberry-GraphQL, he’s passionate about improving the developer experience and creating exciting new GraphQL tooling. Erik is excited about building performant and scalable solutions and is always eager to chat about new features, developments and the latest advancements in tech.",
@@ -1030,9 +1065,10 @@
         }
       ],
       "_years": [
-        2024
+        2024,
+        2025
       ],
-      "~syncedDetailsAt": 1749501888881
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "ernie.turner1",
@@ -1071,7 +1107,31 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
+    },
+    {
+      "username": "fbjork",
+      "company": "Grafbase",
+      "position": "Founder & CEO",
+      "name": "Fredrik Björk",
+      "about": "",
+      "location": "",
+      "url": "https://grafbase.com",
+      "avatar": "//avatars.sched.co/1/eb/23184575/avatar.jpg.320x320px.jpg?dc7",
+      "socialurls": [
+        {
+          "service": "Twitter",
+          "url": "https://x.com/fbjork"
+        },
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/fbjork/"
+        }
+      ],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "fionabronwen",
@@ -1091,7 +1151,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182478137
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "gabe210",
@@ -1106,7 +1166,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "gabrielschulhof",
@@ -1228,7 +1288,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "hello2358",
@@ -1308,7 +1368,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jamie855",
@@ -1362,7 +1422,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jared_cheney.7rad60v",
@@ -1387,7 +1447,7 @@
     {
       "username": "jasonkuhrt",
       "company": "The Guild",
-      "position": "Mr.",
+      "position": "",
       "name": "Jason Kuhrt",
       "about": "I am a builder passionate about system design, developer experience, static typing, and functional programming. Educated in design theory, practice, and social responsibility, I fell into code via open source gateways like Wordpress, jQuery, Node.js, and GitHub. My love for open source continues today in TypeScript and GraphQL. In my personal life, close to my heart are the backpacking trips I take my two boys on yearly across the beautiful rugged Canadian wilderness.",
       "location": "",
@@ -1402,7 +1462,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182512347
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "jeff.auriemma",
@@ -1439,11 +1499,16 @@
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/3/b5/23098759/avatar.jpg.320x320px.jpg?613",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://linkedin.com/in/jeffdolle"
+        }
+      ],
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jens63",
@@ -1482,7 +1547,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036922058
     },
     {
       "username": "jesperrasmussen",
@@ -1502,7 +1567,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182512347
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "jim.barton",
@@ -1541,7 +1606,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "jordaneldredge",
@@ -1580,7 +1645,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "juancarlosjr97",
@@ -1604,7 +1669,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "kamilkisiela",
@@ -1634,7 +1699,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "keerthan.ekbote",
@@ -1781,7 +1846,7 @@
       "about": "Laurin Quast is a developer that started exploring GraphQL, by leading API development at a start-up. Realizing that there are still many unsolved problems and challenges within the space, he started contributing to famous JavaScript libraries, such as GraphQL Code Generator and Tools. Diving deeper, the transition into becoming a full-time open-source developer at The Guild was inevitable. Currently, he is working on Hive helping teams scale GraphQL across teams and organizations.",
       "location": "",
       "url": "https://the-guild.dev/",
-      "avatar": "//avatars.sched.co/2/a6/18743819/avatar.jpg.320x320px.jpg?705",
+      "avatar": "//avatars.sched.co/2/a6/18743819/avatar.jpg.320x320px.jpg?ebc",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1797,7 +1862,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "ldebruijn",
@@ -1833,7 +1898,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "lee_byron.25krdom6",
@@ -1887,7 +1952,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "lyonwj1",
@@ -1936,7 +2001,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "mail1232",
@@ -1951,7 +2016,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "mansi.mittal",
@@ -1966,7 +2031,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182463095
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "marco.reni",
@@ -1986,7 +2051,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182515121
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "marion84",
@@ -2026,7 +2091,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "martinbonnin42",
@@ -2041,7 +2106,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "marybriskin",
@@ -2096,7 +2161,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "matteo.collina1",
@@ -2110,28 +2175,29 @@
       "socialurls": [
         {
           "service": "Twitter",
-          "url": "https://twitter.com/matteocollina"
+          "url": "https://twitter.com/matteocollins"
         }
       ],
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182515122
+      "~syncedDetailsAt": 1752072949898
     },
     {
       "username": "mauricio.montalvo.guzman",
       "company": "Pinterest",
       "position": "Senior Software Engineer",
       "name": "Mauricio Montalvo",
-      "about": "I’m a software engineer with 11 years of professional experience, I consider myself full-stack but my career has been focused in Frontend Development in the past years, I love creating web apps using ReactJS & GraphQL. At Pinterest, I’m part of the Web team that’s exploring the adoption of GraphQL in our systems, I’ve been working on this for 2 years now leading a GraphQL migration project since Q3 2023.",
+      "about": "I’m a software engineer with 11 years of professional experience, I consider myself full stack but my career has been focused in FE development in the last years, I love creating UIs using ReactJS and GraphQL.\nAt Pinterest, I’m part of the Web team that’s exploring the introduction of GraphQL in our systems, I’ve worked on this for 3years now, leading a GQL migration project since Q3 2023.\n\nI think helping others and sharing knowledge is one of the best ways to improve in your career as a dev.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/8/d4/21066831/avatar.jpg.320x320px.jpg?a40",
+      "avatar": "//avatars.sched.co/8/d4/21066831/avatar.jpg.320x320px.jpg?3d6",
       "socialurls": [],
       "_years": [
-        2024
+        2024,
+        2025
       ],
-      "~syncedDetailsAt": 1749501892530
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "meenakshi.dhanani1",
@@ -2156,7 +2222,7 @@
         2023,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "mgiroux7",
@@ -2206,7 +2272,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "michael.astle",
@@ -2221,7 +2287,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752072949898
     },
     {
       "username": "michael.bleigh",
@@ -2260,7 +2326,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "omribruchim",
@@ -2291,7 +2357,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "patrick.arminio",
@@ -2473,7 +2539,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "rickbijkerk54",
@@ -2488,7 +2554,22 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
+    },
+    {
+      "username": "rkhatwan",
+      "company": "Bouygues Telecom",
+      "position": "",
+      "name": "Ravi Khatwani",
+      "about": "",
+      "location": "",
+      "url": "",
+      "avatar": "",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "robert.balicki",
@@ -2505,7 +2586,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181396120
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "robrichard87",
@@ -2521,7 +2602,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181915102
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "ruben.cagnie",
@@ -2552,7 +2633,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181953774
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "saihaj",
@@ -2606,7 +2687,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "sanvertarmur",
@@ -2614,14 +2695,14 @@
       "position": "Senior Software Engineer 2",
       "name": "Sanver Tarmur",
       "about": "Sanver is a Senior Software Engineer II at Booking.com with 15 years of industry experience. In recent years, he has been leading the Federated GraphQL transformation at Booking.com, focusing on scaling, enhancing the security of the GraphQL platform, and improving the developer experience for internal Graph users.",
-      "location": "",
+      "location": "Amsterdam",
       "url": "",
       "avatar": "//avatars.sched.co/0/9e/23098798/avatar.jpg.320x320px.jpg?318",
       "socialurls": [],
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182463095
+      "~syncedDetailsAt": 1751472966787
     },
     {
       "username": "sasanders26",
@@ -2784,7 +2865,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "siva27",
@@ -2856,7 +2937,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181966765
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "stefan239",
@@ -2901,7 +2982,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "suresh_muthu",
@@ -2996,6 +3077,21 @@
       "~syncedDetailsAt": 1749568381878
     },
     {
+      "username": "thorekoritzius",
+      "company": "Independent",
+      "position": "Machine Learning Software Engineer",
+      "name": "Thore Koritzius",
+      "about": "Thore is an ML Engineer with a passion for building and deploying multimodal LLMs. He enjoys working on the full stack of AI systems—from training embedding models and optimizing RAG pipelines to deploying on-premises LLM infrastructure. Thore is also a GraphQL and Rust enthusiast who loves exploring modern developer tools and building high-performance systems. His journey into AI started with research on Physics-Informed Neural Networks during his Master’s thesis, and he's been excited about pushing the boundaries of applied machine learning ever since.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/c/bd/23218043/avatar.jpg.320x320px.jpg?02e",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1752072949897
+    },
+    {
       "username": "tim.hall.engr",
       "company": "Postman",
       "position": "Technical Lead",
@@ -3032,7 +3128,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "tristan119",
@@ -3067,7 +3163,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750182478137
+      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "tushar.mathur",
@@ -3142,7 +3238,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750181973559
+      "~syncedDetailsAt": 1751036945383
     },
     {
       "username": "vincent.desmares",
@@ -3172,7 +3268,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287964144
+      "~syncedDetailsAt": 1752503797083
     },
     {
       "username": "vmjohnson999",
@@ -3192,7 +3288,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750181396119
+      "~syncedDetailsAt": 1751036941512
     },
     {
       "username": "watson17",

@@ -1,5 +1,5 @@
 import { clsx } from "clsx"
-import { ics } from "calendar-link"
+import { CalendarEvent, google, ics, outlook } from "calendar-link"
 
 import { SchedSpeaker, ScheduleSession } from "@/app/conf/2023/types"
 import { Button } from "@/app/conf/_design-system/button"
@@ -11,8 +11,10 @@ import PlusIcon from "@/app/conf/_design-system/pixelarticons/plus.svg?svgr"
 import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import { findVideo } from "../../schedule/[id]/session-video"
 import { getEventTitle } from "../../utils"
-import React from "react"
+import React, { Fragment } from "react"
 import { SessionTags } from "../../components/session-tags"
+import { Menu, MenuItem, MenuItems, Transition } from "@headlessui/react"
+import { MenuButton } from "@headlessui/react"
 
 export interface LongSessionCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -159,29 +161,71 @@ function AddToCalendarLink({
   eventTitle,
   session,
   speakers,
+  className,
 }: {
   eventTitle: string
   session: ScheduleSession
   speakers: SchedSpeaker[]
+  className?: string
 }) {
+  const calendarEvent: CalendarEvent = {
+    title: eventTitle,
+    start: session.event_start,
+    end: session.event_end,
+    description: session.description,
+    location: session.venue,
+    organizer: {
+      name: `GraphQLConf ${new Date().getFullYear()}`,
+      email: "graphql_events@linuxfoundation.org",
+    },
+    guests: speakers.map(s => s.name),
+  }
+
+  const calendars = {
+    ICS: ics,
+    Google: google,
+    Outlook: outlook,
+  }
+
   return (
-    <a
-      className="relative z-[2] flex h-full flex-row items-center justify-center gap-0.5 p-4 text-neu-800 ring-inset ring-neu-400 hover:bg-sec-base/[.035] hover:ring-1 dark:ring-neu-100 lg:px-6"
-      href={ics({
-        title: eventTitle,
-        start: session.event_start,
-        end: session.event_end,
-        description: session.description,
-        location: session.venue,
-        organizer: {
-          name: `GraphQLConf ${new Date().getFullYear()}`,
-          email: "graphql_events@linuxfoundation.org",
-        },
-        guests: speakers.map(s => s.name),
-      })}
-    >
-      <PlusIcon className="size-4 shrink-0 text-sec-dark" />
-      <span className="typography-body-xs">Add to calendar</span>
-    </a>
+    <Menu as="div" className={clsx("relative z-[2] flex h-full", className)}>
+      <MenuButton
+        className={clsx(
+          "relative z-[2] flex size-full h-full flex-row items-center justify-center gap-0.5 p-4 text-neu-800 ring-inset ring-neu-400 hover:bg-sec-base/[.035] hover:ring-1 focus:outline-none focus:ring-1 dark:ring-neu-100 lg:px-6 [&[aria-expanded=true]]:ring-1",
+        )}
+      >
+        <PlusIcon className="size-4 shrink-0 text-sec-dark" />
+        <span className="typography-body-xs">Add to calendar</span>
+      </MenuButton>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <MenuItems
+          anchor="bottom end"
+          className="mt-2 w-40 origin-top-right border border-neu-400 bg-neu-0 focus:outline-none"
+        >
+          <div className="p-1">
+            {Object.entries(calendars).map(([name, calendar]) => (
+              <MenuItem key={name}>
+                <a
+                  href={calendar(calendarEvent)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group typography-body-sm flex w-full items-center p-3 text-neu-800 [&[data-active]]:bg-neu-100 [&[data-active]]:text-neu-900 dark:[&[data-active]]:bg-neu-50"
+                >
+                  {name}
+                </a>
+              </MenuItem>
+            ))}
+          </div>
+        </MenuItems>
+      </Transition>
+    </Menu>
   )
 }
