@@ -168,7 +168,7 @@
         2023,
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1753215856700
     },
     {
       "username": "alex_reilly.7ldur4l",
@@ -236,7 +236,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1753215856700
     },
     {
       "username": "amanda1988",
@@ -326,7 +326,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1753215856700
     },
     {
       "username": "andrei.bocan",
@@ -625,6 +625,21 @@
       "~syncedDetailsAt": 1750605030205
     },
     {
+      "username": "borisbesemer",
+      "company": "Vercel",
+      "position": "Senior Technical Consultant",
+      "name": "Boris Besemer",
+      "about": "",
+      "location": "",
+      "url": "",
+      "avatar": "",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1753215856699
+    },
+    {
       "username": "brandon.r.minnick",
       "company": "AWS",
       "position": ".NET Developer Advocate",
@@ -880,12 +895,12 @@
     {
       "username": "dipro",
       "company": "monday.com",
-      "position": "",
+      "position": "Senior Developer Advocate",
       "name": "Dipro Bhowmik",
       "about": "",
       "location": "",
       "url": "",
-      "avatar": "",
+      "avatar": "//avatars.sched.co/3/ee/23187254/avatar.jpg.320x320px.jpg?c12",
       "socialurls": [],
       "_years": [
         2025
@@ -1509,6 +1524,21 @@
         2025
       ],
       "~syncedDetailsAt": 1751036922058
+    },
+    {
+      "username": "jem28",
+      "company": "Graphile",
+      "position": "Community Operations",
+      "name": "Jem Gillam",
+      "about": "Jem wears many hats: admin, marketing, video editor, QA, customer relations, operations, and so much more; but chief among them is community - fostering, moderation, outreach and collaboration are all in a day's work for them. Often working behind the scenes on GraphQL-related projects, they were key to the GraphQL Stars initiative, organized the SMEs program, and are the lead on a new program launching this year. In their spare time, Jem is a keen volunteer and loves to crochet and bake.",
+      "location": "",
+      "url": "https://github.com/jemgillam",
+      "avatar": "//avatars.sched.co/f/8a/23300543/avatar.jpg.320x320px.jpg?afe",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1753215856699
     },
     {
       "username": "jens63",
@@ -2576,7 +2606,7 @@
       "company": "Pinterest",
       "position": "Staff Engineer",
       "name": "Robert Balicki",
-      "about": "Robert Balicki works as a software engineer at Jetty. He used to have hair down to his shoulders and play in a rock band.",
+      "about": "Robert is an engineer at Pinterest, where he helps the company adopt Relay and GraphQL. He was previously on the Relay team at Meta.",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/5/8b/18743858/avatar.jpg.320x320px.jpg?7d6",
@@ -2648,7 +2678,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1753215856699
     },
     {
       "username": "saihajpreet.singh",
@@ -2706,13 +2736,13 @@
     },
     {
       "username": "sasanders26",
-      "company": "Highnote",
-      "position": "Senior Technical Writer",
+      "company": "Docker",
+      "position": "Technical Writer",
       "name": "Sarah Sanders",
-      "about": "Sarah is a Senior Technical Writer based in San Francisco, CA. She specializes in API and Developer Documentation and uses her expertise to lead Highnote's GraphQL API Docs efforts.",
-      "location": "San Francisco, CA",
+      "about": "Sarah is a Technical Writer at Docker, located in Philadelphia, PA. She specializes in writing developer and API documentation, with a deep focus on GraphQL developer experience. As an active contributor to the GraphQL project, she's passionate about creating educational resources and developer tools that make GraphQL more approachable.",
+      "location": "Philadelphia, PA",
       "url": "",
-      "avatar": "//avatars.sched.co/4/50/21066861/avatar.jpg.320x320px.jpg?2f0",
+      "avatar": "//avatars.sched.co/4/50/21066861/avatar.jpg.320x320px.jpg?67a",
       "socialurls": [
         {
           "service": "LinkedIn",
@@ -2720,9 +2750,10 @@
         }
       ],
       "_years": [
-        2024
+        2024,
+        2025
       ],
-      "~syncedDetailsAt": 1749502079623
+      "~syncedDetailsAt": 1753215856699
     },
     {
       "username": "sasha177",
@@ -3318,7 +3349,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1753215856699
     },
     {
       "username": "yaacovcr",
@@ -3397,7 +3428,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1753215856699
     },
     {
       "username": "zach.fetters",
@@ -3412,7 +3443,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750287969593
+      "~syncedDetailsAt": 1753215856700
     }
   ]
 }
