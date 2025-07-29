@@ -31,7 +31,7 @@ GraphQL clients and servers should support JSON for serialization and may suppor
 If no encoding information is included with this header, then it will be assumed to be `utf-8`. However, the server may respond with an error if a client doesn't provide the `Accept` header with a request.
 
 <Callout type="info">
-The `application/graphql-response+json` is described in the draft GraphQL over HTTP specification. To ensure compatibility, if a client sends a request to a legacy GraphQL server before 1st January 2025, the `Accept` header should also include the `application/json` media type as follows: `application/graphql-response+json;charset=utf-8, application/json;charset=utf-8`
+The `application/graphql-response+json` is described in the draft GraphQL over HTTP specification. To ensure compatibility, if a client sends a request to a legacy GraphQL server before 1st January 2025, the `Accept` header should also include the `application/json` media type as follows: `application/graphql-response+json, application/json`
 </Callout>
 
 ### Methods
