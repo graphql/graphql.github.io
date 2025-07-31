@@ -61,6 +61,30 @@
       "~syncedDetailsAt": 1749502251756
     },
     {
+      "username": "adam.miskiewicz",
+      "company": "Airbnb",
+      "position": "Viaduct Platform Lead",
+      "name": "Adam Miskiewicz",
+      "about": "Adam is a Senior Staff Software Engineer at Airbnb, where he leads platform architecture with a focus on performance, developer experience, and large-scale GraphQL systems. He’s one of the core architects behind Viaduct, Airbnb’s multi-tenant GraphQL platform, and is known for turning complex ideas into scalable, developer-friendly infrastructure. When he's not deep in Kotlin or shaping deployment strategy, he's probably pushing teams to move faster — safely.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/8/82/23352721/avatar.jpg.320x320px.jpg?bfd",
+      "socialurls": [
+        {
+          "service": "Twitter",
+          "url": "https://x.com/skevy"
+        },
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/adammiskiewicz/"
+        }
+      ],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1753974079549
+    },
+    {
       "username": "adam.sayah",
       "company": "Solo.io",
       "position": "Product Manager",
@@ -860,7 +884,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1753974079549
     },
     {
       "username": "danielle.man",
@@ -1122,7 +1146,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1753974079550
     },
     {
       "username": "fbjork",
@@ -1181,7 +1205,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1753974079550
     },
     {
       "username": "gabrielschulhof",
@@ -1303,7 +1327,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1753974079550
     },
     {
       "username": "hello2358",
@@ -1383,7 +1407,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1753974079550
     },
     {
       "username": "jamie855",
@@ -1437,7 +1461,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1753974079550
     },
     {
       "username": "jared_cheney.7rad60v",
@@ -1503,7 +1527,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750605030205
+      "~syncedDetailsAt": 1753974079549
     },
     {
       "username": "jeff737",
@@ -2495,7 +2519,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1750605030205
+      "~syncedDetailsAt": 1753974079549
     },
     {
       "username": "rachit_sengupta",
@@ -2931,7 +2955,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1750605030205
+      "~syncedDetailsAt": 1753974079549
     },
     {
       "username": "spencer211",
@@ -3419,7 +3443,7 @@
     {
       "username": "yehudar",
       "company": "JFrog",
-      "position": "Application Security Researcher, JFrog",
+      "position": "Application Security Researcher",
       "name": "Yehuda Rosenberg",
       "about": "I'm an Application Security Researcher passionate about breaking assumptions in modern web technologies. From protocol quirks to real-world vulnerabilities, I explore how small oversights lead to big security issues. My work often blends offensive research with practical defense, aiming to make the internet a little safer and a lot more interesting.",
       "location": "",
