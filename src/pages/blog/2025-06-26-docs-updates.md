@@ -1,6 +1,6 @@
 ---
 title: "GraphQL.js Docs Updates, April - May 2025"
-tags: ["blog"]
+tags: ["grants"]
 date: 2025-06-26
 byline: Sarah Sanders
 ---
