@@ -282,7 +282,7 @@
     "event_key": "929625",
     "active": "Y",
     "pinned": "N",
-    "name": "Keynote: How GraphQL is Redefining API Orchestration for the AI Era - Matt DeBergalis, CTO & Co-Founder, Apollo GraphQL",
+    "name": "Keynote: How GraphQL is Redefining API Orchestration for the AI Era - Matt DeBergalis, CEO & Co-Founder, Apollo GraphQL",
     "event_start": "2025-09-08 09:50",
     "event_end": "2025-09-08 10:00",
     "event_type": "Keynote Sessions",
@@ -624,7 +624,7 @@
     "event_end": "2025-09-08 11:55",
     "event_type": "AI / LLMs",
     "description": "APIs give AI superpowers. The MCP protocol, introduced less than a year ago, has quickly become a popular method for connecting large language models (LLMs) with the outside world. But where does GraphQL fit in? It's structured, typed, and introspectable... so what's the catch?\n\nJoin our panel of experts as we delve into how to leverage GraphQL effectively and safely in AI applications. We'll discuss the trade-offs, potential pitfalls, and share insights into best practices and strategies. This interactive discussion will explore how combining GraphQL with MCP can unlock new superpowers for AI, offering attendees a chance to engage with thought leaders and gain valuable perspectives.",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -1303,7 +1303,7 @@
     "event_key": "895837",
     "active": "Y",
     "pinned": "N",
-    "name": "GraphQL Performance Issues at Netflix Scale - Stephen Chambers & Tejas Shikhare, Netflix",
+    "name": "GraphQL Performance Issues at Netflix Scale - Stephen Chambers, Netflix",
     "event_start": "2025-09-08 15:05",
     "event_end": "2025-09-08 15:35",
     "event_type": "GraphQL in Production",
@@ -1322,13 +1322,6 @@
         "name": "Stephen Chambers",
         "company": "Netflix",
         "custom_order": 0
-      },
-      {
-        "username": "tshikhare",
-        "id": "21543712",
-        "name": "Tejas Shikhare",
-        "company": "Netflix",
-        "custom_order": 1
       }
     ],
     "event_start_year": "2025",
@@ -3160,7 +3153,7 @@
     "event_key": "924215",
     "active": "Y",
     "pinned": "N",
-    "name": "Next-Generation GraphQL Cache Management in Your Android and iOS Apps - Benoit Lubek, Apollo Graph & Zach FettersMoore, Apollo GraphQL",
+    "name": "Next-Generation GraphQL Cache Management in Your Android and iOS Apps - Benoit Lubek, Apollo GraphQL",
     "event_start": "2025-09-10 10:20",
     "event_end": "2025-09-10 10:30",
     "event_type": "Developer Experience",
@@ -3174,18 +3167,11 @@
     "venue_id": "2152800",
     "speakers": [
       {
-        "username": "zach.fetters",
-        "id": "23098822",
-        "name": "Zach FettersMoore",
-        "company": "Apollo GraphQL",
-        "custom_order": 0
-      },
-      {
         "username": "BoD",
         "id": "431358",
         "name": "Benoit Lubek",
         "company": "Apollo Graph",
-        "custom_order": 1
+        "custom_order": 0
       }
     ],
     "event_start_year": "2025",
@@ -3348,11 +3334,11 @@
     "event_key": "925047",
     "active": "Y",
     "pinned": "N",
-    "name": "Introducing Pollen - An Open-source Developer Portal Framework for GraphQL - Jason Kuhrt, The Guild",
+    "name": "Imagining the Future of GraphQL Documentation Tooling - Jason Kuhrt, The Guild",
     "event_start": "2025-09-10 11:15",
     "event_end": "2025-09-10 11:45",
     "event_type": "Developer Experience",
-    "description": "There are many aspects to consider when building a GraphQL API: Authentication, authorization, performance, schema design, and team workflow to name a few. Each aspect encompasses considerations, practices, and tools (or lack thereof). One aspect, documentation, can be easily neglected. At The Guild we are building an open source tool called Polen to address this. It aims to make beautiful developer portals easy and reduce the gap of docs tools between GraphQL and REST communities.\n \nThis presentation would mark the first formal introduction of Polen, covering:\n \n1. How/why Polen came to be\n2. What it does so far\n3. What it could do in the future\n \nThis talk would continue the larger docs conversation (e.g. last year https://www.youtube.com/watch?v=kWe_v6YVj8U) by sharing what encoding some of our best docs ideas into tooling could look like. Ideally it would help the audience think about how they can make their APIs more accessible for their users. Finally, given Polen is not a commercial offering, I also hope to inspire people to get involved, make issues, give feedback, and send pull requests.\n \nPolen is already public today at http://github.com/the-guild-org/polen",
+    "description": "There are many aspects to consider when building a GraphQL API: Authentication, authorization, performance, schema design, and team workflow to name a few. Each aspect encompasses considerations, practices, and tools (or lack thereof). One aspect, documentation, can be easily neglected. This year at The Guild I spent time exploring that domain and prototyping an open source tool we’re calling Polen.\n\nI will present our thoughts on what characteristics and features we’d like to have from GraphQL documentation tooling and finish with a demo of how Polen tackled some of those things. I hope this session stimulates your own thinking about what documentation tools should include and tangible technical steps we might take to get there.",
     "goers": "0",
     "seats": "0",
     "invite_only": "N",

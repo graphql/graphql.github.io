@@ -654,9 +654,9 @@
       "position": "Senior Technical Consultant",
       "name": "Boris Besemer",
       "about": "",
-      "location": "",
+      "location": "The Netherlands",
       "url": "",
-      "avatar": "",
+      "avatar": "//avatars.sched.co/c/f5/23301917/avatar.jpg.320x320px.jpg?2f8",
       "socialurls": [],
       "_years": [
         2025
@@ -998,7 +998,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "dotansimha",
@@ -1547,7 +1547,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "jem28",
@@ -1601,7 +1601,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036922058
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "jesperrasmussen",
@@ -1660,7 +1660,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "jordaneldredge",
@@ -1699,7 +1699,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "juancarlosjr97",
@@ -1753,7 +1753,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "keerthan.ekbote",
@@ -1916,7 +1916,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "ldebruijn",
@@ -1952,7 +1952,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "lee_byron.25krdom6",
@@ -2006,7 +2006,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "lyonwj1",
@@ -2070,7 +2070,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754078014495
     },
     {
       "username": "mansi.mittal",
@@ -2204,9 +2204,9 @@
     {
       "username": "matt1575",
       "company": "Apollo GraphQL",
-      "position": "CTO & Co-Founder",
+      "position": "CEO & Co-Founder",
       "name": "Matt DeBergalis",
-      "about": "Matt DeBerglis is the Chief Technology Officer and Co-Founder of Apollo GraphQL, where he is responsible for pioneering the next frontier of the company’s cutting-edge technology. Prior to Apollo, Matt was the co-founder of Meteor Development Group and co-creator of Meteor.js, which grew to become one of the most popular open-source projects in the world for developing full-stack web apps with JavaScript. He attended MIT and resides in the San Francisco Bay Area with his family.",
+      "about": "Matt DeBergalis is the Chief Executive Officer and Co-Founder of Apollo GraphQL, where he is responsible for pioneering the next frontier of the company’s cutting-edge technology. Prior to Apollo, Matt was the co-founder of Meteor Development Group and co-creator of Meteor.js, which grew to become one of the most popular open-source projects in the world for developing full-stack web apps with JavaScript. He attended MIT and resides in the San Francisco Bay Area with his family.",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/c/59/7503056/avatar.jpg.320x320px.jpg?f15",
@@ -3206,21 +3206,6 @@
       "~syncedDetailsAt": 1749568381879
     },
     {
-      "username": "tshikhare",
-      "company": "Netflix",
-      "position": "Software Engineer",
-      "name": "Tejas Shikhare",
-      "about": "Tejas is a member of the GraphQL Platform Team at Netflix. He spent the last six years building Netflix's Federated GraphQL platform infrastructure and tooling while also helping to migrate Netflix’s consumer-facing APIs to GraphQL. Most recently, he has been exploring GraphQL's applicability to the emerging trend of Server-Driven UI. In addition to GraphQL, he enjoys working with distributed systems and has a passion for building developer tools and education.",
-      "location": "",
-      "url": "",
-      "avatar": "//avatars.sched.co/f/06/21543712/avatar.jpg.320x320px.jpg?c60",
-      "socialurls": [],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1752072949897
-    },
-    {
       "username": "tushar.mathur",
       "company": "Tailcall",
       "position": "CEO & Founder",
@@ -3454,21 +3439,6 @@
         2025
       ],
       "~syncedDetailsAt": 1753215856699
-    },
-    {
-      "username": "zach.fetters",
-      "company": "Apollo GraphQL",
-      "position": "Staff Software Engineer",
-      "name": "Zach FettersMoore",
-      "about": "Engineer at Apollo GraphQL, working on the Apollo iOS Library",
-      "location": "",
-      "url": "",
-      "avatar": "//avatars.sched.co/c/02/23098822/avatar.jpg.320x320px.jpg?df2",
-      "socialurls": [],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1753215856700
     }
   ]
 }
