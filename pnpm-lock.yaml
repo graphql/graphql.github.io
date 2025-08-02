@@ -138,7 +138,7 @@ importers:
         version: 4.0.4
       string-strip-html:
         specifier: ^13.4.8
-        version: 13.4.8
+        version: 13.4.13
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -1885,8 +1885,8 @@ packages:
   '@types/lodash-es@4.17.12':
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
 
-  '@types/lodash@4.17.13':
-    resolution: {integrity: sha512-lfx+dftrEZcdBPczf9d0Qv0x+j/rfNCMuC6OcfXmO8gkfeNAY88PgKUbvG56whcN23gc27yenwF6oJZXGFpYxg==}
+  '@types/lodash@4.17.20':
+    resolution: {integrity: sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==}
 
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -2298,8 +2298,8 @@ packages:
   codemirror@5.65.19:
     resolution: {integrity: sha512-+aFkvqhaAVr1gferNMuN8vkTSrWIFvzlMV9I2KBLCWS2WpZ2+UAkZjlMZmEuT+gcXTi6RrGQCkWq1/bDtGqhIA==}
 
-  codsen-utils@1.6.4:
-    resolution: {integrity: sha512-PDyvQ5f2PValmqZZIJATimcokDt4JjIev8cKbZgEOoZm+U1IJDYuLeTcxZPQdep99R/X0RIlQ6ReQgPOVnPbNw==}
+  codsen-utils@1.6.8:
+    resolution: {integrity: sha512-8GESpsIuEsprHKuTWen1KO221gxyA+PDUXSZq0ywo5G5IcqmPtqTOw5BAljQUz2GdOe8TcWcH896qYb8gdxHFA==}
     engines: {node: '>=14.18.0'}
 
   collapse-white-space@2.1.0:
@@ -3218,8 +3218,8 @@ packages:
   heap@0.2.7:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
 
-  html-entities@2.5.2:
-    resolution: {integrity: sha512-K//PSRMQk4FZ78Kyau+mZurHn3FH0Vwr+H36eE0rPbeYkRRi9YxceYPhuN60UwWorxyKHhqoAJl2OFKa4BVtaA==}
+  html-entities@2.6.0:
+    resolution: {integrity: sha512-kig+rMn/QOVRvr7c86gQ8lWXq+Hkv6CbAH1hLu+RG338StTpE8Z0b44SDVaqVu7HGKf27frdmUYEs9hTUX/cLQ==}
 
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
@@ -4503,20 +4503,20 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  ranges-apply@7.0.16:
-    resolution: {integrity: sha512-4rGJHOyA7qatiMDg3vcETkc/TVBPU86/xZRTXff6o7a2neYLmj0EXUUAlhLVuiWAzTPHDPHOQxtk8EDrIF4ohg==}
+  ranges-apply@7.0.20:
+    resolution: {integrity: sha512-AaJ+RbX+w/qw7LUA2NbMMwUnpJico4aJ22zVl5hxQDlmfEXSv/TjjL96u1u0cmlNBY38aQ0kPHH0bHN5o68l9A==}
     engines: {node: '>=14.18.0'}
 
-  ranges-merge@9.0.15:
-    resolution: {integrity: sha512-hvt4hx0FKIaVfjd1oKx0poL57ljxdL2KHC6bXBrAdsx2iCsH+x7nO/5J0k2veM/isnOcFZKp0ZKkiCjCtzy74Q==}
+  ranges-merge@9.0.19:
+    resolution: {integrity: sha512-8RA9LXv6n+2bZcfcIQSYkETerJZXE3hPo0LSCmq5BBFTkw2WT8CxM4Tu9QaCD0fT4Yb7DM45gzl3tOksFrXLsA==}
     engines: {node: '>=14.18.0'}
 
-  ranges-push@7.0.15:
-    resolution: {integrity: sha512-gXpBYQ5Umf3uG6jkJnw5ddok2Xfo5p22rAJBLrqzNKa7qkj3q5AOCoxfRPXEHUVaJutfXc9K9eGXdIzdyQKPkw==}
+  ranges-push@7.0.19:
+    resolution: {integrity: sha512-WJZHju2Unc9FXWFUAE6t+MWdY02Rtxuj/FZf4Q+JEQs60ygbo+4BYwgE29ldEkPwmKBItHqwqPNnif7KxMS80g==}
     engines: {node: '>=14.18.0'}
 
-  ranges-sort@6.0.11:
-    resolution: {integrity: sha512-fhNEG0vGi7bESitNNqNBAfYPdl2efB+1paFlI8BQDCNkruERKuuhG8LkQClDIVqUJLkrmKuOSPQ3xZHqVnVo3Q==}
+  ranges-sort@6.0.14:
+    resolution: {integrity: sha512-ztTG7KAMZ72FAbKLG2GpLavnD+89c6KqeCl1C5lTyvKRFjFd5CbnM1wf3fe/o+7hV2PNiDx2mZ9EtCtPIfk7gw==}
     engines: {node: '>=14.18.0'}
 
   react-dom@18.3.1:
@@ -4872,27 +4872,27 @@ packages:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
 
-  string-collapse-leading-whitespace@7.0.7:
-    resolution: {integrity: sha512-jF9eynJoE6ezTCdYI8Qb02/ij/DlU9ItG93Dty4SWfJeLFrotOr+wH9IRiWHTqO3mjCyqBWEiU3uSTIbxYbAEQ==}
+  string-collapse-leading-whitespace@7.0.9:
+    resolution: {integrity: sha512-lEuTHlogBT9PWipfk0FOyvoMKX8syiE03QoFk5MDh8oS0AJ2C07IlstR5cGkxz48nKkOIuvkC28w9Rx/cVRNDg==}
     engines: {node: '>=14.18.0'}
 
   string-env-interpolation@1.0.1:
     resolution: {integrity: sha512-78lwMoCcn0nNu8LszbP1UA7g55OeE4v7rCeWnM5B453rnNr4aq+5it3FEYtZrSEiMvHZOZ9Jlqb0OD0M2VInqg==}
 
-  string-left-right@6.0.17:
-    resolution: {integrity: sha512-nuyIV4D4ivnwT64E0TudmCRg52NfkumuEUilyoOrHb/Z2wEOF5I+9SI6P+veFKqWKZfGpAs6OqKe4nAjujARyw==}
+  string-left-right@6.0.21:
+    resolution: {integrity: sha512-XmtL81F4iSCkKHzUz6KyqSTnh2ef3kccQtyAtqyHYv22Q6qOKS6CvOwEFY5nBTXc3WskfZCTM6ArOGJgFh3tDA==}
     engines: {node: '>=14.18.0'}
 
   string-similarity@4.0.4:
     resolution: {integrity: sha512-/q/8Q4Bl4ZKAPjj8WerIBJWALKkaPRfrvhfF8k/B23i4nzrlRj2/go1m90In7nG/3XDSbOo0+pu6RvCTM9RGMQ==}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
-  string-strip-html@13.4.8:
-    resolution: {integrity: sha512-vlcRAtx5DN6zXGUx3EYGFg0/JOQWM65mqLgDaBHviQPP+ovUFzqZ30iQ+674JHWr9wNgnzFGxx9TGipPZMnZXg==}
+  string-strip-html@13.4.13:
+    resolution: {integrity: sha512-bth9qxlu/ZEJsy0MMlnrHYxtgW8VOvmhLMpcLh1oV5U0I3h4wBvHBTnZpB4o/V4/UepGNlaazdXS47C0WqyxFA==}
     engines: {node: '>=14.18.0'}
 
-  string-trim-spaces-only@5.0.10:
-    resolution: {integrity: sha512-MhmjE5jNqb1Ylo+BARPRlsdChGLrnPpAUWrT1VOxo9WhWwKVUU6CbZTfjwKaQPYTGS/wsX/4Zek88FM2rEb5iA==}
+  string-trim-spaces-only@5.0.13:
+    resolution: {integrity: sha512-NGYfr+ZPkE8OKvrkEysuHPhgPifpe6fd0NfdXUlLVykaZxBDuNW+Ln2ja9dvaWlC69vqh6ZbEbOLbfiEDgomCQ==}
     engines: {node: '>=14.18.0'}
 
   string-width@4.2.3:
@@ -7253,9 +7253,9 @@ snapshots:
 
   '@types/lodash-es@4.17.12':
     dependencies:
-      '@types/lodash': 4.17.13
+      '@types/lodash': 4.17.20
 
-  '@types/lodash@4.17.13': {}
+  '@types/lodash@4.17.20': {}
 
   '@types/mdast@3.0.15':
     dependencies:
@@ -7719,7 +7719,7 @@ snapshots:
 
   codemirror@5.65.19: {}
 
-  codsen-utils@1.6.4:
+  codsen-utils@1.6.8:
     dependencies:
       rfdc: 1.4.1
 
@@ -8927,7 +8927,7 @@ snapshots:
 
   heap@0.2.7: {}
 
-  html-entities@2.5.2: {}
+  html-entities@2.6.0: {}
 
   html-void-elements@3.0.0: {}
 
@@ -10541,24 +10541,24 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  ranges-apply@7.0.16:
+  ranges-apply@7.0.20:
     dependencies:
-      ranges-merge: 9.0.15
+      ranges-merge: 9.0.19
       tiny-invariant: 1.3.3
 
-  ranges-merge@9.0.15:
+  ranges-merge@9.0.19:
     dependencies:
-      ranges-push: 7.0.15
-      ranges-sort: 6.0.11
+      ranges-push: 7.0.19
+      ranges-sort: 6.0.14
 
-  ranges-push@7.0.15:
+  ranges-push@7.0.19:
     dependencies:
-      codsen-utils: 1.6.4
-      ranges-sort: 6.0.11
-      string-collapse-leading-whitespace: 7.0.7
-      string-trim-spaces-only: 5.0.10
+      codsen-utils: 1.6.8
+      ranges-sort: 6.0.14
+      string-collapse-leading-whitespace: 7.0.9
+      string-trim-spaces-only: 5.0.13
 
-  ranges-sort@6.0.11: {}
+  ranges-sort@6.0.14: {}
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
@@ -11037,28 +11037,28 @@ snapshots:
 
   streamsearch@1.1.0: {}
 
-  string-collapse-leading-whitespace@7.0.7: {}
+  string-collapse-leading-whitespace@7.0.9: {}
 
   string-env-interpolation@1.0.1: {}
 
-  string-left-right@6.0.17:
+  string-left-right@6.0.21:
     dependencies:
-      codsen-utils: 1.6.4
+      codsen-utils: 1.6.8
       rfdc: 1.4.1
 
   string-similarity@4.0.4: {}
 
-  string-strip-html@13.4.8:
+  string-strip-html@13.4.13:
     dependencies:
       '@types/lodash-es': 4.17.12
-      codsen-utils: 1.6.4
-      html-entities: 2.5.2
+      codsen-utils: 1.6.8
+      html-entities: 2.6.0
       lodash-es: 4.17.21
-      ranges-apply: 7.0.16
-      ranges-push: 7.0.15
-      string-left-right: 6.0.17
+      ranges-apply: 7.0.20
+      ranges-push: 7.0.19
+      string-left-right: 6.0.21
 
-  string-trim-spaces-only@5.0.10: {}
+  string-trim-spaces-only@5.0.13: {}
 
   string-width@4.2.3:
     dependencies:
