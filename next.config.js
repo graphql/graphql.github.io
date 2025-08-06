@@ -147,6 +147,11 @@ export default withLess(
           source: "/graphql",
           destination: "https://swapi-graphql.netlify.app/graphql",
         },
+        {
+          source: "/conf/2025/event-resources",
+          destination:
+            "https://www.google.com/url?q=https://sites.google.com/linuxfoundation.org/graphqlconf2025event-resources/event-resources&source=gmail-imap&ust=1754974712000000&usg=AOvVaw1NvDyBiJr4bkg-wmcvaYk3",
+        },
       ]
     },
   }),
