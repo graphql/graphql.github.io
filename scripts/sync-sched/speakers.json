@@ -243,26 +243,6 @@
       "~syncedDetailsAt": 1749497543087
     },
     {
-      "username": "aleymet",
-      "company": "Bouygues Telecom",
-      "position": "Principal Engineer, Senior Architect (freelance)",
-      "name": "Arnaud Leymet",
-      "about": "A dedicated Senior Solutions Architect & Staff Engineer with a proven ability to lead projects and drive software development initiatives. I thrive in dynamic environments, leveraging my strong technical skills, deep product knowledge and collaborative approach to drive innovation and deliver composable and impactful solutions.",
-      "location": "",
-      "url": "https://arnley.com",
-      "avatar": "//avatars.sched.co/4/80/23098717/avatar.jpg.320x320px.jpg?ed8",
-      "socialurls": [
-        {
-          "service": "LinkedIn",
-          "url": "https://linkedin.com/in/arnley"
-        }
-      ],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1753215856700
-    },
-    {
       "username": "amanda1988",
       "company": "Buffer",
       "position": "Staff Product Manager",
@@ -780,7 +760,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1754671960621
     },
     {
       "username": "christian.ernst",
@@ -1723,7 +1703,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1754671960621
     },
     {
       "username": "kamilkisiela",
@@ -2055,7 +2035,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754671960621
     },
     {
       "username": "mail1232",
@@ -2132,6 +2112,26 @@
       "~syncedDetailsAt": 1749505650884
     },
     {
+      "username": "mark1437",
+      "company": "Yelp",
+      "position": "Software Engineer",
+      "name": "Mark Larah",
+      "about": "Mark leads GraphQL infrastructure and tooling at Yelp.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/e/b9/23416744/avatar.jpg.320x320px.jpg?fb2",
+      "socialurls": [
+        {
+          "service": "Twitter",
+          "url": "https://x.com/mark_larah"
+        }
+      ],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1754671960621
+    },
+    {
       "username": "martijn.walraven",
       "company": "Apollo",
       "position": "Software Engineer",
@@ -2145,7 +2145,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754671960621
     },
     {
       "username": "martinbonnin42",
@@ -2326,7 +2326,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1754671960621
     },
     {
       "username": "michael.astle",
@@ -2411,7 +2411,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1754671960622
     },
     {
       "username": "patrick.arminio",
@@ -2598,9 +2598,9 @@
     {
       "username": "rickbijkerk54",
       "company": "Bol",
-      "position": "Software Engineer @ Bol",
+      "position": "Software Engineer",
       "name": "Rick Bijkerk",
-      "about": "todo",
+      "about": "Software Engineer living in the Netherlands, working for Bol sinds 2021",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/d/6a/19320231/avatar.jpg.320x320px.jpg?4cd",
@@ -2609,21 +2609,6 @@
         2025
       ],
       "~syncedDetailsAt": 1752503797083
-    },
-    {
-      "username": "rkhatwan",
-      "company": "Bouygues Telecom",
-      "position": "",
-      "name": "Ravi Khatwani",
-      "about": "",
-      "location": "",
-      "url": "",
-      "avatar": "",
-      "socialurls": [],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1752072949897
     },
     {
       "username": "robert.balicki",
@@ -2640,7 +2625,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1754671960622
     },
     {
       "username": "robrichard87",
@@ -2656,7 +2641,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1754671960622
     },
     {
       "username": "ruben.cagnie",
@@ -3328,7 +3313,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751036941512
+      "~syncedDetailsAt": 1754671960621
     },
     {
       "username": "watson17",
