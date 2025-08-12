@@ -33,13 +33,6 @@ const sponsorGold: Sponsor[] = [
     name: "Apollo",
     link: "https://www.apollographql.com",
   },
-  {
-    icon: (props: React.SVGProps<SVGElement>) => (
-      <Netflix {...props} className={clsx(props.className)} />
-    ),
-    name: "Netflix",
-    link: "https://netflix.com",
-  },
 ]
 
 const sponsorSilver: Sponsor[] = [
@@ -76,6 +69,13 @@ const sponsorSilver: Sponsor[] = [
     ),
     name: "Meta",
     link: "https://about.facebook.com/meta/",
+  },
+  {
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <Netflix {...props} className={clsx(props.className)} />
+    ),
+    name: "Netflix",
+    link: "https://netflix.com",
   },
 ]
 
