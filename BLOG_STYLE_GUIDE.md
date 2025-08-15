@@ -53,7 +53,7 @@ This list is non-exhaustive. If there is something you would like to see on the 
 - Use clear headers (`##`, `###`) to organize sections.
 - Limit paragraphs to 3–5 sentences.
 - Use bullet points or numbered lists for step-by-step content.
-- Include **code samples** where relevant (see Code Style below).
+- Include **code samples** where relevant.
 - Use callouts for **tips**, **warnings**, or **best practices**.
 
 ### Conclusion
@@ -73,7 +73,7 @@ This list is non-exhaustive. If there is something you would like to see on the 
 ## ❌ Don't
 
 - Don’t assume the reader knows your stack.
-- Don't overuse of metaphors. Use them sparingly to aid understanding.
+- Don't overuse metaphors; use them sparingly to aid understanding.
 - Don't overuse passive voice. Active voice often brings more clarity.
 - Don't overuse future tense. The present tense often brings more clarity.
 
