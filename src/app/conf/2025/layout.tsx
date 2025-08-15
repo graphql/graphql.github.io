@@ -64,7 +64,7 @@ export default function Layout({
           [
             {
               children: "Code of Conduct",
-              href: "/conf/2025/resources/#code-of-conduct",
+              href: "/conf/2025/code-of-conduct",
             },
             {
               children: "Inclusion & Accessibility",

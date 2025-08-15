@@ -1,12 +1,23 @@
-import React from "react"
+import React, { Fragment } from "react"
+import { ics, google, outlook, CalendarEvent } from "calendar-link"
+import { clsx } from "clsx"
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Transition,
+} from "@headlessui/react"
 
 import { SchedSpeaker, ScheduleSession } from "@/app/conf/_api/sched-types"
 import { Anchor } from "@/app/conf/_design-system/anchor"
 import { Tag } from "@/app/conf/_design-system/tag"
 
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
+import ClockIcon from "@/app/conf/_design-system/pixelarticons/clock.svg?svgr"
 
 import { getEventTitle } from "../../utils"
+import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
 
 function isString(x: unknown): x is string {
   return Object.prototype.toString.call(x) === "[object String]"
@@ -16,10 +27,12 @@ export function ScheduleSessionCard({
   session,
   year,
   eventsColors,
+  blockEnd,
 }: {
   session: ScheduleSession
   year: `202${number}`
   eventsColors: Record<string, string>
+  blockEnd: Date
 }) {
   let eventType = session.event_type
 
@@ -40,17 +53,43 @@ export function ScheduleSessionCard({
 
   const eventColor = eventsColors[session.event_type]
 
+  let blockTimeFraction = 1
+  if (blockEnd.getTime() !== new Date(session.event_end).getTime()) {
+    blockTimeFraction =
+      (new Date(session.event_end).getTime() -
+        new Date(session.event_start).getTime()) /
+      (blockEnd.getTime() - new Date(session.event_start).getTime())
+  }
+
   return session.event_type === "Breaks" ? (
     <div className="flex size-full items-center bg-neu-0 px-4 py-2 font-normal">
       {eventTitle}
     </div>
   ) : (
-    <div className="group relative size-full bg-neu-0 p-4 font-normal no-underline ring-neu-400 focus-visible:z-[1] dark:ring-neu-100 dark:hover:bg-neu-0/80 [&:has(>a:hover)]:bg-neu-0/90 [&:has(>a:hover)]:ring-1">
+    <div
+      // eslint-disable-next-line tailwindcss/no-contradicting-classname
+      className={clsx(
+        "[--bg:hsl(var(--color-neu-0))] [&:has(>a:hover)]:[--bg:hsl(var(--color-neu-0)/.9)] dark:[&:has(>a:hover)]:[--bg:hsl(var(--color-neu-0)/.8)]",
+        "group relative size-full p-4 font-normal no-underline ring-neu-400 focus-visible:z-[1] dark:ring-neu-100 [&:has(>a:hover)]:ring-1",
+        blockTimeFraction < 1 && "[--bg:hsl(var(--color-neu-0)/50)]",
+      )}
+      style={
+        {
+          "--time": `${blockTimeFraction * 100}%`,
+          background:
+            blockTimeFraction < 1
+              ? `linear-gradient(to bottom, var(--bg), var(--bg) var(--time), hsl(var(--color-neu-0)/.8) var(--time), hsl(var(--color-neu-0)/.8))`
+              : "var(--bg)",
+        } as {}
+      }
+    >
       <Anchor
         id={`session-${session.id}`}
         href={`/conf/${year}/schedule/${session.id}?name=${session.name}`}
         className="absolute inset-0 z-[1] ring-inset ring-neu-400 hover:ring-1 dark:ring-neu-100"
-        aria-label={`Read more about "${eventTitle}" by ${speakers.map(s => s.name).join(", ")}`}
+        aria-label={`Read more about "${eventTitle}" by ${speakers
+          .map(s => s.name)
+          .join(", ")}`}
       />
       <span className="flex h-full flex-col justify-start">
         {eventType && (
@@ -83,13 +122,111 @@ export function ScheduleSessionCard({
                 ))}
               </span>
             )}
-            <span className="typography-body-xs mt-2 flex items-center gap-0.5">
-              <PinIcon className="size-4 text-pri-base" />
-              {session.venue}
+            <span className="mt-4 flex items-center gap-2 xl:mt-6">
+              <span className="typography-body-xs flex items-center gap-0.5">
+                <PinIcon className="size-4 text-pri-base" />
+                {session.venue}
+              </span>
+              {blockTimeFraction < 1 && (
+                <span className="typography-body-xs flex items-center gap-0.5">
+                  <ClockIcon className="size-4 text-pri-base" />
+                  {Math.round(
+                    (new Date(session.event_end).getTime() -
+                      new Date(session.event_start).getTime()) /
+                      (1000 * 60),
+                  )}{" "}
+                  min
+                </span>
+              )}
+              <AddToCalendarLink
+                eventTitle={eventTitle}
+                session={session}
+                speakers={session.speakers || []}
+                className="ml-auto"
+              />
             </span>
           </span>
         </span>
       </span>
     </div>
+  )
+}
+
+function AddToCalendarLink({
+  eventTitle,
+  session,
+  speakers,
+  className,
+}: {
+  eventTitle: string
+  session: ScheduleSession
+  speakers: SchedSpeaker[]
+  className?: string
+}) {
+  const calendarEvent: CalendarEvent = {
+    title: eventTitle,
+    start: session.event_start,
+    end: session.event_end,
+    description: session.description,
+    location: session.venue,
+    organizer: {
+      name: `GraphQLConf ${new Date().getFullYear()}`,
+      email: "graphql_events@linuxfoundation.org",
+    },
+    guests: speakers.map(s => s.name),
+  }
+
+  const calendars = {
+    ICS: ics,
+    Google: google,
+    Outlook: outlook,
+  }
+
+  return (
+    <Menu
+      as="div"
+      className={clsx("relative z-[2] inline-block text-left", className)}
+    >
+      <div>
+        <MenuButton
+          className={clsx(
+            "inline-flex w-full items-center justify-center gap-0.5 p-1",
+            "ring-neu-400 hover:bg-neu-50/50 hover:ring-1 focus:outline-none focus:ring-1 dark:ring-neu-100 [&[aria-expanded=true]]:ring-2",
+          )}
+        >
+          <CalendarIcon className="size-4 shrink-0 text-pri-base" />
+          <span className="typography-body-xs">Add to calendar</span>
+        </MenuButton>
+      </div>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <MenuItems
+          anchor="bottom end"
+          className="mt-2 w-40 origin-top-right border border-neu-400 bg-neu-0 focus:outline-none"
+        >
+          <div className="p-1">
+            {Object.entries(calendars).map(([name, calendar]) => (
+              <MenuItem key={name}>
+                <a
+                  href={calendar(calendarEvent)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group typography-body-xs flex w-full items-center px-2 py-1 text-neu-800 [&[data-active]]:bg-neu-100 [&[data-active]]:text-neu-900 dark:[&[data-active]]:bg-neu-50"
+                >
+                  {name}
+                </a>
+              </MenuItem>
+            ))}
+          </div>
+        </MenuItems>
+      </Transition>
+    </Menu>
   )
 }

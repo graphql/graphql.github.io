@@ -4,7 +4,7 @@ import Image from "next-image-export-optimizer"
 import type { StaticImageData } from "next/image"
 
 import { Button } from "@/app/conf/_design-system/button"
-import { BECOME_A_SPEAKER_LINK } from "../../links"
+import { GET_TICKETS_LINK } from "../../links"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import {
   SocialIconType,
@@ -111,8 +111,8 @@ export default function TopMindsSection({
                 View all speakers
               </Button>
             ) : (
-              <Button variant="secondary" href={BECOME_A_SPEAKER_LINK}>
-                Become a speaker
+              <Button variant="secondary" href={GET_TICKETS_LINK}>
+                Get tickets
               </Button>
             )}
           </div>

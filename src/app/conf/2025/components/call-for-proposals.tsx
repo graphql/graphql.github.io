@@ -104,7 +104,7 @@ function NotesTab() {
           All speakers are required to adhere to our{" "}
           <Link
             className="typography-link dark:text-neu-50"
-            href="/conf/2025/resources/#code-of-conduct"
+            href="/conf/2025/code-of-conduct"
           >
             Code of Conduct
           </Link>

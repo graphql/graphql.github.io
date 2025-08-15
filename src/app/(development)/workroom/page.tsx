@@ -1,11 +1,18 @@
-import { SpeakerOpengraphImage } from "@/app/conf/2025/components/speaker-opengraph-image"
-import { SessionOpengraphImage } from "@/app/conf/2025/components/session-opengraph-image"
+import { SpeakerOpengraphImage } from "@/app/conf/2025/components/og-images/speaker-opengraph-image"
+import { SessionOpengraphImage } from "@/app/conf/2025/components/og-images/session-opengraph-image"
+import { GenericOpengraphImage } from "@/app/conf/2025/components/og-images/generic-opengraph-image"
 import { SchedSpeaker } from "@/app/conf/2023/types"
 
 /**
  * This is cheaper than maintaining a Storybook config.
  */
 export default function WorkroomPage() {
+  const dateAndLocation = {
+    date: "September 8-10",
+    year: "2025",
+    location: "Amsterdam, Netherlands",
+  }
+
   const enisdenjo: SchedSpeaker = {
     name: "Denis Badurina",
     username: "enisdenjo",
@@ -35,12 +42,7 @@ export default function WorkroomPage() {
   return (
     <main className="gql-conf-section gql-conf-container [&>p]:pt-8 [&>p]:font-mono [&>p]:text-sm [&>p]:text-neu-600">
       <p>SpeakerOpengraphImage</p>
-      <SpeakerOpengraphImage
-        speaker={enisdenjo}
-        date="September 8-10"
-        year="2025"
-        location="Amsterdam, Netherlands"
-      />
+      <SpeakerOpengraphImage speaker={enisdenjo} {...dateAndLocation} />
 
       <p>ScheduleOpengraphImage / no speakers</p>
       <SessionOpengraphImage
@@ -50,9 +52,7 @@ export default function WorkroomPage() {
           event_type: "",
           event_subtype: "",
         }}
-        date="September 8-10"
-        year="2025"
-        location="Amsterdam, Netherlands"
+        {...dateAndLocation}
       />
 
       <p>ScheduleOpengraphImage / single speaker</p>
@@ -63,9 +63,7 @@ export default function WorkroomPage() {
           event_type: "Keynote Sessions",
           event_subtype: "",
         }}
-        date="September 8-10"
-        year="2025"
-        location="Amsterdam, Netherlands"
+        {...dateAndLocation}
       />
 
       <p>ScheduleOpengraphImage / multiple speakers</p>
@@ -76,9 +74,7 @@ export default function WorkroomPage() {
           event_type: "Developer Experience",
           event_subtype: "Backend",
         }}
-        date="September 8-10"
-        year="2025"
-        location="Amsterdam, Netherlands"
+        {...dateAndLocation}
       />
 
       <p>SpeakerOpengraphImage / very long title</p>
@@ -107,10 +103,17 @@ export default function WorkroomPage() {
           event_type: "Keynote Sessions",
           event_subtype: "",
         }}
-        date="September 8-10"
-        year="2025"
-        location="Amsterdam, Netherlands"
+        {...dateAndLocation}
       />
+
+      <p>GenericOpengraphImage / GraphQLConf 2025</p>
+      <GenericOpengraphImage
+        pageTitle="GraphQLConf 2025"
+        {...dateAndLocation}
+      />
+
+      <p>GenericOpengraphImage / Sponsors</p>
+      <GenericOpengraphImage pageTitle="Sponsors" {...dateAndLocation} />
     </main>
   )
 }

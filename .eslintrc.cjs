@@ -109,6 +109,7 @@ module.exports = {
       rules: {
         "mdx/remark": "error",
         "no-unused-expressions": "off",
+        "react/jsx-no-undef": "off",
       },
     },
     {

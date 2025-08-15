@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og"
 import { loadFontsForOG } from "@/app/fonts/og/load-fonts-for-og"
 
 import { schedule } from "../../_data"
-import { SessionOpengraphImage } from "../../components/session-opengraph-image"
+import { SessionOpengraphImage } from "../../components/og-images/session-opengraph-image"
 
 export const contentType = "image/png"
 export const size = {

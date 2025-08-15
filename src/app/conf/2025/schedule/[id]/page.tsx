@@ -22,6 +22,7 @@ import { CtaCardSection } from "../../components/cta-card-section"
 import { Button } from "@/app/conf/_design-system/button"
 import { SessionTags } from "../../components/session-tags"
 import { formatDescription } from "./format-description"
+import { formatBlockTime } from "../_components/format-block-time"
 
 type SessionProps = { params: { id: string } }
 
@@ -194,10 +195,15 @@ function SessionHeader({
           <div className="flex items-center gap-2">
             <CalendarIcon className="size-5 text-sec-darker dark:text-sec-light/90 sm:size-6" />
             <time dateTime={event.event_start}>
-              {new Date(event.event_start).toLocaleDateString("en-US", {
+              {new Date(event.event_start).toLocaleString("en-US", {
                 day: "numeric",
                 month: "long",
               })}
+              {", "}
+              {formatBlockTime(
+                event.event_start,
+                event.event_end ? new Date(event.event_end) : undefined,
+              )}
             </time>
           </div>
           <div className="flex items-center gap-2">

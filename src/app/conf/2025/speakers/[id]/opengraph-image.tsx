@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og"
 import { loadFontsForOG } from "@/app/fonts/og/load-fonts-for-og"
 
 import { speakers } from "../../_data"
-import { SpeakerOpengraphImage } from "../../components/speaker-opengraph-image"
+import { SpeakerOpengraphImage } from "../../components/og-images/speaker-opengraph-image"
 
 export const contentType = "image/png"
 export const size = {

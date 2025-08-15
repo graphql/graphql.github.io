@@ -27,6 +27,25 @@ export default withLess(
   withNextra({
     // reactStrictMode: true, provoke duplicated codemirror editors
     webpack(config) {
+      // #region MDX
+      const mdxRule = config.module.rules.find(rule =>
+        rule.test?.test?.(".mdx"),
+      )
+      if (mdxRule) {
+        mdxRule.resourceQuery = {
+          not: /raw/,
+        }
+      }
+      // Instead of transforming MDX, with ?source we can get
+      // the raw content to process in a Server Component.
+      config.module.rules.push({
+        test: /\.mdx$/i,
+        resourceQuery: /raw/,
+        type: "asset/source",
+      })
+      // #endregion MDX
+
+      // #region SVGs
       const fileLoaderRule = config.module.rules.find(rule =>
         rule.test?.test?.(".svg"),
       )
@@ -62,9 +81,11 @@ export default withLess(
           },
         },
       )
+      // #endregion SVGs
 
       return config
     },
+    // Comment this out if you're working on OG images.
     output: "export",
     images: {
       loader: "custom",

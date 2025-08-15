@@ -1,14 +1,11 @@
 import type { SchedSpeaker, ScheduleSession } from "@/app/conf/2023/types"
-import {
-  ConferenceOpengraphImageHeader,
-  normalizeProtocolRelativeUrl,
-  colors,
-  OpengraphImageFooter,
-  fonts,
-} from "./speaker-opengraph-image"
-import { getEventTitle } from "../utils"
-import { formatSpeakerPosition } from "./format-speaker-position"
-import { speakers as allSpeakers } from "../_data"
+import { colors, fonts } from "./speaker-opengraph-image"
+import { ConferenceOpengraphImageHeader } from "./conference-opengraph-image-header"
+import { OpengraphImageFooter } from "./opengraph-image-footer"
+import { normalizeProtocolRelativeUrl } from "./normalize-protocol-relative-url"
+import { getEventTitle } from "../../utils"
+import { formatSpeakerPosition } from "../format-speaker-position"
+import { speakers as allSpeakers } from "../../_data"
 
 export interface SessionOpengraphImageProps
   extends React.HTMLAttributes<HTMLElement> {
