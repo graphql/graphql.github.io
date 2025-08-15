@@ -136,7 +136,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751472966787
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "ajhingran",
@@ -255,7 +255,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751472966787
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "amy1908",
@@ -792,14 +792,15 @@
       "position": "Senior Software Engineer",
       "name": "Christian Ernst",
       "about": "Christian is currently a Senior Software Engineer at Booking.com. For the last three years Christian has been working to drive the GraphQL initiative across the company by helping teams adopt build new features leveraging GraphQL.",
-      "location": "",
+      "location": "Amsterdam",
       "url": "",
       "avatar": "//avatars.sched.co/9/39/21066804/avatar.jpg.320x320px.jpg?fff",
       "socialurls": [],
       "_years": [
-        2024
+        2024,
+        2025
       ],
-      "~syncedDetailsAt": 1749505494947
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "christian.stangier",
@@ -909,7 +910,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751472966787
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "dkuc",
@@ -1037,7 +1038,7 @@
     },
     {
       "username": "en3m",
-      "company": "-",
+      "company": "Independent",
       "position": "dimaMachina.com",
       "name": "Dimitri Postolov",
       "about": "Open Source developer from Paris\nGraphQL-ESLint, Nextra and GraphiQL maintener",
@@ -1736,6 +1737,21 @@
       "~syncedDetailsAt": 1754078014495
     },
     {
+      "username": "kbahl",
+      "company": "Atlassian",
+      "position": "",
+      "name": "Kritika Bahl",
+      "about": "",
+      "location": "",
+      "url": "",
+      "avatar": "",
+      "socialurls": [],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1755272663350
+    },
+    {
       "username": "keerthan.ekbote",
       "company": "solo.io",
       "position": "Mr.",
@@ -2065,7 +2081,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751472966787
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "marco.reni",
@@ -2672,7 +2688,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "saihaj",
@@ -2741,7 +2757,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1751472966787
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "sasanders26",
@@ -2893,21 +2909,6 @@
       "~syncedDetailsAt": 1749502079623
     },
     {
-      "username": "shawsourav91",
-      "company": "Atlassian",
-      "position": "Principal Engineer",
-      "name": "Sourav Shaw",
-      "about": "Engineer with decade of experience in software. Worked across platform and product teams at Atlassian.\nCurrently working as an architect in Jira's Issue Domain at Atlassian.",
-      "location": "",
-      "url": "",
-      "avatar": "//avatars.sched.co/6/e0/23098801/avatar.jpg.320x320px.jpg?8c8",
-      "socialurls": [],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1752503797083
-    },
-    {
       "username": "siva27",
       "company": "Intuit",
       "position": "Staff Software Engineer",
@@ -2977,7 +2978,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "stefan239",
@@ -3263,7 +3264,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1751036945383
+      "~syncedDetailsAt": 1755272663351
     },
     {
       "username": "vincent.desmares",
@@ -3283,9 +3284,9 @@
     {
       "username": "vivekyadav.cse.2005",
       "company": "Atlassian",
-      "position": "Modernizing a Million Lines of Code: Jira's Journey to GraphQL and Relay",
+      "position": "",
       "name": "Vivek Yadav",
-      "about": "Masters from IIT Roorkee. Engineer with decade of experience in software previously Worked in Amazon & Uber. \nIn Atlassian Using GraphQL to handle JIRA's scale and optimising for better observability, safe rollouts and making JIRA more responsive.",
+      "about": "Masters from IIT Roorkee. Engineer with decade of experience in software previously Worked in Amazon & Uber.\nIn Atlassian Using GraphQL to handle JIRA's scale and optimising for better observability, safe rollouts and making JIRA more responsive.",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/5/b1/23098813/avatar.jpg.320x320px.jpg?d11",
@@ -3300,7 +3301,7 @@
       "company": "The New York Times",
       "position": "Android Engineer",
       "name": "Vanessa Johnson",
-      "about": "Vanessa Johnson is an Android Engineer at The New York Times working on the Games Android app. She loves building mobile apps and any technical topics she finds interesting. She is passionate about accessibility, is working on various side projects, and has a newsletter & a podcast. When she isn’t coding she is usually playing pickup basketball or watching a horror movie.",
+      "about": "Vanessa Johnson is an Android Engineer at The New York Times working on the Games Android app. She loves building mobile apps and any technical topics she finds interesting. She is passionate about accessibility, is working on various side projects, and has a newsletter & an upcoming podcast. When she isn’t coding she is usually playing pickup basketball or watching a horror movie.",
       "location": "New York City",
       "url": "https://vanessamj99.github.io",
       "avatar": "//avatars.sched.co/c/54/23098810/avatar.jpg.320x320px.jpg?394",
