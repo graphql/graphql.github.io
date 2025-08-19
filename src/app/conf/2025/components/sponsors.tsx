@@ -1,6 +1,7 @@
 import Grafbase from "public/img/conf/Sponsors/Grafbase.svg?svgr"
 import Apollo from "public/img/conf/Sponsors/Apollo.svg?svgr"
 import Netflix from "public/img/conf/Sponsors/Netflix.svg?svgr"
+import TheGuild from "public/img/conf/Sponsors/TheGuild.svg?svgr"
 
 import { clsx } from "clsx"
 import { ChevronRight } from "../../_design-system/pixelarticons/chevron-right"
@@ -31,6 +32,11 @@ const sponsorGold: Sponsor[] = [
     ),
     name: "Apollo",
     link: "https://www.apollographql.com",
+  },
+  {
+    icon: (props: React.SVGProps<SVGElement>) => <TheGuild {...props} />,
+    name: "The Guild",
+    link: "https://the-guild.dev",
   },
 ]
 
