@@ -36,7 +36,7 @@ const sponsorGold: Sponsor[] = [
   {
     icon: (props: React.SVGProps<SVGElement>) => <TheGuild {...props} />,
     name: "The Guild",
-    link: "https://the-guild.dev",
+    link: "https://the-guild.dev/graphql/hive",
   },
 ]
 
