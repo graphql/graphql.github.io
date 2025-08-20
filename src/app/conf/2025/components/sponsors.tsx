@@ -34,7 +34,15 @@ const sponsorGold: Sponsor[] = [
     link: "https://www.apollographql.com",
   },
   {
-    icon: (props: React.SVGProps<SVGElement>) => <TheGuild {...props} />,
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <TheGuild
+        {...props}
+        className={clsx(
+          props.className,
+          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
+        )}
+      />
+    ),
     name: "The Guild",
     link: "https://the-guild.dev/graphql/hive",
   },
