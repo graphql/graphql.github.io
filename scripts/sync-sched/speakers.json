@@ -65,7 +65,7 @@
       "company": "Airbnb",
       "position": "Viaduct Platform Lead",
       "name": "Adam Miskiewicz",
-      "about": "Adam is a Senior Staff Software Engineer at Airbnb, where he leads platform architecture with a focus on performance, developer experience, and large-scale GraphQL systems. He’s one of the core architects behind Viaduct, Airbnb’s multi-tenant GraphQL platform, and is known for turning complex ideas into scalable, developer-friendly infrastructure. When he's not deep in Kotlin or shaping deployment strategy, he's probably pushing teams to move faster — safely.",
+      "about": "Adam is a Principal Software Engineer at Airbnb, where he leads platform architecture with a focus on performance, developer experience, and large-scale GraphQL systems. He’s one of the core architects behind Viaduct, Airbnb’s multi-tenant GraphQL platform, and is known for turning complex ideas into scalable, developer-friendly infrastructure. When he's not deep in Kotlin or shaping deployment strategy, he's probably pushing teams to move faster — safely.",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/8/82/23352721/avatar.jpg.320x320px.jpg?bfd",
@@ -136,7 +136,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095186
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "ajhingran",
@@ -255,7 +255,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095186
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "amy1908",
@@ -483,7 +483,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "ardatanrikulu",
@@ -585,7 +585,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "benjie3",
@@ -626,7 +626,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "borisbesemer",
@@ -641,7 +641,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "brandon.r.minnick",
@@ -830,7 +830,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "danadajian",
@@ -865,7 +865,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "danielle.man",
@@ -910,7 +910,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "dkuc",
@@ -1127,7 +1127,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1755532095187
+      "~syncedDetailsAt": 1755876669495
     },
     {
       "username": "fbjork",
@@ -1377,12 +1377,12 @@
     },
     {
       "username": "ivan.goncharov.ua",
-      "company": "ApolloGraphQL",
-      "position": "Staff Software Engineer",
+      "company": "KeenEthics",
+      "position": "Head of R&D",
       "name": "Ivan Goncharov",
       "about": "Ivan has been active in the GraphQL community since its early days and is currently a member of the GraphQL Technical Steering Committee.",
-      "location": "",
-      "url": "",
+      "location": "Lviv",
+      "url": "https://apis.guru",
       "avatar": "//avatars.sched.co/d/6f/23096422/avatar.jpg.320x320px.jpg?958",
       "socialurls": [],
       "_years": [

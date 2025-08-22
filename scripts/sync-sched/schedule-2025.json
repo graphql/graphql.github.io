@@ -778,7 +778,7 @@
     "event_key": "925279",
     "active": "Y",
     "pinned": "N",
-    "name": "See the Graph in GraphQL: Graph Visualization in Action - Ivan Goncharov, ApolloGraphQL",
+    "name": "See the Graph in GraphQL: Graph Visualization in Action - Ivan Goncharov, KeenEthics",
     "event_start": "2025-09-08 11:45",
     "event_end": "2025-09-08 11:55",
     "event_type": "Developer Experience",
@@ -795,7 +795,7 @@
         "username": "ivan.goncharov.ua",
         "id": "23096422",
         "name": "Ivan Goncharov",
-        "company": "ApolloGraphQL",
+        "company": "KeenEthics",
         "custom_order": 0
       }
     ],
@@ -3633,7 +3633,7 @@
     "event_end": "2025-09-10 12:25",
     "event_type": "Developer Experience",
     "description": "One of the great achievements of GraphQL is composable, full-stack type safety: a strongly-typed schema, against which one writes client components, and from which minimal yet sufficient queries are generated. This seamless flow from database to UI, with immediate feedback, compile-time guarantees and great performance, represents an unmatched DevEx breakthrough.\n \nBut what if we use a full-stack client (like Isograph aims to be)? Or use a rich client in combination with a Hasura, Prisma or PostGraphile, and effectively write components against an SQL schema? Have both the GraphQL schema and its operation language become mere implementation details?\n \nIn this talk, I'll explore how GraphQL's apparent disappearance into tooling actually represents its ultimate victory. Even as GraphQL-the-syntax fades from view, its architectural innovations—fragment composability, full-stack type safety, document merging, persisted operations—become the invisible foundation of modern development.\n \nThe best way to honor this legacy isn't to protect its syntax — it's to let its principles be reborn in new forms, evolving as our tools evolve, making app development better for years to come.",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
