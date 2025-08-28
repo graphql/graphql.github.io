@@ -113,7 +113,6 @@ To see this in action, there's an additional field in the example schema, called
 interface Character {
   id: ID!
   name: String!
-  friends: [Character]
   friendsConnection(first: Int, after: ID): FriendsConnection!
   appearsIn: [Episode]!
 }
@@ -121,7 +120,6 @@ interface Character {
 type FriendsConnection {
   totalCount: Int
   edges: [FriendsEdge]
-  friends: [Character]
   pageInfo: PageInfo!
 }
 
