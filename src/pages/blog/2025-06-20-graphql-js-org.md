@@ -1,6 +1,6 @@
 ---
 title: 🆕 Announcing graphql-js.org!
-tags: ["blog"]
+tags: ["announcements"]
 date: 2025-06-20
 byline: GraphQL-js Maintainers
 ---
