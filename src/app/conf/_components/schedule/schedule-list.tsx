@@ -172,7 +172,13 @@ export function ScheduleList({
                       <div className="mb-4 flex flex-col lg:flex-row">
                         <div className="relative">
                           <span className="mb-5 mt-3 inline-block w-20 whitespace-nowrap text-gray-500 lg:mr-7 lg:mt-0 lg:w-28">
-                            {format(parseISO(sessionDate), "hh:mmaaaa 'PDT'")}
+                            {parseISO(sessionDate).toLocaleTimeString(
+                              undefined,
+                              {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              },
+                            )}
                           </span>
                           <div className="absolute right-3 top-0 hidden h-full w-0.5 bg-gray-200 lg:block" />
                         </div>

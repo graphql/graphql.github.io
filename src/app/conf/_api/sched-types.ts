@@ -2,6 +2,9 @@ export type ScheduleSession = {
   id: string
   active: "Y" | "N"
   audience: string
+  /**
+   * can include HTML tags
+   */
   description: string
   event_end: string
   event_start: string
@@ -10,7 +13,7 @@ export type ScheduleSession = {
   name: string
   venue: string
   /**
-   * This is actually audience.
+   * This can actually be audience too.
    */
   company: string
   speakers?: SchedSpeaker[]
@@ -31,7 +34,7 @@ export type SchedSpeaker = {
   socialurls: { service: string; url: string }[]
   /* unix timestamp, ignored when diffing */
   ["~syncedDetailsAt"]?: number
-  /* merged on conflict */
+  /* added on export, merged on conflict */
   _years: ConferenceYear[]
 }
 

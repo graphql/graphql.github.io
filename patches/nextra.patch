@@ -1,0 +1,69 @@
+diff --git a/dist/client/components/image.js b/dist/client/components/image.js
+index 239d72f5921e2d1b7359e569ae5b74c12d7c9d8a..ebeb619da1e3ccb7722e9388c92c1e2192527027 100644
+--- a/dist/client/components/image.js
++++ b/dist/client/components/image.js
+@@ -1,5 +1,5 @@
+ import { jsx } from "react/jsx-runtime";
+-import NextImage from "next/image";
++import NextImage from "next-image-export-optimizer";
+ import { forwardRef } from "react";
+ const Image = forwardRef((props, ref) => {
+   const ComponentToUse = typeof props.src === "object" ? NextImage : "img";
+diff --git a/dist/client/components/index.js b/dist/client/components/index.js
+index 9d05118d3d10e746cd2c020785a0f34465bb8570..218107600d7efed1b5f9d49f0a696b166917d1ce 100644
+--- a/dist/client/components/index.js
++++ b/dist/client/components/index.js
+@@ -14,7 +14,7 @@ import { Tabs } from "./tabs/index.js";
+ import { Td } from "./td.js";
+ import { Th } from "./th.js";
+ import { Tr } from "./tr.js";
+-import { Mermaid } from "@theguild/remark-mermaid/mermaid";
++// import { Mermaid } from "@theguild/remark-mermaid/mermaid";
+ import { MathJax, MathJaxContext } from "better-react-mathjax";
+ import { Playground } from "./playground.js";
+ import { Popup } from "./popup.js";
+@@ -29,7 +29,7 @@ export {
+   ImageZoom,
+   MathJax,
+   MathJaxContext,
+-  Mermaid,
++  // Mermaid, // disabled to use rehype-mermaid and remove cytoscape from the bundle
+   Playground,
+   Popup,
+   Pre,
+diff --git a/dist/client/normalize-pages.js b/dist/client/normalize-pages.js
+index 15afee0c1de26f47d781f423e5ec32e33ad925d3..fefd01736bd2b778df275bf50ac48384d5f63845 100644
+--- a/dist/client/normalize-pages.js
++++ b/dist/client/normalize-pages.js
+@@ -103,7 +103,9 @@ The field key "${metaKey}.items.${key}" in \`_meta\` file refers to a page that
+     }
+     if (item) continue;
+     if (typeof window === "undefined") {
+-      const isValid = metaItem.type === "separator" || metaItem.type === "menu" || metaItem.href;
++      const isValid = metaItem.type === "separator" || metaItem.type === "menu" || metaItem.href
++      // workaround
++      || metaKey === 'conf';
+       if (!isValid) {
+         throw new Error(
+           `Validation of "_meta" file has failed.
+diff --git a/dist/server/compile.js b/dist/server/compile.js
+index c266efec3fe344a81c6d5791b93ab1b2bd268782..4866148a725800ef2326732f78807cca0f04cb7b 100644
+--- a/dist/server/compile.js
++++ b/dist/server/compile.js
+@@ -1,6 +1,6 @@
+ import path from "path";
+ import { createProcessor } from "@mdx-js/mdx";
+-import { remarkMermaid } from "@theguild/remark-mermaid";
++// import { remarkMermaid } from "@theguild/remark-mermaid";
+ import { remarkNpm2Yarn } from "@theguild/remark-npm2yarn";
+ import rehypeKatex from "rehype-katex";
+ import rehypePrettyCode from "rehype-pretty-code";
+@@ -143,7 +143,7 @@ async function compileMdx(source, {
+       development: process.env.NODE_ENV === "development",
+       remarkPlugins: [
+         ...remarkPlugins || [],
+-        remarkMermaid,
++        // remarkMermaid, // disabled to use rehype-mermaid and remove cytoscape from the bundle
+         // should be before remarkRemoveImports because contains `import { Mermaid } from ...`
+         [
+           remarkNpm2Yarn,

@@ -29,7 +29,7 @@ export default function Page() {
 
       {/* <NavbarPlaceholder className="top-0 bg-neu-50 before:bg-white/40 dark:bg-neu-0 dark:before:bg-blk/30" /> */}
       {/* <main className="gql-all-anchors-focusable gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30"> */}
-      <div className="gql-conf-container gql-conf-section">
+      <div className="gql-container gql-section">
         <div className="grid lg:grid-cols-2 lg:gap-5 max-lg:[&>:not(:first-child)]:border-t-0">
           {speakers.map(speaker => (
             <SpeakerCard key={speaker.username} speaker={speaker} year="2025" />
@@ -38,7 +38,7 @@ export default function Page() {
       </div>
 
       <div className="gql-conf-navbar-strip border-t border-neu-200 bg-neu-0 py-8 text-neu-900 before:bg-white/40 dark:border-neu-100 before:dark:bg-blk/30 xl:py-16">
-        <div className="gql-conf-container">
+        <div className="gql-container">
           <FAQ />
 
           <CtaCardSection

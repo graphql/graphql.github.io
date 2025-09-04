@@ -3,6 +3,8 @@ import type { Config } from "tailwindcss"
 import typography from "@tailwindcss/typography"
 import plugin from "tailwindcss/plugin"
 import containerQueries from "@tailwindcss/container-queries"
+import browserPlugin from "@igorkowalczyk/is-browser"
+
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./theme.config.tsx"],
   theme: {
@@ -190,7 +192,7 @@ const config: Config = {
 
       addBase({
         ".typography-link": {
-          color: "theme('colors.neu-800')",
+          color: "hsl(var(--color-neu-900) / var(--tw-text-opacity, 1))",
           textDecoration: "underline",
           "&:hover": {
             textDecoration: "none",
@@ -198,7 +200,17 @@ const config: Config = {
         },
       })
     }),
+    tailwindMediaHover(),
+    browserPlugin,
   ],
   darkMode: ["class", 'html[class~="dark"]'],
 }
+
 export default config
+
+function tailwindMediaHover() {
+  return plugin(({ addVariant }) => {
+    addVariant("hover-hover", "@media (hover: hover)")
+    addVariant("hover-none", "@media (hover: none)")
+  })
+}

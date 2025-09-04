@@ -22,11 +22,16 @@ import { CtaCardSection } from "../../components/cta-card-section"
 import { Button } from "@/app/conf/_design-system/button"
 import { SessionTags } from "../../components/session-tags"
 import { formatDescription } from "./format-description"
+import { formatBlockTime } from "../_components/format-block-time"
 
 type SessionProps = { params: { id: string } }
 
 export function generateMetadata({ params }: SessionProps): Metadata {
-  const event = schedule.find(s => s.id === params.id)!
+  const event = schedule.find(s => s.id === params.id)
+
+  if (!event) {
+    throw new Error(`Session "${params.id}" not found`)
+  }
 
   const keywords = [
     event.event_type,
@@ -39,9 +44,6 @@ export function generateMetadata({ params }: SessionProps): Metadata {
     title: event.name,
     description: event.description,
     keywords: [...layoutMetadata.keywords, ...keywords],
-    openGraph: {
-      images: `/img/__og-image/2024/${event.id}.png`,
-    },
   }
 }
 
@@ -77,8 +79,8 @@ export default function SessionPage({ params }: SessionProps) {
       <NavbarPlaceholder className="top-0 bg-neu-50 before:bg-neu-50/40 dark:bg-neu-0 dark:before:bg-blk/30" />
       <main className="gql-all-anchors-focusable gql-conf-navbar-strip text-neu-900 before:bg-neu-50/40 before:dark:bg-blk/30">
         <div className="bg-neu-50 dark:bg-neu-0">
-          <div className="gql-conf-container">
-            <div className="gql-conf-section !py-0 max-xs:px-0">
+          <div className="gql-container">
+            <div className="gql-section !py-0 max-xs:px-0">
               <div className="border-neu-200 pt-8 dark:border-neu-100 xs:border-x 2xl:pt-16">
                 <SessionHeader
                   event={session}
@@ -102,13 +104,17 @@ export default function SessionPage({ params }: SessionProps) {
                   </>
                 )}
 
-                <h3 className="typography-h2 my-8 max-w-[408px] px-2 sm:px-3 lg:my-16">
-                  Session speakers
-                </h3>
-                <SessionSpeakers
-                  session={session}
-                  className="-mx-px -mb-px last:xl:pb-24"
-                />
+                {!!session.speakers?.length && (
+                  <>
+                    <h3 className="typography-h2 my-8 max-w-[408px] px-2 sm:px-3 lg:my-16">
+                      Session speakers
+                    </h3>
+                    <SessionSpeakers
+                      session={session}
+                      className="-mx-px -mb-px last:xl:pb-24"
+                    />
+                  </>
+                )}
 
                 {!!session.files?.length && (
                   <>
@@ -134,7 +140,7 @@ export default function SessionPage({ params }: SessionProps) {
         </div>
 
         <div className="border-t border-neu-200 bg-neu-0 py-8 dark:border-neu-100 xl:py-16">
-          <div className="gql-conf-container">
+          <div className="gql-container">
             <CtaCardSection
               title="Get your ticket"
               description="Join three transformative days of expert insights and innovation to shape the next decade of APIs!"
@@ -193,10 +199,15 @@ function SessionHeader({
           <div className="flex items-center gap-2">
             <CalendarIcon className="size-5 text-sec-darker dark:text-sec-light/90 sm:size-6" />
             <time dateTime={event.event_start}>
-              {new Date(event.event_start).toLocaleDateString("en-US", {
+              {new Date(event.event_start).toLocaleString("en-US", {
                 day: "numeric",
                 month: "long",
               })}
+              {", "}
+              {formatBlockTime(
+                event.event_start,
+                event.event_end ? new Date(event.event_end) : undefined,
+              )}
             </time>
           </div>
           <div className="flex items-center gap-2">
@@ -248,9 +259,13 @@ function SessionDescription({ session }: { session: ScheduleSession }) {
   return (
     <div className="mt-8 flex gap-4 px-2 pb-8 max-lg:flex-col sm:px-3 lg:mt-16 lg:gap-8 xl:pb-16">
       <h3 className="typography-h2 min-w-[320px]">Session description</h3>
-      <p className="typography-body-lg whitespace-pre-wrap">
-        {formattedDescription}
-      </p>
+      <p
+        className="typography-body-lg whitespace-pre-wrap"
+        dangerouslySetInnerHTML={{
+          // the description was partially sanitized when syncinc data from sched
+          __html: formattedDescription,
+        }}
+      />
     </div>
   )
 }

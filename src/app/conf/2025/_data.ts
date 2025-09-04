@@ -3,6 +3,9 @@ import "server-only"
 import { SchedSpeaker, ScheduleSession } from "@/app/conf/2023/types"
 import { readSpeakers } from "../_api/sched-data"
 
+const speakersData = require("../../../../scripts/sync-sched/speakers.json")
+const equalitySets: string[][] = speakersData.equal || []
+
 export const schedule: ScheduleSession[] = require("../../../../scripts/sync-sched/schedule-2025.json")
 
 type SpeakerUsername = SchedSpeaker["username"]
@@ -32,23 +35,23 @@ export const previousEditionSessions = new Map<
   const schedule2023 = require("../../../../scripts/sync-sched/schedule-2023.json")
   const schedule2024 = require("../../../../scripts/sync-sched/schedule-2024.json")
 
-  for (const session of schedule2023) {
+  collectSessionsFromPreviousYears(schedule2023)
+  collectSessionsFromPreviousYears(schedule2024)
+}
+
+function collectSessionsFromPreviousYears(schedule: ScheduleSession[]) {
+  for (const session of schedule) {
     for (const speaker of session.speakers || []) {
-      if (!previousEditionSessions.has(speaker.username)) {
-        previousEditionSessions.set(speaker.username, [])
+      const duplicates = equalitySets.find(set =>
+        set.includes(speaker.username),
+      )
+
+      for (const username of duplicates || [speaker.username]) {
+        if (!previousEditionSessions.has(username)) {
+          previousEditionSessions.set(username, [])
+        }
+        previousEditionSessions.get(username)!.push(session)
       }
-
-      previousEditionSessions.get(speaker.username)!.push(session)
-    }
-  }
-
-  for (const session of schedule2024) {
-    for (const speaker of session.speakers || []) {
-      if (!previousEditionSessions.has(speaker.username)) {
-        previousEditionSessions.set(speaker.username, [])
-      }
-
-      previousEditionSessions.get(speaker.username)!.push(session)
     }
   }
 }

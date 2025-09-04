@@ -63,3 +63,5 @@ public/sitemap.xml
 out/
 
 tsconfig.tsbuildinfo
+
+playwright-report/

@@ -10,6 +10,7 @@ import {
   getSchedule,
   getSpeakerDetails,
   getSpeakers,
+  mergeSpeaker,
   RequestContext,
 } from "@/app/conf/_api/sched-client"
 import type { ConferenceYear, SchedSpeaker } from "@/app/conf/_api/sched-types"
@@ -112,7 +113,7 @@ async function sync(
   )
 
   const speakerComparison = compare(
-    await existingSpeakers,
+    await existingSpeakers.then(data => data.speakers),
     await thisYearSpeakers.then(speakers =>
       speakers.map(s => ({
         ...s,
@@ -126,20 +127,43 @@ async function sync(
   await updateSpeakerDetails(ctx, speakerComparison, detailsRequestsQuota, year)
 
   printComparison(speakerComparison, "speakers", "username", {
-    // we don't remove speakers
     printRemoved: false,
   })
 
+  const { keptRemovedSpeakers, actuallyRemovedSpeakers } =
+    partitionRemovedSpeakers(speakerComparison.removed, year)
+
+  if (actuallyRemovedSpeakers.length > 0) {
+    console.log(
+      bold(
+        `${actuallyRemovedSpeakers.length} speakers removed (only appeared in ${year}):`,
+      ),
+    )
+    for (const speaker of actuallyRemovedSpeakers) {
+      console.log(red(`- ${speaker.username}`))
+    }
+  }
+
   const updatedSpeakers = [
-    ...speakerComparison.removed,
+    ...keptRemovedSpeakers,
     ...speakerComparison.unchanged,
     ...speakerComparison.changed.map(change => change.new),
     ...speakerComparison.added,
   ].sort((a, b) => a.username.localeCompare(b.username))
 
+  const equal: string[][] = (await existingSpeakers).equal
+  updateEqualitySets(equal, updatedSpeakers)
+
   const writeSpeakers = writeFile(
     speakersFilePath,
-    JSON.stringify(updatedSpeakers, null, 2),
+    JSON.stringify(
+      {
+        equal,
+        speakers: updatedSpeakers,
+      },
+      null,
+      2,
+    ),
   )
 
   await writeSchedule
@@ -237,7 +261,60 @@ async function updateSpeakerDetails(
 }
 
 function help() {
-  return console.log("Usage: tsx sync.ts --year <year>")
+  return console.log("Usage: tsx sync.ts --year <year> --quota <number>")
+}
+
+function partitionRemovedSpeakers(
+  removedSpeakers: SchedSpeaker[],
+  currentYear: ConferenceYear,
+) {
+  const keptRemovedSpeakers: SchedSpeaker[] = []
+  const actuallyRemovedSpeakers: SchedSpeaker[] = []
+
+  for (const speaker of removedSpeakers) {
+    // We only remove the speakers removed from Sched if they didn't have talks in other years.
+    if (speaker._years?.length === 1 && speaker._years[0] === currentYear) {
+      actuallyRemovedSpeakers.push(speaker)
+    } else {
+      keptRemovedSpeakers.push(speaker)
+    }
+  }
+
+  return { keptRemovedSpeakers, actuallyRemovedSpeakers }
+}
+
+type EqualitySet = string[][]
+
+function updateEqualitySets(old: EqualitySet, speakers: SchedSpeaker[]) {
+  for (const a of speakers) {
+    for (const b of speakers) {
+      if (a.username === b.username) continue
+
+      // if the name or one of the social URLs is the same we add the username to a set
+      if (
+        a.name === b.name ||
+        a.socialurls?.some(url =>
+          b.socialurls?.some(bUrl => bUrl.url === url.url),
+        )
+      ) {
+        const existing = old.find(
+          set => set.includes(a.username) || set.includes(b.username),
+        )
+        if (existing) {
+          const length = existing.length
+          const newSet = [...new Set([...existing, a.username, b.username])]
+          if (newSet.length !== length) {
+            existing.length = 0
+            existing.push(...newSet)
+            console.log("Found more duplicate speakers:", newSet)
+          }
+        } else {
+          old.push([a.username, b.username])
+          console.log("Found duplicate speakers:", a.username, b.username)
+        }
+      }
+    }
+  }
 }
 
 // #region utility
@@ -413,29 +490,6 @@ function deepStrictEqualWithoutInternals(a: unknown, b: unknown): boolean {
   }
 
   return true
-}
-
-/**
- * Merges speaker data from API with existing local data,
- * preserving important local fields when API returns empty values.
- */
-function mergeSpeaker(
-  oldSpeaker: SchedSpeaker,
-  newSpeaker: SchedSpeaker,
-): SchedSpeaker {
-  return {
-    ...oldSpeaker,
-    ...newSpeaker,
-    socialurls: newSpeaker.socialurls?.length
-      ? newSpeaker.socialurls
-      : oldSpeaker.socialurls,
-    ["_years"]: [
-      ...new Set([
-        ...(oldSpeaker["_years"] || []),
-        ...(newSpeaker["_years"] || []),
-      ]),
-    ].sort(),
-  }
 }
 
 // #endregion utility

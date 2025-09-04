@@ -203,7 +203,7 @@ export function FAQ({ className }: { className?: string }) {
     <section
       id="faq"
       className={clsx(
-        "gql-conf-section flex gap-10 max-lg:flex-col xl:gap-24 xl:py-16 2xl:gap-36",
+        "gql-section flex gap-10 max-lg:flex-col xl:gap-24 xl:py-16 2xl:gap-36",
         className,
       )}
     >

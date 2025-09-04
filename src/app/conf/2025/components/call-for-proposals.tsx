@@ -104,7 +104,7 @@ function NotesTab() {
           All speakers are required to adhere to our{" "}
           <Link
             className="typography-link dark:text-neu-50"
-            href="/conf/2025/resources/#code-of-conduct"
+            href="/conf/2025/code-of-conduct"
           >
             Code of Conduct
           </Link>
@@ -329,7 +329,7 @@ export function CallForProposals() {
     <section
       id="speakers"
       // todo: the part with `dark:` here is temporary until we have a dark mode version of this section
-      className="gql-conf-section gql-conf-container dark:text-neu-0"
+      className="gql-section gql-container dark:text-neu-0"
     >
       <div className="flex *:basis-1/2 max-lg:flex-col">
         <div className="border-sec-dark bg-sec-light p-4 lg:border-r lg:p-8 xl:p-16">

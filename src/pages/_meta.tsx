@@ -35,7 +35,7 @@ export default {
   },
   spec: {
     type: "page",
-    title: <span className="after:font-sans after:content-['_↗']">Spec</span>,
+    title: "Spec",
     href: "https://spec.graphql.org",
     newWindow: true,
   },
@@ -80,11 +80,24 @@ export default {
   },
   conf: {
     type: "page",
-    title: "GraphQLConf",
+    title: (
+      <Emphasis>
+        GraphQLConf
+        <span className="max-xl:hidden"> 2025</span>
+      </Emphasis>
+    ),
     route: "/conf/2025",
   },
   "graphql-js": {
     type: "page",
     title: "GraphQL.JS Tutorial",
   },
+}
+
+function Emphasis({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="[a:has(>&)]:[a:has(>&)]:border [a:has(>&)]:border [a:has(>&)]:border-current [a:has(>&)]:text-pri-base dark:[a:has(>&)]:text-pri-light [a:hover:has(>&)]:border-transparent [a:hover:has(>&)]:no-underline">
+      {children}
+    </span>
+  )
 }

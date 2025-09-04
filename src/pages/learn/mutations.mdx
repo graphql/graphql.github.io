@@ -41,7 +41,7 @@ Like queries, mutation fields are added to one of the [root operation types](htt
 
 Mutation fields can also accept arguments and you might notice that the `review` argument has an input type set to `ReviewInput`. This is known as [Input Object type](/learn/schema/#input-object-types), which allows us to pass in a structured object containing information the mutation can use instead of individual scalar values only.
 
-Also like just like queries, if the mutation field returns an Object type, then you specify a selection set of its fields in the operation:
+As with queries, if the mutation field returns an Object type then you must specify a selection set of its fields in the operation:
 
 ```graphql
 # { "graphiql": true, "variables": { "ep": "JEDI", "review": { "stars": 5, "commentary": "This is a great movie!" } } }

@@ -1,0 +1,67 @@
+diff --git a/dist/index.d.mts b/dist/index.d.mts
+index 71f87bcd1dde49d7c19ad49fc098e715a76c5c10..aadd6228910ee3ebafccfae8672cb9ae1b0bca3c 100644
+--- a/dist/index.d.mts
++++ b/dist/index.d.mts
+@@ -1421,3 +1421,25 @@ declare function ThemeSwitch({ lite, className }: ThemeSwitchProps): ReactElemen
+ declare function Layout({ children, themeConfig, pageOpts }: NextraThemeLayoutProps): ReactElement;
+ 
+ export { Bleed, Collapse, type PartialDocsThemeConfig as DocsThemeConfig, Link, LocaleSwitch, Navbar, NotFoundPage, SkipNavContent, SkipNavLink, ThemeSwitch, Layout as default, getComponents, useConfig, useMenu, useThemeConfig };
++
++export type ActiveAnchor = Record<
++  string,
++  {
++    isActive?: boolean
++    aboveHalfViewport: boolean
++    index: number
++    insideHalfViewport: boolean
++  }
++>
++
++export declare const useActiveAnchor: () => ActiveAnchor
++export declare const useSetActiveAnchor: () => Dispatch<SetStateAction<ActiveAnchor>>
++export declare const useIntersectionObserver: () => IntersectionObserver | null
++export declare const useSlugs: () => WeakMap<any, any>
++
++export declare const Breadcrumb: (props: { activePath: Item[] }) => ReactElement | null
++export declare const NavLinks: (props: NavLinkProps) => ReactElement | null
++export interface NavLinkProps {
++  currentIndex: number
++  flatDocsDirectories: Item[]
++}
+diff --git a/dist/index.js b/dist/index.js
+index 56201641fd965dcc5ab7c5df53e444c41293c00e..07147c688ae75c4c7daf082833acc71de16b36ee 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -100,10 +100,10 @@ IntersectionObserverContext.displayName = "IntersectionObserver";
+ var slugs = /* @__PURE__ */ new WeakMap();
+ var SlugsContext = createContext(slugs);
+ SlugsContext.displayName = "Slugs";
+-var useActiveAnchor = () => useContext(ActiveAnchorContext);
+-var useSetActiveAnchor = () => useContext(SetActiveAnchorContext);
+-var useIntersectionObserver = () => useContext(IntersectionObserverContext);
+-var useSlugs = () => useContext(SlugsContext);
++export var useActiveAnchor = () => useContext(ActiveAnchorContext);
++export var useSetActiveAnchor = () => useContext(SetActiveAnchorContext);
++export var useIntersectionObserver = () => useContext(IntersectionObserverContext);
++export var useSlugs = () => useContext(SlugsContext);
+ var ActiveAnchorProvider = ({
+   children
+ }) => {
+@@ -526,7 +526,7 @@ import NextLink2 from "next/link";
+ import { ArrowRightIcon } from "nextra/icons";
+ import { Fragment as Fragment3 } from "react";
+ import { jsx as jsx9, jsxs as jsxs3 } from "react/jsx-runtime";
+-function Breadcrumb({
++export function Breadcrumb({
+   activePath
+ }) {
+   return /* @__PURE__ */ jsx9("div", { className: "nextra-breadcrumb _mt-1.5 _flex _items-center _gap-1 _overflow-hidden _text-sm _text-gray-500 dark:_text-gray-400 contrast-more:_text-current", children: activePath.map((item, index, arr) => {
+@@ -1255,7 +1255,7 @@ var classes = {
+   ),
+   icon: cn10("_inline _h-5 _shrink-0")
+ };
+-function NavLinks({
++export function NavLinks({
+   flatDocsDirectories,
+   currentIndex
+ }) {

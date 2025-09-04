@@ -19,6 +19,7 @@ export default {
   "best-practices": "",
   "thinking-in-graphs": "",
   "serving-over-http": "",
+  "file-uploads": "",
   authorization: "",
   pagination: "",
   "schema-design": "Schema Design",
@@ -27,4 +28,9 @@ export default {
   performance: "",
   security: "",
   federation: "",
+  "-- 3": {
+    type: "separator",
+    title: "GraphQL over HTTP",
+  },
+  "debug-errors": "Common GraphQL over HTTP Errors",
 }

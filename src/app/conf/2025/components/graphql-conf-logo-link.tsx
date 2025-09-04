@@ -33,7 +33,7 @@ export function GraphQLConfLogoLink({
   )
 }
 
-function GraphQLLogo(props: React.SVGProps<SVGSVGElement>) {
+export function GraphQLLogo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 100 100" fill="currentColor" {...props}>
       <path

@@ -17,7 +17,7 @@ export function Venue(props: VenueProps) {
         backgroundBlendMode: "overlay, normal",
       }}
       className={clsx(
-        "gql-conf-section relative bg-[linear-gradient(0deg,hsl(var(--color-sec-light))_0%,hsl(var(--color-sec-light))_100%),var(--photo)] dark:bg-[linear-gradient(180deg,#344303_0%,#344303_120%),var(--photo)] md:bg-cover",
+        "gql-section relative bg-[linear-gradient(0deg,hsl(var(--color-sec-light))_0%,hsl(var(--color-sec-light))_100%),var(--photo)] dark:bg-[linear-gradient(180deg,#344303_0%,#344303_120%),var(--photo)] md:bg-cover",
         props.className,
       )}
     >

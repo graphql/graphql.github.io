@@ -33,7 +33,7 @@ export default function Page() {
           Get your tickets
         </Button>
       </Hero>
-      <div className="gql-conf-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
+      <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
         <MarqueeRows
           variant="primary"
           className="pt-4 max-sm:pb-1 sm:pt-6 md:space-y-2 md:pt-12 xl:pt-16"
@@ -47,12 +47,12 @@ export default function Page() {
         <GetYourTicket />
       </div>
       <div className="gql-conf-navbar-strip text-neu-900 before:bg-white/50 before:dark:bg-blk/30">
-        <div className="gql-conf-container">
+        <div className="gql-container">
           <RegisterSection />
           <Sponsors heading="Sponsors" />
         </div>
         <BecomeASponsor />
-        <div className="gql-conf-container">
+        <div className="gql-container">
           <CallForProposals />
           <MarqueeRows
             variant="secondary"

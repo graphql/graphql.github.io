@@ -491,6 +491,11 @@
       "permanent": false
     },
     {
+      "source": "/conf/2024/sessions",
+      "destination": "/conf/2024/schedule",
+      "permanent": true
+    },
+    {
       "source": "/conf/2024/sessions/:path/",
       "destination": "/conf/2024/schedule/:path",
       "permanent": true
@@ -572,7 +577,27 @@
     },
     {
       "source": "/schedule/",
-      "destination": "/conf/2024/schedule/",
+      "destination": "/conf/2025/schedule/",
+      "permanent": false
+    },
+    {
+      "source": "/spec",
+      "destination": "https://spec.graphql.org",
+      "permanent": true
+    },
+    {
+      "source": "/landscape",
+      "destination": "https://landscape.graphql.org",
+      "permanent": true
+    },
+    {
+      "source": "/docs",
+      "destination": "/learn",
+      "permanent": true
+    },
+    {
+      "source": "/conf/2025/event-resources",
+      "destination": "https://sites.google.com/linuxfoundation.org/graphqlconf2025event-resources/event-resources",
       "permanent": false
     }
   ]

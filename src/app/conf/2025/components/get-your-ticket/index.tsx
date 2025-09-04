@@ -15,7 +15,7 @@ export function GetYourTicket({ className }: { className?: string }) {
       )}
     >
       <Stripes />
-      <div className="gql-conf-container gql-conf-section relative">
+      <div className="gql-container gql-section relative">
         <header className="flex flex-wrap justify-between gap-6 md:items-end">
           <h2 className="typography-h2 whitespace-pre text-white">
             Get your ticket

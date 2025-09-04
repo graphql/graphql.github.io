@@ -21,35 +21,6 @@ export function PowerFulTools() {
           by leveraging your API&rsquo;s type system.
         </p>
       </div>
-      <div className="overflow-hidden rounded-t-xl shadow-[0_0_0_1px_rgba(0,0,0,.2),0_16px_64px_rgba(0,0,0,.6)]">
-        <video
-          disablePictureInPicture
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="hidden dark:block"
-        >
-          {/* todo: sync with main branch in graphql.org repo */}
-          <source
-            src="https://github.com/dimaMachina/graphql.github.io/raw/nextra/static/img/graphiql-dark.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <video
-          disablePictureInPicture
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="block dark:hidden"
-        >
-          <source
-            src="https://github.com/dimaMachina/graphql.github.io/raw/nextra/static/img/graphiql-light.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
     </section>
   )
 }

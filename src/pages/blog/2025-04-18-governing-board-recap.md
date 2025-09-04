@@ -1,6 +1,6 @@
 ---
 title: March 2025 GraphQL Foundation Board Meeting Recap
-tags: ["blog"]
+tags: ["foundation"]
 date: 2025-04-18
 byline: GraphQL Governing Board
 ---

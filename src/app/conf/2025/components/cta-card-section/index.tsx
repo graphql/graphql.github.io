@@ -17,7 +17,7 @@ export function CtaCardSection({
   ...rest
 }: CtaCardSectionProps) {
   return (
-    <div className="gql-conf-section">
+    <div className="gql-section">
       <section
         className="relative overflow-hidden bg-gradient-to-r from-pri-dark to-pri-base p-6 dark:from-pri-darker dark:to-pri-dark sm:p-16"
         {...rest}

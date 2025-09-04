@@ -9,7 +9,7 @@ export function RegisterSection({ className, ...props }: RegisterSectionProps) {
   return (
     <section
       className={clsx(
-        "gql-conf-section flex gap-x-12 gap-y-10 py-8 max-md:flex-col sm:py-12 md:py-24 xl:gap-x-24",
+        "gql-section flex gap-x-12 gap-y-10 py-8 max-md:flex-col sm:py-12 md:py-24 xl:gap-x-24",
         className,
       )}
       {...props}

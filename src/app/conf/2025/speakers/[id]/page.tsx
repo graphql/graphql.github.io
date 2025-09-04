@@ -37,9 +37,6 @@ export function generateMetadata({ params }: SpeakerProps): Metadata {
     title: speaker.name,
     description: speaker.about,
     keywords: [...layoutMetadata.keywords, ...keywords],
-    openGraph: {
-      images: `/img/__og-image/2024/${speaker.username}.png`,
-    },
   }
 }
 
@@ -62,8 +59,8 @@ export default function SpeakerPage({ params }: SpeakerProps) {
       <NavbarPlaceholder className="top-0 bg-neu-50 before:bg-neu-50/40 dark:bg-neu-0 dark:before:bg-blk/30" />
       <main className="gql-all-anchors-focusable gql-conf-navbar-strip text-neu-900 before:bg-neu-50/40 before:dark:bg-blk/30">
         <div className="bg-neu-50 dark:bg-neu-0">
-          <div className="gql-conf-container">
-            <div className="gql-conf-section !py-0 max-xs:px-0">
+          <div className="gql-container">
+            <div className="gql-section !py-0 max-xs:px-0">
               <div className="border-neu-200 dark:border-neu-100 xs:border-x">
                 <SpeakerHeader
                   speaker={speaker}
@@ -79,9 +76,14 @@ export default function SpeakerPage({ params }: SpeakerProps) {
                   />
                 </div>
 
-                <p className="typography-body-lg mx-auto box-content max-w-[800px] px-4 py-8 lg:px-8 lg:py-16 xl:px-24 xl:pb-24 xl:text-[32px]">
-                  {formatDescription(speaker.about)}
-                </p>
+                {speaker.about && (
+                  <p
+                    className="typography-body-lg mx-auto box-content max-w-[800px] px-4 py-8 lg:px-8 lg:py-16 xl:px-24 xl:pb-24 xl:text-[32px]"
+                    dangerouslySetInnerHTML={{
+                      __html: formatDescription(speaker.about),
+                    }}
+                  />
+                )}
 
                 {currentYearSessions.length > 0 && (
                   <>
@@ -114,7 +116,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
         </div>
 
         <div className="border-t border-neu-200 bg-neu-0 py-8 dark:border-neu-100 xl:py-16">
-          <div className="gql-conf-container">
+          <div className="gql-container">
             <CtaCardSection
               title="Get your ticket"
               description="Join three transformative days of expert insights and innovation to shape the next decade of APIs!"

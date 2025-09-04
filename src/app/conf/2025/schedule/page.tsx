@@ -15,7 +15,7 @@ const year = "2025"
 const FILTERS: FiltersConfig = {
   event_type: "Session Format",
   event_subtype: "Talk Category",
-  company: "Audience",
+  audience: "Audience",
 }
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function SchedulePage() {
           </Button>
         </div>
       </Hero>
-      <div className="gql-conf-container gql-conf-section 2xl:!px-24">
+      <div className="gql-container gql-section 2xl:!px-24">
         <ScheduleList
           eventsColors={eventsColors}
           year={year}
@@ -42,7 +42,7 @@ export default function SchedulePage() {
         />
       </div>
       <div className="gql-conf-navbar-strip border-t border-neu-200 bg-neu-0 py-8 text-neu-900 before:bg-white/40 dark:border-neu-100 before:dark:bg-blk/30 xl:py-16">
-        <div className="gql-conf-container">
+        <div className="gql-container">
           <FAQ />
 
           <CtaCardSection

@@ -3,7 +3,7 @@ name: Lint and check formatting
 on: pull_request
 
 jobs:
-  prettier-check:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,3 +22,22 @@ jobs:
 
       - name: Run Prettier Check
         run: pnpm format:check
+
+      - name: Validate code snippets
+        run: pnpm validate:snippets
+
+        # per the docs: "caching browser binaries is not recommended,
+        # since the amount of time it takes to restore the cache is
+        # comparable to the time it takes to download the binaries"
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
