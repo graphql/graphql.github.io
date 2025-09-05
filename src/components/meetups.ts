@@ -238,4 +238,8 @@ export const meetups = [
       official: true,
     },
   },
-].sort((a, z) => a.node.name.localeCompare(z.node.name))
+].sort((a, z) =>
+  a.node.name
+    .replace(/\s*GraphQL\s*/, "")
+    .localeCompare(z.node.name.replace(/\s*GraphQL\s*/, "")),
+)
