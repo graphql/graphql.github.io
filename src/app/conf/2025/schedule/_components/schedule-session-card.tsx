@@ -30,11 +30,13 @@ export function ScheduleSessionCard({
   year,
   eventsColors,
   blockEnd,
+  durationVisible,
 }: {
   session: ScheduleSession
   year: `202${number}`
   eventsColors: Record<string, string>
   blockEnd: Date
+  durationVisible: boolean
 }) {
   let eventType = session.event_type
 
@@ -140,10 +142,7 @@ export function ScheduleSessionCard({
                   {session.venue}
                 </span>
               )}
-              <SessionDuration
-                session={session}
-                blockTimeFraction={blockTimeFraction}
-              />
+              {durationVisible && <SessionDuration session={session} />}
               <AddToCalendarLink
                 eventTitle={eventTitle}
                 session={session}
@@ -160,13 +159,9 @@ export function ScheduleSessionCard({
 
 function SessionDuration({
   session,
-  blockTimeFraction,
 }: {
   session: ScheduleSession
-  blockTimeFraction: number
 }): React.ReactNode {
-  if (blockTimeFraction >= 1) return null
-
   const durationMs =
     new Date(session.event_end).getTime() -
     new Date(session.event_start).getTime()
