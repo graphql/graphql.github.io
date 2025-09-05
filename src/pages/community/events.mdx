@@ -16,7 +16,7 @@ import "leaflet/dist/leaflet.css"
 import pinkCircle from "./pink-circle.svg"
 import { Button } from '../../app/conf/_components/button'
 
-export function EventCard({ href, date, city, name, meta }) {
+export function EventCard({ href, date, city, name, meta, official }) {
   return (
     <a
       href={href}
@@ -28,7 +28,7 @@ export function EventCard({ href, date, city, name, meta }) {
       target="_blank"
       rel="noreferrer"
     >
-      {date && (
+      {date && date instanceof Date && (
         <div className="shrink-0 flex flex-col justify-center items-center bg-zinc-100 dark:bg-zinc-800 group-hover:dark:bg-zinc-700 lg:w-48 w-28">
           <div className="text-5xl lg:text-7xl font-bold">{date.getDate()}</div>
           <div className="text-sm lg:text-lg">
@@ -41,7 +41,7 @@ export function EventCard({ href, date, city, name, meta }) {
       )}
       <div className="bg-white dark:bg-neutral-900 group-hover:dark:bg-zinc-800 grow py-4 lg:py-7 px-5 lg:px-10 flex flex-col gap-4">
         <b className="text-primary max-lg:text-xs">{meta}</b>
-        <div className="font-bold text-lg lg:text-2xl">{name}</div>
+        <div className="font-bold text-lg lg:text-2xl">{name}{official ? <>{" "}<span title="Official GraphQL Local">⭐️</span></> : ""}</div>
         <div className="text-xs lg:text-lg flex flex-wrap lg:gap-x-6 gap-2">
           <div className="flex items-center gap-2">
             <LocationIcon className="fill-primary size-5" />
@@ -93,18 +93,18 @@ export function Events({ events }) {
   )
 }
 
+{/*
 ## Events
 
 <Events events={upcomingEvents} />
 
-<Button href="/community/foundation/local-initiative" className="mx-auto my-6 !block">
-  Start a GraphQL Local!
-</Button>
+
 
 <details>
   <summary>Past Events</summary>
   <Events events={pastEvents} />
 </details>
+*/}
 
 ## Meetups
 
@@ -114,6 +114,10 @@ happy to promote your GraphQL event through the
 
 Please contact us in the `#meetups-admin` channel on
 [the community Discord channel](/community/#official-channels).
+
+<Button href="/community/foundation/local-initiative" className="mx-auto my-6 !block">
+  Start a GraphQL Local!
+</Button>
 
 export function Meetups() {
   useEffect(() => {
@@ -144,7 +148,9 @@ export function Meetups() {
           key={node.id}
           href={node.link}
           name={node.name}
-          city={node.city}
+          city={node.city + ", " + node.country}
+          official={node.official}
+          date={node.next || node.prev}
         />
       ))}
     </>
