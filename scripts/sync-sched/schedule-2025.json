@@ -8,7 +8,7 @@
     "event_end": "2025-09-07 17:00",
     "event_type": "Breaks / Networking / Special Events",
     "description": "GraphQLConf Canal Cruise - <a href=\"https://www.meetup.com/amsterdam-graphql-meetup/events/310699346/\">Separate Registration Required</a>\n\nJoin us on <strong>Sunday 7 September</strong> for this pre GraphQLConf'25 event, a must-do activity in Amsterdam; a wonderful canal cruise in the historical city centre of Amsterdam.\n\n<em>Initiative by the local Amsterdam GraphQL Meetup group.</em>\n\n<em>A great opportunity to meet your peer-attendees of the <a href=\"https://graphql.org/conf/2025/\" rel=\"nofollow ugc\" target=\"_blank\">GraphQLConf'25</a> during this great sight-seeing activity.\n</em>\n<em><strong>Please </strong></em><a href=\"https://www.meetup.com/amsterdam-graphql-meetup/events/310699346/\"><em><strong>RSVP</strong></em></a><em><strong> by Wednesday September 3rd!</strong>\n</em>\n<em><strong>Location</strong>: in the city centre (tba exact location)\n<strong>Duration of the canal cruise</strong>: 16:00-17:00 on Sunday 7 September\nPlease be 15:45 at the location (to buy the ticket etc).\n</em>\n<em><strong>Cost per person: 10-15 euro*</strong> (depending on the number of attendees)\n</em><em><em>*not included in the conference ticket</em></em>",
-    "goers": "1",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "id": "04a893e9dfa070fae1dfa767608ad0c0",
@@ -77,7 +77,7 @@
     "event_start": "2025-09-08 08:00",
     "event_end": "2025-09-08 18:30",
     "event_type": "Registration + Badge Pick-up",
-    "goers": "5",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "BG Foyer - Ground Floor",
@@ -109,11 +109,11 @@
     "event_key": "929634",
     "active": "Y",
     "pinned": "N",
-    "name": "Keynote: Welcome & Opening Remarks - Sarah Sanders, Technical Writer, Docker",
+    "name": "Keynote: Welcome Remarks - Sarah Sanders, Technical Writer, Docker",
     "event_start": "2025-09-08 09:00",
     "event_end": "2025-09-08 09:05",
     "event_type": "Keynote Sessions",
-    "goers": "8",
+    "goers": "10",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -155,11 +155,11 @@
     "event_key": "929633",
     "active": "Y",
     "pinned": "N",
-    "name": "Keynote: Lee Byron, Co-Creator of GraphQL & Director, GraphQL Foundation",
+    "name": "Keynote: Opening Remarks - Lee Byron, Co-Creator of GraphQL & Director, GraphQL Foundation",
     "event_start": "2025-09-08 09:05",
     "event_end": "2025-09-08 09:15",
     "event_type": "Keynote Sessions",
-    "goers": "8",
+    "goers": "10",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -203,10 +203,10 @@
     "pinned": "N",
     "name": "Keynote: Community Update 2025: Growing in the Open - Benjie Gillam, Director & Maintainer, Graphile; Jem Gillam, Community Operations, Graphile; Uri Goldshtein, CEO, The Guild",
     "event_start": "2025-09-08 09:15",
-    "event_end": "2025-09-08 09:30",
+    "event_end": "2025-09-08 09:35",
     "event_type": "Keynote Sessions",
     "description": "Even ten years in, GraphQL continues to evolve—not just in code, but in connection. This year the Foundation has doubled down on transparency, support, and shared leadership: board minutes are now public, Subject Matter Experts have helped shape the conference agenda, and we'll be launching a new program live on stage! There are also updates on our existing initiatives including community grants and GraphQL Locals.\n\nThis talk is a thank you to the people behind the progress and a celebration of our growing constellation of contributors. It's also an invitation to step forward and get involved—one of the best ways to do that is by joining our new Community Working Group, giving passionate community members a voice in shaping the Foundation's directions and initiatives for the next ten years of GraphQL.",
-    "goers": "8",
+    "goers": "10",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -249,12 +249,12 @@
     "event_end_day": "8",
     "event_end_weekday": "Monday",
     "event_end_weekday_short": "Mon",
-    "event_end_time": "09:30",
+    "event_end_time": "09:35",
     "start_date": "2025-09-08",
     "start_time": "09:15:00",
     "start_time_ts": 1757315700,
     "end_date": "2025-09-08",
-    "end_time": "09:30:00",
+    "end_time": "09:35:00",
     "event_subtype": ""
   },
   {
@@ -266,10 +266,12 @@
     "event_end": "2025-09-08 09:45",
     "event_type": "Keynote Sessions",
     "description": "Meet the new developer journey: Ask AI → Generate code → Iterate → Ship. This fundamental shift in how developers work demands we rethink every touchpoint of our GraphQL APIs. This talk focuses on the developer experience layer—how to design schemas that are self-explanatory, structure documentation so AI gives accurate answers about your API, and build tools that feel like pair programming with a senior engineer.",
-    "goers": "6",
+    "goers": "8",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
+    "audience": "Any",
+    "geo_area": "Yes",
     "id": "609a4afce7ff09af02230777aa079b8f",
     "venue_id": "2152800",
     "speakers": [
@@ -300,6 +302,12 @@
     "start_time_ts": 1757316900,
     "end_date": "2025-09-08",
     "end_time": "09:45:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/2a/Sarah Sanders Keynote GraphQLConf 2025 PDF.pdf",
+        "name": "Sarah Sanders Keynote GraphQLConf 2025 PDF.pdf"
+      }
+    ],
     "event_subtype": ""
   },
   {
@@ -311,11 +319,12 @@
     "event_end": "2025-09-08 10:00",
     "event_type": "Keynote Sessions",
     "description": "A peek behind the curtain revealing how GraphQL is used at Meta. We will explore how everything from culture, development process, client and server implementations, schema patterns and conventions, advanced tooling and more work together to allow GraphQL to enable great user and developer experiences at Meta.",
-    "goers": "7",
+    "goers": "10",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
     "audience": "Intermediate",
+    "geo_area": "Yes",
     "id": "4eec1d8993f89f5599949ae4fbfa4581",
     "venue_id": "2152800",
     "speakers": [
@@ -346,6 +355,12 @@
     "start_time_ts": 1757317800,
     "end_date": "2025-09-08",
     "end_time": "10:00:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/6c/GraphQL at Meta.pptx",
+        "name": "GraphQL at Meta.pptx"
+      }
+    ],
     "event_subtype": ""
   },
   {
@@ -357,7 +372,7 @@
     "event_end": "2025-09-08 10:15",
     "event_type": "Keynote Sessions",
     "description": "As developers build with AI agents, we face a challenge: how do we provide these agents with reliable, flexible access to our distributed data? GraphQL's graph-based approach makes it the ideal language for AI. Join Matt DeBergalis, CEO and Co-founder of Apollo GraphQL, to explore how \"thinking in graphs\" fundamentally transforms API orchestration from procedural code to declarative queries – creating the composable data layer that AI-driven applications require.",
-    "goers": "7",
+    "goers": "9",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -402,7 +417,7 @@
     "event_start": "2025-09-08 10:15",
     "event_end": "2025-09-08 10:20",
     "event_type": "Keynote Sessions",
-    "goers": "7",
+    "goers": "9",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -521,7 +536,7 @@
     "event_end": "2025-09-08 11:15",
     "event_type": "Developer Experience",
     "description": "Even dedicated GraphQL developers face the reality of enterprise environments: multiple REST endpoints requiring complex orchestration and endless fetch requests. In this developer-focused session, we'll explore practical schema design patterns for effectively mapping common REST API shapes into your GraphQL schema.\n\nWe'll dive into real-world examples showing how to transform pagination, filtering, nested resources, and other REST patterns into intuitive GraphQL abstractions. You'll learn proven strategies for maintaining excellent developer experience while rapidly onboarding existing services to your graph.\n\nWhether working with OpenAPI specs or internal API documentation, we'll demonstrate tooling and techniques to accelerate this process dramatically – bringing your REST services into your graph in days, not months. Stop writing endless API orchestration code and start delivering value through GraphQL.",
-    "goers": "1",
+    "goers": "2",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -613,7 +628,7 @@
     "event_end": "2025-09-08 11:15",
     "event_type": "GraphQL Working Group",
     "description": "This discussion embarks on a thought experiment to redesign GraphQL from the ground up. We will explore the choices that might be made if we could start over, free from the constraints of existing implementations.\n\nThe session focuses on key areas where the current GraphQL specification has faced challenges and sparked debate within the community. Discussions will cover:<ul><li>Union Types: Exploring alternative approaches to improve flexibility and usability. </li><li>Schema-Defined Nullability: Rethinking how nullability is handled to enhance clarity and consistency. </li><li>Error Handling: Proposing new strategies for more robust and intuitive error management.\n</li></ul>\nThrough collaborative discussions and interactive exercises, participants will contribute insights and ideas, shaping a theoretical vision of what GraphQL 2.0 could look like. This thought exercise is designed to challenge assumptions and inspire innovative solutions.\n\nThe session will conclude with a focus on the practicalities of evolving GraphQL towards a 2.0 version in the real world, exploring how to address these design challenges while considering migration paths and maintaining backward compatibility.",
-    "goers": "2",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -680,7 +695,7 @@
     "event_end": "2025-09-08 11:35",
     "event_type": "Developer Experience",
     "description": "What if you could keep traditional UI pagination concepts, but with the performance and reliability of cursor-based pagination? In this lightning talk, you’ll learn how relative cursors enable fast, consistent pagination while preserving familiar UX patterns like “jump to page.” It’s a smarter, more robust approach to navigating data—ideal for modern APIs and real-world apps.",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -726,7 +741,7 @@
     "event_end": "2025-09-08 11:55",
     "event_type": "GraphQL in Production",
     "description": "APIs give AI superpowers. The MCP protocol, introduced less than a year ago, has quickly become a popular method for connecting large language models (LLMs) with the outside world. But where does GraphQL fit in? It's structured, typed, and introspectable... so what's the catch?\n\nJoin our panel of experts as we delve into how to leverage GraphQL effectively and safely in AI applications. We'll discuss the trade-offs, potential pitfalls, and share insights into best practices and strategies. This interactive discussion will explore how combining GraphQL with MCP can unlock new superpowers for AI, offering attendees a chance to engage with thought leaders and gain valuable perspectives.",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -801,7 +816,7 @@
     "event_end": "2025-09-08 11:55",
     "event_type": "GraphQL in Production",
     "description": "After maintaining GraphQL Java for 10 years we learned what aspects of GraphQL are critical for optimal performance. \n \nWe we look at what users of GraphQL should consider and which aspects of the spec are critical for optimal performance.\n \nWe will look also closer into the aspects of operating GraphQL at scale including and what it means when the schema and requests continue to grow.",
-    "goers": "4",
+    "goers": "6",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -847,7 +862,7 @@
     "event_end": "2025-09-08 11:55",
     "event_type": "Developer Experience",
     "description": "Despite having \"Graph\" in its name, GraphQL schemas are rarely visualized as actual graphs.\n\nThis lightning talk explores the untapped potential of graph visualization for GraphQL schemas based on lessons learned while working on graphql-voyager.\n\nWe'll explore the theory behind effective schema visualization, share key insights from my 9 years of experience in this field, and discuss current challenges in representing complex schemas.\n\nI'll also present experimental approaches that go beyond existing libraries, pushing the boundaries of how we understand and interact with GraphQL schemas.\n\nJoin me for a visual journey that reveals what makes the \"Graph\" in GraphQL truly powerful, potentially reshaping how we design and understand our APIs.",
-    "goers": "4",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -885,35 +900,29 @@
     "event_subtype": "Documentation"
   },
   {
-    "event_key": "903215",
+    "event_key": "929647",
     "active": "Y",
     "pinned": "N",
-    "name": "Modernizing a Million Lines of Code: Jira's Journey To GraphQL and Relay - Vivek Yadav & Kritika Bahl, Atlassian",
+    "name": "Sponsored Session: Building the Ideal GraphQL Server Workflow Featuring GraphQL Code Generator - Eddy Nguyen, SEEK & The Guild",
     "event_start": "2025-09-08 12:05",
-    "event_end": "2025-09-08 12:35",
-    "event_type": "GraphQL in Production",
-    "description": "Abstract\nDiscover how we transformed Jira's issue view to GraphQL and Relay—handling billions of monthly interactions across 100+ field types while meeting enterprise compliance and reliability agreements. With hundreds of developers and teams modifying a decade-old codebase daily in a frontend monorepo, we faced unique challenges in technical design and execution.\nWe'll share:\n- GraphQL schema design for scale\n- Bridging Redux, Sweet State, and Relay in a multi-team environment\n- Incremental rollout strategies with feature flags for safe migration\n- Field-by-field adoption approaches maintaining workflow and compliance\n- Performance optimization under enterprise-scale load\n- Testing approaches at scale\n- Developer experience takeaways\n\nImpact & Takeaways\n- Performance metrics during incremental migration\n- Developer experience improvements\n- Cross-team collaboration\n- Production-proven strategies for state management in existing codebase\n\nThis isn't about building new—it's about modernizing Jira's critical interface while maintaining compliance for enterprise customers. Ideal for leaders coordinating teams and architects planning GraphQL adoption in regulated organizations.",
-    "goers": "3",
+    "event_end": "2025-09-08 12:25",
+    "event_type": "Developer Experience",
+    "description": "Building an enterprise-level GraphQL server often leads to inconsistent practices, excessive boilerplate, and runtime errors that appear too late - all of which slow down feature delivery.\n\nThis talk explores what an ideal GraphQL server workflow may look like, and how tooling such as GraphQL Code Generator helps make it real.\n\nWe’ll walk through how to plan, build and integrate an example workflow:\n\n- Achieve strong type-safety\n- Ensure runtime safety with clear, actionable errors\n- Streamline development through consistent conventions and simplified setup\n\nBy the end, you’ll see how the right tooling can give developers confidence in their workflow, freeing them to focus on building features that deliver value to users faster.",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
-    "audience": "Advanced",
-    "id": "66474085903bcfccef1dc71e1784b204",
+    "audience": "Any",
+    "geo_area": "Yes",
+    "id": "0281a72e8e35f07c74a5815c42c64a02",
     "venue_id": "2152806",
     "speakers": [
       {
-        "username": "vivekyadav.cse.2005",
-        "id": "23098813",
-        "name": "Vivek Yadav",
-        "company": "Atlassian",
+        "username": "eddynguyen",
+        "id": "23565738",
+        "name": "Eddy Nguyen",
+        "company": "SEEK & The Guild",
         "custom_order": 0
-      },
-      {
-        "username": "kbahl",
-        "id": "23438695",
-        "name": "Kritika Bahl",
-        "company": "Atlassian",
-        "custom_order": 1
       }
     ],
     "event_start_year": "2025",
@@ -929,13 +938,19 @@
     "event_end_day": "8",
     "event_end_weekday": "Monday",
     "event_end_weekday_short": "Mon",
-    "event_end_time": "12:35",
+    "event_end_time": "12:25",
     "start_date": "2025-09-08",
     "start_time": "12:05:00",
     "start_time_ts": 1757325900,
     "end_date": "2025-09-08",
-    "end_time": "12:35:00",
-    "event_subtype": "Case studies"
+    "end_time": "12:25:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/f1/Building the ideal graphql server workflow ft graphql code generator.pptx",
+        "name": "Building the ideal graphql server workflow ft graphql code generator.pptx"
+      }
+    ],
+    "event_subtype": "Backend"
   },
   {
     "event_key": "922057",
@@ -946,7 +961,7 @@
     "event_end": "2025-09-08 12:35",
     "event_type": "GraphQL in Production",
     "description": "@defer allows you to specify which parts of your operation are urgent, and which can be delayed. However, there is still a contract with @defer: all your data will always be returned, at some later point.\n\nThis poses a problem for certain classes of product: if only 10% of your operation will ever be on consumed, but you don't know exactly which 10% that will be, defer can introduce substantial hidden costs. To improve performance and reduce compute costs, Meta created @async to ensure products only ask for data when it's needed.",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -992,7 +1007,7 @@
     "event_end": "2025-09-08 12:35",
     "event_type": "GraphQL in Production",
     "description": "The most natural way to understand fragments is as a reusable part of a query. We at Meta know that this isn't true and can lead to a world of pain when it comes to making sure the data you fetch matches the code that uses that data (no over-fetching).\n\nThe worst part is both the GraphQL spec and the educational materials mention re-use for fragments as part of their value:\n\"Fragments allow for the reuse of common repeated selections of fields, reducing duplicated text in the document.\"\n\nThis talk will explain what we've learned is the best way to use fragments (as subcomponents you convert to in order to pass to the logic that is tied to that fragment).\n\nWe will use Relay's per-file graphql co-location as a demonstration of this philosophy in action",
-    "goers": "4",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -1037,7 +1052,7 @@
     "event_start": "2025-09-08 12:35",
     "event_end": "2025-09-08 13:45",
     "event_type": "Breaks / Networking / Special Events",
-    "goers": "4",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "Foyer Grote Zaal - 2nd Floor",
@@ -1074,11 +1089,12 @@
     "event_end": "2025-09-08 14:15",
     "event_type": "Developer Experience",
     "description": "Great documentation has always been the gold standard of API developer experience, and always a real challenge for GraphQL APIs. With the rise of AI and interactive API playgrounds, developer expectations have evolved. Static docs can be slow, confusing, and outdated, while an AI-powered assistant and API playground offer a dynamic, conversational, and instantly actionable experience. In this session, we’ll explore how we at monday.com leveraged AI and interactive tools to replace traditional documentation for our public GraphQL API, reducing friction and accelerating adoption.",
-    "goers": "1",
+    "goers": "2",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
     "audience": "Any",
+    "geo_area": "Yes",
     "id": "ed1b84b384c39fd16cbba908aeeda283",
     "venue_id": "2152806",
     "speakers": [
@@ -1116,6 +1132,12 @@
     "start_time_ts": 1757331900,
     "end_date": "2025-09-08",
     "end_time": "14:15:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/d5/From Docs to Conversation & Action - monday API GraphQL Talk.pdf",
+        "name": "From Docs to Conversation & Action - monday API GraphQL Talk.pdf"
+      }
+    ],
     "event_subtype": "Documentation"
   },
   {
@@ -1127,7 +1149,7 @@
     "event_end": "2025-09-08 14:15",
     "event_type": "GraphQL in Production",
     "description": "The Buyer Abuse Prevention team is responsible for preventing returns abuse on Amazon.com. We do this by leveraging multiple streams of data to help make accurate decisions that minimize friction to our good customers. Enrichment of entities, for example, orders, is often distributed across multiple APIs, which makes collecting and organizing large sets of data inefficient and inflexible.\n\nTo simplify development, we built a GraphQL API to consolidate the collection and storage of data that allowed us to break the dependency on API results and design our storage around entities in a way that was optimal for our business. Chaining API calls now only takes place within a single API without need for code replication. Swapping out the underlying API for specific fields no longer requires code refactoring as the shape of the entity remained the same. The schema is well-connected which allows for different entry points but ultimately arrives at the same data without needing to reinvent the wheel.\n\nWe can now focus on developing a schema and set of entities that match our business needs, without risk of major refactoring when a dependent API changes.",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -1173,7 +1195,7 @@
     "event_end": "2025-09-08 14:15",
     "event_type": "GraphQL in Production",
     "description": "GraphQL Subscriptions over WebSockets is an extremely popular way to notify the caller that something happened on the back end. While a high level of Quality of Service is possible in other protocols such as STOMP or MQTT, there is no actual guarantee of delivery with GraphQL Subscriptions: any acknowledgment mechanism should be built in userland.\n \nWebSockets can be interrupted at any time with both graceful and ungraceful disconnections, and the lack of acknowledgment in the subscription protocol affects reliability, making GraphQL Subscription over WebSocket connections susceptible to disconnections, as any protocol failures will result in messages being lost. In other words, Subscriptions are stateful. In this talk, we will investigate a mitigation technique to make them resumable so that the connection can be destroyed and recreated without any message loss.",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -1219,7 +1241,7 @@
     "event_end": "2025-09-08 14:55",
     "event_type": "Developer Experience",
     "description": "GraphQL federation has changed how we think about data and it's time to adopt that thinking to how we build UIs and component systems. In this talk, Gabe will share his deep experience from building design systems at Apple, Netflix and now StubHub to help you design yours.\n \nWhat are the advantages GraphQL brings to a traditional React component system? How can fragments optimize the composability of your components? How to reduce duplication while reducing the time you need to ship new features?\n \nWe will provide guidance on how to build and leverage a federated component system along-side your design system. \n \nFinally, we will cover how we've leveraged AI to speedup the creation of our design system and federated components at StuHub. Join to learn more!",
-    "goers": "5",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -1264,12 +1286,13 @@
     "event_start": "2025-09-08 14:25",
     "event_end": "2025-09-08 14:55",
     "event_type": "GraphQL in Production",
-    "description": "To ease life for the roughly 1,000 developers who contribute regularly to our GraphQL interface, Airbnb has a highly opinionated developer API that we believe eases life for both developers and the operators who maintain the service. In the past, this API was implemented on top of a traditional, specification-based GraphQL engine, which supported agility as we evolved our opinionated approach to resolvers. As that approach matured, we saw opportunities to build a more efficient engine to support them.\n \nThis talk describes our new GraphQL engine. Key elements in our design include:\n \n- Refactoring query execution into distinct resolution and completion phases.\n \n- A query planner that optimizes and orchestrates the execution of those phases.\n \n- A new data structure that is the intermediary between the two phases, a data structure that allows for principled communication between the many resolvers involved in executing a query",
+    "description": "To ease life for the roughly 1,000 developers who contribute regularly to our GraphQL interface, Airbnb has a highly opinionated developer API that we believe eases life for both developers and the operators who maintain the service. In the past, this API was implemented on top of a traditional, specification-based GraphQL engine, which supported agility as we evolved our opinionated approach to resolvers. As that approach matured, we saw opportunities to build a more efficient engine to support them.\n\nThis talk describes our new GraphQL engine. Key elements in our design include:\n\n- Refactoring query execution into distinct resolution and completion phases.\n\n- A query planner that optimizes and orchestrates the execution of those phases.\n\n- A new data structure that is the intermediary between the two phases, a data structure that allows for principled communication between the many resolvers involved in executing a query",
     "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
     "audience": "Advanced",
+    "geo_area": "Yes",
     "id": "9426f470312d5ebb39a99a3a822f2821",
     "venue_id": "2152800",
     "speakers": [
@@ -1300,6 +1323,12 @@
     "start_time_ts": 1757334300,
     "end_date": "2025-09-08",
     "end_time": "14:55:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/19/TB_411_v2 GraphQL Engine Talk.pdf",
+        "name": "TB_411_v2 GraphQL Engine Talk.pdf"
+      }
+    ],
     "event_subtype": "Federation and distributed systems"
   },
   {
@@ -1311,7 +1340,7 @@
     "event_end": "2025-09-08 14:55",
     "event_type": "GraphQL in Production",
     "description": "In Booking.com we are heavily using Federated GraphQL approach, more than 150 backend sub-graph services are integrated from different domains of the company such as accommodations, partner, flights, cars, trips, and fintech.\n \n \nOur federated GraphQL layer hosts daily 11b+ incoming requests, Federation in the back distributes 14b+ requests to the sub-graphs per day. We have a diverse set of clients such as Booking traveller, partner native apps/web clients, 140+ SSR (Server Side Rendering) services for Web/Mobile rendering, and AI chatbots. This level of adoption brings unique challenges in terms of security and traffic management. In Booking.com we have a large attack surface since our GraphQL schema is huge, to be specific we have ~7k types with 27k+ fields. In this session, we will share our schema driven approaches to mitigate risks due to authN/Z leaks, DDoS attacks or exposure of sensitive PII/PCI data. These methodologies are designed with a high degree of generality, ensuring their applicability and scalability across every other Federated GraphQL system.",
-    "goers": "1",
+    "goers": "2",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -1364,7 +1393,7 @@
     "event_end": "2025-09-08 15:35",
     "event_type": "Developer Experience",
     "description": "Event Sourcing is emerging as a preferred approach to building complex software systems. It enables rapid development, smooth evolution over time, and opens the door to AI-based acceleration.\n \nWe will make a brief introduction to the core concepts of Event Sourcing and why the approach is loved by its adherents. We will review the foundational elements of an Event Sourced application including some common architectural choices.\n \nGraphQL is known for expressive queries, precise data fetching, real-time capabilities, and a strong ecosystem. All of these pair well with Event Sourced applications. GraphQL simplifies the complexity of querying event streams, enables precise control over client-server interactions, and supports flexible schema evolution that is crucial to long term success. We will discuss this in the context of established patterns (and anti-patterns!).\n \nBy the end of this talk, attendees will clearly understand how combining Event Sourcing and GraphQL accelerates development and prepares data-driven apps to take advantage of AI-driven acceleration in the near future.",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -1410,7 +1439,7 @@
     "event_end": "2025-09-08 15:35",
     "event_type": "GraphQL in Production",
     "description": "The Member Experience Core Systems team at Netflix is entrusted with orchestrating every facet of the member experience. From the intricacies of the profiles screen to the dynamic homepage and the seamless search for your favorite shows, our robust API layer is the backbone that supports it all.\n\nOperating at an astronomical scale, our two principal Subgraph Services collectively manage over a million GraphQL queries per second. This immense scale, coupled with the diverse queries our systems accommodate, ensures that even the most minute edge cases are brought to light.\n\nIn this presentation, we will delve into two significant production bugs that emerged at scale. The first involved a federation-based solution at the query planning layer, which culminated in a 20% reduction in requests per second and yielded substantial cost savings amounting to hundreds of thousands of dollars. The second, a subgraph service specific enhancement, remarkably doubled the efficiency of our entire fleet.\n\nBy sharing our journey of identifying and resolving these issues, we aspire to provide insights that will directly enhance your day-to-day endeavors using GraphQL.",
-    "goers": "4",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -1445,6 +1474,12 @@
     "start_time_ts": 1757336700,
     "end_date": "2025-09-08",
     "end_time": "15:35:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/1e/gqlconf-2025-graphql-performance-issues-at-netflix-scale.pdf",
+        "name": "gqlconf-2025-graphql-performance-issues-at-netflix-scale.pdf"
+      }
+    ],
     "event_subtype": "Federation and distributed systems"
   },
   {
@@ -1456,7 +1491,7 @@
     "event_end": "2025-09-08 15:35",
     "event_type": "GraphQL in Production",
     "description": "You added security measures to all your subgraphs and are sure you're safe? Think again. In a federated GraphQL system, the most significant risks often hide not within individual services, but within the logic and trust assumptions of the federation layer itself.\n \nThis talk explores how federated GraphQL architectures introduce a new class of security challenges that traditional testing and validation frequently overlook. We'll walk through practical examples based on real-world use cases and both offensive and defensive insights, showing why stitching secure services together doesn’t automatically result in a secure supergraph.\n \nAttendees will see federation-specific threats in action, learn important security concepts, and walk away with actionable strategies for hardening routers, auditing configurations, and building safer service interactions. We'll also share PoC code and conceptual outlines for detection tooling to help apply these learnings in real-world systems.\n \nAn engaging, practical, and scenario-driven session - especially relevant for developers and security engineers working with federated GraphQL systems.",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -1491,6 +1526,12 @@
     "start_time_ts": 1757336700,
     "end_date": "2025-09-08",
     "end_time": "15:35:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/19/Breaking and Building Boundaries_ Securing Federated GraphQL - GraphQLConf 2025.pdf",
+        "name": "Breaking and Building Boundaries_ Securing Federated GraphQL - GraphQLConf 2025.pdf"
+      }
+    ],
     "event_subtype": "Security"
   },
   {
@@ -1501,7 +1542,7 @@
     "event_start": "2025-09-08 15:35",
     "event_end": "2025-09-08 15:55",
     "event_type": "Breaks / Networking / Special Events",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Foyer Grote Zaal - 2nd Floor",
@@ -1538,7 +1579,7 @@
     "event_end": "2025-09-08 16:25",
     "event_type": "Developer Experience",
     "description": "Over the past few years, GraphQL has fallen out of favor for developers looking to build full-stack typescript applications. With projects like TRPC and NextJS, many people have started to pigeonhole GraphQL into an enterprise-shaped box. But this doesn't have to be the case! In this talk, Alec will give a practical introduction with live coding to Houdini, a GraphQL-first application framework and demonstrate how to rapidly move from idea to creation with a state-of-the-art developer experience that brings GraphQL back as a contender for the best choice for smaller applications.",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -1573,6 +1614,12 @@
     "start_time_ts": 1757339700,
     "end_date": "2025-09-08",
     "end_time": "16:25:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/d7/GraphQL Isn't Just For Enterprises.pdf",
+        "name": "GraphQL Isn't Just For Enterprises.pdf"
+      }
+    ],
     "event_subtype": "Frontend"
   },
   {
@@ -1619,6 +1666,12 @@
     "start_time_ts": 1757339700,
     "end_date": "2025-09-08",
     "end_time": "16:05:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/ea/federated-graphql-subscriptions.pdf",
+        "name": "federated-graphql-subscriptions.pdf"
+      }
+    ],
     "event_subtype": "Federation and distributed systems"
   },
   {
@@ -1630,7 +1683,7 @@
     "event_end": "2025-09-08 16:25",
     "event_type": "GraphQL in Production",
     "description": "Turning a private GraphQL API into a public one comes with unexpected challenges. We’ll share how we approached this transition—starting from an existing internal schema that wasn’t shaped for external consumers—and the steps we took to expose only what was ready. Using Apollo Federation Contracts, we filtered out unstable or sensitive parts of the graph. Along the way, we defined best practices for the public schema, like cursor-based pagination, using oneOf for inputs and results.\nWe’ll also touch on how we serve the schema through Hive Gateway with a supergraph setup, and the security measures we added, like depth limiting and complexity analysis. To keep things evolving safely, we rely on GraphQL Hive to track usage and guide deprecations.\n \nIf you’re thinking about exposing a GraphQL API—or just want ideas for keeping one clean and manageable—this talk will share what worked for us, what didn’t, and what we learned.",
-    "goers": "4",
+    "goers": "6",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -1676,7 +1729,7 @@
     "event_end": "2025-09-08 16:25",
     "event_type": "GraphQL in Production",
     "description": "Adopting GraphQL federation creates a convenient place in your infrastructure to make authorization decisions:\n\n- It comes early in the request lifecycle, before any subgraph.\n- It has access to the whole client request, as well as the entirety of the federated graph.\n- Authorization can still be the responsibility of the subgraph teams, or a cross cutting concern.\n\nThis talk is about leveraging the special position of the federation gateway for authorization.\n\nWe'll cover the directives federation offers for authorization out of the box: `@authenticated`, `@requiresScopes`, `@policy`. To cover a more advanced use case, we'll explore how to implement fine-grained authorization taking advantage of data from your federated graph by leveraging extensions in the open source Grafbase Gateway.",
-    "goers": "1",
+    "goers": "2",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -1711,6 +1764,12 @@
     "start_time_ts": 1757340900,
     "end_date": "2025-09-08",
     "end_time": "16:25:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/88/authorization-in-federated-graphql.pdf",
+        "name": "authorization-in-federated-graphql.pdf"
+      }
+    ],
     "event_subtype": "Federation and distributed systems"
   },
   {
@@ -1722,7 +1781,7 @@
     "event_end": "2025-09-08 17:05",
     "event_type": "Developer Experience",
     "description": "Jetpack Compose is a declarative UI framework for Kotlin and Android. Jetpack Compose makes it easy to describe your UI graph and build composable UIs.\n \nOn the other hand, GraphQL is a declarative language for your Data. GraphQL makes it easy to describe and query your Data Graph.\n \nSounds like a perfect match! \n \nIn this presentation, we'll take a look at the current mobile architectures and how they differ from web architectures. \n \nWe will dive into cache, offline mode and error handling and investigate how GraphQL can help mobile developers build more reactive and robust UIs.\n \nUsing real life examples from the GraphQL conf 2025 app, we well discuss patterns such as colocated fragments, optimistic updates, subscriptions and see how they fit in the mobile app development cycle.\n \nWhile it will use some Kotlin, most of the examples can be applied to iOS and/or any other mobile platform. \n \nIf you're a web developer, I'm hoping to give you some talking point to start the discussion with your mobile teams. Let's unite frontend developers!",
-    "goers": "0",
+    "goers": "1",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -1768,7 +1827,7 @@
     "event_end": "2025-09-08 17:05",
     "event_type": "GraphQL in Production",
     "description": "A talk covering the journey of The Guild building our new Rust router and query planner.\n\nWe are going to share our years-long journey through learnings, insights and real-life examples on why and how we’ve built our open-source Federation Router and query planner.\n\nIn this talk, we’ll cover:<ul><li>The background and journey of the ecosystem’s different gateways and routers</li><li>Benchmarks and Audit-based development</li><li>Why we build our query planner as a library</li><li>How we got it to be so performant</li><li>Next steps and the community can get involved</li></ul>",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -1810,6 +1869,12 @@
     "start_time_ts": 1757342100,
     "end_date": "2025-09-08",
     "end_time": "17:05:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/42/Building an Open-Source Federation Query-Planner & Router (1).pdf",
+        "name": "Building an Open-Source Federation Query-Planner & Router (1).pdf"
+      }
+    ],
     "event_subtype": "Federation and distributed systems"
   },
   {
@@ -1821,7 +1886,7 @@
     "event_end": "2025-09-08 17:05",
     "event_type": "GraphQL in Production",
     "description": "alt title: Surviving Change Without Breaking Everything\n \nWhen we launched our new GraphQL API at Netflix, it felt perfect—destined to power hundreds of millions of devices. Yet, change is inevitable. Even if your schema seems flawless today (which it isn't), requirements will shift, new features will emerge, and regrets will follow.\n \nGraphQL promises evolvability, allowing us to move forward without multiple API versions. But how does this hold up in practice? We mark fields as @deprecated, but what happens next? How can we embrace experimentation without entombing technical debt in the API? Does federation complicate things? Evolving your schema without breaking clients is easy, right? Right??\n \nDrawing from experience with the Netflix API, this talk explores techniques for evolving your schema safely and painlessly. We'll cover the schema lifecycle—from experimentation to design, deprecation, and deletion.\n \nAttendees will leave with:\n- Schema design principles that facilitate change\n- Practical techniques for evolving GraphQL schemas\n- Strategies for managing a deprecation workflow\n \nJoin us as we learn to face the inevitability of change with confidence and serenity.",
-    "goers": "7",
+    "goers": "8",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -1867,7 +1932,7 @@
     "event_end": "2025-09-08 17:45",
     "event_type": "GraphQL in Production",
     "description": "Over the past six years, Viaduct has grown from Airbnb’s unified data access layer into a central platform for hosting business logic — now supporting over 1 million lines of code, 500+ monthly contributors, and 100+ teams.\n\nThat scale has brought a familiar risk: the slow creep toward monolith. Viaduct was never meant to be a microservices system, but we’ve had to make deliberate choices to preserve team autonomy, performance, and codebase sanity.\n\nThis talk shares the strategies we’re using — and actively evolving — to make that possible, including:\n\n* Tenant modules that define slices of the GraphQL schema alongside their implementation logic;\n* Relying on GraphQL fragments instead of service calls for inter-module communication;\n* Building ownership and attribution into the platform so teams can trace metrics and errors back to themselves.\n\nWe haven’t fully solved these challenges — but we’ve learned a lot about what works, what breaks, and what to watch for.",
-    "goers": "6",
+    "goers": "8",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -1948,6 +2013,12 @@
     "start_time_ts": 1757344500,
     "end_date": "2025-09-08",
     "end_time": "17:45:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/69/GraphQLConf-KotlinRouter.pdf",
+        "name": "GraphQLConf-KotlinRouter.pdf"
+      }
+    ],
     "event_subtype": "Federation and distributed systems"
   },
   {
@@ -1959,7 +2030,7 @@
     "event_end": "2025-09-08 17:45",
     "event_type": "GraphQL in Production",
     "description": "Relay, Meta’s advanced GraphQL client for React, has many innovative capabilities not available in other clients. We will explore these capabilities, what they are, how they work, and the fundamental problems they solve: \n \n- Ensure data consistency with a normalized cache \n- Bound memory usage with user-land garbage collection \n- Avoid append-only queries by statically detecting unused fields \n- Bound JavaScript bundle size with Data Driven Dependencies \n- Build snappy, robust, mutations with rebasing optimistic updates \n- Preload code and data for any surface in just one network roundtrip with Entrypoints \n- Enable optimal data fetching without sacrificing local reasoning with Relay’s compiler \n \nAnd more!",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -1994,6 +2065,12 @@
     "start_time_ts": 1757344500,
     "end_date": "2025-09-08",
     "end_time": "17:45:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/69/The Big Ideas in Relay.pdf",
+        "name": "The Big Ideas in Relay.pdf"
+      }
+    ],
     "event_subtype": "Scaling"
   },
   {
@@ -2004,7 +2081,7 @@
     "event_start": "2025-09-08 17:45",
     "event_end": "2025-09-08 18:45",
     "event_type": "Breaks / Networking / Special Events",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Foyer Grote Zaal - 2nd Floor",
@@ -2113,7 +2190,7 @@
     "event_end": "2025-09-09 10:30",
     "event_type": "Breaks / Networking / Special Events",
     "description": "Help shape the future of GraphQL! Join GraphQL Foundation Board Members, TSC Members, and other community leaders for a public meeting about goals and priorities for 2026, and help us celebrate 2025's wins.",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -2231,7 +2308,7 @@
     "event_end": "2025-09-09 10:30",
     "event_type": "Workshops",
     "description": "This workshop proposes the development of a demo social media application, \"Y,\" using GraphQL, Relay, and React Server Components (RSC). The goal is to showcase the powerful synergy between Relay’s declarative data fetching and RSC’s server-side rendering, creating an ideal stack for scalable, performant web applications. \n \nThe demo will highlight: \n \n- Co-location of GraphQL fragments with React components for a modular, maintainable codebase. \n- Relay’s type-safe queries to efficiently fetch data for posts, comments, and user profiles. \n- React Server Components to optimize server-side rendering and enable React streaming for progressive UI rendering. \n- A fully functional social media app with interactive, real-time features. \n \nThrough this hands-on demo, we’ll illustrate how Relay’s fragment-based architecture and RSC’s streaming capabilities allow developers to build responsive, data-driven applications. This workshop will demonstrate the potential of these technologies for modern frontend development providing a compelling case for adopting this stack in production projects.",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -2313,7 +2390,7 @@
     "event_end": "2025-09-09 11:25",
     "event_type": "Developer Experience",
     "description": "GraphQL error handling sucks. There, I said it.\n\nEver hunted through the errors list to figure out if a null was legit or caused by an error? If you're like me, you gave up and now treat nulls as \"maybe errored, maybe absent, maybe both.\"\n\nAnd nullability. Schema designers make anything that might fail nullable, producing partial responses when errors occur. But since anything can fail, now everything is nullable—\nand we're drowning in null checks. We recklessly cast to non-null or fall back to the empty string out of desperation. And we still don't know what's truly nullable.\n\nNo more.\n\nThis talk introduces a new, pragmatic approach, born from years of work by the Nullability WG. We propose a future where schemas reflect the true nullability of business entities, and error handling is where it belongs: in your code, not your data. Use your language's built-in tools to handle errors ergonomically; and drop the unnecessary null checks. When you read a null, it should mean one thing: the absence of data.\n\nThis isn't some distant ideal on the horizon of GraphQL's future; with just 512 bytes added to your GraphQL client, you can start adopting this today. Come see how.",
-    "goers": "4",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -2438,38 +2515,37 @@
     "start_time_ts": 1757407500,
     "end_date": "2025-09-09",
     "end_time": "12:15:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/a0/workshop-extensions-composite-schemas.pdf",
+        "name": "workshop-extensions-composite-schemas.pdf"
+      }
+    ],
     "event_subtype": ""
   },
   {
-    "event_key": "925079",
+    "event_key": "927134",
     "active": "Y",
     "pinned": "N",
-    "name": "The State of GraphQL Federation - Michael Staib, ChilliCream & Martijn Walraven, Apollo",
+    "name": "Namespacing Is the Next Frontier of GraphQL Federation - Martijn Walraven, Apollo",
     "event_start": "2025-09-09 11:35",
     "event_end": "2025-09-09 12:15",
     "event_type": "GraphQL Working Group",
-    "description": "The GraphQL community has come together to standardize how people can build distributed systems with GraphQL as an orchestrator. In this talk I will explain the general idea that we have for GraphQL as an Orchestrator in this space and how the new specification is tackling this. We will look at the progress we have made since last GraphQL Conf in the GraphQL composite schema working group and also get some sneak peaks at our early RFCs and prototypes. I will outline how this new specification is taking the best ideas of existing solutions in the market to make the next big leap towards mainstream adoption. This will allow anyone to build tooling by implementing the spec or parts of the spec that seamlessly integrate with other vendors.",
-    "goers": "3",
+    "description": "Although the topic of namespacing has been brought up repeatedly in the GraphQL community over the last decade, there is an understandable worry that it would lead to anti-patterns in schema design. If namespacing is used as an excuse to avoid coordination between teams, this can result in a fragmented GraphQL schema that reflects current team boundaries as opposed to domain or client concerns.\n\nGraphQL Federation offers an alternative architecture: when coordination is enforced and consistency guaranteed, a large number of teams can contribute to a single, coherent GraphQL schema without the danger of stepping on each other's toes.\n\nEven with that architecture in place however, I believe there are still legitimate use cases for namespacing. In this talk, I will go over some of those use cases, and formulate a set of design principles that could guide the introduction of namespacing in GraphQL.",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
     "audience": "Intermediate",
-    "id": "534377045b9341cbcbb1098699294f99",
+    "id": "2bd94376bccf70783dd302222f29ca82",
     "venue_id": "2152806",
     "speakers": [
-      {
-        "username": "michael_staib.23xujj9p",
-        "id": "14900031",
-        "name": "Michael Staib",
-        "company": "ChilliCream",
-        "custom_order": 0
-      },
       {
         "username": "martijn.walraven",
         "id": "21066825",
         "name": "Martijn Walraven",
         "company": "Apollo",
-        "custom_order": 1
+        "custom_order": 0
       }
     ],
     "event_start_year": "2025",
@@ -2502,7 +2578,7 @@
     "event_end": "2025-09-09 14:15",
     "event_type": "Breaks / Networking / Special Events",
     "description": "Use this lunch time to go outside, visit local restaurants, and hang with your new GraphQL friends.\n\nOption 1 - <a href=\"https://www.google.com/maps/d/u/1/edit?mid=15R49h_2nrfJ1SbX_PFBmIJQS5gP3Hoo&usp=sharing\">Lunch restaurant guide</a>\nOption 2 - A limited number of bag lunches will be available at the venue for you to take and either eat in the building or take outside.",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "id": "c792d79fcbf90eafe5aeccec4e753e2a",
@@ -2528,28 +2604,35 @@
     "event_subtype": ""
   },
   {
-    "event_key": "922927",
+    "event_key": "925079",
     "active": "Y",
     "pinned": "N",
-    "name": "Lower Latency With Streaming GraphQL - Rob Richard, 1stDibs",
+    "name": "The State of GraphQL Federation - Michael Staib, ChilliCream & Martijn Walraven, Apollo",
     "event_start": "2025-09-09 14:15",
     "event_end": "2025-09-09 14:55",
     "event_type": "GraphQL Working Group",
-    "description": "Learn how to lower latency in your applications by streaming your GraphQL responses using the @defer and @stream directives. Learn the trade-offs of when to use these new directives and how they differ from GraphQL Subscriptions.\n\n@defer and @stream have been in development for some time now and have gone through many iterations. Learn about the motivation behind these changes and how they will lead to scalable GraphQL servers and efficient clients.",
+    "description": "The GraphQL community has come together to standardize how people can build distributed systems with GraphQL as an orchestrator. In this talk I will explain the general idea that we have for GraphQL as an Orchestrator in this space and how the new specification is tackling this. We will look at the progress we have made since last GraphQL Conf in the GraphQL composite schema working group and also get some sneak peaks at our early RFCs and prototypes. I will outline how this new specification is taking the best ideas of existing solutions in the market to make the next big leap towards mainstream adoption. This will allow anyone to build tooling by implementing the spec or parts of the spec that seamlessly integrate with other vendors.",
     "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
     "audience": "Intermediate",
-    "id": "7774f5b0afdc94f922694d15a5593dfc",
+    "id": "534377045b9341cbcbb1098699294f99",
     "venue_id": "2152806",
     "speakers": [
       {
-        "username": "robrichard87",
-        "id": "21066852",
-        "name": "Rob Richard",
-        "company": "1stDibs",
+        "username": "michael_staib.23xujj9p",
+        "id": "14900031",
+        "name": "Michael Staib",
+        "company": "ChilliCream",
         "custom_order": 0
+      },
+      {
+        "username": "martijn.walraven",
+        "id": "21066825",
+        "name": "Martijn Walraven",
+        "company": "Apollo",
+        "custom_order": 1
       }
     ],
     "event_start_year": "2025",
@@ -2619,7 +2702,7 @@
     "event_end": "2025-09-09 15:45",
     "event_type": "Workshops",
     "description": "Unleash the Power of Federation with Hive Gateway Discover the possibilities of your GraphQL APIs! Learn how to use GraphQL Federation to unite various services and get to know Hive Gateway, an open-source GraphQL router. During this practical exercise, you will configure a simple federated gateway and execute queries across merged schemas. Discover important features such as built-in monitoring with OpenTelemetry, automatic query batching for optimal efficiency, strong security choices like JWT authentication and rate limiting, and GraphQL Subscriptions for real-time data. Find out for yourself how Hive Gateway makes it easier to create scalable and maintainable GraphQL.",
-    "goers": "4",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -2672,7 +2755,7 @@
     "event_end": "2025-09-09 15:45",
     "event_type": "GraphQL Working Group",
     "description": "Curious about how observability is evolving in the GraphQL ecosystem? This session explores the current state of OpenTelemetry and its integration with GraphQL. We'll cover the fundamentals of OpenTelemetry, introduce the OpenTelemetry working group (https://github.com/graphql/otel-wg), and dive into tracing, logging, and metrics - all essential pillars of observability. You'll also learn how OpenTelemetry is being applied in distributed GraphQL architectures to improve performance monitoring and troubleshooting across services. Whether you're new to observability or looking to level up your GraphQL stack, this talk will bring you up to speed on where the community is heading.",
-    "goers": "5",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -2717,7 +2800,7 @@
     "event_start": "2025-09-09 15:45",
     "event_end": "2025-09-09 16:00",
     "event_type": "Breaks / Networking / Special Events",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Foyer Grote Zaal - 2nd Floor",
@@ -2746,27 +2829,27 @@
     "description": ""
   },
   {
-    "event_key": "927134",
+    "event_key": "922927",
     "active": "Y",
     "pinned": "N",
-    "name": "Namespacing Is the Next Frontier of GraphQL Federation - Martijn Walraven, Apollo",
+    "name": "Lower Latency With Streaming GraphQL - Rob Richard, 1stDibs",
     "event_start": "2025-09-09 16:00",
     "event_end": "2025-09-09 16:40",
     "event_type": "GraphQL Working Group",
-    "description": "Although the topic of namespacing has been brought up repeatedly in the GraphQL community over the last decade, there is an understandable worry that it would lead to anti-patterns in schema design. If namespacing is used as an excuse to avoid coordination between teams, this can result in a fragmented GraphQL schema that reflects current team boundaries as opposed to domain or client concerns.\n\nGraphQL Federation offers an alternative architecture: when coordination is enforced and consistency guaranteed, a large number of teams can contribute to a single, coherent GraphQL schema without the danger of stepping on each other's toes.\n\nEven with that architecture in place however, I believe there are still legitimate use cases for namespacing. In this talk, I will go over some of those use cases, and formulate a set of design principles that could guide the introduction of namespacing in GraphQL.",
+    "description": "Learn how to lower latency in your applications by streaming your GraphQL responses using the @defer and @stream directives. Learn the trade-offs of when to use these new directives and how they differ from GraphQL Subscriptions.\n\n@defer and @stream have been in development for some time now and have gone through many iterations. Learn about the motivation behind these changes and how they will lead to scalable GraphQL servers and efficient clients.",
     "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
     "audience": "Intermediate",
-    "id": "2bd94376bccf70783dd302222f29ca82",
+    "id": "7774f5b0afdc94f922694d15a5593dfc",
     "venue_id": "2152806",
     "speakers": [
       {
-        "username": "martijn.walraven",
-        "id": "21066825",
-        "name": "Martijn Walraven",
-        "company": "Apollo",
+        "username": "robrichard87",
+        "id": "21066852",
+        "name": "Rob Richard",
+        "company": "1stDibs",
         "custom_order": 0
       }
     ],
@@ -2837,7 +2920,7 @@
     "event_end": "2025-09-09 17:30",
     "event_type": "Workshops",
     "description": "GraphQL is evolving — and with the new Composite Schema Specification, building distributed GraphQL systems has never been more standardized, flexible, and interoperable.\n\nIn this workshop, we'll dive into the core principles behind the Composite Schema Specification and demonstrate how they enable modular, scalable GraphQL architectures across teams and services. Whether you're coming from Node.js, Java, .NET, or any other stack — this specification is designed to work with you, not against you.\n\nAt the heart of this new standard is a powerful idea: composing GraphQL APIs in a strongly typed way. No more hidden fields. No more untyped extensions or brittle conventions.\n\nYou'll learn how to:\n<ul><li>Design and build a distributed GraphQL system using the Composite Schema Specification</li><li>Compose services with clear ownership and type-safe contracts</li><li>Evolve your composite schema over time without breaking a sweat</li><li>Solve real-world challenges like shared types, or auth propagation</li><li>Operate composed schemas with observability, continuous integration, and confidence</li></ul>\nWhether you're building from scratch or evolving an existing monolith, this workshop will equip you with the tools and mental models to harness composition — the right way.",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -2883,7 +2966,7 @@
     "event_end": "2025-09-09 17:30",
     "event_type": "GraphQL Working Group",
     "description": "This session is an opportunity for working group members to discuss the topics raised in the working group talks earlier in the day, and brainstorm ideas for moving forward.",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -2992,7 +3075,7 @@
     "event_end": "2025-09-10 09:10",
     "event_type": "Developer Experience",
     "description": "Over the past year I have been evolving graphql-request into Graffle, a modular type safe GraphQL Client. Most of its features are realized as plugins so much so that it actually has fewer capabilities than graphql-request at its core! Graffle initially grew out of my desire to have a JS GraphQL client with a fully featured and type safe document builder which I couldn’t get from tools like GenQL or Zeus at the time.\n\nGraffle is still a mostly unknown work in progress but I am ready to begin talking about it and already some early adopters have taken to giving regular feedback. I think GraphQL can benefit from strengthened integrations with TypeScript. My past work on Nexus underscores that belief and I've been happy to see more recent tools enter the space like Pothos.",
-    "goers": "3",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -3080,6 +3163,12 @@
     "start_time_ts": 1757487600,
     "end_date": "2025-09-10",
     "end_time": "09:30:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/ee/GraphQLConf_GraphQLJava.pdf",
+        "name": "GraphQLConf_GraphQLJava.pdf"
+      }
+    ],
     "event_subtype": "Case studies"
   },
   {
@@ -3091,7 +3180,7 @@
     "event_end": "2025-09-10 09:30",
     "event_type": "GraphQL in Production",
     "description": "Hacking the Federation Query Planner Federation allows concurrent execution across services - but there’s an edge case! And when it occurs, it’s a big performance problem and potentially very hard to solve.\n\nThis talk showcases an edge case we ran into at Yelp, how we solved it in the short term, and the what the long term spec changes are (specifically within the Composite Schemas spec).",
-    "goers": "1",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -3173,7 +3262,7 @@
     "event_end": "2025-09-10 09:30",
     "event_type": "Developer Experience",
     "description": "What if your GraphQL schema could do more than provide data? What if it could help your app be more accessible from the start? In this lightning talk, we'll explore an innovative idea of embedding accessibility metadata directly into GraphQL schemas. Inspired by using Kotlin semantics in Jetpack Compose, imagine annotating fields with labels, roles, or screen reader hints that can be used to support screen readers, improve navigation, and even power automated accessibility testing. By adding custom accessibility annotations, tools could generate more accessible UI components, which enhances both the developer experience and the user experience. This is a call to rethink the developer experience and treat accessibility as a first-class concern. Let's reimagine GraphQL not just as a data layer, but as an inclusive design enabler.",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -3219,7 +3308,7 @@
     "event_end": "2025-09-10 10:10",
     "event_type": "Developer Experience",
     "description": "We will explore the novel static analysis approach used by Grats to enable a true implementation-first developer experience for building GraphQL servers in TypeScript. \n \nIf you are interested in compilers, type systems, static analysis and developer experience, this talk is for you!",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -3254,6 +3343,12 @@
     "start_time_ts": 1757490000,
     "end_date": "2025-09-10",
     "end_time": "10:10:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/64/Grats.pdf",
+        "name": "Grats.pdf"
+      }
+    ],
     "event_subtype": "Backend"
   },
   {
@@ -3265,7 +3360,7 @@
     "event_end": "2025-09-10 10:10",
     "event_type": "Developer Experience",
     "description": "Managing separate API definitions for REST and GraphQL APIs that serve the same underlying data can be inefficient and lead to duplicated efforts. At Pinterest, we are streamlining our API definitions and unifying our data models with TypeSpec. TypeSpec allows us to define our API shapes once and generate API schemas in multiple forms such as OpenAPI, Protobuf, and now GraphQL!\n \nWe’ve developed an open-source TypeSpec GraphQL Emitter which generates valid GraphQL schemas directly from TypeSpec definitions.\n \nJoin us for an overview of how TypeSpec and the GraphQL Emitter can streamline your API workflow. We'll explore:\n \n* How TypeSpec's unified definition approach accelerates development across multiple API specs\n* The inner workings of our open-source GraphQL Emitter\n* Our wins and lessons learned while building the GraphQL Emitter\n \nThis talk will be perfect for anyone interested in GraphQL schema generation, unified API definitions, and vague Lord of the Rings references! See you there!",
-    "goers": "5",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -3300,6 +3395,12 @@
     "start_time_ts": 1757490000,
     "end_date": "2025-09-10",
     "end_time": "10:10:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/be/GraphQL Conf 2025 - One API Definition To Rule Them All.pdf",
+        "name": "GraphQL Conf 2025 - One API Definition To Rule Them All.pdf"
+      }
+    ],
     "event_subtype": "Patterns and community trends"
   },
   {
@@ -3311,7 +3412,7 @@
     "event_end": "2025-09-10 10:10",
     "event_type": "GraphQL in Production",
     "description": "Have you ever wondered how GraphQL clients like Relay keep local data consistent across surfaces, ensuring that changes made within a session are seamlessly reflected across an application? In this talk, I'll delve into the concept of Local Data Consistency and explore how GraphQL clients at Meta, such as Relay, efficiently track and update changing GraphQL data locally, without introducing additional networking dependencies, and the UX benefits and features this unlocks.\n\nSpecifically, I’ll cover:\n- What even is Local Data Consistency, and why is it valuable to product developers?\n- How do you implement a data consistency engine from scratch?\n- How are advanced client-side features like offline mutation updates, asynchronous GraphQL request fetching, and more all made possible using a Local Data Consistency?",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -3357,7 +3458,7 @@
     "event_end": "2025-09-10 10:50",
     "event_type": "Developer Experience",
     "description": "In theory, data loaders solve most \"N+1\" problems in GraphQL. In practice, they can be hard to implement, so they’re typically used only in performance-critical situations and often reactively, once inefficiencies surface. To achieve better performance, batching needs to be applied wherever possible.\n \nThis talk introduces batch resolvers, a more developer-friendly alternative to data loaders. While traditional GraphQL resolvers take a single input and produce a single output, batching resolvers take a list of inputs and return a list of outputs. A batch resolver can simply call a batch service API without worrying about data loaders.\n \nWhen a developer provides a batch resolver, our GraphQL server automatically aggregates individual data fetches into a single call to that resolver. It can also apply heuristics to improve aggregation, for example by consolidating different selection sets for the same entity into a single input. This design not only makes application developers’ lives easier, but also allows the server to better optimize query execution by coordinating batch dispatching as part of a broader execution strategy.",
-    "goers": "4",
+    "goers": "7",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -3438,6 +3539,12 @@
     "start_time_ts": 1757492400,
     "end_date": "2025-09-10",
     "end_time": "10:30:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/d2/GraphQL Conf 2025_ Next-generation GraphQL cache for your mobile apps.pdf",
+        "name": "GraphQL Conf 2025_ Next-generation GraphQL cache for your mobile apps.pdf"
+      }
+    ],
     "event_subtype": "Frontend"
   },
   {
@@ -3491,6 +3598,12 @@
     "start_time_ts": 1757492400,
     "end_date": "2025-09-10",
     "end_time": "10:50:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/1f/GraphQLConf 2025.pdf",
+        "name": "GraphQLConf 2025.pdf"
+      }
+    ],
     "event_subtype": "Case studies"
   },
   {
@@ -3502,7 +3615,7 @@
     "event_end": "2025-09-10 10:50",
     "event_type": "GraphQL in Production",
     "description": "GraphQL provides flexibility in fetching data but this can prove challenging for caching. In this talk I cover the basics of caching in GraphQL such as layers you can cache at a high level. Layers such as the CDN, client side, server side, and database are touched upon with solutions from the community. The talk will also cover when to use each layer and what statistics to look at for improvement. I talk about how caching at multiple layers provides the best experience for the end user. By the end of this talk beginners will have a path forward to how they can cache at different layers for better performance.",
-    "goers": "5",
+    "goers": "6",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -3537,6 +3650,12 @@
     "start_time_ts": 1757493600,
     "end_date": "2025-09-10",
     "end_time": "10:50:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/52/Intro_To_Caching_GraphQLConf_2025.pptx",
+        "name": "Intro_To_Caching_GraphQLConf_2025.pptx"
+      }
+    ],
     "event_subtype": "Scaling"
   },
   {
@@ -3547,7 +3666,7 @@
     "event_start": "2025-09-10 10:50",
     "event_end": "2025-09-10 11:15",
     "event_type": "Breaks / Networking / Special Events",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Foyer Grote Zaal - 2nd Floor",
@@ -3630,7 +3749,7 @@
     "event_end": "2025-09-10 11:45",
     "event_type": "GraphQL in Production",
     "description": "Traditional GraphQL servers execute queries field by field with a depth-first algorithm as defined in the GraphQL specification. In contrast, GraphQL federation gateways need to partition the query and retrieve chunks of data from external data sources, creating new challenges. We'll present how we solved those challenges with a focus on performance.\n \nThe first, query planning, is to find the best possible plan with the multiple possibilities federation offers to unify your data and the various data sources with their requirements. We express this problem as a graph of possibilities and solve it as a Steiner Tree problem. The second challenge is performant execution. As we need to read and write overlapping chunks of the response in parallel, it's hard to be as efficient as a traditional GraphQL server writing a response iteratively with independent fields. We build an execution DAG with field dependencies, parallelizing work as much as possible without any lock on the response. We also pre-compute the expected data shape to ingest and validate incoming data into the response without any intermediate memory allocation.",
-    "goers": "1",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -3676,7 +3795,7 @@
     "event_end": "2025-09-10 11:45",
     "event_type": "GraphQL in Production",
     "description": "Last year we introduced strict error handling - with @throwOnFieldError as an example of how this can be accomplished. This year, we’ll discuss how to safely roll it out.\n \nYou’ve had a GraphQL codebase that weakly handled server-side errors for years. Now, you have the tools (directives, hooks, handlers, and language features) that let you treat field errors properly. However, it’s a daunting task to suddenly explode queries en-masse by flipping a switch. This move is powerful, but requires a thoughtful and data-driven approach to do safely.\n \nIn this talk we’ll cover:\n* Preparing the groundwork for migration to stricter error handling\n* Using data to make informed decisions about fragment/query behavior\n* Gating your change at a singular point\n* Scaling the rollout to a large codebase\n* How we’re approaching this rollout at Meta",
-    "goers": "3",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -3722,7 +3841,7 @@
     "event_end": "2025-09-10 12:25",
     "event_type": "Developer Experience",
     "description": "One of the great achievements of GraphQL is composable, full-stack type safety: a strongly-typed schema, against which one writes client components, and from which minimal yet sufficient queries are generated. This seamless flow from database to UI, with immediate feedback, compile-time guarantees and great performance, represents an unmatched DevEx breakthrough.\n \nBut what if we use a full-stack client (like Isograph aims to be)? Or use a rich client in combination with a Hasura, Prisma or PostGraphile, and effectively write components against an SQL schema? Have both the GraphQL schema and its operation language become mere implementation details?\n \nIn this talk, I'll explore how GraphQL's apparent disappearance into tooling actually represents its ultimate victory. Even as GraphQL-the-syntax fades from view, its architectural innovations—fragment composability, full-stack type safety, document merging, persisted operations—become the invisible foundation of modern development.\n \nThe best way to honor this legacy isn't to protect its syntax — it's to let its principles be reborn in new forms, evolving as our tools evolve, making app development better for years to come.",
-    "goers": "2",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -3768,7 +3887,7 @@
     "event_end": "2025-09-10 12:25",
     "event_type": "GraphQL in Production",
     "description": "HotelPage Service (HPS) is one of the busiest, most business-critical systems at Booking.com — originally built as a REST API with Protobufs for speed and structure. It was fast but rigid. As product demands grew and clients needed more flexibility, cracks began to show: over-fetching, unclear ownership, and slow iteration cycles.\n \nThis talk shares our real-world journey of modernizing that stack with GraphQL — not just adopting it as a new interface, but transforming how teams design schemas, collaborate across domains, and scale under load. We’ll walk through how we evolved from a proto-backed monolith to a federated GraphQL architecture — improving performance, enabling resolver ownership, and making the schema reflect real product needs.\n \nWhether you're planning a GraphQL migration or scaling one across teams, this talk delivers actionable insights and hard-won lessons from operating at billions of requests per day.\n \nAttendees will gain:\n- Align schema design with client and product needs\n- Handle organisational complexity in federation\n- Avoid pitfalls like over-fetching and the N+1 trap\n- Drive resolver ownership and collaboration\n- Optimise execution paths under high traffic",
-    "goers": "1",
+    "goers": "2",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -3820,7 +3939,7 @@
     "event_end": "2025-09-10 12:25",
     "event_type": "GraphQL in Production",
     "description": "Caching is one of the most powerful tools for improving API performance—but in a federated GraphQL architecture, stale data can quickly become a serious challenge. In this session, we will dive into how event-driven patterns can enable precise cache invalidation at the subgraph level, keeping your data fresh without sacrificing speed.\n \nYou will learn key design principles, practical integration strategies for GraphQL subgraphs, and the business impact of a smarter caching approach. We will also explore real-world use cases and demonstrate how CloudEvents can standardize event-based workflows across your architecture. Whether you are optimizing an existing caching layer or just beginning your caching journey, this talk will equip you with practical strategies to reduce latency, lower infrastructure costs, and deliver more reliable experiences to your users.",
-    "goers": "0",
+    "goers": "2",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -3902,7 +4021,7 @@
     "event_end": "2025-09-10 14:10",
     "event_type": "Developer Experience",
     "description": "`useQuery` is a powerful and simple abstraction, but there is so much more to Apollo Client today. In this talk we’ll re-introduce Apollo Client for this new era. Query preloading, suspense, fragment APIs, and data masking have given GraphQL practitioners a toolset to build sophisticated, scalable, and highly performant applications like never before. Learn about these new APIs, upgraded tooling, and how version 4.0 (and beyond) gives users a leaner, cleaner, and more capable open source GraphQL client.",
-    "goers": "2",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -3947,7 +4066,7 @@
     "event_start": "2025-09-10 13:40",
     "event_end": "2025-09-10 14:10",
     "event_type": "GraphQL in Production",
-    "description": "Imagine having a federated GraphQL query builder customized to meet unique software infrastructure requirements—have you ever dreamed of such a tool? If so, please join us for an exciting session where we uncover LinkedIn’s code first approach to querying entity-oriented data with federated GraphQL on top of backend gRPC services. Discover how our solution leverages the advanced capabilities of gRPC for enhanced performance, low latency, and multi-language support, while achieving seamless integration with our established Rest.li framework. We will dive into the motivations behind adopting this strategy, the intricate challenges encountered, and the significant improvements in developer experience and productivity it brings. With real-world examples and performance benchmarks, witness how this approach modernizes our service infrastructure, leading to more efficient and scalable solutions.",
+    "description": "Imagine having a federated GraphQL query builder customized to meet unique software infrastructure requirements—have you ever dreamed of such a tool? If so, please join us for an exciting session where we uncover LinkedIn’s code first approach to querying entity-oriented data with federated GraphQL on top of backend gRPC services. Discover how our solution leverages the advanced capabilities of gRPC for enhanced performance, low latency, and multi-language support. We will dive into the motivations behind adopting this strategy, the intricate challenges encountered, and the significant improvements in developer experience and productivity it brings. With real-world examples and performance benchmarks, witness how this approach modernizes our service infrastructure, leading to more efficient and scalable solutions.",
     "goers": "2",
     "seats": "0",
     "invite_only": "N",
@@ -3990,6 +4109,12 @@
     "start_time_ts": 1757504400,
     "end_date": "2025-09-10",
     "end_time": "14:10:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/95/LinkedIn's Code-First Approach To Federated GraphQL With gRPC.pdf",
+        "name": "LinkedIn's Code-First Approach To Federated GraphQL With gRPC.pdf"
+      }
+    ],
     "event_subtype": "Federation and distributed systems"
   },
   {
@@ -4001,7 +4126,7 @@
     "event_end": "2025-09-10 14:10",
     "event_type": "GraphQL in Production",
     "description": "When adopting GraphQL, teams diligently follow \"best practices\" without realizing they're actually choosing between two fundamentally different approaches: designing schemas to serve UI components (frontend-first) or to represent domain models (structure-first). This distinction is rarely framed as an explicit choice in GraphQL literature, with most examples showcasing the structure-first approach by default.\n\nYet this initial decision shapes everything from your team structure to how you handle breaking changes—and if you start with a structure-first approach, it's especially difficult to unwind that decision later. In this session, we'll explore the critical differences between these philosophies, examine how they manifest in real schemas, and analyze the trade-offs each approach presents. You'll see how changes that feel natural in one approach become deeply problematic in the other, and learn to identify which patterns your team has already begun to follow.",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -4054,7 +4179,7 @@
     "event_end": "2025-09-10 14:50",
     "event_type": "GraphQL in Production",
     "description": "Imagine you have a decade old REST API codebase with thousands of daily commits by hundreds of engineers, how would you incrementally adopt GraphQL? How would the data models be compatible with both REST and GraphQL to avoid divergence? How…?\n\nWe will share Instagram’s journey from 100% REST API development to 95%+ new APIs developed in GraphQL over a two year period.",
-    "goers": "3",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -4128,7 +4253,7 @@
     "event_end": "2025-09-10 14:30",
     "event_type": "GraphQL in Production",
     "description": "Any company that wants to innovate deals with change. Within GraphQL that often means introducing new fields but also deprecating old fields & types.\nThe faster you can get rid of these old fields & types the less complex your architecture is and less complexity means an easier time building new features!\n\nWe saw this problem and got tired of the endless “please migrate away from field X to field Y before Z” emails, which were often not even sent to the right group of consumers!\n\nWe automated this process by building a slack bot that uses production analytical data to figure out what clients are using deprecated fields and automated the communication!",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -4163,6 +4288,12 @@
     "start_time_ts": 1757506800,
     "end_date": "2025-09-10",
     "end_time": "14:30:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/d5/GraphQLConf - Please Migrate Away From Field X To Field Y Before Z.pdf",
+        "name": "GraphQLConf - Please Migrate Away From Field X To Field Y Before Z.pdf"
+      }
+    ],
     "event_subtype": "Schema evolution"
   },
   {
@@ -4174,7 +4305,7 @@
     "event_end": "2025-09-10 14:50",
     "event_type": "Developer Experience",
     "description": "Ever wondered if two seemingly different GraphQL queries actually return the same data? Or how to ensure that complex queries—packed with type conditions and directives like @skip/@include—still mean the same thing after a major refactor? In this talk, we’ll explore a novel static analysis technique that efficiently checks whether one query’s response is always a subset of another’s. By performing this subset test in both directions, we can reliably determine query equivalence—bringing new clarity to complex GraphQL operations.",
-    "goers": "1",
+    "goers": "2",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -4212,56 +4343,10 @@
     "event_subtype": "Testing"
   },
   {
-    "event_key": "925155",
-    "active": "Y",
-    "pinned": "N",
-    "name": "Building Resilient APIs: Techniques for Easy and Effective Error Handling - Jesper Rasmussen, The LEGO Group",
-    "event_start": "2025-09-10 15:00",
-    "event_end": "2025-09-10 15:30",
-    "event_type": "Developer Experience",
-    "description": "Error handling is a critical aspect of developing robust GraphQL applications. Misuse or misunderstanding of errors can lead to applications that fail to function correctly, causing frustration for both developers and users.\n\nIn this talk, we explore how to effectively manage errors in GraphQL, ensuring they are wrapped in a useful way, the implementation details are hidden behind them, and common design pitfalls are avoided.",
-    "goers": "2",
-    "seats": "0",
-    "invite_only": "N",
-    "venue": "Studio - 5th Floor",
-    "audience": "Intermediate",
-    "id": "8ac5513fb2d9a6accff3ed83471540e2",
-    "venue_id": "2152809",
-    "speakers": [
-      {
-        "username": "jesperrasmussen",
-        "id": "5254118",
-        "name": "Jesper Rasmussen",
-        "company": "The LEGO Group",
-        "custom_order": 0
-      }
-    ],
-    "event_start_year": "2025",
-    "event_start_month": "September",
-    "event_start_month_short": "Sep",
-    "event_start_day": "10",
-    "event_start_weekday": "Wednesday",
-    "event_start_weekday_short": "Wed",
-    "event_start_time": "15:00",
-    "event_end_year": "2025",
-    "event_end_month": "September",
-    "event_end_month_short": "Sep",
-    "event_end_day": "10",
-    "event_end_weekday": "Wednesday",
-    "event_end_weekday_short": "Wed",
-    "event_end_time": "15:30",
-    "start_date": "2025-09-10",
-    "start_time": "15:00:00",
-    "start_time_ts": 1757509200,
-    "end_date": "2025-09-10",
-    "end_time": "15:30:00",
-    "event_subtype": "Patterns and community trends"
-  },
-  {
     "event_key": "929167",
     "active": "Y",
     "pinned": "N",
-    "name": "“One Scheme To Rule Them All”: Simplifying 10+ Mediaset Apps With One Single GraphQL Service - Marco Reni, Mediaset",
+    "name": "“One Schema To Rule Them All”: Simplifying 10+ Mediaset Apps With One Single GraphQL Service - Marco Reni, Mediaset",
     "event_start": "2025-09-10 15:00",
     "event_end": "2025-09-10 15:30",
     "event_type": "GraphQL in Production",
@@ -4301,6 +4386,12 @@
     "start_time_ts": 1757509200,
     "end_date": "2025-09-10",
     "end_time": "15:30:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/bb/GraphQLConf2025 | Marco Reni - One Schema to rule them all.pdf",
+        "name": "GraphQLConf2025 | Marco Reni - One Schema to rule them all.pdf"
+      }
+    ],
     "event_subtype": "Case studies"
   },
   {
@@ -4312,7 +4403,7 @@
     "event_end": "2025-09-10 15:30",
     "event_type": "GraphQL in Production",
     "description": "\"There are only two hard things in Computer Science: cache invalidation and naming things\".\n\nGraphQL provides many benefits over other query languages. Federation builds on top of this foundation to provide even more flexibility and power. But even with all that GraphQL has to offer, the problem of naming remains.\n\nIn this talk, Jeff Dolle, from The Guild, will share what he's learned about schema design: proven design philosophies, designing for forward compatibility, exposing errors through types, and tips for how to avoid ambiguous or misleading type names.\n\nTogether, we will then go through an example product design meeting: taking user stories and building a complete GraphQL schema.",
-    "goers": "4",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -4347,6 +4438,12 @@
     "start_time_ts": 1757509200,
     "end_date": "2025-09-10",
     "end_time": "15:30:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/4e/slides-proven-schema-designs-best-practices.pdf",
+        "name": "slides-proven-schema-designs-best-practices.pdf"
+      }
+    ],
     "event_subtype": "Schema evolution"
   },
   {
@@ -4357,7 +4454,7 @@
     "event_start": "2025-09-10 15:30",
     "event_end": "2025-09-10 15:50",
     "event_type": "Breaks / Networking / Special Events",
-    "goers": "3",
+    "goers": "4",
     "seats": "0",
     "invite_only": "N",
     "venue": "Foyer Grote Zaal - 2nd Floor",
@@ -4447,7 +4544,7 @@
     "event_end": "2025-09-10 16:20",
     "event_type": "GraphQL in Production",
     "description": "Pinterest is adopting GraphQL. Given our app's size, we can't simply rewrite everything in one fell swoop. So, we created the Relay Migration API (RMA) — a set of tools to incrementally migrate your React components to consume GraphQL-shaped data while making requests to REST endpoints.\n\nI'll share how we've significantly evolved the RMA after migrating four key surfaces, focusing on the advanced challenges we faced:\n\n<ul><li>RMA recreates objects on every render by default, breaking components expecting stable references. We implemented a caching layer, similar to Relay's, to return consistent objects between renders.</li><li>RMA originally read from static source objects, creating stale data when Redux state changed. Our solution: a selective subscription system that re-computes GraphQL data only when source fields change, keeping data current while eliminating unnecessary renders.</li><li>And in cases where Redux and GraphQL schemas fundamentally differ, we built bidirectional mapping with schema validation to ensure data consistency.</li></ul>\nJoin us to learn how the Relay migration API has evolved and how it helps you accelerate your GraphQL migrations without disrupting existing applications!",
-    "goers": "2",
+    "goers": "5",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -4493,7 +4590,7 @@
     "event_end": "2025-09-10 16:45",
     "event_type": "Keynote Sessions",
     "description": "This talk will give attendees an overview of the structure of GraphQL's official organizations: The GraphQL Foundation and the GraphQL Specification Project. It will get specific about the governance and roadmaps of each organization and their specific priorities in 2025 and beyond.\n\nIn my time serving in these various institutions, I've noticed that even the most active GraphQL practitioners aren't fully aware of what they are and what they do. Attendees will learn about the GraphQL Working Group, the Technical Steering Committee, and the Foundation's Governing Board. We'll also touch upon the various technical working groups and the new Community Working Group. The talk culminates in a call to action for folks to get involved.",
-    "goers": "5",
+    "goers": "8",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
@@ -4538,7 +4635,7 @@
     "event_start": "2025-09-10 16:45",
     "event_end": "2025-09-10 17:00",
     "event_type": "Keynote Sessions",
-    "goers": "3",
+    "goers": "6",
     "seats": "0",
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",

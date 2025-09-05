@@ -631,7 +631,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1756472735600
+      "~syncedDetailsAt": 1757085026624
     },
     {
       "username": "BoD",
@@ -639,8 +639,8 @@
       "position": "Android Developer",
       "name": "Benoit Lubek",
       "about": "Currently working on Apollo-Kotlin, the Kotlin SDK for GraphQL, Benoit has been writing software for 20 years, with a focus on Android since its v1. When he’s not coding, you can find him enjoying movies or geocaching.",
-      "location": "",
-      "url": "",
+      "location": "France",
+      "url": "JRAF.org",
       "avatar": "//avatars.sched.co/0/d3/431358/avatar.jpg.320x320px.jpg?e99",
       "socialurls": [],
       "_years": [
@@ -780,7 +780,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1756472735600
+      "~syncedDetailsAt": 1757085026624
     },
     {
       "username": "christian.ernst",
@@ -820,7 +820,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1756472735600
+      "~syncedDetailsAt": 1757085026624
     },
     {
       "username": "christian.stangier",
@@ -954,7 +954,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1756472735600
+      "~syncedDetailsAt": 1757085026624
     },
     {
       "username": "donnasiqizhou",
@@ -975,7 +975,7 @@
         2023,
         2025
       ],
-      "~syncedDetailsAt": 1756472735600
+      "~syncedDetailsAt": 1757085026625
     },
     {
       "username": "dotan1",
@@ -984,7 +984,7 @@
       "name": "Dotan Simha",
       "about": "CTO @ The Guild, creator and maintainer of many open-source libraries in the GraphQL ecosystem, including GraphQL-Codegen.",
       "location": "",
-      "url": "",
+      "url": "https://the-guild.dev",
       "avatar": "//avatars.sched.co/3/1e/23098735/avatar.jpg.320x320px.jpg?7a3",
       "socialurls": [
         {
@@ -999,7 +999,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1756472735601
+      "~syncedDetailsAt": 1757085026625
     },
     {
       "username": "dotansimha",
@@ -1020,6 +1020,30 @@
         2023
       ],
       "~syncedDetailsAt": 1749503782817
+    },
+    {
+      "username": "eddynguyen",
+      "company": "SEEK & The Guild",
+      "position": "Lead Engineer",
+      "name": "Eddy Nguyen",
+      "about": "By day, Eddy builds products at SEEK. By night, he maintains GraphQL Code Generator at The Guild.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/c/de/23565738/avatar.jpg.320x320px.jpg?063",
+      "socialurls": [
+        {
+          "service": "Twitter",
+          "url": "https://x.com/eddeee888"
+        },
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/eddeee888/"
+        }
+      ],
+      "_years": [
+        2025
+      ],
+      "~syncedDetailsAt": 1757085026624
     },
     {
       "username": "eitan15",
@@ -1108,7 +1132,7 @@
         2024,
         2025
       ],
-      "~syncedDetailsAt": 1756472735601
+      "~syncedDetailsAt": 1757085026625
     },
     {
       "username": "ernie.turner1",
@@ -1171,7 +1195,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1756472735601
+      "~syncedDetailsAt": 1757085026625
     },
     {
       "username": "fionabronwen",
@@ -1191,7 +1215,7 @@
       "_years": [
         2025
       ],
-      "~syncedDetailsAt": 1756472735601
+      "~syncedDetailsAt": 1757085026625
     },
     {
       "username": "gabe210",
@@ -1542,7 +1566,7 @@
       "name": "Jeff Dolle",
       "about": "Jeff Dolle is a Software Engineer at The Guild who has been using GraphQL full-stack since 2016 and is currently working on the GraphQL Hive platform. He has extensive experience designing and implementing schemas in production software, serving over a billion requests a month.",
       "location": "",
-      "url": "",
+      "url": "https://graphql-hive.com",
       "avatar": "//avatars.sched.co/3/b5/23098759/avatar.jpg.320x320px.jpg?613",
       "socialurls": [
         {
@@ -1598,26 +1622,6 @@
         2023
       ],
       "~syncedDetailsAt": 1749505650884
-    },
-    {
-      "username": "jesperrasmussen",
-      "company": "The LEGO Group",
-      "position": "Principal Engineer",
-      "name": "Jesper Rasmussen",
-      "about": "Jesper Rasmussen is a Principal Engineer at The LEGO Group with a passion for building great developer experiences. He’s been working with GraphQL since 2016 across several companies, leading transformation projects and helping teams get the most out of their APIs.\n \nOutside of work, Jesper enjoys hiking, mixing up cocktails, cooking, dialing in the perfect espresso—and always has some death metal playing in the background.",
-      "location": "Odense, Denmark",
-      "url": "",
-      "avatar": "//avatars.sched.co/4/43/5254118/avatar.jpg.320x320px.jpg?a7c",
-      "socialurls": [
-        {
-          "service": "Facebook",
-          "url": "https://www.facebook.com/app_scoped_user_id/YXNpZADpBWEZAVZA1doQi1ZAanFBcnNlWGtJdlJtS3NsaUgtT3N0V3ZApVzhfNFdadG5lZAVkxRzI0b2ZAVVFZAidXYxcHYwakZAqOVB6VzU5S2VhWWdFaGZAiWFEzc2VXS2dTRThCaFZAnYkthY2toNk5MbgZDZD/"
-        }
-      ],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1756472738367
     },
     {
       "username": "jim.barton",
@@ -1750,21 +1754,6 @@
         2025
       ],
       "~syncedDetailsAt": 1756487485564
-    },
-    {
-      "username": "kbahl",
-      "company": "Atlassian",
-      "position": "",
-      "name": "Kritika Bahl",
-      "about": "",
-      "location": "",
-      "url": "",
-      "avatar": "",
-      "socialurls": [],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1756904606430
     },
     {
       "username": "keerthan.ekbote",
@@ -2091,7 +2080,7 @@
       "about": "Mansi Mittal is a Senior Software Engineer with 12 years of experience, including 6 years at Booking.com. She has designed and architected critical, high-scale systems and led the migration from REST + Protobuf to federated GraphQL for high-volume, business-critical services. Passionate about scalable architecture, she bridges product needs with elegant engineering solutions.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/1/45/23098777/avatar.jpg.320x320px.jpg?d75",
+      "avatar": "//avatars.sched.co/1/45/23098777/avatar.jpg.320x320px.jpg?cb5",
       "socialurls": [
         {
           "service": "LinkedIn",
@@ -2621,7 +2610,7 @@
       "company": "Airbnb",
       "position": "Viaduct Tech Lead",
       "name": "Raymie Stata",
-      "about": "Raymie Stata earned his PhD in Computer Science from MIT and has been building technology at the intersection of search, big data, and distributed systems ever since. He founded Stata Labs, an early pioneer in desktop search, which was acquired by Yahoo! where he rose to CTO and helped shape the Hadoop ecosystem. He later founded Altiscale, one of the first Big-Data-as-a-Service platforms, which was acquired by SAP.\nAfter serving as Airbnb’s first Technical Fellow and leading a broad re-engineering of their technology stack, Raymie is now focused on Viaduct — a project developed in close collaboration with Airbnb to bring GraphQL infrastructure to the next level.",
+      "about": "Raymie Stata earned his PhD in Computer Science from MIT and has been building technology at the intersection of search, big data, and distributed systems ever since. He founded Stata Labs, an early pioneer in desktop search, which was acquired by Yahoo! where he rose to CTO and helped shape the Hadoop ecosystem. He later founded Altiscale, one of the first Big-Data-as-a-Service platforms, which was acquired by SAP. After serving as Airbnb’s first Technical Fellow and leading a broad re-engineering of their technology stack, Raymie is now focused on Viaduct — a project developed in close collaboration with Airbnb to bring GraphQL infrastructure to the next level.",
       "location": "San Francisco, USA",
       "url": "",
       "avatar": "//avatars.sched.co/4/a1/23098792/avatar.jpg.320x320px.jpg?a85",
@@ -3193,7 +3182,7 @@
     {
       "username": "tom817",
       "company": "Grafbase",
-      "position": "Engineer",
+      "position": "Software Engineer",
       "name": "Tom Houlé",
       "about": "Tom's professional life has gravitated towards GraphQL and Rust, schemas and databases. After authoring the first Rust GraphQL client library, recent years have taken him from the database schema management space at Prisma to GraphQL federation at Grafbase. In his free time, he enjoys long walks, pistachios and trying to teach his dog the international phonetic alphabet.",
       "location": "",
@@ -3319,21 +3308,6 @@
         2024
       ],
       "~syncedDetailsAt": 1749502251756
-    },
-    {
-      "username": "vivekyadav.cse.2005",
-      "company": "Atlassian",
-      "position": "",
-      "name": "Vivek Yadav",
-      "about": "Masters from IIT Roorkee. Engineer with decade of experience in software previously Worked in Amazon & Uber.\nIn Atlassian Using GraphQL to handle JIRA's scale and optimising for better observability, safe rollouts and making JIRA more responsive.",
-      "location": "",
-      "url": "",
-      "avatar": "//avatars.sched.co/5/b1/23098813/avatar.jpg.320x320px.jpg?d11",
-      "socialurls": [],
-      "_years": [
-        2025
-      ],
-      "~syncedDetailsAt": 1756904606430
     },
     {
       "username": "vmjohnson999",
