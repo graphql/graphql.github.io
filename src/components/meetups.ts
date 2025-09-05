@@ -58,7 +58,7 @@ export const meetups = [
   },
   {
     node: {
-      id: "austin",
+      id: "20451795",
       name: "GraphQL Austin",
       link: "https://www.meetup.com/atx-graphql",
       city: "Austin, TX",
@@ -72,7 +72,7 @@ export const meetups = [
   },
   {
     node: {
-      id: "sf",
+      id: "31255122",
       name: "GraphQL SF",
       link: "http://meetup.com/GraphQL-SF",
       city: "San Francisco",
@@ -86,7 +86,7 @@ export const meetups = [
   },
   {
     node: {
-      id: "zurich",
+      id: "31704787",
       name: "GraphQL Zurich",
       link: "https://www.meetup.com/graphql-zurich",
       city: "Zurich",
@@ -114,7 +114,7 @@ export const meetups = [
   },
   {
     node: {
-      id: "seattle",
+      id: "29671383",
       name: "Seattle GraphQL",
       link: "https://www.meetup.com/graphql-seattle",
       city: "Seattle",
@@ -128,7 +128,7 @@ export const meetups = [
   },
   {
     node: {
-      id: "amsterdam",
+      id: "20208222",
       name: "GraphQL Amsterdam",
       link: "https://www.meetup.com/amsterdam-graphql-meetup",
       city: "Amsterdam",
@@ -142,7 +142,7 @@ export const meetups = [
   },
   {
     node: {
-      id: "berlin",
+      id: "37102548",
       name: "GraphQL Berlin",
       link: "https://www.meetup.com/graphql-berlin/",
       city: "Berlin",
@@ -236,6 +236,20 @@ export const meetups = [
       prev: "",
       next: "",
       official: true,
+    },
+  },
+  {
+    node: {
+      id: "32869172",
+      name: "Copenhagen GraphQL",
+      link: "https://www.meetup.com/copenhagen-graphql-meetup-group",
+      city: "Copenhagen",
+      latitude: 55.68,
+      longitude: 12.57,
+      country: "Denmark",
+      prev: "",
+      next: "",
+      official: false,
     },
   },
 ].sort((a, z) =>
