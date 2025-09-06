@@ -1867,12 +1867,6 @@ article.nextra-body-typesetting-article h1 {
 article.nextra-body-typesetting-article h2 {
   border-style: none;
 }
-article.nextra-body-typesetting-article a {
-  text-decoration-line: none;
-}
-article.nextra-body-typesetting-article a:hover {
-  text-decoration-line: underline;
-}
 article.nextra-body-typesetting-article p {
   line-height: 2rem;
 }
