@@ -4,17 +4,17 @@ tags: ["blog"]
 date: 2025-09-08
 byline: Jem Gillam and Jory Burson
 ---
+
 The GraphQL Foundation is thrilled to announce the launch of the GraphQL Ambassadors Program — a new initiative to recognize and support community leaders who are helping to grow the GraphQL ecosystem worldwide.
 
-GraphQL has long since established itself as a global standard for powering APIs across startups, enterprises, and platforms. Our incredible network of educators, maintainers, advocates, and organizers keeps the community strong and well-positioned to support developers at all stages of their GraphQL journey. 
+GraphQL has long since established itself as a global standard for powering APIs across startups, enterprises, and platforms. Our incredible network of educators, maintainers, advocates, and organizers keeps the community strong and well-positioned to support developers at all stages of their GraphQL journey.
 
 We’ve launched the GraphQL Ambassadors program to:
 
-* **Highlight contributors** who are already teaching, mentoring, and building with GraphQL.
-* **Support local communities** through meetups, conferences, and workshops.
-* **Amplify voices** from across the globe to ensure GraphQL remains accessible, inclusive, and community-driven.
-* **Share GraphQL best practices** and gather feedback from developers.
-
+- **Highlight contributors** who are already teaching, mentoring, and building with GraphQL.
+- **Support local communities** through meetups, conferences, and workshops.
+- **Amplify voices** from across the globe to ensure GraphQL remains accessible, inclusive, and community-driven.
+- **Share GraphQL best practices** and gather feedback from developers.
 
 ## **Meet the First Ambassador Cohort**
 
@@ -26,11 +26,11 @@ Ambassadors are nominated and represent a diverse range of geographies, backgrou
 
 ## **How to Get Involved**
 
-* **Nominate an Ambassador.** Do you know someone doing incredible work with GraphQL? [Nominate them](https://forms.gle/hN7reX8aKQ6BqSJm7) (or [yourself](https://forms.gle/zRKVfcTPQ9kFn4Ps6))! 
+- **Nominate an Ambassador.** Do you know someone doing incredible work with GraphQL? [Nominate them](https://forms.gle/hN7reX8aKQ6BqSJm7) (or [yourself](https://forms.gle/zRKVfcTPQ9kFn4Ps6))!
 
-* **Connect locally.** Attend events and workshops hosted by Ambassadors in your region.
+- **Connect locally.** Attend events and workshops hosted by Ambassadors in your region.
 
-* **Share your story.** If you’re publishing, teaching, or building with GraphQL, we’d love to hear from you.
+- **Share your story.** If you’re publishing, teaching, or building with GraphQL, we’d love to hear from you.
 
 ## **What’s Next**
 
