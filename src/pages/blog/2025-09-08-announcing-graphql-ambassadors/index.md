@@ -20,9 +20,9 @@ We’ve launched the GraphQL Ambassadors program to:
 
 Ambassadors are nominated and represent a diverse range of geographies, backgrounds, and use cases — from maintainers of popular libraries, to meetup organizers, to educators writing guides and tutorials. Join us in celebrating our first group, and stay tuned for more news about this program!
 
-![Artur Czemiel, Donna Zhou, Erik Wrede, Itamar Kestenbaum, Jeff Auriemma, Jordan Eldredge, Jovi De Croock](group1.png)
-![Michael Watson, Patrick Arminio, Dotan Simha, Sarah Sanders, Stephen Spalding, Eddy Nguyen, Warren Day](group2.png)
-![Marc-Andre Giroux, Taz Singh, Phil Pluckthun, Jem Gillam, Jamie Barton](group3.png)
+![Artur Czemiel, Donna Zhou, Erik Wrede, Itamar Kestenbaum, Jeff Auriemma, Jordan Eldredge, Jovi De Croock](./group1.png)
+![Michael Watson, Patrick Arminio, Dotan Simha, Sarah Sanders, Stephen Spalding, Eddy Nguyen, Warren Day](./group2.png)
+![Marc-Andre Giroux, Taz Singh, Phil Pluckthun, Jem Gillam, Jamie Barton](./group3.png)
 
 ## **How to Get Involved**
 
