@@ -15,40 +15,34 @@ Since its initial release 10 years ago, GraphQL has grown into a critical layer 
  \
 **Expressiveness for API consumers**: Developers use GraphQL because it’s intuitive, flexible, and powerful. This edition makes the language even more productive and expressive, particularly for AI-first applications.
 
-
 ## **Why It Matters**
 
-Several updates in this edition make GraphQL an even better foundation for AI assistants, codegen tools, and autonomous agents: 
+Several updates in this edition make GraphQL an even better foundation for AI assistants, codegen tools, and autonomous agents:
 
-
-
-* Descriptions on executable documents give LLMs richer context for intent understanding and safer refactoring. 
-* Schema Coordinates provide a precise, both human- and machine-readable way to reference fields and types, improving traceability, evals, and automated PR feedback. 
-* OneOf input objects simplify schema entrypoints whilst maintaining type safety by expressing mutually exclusive inputs directly in the schema. This is particularly helpful for prompt and form generation. 
-* The clarified execution/error terminology and request `extensions` make responses more predictable for deterministic parsers and toolchains. 
-
+- Descriptions on executable documents give LLMs richer context for intent understanding and safer refactoring.
+- Schema Coordinates provide a precise, both human- and machine-readable way to reference fields and types, improving traceability, evals, and automated PR feedback.
+- OneOf input objects simplify schema entrypoints whilst maintaining type safety by expressing mutually exclusive inputs directly in the schema. This is particularly helpful for prompt and form generation.
+- The clarified execution/error terminology and request `extensions` make responses more predictable for deterministic parsers and toolchains.
 
 ## **Notable Updates**
 
+- **OneOf Input Objects (a.k.a. input unions)** \
+  A long-requested feature! This unlocks more natural ways to model mutually exclusive inputs, leading to tidier schemas and unlocking use-cases that couldn’t be safely expressed previously - check out the [blog post](https://graphql.org/blog/2025-09-04-multioption-inputs-with-oneof/).[ RFC #825 \
+  ](https://github.com/graphql/graphql-spec/pull/825)
+- **Schema Coordinates** \
+  A standardized way to refer to parts of a schema, paving the way for better tooling, error reporting, and developer experience.[ RFC #794 \
+  ](https://github.com/graphql/graphql-spec/pull/794)
+- **Descriptions on Documents** \
+  Improved support for documenting queries and operations — helpful for humans and increasingly relevant for AI-powered tools.[ RFC #1170 \
+  ](https://github.com/graphql/graphql-spec/pull/1170)
+- **Expanded Deprecation Support** \
+  Deprecation is now more broadly supported across schema elements, making it easier to evolve APIs without breaking clients. [RFCs [#805](https://github.com/graphql/graphql-spec/pull/805), [#1040](https://github.com/graphql/graphql-spec/pull/1040), [#1053](https://github.com/graphql/graphql-spec/pull/1053), [#1142](https://github.com/graphql/graphql-spec/pull/1142)]
 
-
-* **OneOf Input Objects (a.k.a. input unions)** \
-A long-requested feature! This unlocks more natural ways to model mutually exclusive inputs, leading to tidier schemas and unlocking use-cases that couldn’t be safely expressed previously - check out the [blog post](https://graphql.org/blog/2025-09-04-multioption-inputs-with-oneof/).[ RFC #825  \
-](https://github.com/graphql/graphql-spec/pull/825)
-* **Schema Coordinates** \
-A standardized way to refer to parts of a schema, paving the way for better tooling, error reporting, and developer experience.[ RFC #794 \
-](https://github.com/graphql/graphql-spec/pull/794)
-* **Descriptions on Documents** \
-Improved support for documenting queries and operations — helpful for humans and increasingly relevant for AI-powered tools.[ RFC #1170 \
-](https://github.com/graphql/graphql-spec/pull/1170)
-* **Expanded Deprecation Support** \
-Deprecation is now more broadly supported across schema elements, making it easier to evolve APIs without breaking clients. [RFCs [#805](https://github.com/graphql/graphql-spec/pull/805), [#1040](https://github.com/graphql/graphql-spec/pull/1040), [#1053](https://github.com/graphql/graphql-spec/pull/1053), [#1142](https://github.com/graphql/graphql-spec/pull/1142)] 
-
-* **Full Unicode Support** \
-**The language grammar now supports the entire Unicode range, improving internationalization and accessibility.[ RFC #849 \
-](https://github.com/graphql/graphql-spec/pull/849)
-* **Editorial Improvements** \
-The spec is clearer, more consistent, and easier to contribute to. Ambiguities have been reduced, and the style guide has been modernized.
+- **Full Unicode Support** \
+  \*\*The language grammar now supports the entire Unicode range, improving internationalization and accessibility.[ RFC #849 \
+  ](https://github.com/graphql/graphql-spec/pull/849)
+- **Editorial Improvements** \
+  The spec is clearer, more consistent, and easier to contribute to. Ambiguities have been reduced, and the style guide has been modernized.
 
 ## **Thank you, contributors!**
 
