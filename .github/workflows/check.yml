@@ -26,6 +26,20 @@ jobs:
       - name: Validate code snippets
         run: pnpm validate:snippets
 
+  playwright:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: the-guild-org/shared-config/setup@main
+        name: setup env
+        with:
+          packageManager: pnpm
+          workingDirectory: ./
+
+      - name: Install Dependencies
+        run: pnpm i
+
         # per the docs: "caching browser binaries is not recommended,
         # since the amount of time it takes to restore the cache is
         # comparable to the time it takes to download the binaries"
