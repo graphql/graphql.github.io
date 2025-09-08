@@ -41,5 +41,5 @@ export function useCurrentTimeMarker() {
     }
   }
 
-  return getTimeMarker
+  return { getTimeMarker }
 }

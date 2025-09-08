@@ -26,7 +26,16 @@ export const Anchor = forwardRef(function Anchor(
   return isInternal(props) ? (
     <NextLink {...props} ref={ref} />
   ) : (
-    <a ref={ref} rel="noopener noreferrer" target="_blank" {...props} />
+    <a
+      ref={ref}
+      {...(!props.href.startsWith("#")
+        ? {
+            rel: "noopener noreferrer",
+            target: "_blank",
+          }
+        : {})}
+      {...props}
+    />
   )
 }) as (props: AnchorProps) => ReactElement
 

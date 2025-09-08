@@ -97,6 +97,10 @@ export function ResetFiltersButton({
 }) {
   const hasFilters = Object.values(filters).flat().length > 0
 
+  if (!hasFilters) {
+    return null
+  }
+
   return (
     <Button
       variant="tertiary"
@@ -104,7 +108,7 @@ export function ResetFiltersButton({
       onClick={onReset}
       disabled={!hasFilters}
       className={clsx(
-        "h-fit items-center gap-x-2 bg-neu-100 !p-2 text-neu-700 transition-opacity hover:bg-neu-200/80 hover:text-neu-900 disabled:opacity-0",
+        "h-fit items-center gap-x-2 bg-neu-100 !p-2 text-neu-700 transition-opacity hover:bg-neu-200/80 hover:text-neu-900",
         className,
       )}
     >
