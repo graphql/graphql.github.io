@@ -2,9 +2,10 @@
 title: "Introducing the New GraphQL.org: A Decade of Evolution, Redesigned"
 tags: ["announcement"]
 date: 2025-09-08
-byline: Saihaj Singh
+byline: Saihajpreet Singh & Piotr Monwid-Olechnowicz
 ---
-After ten years of continuous growth and evolution, we're excited to announce the complete redesign of GraphQL.org! 
+
+After ten years of continuous growth and evolution, we're excited to announce the complete redesign of GraphQL.org!
 
 What started as a simple query language has transformed into the backbone of modern API development at companies like Meta, Netflix, GitHub, and thousands of others worldwide.
 
