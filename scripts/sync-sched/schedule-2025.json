@@ -2390,6 +2390,7 @@
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
     "audience": "Any",
+    "geo_area": "Yes",
     "id": "1ef800d68c28db994bfec011a6817fc8",
     "venue_id": "2152809",
     "speakers": [
@@ -2420,6 +2421,12 @@
     "start_time_ts": 1757401200,
     "end_date": "2025-09-09",
     "end_time": "10:30:00",
+    "files": [
+      {
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/5d/saihaj-conf-workshop-2025.pdf",
+        "name": "saihaj-conf-workshop-2025.pdf"
+      }
+    ],
     "event_subtype": ""
   },
   {
@@ -2467,7 +2474,7 @@
     "event_end": "2025-09-09 11:25",
     "event_type": "Developer Experience",
     "description": "GraphQL error handling sucks. There, I said it.\n\nEver hunted through the errors list to figure out if a null was legit or caused by an error? If you're like me, you gave up and now treat nulls as \"maybe errored, maybe absent, maybe both.\"\n\nAnd nullability. Schema designers make anything that might fail nullable, producing partial responses when errors occur. But since anything can fail, now everything is nullable—\nand we're drowning in null checks. We recklessly cast to non-null or fall back to the empty string out of desperation. And we still don't know what's truly nullable.\n\nNo more.\n\nThis talk introduces a new, pragmatic approach, born from years of work by the Nullability WG. We propose a future where schemas reflect the true nullability of business entities, and error handling is where it belongs: in your code, not your data. Use your language's built-in tools to handle errors ergonomically; and drop the unnecessary null checks. When you read a null, it should mean one thing: the absence of data.\n\nThis isn't some distant ideal on the horizon of GraphQL's future; with just 512 bytes added to your GraphQL client, you can start adopting this today. Come see how.",
-    "goers": "12",
+    "goers": "13",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -2513,7 +2520,7 @@
     "event_end": "2025-09-09 12:15",
     "event_type": "Unconference",
     "description": "Lightning Talks: <ul><li> Samuel Vazquez - MCP server demo </li><li> Andres Ortiz - GraphQL + Neo4j graph database demo </li><li> Giuseppe Abrignani - GraphQL / Enterprise data modell </li><li> Lars de Bruijn - Quantifying graphQL Schema Health </li><li> Lars de Bruijn - Trusted Documents </li></ul> <a href=\"https://github.com/graphql/graphql-wg/discussions/1815\" rel=\"noopener noreferrer\" target=\"_blank\">Lightning Talk submissions & discussion thread\n</a>\n***\n\"Unconference\" starts with U! Do you have a demo to share, an itch to scratch, lightning talk to workshop, or proposal you want to brainstorm? There's ample opportunity to bring your thoughts to the unconference table and seek or share feedback.\n\nThe unconference agenda will be created onsite - stay tuned for more info about how you can add your topics.",
-    "goers": "1",
+    "goers": "0",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -2609,7 +2616,7 @@
     "event_end": "2025-09-09 12:15",
     "event_type": "GraphQL Working Group",
     "description": "Although the topic of namespacing has been brought up repeatedly in the GraphQL community over the last decade, there is an understandable worry that it would lead to anti-patterns in schema design. If namespacing is used as an excuse to avoid coordination between teams, this can result in a fragmented GraphQL schema that reflects current team boundaries as opposed to domain or client concerns.\n\nGraphQL Federation offers an alternative architecture: when coordination is enforced and consistency guaranteed, a large number of teams can contribute to a single, coherent GraphQL schema without the danger of stepping on each other's toes.\n\nEven with that architecture in place however, I believe there are still legitimate use cases for namespacing. In this talk, I will go over some of those use cases, and formulate a set of design principles that could guide the introduction of namespacing in GraphQL.",
-    "goers": "13",
+    "goers": "14",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -2655,7 +2662,7 @@
     "event_end": "2025-09-09 14:15",
     "event_type": "Breaks / Networking / Special Events",
     "description": "Use this lunch time to go outside, visit local restaurants, and hang with your new GraphQL friends.\n\nOption 1 - <a href=\"https://www.google.com/maps/d/u/1/edit?mid=15R49h_2nrfJ1SbX_PFBmIJQS5gP3Hoo&usp=sharing\">Lunch restaurant guide</a>\nOption 2 - A limited number of bag lunches will be available at the venue for you to take and either eat in the building or take outside.",
-    "goers": "10",
+    "goers": "11",
     "seats": "0",
     "invite_only": "N",
     "id": "c792d79fcbf90eafe5aeccec4e753e2a",
@@ -2742,7 +2749,7 @@
     "event_end": "2025-09-09 15:45",
     "event_type": "Unconference",
     "description": "\"Unconference\" starts with U! Do you have a demo to share, an itch to scratch, lightning talk to workshop, or proposal you want to brainstorm? There's ample opportunity to bring your thoughts to the unconference table and seek or share feedback.\n\nThe unconference agenda will be created onsite - stay tuned for more info about how you can add your topics.",
-    "goers": "2",
+    "goers": "3",
     "seats": "0",
     "invite_only": "N",
     "venue": "Studio - 5th Floor",
@@ -2877,7 +2884,7 @@
     "event_start": "2025-09-09 15:45",
     "event_end": "2025-09-09 16:00",
     "event_type": "Breaks / Networking / Special Events",
-    "goers": "8",
+    "goers": "9",
     "seats": "0",
     "invite_only": "N",
     "venue": "Foyer Grote Zaal - 2nd Floor",
@@ -2914,7 +2921,7 @@
     "event_end": "2025-09-09 16:40",
     "event_type": "GraphQL Working Group",
     "description": "Learn how to lower latency in your applications by streaming your GraphQL responses using the @defer and @stream directives. Learn the trade-offs of when to use these new directives and how they differ from GraphQL Subscriptions.\n\n@defer and @stream have been in development for some time now and have gone through many iterations. Learn about the motivation behind these changes and how they will lead to scalable GraphQL servers and efficient clients.",
-    "goers": "9",
+    "goers": "8",
     "seats": "0",
     "invite_only": "N",
     "venue": "IJzaal - 5th Floor",
@@ -4164,6 +4171,7 @@
     "invite_only": "N",
     "venue": "Grote Zaal - 2nd Floor",
     "audience": "Any",
+    "geo_area": "Yes",
     "id": "efe5aee612551209ba413d57d3ddbb4e",
     "venue_id": "2152800",
     "speakers": [
