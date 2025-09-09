@@ -28,7 +28,8 @@ export const Anchor = forwardRef(function Anchor(
   ) : (
     <a
       ref={ref}
-      {...(!props.href.startsWith("#")
+      {...(!// we want to show an error if developer doesn't pass a href, but there are cases where it may happen with data from Sched
+      (props.href as string | undefined)?.startsWith("#")
         ? {
             rel: "noopener noreferrer",
             target: "_blank",
