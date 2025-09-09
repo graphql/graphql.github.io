@@ -28,13 +28,15 @@ export const Anchor = forwardRef(function Anchor(
   ) : (
     <a
       ref={ref}
-      {...(!// we want to show an error if developer doesn't pass a href, but there are cases where it may happen with data from Sched
-      (props.href as string | undefined)?.startsWith("#")
-        ? {
-            rel: "noopener noreferrer",
-            target: "_blank",
-          }
-        : {})}
+      {
+        // we want to show an error if developer doesn't pass a href, but there are cases where it may happen with data from Sched
+        ...(((props.href as string | undefined) || "").startsWith("#")
+          ? {
+              rel: "noopener noreferrer",
+              target: "_blank",
+            }
+          : {})
+      }
       {...props}
     />
   )
