@@ -146,7 +146,7 @@ export function ScheduleList({
     <>
       <div className="flex justify-between gap-1 max-lg:flex-col">
         <BookmarkOnSched year={year} />
-        <div className="flex gap-2">
+        <div className="flex gap-2 max-lg:mb-4">
           <Button
             href="#current-time-marker"
             variant="tertiary"
@@ -163,7 +163,7 @@ export function ScheduleList({
                 ),
               )
             }
-            className="max-lg:mb-4 max-lg:w-fit max-lg:self-end"
+            className="max-lg:w-fit max-lg:self-end"
           />
         </div>
       </div>
