@@ -20,7 +20,9 @@ export default function Page() {
     <main className="gql-all-anchors-focusable bg-neu-50 dark:bg-neu-0">
       <Hero pageName="Speakers" year={year}>
         <div className="mt-[18px] flex gap-4">
-          <Button href={GET_TICKETS_LINK}>Get your tickets</Button>
+          <Button disabled className="opacity-55" href={GET_TICKETS_LINK}>
+            Sold out
+          </Button>
           <Button variant="tertiary" href={`/conf/${year}/schedule`}>
             See the schedule
           </Button>
@@ -45,8 +47,13 @@ export default function Page() {
             title="Get your ticket"
             description="Join three transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
-            <Button variant="primary" href={GET_TICKETS_LINK}>
-              Get tickets
+            <Button
+              disabled
+              className="opacity-55"
+              variant="primary"
+              href={GET_TICKETS_LINK}
+            >
+              Sold out
             </Button>
           </CtaCardSection>
           <div className="py-8">

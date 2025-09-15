@@ -14,7 +14,7 @@ import { GraphQLFoundationCard } from "./components/graphql-foundation-card"
 import { MarqueeRows } from "./components/marquee-rows"
 import { CtaCardSection } from "./components/cta-card-section"
 import { Button } from "../_design-system/button"
-import { GET_TICKETS_LINK } from "./links"
+import { GALLERY_LINK, GET_TICKETS_LINK } from "./links"
 import { GalleryStrip } from "./components/gallery-strip"
 import { Testimonials } from "./components/testimonials"
 import { HeroImage } from "./components/hero/hero-image"
@@ -29,8 +29,8 @@ export default function Page() {
     <main className="gql-all-anchors-focusable">
       <Hero year="2025" bottom={<HeroImage />}>
         <HeroDateAndLocation />
-        <Button className="md:w-fit" href={GET_TICKETS_LINK}>
-          Get your tickets
+        <Button className="md:w-fit" href={GALLERY_LINK}>
+          View Gallery
         </Button>
       </Hero>
       <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
@@ -87,8 +87,13 @@ export default function Page() {
             title="Get your ticket"
             description="Join three transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
-            <Button variant="primary" href={GET_TICKETS_LINK}>
-              Get tickets
+            <Button
+              disabled
+              className="opacity-55"
+              variant="primary"
+              href={GET_TICKETS_LINK}
+            >
+              Sold out
             </Button>
           </CtaCardSection>
           <MarqueeRows

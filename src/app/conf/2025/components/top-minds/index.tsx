@@ -110,11 +110,7 @@ export default function TopMindsSection({
               <Button variant="secondary" href="/conf/2025/speakers/">
                 View all speakers
               </Button>
-            ) : (
-              <Button variant="secondary" href={GET_TICKETS_LINK}>
-                Get tickets
-              </Button>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

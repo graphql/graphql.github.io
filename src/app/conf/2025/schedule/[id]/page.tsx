@@ -166,8 +166,13 @@ export default function SessionPage({ params }: SessionProps) {
               title="Get your ticket"
               description="Join three transformative days of expert insights and innovation to shape the next decade of APIs!"
             >
-              <Button variant="primary" href={GET_TICKETS_LINK}>
-                Get tickets
+              <Button
+                disabled
+                className="opacity-55"
+                variant="primary"
+                href={GET_TICKETS_LINK}
+              >
+                Sold out
               </Button>
             </CtaCardSection>
             <div className="py-8">

@@ -10,6 +10,7 @@ import { Footer } from "./components/footer"
 // @ts-expect-error: we want to import the same version as Nextra for the main page
 import { ThemeProvider } from "next-themes"
 import { GraphQLConfLogoLink } from "./components/graphql-conf-logo-link"
+import { GALLERY_LINK } from "./links"
 
 export const metadata = {
   description:
@@ -43,8 +44,11 @@ export default function Layout({
           { children: "Schedule", href: "/conf/2025/schedule" },
           { children: "Speakers", href: "/conf/2025/speakers" },
           { children: "Sponsors", href: "/conf/2025/#sponsors" },
-          { children: "Recap", href: "/conf/2024" },
           { children: "Resources", href: "/conf/2025/resources" },
+          {
+            children: "Gallery",
+            href: GALLERY_LINK,
+          },
           { children: "FAQ", href: "/conf/2025/#faq" },
         ]}
       />
