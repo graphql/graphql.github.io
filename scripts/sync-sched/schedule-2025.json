@@ -3609,8 +3609,8 @@
     "end_time": "10:50:00",
     "files": [
       {
-        "path": "https://static.sched.com/hosted_files/graphqlconf2025/54/batch resolvers.pdf",
-        "name": "batch resolvers.pdf"
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/8c/batchresolvers.pdf",
+        "name": "batchresolvers.pdf"
       }
     ],
     "event_subtype": "Backend"
@@ -4449,8 +4449,8 @@
     "end_time": "14:30:00",
     "files": [
       {
-        "path": "https://static.sched.com/hosted_files/graphqlconf2025/d5/GraphQLConf - Please Migrate Away From Field X To Field Y Before Z.pdf",
-        "name": "GraphQLConf - Please Migrate Away From Field X To Field Y Before Z.pdf"
+        "path": "https://static.sched.com/hosted_files/graphqlconf2025/4b/GraphQLConf - Please Migrate Away From Field X To Field Y.pdf",
+        "name": "GraphQLConf - Please Migrate Away From Field X To Field Y.pdf"
       }
     ],
     "event_subtype": "Schema evolution"
