@@ -44,10 +44,10 @@ jobs:
         # since the amount of time it takes to restore the cache is
         # comparable to the time it takes to download the binaries"
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: ./node_modules/.bin/playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: ./node_modules/.bin/playwright test
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
