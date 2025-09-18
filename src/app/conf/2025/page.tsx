@@ -30,7 +30,7 @@ export default function Page() {
       <Hero year="2025" bottom={<HeroImage />}>
         <HeroDateAndLocation />
         <Button className="md:w-fit" href={GALLERY_LINK}>
-          View Gallery
+          Event Photos
         </Button>
       </Hero>
       <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">

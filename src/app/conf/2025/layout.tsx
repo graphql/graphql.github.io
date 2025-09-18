@@ -46,7 +46,7 @@ export default function Layout({
           { children: "Sponsors", href: "/conf/2025/#sponsors" },
           { children: "Resources", href: "/conf/2025/resources" },
           {
-            children: "Gallery",
+            children: "Event Photos",
             href: GALLERY_LINK,
           },
           { children: "FAQ", href: "/conf/2025/#faq" },
