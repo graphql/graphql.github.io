@@ -127,10 +127,12 @@ export default function SessionPage({ params }: SessionProps) {
                     <ul className="flex max-w-full flex-col gap-y-2">
                       {session.files?.map(({ path, name }) => (
                         <li key={path}>
-                          <iframe
-                            src={path}
-                            className="aspect-video size-full"
-                          />
+                          {path.endsWith(".pdf") && canRenderPdf() ? (
+                            <iframe
+                              src={path}
+                              className="aspect-video size-full"
+                            />
+                          ) : null}
                           <div className="flex items-stretch justify-between overflow-hidden">
                             <a
                               className="typography-link flex items-center truncate p-3 leading-none text-neu-700 max-xs:hidden sm:px-6"
@@ -294,4 +296,10 @@ function SessionDescription({ session }: { session: ScheduleSession }) {
       />
     </div>
   )
+}
+
+const isFirefox = navigator.userAgent.toLowerCase().includes("firefox")
+
+function canRenderPdf() {
+  return !isFirefox && !!navigator?.mimeTypes?.["application/pdf" as any]
 }
