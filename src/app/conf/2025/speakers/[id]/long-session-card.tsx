@@ -121,7 +121,7 @@ export function LongSessionCard({
       {video ? (
         <footer className="p-4 pt-0 lg:px-6 lg:pb-6">
           <Button
-            href={`https://youtube.com/embed/${video.id}`}
+            href={`/conf/${year}/schedule/${session.id}?name=${session.name}`}
             variant="primary"
             className="relative z-[2] w-full"
           >
