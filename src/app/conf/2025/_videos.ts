@@ -168,20 +168,6 @@ export const videos: {
       "From Hobby Project To Industry Standard: Lessons From 10 Years of Grap... Donna Zhou & Andreas Marek",
   },
   {
-    id: "PbXvJ61xlss",
-    title:
-      "Unconference: Lightning Talks - Lars de Bruijn - Quantifying |GraphQL Schema Health",
-  },
-  {
-    id: "jDoUfWhHMFw",
-    title:
-      "Unconference: Lightning Talks - Andres Ortiz - GraphQL + Neo4j Graph Database Demo",
-  },
-  {
-    id: "6NvOCT-4mKA",
-    title: "Unconference: Lightning Talks - Samuel Vazquez - MCP Server Demo",
-  },
-  {
     id: "NUYMJbQc7Vs",
     title:
       'Workshop: Social Media App "Y" with GraphQL, Relay, and React Server Components... Saihajpreet Singh',
