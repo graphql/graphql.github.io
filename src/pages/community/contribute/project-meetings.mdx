@@ -1,3 +1,6 @@
+import { Cards } from "../../../components/cards"
+import { Callout } from 'nextra/components'
+
 # Project Meetings
 
 All GraphQL technical meetings are open to anyone who is interested, so long as they first complete the [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership).
@@ -7,8 +10,6 @@ All GraphQL technical meetings should appear on the [GraphQL public calendar](ht
 - **Who can join GraphQL technical meetings:** Anyone who has signed the free [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership).
 
 - **How to join:** Each GraphQL project must maintain an agenda document for each meeting, and each attendee must add themselves to it prior to attending. To join, open a PR to add your name to the attendee list on an upcoming meeting's agenda (for example, the [GraphQL Working Group](https://github.com/graphql/graphql-wg/tree/HEAD/agendas) or [GraphQL.js](https://github.com/graphql/graphql-js-wg/tree/main/agendas)). The agenda document will have the date, time and Zoom links.
-
-import { Callout } from 'nextra/components'
 
 <Callout type="warning">
   **IMPORTANT:** Your PR against the agenda **must** be merged before you can attend. If the EasyCLA bot says you are not covered, you need to follow the links in the bot's comment to sign the [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership) before you can attend.
@@ -24,8 +25,44 @@ The goal of the working group meeting is to discuss current work and future plan
 
 To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql/graphql-wg/tree/HEAD/agendas).
 
-## GraphQL.js Working Group meeting
+## GraphQL subcommittee meetings
 
-The [GraphQL.js working group](https://github.com/graphql/graphql-js-wg) meets the second Tuesday of each month. The goal is to plan development work and resolve issues with [GraphQL.js](https://github.com/graphql/graphql-js).
-
-To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql/graphql-js-wg/tree/HEAD/agendas).
+<Cards
+  items={[
+    {
+      title: "Community working group",
+      link: "https://github.com/graphql/community-wg",
+      description: "Serves as the steward of GraphQL's global narrative and market positioning in the technology ecosystem. Developing and executing strategic initiatives that reinforce GraphQL's value proposition while fostering an engaged, educated, and expanding community.",
+    },
+    {
+      title: "Composite schema working group",
+      link: "https://github.com/graphql/composite-schemas-wg",
+      description: "Building a specification that covers many of the shared concerns when building a larger GraphQL schema as a composite of many smaller GraphQL schemas.",
+    },
+    {
+      title: "GraphiQL working group",
+      link: "https://github.com/graphql/graphiql/tree/main/working-group",
+      description: "Decision making, setting specifications and navigating feature proposals for our shared GraphQL web and desktop IDE experiences as a community.",
+    },
+    {
+      title: "GraphQL.js working group",
+      link: "https://github.com/graphql/graphql-js-wg",
+      description: "A monthly virtual meeting of maintainers of commonly used GraphQL libraries and tools and significant contributors in the Javascript ecosystem, operated by the GraphQL Foundation.",
+    },
+    {
+      title: "GraphQL/OTel working group",
+      link: "https://github.com/graphql/otel-wg",
+      description: "Defining the best practices and semantic conventions for using OpenTelemetry with GraphQL.",
+    },
+    {
+      title: "GraphQL-over-HTTP working group",
+      link: "https://github.com/graphql/graphql-over-http/tree/main/working-group",
+      description: "Working on a specification that allows GraphQL clients and servers with different implementations and technology stacks to interact freely over HTTP.",
+    },
+    {
+      title: "Nullability working group",
+      link: "https://github.com/graphql/nullability-wg",
+      description: "Giving clients a way to influence or override nullability checks within queries.",
+    }
+  ]}
+  />
