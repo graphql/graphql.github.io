@@ -1,21 +1,36 @@
 import { Cards } from "../../../components/cards"
 import { Callout } from 'nextra/components'
 
+import { Steps } from 'nextra/components'
+ 
 # Project Meetings
 
-All GraphQL technical meetings are open to anyone who is interested, so long as they first complete the [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership).
+All GraphQL technical meetings are open to anyone who is interested, so long as they first complete the [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership). Participation in the technical meetings is free. 
 
 All GraphQL technical meetings should appear on the [GraphQL public calendar](https://calendar.graphql.org). If a project's meeting isn't on the calendar or is incorrect, please email operations@graphql.org.
 
-- **Who can join GraphQL technical meetings:** Anyone who has signed the free [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership).
+### Who can join GraphQL technical meetings?
 
-- **How to join:** Each GraphQL project must maintain an agenda document for each meeting, and each attendee must add themselves to it prior to attending. To join, open a PR to add your name to the attendee list on an upcoming meeting's agenda (for example, the [GraphQL Working Group](https://github.com/graphql/graphql-wg/tree/HEAD/agendas) or [GraphQL.js](https://github.com/graphql/graphql-js-wg/tree/main/agendas)). The agenda document will have the date, time and Zoom links.
+Anyone who has signed the free [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership).
+
+### How to join 
+
+1. Sign the GraphQL Specification Membership agreement (first time only)
+    1. Open a pull request against the repo
+    1. Something
+1. Open a pull request against the meeting's agenda (forking if necessary)
+1. Add your name to the Something
+1. Add any agenda items, with a time estimate (optional)
+1. Join using the provided Zoom link
+1. Notes are taken by AI, and volunteers are welcome to add to a notes doc during the meeting
+
+[See below for detailed instructions on how to join a meeting](#how-to-join-a-meeting)
 
 <Callout type="warning">
   **IMPORTANT:** Your PR against the agenda **must** be merged before you can attend. If the EasyCLA bot says you are not covered, you need to follow the links in the bot's comment to sign the [GraphQL Specification Membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership) before you can attend.
 </Callout>
 
-If you have questions about this process, please ask [operations@graphql.org](mailto:operations@graphql.org).
+
 
 ## GraphQL Working Group / TSC meeting
 
@@ -66,3 +81,44 @@ To join, add yourself to an [upcoming meeting agenda](https://github.com/graphql
     }
   ]}
   />
+
+## How to join a meeting
+
+If you have questions about this process, please ask [operations@graphql.org](mailto:operations@graphql.org).
+ 
+<Steps>
+### Make a pull request to the EasyCLA repository
+ 
+The GraphQL Specification Membership agreement is managed by a neutral GitHub repository where you can open a pull request and initiate the EasyCLA signing process. All pull requests will be closed periodically. You only need to do this one time, and it can be signed by individual contributors or their employers.
+
+You can read about the full process, including details about whether to sign as an individual or under an organization, [at the EasyCLA GitHub repository](https://github.com/graphql/graphql-wg/tree/main/membership). 
+
+1. Begin by pressing the edit button in the top right corner of the "README" file
+1. When prompted, create a fork of the project by pressing the green "Fork this repository" button
+1. Make a small change to the README file, it doesn't matter what the change is as it won't be merged into the file
+1. Press "Commit changes"
+1. Confirm your change by pressing "Propose changes", you can use the default commit message
+1. This opens a comparison page where you can check your change and press "Create pull request"
+1. Now it's time to make your pull request. You can change the title and add to the body of the message if you like, then press "Create pull request"
+1. After a minute, an automated message will appear from "linux-foundation-easycla bot" asking you to sign the EasyCLA
+ 
+### Sign the EasyCLA 
+ 
+1. Press "Click here to be authorized"
+1. You'll be asked to grant the Linux Foundation bot some permissions to work with your GitHub account; press "Authorize LF-Engineering"
+1. You will be redirected to the EasyCLA platform. Here, you need to choose whether to proceed as an individual or on behalf of your company. If you choose corporate, you may need to contact your company's CLA manager. You'll also be able to read the document before signing it, by pressing "Download PDF"
+1. After choosing which way to proceed, the document will be generated with DocuSign, ready for you to sign electronically. When you have filled in the required fields, press "Finish"
+1. You will be redirected back to your pull request, and after a few minutes the EasyCLA bot will show that you have signed the agreement
+
+### Add yourself to the list of attendees
+
+1. Find your [chosen working group above](#graphql-working-group--tsc-meeting) and find its next agenda by browsing to agendas -> year -> month in the central pane of the GitHub webpage
+1. Press the Edit button in the top right corner of the agenda file, and when prompted create a fork by pressing the "Fork this repository" button
+1. The file is written in markdown and is generally easy to read. Scroll down to `## Attendees`. Add your information following the format of the other attendees in the list. You can preview your change in a rich text format by pressing "Preview" in the top left of the editing pane
+1. If applicable, add an agenda item under the `## Agenda` heading, make sure you add your item to the end of the list and add an estimated duration of discussion
+1. Press "Commit changes", fill in the details of your changes in the popup, and then press "Propose changes"
+1. Now you can review your changes and create your pull request to the agenda by pressing "Create pull request"
+1. If you successfully signed the EasyCLA, you will pass the Easy CLA check and your pull request may be automatically merged if you pass the automatic checks. 
+1. If you don't pass the automatic checks, don't worry, reach out on the [community Discord](https://discord.graphql.org/) or suggest a [TSC member](https://github.com/graphql/graphql-wg/blob/HEAD/GraphQL-TSC.md#tsc-membership) as a reviewer of your pull request. 
+
+</Steps>
