@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
 
 import { Anchor } from "../../_design-system/anchor"
 import { SchedSpeaker } from "../../2023/types"

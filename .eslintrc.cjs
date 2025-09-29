@@ -59,18 +59,6 @@ module.exports = {
         "@next/next/no-img-element": "off", // straight up upsell, small `img`s actually don't need optimization
 
         "tailwindcss/classnames-order": "off",
-        "@typescript-eslint/no-restricted-imports": [
-          "error",
-          {
-            paths: [
-              {
-                name: "next/image",
-                message: "Please use `next-image-export-optimizer` instead",
-                allowTypeImports: true,
-              },
-            ],
-          },
-        ],
         "prefer-const": ["error", { destructuring: "all" }],
         "prefer-rest-params": "off",
         "@typescript-eslint/no-explicit-any": "off",

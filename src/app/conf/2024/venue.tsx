@@ -1,5 +1,5 @@
 import { TrainIcon, AroundIcon, ParkingIcon } from "@/icons"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 import cityViewImage from "./sf-city-view.jpeg"
 
 const classes = {

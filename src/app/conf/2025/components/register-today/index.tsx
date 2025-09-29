@@ -1,5 +1,5 @@
 import { clsx } from "clsx"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 
 import { Button } from "../../../_design-system/button"
 import { GET_TICKETS_LINK } from "../../links"

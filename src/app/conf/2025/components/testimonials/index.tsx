@@ -1,6 +1,6 @@
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import { clsx } from "clsx"
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
 
 import maskBlur from "./mask.webp"
 
@@ -109,8 +109,7 @@ export function TestimonialAuthor({
   return (
     <div className="relative flex shrink-0 flex-col items-center justify-center whitespace-pre md:px-6 lg:h-full lg:px-8">
       <div className="relative bg-neu-500 dark:bg-neu-200 dark:opacity-90">
-        <img // we're not using next-image-export-optimizer because these images are small
-          // and it fails to download and optimize avatars from Sched
+        <img
           src={author.avatar}
           alt={author.name}
           width={128}

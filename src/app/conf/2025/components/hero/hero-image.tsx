@@ -1,4 +1,4 @@
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
 
 import heroPhoto from "./hero-photo.jpeg"
 

@@ -16,7 +16,7 @@ import { GET_TICKETS_LINK } from "../../links"
 import { SpeakerTags } from "../../components/speaker-tags"
 import { SpeakerLinks } from "../../components/speaker-links"
 import { LongSessionCard } from "./long-session-card"
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
 import { formatDescription } from "../../schedule/[id]/format-description"
 
 type SpeakerProps = { params: { id: string } }

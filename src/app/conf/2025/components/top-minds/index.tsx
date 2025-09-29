@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { HTMLAttributes } from "react"
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
 import type { StaticImageData } from "next/image"
 
 import { Button } from "@/app/conf/_design-system/button"

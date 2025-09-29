@@ -8,7 +8,7 @@ import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
 import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 
 import { clsx } from "clsx"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 
 interface Image {
   icon: string

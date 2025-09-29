@@ -5,7 +5,7 @@ index 239d72f5921e2d1b7359e569ae5b74c12d7c9d8a..ebeb619da1e3ccb7722e9388c92c1e21
 @@ -1,5 +1,5 @@
  import { jsx } from "react/jsx-runtime";
 -import NextImage from "next/image";
-+import NextImage from "next-image-export-optimizer";
++import NextImage from "next/image"; // :)
  import { forwardRef } from "react";
  const Image = forwardRef((props, ref) => {
    const ComponentToUse = typeof props.src === "object" ? NextImage : "img";
