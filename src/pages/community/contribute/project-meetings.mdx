@@ -1,6 +1,5 @@
 import { Cards } from "../../../components/cards"
 import { Callout } from 'nextra/components'
-
 import { Steps } from 'nextra/components'
  
 # Project Meetings
@@ -94,31 +93,51 @@ The GraphQL Specification Membership agreement is managed by a neutral GitHub re
 You can read about the full process, including details about whether to sign as an individual or under an organization, [at the EasyCLA GitHub repository](https://github.com/graphql/graphql-wg/tree/main/membership). 
 
 1. Begin by pressing the edit button in the top right corner of the "README" file
-1. When prompted, create a fork of the project by pressing the green "Fork this repository" button
-1. Make a small change to the README file, it doesn't matter what the change is as it won't be merged into the file
-1. Press "Commit changes"
-1. Confirm your change by pressing "Propose changes", you can use the default commit message
-1. This opens a comparison page where you can check your change and press "Create pull request"
-1. Now it's time to make your pull request. You can change the title and add to the body of the message if you like, then press "Create pull request"
-1. After a minute, an automated message will appear from "linux-foundation-easycla bot" asking you to sign the EasyCLA
+
+![Edit button](./images/development/Step1-1.png)
+
+2. When prompted, create a fork of the project by pressing the green "Fork this repository" button
+
+![Fork button](./images/development/Step1-2.png)
+
+3. Make a small change to the README file, it doesn't matter what the change is as it won't be merged into the file
+4. Press "Commit changes"
+
+![Make a commit](./images/development/Step1-4.png)
+
+5. Confirm your change by pressing "Propose changes", you can use the default commit message
+6. This opens a comparison page where you can check your change and press "Create pull request"
+
+![Create pull request](./images/development/Step1-6.png)
+
+7. Now it's time to make your pull request. You can change the title and add to the body of the message if you like, then press "Create pull request"
+8. After a minute, an automated comment will appear underneath your pull request from "linux-foundation-easycla bot" asking you to sign the EasyCLA
  
 ### Sign the EasyCLA 
  
-1. Press "Click here to be authorized"
-1. You'll be asked to grant the Linux Foundation bot some permissions to work with your GitHub account; press "Authorize LF-Engineering"
-1. You will be redirected to the EasyCLA platform. Here, you need to choose whether to proceed as an individual or on behalf of your company. If you choose corporate, you may need to contact your company's CLA manager. You'll also be able to read the document before signing it, by pressing "Download PDF"
-1. After choosing which way to proceed, the document will be generated with DocuSign, ready for you to sign electronically. When you have filled in the required fields, press "Finish"
-1. You will be redirected back to your pull request, and after a few minutes the EasyCLA bot will show that you have signed the agreement
+1. Press "Click here to be authorized" in the message the EasyCLA bot left on your pull request
+
+![Click the link to be authorized](./images/development/Step2-1.png)
+
+2. You'll be asked to grant the Linux Foundation bot some permissions to work with your GitHub account; press "Authorize LF-Engineering"
+3. You will be redirected to the EasyCLA platform. Here, you need to choose whether to proceed as an individual or on behalf of your company. If you choose corporate, you may need to contact your company's CLA manager. You'll also be able to read the document before signing it, by pressing "Download PDF"
+4. After choosing which way to proceed, the document will be generated with DocuSign, ready for you to sign electronically. When you have filled in the required fields, press "Finish"
+5. You will be redirected back to your pull request, and after a few minutes the EasyCLA bot will show that you have signed the agreement
+
+![EasyCLA recognizes the signed CLA](./images/development/Step2-5.png)
 
 ### Add yourself to the list of attendees
 
 1. Find your [chosen working group above](#graphql-working-group--tsc-meeting) and find its next agenda by browsing to agendas -> year -> month in the central pane of the GitHub webpage
-1. Press the Edit button in the top right corner of the agenda file, and when prompted create a fork by pressing the "Fork this repository" button
-1. The file is written in markdown and is generally easy to read. Scroll down to `## Attendees`. Add your information following the format of the other attendees in the list. You can preview your change in a rich text format by pressing "Preview" in the top left of the editing pane
-1. If applicable, add an agenda item under the `## Agenda` heading, make sure you add your item to the end of the list and add an estimated duration of discussion
-1. Press "Commit changes", fill in the details of your changes in the popup, and then press "Propose changes"
-1. Now you can review your changes and create your pull request to the agenda by pressing "Create pull request"
-1. If you successfully signed the EasyCLA, you will pass the Easy CLA check and your pull request may be automatically merged if you pass the automatic checks. 
-1. If you don't pass the automatic checks, don't worry, reach out on the [community Discord](https://discord.graphql.org/) or suggest a [TSC member](https://github.com/graphql/graphql-wg/blob/HEAD/GraphQL-TSC.md#tsc-membership) as a reviewer of your pull request. 
+2. Press the Edit button in the top right corner of the agenda file, and when prompted create a fork by pressing the "Fork this repository" button
+3. The file is written in markdown and is generally easy to read. Scroll down to `## Attendees`. Add your information following the format of the other attendees in the list. You can preview your change in a rich text format by pressing "Preview" in the top left of the editing pane
+
+![Create pull request to the agenda](./images/development/Step3-3.png)
+
+4. If applicable, add an agenda item under the `## Agenda` heading, make sure you add your item to the end of the list and add an estimated duration of discussion
+5. Press "Commit changes", fill in the details of your changes in the popup, and then press "Propose changes"
+6. Now you can review your changes and create your pull request to the agenda by pressing "Create pull request"
+7. If you successfully signed the EasyCLA, you will pass the Easy CLA check and your pull request may be automatically merged if you pass the automatic checks. 
+8. If you don't pass the automatic checks, don't worry, reach out on the [community Discord](https://discord.graphql.org/) or request a [TSC member](https://github.com/graphql/graphql-wg/blob/HEAD/GraphQL-TSC.md#tsc-membership) as a reviewer of your pull request. 
 
 </Steps>
