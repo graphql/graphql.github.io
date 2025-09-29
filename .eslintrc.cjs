@@ -66,6 +66,15 @@ module.exports = {
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/ban-types": "off",
+        "no-restricted-syntax": [
+          "error",
+          {
+            selector:
+              "JSXElement[openingElement.name.name=/^(Image|NextImage)$/]:not(:has(JSXAttribute[name.name='placeholder']))",
+            message:
+              "Pass `placeholder: 'empty' | 'blur'` when calling <Image> or <NextImage>.",
+          },
+        ],
       },
       settings: {
         tailwindcss: {
