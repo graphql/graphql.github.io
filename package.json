@@ -36,6 +36,7 @@
     "@igorkowalczyk/is-browser": "^5.1.0",
     "@lezer/highlight": "^1.2.1",
     "@next/bundle-analyzer": "^15.4.5",
+    "@plaiceholder/next": "^3.0.0",
     "@radix-ui/react-radio-group": "^1.2.2",
     "@sparticuz/chromium": "^138.0.2",
     "@tailwindcss/container-queries": "^0.1.1",

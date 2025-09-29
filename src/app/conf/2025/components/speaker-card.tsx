@@ -49,6 +49,7 @@ export function SpeakerCard({
           {speaker.avatar ? (
             <Image
               src={speaker.avatar}
+              // TODO: Get a placeholder blur URL with plaiceholder
               placeholder="blur"
               alt=""
               width={176}

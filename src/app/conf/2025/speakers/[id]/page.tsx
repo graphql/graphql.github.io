@@ -179,6 +179,7 @@ function SpeakerHeader({
             width={464}
             height={464}
             className="aspect-square size-[464px] object-cover saturate-[0.1] transition-transform max-lg:w-full"
+            // TODO: Get a placeholder blur URL with plaiceholder
             placeholder="blur"
           />
         </div>

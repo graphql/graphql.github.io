@@ -7,6 +7,7 @@ import withLess from "next-with-less"
 import nextBundleAnalyzer from "@next/bundle-analyzer"
 import fs from "fs"
 import rehypeMermaid from "rehype-mermaid"
+import withPlaiceholder from "@plaiceholder/next"
 
 import { remarkGraphiQLComment } from "./src/remark-graphiql-comment.js"
 import { syntaxHighlightingThemes } from "./src/_design-system/syntax/index.js"
@@ -109,7 +110,6 @@ const config = {
 
     return config
   },
-  // Comment this out if you're working on OG images.
   images: {
     remotePatterns: [
       {
@@ -180,7 +180,9 @@ const withBundleAnalyzer = nextBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 })
 
-export default withBundleAnalyzer(withLess(withNextra(config)))
+export default withBundleAnalyzer(
+  withLess(withNextra(withPlaiceholder(config))),
+)
 
 function mermaidConfig() {
   return [
