@@ -7,6 +7,7 @@ export function HeroImage() {
     <div className="z-[2] bg-blk">
       <Image
         src={heroPhoto}
+        placeholder="blur"
         width={1920}
         height={560}
         alt="five speakers at GraphQLConf 2024"

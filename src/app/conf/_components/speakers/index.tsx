@@ -69,6 +69,7 @@ export function Speakers() {
                 className="shrink-0 [&:hover+div>a>span]:text-primary"
               >
                 <NextImage
+                  placeholder="blur"
                   alt={speaker.name}
                   src={speaker.image}
                   className="size-36 shrink-0 rounded-full border-2 border-transparent object-cover object-center transition-colors hover:border-primary"

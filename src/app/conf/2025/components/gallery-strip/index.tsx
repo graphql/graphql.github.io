@@ -71,6 +71,7 @@ function GalleryStripImage({
       <Image
         data-index={index}
         src={image}
+        placeholder="blur"
         alt=""
         role="presentation"
         // intrinsic 799x533

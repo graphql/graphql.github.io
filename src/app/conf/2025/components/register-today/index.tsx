@@ -25,6 +25,7 @@ export function RegisterToday({ className }: RegisterTodayProps) {
         width="450"
         height="566"
         className="aspect-[312/392] w-full object-cover max-sm:hidden sm:aspect-[2] lg:aspect-[450/566] lg:h-[566px] lg:w-[450px]"
+        placeholder="blur"
       />
       <div className="flex flex-col justify-between">
         <div>

@@ -96,6 +96,7 @@ export default class MiniGraphiQL extends Component<
     return (
       <div className="[&:not(:first-child)]:_mt-6 grid grid-cols-2 border border-neu-200 text-sm dark:border-neu-50">
         {Object.keys(this.state.variableToType).length > 0 ? (
+          // eslint-disable-next-line tailwindcss/no-custom-classname
           <div className="hasVariables flex flex-col">
             {editor}
             <div className="flex flex-col border-neu-200 dark:border-neu-50">

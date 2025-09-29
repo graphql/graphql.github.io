@@ -102,6 +102,7 @@ export default function Page() {
               alt="Lee Byron"
               className="aspect-video rounded-md object-cover"
               src={leeImage}
+              placeholder="blur"
             />
           </div>
         </div>

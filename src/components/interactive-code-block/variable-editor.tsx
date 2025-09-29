@@ -104,6 +104,7 @@ export class VariableEditor extends Component<VariableEditorProps> {
   render() {
     return (
       <div
+        // eslint-disable-next-line tailwindcss/no-custom-classname
         className="variable-editor h-full"
         ref={e => {
           this.domNode = e

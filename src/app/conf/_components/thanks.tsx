@@ -51,6 +51,7 @@ export async function Thanks() {
               alt="Lee Byron"
               className="aspect-video rounded-md object-cover"
               src={leeImage}
+              placeholder="blur"
             />
           </div>
         </div>

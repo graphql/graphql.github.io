@@ -70,6 +70,7 @@ export class ResultViewer extends Component<ResultViewerProps> {
   render() {
     return (
       <div
+        // eslint-disable-next-line tailwindcss/no-custom-classname
         className="result-window h-full"
         ref={e => {
           this.domNode = e

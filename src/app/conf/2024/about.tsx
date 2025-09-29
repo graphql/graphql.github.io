@@ -84,6 +84,7 @@ export function About() {
             </p>
           </div>
           <NextImage
+            placeholder="blur"
             src={ConfImage}
             className="aspect-video w-full rounded-md object-cover"
             alt="GraphQL Conf Image"
@@ -95,6 +96,7 @@ export function About() {
             alt="GraphQL Conf Image"
             src={ConfImage2}
             className="aspect-square w-full rounded-md object-cover max-lg:order-2"
+            placeholder="blur"
           />
           <div className="flex flex-col gap-14">
             <p className="lg:text-lg">

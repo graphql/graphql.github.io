@@ -150,6 +150,7 @@ function TopMindCard({
           width={312}
           height={312}
           className="aspect-square size-[312px] w-full object-cover saturate-[0.1] transition-transform sm:h-[236px]"
+          placeholder="blur"
         />
         <Stripes mask={stripes} />
       </div>

@@ -33,6 +33,7 @@ export function Venue() {
             src={cityViewImage}
             alt="San Francisco city view"
             className="mx-auto my-8 aspect-video rounded-md object-cover"
+            placeholder="blur"
           />
         </div>
         <div>

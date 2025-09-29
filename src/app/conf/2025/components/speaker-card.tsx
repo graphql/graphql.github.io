@@ -49,6 +49,7 @@ export function SpeakerCard({
           {speaker.avatar ? (
             <Image
               src={speaker.avatar}
+              placeholder="blur"
               alt=""
               width={176}
               height={176}

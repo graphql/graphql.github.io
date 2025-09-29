@@ -30,6 +30,7 @@ export default function GalleryPage() {
               c[index] && (
                 <Zoom>
                   <NextImage
+                    placeholder="blur"
                     alt="Gallery"
                     className="aspect-video w-full rounded-md object-cover hover:opacity-75"
                     src={c[index]}
