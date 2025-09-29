@@ -109,6 +109,15 @@ const config = {
 
     return config
   },
+  // Comment this out if you're working on OG images.
+  images: {
+    remotePatterns: [
+      {
+        hostname: "avatars.sched.co",
+        pathname: "**",
+      },
+    ],
+  },
   env: {
     nextImageExportOptimizer_imageFolderPath: "public/images",
     nextImageExportOptimizer_exportFolderPath: "out",
