@@ -4,13 +4,13 @@ import Image from "next/image"
 import type { StaticImageData } from "next/image"
 
 import { Button } from "@/app/conf/_design-system/button"
-import { GET_TICKETS_LINK } from "../../links"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import {
   SocialIconType,
   SocialIcon,
   urlForUser,
 } from "@/app/conf/_design-system/social-icon"
+import { getBase64Placeholder } from "../../../_design-system/utils/get-base64-placeholder"
 
 const previousConfSpeakers = {
   benjie: {
@@ -127,7 +127,7 @@ export interface TopMindCardProps {
   socials: Partial<Record<SocialIconType, string>>
 }
 
-function TopMindCard({
+async function TopMindCard({
   name,
   title,
   src,
@@ -135,6 +135,16 @@ function TopMindCard({
   stripes,
   socials,
 }: TopMindCardProps) {
+  let avatarPlaceholder: string | undefined
+
+  try {
+    if (typeof src === "string") {
+      avatarPlaceholder = await getBase64Placeholder(src)
+    }
+  } catch {
+    // this happens only in development
+  }
+
   return (
     <article
       className={clsx(
@@ -146,8 +156,7 @@ function TopMindCard({
         <div className="absolute inset-0 z-[1] bg-sec-light opacity-90 mix-blend-multiply" />
         <Image
           src={src}
-          // TODO: Get a placeholder blur URL with plaiceholder
-          placeholder="blur"
+          placeholder={avatarPlaceholder! as `data:image/${string}`}
           alt=""
           width={312}
           height={312}

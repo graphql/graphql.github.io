@@ -52,6 +52,16 @@ export function generateStaticParams() {
   return schedule.filter(s => s.id).map(s => ({ id: s.id }))
 }
 
+export const getStaticProps = async () => {
+  const placeholders = speakers.map(speaker => lqip)
+
+  return {
+    props: {
+      placeholders
+    }
+  }
+}
+
 export default function SessionPage({ params }: SessionProps) {
   const session = schedule.find(s => s.id === params.id)
   if (!session) {
