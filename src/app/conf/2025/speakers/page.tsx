@@ -29,8 +29,6 @@ export default function Page() {
         </div>
       </Hero>
 
-      {/* <NavbarPlaceholder className="top-0 bg-neu-50 before:bg-white/40 dark:bg-neu-0 dark:before:bg-blk/30" /> */}
-      {/* <main className="gql-all-anchors-focusable gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30"> */}
       <div className="gql-container gql-section">
         <div className="grid lg:grid-cols-2 lg:gap-5 max-lg:[&>:not(:first-child)]:border-t-0">
           {speakers.map(speaker => (

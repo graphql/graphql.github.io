@@ -112,7 +112,7 @@ function List({
             alt={`${name} logo`}
             src={icon}
             className="h-auto shrink lg:max-w-60"
-            placeholder="blur"
+            placeholder="empty"
           />
           <span className="absolute right-5 top-5 font-sans leading-none text-white lg:text-2xl">
             ↗

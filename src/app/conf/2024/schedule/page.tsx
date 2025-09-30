@@ -12,8 +12,8 @@ export default function SchedulePage() {
   return (
     <div className='bg-[url("/img/conf/golden-gate-bridge.png")] bg-contain bg-no-repeat'>
       <div className="container">
-        <div className="prose max-w-full py-20 text-white lg:prose-lg">
-          <h1 className="text-white">GraphQLConf 2024 Schedule</h1>
+        <div className="prose max-w-full py-20 !text-white lg:prose-lg">
+          <h1 className="!text-white">GraphQLConf 2024 Schedule</h1>
           <section className="mx-0 my-8 px-0">
             <div className="mb-1.5 flex gap-8">
               <span className="flex items-center">
@@ -43,7 +43,7 @@ export default function SchedulePage() {
                 San Francisco Bay Area, CA
               </span>
             </div>
-            <h3 className="text-white">Important Notes</h3>
+            <h3 className="!text-white">Important Notes</h3>
             <ul>
               <li>All session times are in Pacific Daylight Time (UTC -7).</li>
               <li>
