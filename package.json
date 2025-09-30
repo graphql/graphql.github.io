@@ -16,7 +16,7 @@
     "lint:docs:ci": "eslint --ignore-path .gitignore src/pages/learn --format eslint-formatter-github",
     "postbuild": "next-sitemap",
     "prebuild": "tsx scripts/get-github-info",
-    "serve": "pnpx serve out",
+    "start": "next start",
     "test": "playwright test && pnpm test:unit",
     "test:e2e": "playwright test",
     "test:ui": "playwright test --ui",
