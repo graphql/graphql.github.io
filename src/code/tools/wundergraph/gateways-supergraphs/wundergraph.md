@@ -1,8 +1,8 @@
 ---
-name: WunderGraph
-description: WunderGraph is an open-source GraphQL Gateway that is able to compose Apollo Federation, GraphQL, REST APIs, Databases, Kafka and more.
-url: https://wundergraph.com
-github: wundergraph/wundergraph
+name: Wundergraph Cosmo
+description: The open-source solution to building, maintaining, and collaborating on GraphQL Federation at Scale. The alternative to Apollo Studio and GraphOS.
+url: https://wundergraph.com/
+github: wundergraph/cosmo
 ---
 
 [WunderGraph](https://wundergraph.com) composes all your APIs into a single unified GraphQL API and
