@@ -111,7 +111,7 @@ importers:
         version: 0.469.0(react@18.3.1)
       markdown-to-jsx:
         specifier: ^7.7.2
-        version: 7.7.13(react@18.3.1)
+        version: 7.7.15(react@18.3.1)
       motion:
         specifier: ^12.11.0
         version: 12.23.22(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4158,11 +4158,14 @@ packages:
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
-  markdown-to-jsx@7.7.13:
-    resolution: {integrity: sha512-DiueEq2bttFcSxUs85GJcQVrOr0+VVsPfj9AEUPqmExJ3f8P/iQNvZHltV4tm1XVhu1kl0vWBZWT3l99izRMaA==}
+  markdown-to-jsx@7.7.15:
+    resolution: {integrity: sha512-U5dw5oRajrPTE2oJQWAbLK8RgbCDJ264AjW3fGABq+/rZjQ0E/WGVCLKAHvpKHQFUwoWoK8ZZWVPNLR/biYMhg==}
     engines: {node: '>= 10'}
     peerDependencies:
       react: '>= 0.14.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   marked@16.2.0:
     resolution: {integrity: sha512-LbbTuye+0dWRz2TS9KJ7wsnD4KAtpj0MVkWc90XvBa6AslXsT0hTBVH5k32pcSyHH1fst9XEFJunXHktVy0zlg==}
@@ -10483,8 +10486,8 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  markdown-to-jsx@7.7.13(react@18.3.1):
-    dependencies:
+  markdown-to-jsx@7.7.15(react@18.3.1):
+    optionalDependencies:
       react: 18.3.1
 
   marked@16.2.0: {}
