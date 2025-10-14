@@ -3,6 +3,7 @@ title: "Announcing Our GraphQL Ambassadors"
 tags: ["blog"]
 date: 2025-09-08
 byline: Jem Gillam and Jory Burson
+featured: true
 ---
 
 The GraphQL Foundation is thrilled to announce the launch of the GraphQL Ambassadors Program — a new initiative to recognize and support community leaders who are helping to grow the GraphQL ecosystem worldwide.

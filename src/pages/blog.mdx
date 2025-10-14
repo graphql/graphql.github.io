@@ -4,8 +4,9 @@ import { Tag, Card } from "@/components"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { clsx } from "clsx"
+import { BlogPage } from "@/components/blog-page"
 
-export default function Blog() {
+export default function Blog({ hideFeaturedPosts = false }) {
   const { asPath } = useRouter()
   const items = getPagesUnderRoute("/blog").flatMap(item => item.children || item)
   const blogs = items.sort(
@@ -22,68 +23,11 @@ export default function Blog() {
       acc[tag] += 1
       return acc
     }, {})
-  //
-  const tagList = (
-    <div className="flex gap-3 md:gap-5 mt-6 flex-wrap roboto-mono">
-      {Object.entries(tags)
-        .sort((a, b) => b[1] - a[1])
-        .map(([tag, count]) => (
-          <NextLink
-            key={tag}
-            href={currentTag === tag ? "/blog" : `/tags/${tag}`}
-            data-active={currentTag === tag ? "" : undefined}
-            className={clsx("tag [&[data-active]]:bg-primary capitalize")}
-          >
-            {tag.replaceAll("-", " ")} ({count})
-          </NextLink>
-        ))}
-    </div>
-  )
-  //
-  const blogList = blogs.map(
-    page =>
-      (!currentTag || page.frontMatter.tags.includes(currentTag)) && (
-        <Card
-          key={page.route}
-          as={Link}
-          href={page.route}
-          className="flex flex-col"
-        >
-          <div className="gap-2 flex mb-7">
-            {page.frontMatter.tags.map(tag => (
-              <Tag key={tag}>{tag.replaceAll("-", " ")}</Tag>
-            ))}
-          </div>
-          <div className="font-extrabold text-xl md:text-3xl text-balance">
-            {page.frontMatter.title}
-          </div>
-          <div className="opacity-50 text-sm my-7 flex gap-2">
-            <time dateTime={page.frontMatter.date.toISOString()}>
-              {page.frontMatter.date.toLocaleDateString("en", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </time>
-            <span className="border-r border-gray-500" />
-            <span>by {page.frontMatter.byline}</span>
-          </div>
-          <span className="text-primary block font-bold mt-auto">
-            Read more →
-          </span>
-        </Card>
-      ),
-  )
-  return (
-    <>
-      <div className="py-10 md:py-20 container">
-        <h1 className="text-4xl md:text-7xl font-extrabold mb-10">Blog</h1>
-        <h3 className="text-2xl font-bold">Categories</h3>
-        {tagList}
-      </div>
-      <div className="container grid md:grid-cols-2 gap-7 pb-10">
-        {blogList}
-      </div>
-    </>
-  )
+
+  return <BlogPage
+    tags={tags}
+    currentTag={currentTag}
+    blogs={blogs}
+    hideFeaturedPosts={hideFeaturedPosts}
+  />
 }

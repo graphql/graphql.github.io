@@ -2,65 +2,19 @@
 title: Events & Meetups
 ---
 
-{/* title can be removed in Nextra 4, since sidebar title will take from first h1 */}
-
 # Events & Meetups
 
 import { LocationIcon, ClockIcon } from "../../icons"
 import { clsx } from "clsx"
 import { useEffect } from "react"
 import { useData } from "nextra/hooks"
-import { meetups } from "../../components/meetups"
-import { events } from "../../components/events"
 import "leaflet/dist/leaflet.css"
-import pinkCircle from "./pink-circle.svg"
-import { Button } from '../../app/conf/_components/button'
 
-export function EventCard({ href, date, city, name, meta, official }) {
-  return (
-    <a
-      href={href}
-      className={clsx(
-        "text-current no-underline flex border border-neutral-300 dark:border-neutral-700 rounded-none",
-        "hover:!border-primary hover:shadow-2xl hover:shadow-primary/10 transition-colors *:transition-colors hover:relative group",
-        "relative after:content-['_↗'] after:font-sans after:absolute after:right-4 after:top-4",
-      )}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {date && date instanceof Date && (
-        <div className="shrink-0 flex flex-col justify-center items-center bg-zinc-100 dark:bg-zinc-800 group-hover:dark:bg-zinc-700 lg:w-48 w-28">
-          <div className="text-5xl lg:text-7xl font-bold">{date.getDate()}</div>
-          <div className="text-sm lg:text-lg">
-            {date.toLocaleString("en", {
-              month: "short",
-              year: "numeric",
-            })}
-          </div>
-        </div>
-      )}
-      <div className="bg-white dark:bg-neutral-900 group-hover:dark:bg-zinc-800 grow py-4 lg:py-7 px-5 lg:px-10 flex flex-col gap-4">
-        <b className="text-primary max-lg:text-xs">{meta}</b>
-        <div className="font-bold text-lg lg:text-2xl">{name}{official ? <>{" "}<span title="Official GraphQL Local">⭐️</span></> : ""}</div>
-        <div className="text-xs lg:text-lg flex flex-wrap lg:gap-x-6 gap-2">
-          <div className="flex items-center gap-2">
-            <LocationIcon className="fill-primary size-5" />
-            {city}
-          </div>
-          {date && (
-            <div className="flex items-center gap-2">
-              <ClockIcon className="fill-primary size-5" />
-              {date.toLocaleString("en", {
-                hour: "numeric",
-                minute: "numeric",
-              })}
-            </div>
-          )}
-        </div>
-      </div>
-    </a>
-  )
-}
+import { meetups } from "../../components/meetups"
+import { events, EventCard } from "../../components/events"
+import pinkCircle from "./pink-circle.svg"
+import { Button } from '../../app/conf/_design-system/button'
+
 
 export const { pastEvents, upcomingEvents } = events.reduce(
   (acc, event) => {
@@ -76,9 +30,19 @@ export const { pastEvents, upcomingEvents } = events.reduce(
   { pastEvents: [], upcomingEvents: [] },
 )
 
-export function Events({ events }) {
+export function EventsScrollview({ children }) {
   return (
-    <div className="mt-6">
+    <div className="scrollview-x-fade px-1 -mx-1 [--fade-size:4rem] relative flex gap-2 lg:gap-4 overflow-auto py-6 nextra-scrollbar">
+      {children}
+    </div>
+  )
+}
+
+export function Events({ events }) {
+  if (events.length === 0) return null;
+
+  return (
+    <div className="scrollview-x-fade px-1 -mx-1 [--fade-size:4rem] relative flex gap-2 lg:gap-4 overflow-auto py-6 nextra-scrollbar">
       {events.map(event => (
         <EventCard
           key={event.slug}
@@ -93,18 +57,13 @@ export function Events({ events }) {
   )
 }
 
-{/*
-## Events
+## Upcoming Events
 
 <Events events={upcomingEvents} />
 
+## Past Events
 
-
-<details>
-  <summary>Past Events</summary>
-  <Events events={pastEvents} />
-</details>
-*/}
+<Events events={pastEvents} />
 
 ## Meetups
 
@@ -115,9 +74,11 @@ happy to promote your GraphQL event through the
 Please contact us in the `#meetups-admin` channel on
 [the community Discord channel](/community/#official-channels).
 
-<Button href="/community/foundation/local-initiative" className="mx-auto my-6 !block">
-  Start a GraphQL Local!
-</Button>
+<div className="flex mt-6 items-center justify-center">
+  <Button href="/community/foundation/local-initiative">
+    Start a GraphQL Local!
+  </Button>
+</div>
 
 export function Meetups() {
   useEffect(() => {
@@ -143,16 +104,18 @@ export function Meetups() {
   return (
     <>
       <div id="map" className="h-96 my-6 z-0" />
-      {meetups.map(({ node }) => (
-        <EventCard
-          key={node.id}
-          href={node.link}
-          name={node.name}
-          city={node.city + ", " + node.country}
-          official={node.official}
-          date={node.next || node.prev}
-        />
-      ))}
+      <EventsScrollview>
+        {meetups.map(({ node }) => (
+          <EventCard
+            key={node.id}
+            href={node.link}
+            name={node.name}
+            city={node.city + ", " + node.country}
+            official={node.official}
+            date={node.next || node.prev}
+          />
+        ))}
+      </EventsScrollview>
     </>
   )
 }

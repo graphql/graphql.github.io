@@ -1,11 +1,41 @@
-export const events = [
+export * from "./event-card"
+
+interface Event {
+  name: string
+  slug: string
+  location: string
+  date: string
+  coverImage?: string
+  eventLink: string
+  host: string
+  hostLink?: string
+}
+
+export const events: Event[] = [
+  {
+    name: "GraphQL Day at APIDays",
+    slug: "graphql-day-at-apidays",
+    location: "CNIT La Defense, Paris",
+    date: "2025-12-11T08:00:00+00:00",
+    eventLink: "https://graphql.day",
+    host: "APIDays & GraphQL Community",
+    hostLink: "https://apidays.co",
+  },
+  {
+    name: "GraphQLConf 2025",
+    slug: "graphql-conf-2025",
+    location: "Amsterdam",
+    date: "2025-09-08T07:00:00+00:00",
+    eventLink: "/conf/2025",
+    host: "GraphQL Foundation",
+  },
   {
     name: "GraphQLConf 2024",
     slug: "graphql-conf-2024",
     location: "San Francisco",
     date: "2024-09-09T07:00:00+00:00",
     eventLink: "/conf/2024",
-    host: "JW Marriott San Francisco Union Square",
+    host: "GraphQL Foundation",
   },
   {
     name: "GraphQL Bali 001",
@@ -30,7 +60,7 @@ export const events = [
     hostLink: "https://www.oursky.com/",
   },
   {
-    name: "Paris December 7",
+    name: "GraphQL Paris before APIDays",
     slug: "graphql-paris-pre-apidays",
     location: "Paris",
     date: "2023-12-07T18:00:00+02:00",
@@ -51,7 +81,7 @@ export const events = [
     hostLink: "https://developer.microsoft.com/en-us/reactor/",
   },
   {
-    name: "Singapore November 6",
+    name: "GraphQL Singapore Meetup #6",
     slug: "graphql-sigapore-6",
     location: "Singapore",
     date: "2023-11-15T18:00:00+08:00",
@@ -73,7 +103,7 @@ export const events = [
     hostLink: "https://www.pinterest.com/",
   },
   {
-    name: "Bangkok November 12",
+    name: "GraphQL BKK 12.0",
     slug: "graphql-bangkok-12",
     location: "Bangkok",
     date: "2023-11-02T18:00:00+07:00",
@@ -84,7 +114,7 @@ export const events = [
     hostLink: "https://sevenpeakssoftware.com/",
   },
   {
-    name: "Seattle October",
+    name: "GraphQL Seattle #1",
     slug: "graphql-seattle-01",
     location: "Seattle",
     date: "2023-10-26T18:00:00-07:00",
@@ -95,7 +125,7 @@ export const events = [
     hostLink: "https://www.microsoft.com/",
   },
   {
-    name: "San Francisco September",
+    name: "GraphQL SF #12",
     slug: "graphql-sf-12",
     location: "San Francisco",
     date: "2023-09-19T18:00:00-07:00",
@@ -106,7 +136,7 @@ export const events = [
     hostLink: "https://github.com/",
   },
   {
-    name: "London September",
+    name: "GraphQL London #1",
     slug: "graphql-london-01",
     location: "London",
     date: "2023-09-07T17:30:00+01:00",
@@ -117,7 +147,7 @@ export const events = [
     hostLink: "https://neo4j.com/",
   },
   {
-    name: "Bangkok July 11",
+    name: "GraphQL BKK 11.0",
     slug: "graphql-bangkok-11",
     location: "Bangkok",
     date: "2023-07-31T18:00:00+07:00",
