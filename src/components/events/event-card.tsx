@@ -80,8 +80,10 @@ export function EventCard({
       <div className="flex flex-1 flex-col">
         <div
           className={clsx(
-            "flex items-center justify-between gap-2 px-4 pt-2.5 text-neu-700 dark:text-neu-600",
-            meta && "border-b border-neu-200 pb-2.5 dark:border-neu-100",
+            "flex items-center justify-between gap-2 px-4 text-neu-700 dark:text-neu-600",
+            meta
+              ? "border-b border-neu-200 py-2.5 dark:border-neu-100"
+              : "-mb-4 pt-3",
           )}
         >
           {meta ? (
