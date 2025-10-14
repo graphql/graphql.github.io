@@ -1,3 +1,5 @@
+export * from './event-card'
+
 export const events = [
   {
     name: "GraphQLConf 2024",
