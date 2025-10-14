@@ -13,7 +13,7 @@ import "leaflet/dist/leaflet.css"
 import { meetups } from "../../components/meetups"
 import { events, EventCard } from "../../components/events"
 import pinkCircle from "./pink-circle.svg"
-import { Button } from '../../app/conf/_components/button'
+import { Button } from '../../app/conf/_design-system/button'
 
 
 export const { pastEvents, upcomingEvents } = events.reduce(
@@ -30,31 +30,40 @@ export const { pastEvents, upcomingEvents } = events.reduce(
   { pastEvents: [], upcomingEvents: [] },
 )
 
-export function Events({ events, heading }) {
-  if (events.length === 0) return null;
-
+export function EventsScrollview({ children }) {
   return (
-    <>
-      <h2 className="typography-h2">{heading}</h2>
-      <div className="mt-6">
-        {events.map(event => (
-          <EventCard
-            key={event.slug}
-            href={event.eventLink}
-            date={new Date(event.date)}
-            meta={event.host}
-            name={event.name}
-            city={event.location}
-          />
-        ))}
-      </div>
-    </>
+    <div className="scrollview-x-fade px-1 -mx-1 [--fade-size:4rem] relative flex gap-2 lg:gap-4 overflow-auto py-6 nextra-scrollbar">
+      {children}
+    </div>
   )
 }
 
-<Events events={upcomingEvents} heading="Upcoming Events" />
+export function Events({ events }) {
+  if (events.length === 0) return null;
 
-<Events events={pastEvents} heading="Past Events" />
+  return (
+    <div className="scrollview-x-fade px-1 -mx-1 [--fade-size:4rem] relative flex gap-2 lg:gap-4 overflow-auto py-6 nextra-scrollbar">
+      {events.map(event => (
+        <EventCard
+          key={event.slug}
+          href={event.eventLink}
+          date={new Date(event.date)}
+          meta={event.host}
+          name={event.name}
+          city={event.location}
+        />
+      ))}
+    </div>
+  )
+}
+
+## Upcoming Events
+
+<Events events={upcomingEvents} />
+
+## Past Events
+
+<Events events={pastEvents} />
 
 ## Meetups
 
@@ -65,9 +74,11 @@ happy to promote your GraphQL event through the
 Please contact us in the `#meetups-admin` channel on
 [the community Discord channel](/community/#official-channels).
 
-<Button href="/community/foundation/local-initiative" className="mx-auto my-6 !block">
-  Start a GraphQL Local!
-</Button>
+<div className="flex mt-6 items-center justify-center">
+  <Button href="/community/foundation/local-initiative">
+    Start a GraphQL Local!
+  </Button>
+</div>
 
 export function Meetups() {
   useEffect(() => {
@@ -93,16 +104,18 @@ export function Meetups() {
   return (
     <>
       <div id="map" className="h-96 my-6 z-0" />
-      {meetups.map(({ node }) => (
-        <EventCard
-          key={node.id}
-          href={node.link}
-          name={node.name}
-          city={node.city + ", " + node.country}
-          official={node.official}
-          date={node.next || node.prev}
-        />
-      ))}
+      <EventsScrollview>
+        {meetups.map(({ node }) => (
+          <EventCard
+            key={node.id}
+            href={node.link}
+            name={node.name}
+            city={node.city + ", " + node.country}
+            official={node.official}
+            date={node.next || node.prev}
+          />
+        ))}
+      </EventsScrollview>
     </>
   )
 }
