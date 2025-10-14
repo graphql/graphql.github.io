@@ -24,7 +24,7 @@ export default {
       events: { title: "Events & Meetups" },
       contribute: {
         title: "Contribute to GraphQL",
-        href: "/community/contribute/essential-links",
+        href: "/community/contribute/governance",
       },
       foundation: { title: "Foundation" },
     },
