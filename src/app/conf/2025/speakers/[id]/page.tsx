@@ -1,23 +1,24 @@
 import { Metadata } from "next"
 import React from "react"
+import Image from "next/image"
+import clsx from "clsx"
+
+import { SchedSpeaker, ScheduleSession } from "@/app/conf/2023/types"
+import { Button } from "@/app/conf/_design-system/button"
 
 import { previousEditionSessions, speakers, speakerSessions } from "../../_data"
 import { metadata as layoutMetadata } from "../../layout"
-
 import { HERO_MARQUEE_ITEMS } from "../../utils"
 import { BackLink } from "../../schedule/_components/back-link"
 import { NavbarPlaceholder } from "../../components/navbar"
 import { CtaCardSection } from "../../components/cta-card-section"
-import clsx from "clsx"
-import { SchedSpeaker, ScheduleSession } from "@/app/conf/2023/types"
-import { Button } from "@/app/conf/_design-system/button"
 import { MarqueeRows } from "../../components/marquee-rows"
 import { GET_TICKETS_LINK } from "../../links"
 import { SpeakerTags } from "../../components/speaker-tags"
 import { SpeakerLinks } from "../../components/speaker-links"
 import { LongSessionCard } from "./long-session-card"
-import Image from "next-image-export-optimizer"
 import { formatDescription } from "../../schedule/[id]/format-description"
+import { getBase64Placeholder } from "../../../_design-system/utils/get-base64-placeholder"
 
 type SpeakerProps = { params: { id: string } }
 
@@ -140,7 +141,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
   )
 }
 
-function SpeakerHeader({
+async function SpeakerHeader({
   speaker,
   year,
   className,
@@ -149,6 +150,12 @@ function SpeakerHeader({
   year: `20${number}`
   className?: string
 }) {
+  if (speaker.avatar?.startsWith("//"))
+    speaker.avatar = `https:${speaker.avatar}`
+
+  const avatarPlaceholder =
+    speaker.avatar && (await getBase64Placeholder(speaker.avatar))
+
   return (
     <header
       className={clsx("flex justify-between gap-4 max-md:flex-col", className)}
@@ -179,6 +186,8 @@ function SpeakerHeader({
             width={464}
             height={464}
             className="aspect-square size-[464px] object-cover saturate-[0.1] transition-transform max-lg:w-full"
+            placeholder="blur"
+            blurDataURL={avatarPlaceholder! as `data:image/${string}`}
           />
         </div>
       )}

@@ -1,5 +1,5 @@
 import { clsx } from "clsx"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 
 import { Button } from "../../../_design-system/button"
 import { GET_TICKETS_LINK } from "../../links"
@@ -18,13 +18,13 @@ export function RegisterToday({ className }: RegisterTodayProps) {
         className,
       )}
     >
-      {/* todo: placeholders work in preview, but they could use some improvement */}
       <NextImage
         src={speakerImage}
         alt="GraphQL Conference"
         width="450"
         height="566"
         className="aspect-[312/392] w-full object-cover max-sm:hidden sm:aspect-[2] lg:aspect-[450/566] lg:h-[566px] lg:w-[450px]"
+        placeholder="blur"
       />
       <div className="flex flex-col justify-between">
         <div>

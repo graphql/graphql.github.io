@@ -11,7 +11,7 @@ export default function Page() {
     <div className='bg-[url("/img/conf/golden-gate-bridge.png")] bg-contain bg-no-repeat'>
       <div className="flex w-full justify-center">
         <div className="prose px-2 py-20 md:container lg:prose-lg">
-          <h1 className="text-white">GraphQLConf 2024 Speakers</h1>
+          <h1 className="!text-white">GraphQLConf 2024 Speakers</h1>
           <p className="text-white sm:w-2/3">
             Meet the unique lineup of insightful speakers we've carefully
             chosen, who are primed to share their groundbreaking ideas and

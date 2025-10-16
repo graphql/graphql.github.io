@@ -59,18 +59,6 @@ module.exports = {
         "@next/next/no-img-element": "off", // straight up upsell, small `img`s actually don't need optimization
 
         "tailwindcss/classnames-order": "off",
-        "@typescript-eslint/no-restricted-imports": [
-          "error",
-          {
-            paths: [
-              {
-                name: "next/image",
-                message: "Please use `next-image-export-optimizer` instead",
-                allowTypeImports: true,
-              },
-            ],
-          },
-        ],
         "prefer-const": ["error", { destructuring: "all" }],
         "prefer-rest-params": "off",
         "@typescript-eslint/no-explicit-any": "off",
@@ -78,6 +66,15 @@ module.exports = {
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/ban-types": "off",
+        "no-restricted-syntax": [
+          "error",
+          {
+            selector:
+              "JSXElement[openingElement.name.name=/^(Image|NextImage)$/]:not(:has(JSXAttribute[name.name='placeholder']))",
+            message:
+              "Pass `placeholder: 'empty' | 'blur'` when calling <Image> or <NextImage>.",
+          },
+        ],
       },
       settings: {
         tailwindcss: {

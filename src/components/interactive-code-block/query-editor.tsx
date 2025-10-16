@@ -140,6 +140,7 @@ export class QueryEditor extends Component<QueryEditorProps> {
   render() {
     return (
       <div
+        // eslint-disable-next-line tailwindcss/no-custom-classname
         className="query-editor flex h-full flex-col [&>:last-child]:basis-full"
         ref={e => {
           this.domNode = e

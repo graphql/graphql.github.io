@@ -1,5 +1,6 @@
 import clsx from "clsx"
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
+import { getPlaiceholder } from "plaiceholder"
 
 import { Anchor } from "../../_design-system/anchor"
 import { SchedSpeaker } from "../../2023/types"
@@ -11,6 +12,7 @@ import { SpeakerLinks } from "./speaker-links"
 import styles from "./speaker-card.module.css"
 import { formatSpeakerPosition } from "./format-speaker-position"
 import { formatDescription } from "../schedule/[id]/format-description"
+import { getBase64Placeholder } from "../../_design-system/utils/get-base64-placeholder"
 
 export interface SpeakerCardProps extends React.HTMLAttributes<HTMLDivElement> {
   isReturning?: boolean
@@ -20,13 +22,30 @@ export interface SpeakerCardProps extends React.HTMLAttributes<HTMLDivElement> {
   year: string
 }
 
-export function SpeakerCard({
+export async function SpeakerCard({
   className,
   speaker,
   year,
   showSocials = false,
   ...props
 }: SpeakerCardProps) {
+  let avatarPlaceholder: string | undefined
+
+  if (speaker.avatar) {
+    try {
+      if (speaker.avatar.startsWith("//"))
+        speaker.avatar = `https:${speaker.avatar}`
+
+      avatarPlaceholder = await getBase64Placeholder(speaker.avatar)
+    } catch (e) {
+      // this might happen in dev server on reloads and it's okay to ignore
+      console.warn(
+        "failed to fetch speaker.avatar for placeholder generation:",
+        e,
+      )
+    }
+  }
+
   return (
     <article
       className={clsx(
@@ -44,11 +63,14 @@ export function SpeakerCard({
           />
         )}
 
-        <div className="relative aspect-square h-full overflow-hidden @[420px]:w-[176px] @[420px]:shrink-0">
+        {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+        <div className="Avatar relative aspect-square h-full overflow-hidden @[420px]:w-[176px] @[420px]:shrink-0">
           <div className="absolute inset-0 z-[1] bg-sec-light mix-blend-multiply" />
           {speaker.avatar ? (
             <Image
               src={speaker.avatar}
+              // the placeholder without an additional blur NextImage adds actually fits better here
+              placeholder={avatarPlaceholder! as `data:image/${string}`}
               alt=""
               width={176}
               height={176}

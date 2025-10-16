@@ -7,6 +7,7 @@ import withLess from "next-with-less"
 import nextBundleAnalyzer from "@next/bundle-analyzer"
 import fs from "fs"
 import rehypeMermaid from "rehype-mermaid"
+import withPlaiceholder from "@plaiceholder/next"
 
 import { remarkGraphiQLComment } from "./src/remark-graphiql-comment.js"
 import { syntaxHighlightingThemes } from "./src/_design-system/syntax/index.js"
@@ -109,27 +110,15 @@ const config = {
 
     return config
   },
-  // Comment this out if you're working on OG images.
-  output: "export",
   images: {
-    loader: "custom",
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    remotePatterns: [
+      {
+        hostname: "avatars.sched.co",
+        pathname: "**",
+      },
+    ],
   },
-  transpilePackages: ["next-image-export-optimizer"],
   env: {
-    nextImageExportOptimizer_imageFolderPath: "public/images",
-    nextImageExportOptimizer_exportFolderPath: "out",
-    nextImageExportOptimizer_quality: "75",
-    nextImageExportOptimizer_storePicturesInWEBP: "true",
-    nextImageExportOptimizer_exportFolderName: "nextImageExportOptimizer",
-    // If you do not want to use blurry placeholder images, then you can set
-    // nextImageExportOptimizer_generateAndUseBlurImages to false and pass
-    // `placeholder="empty"` to all <ExportedImage> components.
-    nextImageExportOptimizer_generateAndUseBlurImages: "true",
-    // If you want to cache the remote images, you can set the time to live of the cache in seconds.
-    // The default value is 0 seconds.
-    nextImageExportOptimizer_remoteImageCacheTTL: "0",
     NEXT_PUBLIC_GA_ID:
       process.env.NODE_ENV === "production" ? "UA-44373548-16" : "",
   },
@@ -180,7 +169,9 @@ const withBundleAnalyzer = nextBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 })
 
-export default withBundleAnalyzer(withLess(withNextra(config)))
+export default withBundleAnalyzer(
+  withLess(withNextra(withPlaiceholder(config))),
+)
 
 function mermaidConfig() {
   return [

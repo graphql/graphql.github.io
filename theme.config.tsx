@@ -14,7 +14,7 @@ const graphQLLogo = (
 export default {
   backgroundColor: {
     light: "251,251,249",
-    dark: "13.7,14.7,10.8",
+    dark: "15,15,12",
   },
   head: function useHead() {
     const { frontMatter, title: pageTitle } = useConfig()

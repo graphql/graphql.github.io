@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { clsx } from "clsx"
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
 import type { StaticImageData } from "next/image"
 
 import { Marquee } from "@/app/conf/_design-system/marquee"
@@ -71,6 +71,7 @@ function GalleryStripImage({
       <Image
         data-index={index}
         src={image}
+        placeholder="blur"
         alt=""
         role="presentation"
         // intrinsic 799x533
