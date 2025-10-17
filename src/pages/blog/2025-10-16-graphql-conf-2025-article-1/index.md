@@ -187,10 +187,16 @@ Derek Kuc unveiled static analysis that proves when two queries are equivalent a
 GraphQLConf 2025 was held in September 2025 in Amsterdam and attended by over 250 GraphQL enthusiasts. The GraphQL Foundation would like to thank our sponsors:
 
 **Gold Sponsors**
-- Apollo GraphQL
-- The Guild
+- [Apollo GraphQL](https://www.apollographql.com/)
+- [The Guild](https://the-guild.dev/graphql/hive)
 
 **Silver Sponsors**
-- Grafbase
-- Meta
-- Netflix
+- [Grafbase](https://grafbase.com/)
+- [Meta](https://about.facebook.com/meta/)
+- [Netflix](https://netflix.com/)
+
+## Blogposts & Upcoming GraphQL events
+
+Stay tuned, this is a serie of articles on GraphQLConf 2025. More articles will be published soon!
+
+For upcoming events and GraphQL Local initiatives, please visit our [GraphQL community events](https://graphql.org/community/events/) page.
