@@ -71,6 +71,16 @@
       "permanent": true
     },
     {
+      "source": "/conf/2025/gallery",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/sets/72177720328905487/",
+      "permanent": true
+    },
+    {
+      "source": "/conf/2025/gallery/",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/sets/72177720328905487/",
+      "permanent": true
+    },
+    {
       "source": "/conf/gallery",
       "destination": "https://www.graphql.org/conf/2024/gallery",
       "permanent": false
