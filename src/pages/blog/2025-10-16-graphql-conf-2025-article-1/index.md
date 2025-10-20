@@ -1,7 +1,7 @@
 ---
 title: "🚀 What Launched at GraphQLConf 2025"
 tags: ["blog"]
-date: 2025-10-13
+date: 2025-10-20
 byline: Jeff Auriemma and An Ngo
 featured: true
 ---
