@@ -7,6 +7,7 @@ import { Button } from "./conf/_design-system/button"
 
 import "@/globals.css"
 import "@/app/colors.css"
+import { useEffect } from "react"
 
 export default function Page() {
   const pathname = usePathname()
@@ -27,8 +28,8 @@ export default function Page() {
   }/issues/new?title=${encodeURIComponent(title)}&labels=${labels}`
 
   return (
-    <div className="flex h-dvh flex-col items-center justify-center gap-8 font-sans lg:gap-10">
-      <FourOhFourIcon />
+    <div className="dark-if-preferred flex h-dvh flex-col items-center justify-center gap-8 bg-neu-0 font-sans lg:gap-10">
+      <FourOhFourIcon className="text-pri-base" />
       <h1 className="text-4xl text-neu-900">Page not found</h1>
       <div className="flex gap-4">
         <Button variant="primary" href={url}>
@@ -42,14 +43,15 @@ export default function Page() {
   )
 }
 
-function FourOhFourIcon() {
+function FourOhFourIcon({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="204"
       height="80"
       viewBox="0 0 204 80"
-      fill="hsl(var(--color-pri-base))"
+      fill="currentColor"
+      className={className}
     >
       <title>404</title>
       <path d="M45.2399 80V57.4806H0V33.8414H11.3411V22.5194H22.5576V11.3219H34.0234V0H57.9519V80H45.2399ZM12.5874 44.9145H45.2399V12.5661H35.2696V23.7636H23.8039V34.9611H12.5874V44.9145Z" />
