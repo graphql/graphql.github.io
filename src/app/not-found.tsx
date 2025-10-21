@@ -2,12 +2,14 @@
 
 import { usePathname } from "next/navigation"
 import { useMounted } from "nextra/hooks"
+// @ts-expect-error
+import { ThemeProvider } from "next-themes"
 
+import { NewFontsStyleTag } from "./fonts"
 import { Button } from "./conf/_design-system/button"
 
 import "@/globals.css"
 import "@/app/colors.css"
-import { useEffect } from "react"
 
 export default function Page() {
   const pathname = usePathname()
@@ -28,18 +30,21 @@ export default function Page() {
   }/issues/new?title=${encodeURIComponent(title)}&labels=${labels}`
 
   return (
-    <div className="dark-if-preferred flex h-dvh flex-col items-center justify-center gap-8 bg-neu-0 font-sans lg:gap-10">
-      <FourOhFourIcon className="text-pri-base" />
-      <h1 className="text-4xl text-neu-900">Page not found</h1>
-      <div className="flex gap-4">
-        <Button variant="primary" href={url}>
-          Submit an issue about broken link
-        </Button>
-        <Button variant="secondary" href="/">
-          Go back home
-        </Button>
+    <ThemeProvider attribute="class">
+      <div className="flex h-dvh flex-col items-center justify-center gap-8 bg-neu-0 font-sans lg:gap-10">
+        <NewFontsStyleTag />
+        <FourOhFourIcon className="text-pri-base" />
+        <h1 className="text-4xl text-neu-900">Page not found</h1>
+        <div className="flex gap-4">
+          <Button variant="primary" href={url}>
+            Submit an issue about broken link
+          </Button>
+          <Button variant="secondary" href="/">
+            Go back home
+          </Button>
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   )
 }
 
