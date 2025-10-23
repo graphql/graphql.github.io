@@ -4,6 +4,8 @@ description: An introduction to the GraphQL Ambassador Program
 
 import { Button } from "../../../app/conf/_components/button"
 import { Cards } from "../../../components/cards"
+import { InfoCard } from "../../../components/info-card"
+
 
 # Meet your GraphQL Ambassadors!
 
@@ -18,4 +20,29 @@ Interested in becoming an Ambassador?
   Learn more about the Ambassador Program
 </Button>
 
-  />
+<InfoCard 
+rows ={[
+ 
+{
+  type: "label",
+  label: "Jem"
+},
+
+
+{
+  type: "image",
+
+  imageUrl: "https://github.com/jemgillam.png",
+  alt: "Jem Gillam"
+},
+
+
+{
+  type: "split",
+
+  left: <>Graphile</>,
+  right: <>t l b</>,
+}
+]}
+
+/>

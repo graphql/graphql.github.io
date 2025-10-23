@@ -1,0 +1,90 @@
+import { clsx } from "clsx"
+
+export interface InfoCardLabelRow {
+  type: "label"
+  label: string
+}
+
+export interface InfoCardTitleRow {
+  type: "title"
+
+  title: string
+}
+
+export interface InfoCardImageRow {
+  type: "image"
+
+  imageUrl: string
+  alt?: string
+}
+
+export interface InfoCardSplitRow {
+  type: "split"
+
+  left: JSX.Element
+  right: JSX.Element
+}
+
+export type InfoCardRow =
+  | InfoCardLabelRow
+  | InfoCardTitleRow
+  | InfoCardImageRow
+  | InfoCardSplitRow
+
+export interface InfoCardProps {
+  rows: InfoCardRow[]
+}
+
+export function InfoCardRow({ row }: { row: InfoCardRow }) {
+  switch (row.type) {
+    case "label": {
+      return (
+        <div className="flex items-center justify-between gap-2 border-b border-neu-200 px-4 py-2.5 text-neu-700 dark:border-neu-100 dark:text-neu-600">
+          <span className="typography-body-md font-medium">{row.label}</span>
+        </div>
+      )
+    }
+    case "title": {
+      return (
+        <div className="typography-h3 flex min-h-[124px] flex-1 flex-col justify-center px-4 py-6 text-neu-900">
+          {row.title}
+        </div>
+      )
+    }
+    case "image": {
+      return (
+        <div className="typography-h3 flex min-h-[124px] flex-1 flex-col justify-center px-4 py-6 text-neu-900">
+          <img src={row.imageUrl} alt={row.alt} width="300" />
+        </div>
+      )
+    }
+    case "split": {
+      return (
+        <div className="flex grid grid-cols-2 flex-wrap divide-x divide-neu-200 border-t border-neu-200 text-neu-700 dark:divide-neu-100 dark:border-neu-100">
+          <div className="flex items-center gap-1.5 px-4 py-2.5 text-neu-700 dark:text-neu-600">
+            {row.left}
+          </div>
+          <div className="typography-body-sm flex items-center gap-1.5 whitespace-pre px-4 py-2.5 text-neu-700 dark:text-neu-600">
+            {row.right}
+          </div>
+        </div>
+      )
+    }
+  }
+}
+
+export function InfoCard({ rows }: InfoCardProps) {
+  return (
+    <div
+      className={clsx(
+        "gql-focus-visible group flex min-w-[352px] flex-col overflow-hidden border border-neu-200 bg-neu-0 text-left text-current no-underline ring-neu-400 hover:bg-sec-base/[.035] hover:ring-1 hover:ring-offset-1 hover:ring-offset-neu-0 dark:border-neu-100 dark:ring-neu-100",
+      )}
+    >
+      <div className="flex flex-1 flex-col">
+        {rows.map((row, i) => (
+          <InfoCardRow key={i} row={row} />
+        ))}
+      </div>
+    </div>
+  )
+}
