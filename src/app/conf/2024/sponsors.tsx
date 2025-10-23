@@ -8,7 +8,7 @@ import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
 import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 
 import { clsx } from "clsx"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 
 interface Image {
   icon: string
@@ -78,6 +78,7 @@ function List({
             alt={`${name} logo`}
             src={icon}
             className="max-h-full lg:w-auto lg:max-w-60"
+            placeholder="empty"
           />
           <span className="absolute right-5 top-5 font-sans leading-none text-white lg:text-2xl">
             ↗

@@ -1,8 +1,8 @@
 diff --git a/dist/index.d.mts b/dist/index.d.mts
-index 71f87bcd1dde49d7c19ad49fc098e715a76c5c10..aadd6228910ee3ebafccfae8672cb9ae1b0bca3c 100644
+index 71f87bcd1dde49d7c19ad49fc098e715a76c5c10..53dffe4fbe5fb2a92cb55a0466bf95315f904e4e 100644
 --- a/dist/index.d.mts
 +++ b/dist/index.d.mts
-@@ -1421,3 +1421,25 @@ declare function ThemeSwitch({ lite, className }: ThemeSwitchProps): ReactElemen
+@@ -1421,3 +1421,24 @@ declare function ThemeSwitch({ lite, className }: ThemeSwitchProps): ReactElemen
  declare function Layout({ children, themeConfig, pageOpts }: NextraThemeLayoutProps): ReactElement;
  
  export { Bleed, Collapse, type PartialDocsThemeConfig as DocsThemeConfig, Link, LocaleSwitch, Navbar, NotFoundPage, SkipNavContent, SkipNavLink, ThemeSwitch, Layout as default, getComponents, useConfig, useMenu, useThemeConfig };
@@ -22,14 +22,13 @@ index 71f87bcd1dde49d7c19ad49fc098e715a76c5c10..aadd6228910ee3ebafccfae8672cb9ae
 +export declare const useIntersectionObserver: () => IntersectionObserver | null
 +export declare const useSlugs: () => WeakMap<any, any>
 +
-+export declare const Breadcrumb: (props: { activePath: Item[] }) => ReactElement | null
 +export declare const NavLinks: (props: NavLinkProps) => ReactElement | null
 +export interface NavLinkProps {
 +  currentIndex: number
 +  flatDocsDirectories: Item[]
 +}
 diff --git a/dist/index.js b/dist/index.js
-index 56201641fd965dcc5ab7c5df53e444c41293c00e..07147c688ae75c4c7daf082833acc71de16b36ee 100644
+index 56201641fd965dcc5ab7c5df53e444c41293c00e..29a446663f5d24acad0389f873c5e31be910717c 100644
 --- a/dist/index.js
 +++ b/dist/index.js
 @@ -100,10 +100,10 @@ IntersectionObserverContext.displayName = "IntersectionObserver";
@@ -47,16 +46,52 @@ index 56201641fd965dcc5ab7c5df53e444c41293c00e..07147c688ae75c4c7daf082833acc71d
  var ActiveAnchorProvider = ({
    children
  }) => {
-@@ -526,7 +526,7 @@ import NextLink2 from "next/link";
- import { ArrowRightIcon } from "nextra/icons";
- import { Fragment as Fragment3 } from "react";
- import { jsx as jsx9, jsxs as jsxs3 } from "react/jsx-runtime";
+@@ -520,44 +520,6 @@ function Bleed({
+   );
+ }
+ 
+-// src/components/breadcrumb.tsx
+-import cn4 from "clsx";
+-import NextLink2 from "next/link";
+-import { ArrowRightIcon } from "nextra/icons";
+-import { Fragment as Fragment3 } from "react";
+-import { jsx as jsx9, jsxs as jsxs3 } from "react/jsx-runtime";
 -function Breadcrumb({
-+export function Breadcrumb({
-   activePath
- }) {
-   return /* @__PURE__ */ jsx9("div", { className: "nextra-breadcrumb _mt-1.5 _flex _items-center _gap-1 _overflow-hidden _text-sm _text-gray-500 dark:_text-gray-400 contrast-more:_text-current", children: activePath.map((item, index, arr) => {
-@@ -1255,7 +1255,7 @@ var classes = {
+-  activePath
+-}) {
+-  return /* @__PURE__ */ jsx9("div", { className: "nextra-breadcrumb _mt-1.5 _flex _items-center _gap-1 _overflow-hidden _text-sm _text-gray-500 dark:_text-gray-400 contrast-more:_text-current", children: activePath.map((item, index, arr) => {
+-    const nextItem = arr[index + 1];
+-    const href = nextItem ? item.withIndexPage ? item.route : item.children[0].route === nextItem.route ? "" : item.children[0].route : "";
+-    const ComponentToUse = href ? NextLink2 : "span";
+-    return /* @__PURE__ */ jsxs3(Fragment3, { children: [
+-      index > 0 && /* @__PURE__ */ jsx9(
+-        ArrowRightIcon,
+-        {
+-          height: "14",
+-          className: "_shrink-0 rtl:_rotate-180"
+-        }
+-      ),
+-      /* @__PURE__ */ jsx9(
+-        ComponentToUse,
+-        __spreadProps(__spreadValues({
+-          className: cn4(
+-            "_whitespace-nowrap _transition-colors",
+-            nextItem ? "_min-w-6 _overflow-hidden _text-ellipsis" : "_font-medium _text-gray-700 contrast-more:_font-bold contrast-more:_text-current dark:_text-gray-100 contrast-more:dark:_text-current",
+-            href && "nextra-focus _ring-inset hover:_text-gray-900 dark:hover:_text-gray-100"
+-          ),
+-          title: item.title
+-        }, href && { href }), {
+-          children: item.title
+-        })
+-      )
+-    ] }, item.route + item.name);
+-  }) });
+-}
+-
+ // src/components/collapse.tsx
+ import cn5 from "clsx";
+ import { useEffect as useEffect3, useRef as useRef3 } from "react";
+@@ -1255,7 +1217,7 @@ var classes = {
    ),
    icon: cn10("_inline _h-5 _shrink-0")
  };
@@ -65,3 +100,11 @@ index 56201641fd965dcc5ab7c5df53e444c41293c00e..07147c688ae75c4c7daf082833acc71d
    flatDocsDirectories,
    currentIndex
  }) {
+@@ -2421,7 +2383,6 @@ function Body({ children }) {
+         themeContext.typesetting === "article" && "nextra-body-typesetting-article"
+       ),
+       children: /* @__PURE__ */ jsxs17("main", { className: "_w-full _min-w-0 _max-w-6xl _px-6 _pt-4 md:_px-12", children: [
+-        activeType !== "page" && themeContext.breadcrumb && /* @__PURE__ */ jsx26(Breadcrumb, { activePath }),
+         body
+       ] })
+     }

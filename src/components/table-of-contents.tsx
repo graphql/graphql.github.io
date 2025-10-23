@@ -8,7 +8,7 @@ import { useEffect, useRef, type ReactElement } from "react"
 import scrollIntoView from "scroll-into-view-if-needed"
 
 import { Anchor } from "../app/conf/_design-system/anchor"
-import { renderComponent } from "./utils"
+import { renderComponent } from "./utils/render-component"
 import { BackToTop } from "./back-to-top"
 
 export type TableOfContentsProps = {

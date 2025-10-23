@@ -6,6 +6,7 @@ import { useState, Fragment, ReactNode } from "react"
 import { Button } from "@/app/conf/_design-system/button"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+import { arrowsMoveSideways } from "@/app/conf/_design-system/utils/arrows-move-sideways"
 
 import blurBean from "./blur-bean.webp"
 
@@ -189,20 +190,4 @@ function Stripes() {
       />
     </div>
   )
-}
-
-function arrowsMoveSideways(event: React.KeyboardEvent<HTMLButtonElement>) {
-  if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-    const previousElement = event.currentTarget.previousElementSibling
-    if (previousElement) {
-      event.preventDefault()
-      ;(previousElement as HTMLElement).focus()
-    }
-  } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-    const nextElement = event.currentTarget.nextElementSibling
-    if (nextElement) {
-      event.preventDefault()
-      ;(nextElement as HTMLElement).focus()
-    }
-  }
 }

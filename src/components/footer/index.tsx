@@ -6,7 +6,7 @@ import { SocialIcons } from "@/app/conf/_components/social-icons"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import blurBean from "@/app/conf/2025/components/footer/blur-bean.webp"
 
-import { renderComponent } from "../utils"
+import { renderComponent } from "../utils/render-component"
 import { Anchor } from "@/app/conf/_design-system/anchor"
 import type { ReactNode } from "react"
 import { ConferenceFooterBox } from "./conference-footer-box"

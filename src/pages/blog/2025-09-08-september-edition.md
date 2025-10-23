@@ -3,6 +3,7 @@ title: "Announcing the September 2025 Edition of the GraphQL Specification"
 tags: ["spec"]
 date: 2025-09-08
 byline: Lee Byron
+featured: true
 ---
 
 It’s here: the [September 2025 edition of the GraphQL specification](https://spec.graphql.org/September2025/)!

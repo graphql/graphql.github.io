@@ -32,7 +32,7 @@ export default function RootLayout({
       <head>
         <style>{`html { scroll-padding-top: 5rem }`}</style>
       </head>
-      <body className="bg-conf-black">
+      <body className="bg-neu-0">
         <GoogleAnalytics />
         {children}
       </body>

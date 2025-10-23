@@ -150,7 +150,7 @@ export function DataColocation() {
   return (
     <section
       ref={sectionRef}
-      className="gql-container gql-section flex justify-between gap-4 max-xl:flex-wrap sm:max-xl:gap-y-8 xl:p-24"
+      className="gql-container gql-section flex justify-between gap-4 max-xl:flex-wrap sm:max-xl:gap-y-8 xl:p-24 3xl:px-60"
       onMouseOver={markSector}
       onMouseOut={unmarkSector}
       onPointerDown={markSector}

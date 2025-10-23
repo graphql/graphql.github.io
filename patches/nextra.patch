@@ -1,14 +1,3 @@
-diff --git a/dist/client/components/image.js b/dist/client/components/image.js
-index 239d72f5921e2d1b7359e569ae5b74c12d7c9d8a..ebeb619da1e3ccb7722e9388c92c1e2192527027 100644
---- a/dist/client/components/image.js
-+++ b/dist/client/components/image.js
-@@ -1,5 +1,5 @@
- import { jsx } from "react/jsx-runtime";
--import NextImage from "next/image";
-+import NextImage from "next-image-export-optimizer";
- import { forwardRef } from "react";
- const Image = forwardRef((props, ref) => {
-   const ComponentToUse = typeof props.src === "object" ? NextImage : "img";
 diff --git a/dist/client/components/index.js b/dist/client/components/index.js
 index 9d05118d3d10e746cd2c020785a0f34465bb8570..218107600d7efed1b5f9d49f0a696b166917d1ce 100644
 --- a/dist/client/components/index.js

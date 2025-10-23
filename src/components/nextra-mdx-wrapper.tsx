@@ -5,14 +5,14 @@ import {
   useConfig,
   useThemeConfig,
   SkipNavContent,
-  Breadcrumb,
   NavLinks,
 } from "nextra-theme-docs"
 import { clsx } from "clsx"
 
 import { Sidebar } from "./sidebar"
-import { renderComponent } from "./utils"
+import { renderComponent } from "./utils/render-component"
 import { TableOfContents } from "./table-of-contents"
+import { Breadcrumbs } from "../_design-system/breadcrumbs"
 
 const classes = {
   toc: clsx("nextra-toc order-last max-xl:hidden w-64 shrink-0 print:hidden"),
@@ -146,7 +146,7 @@ function Body({ children }: { children: ReactNode }): ReactElement {
     >
       <main className="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
         {activeType !== "page" && themeContext.breadcrumb && (
-          <Breadcrumb activePath={activePath} />
+          <Breadcrumbs activePath={activePath} className="mt-1.5" />
         )}
         {body}
       </main>

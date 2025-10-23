@@ -20,7 +20,7 @@ import {
   useState,
 } from "react"
 import scrollIntoView from "scroll-into-view-if-needed"
-import { renderComponent } from "./utils"
+import { renderComponent } from "./utils/render-component"
 import {
   useActiveAnchor,
   useMenu,
@@ -52,7 +52,7 @@ const Folder = memo(function FolderInner(props: FolderProps) {
 const classes = {
   link: cn(
     "_flex _px-2 _py-1.5 _text-sm _transition-colors [word-break:break-word]",
-    "_cursor-pointer contrast-more:border contrast-more:hover:underline",
+    "_cursor-pointer contrast-more:border contrast-more:hover:underline gql-focus-visible focus-visible:outline-offset-1",
   ),
   inactive: cn(
     "text-neu-800 hover:bg-neu-100 hover:text-neu-900 hover:bg-neu-100 dark:hover:bg-neu-50/50",
