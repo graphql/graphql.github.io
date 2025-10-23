@@ -6,6 +6,7 @@ export default {
   },
   resources: "Resources",
   events: "",
+  ambassadors: "Ambassador Program",
   contribute: "Contribute to GraphQL",
   foundation: "Foundation",
 }
