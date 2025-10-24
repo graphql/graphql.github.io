@@ -24,6 +24,7 @@
     "validate:snippets": "node scripts/validate-snippets.js"
   },
   "dependencies": {
+    "@base-ui-components/react": "1.0.0-beta.4",
     "@codemirror/autocomplete": "^6.18.6",
     "@codemirror/commands": "^6.3.3",
     "@codemirror/language": "^6.10.0",

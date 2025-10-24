@@ -64,18 +64,6 @@ footer {
   }
 }
 
-div[role="menu"][data-headlessui-state] {
-  @apply left-0 right-auto;
-}
-
-div[id^="headlessui-menu-items"] {
-  @apply rounded-none;
-
-  > a {
-    @apply py-3.5;
-  }
-}
-
 /* should be fixed in Nextra 4 */
 ._max-w-\[90rem\] {
   @apply container;
