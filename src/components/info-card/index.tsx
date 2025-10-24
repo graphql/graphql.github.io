@@ -1,19 +1,18 @@
 import { clsx } from "clsx"
+import { ReactNode } from "react"
 
 export interface InfoCardLabelRow {
   type: "label"
-  label: string
+  label: ReactNode
 }
 
 export interface InfoCardTitleRow {
   type: "title"
-
-  title: string
+  title: ReactNode
 }
 
 export interface InfoCardImageRow {
   type: "image"
-
   imageUrl: string
   alt?: string
 }
@@ -21,8 +20,8 @@ export interface InfoCardImageRow {
 export interface InfoCardSplitRow {
   type: "split"
 
-  left: JSX.Element
-  right: JSX.Element
+  left: ReactNode
+  right: ReactNode
 }
 
 export type InfoCardRow =
@@ -33,14 +32,15 @@ export type InfoCardRow =
 
 export interface InfoCardProps {
   rows: InfoCardRow[]
+  className?: string
 }
 
 export function InfoCardRow({ row }: { row: InfoCardRow }) {
   switch (row.type) {
     case "label": {
       return (
-        <div className="flex items-center justify-between gap-2 border-b border-neu-200 px-4 py-2.5 text-neu-700 dark:border-neu-100 dark:text-neu-600">
-          <span className="typography-h3">{row.label}</span>
+        <div className="flex h-auto items-start justify-between gap-2 border-b border-neu-200 px-4 py-4 text-neu-700 dark:border-neu-100 dark:text-neu-600">
+          {row.label}
         </div>
       )
     }
@@ -68,7 +68,7 @@ export function InfoCardRow({ row }: { row: InfoCardRow }) {
           <div className="flex items-center gap-1.5 px-4 py-2.5 text-neu-700 dark:text-neu-600">
             {row.left}
           </div>
-          <div className="typography-body-sm flex items-center gap-1.5 whitespace-pre px-4 py-2.5 text-neu-700 dark:text-neu-600">
+          <div className="typography-body-sm flex flex-wrap items-center gap-2 px-4 py-2.5 text-neu-700 dark:text-neu-600">
             {row.right}
           </div>
         </div>
@@ -77,11 +77,12 @@ export function InfoCardRow({ row }: { row: InfoCardRow }) {
   }
 }
 
-export function InfoCard({ rows }: InfoCardProps) {
+export function InfoCard({ rows, className }: InfoCardProps) {
   return (
     <div
       className={clsx(
-        "gql-focus-visible group flex min-w-[352px] flex-col overflow-hidden border border-neu-200 bg-neu-0 text-left text-current no-underline ring-neu-400 hover:bg-sec-base/[.035] hover:ring-1 hover:ring-offset-1 hover:ring-offset-neu-0 dark:border-neu-100 dark:ring-neu-100",
+        "gql-focus-visible group flex w-[240px] flex-col overflow-hidden border border-neu-200 bg-neu-0 text-left text-current no-underline ring-neu-400 dark:border-neu-100 dark:ring-neu-100",
+        className,
       )}
     >
       <div className="flex flex-1 flex-col">

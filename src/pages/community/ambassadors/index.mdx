@@ -3,11 +3,10 @@ description: An introduction to the GraphQL Ambassador Program
 ---
 
 import { Button } from "../../../app/conf/_components/button"
-import { Cards } from "../../../components/cards"
-import { InfoCard } from "../../../components/info-card"
+import { AmbassadorGrid } from "../../../components/ambassador-grid"
+import {ambassadors} from "./data"
 
-
-# Meet your GraphQL Ambassadors!
+# GraphQL Ambassador Program 
 
 Ambassadors are trusted go-to community leaders driven by a passion for GraphQL projects and strive to nurture the growing GraphQL community through collaboration, education and outreach.
 
@@ -20,83 +19,6 @@ Interested in becoming an Ambassador?
   Learn more about the Ambassador Program
 </Button>
 
-<InfoCard 
-rows ={[
-{
-  type: "label",
-  label: "Jem"
-},
-{
-  type: "image",
+## Meet your GraphQL Ambassadors!
 
-  imageUrl: "https://github.com/jemgillam.png",
-  alt: "Jem Gillam"
-},
-{
-  type: "split",
-
-  left: <>Graphile</>,
-  right: <>t l b</>,
-}
-]}
-/>
-<InfoCard 
-rows ={[
-{
-  type: "label",
-  label: "Jem"
-},
-{
-  type: "image",
-
-  imageUrl: "https://github.com/jemgillam.png",
-  alt: "Jem Gillam"
-},
-{
-  type: "split",
-
-  left: <>Graphile</>,
-  right: <>t l b</>,
-}
-]}
-/>
-<InfoCard 
-rows ={[
-{
-  type: "label",
-  label: "Jem"
-},
-{
-  type: "image",
-
-  imageUrl: "https://github.com/jemgillam.png",
-  alt: "Jem Gillam"
-},
-{
-  type: "split",
-
-  left: <>Graphile</>,
-  right: <>t l b</>,
-}
-]}
-/>
-<InfoCard 
-rows ={[
-{
-  type: "label",
-  label: "Jem"
-},
-{
-  type: "image",
-
-  imageUrl: "https://github.com/jemgillam.png",
-  alt: "Jem Gillam"
-},
-{
-  type: "split",
-
-  left: <>Graphile</>,
-  right: <>t l b</>,
-}
-]}
-/>
+<AmbassadorGrid ambassadors={ambassadors} />
