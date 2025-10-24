@@ -40,7 +40,7 @@ export function InfoCardRow({ row }: { row: InfoCardRow }) {
     case "label": {
       return (
         <div className="flex items-center justify-between gap-2 border-b border-neu-200 px-4 py-2.5 text-neu-700 dark:border-neu-100 dark:text-neu-600">
-          <span className="typography-body-md font-medium">{row.label}</span>
+          <span className="typography-h3">{row.label}</span>
         </div>
       )
     }
@@ -53,8 +53,12 @@ export function InfoCardRow({ row }: { row: InfoCardRow }) {
     }
     case "image": {
       return (
-        <div className="typography-h3 flex min-h-[124px] flex-1 flex-col justify-center px-4 py-6 text-neu-900">
-          <img src={row.imageUrl} alt={row.alt} width="300" />
+        <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <img
+            src={row.imageUrl}
+            alt={row.alt}
+            className="h-full w-full object-cover"
+          />
         </div>
       )
     }
