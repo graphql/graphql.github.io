@@ -42,8 +42,11 @@ export default {
           </>
         )}
         {canonical && <link rel="canonical" href={canonical} />}
-        {image && <meta name="og:image" content={image} />}
-        <meta property="og:image" content="/img/og-image.png" />
+        <meta
+          property="og:image"
+          content={image ?? "https://graphql.org/img/og-image.png"}
+        />
+        <meta name="twitter:card" content="summary" />
         <meta property="twitter:site" content="@graphql" />
       </>
     )
