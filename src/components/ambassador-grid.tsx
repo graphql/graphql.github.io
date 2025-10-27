@@ -1,4 +1,4 @@
-import type { Ambassador } from "../pages/community/ambassadors/data"
+import type { Ambassador } from "./info-card/ambassador-data"
 import { InfoCard, InfoCardRow } from "./info-card"
 
 function buildRows(ambassador: Ambassador): InfoCardRow[] {

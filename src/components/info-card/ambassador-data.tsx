@@ -8,7 +8,7 @@ import {
   ThreadsIcon,
   TwitterIcon,
   YouTube2Icon,
-} from "../../../icons"
+} from "../../icons"
 
 export interface AmbassadorTag {
   label: string
