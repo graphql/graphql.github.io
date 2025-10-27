@@ -17,18 +17,7 @@ export interface InfoCardImageRow {
   alt?: string
 }
 
-export interface InfoCardSplitRow {
-  type: "split"
-
-  left: ReactNode
-  right: ReactNode
-}
-
-export type InfoCardRow =
-  | InfoCardLabelRow
-  | InfoCardTitleRow
-  | InfoCardImageRow
-  | InfoCardSplitRow
+export type InfoCardRow = InfoCardLabelRow | InfoCardTitleRow | InfoCardImageRow
 
 export interface InfoCardProps {
   rows: InfoCardRow[]
@@ -59,18 +48,6 @@ export function InfoCardRow({ row }: { row: InfoCardRow }) {
             alt={row.alt}
             className="h-full w-full object-cover"
           />
-        </div>
-      )
-    }
-    case "split": {
-      return (
-        <div className="flex grid grid-cols-2 flex-wrap divide-x divide-neu-200 border-t border-neu-200 text-neu-700 dark:divide-neu-100 dark:border-neu-100">
-          <div className="flex items-center gap-1.5 px-4 py-2.5 text-neu-700 dark:text-neu-600">
-            {row.left}
-          </div>
-          <div className="typography-body-sm flex flex-wrap items-center gap-2 px-4 py-2.5 text-neu-700 dark:text-neu-600">
-            {row.right}
-          </div>
         </div>
       )
     }

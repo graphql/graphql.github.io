@@ -92,12 +92,12 @@ export const ambassadors: Ambassador[] = [
     tags: [
       {
         label: "GitHub",
-        url: "https://github.com/aexol/",
+        url: "https://github.com/eddeee888",
         icon: <GitHubIcon className="h-5 w-5" />,
       },
       {
         label: "LinkedIn",
-        url: "https://www.linkedin.com/in/arturczemiel/",
+        url: "https://www.linkedin.com/in/eddeee888/",
         icon: <LinkedInIcon className="h-5 w-5" />,
       },
       {
@@ -143,7 +143,7 @@ export const ambassadors: Ambassador[] = [
       },
       {
         label: "LinkedIn",
-        url: "https://www.linkedin.com/in/erikwrede",
+        url: "https://www.linkedin.com/in/itamarkestenbaum/",
         icon: <LinkedInIcon className="h-5 w-5" />,
       },
       {
@@ -380,7 +380,7 @@ export const ambassadors: Ambassador[] = [
       },
       {
         label: "X",
-        url: "http://twitter.com/_philpl",
+        url: "http://x.com/_philpl",
         icon: <TwitterIcon className="h-5 w-5" />,
       },
       {
