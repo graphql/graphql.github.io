@@ -4,6 +4,7 @@ import { useEffect } from "react"
 
 import { NewFontsStyleTag } from "@/app/fonts"
 
+import "@/docs.css"
 import "@/globals.css"
 import "@/app/colors.css"
 

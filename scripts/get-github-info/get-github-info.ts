@@ -40,6 +40,7 @@ async function main() {
       const content = await fs.readFile(filePath, "utf8")
       const { data } = grayMatter(content)
       if (data.github) {
+        // TODO: This needs to be pooled to make the builds faster.
         const stats = await getGitHubStats(data.github)
         if (stats) {
           newState.set(data.github, stats)

@@ -24,6 +24,7 @@
     "validate:snippets": "node scripts/validate-snippets.js"
   },
   "dependencies": {
+    "@base-ui-components/react": "1.0.0-beta.4",
     "@codemirror/autocomplete": "^6.18.6",
     "@codemirror/commands": "^6.3.3",
     "@codemirror/language": "^6.10.0",
@@ -37,7 +38,6 @@
     "@lezer/highlight": "^1.2.1",
     "@next/bundle-analyzer": "^15.4.5",
     "@plaiceholder/next": "^3.0.0",
-    "@radix-ui/react-radio-group": "^1.2.2",
     "@sparticuz/chromium": "^138.0.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/nesting": "0.0.0-insiders.565cd3e",
@@ -55,7 +55,6 @@
     "iframe-resizer-react": "^1.1.1",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.469.0",
-    "markdown-to-jsx": "^7.7.2",
     "motion": "^12.11.0",
     "next": "^14.2.32",
     "next-query-params": "^5.0.1",

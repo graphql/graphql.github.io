@@ -1,15 +1,16 @@
 import NextLink from "next/link"
-import { useConfig, useThemeConfig } from "nextra-theme-docs"
+import { useThemeConfig } from "nextra-theme-docs"
+import type { ReactNode } from "react"
 
 import { GraphQLWordmarkLogo } from "@/icons"
 import { SocialIcons } from "@/app/conf/_components/social-icons"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import blurBean from "@/app/conf/2025/components/footer/blur-bean.webp"
+import { Anchor } from "@/app/conf/_design-system/anchor"
 
 import { renderComponent } from "../utils/render-component"
-import { Anchor } from "@/app/conf/_design-system/anchor"
-import type { ReactNode } from "react"
 import { ConferenceFooterBox } from "./conference-footer-box"
+import { ThemeSwitch } from "../theme-switch"
 
 interface FooterLink {
   title: ReactNode
@@ -122,7 +123,7 @@ export function Footer() {
             <GraphQLWordmarkLogo className="h-6" title="GraphQL" />
           </NextLink>
           <div className="typography-menu flex items-center *:rounded-none dark:*:text-neu-900 md:hidden">
-            {renderComponent(themeConfig.themeSwitch.component)}
+            <ThemeSwitch />
           </div>
         </div>
 
@@ -175,9 +176,8 @@ export function Footer() {
 
         <div className="relative flex items-center justify-between gap-4 p-4 max-md:justify-center md:px-6 2xl:px-10">
           {themeConfig.darkMode && (
-            // todo: new theme switch component
             <div className="typography-menu flex items-center *:rounded-none dark:*:text-neu-900 max-md:hidden">
-              {renderComponent(themeConfig.themeSwitch.component)}
+              <ThemeSwitch />
             </div>
           )}
           <p className="typography-body-xs flex flex-col text-pretty max-md:gap-5">

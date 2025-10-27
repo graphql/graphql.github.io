@@ -26,7 +26,10 @@ export default {
       },
     },
   ],
-  plugins: ["prettier-plugin-pkg", "prettier-plugin-tailwindcss"],
-  // We need this to ensure classes format the same across CI and editors.
+  // We need the absolute paths here to ensure classes format the same across CI and editors.
+  plugins: [
+    import.meta.resolve("prettier-plugin-pkg").replace("file://", ""),
+    import.meta.resolve("prettier-plugin-tailwindcss").replace("file://", ""),
+  ],
   tailwindConfig: resolve(__dirname, "./tailwind.config.ts"),
 }

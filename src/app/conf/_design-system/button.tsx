@@ -46,7 +46,7 @@ export declare namespace ButtonProps {
     extends BaseProps,
       React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
     href?: never
-    as: "span" | "div"
+    as: "span" | "div" | "label"
     className?: string
   }
 }

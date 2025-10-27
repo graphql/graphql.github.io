@@ -1,11 +1,17 @@
-import { MenuItem, Menu, MenuButton, MenuItems } from "@headlessui/react"
+import { NavigationMenu } from "@base-ui-components/react/navigation-menu"
+
 import clsx from "clsx"
 // eslint-disable-next-line no-restricted-imports -- since we don't need newWindow prop
 import NextLink from "next/link"
 import { Button } from "nextra/components"
 import { useFSRoute } from "nextra/hooks"
 import type * as normalizePages from "nextra/normalize-pages"
-import { Fragment, useState, type ReactElement, type ReactNode } from "react"
+import React, {
+  useCallback,
+  useEffect,
+  type ReactElement,
+  type ReactNode,
+} from "react"
 import { useMenu, useThemeConfig } from "nextra-theme-docs"
 import { Anchor } from "@/app/conf/_design-system/anchor"
 import { renderComponent } from "@/components/utils/render-component"
@@ -18,77 +24,56 @@ export interface NavBarProps {
   items: Item[]
 }
 
-const classes = {
-  link: "typography-menu flex items-center text-neu-900 px-3 py-1 nextra-focus [text-box:trim-both_cap_alphabetic] leading-none hover:underline underline-offset-2",
-}
+const linkClasses =
+  "typography-menu flex items-center text-neu-900 px-3 py-1 nextra-focus [text-box:trim-both_cap_alphabetic] leading-none hover:underline underline-offset-2"
 
 function NavbarMenu({
   menu,
   children,
-  onSubmenuOpen,
 }: {
   menu: normalizePages.MenuItem
   children: ReactNode
-  onSubmenuOpen: (open: boolean) => void
 }): ReactElement {
   const routes = Object.fromEntries(
     (menu.children || []).map(route => [route.name, route]),
   )
   return (
-    <Menu>
-      <MenuButton as={Fragment}>
-        {({ focus, open }) => {
-          // I'm sorry, I know this is so cursed.
-          // I need to migrate out of HeadlessUI to something with change handlers.
-          onSubmenuOpen(open)
-
-          return (
-            <button
-              onClick={() => onSubmenuOpen(open)}
-              className={clsx(
-                classes.link,
-                "flex items-center gap-1.5 whitespace-nowrap max-md:hidden",
-                focus && "nextra-focusable",
-              )}
-            >
-              {children}
-            </button>
-          )
-        }}
-      </MenuButton>
-      <MenuItems
-        transition
-        modal={false}
-        className={({ open }) =>
-          // eslint-disable-next-line tailwindcss/no-custom-classname
-          clsx(
-            "gql-navbar-menu-items",
-            "motion-reduce:transition-none",
-            "focus-visible:outline-none",
-            open ? "opacity-100" : "opacity-0",
-            "nextra-scrollbar overflow-visible transition-opacity",
-            "z-20 rounded-md py-1 text-sm",
-            // headlessui adds max-height as style, use !important to override
-            "!max-h-[min(calc(100vh-5rem),256px)]",
-          )
-        }
-        anchor={{ to: "top start", gap: 21, padding: 16, offset: -8 }}
+    <NavigationMenu.Item className="max-md:hidden">
+      <NavigationMenu.Trigger
+        className={clsx(
+          linkClasses,
+          "focus-visible:nextra-focusable flex items-center gap-1.5 whitespace-nowrap data-[popup-open]:underline max-md:hidden",
+        )}
       >
+        {children}
+      </NavigationMenu.Trigger>
+      <NavigationMenu.Content className="flex flex-col py-1 text-sm">
         {Object.entries(menu.items || {}).map(([key, item]) => (
-          <MenuItem key={key}>
-            <Anchor
-              href={item.href || routes[key]?.route}
-              className="block py-1.5 pl-2 pr-9"
-              target={item.newWindow ? "_blank" : undefined}
-            >
-              <span className="typography-menu px-3 py-1 underline-offset-2 [[data-active]>&]:underline">
-                {item.title}
-              </span>
-            </Anchor>
-          </MenuItem>
+          <NavigationMenu.Link
+            key={key}
+            href={item.href || routes[key]?.route}
+            target={item.newWindow ? "_blank" : undefined}
+            className="block py-3.5 pl-2 pr-9"
+            closeOnClick
+            render={(
+              props: React.ComponentPropsWithoutRef<"a">,
+              state: NavigationMenu.Link.State,
+            ) => (
+              <Anchor {...props} href={props.href!}>
+                <span
+                  className={clsx(
+                    "typography-menu px-3 py-1 underline-offset-2 hover:underline focus-visible:underline",
+                    state.active && "underline",
+                  )}
+                >
+                  {item.title}
+                </span>
+              </Anchor>
+            )}
+          />
         ))}
-      </MenuItems>
-    </Menu>
+      </NavigationMenu.Content>
+    </NavigationMenu.Item>
   )
 }
 
@@ -97,7 +82,13 @@ export function Navbar({ items }: NavBarProps): ReactElement {
 
   const activeRoute = useFSRoute()
   const { menu, setMenu } = useMenu()
-  const [submenuOpen, setSubmenuOpen] = useState(false)
+
+  useEffect(
+    () => () => {
+      document.body.style.overflow = "auto"
+    },
+    [],
+  )
 
   return (
     <div
@@ -125,61 +116,70 @@ export function Navbar({ items }: NavBarProps): ReactElement {
           </div>
         )}
         <div className="flex-1" />
-        <div className="-mx-2 flex overflow-x-auto px-2 py-1.5 lg:gap-2 xl:absolute xl:left-1/2 xl:-translate-x-1/2">
-          {items.map(pageOrMenu => {
-            if (pageOrMenu.display === "hidden") return null
+        <NavigationMenu.Root
+          onValueChange={(value: string | null) => {
+            document.body.style.overflow = value != null ? "hidden" : "auto"
+          }}
+          className="-mx-2 flex overflow-x-auto px-2 py-1.5 xl:absolute xl:left-1/2 xl:-translate-x-1/2"
+        >
+          <NavigationMenu.List className="flex w-full items-center gap-2">
+            {items.map(pageOrMenu => {
+              if (pageOrMenu.display === "hidden") return null
 
-            if (pageOrMenu.type === "menu") {
-              const menu = pageOrMenu as normalizePages.MenuItem
+              if (pageOrMenu.type === "menu") {
+                const menu = pageOrMenu as normalizePages.MenuItem
+                return (
+                  <NavbarMenu key={menu.title} menu={menu}>
+                    {menu.title}
+                  </NavbarMenu>
+                )
+              }
+              const page = pageOrMenu as normalizePages.PageItem
+              let href = page.href || page.route || "#"
+
+              // If it's a directory
+              if (page.children) {
+                href =
+                  (page.withIndexPage ? page.route : page.firstChildRoute) ||
+                  href
+              }
+
+              const isActive =
+                page.route === activeRoute ||
+                activeRoute.startsWith(page.route + "/")
+
               return (
-                <NavbarMenu
-                  key={menu.title}
-                  menu={menu}
-                  onSubmenuOpen={open => {
-                    if (typeof window !== "undefined") {
-                      if (open) {
-                        document.body.style.overflow = "hidden"
-                      } else {
-                        document.body.style.overflow = "auto"
-                      }
-                    }
-                    setSubmenuOpen(open)
-                  }}
-                >
-                  {menu.title}
-                </NavbarMenu>
+                <NavigationMenu.Item key={href} className="max-md:hidden">
+                  <Anchor
+                    href={href}
+                    className={clsx(
+                      linkClasses,
+                      "whitespace-nowrap max-md:hidden",
+                      isActive && !page.newWindow && "underline",
+                    )}
+                    target={page.newWindow ? "_blank" : undefined}
+                    aria-current={!page.newWindow && isActive}
+                  >
+                    {page.title}
+                  </Anchor>
+                </NavigationMenu.Item>
               )
-            }
-            const page = pageOrMenu as normalizePages.PageItem
-            let href = page.href || page.route || "#"
-
-            // If it's a directory
-            if (page.children) {
-              href =
-                (page.withIndexPage ? page.route : page.firstChildRoute) || href
-            }
-
-            const isActive =
-              page.route === activeRoute ||
-              activeRoute.startsWith(page.route + "/")
-
-            return (
-              <Anchor
-                href={href}
-                key={href}
-                className={clsx(
-                  classes.link,
-                  "whitespace-nowrap max-md:hidden",
-                  isActive && !page.newWindow && "underline",
-                )}
-                target={page.newWindow ? "_blank" : undefined}
-                aria-current={!page.newWindow && isActive}
-              >
-                {page.title}
-              </Anchor>
-            )
-          })}
-        </div>
+            })}
+          </NavigationMenu.List>
+          <NavigationMenu.Portal keepMounted>
+            <NavigationMenu.Backdrop className="fixed inset-0 top-[calc(var(--nextra-navbar-height)+1px)] !block bg-[rgb(var(--nextra-bg),.4)] opacity-100 backdrop-blur-[6.4px] transition-opacity data-[closed]:pointer-events-none data-[closed]:opacity-0" />
+            <NavigationMenu.Positioner
+              side="bottom"
+              align="start"
+              sideOffset={21}
+              alignOffset={-8}
+            >
+              <NavigationMenu.Popup className="data-[closed]:animate-fade-out data-[open]:animate-fade-in">
+                <NavigationMenu.Viewport className="nextra-scrollbar !max-h-[min(calc(100vh-5rem),256px)] overflow-visible transition-opacity focus-visible:outline-none motion-reduce:transition-none" />
+              </NavigationMenu.Popup>
+            </NavigationMenu.Positioner>
+          </NavigationMenu.Portal>
+        </NavigationMenu.Root>
 
         {process.env.NEXTRA_SEARCH &&
           renderComponent(themeConfig.search.component, {
@@ -218,7 +218,6 @@ export function Navbar({ items }: NavBarProps): ReactElement {
           )}
         </Button>
       </nav>
-      <SubmenuBackdrop className={submenuOpen ? "opacity-100" : "opacity-0"} />
     </div>
   )
 }
@@ -263,17 +262,6 @@ export function NavbarPlaceholder({
         className,
       )}
       {...rest}
-    />
-  )
-}
-
-function SubmenuBackdrop({ className }: { className: string }) {
-  return (
-    <div
-      className={clsx(
-        "pointer-events-none fixed inset-0 top-[calc(var(--nextra-navbar-height)+1px)] bg-[rgb(var(--nextra-bg),.4)] backdrop-blur-[6.4px] transition-opacity",
-        className,
-      )}
     />
   )
 }

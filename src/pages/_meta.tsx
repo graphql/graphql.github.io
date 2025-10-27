@@ -25,7 +25,7 @@ export default {
       ambassadors: { title: "Ambassador Program" },
       contribute: {
         title: "Contribute to GraphQL",
-        href: "/community/contribute/essential-links",
+        href: "/community/contribute/governance",
       },
       foundation: { title: "Foundation" },
     },

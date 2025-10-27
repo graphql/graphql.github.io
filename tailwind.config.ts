@@ -81,6 +81,8 @@ const config: Config = {
         "show-overflow":
           "show-overflow var(--animation-duration, 12s) var(--animation-delay, 1s) var(--animation-direction, forwards) ease infinite",
         "fade-in": "fade-in var(--animation-duration, 200ms) ease-out forwards",
+        "fade-out":
+          "fade-out var(--animation-duration, 200ms) ease-out forwards",
       },
       keyframes: {
         scroll: {
@@ -107,6 +109,9 @@ const config: Config = {
         "fade-in": {
           from: { opacity: "0" },
           to: { opacity: "1" },
+        },
+        "fade-out": {
+          to: { opacity: "0" },
         },
       },
     },
@@ -202,6 +207,15 @@ const config: Config = {
           "&:hover": {
             textDecoration: "none",
           },
+        },
+      })
+
+      addBase({
+        ".gql-focus-outline": {
+          "outline-style": "solid",
+          "outline-width": "3px",
+          "outline-offset": "5px",
+          "outline-color": "hsl(var(--color-neu-900))",
         },
       })
     }),

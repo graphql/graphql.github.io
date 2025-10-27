@@ -1,4 +1,4 @@
-import { DocsThemeConfig, ThemeSwitch, useConfig } from "nextra-theme-docs"
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs"
 import { useRouter } from "next/router"
 
 import { Navbar } from "@/components/navbar/navbar"
@@ -6,6 +6,7 @@ import { mdxComponents } from "@/_design-system/mdx-components"
 import { GraphQLWordmarkLogo } from "@/icons"
 import { Footer } from "@/components/footer"
 import { NextraMdxWrapper } from "@/components/nextra-mdx-wrapper"
+import { ThemeSwitch } from "@/components/theme-switch"
 
 const graphQLLogo = (
   <GraphQLWordmarkLogo className="nextra-logo h-6" title="GraphQL" />

@@ -64,18 +64,6 @@ footer {
   }
 }
 
-div[role="menu"][data-headlessui-state] {
-  @apply left-0 right-auto;
-}
-
-div[id^="headlessui-menu-items"] {
-  @apply rounded-none;
-
-  > a {
-    @apply py-3.5;
-  }
-}
-
 /* should be fixed in Nextra 4 */
 ._max-w-\[90rem\] {
   @apply container;
@@ -347,7 +335,7 @@ div[id^="headlessui-menu-items"] {
 
 .gql-focus-visible,
 .gql-all-anchors-focusable a {
-  @apply focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[5px] focus-visible:outline-neu-900;
+  @apply focus-visible:gql-focus-outline;
 }
 
 .gql-container {
@@ -376,10 +364,6 @@ div[id^="headlessui-menu-items"] {
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-:root {
-  --navbar-h: 70px;
 }
 
 /* without this Headless UI breaks sticky navbar */
