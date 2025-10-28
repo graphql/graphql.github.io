@@ -255,7 +255,7 @@ export const ambassadors: Ambassador[] = [
       },
       {
         label: "Website",
-        url: "https://jordaneldredge.com/blog/",
+        url: "https://jordaneldredge.com/",
         icon: <GlobeIcon className="h-5 w-5" />,
       },
     ],
@@ -370,7 +370,7 @@ export const ambassadors: Ambassador[] = [
     tags: [
       {
         label: "BlueSky",
-        url: "https://bsky.app/profile/patrick.wtf",
+        url: "https://bsky.app/profile/kitten.sh",
         icon: <Bluesky2Icon className="h-5 w-5" />,
       },
       {
