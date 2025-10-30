@@ -12,6 +12,11 @@ const graphQLLogo = (
   <GraphQLWordmarkLogo className="nextra-logo h-6" title="GraphQL" />
 )
 
+const absoluteUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://graphql.org"
+    : `https://${process.env.VERCEL_URL}` || "http://localhost:3000"
+
 export default {
   backgroundColor: {
     light: "251,251,249",
@@ -44,7 +49,7 @@ export default {
         {canonical && <link rel="canonical" href={canonical} />}
         <meta
           property="og:image"
-          content={image ?? "https://graphql.org/img/og-image.png"}
+          content={image ?? `${absoluteUrl}/img/og-logo.png`}
         />
         <meta name="twitter:card" content="summary" />
         <meta property="twitter:site" content="@graphql" />
