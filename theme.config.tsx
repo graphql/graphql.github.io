@@ -13,9 +13,9 @@ const graphQLLogo = (
 )
 
 const absoluteUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://graphql.org"
-    : `https://${process.env.VERCEL_URL}` || "http://localhost:3000"
+  `https://${process.env.VERCEL_URL}` ||
+  process.env.__NEXT_PRIVATE_ORIGIN ||
+  "http://localhost:3000"
 
 export default {
   backgroundColor: {
@@ -47,12 +47,24 @@ export default {
           </>
         )}
         {canonical && <link rel="canonical" href={canonical} />}
-        <meta
-          property="og:image"
-          content={image ?? `${absoluteUrl}/img/og-logo.png`}
-        />
-        <meta name="twitter:card" content="summary" />
+
         <meta property="twitter:site" content="@graphql" />
+
+        {image ? (
+          <>
+            {/* if there is an OG image, we show a bigger card */}
+            <meta property="og:image" content={image} />
+            <meta name="twitter:card" content="summary_large_image" />
+          </>
+        ) : (
+          <>
+            <meta
+              property="og:image"
+              content={`${absoluteUrl}/img/og-logo.png`}
+            />
+            <meta name="twitter:card" content="summary" />
+          </>
+        )}
       </>
     )
   },
