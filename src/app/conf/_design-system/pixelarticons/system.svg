@@ -1,3 +1,5 @@
-<svg fill="currentColor" viewBox="0 0 24 24">
-  <path d="M4 4h18v14h-6v2H8v-2H2V4h2zm16 12V6H4v10h16z" />
+<svg viewBox="0 0 14 14" fill="currentColor">
+  <path
+    d="M12.834 2.33301V10.5H9.33398V11.667H4.66797V10.5H1.16797V2.33301H12.834ZM2.33398 3.5V9.33301H11.668V3.5H2.33398Z"
+  />
 </svg>
