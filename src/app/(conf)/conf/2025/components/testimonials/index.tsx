@@ -115,8 +115,7 @@ export function TestimonialAuthor({
           width={128}
           height={128}
           className="size-16 saturate-[.1] dark:opacity-90 xl:size-32"
-          // @ts-expect-error React doesn't know it exists yet, but @types/react do
-          fetchpriority="low"
+          fetchPriority="low"
           loading="lazy"
         />
         <div className="absolute inset-0 z-[1] bg-pri-darker opacity-80 mix-blend-plus-lighter dark:mix-blend-color" />
