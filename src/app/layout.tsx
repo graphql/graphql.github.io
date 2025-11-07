@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from "react"
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import GoogleAnalytics from "@/app/ga"
 
 // @ts-expect-error: we want to import the same version as Nextra for the main page
@@ -46,8 +46,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <MenuProvider>
             <div className="isolate bg-neu-0 text-neu-900 antialiased">
-              <h1 style={{ fontSize: 200 }}>ROOT LAYOUT</h1>
-
               {children}
             </div>
           </MenuProvider>
