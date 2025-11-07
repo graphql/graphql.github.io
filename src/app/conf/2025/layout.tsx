@@ -3,6 +3,7 @@ import { Metadata } from "next"
 
 import { NewFontsStyleTag } from "../../fonts"
 import "../../colors.css"
+import "./conf.css"
 
 import { Navbar } from "./components/navbar"
 import { Footer } from "./components/footer"

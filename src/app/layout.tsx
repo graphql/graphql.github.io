@@ -2,7 +2,6 @@ import { ReactElement, ReactNode } from "react"
 import { Metadata } from "next"
 import GoogleAnalytics from "@/app/ga"
 
-import "../conf.css"
 import "../globals.css"
 
 export const metadata: Metadata = {
