@@ -5,11 +5,14 @@ import GoogleAnalytics from "@/app/ga"
 // @ts-expect-error: we want to import the same version as Nextra for the main page
 import { ThemeProvider } from "next-themes"
 
-import { NewFontsStyleTag } from "./fonts"
-import { MenuProvider } from "./(main)/menu-provider"
+import { Footer } from "@/components/footer"
+import { NewFontsStyleTag } from "../fonts"
+import { Navbar } from "@/components/navbar/navbar"
+import { topLevelNavbarItems } from "@/components/navbar/top-level-items"
+import { MenuProvider } from "../(main)/menu-provider"
 
-import "../globals.css"
-import "./colors.css"
+import "../../globals.css"
+import "../colors.css"
 
 export const metadata: Metadata = {
   twitter: {
@@ -45,11 +48,12 @@ export default function RootLayout({
         <NewFontsStyleTag />
         <ThemeProvider attribute="class">
           <MenuProvider>
+            <Navbar items={topLevelNavbarItems} />
             <div className="isolate bg-neu-0 text-neu-900 antialiased">
-              <h1 style={{ fontSize: 200 }}>ROOT LAYOUT</h1>
-
+              <h1 style={{ fontSize: 200 }}>MAIN LAYOUT</h1>
               {children}
             </div>
+            <Footer />
           </MenuProvider>
         </ThemeProvider>
       </body>
