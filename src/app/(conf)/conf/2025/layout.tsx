@@ -8,8 +8,6 @@ import "./conf.css"
 import { Navbar } from "./components/navbar"
 import { Footer } from "./components/footer"
 
-// @ts-expect-error: we want to import the same version as Nextra for the main page
-import { ThemeProvider } from "next-themes"
 import { GraphQLConfLogoLink } from "./components/graphql-conf-logo-link"
 import { GALLERY_LINK } from "./links"
 
@@ -53,9 +51,7 @@ export default function Layout({
           { children: "FAQ", href: "/conf/2025/#faq" },
         ]}
       />
-      <ThemeProvider attribute="class">
-        <div className="bg-neu-0 text-neu-900 antialiased">{children}</div>
-      </ThemeProvider>
+      <div className="bg-neu-0 text-neu-900 antialiased">{children}</div>
       <Footer
         logo={<GraphQLConfLogoLink year={2025} />}
         links={[
