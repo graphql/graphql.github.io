@@ -5,9 +5,9 @@ import { useInView } from "motion/react"
 import dynamic from "next/dynamic"
 import { clsx } from "clsx"
 
-import { Button } from "@/app/conf/_design-system/button"
-import { SectionLabel } from "@/app/conf/_design-system/section-label"
-import InfoIcon from "@/app/conf/_design-system/pixelarticons/info.svg?svgr"
+import { Button } from "@/app/(conf)/conf/_design-system/button"
+import { SectionLabel } from "@/app/(conf)/conf/_design-system/section-label"
+import InfoIcon from "@/app/(conf)/conf/_design-system/pixelarticons/info.svg?svgr"
 import {
   HowItWorks_Schema,
   HowItWorks_Query,

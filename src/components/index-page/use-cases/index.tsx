@@ -3,10 +3,10 @@
 import clsx from "clsx"
 import { useState, Fragment, ReactNode } from "react"
 
-import { Button } from "@/app/conf/_design-system/button"
-import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
-import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
-import { arrowsMoveSideways } from "@/app/conf/_design-system/utils/arrows-move-sideways"
+import { Button } from "@/app/(conf)/conf/_design-system/button"
+import { StripesDecoration } from "@/app/(conf)/conf/_design-system/stripes-decoration"
+import ArrowDownIcon from "@/app/(conf)/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+import { arrowsMoveSideways } from "@/app/(conf)/conf/_design-system/utils/arrows-move-sideways"
 
 import blurBean from "./blur-bean.webp"
 

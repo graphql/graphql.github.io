@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { Button } from "../../../app/conf/_design-system/button"
+import { Button } from "@/app/(conf)/conf/_design-system/button"
 
 export function PlayButton({
   className,

@@ -1,6 +1,6 @@
 import NextLink from "next/link"
 
-import { Tag } from "@/app/conf/_design-system/tag"
+import { Tag } from "@/app/(conf)/conf/_design-system/tag"
 
 import { blogTagColors } from "./blog-tag-colors"
 import clsx from "clsx"

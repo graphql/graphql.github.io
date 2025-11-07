@@ -12,8 +12,11 @@ import {
   getSpeakers,
   mergeSpeaker,
   RequestContext,
-} from "@/app/conf/_api/sched-client"
-import type { ConferenceYear, SchedSpeaker } from "@/app/conf/_api/sched-types"
+} from "@/app/(conf)/conf/_api/sched-client"
+import type {
+  ConferenceYear,
+  SchedSpeaker,
+} from "@/app/(conf)/conf/_api/sched-types"
 
 /**
  * Sched API rate limit is 30 requests per minute per token.

@@ -1,7 +1,7 @@
-import { SpeakerOpengraphImage } from "@/app/conf/2025/components/og-images/speaker-opengraph-image"
-import { SessionOpengraphImage } from "@/app/conf/2025/components/og-images/session-opengraph-image"
-import { GenericOpengraphImage } from "@/app/conf/2025/components/og-images/generic-opengraph-image"
-import { SchedSpeaker } from "@/app/conf/2023/types"
+import { SpeakerOpengraphImage } from "@/app/(conf)/conf/2025/components/og-images/speaker-opengraph-image"
+import { SessionOpengraphImage } from "@/app/(conf)/conf/2025/components/og-images/session-opengraph-image"
+import { GenericOpengraphImage } from "@/app/(conf)/conf/2025/components/og-images/generic-opengraph-image"
+import { SchedSpeaker } from "@/app/(conf)/conf/2023/types"
 
 /**
  * This is cheaper than maintaining a Storybook config.

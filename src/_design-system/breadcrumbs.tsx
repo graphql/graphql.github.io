@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 import NextLink from "next/link"
 import type { Item } from "nextra/normalize-pages"
 
-import CaretDown from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
+import CaretDown from "@/app/(conf)/conf/_design-system/pixelarticons/caret-down.svg?svgr"
 
 import { extractStringsFromReactNode } from "../components/utils/extract-strings-from-react-node"
 

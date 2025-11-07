@@ -1,9 +1,9 @@
 import type { ReactNode } from "react"
 import { clsx } from "clsx"
 
-import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
-import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
-import { Tag } from "../../app/conf/_design-system/tag"
+import { CalendarIcon } from "@/app/(conf)/conf/_design-system/pixelarticons/calendar-icon"
+import { PinIcon } from "@/app/(conf)/conf/_design-system/pixelarticons/pin-icon"
+import { Tag } from "@/app/(conf)/conf/_design-system/tag"
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",

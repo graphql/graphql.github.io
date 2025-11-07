@@ -13,12 +13,12 @@ import { GitHubIcon, GlobeIcon, NPMIcon, RubyGemsIcon } from "@/icons"
 import { MicroMarkdown } from "@/components/micro-markdown"
 import { Radio, RadioGroup } from "@/components/radio"
 
-import { Button } from "@/app/conf/_design-system/button"
-import CaretDown from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
-import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
-import NotesIcon from "@/app/conf/_design-system/pixelarticons/notes.svg?svgr"
-import { Tag } from "@/app/conf/_design-system/tag"
-import ArrowBarLeft from "@/app/conf/_design-system/pixelarticons/arrow-bar-left.svg?svgr"
+import { Button } from "@/app/(conf)/conf/_design-system/button"
+import CaretDown from "@/app/(conf)/conf/_design-system/pixelarticons/caret-down.svg?svgr"
+import SearchIcon from "@/app/(conf)/conf/_design-system/pixelarticons/search.svg?svgr"
+import NotesIcon from "@/app/(conf)/conf/_design-system/pixelarticons/notes.svg?svgr"
+import { Tag } from "@/app/(conf)/conf/_design-system/tag"
+import ArrowBarLeft from "@/app/(conf)/conf/_design-system/pixelarticons/arrow-bar-left.svg?svgr"
 
 import { Breadcrumbs } from "../_design-system/breadcrumbs"
 

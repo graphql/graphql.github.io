@@ -1,4 +1,4 @@
-import ModemIcon from "@/app/conf/_design-system/pixelarticons/modem.svg?svgr"
+import ModemIcon from "@/app/(conf)/conf/_design-system/pixelarticons/modem.svg?svgr"
 import clsx from "clsx"
 import { forwardRef } from "react"
 

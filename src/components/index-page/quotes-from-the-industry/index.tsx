@@ -1,8 +1,8 @@
 import {
   TestimonialsList,
   type Testimonial,
-} from "@/app/conf/2025/components/testimonials"
-import { SectionLabel } from "@/app/conf/_design-system/section-label"
+} from "@/app/(conf)/conf/2025/components/testimonials"
+import { SectionLabel } from "@/app/(conf)/conf/_design-system/section-label"
 
 import matteoCollina from "./matteo-collina.webp"
 

@@ -1,10 +1,10 @@
-import { ImageLoaded } from "@/app/conf/2025/components/image-loaded"
-import { Button } from "@/app/conf/_design-system/button"
-import { SectionLabel } from "@/app/conf/_design-system/section-label"
-import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
+import { ImageLoaded } from "@/app/(conf)/conf/2025/components/image-loaded"
+import { Button } from "@/app/(conf)/conf/_design-system/button"
+import { SectionLabel } from "@/app/(conf)/conf/_design-system/section-label"
+import CheckIcon from "@/app/(conf)/conf/_design-system/pixelarticons/check.svg?svgr"
 
 import blurBean from "./blur-bean.webp"
-import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
+import { StripesDecoration } from "@/app/(conf)/conf/_design-system/stripes-decoration"
 
 export function ProvenSolution() {
   return (

@@ -1,5 +1,5 @@
-import { Button } from "@/app/conf/_design-system/button"
-import { SectionLabel } from "@/app/conf/_design-system/section-label"
+import { Button } from "@/app/(conf)/conf/_design-system/button"
+import { SectionLabel } from "@/app/(conf)/conf/_design-system/section-label"
 import { ReactNode } from "react"
 import { clsx } from "clsx"
 
