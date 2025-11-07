@@ -3,13 +3,14 @@
 import { usePathname } from "next/navigation"
 import { useMounted } from "nextra/hooks"
 
+import { Footer } from "@/components/footer"
+import { Navbar } from "@/components/navbar/navbar"
+import { topLevelNavbarItems } from "@/components/navbar/top-level-items"
+
 import { StripesDecoration } from "@/app/(conf)/conf/_design-system/stripes-decoration"
 import stripesMask from "@/components/404-page/image.webp"
 
 import { Button } from "./(conf)/conf/_design-system/button"
-
-import "@/globals.css"
-import "@/app/colors.css"
 
 export default function NotFoundPage() {
   const pathname = usePathname()
@@ -31,6 +32,15 @@ export default function NotFoundPage() {
 
   return (
     <>
+      {/*
+        No support for metadata in not-found.tsx yet
+        https://github.com/vercel/next.js/pull/47328#issuecomment-1488891093
+      */}
+      <title>
+        Not Found | Please click the button to file a broken-link issue if this
+        should be a valid route.
+      </title>
+      <Navbar items={topLevelNavbarItems} />
       <style>{".nextra-nav-container.sticky { position: fixed }"}</style>
       <div className="relative">
         <Stripes />
@@ -47,6 +57,7 @@ export default function NotFoundPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }
