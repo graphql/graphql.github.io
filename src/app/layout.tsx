@@ -12,6 +12,7 @@ import { topLevelNavbarItems } from "../components/navbar/top-level-items"
 import { MenuProvider } from "./(main)/menu-provider"
 
 import "../globals.css"
+import "./colors.css"
 
 export const metadata: Metadata = {
   twitter: {
