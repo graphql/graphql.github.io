@@ -7,7 +7,6 @@ import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import stripesMask from "@/components/404-page/image.webp"
 
 import { Button } from "./conf/_design-system/button"
-import MainLayout from "./(main)/layout"
 
 import "@/globals.css"
 import "@/app/colors.css"
@@ -31,7 +30,7 @@ export default function NotFoundPage() {
   }/issues/new?title=${encodeURIComponent(title)}&labels=${labels}`
 
   return (
-    <MainLayout>
+    <>
       <style>{".nextra-nav-container.sticky { position: fixed }"}</style>
       <div className="relative">
         <Stripes />
@@ -48,7 +47,7 @@ export default function NotFoundPage() {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </>
   )
 }
 
