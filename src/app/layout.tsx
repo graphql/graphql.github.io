@@ -8,8 +8,8 @@ import { ThemeProvider } from "next-themes"
 import { NewFontsStyleTag } from "./fonts"
 import { MenuProvider } from "./(main)/menu-provider"
 
-import "../globals.css"
-import "./colors.css"
+import "@/globals.css"
+import "@/app/colors.css"
 
 export const metadata: Metadata = {
   twitter: {

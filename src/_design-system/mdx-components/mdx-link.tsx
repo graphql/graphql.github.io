@@ -1,7 +1,7 @@
 import { forwardRef } from "react"
 import { clsx } from "clsx"
 
-import { Anchor } from "@/app/(conf)/conf/_design-system/anchor"
+import { Anchor } from "@/app/conf/_design-system/anchor"
 
 export const MdxLink = forwardRef<
   HTMLAnchorElement,

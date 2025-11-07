@@ -1,6 +1,6 @@
-import { Anchor } from "@/app/(conf)/conf/_design-system/anchor"
+import { Anchor } from "@/app/conf/_design-system/anchor"
 
-import ArrowDownIcon from "@/app/(conf)/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 
 export function LookingForMore() {
   return (

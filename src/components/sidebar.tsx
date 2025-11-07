@@ -30,8 +30,8 @@ import {
   LocaleSwitch,
 } from "nextra-theme-docs"
 
-import ArrowBarLeft from "@/app/(conf)/conf/_design-system/pixelarticons/arrow-bar-left.svg?svgr"
-import { Anchor } from "@/app/(conf)/conf/_design-system/anchor"
+import ArrowBarLeft from "@/app/conf/_design-system/pixelarticons/arrow-bar-left.svg?svgr"
+import { Anchor } from "@/app/conf/_design-system/anchor"
 
 import { renderComponent } from "./utils/render-component"
 import { ThemeSwitch } from "./theme-switch"

@@ -7,10 +7,10 @@ import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar/navbar"
 import { topLevelNavbarItems } from "@/components/navbar/top-level-items"
 
-import { StripesDecoration } from "@/app/(conf)/conf/_design-system/stripes-decoration"
+import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import stripesMask from "@/components/404-page/image.webp"
 
-import { Button } from "./(conf)/conf/_design-system/button"
+import { Button } from "./conf/_design-system/button"
 
 export default function NotFoundPage() {
   const pathname = usePathname()

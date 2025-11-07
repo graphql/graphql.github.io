@@ -1,9 +1,9 @@
 import NextLink from "next/link"
 import clsx from "clsx"
 
-import { Tag } from "@/app/(conf)/conf/_design-system/tag"
-import { arrowsMoveSideways } from "@/app/(conf)/conf/_design-system/utils/arrows-move-sideways"
-import { StripesDecoration } from "@/app/(conf)/conf/_design-system/stripes-decoration"
+import { Tag } from "@/app/conf/_design-system/tag"
+import { arrowsMoveSideways } from "@/app/conf/_design-system/utils/arrows-move-sideways"
+import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
 import { blogTagColors } from "./blog-tag-colors"
 import { BlogCard } from "./blog-card"

@@ -6,10 +6,10 @@ import { useTheme } from "next-themes"
 import { Select } from "@base-ui-components/react/select"
 import { useMounted } from "nextra/hooks"
 
-import MoonIcon from "@/app/(conf)/conf/_design-system/pixelarticons/moon.svg?svgr"
-import SunIcon from "@/app/(conf)/conf/_design-system/pixelarticons/sun.svg?svgr"
-import SystemIcon from "@/app/(conf)/conf/_design-system/pixelarticons/system.svg?svgr"
-import CheckIcon from "@/app/(conf)/conf/_design-system/pixelarticons/check.svg?svgr"
+import MoonIcon from "@/app/conf/_design-system/pixelarticons/moon.svg?svgr"
+import SunIcon from "@/app/conf/_design-system/pixelarticons/sun.svg?svgr"
+import SystemIcon from "@/app/conf/_design-system/pixelarticons/system.svg?svgr"
+import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 
 const THEME_OPTIONS = ["light", "dark", "system"] as const
 export type ThemeOption = (typeof THEME_OPTIONS)[number]

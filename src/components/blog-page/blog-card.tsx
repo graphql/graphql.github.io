@@ -1,8 +1,8 @@
 import { clsx } from "clsx"
 import NextLink from "next/link"
 
-import ArrowDown from "@/app/(conf)/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
-import { arrowsMoveSideways } from "@/app/(conf)/conf/_design-system/utils/arrows-move-sideways"
+import ArrowDown from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+import { arrowsMoveSideways } from "@/app/conf/_design-system/utils/arrows-move-sideways"
 
 import { BlogTags } from "./blog-tags"
 import { BlogCardPicture } from "./blog-card-picture"

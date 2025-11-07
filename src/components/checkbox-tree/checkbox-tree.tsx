@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 import { clsx } from "clsx"
-import { CheckboxIcon } from "@/app/(conf)/conf/_design-system/pixelarticons/checkbox-icon"
+import { CheckboxIcon } from "@/app/conf/_design-system/pixelarticons/checkbox-icon"
 
 export interface CheckboxTreeItem {
   id: string

@@ -1,7 +1,7 @@
 import { clsx } from "clsx"
 
-import { Anchor } from "@/app/(conf)/conf/_design-system/anchor"
-import ArrowDownIcon from "@/app/(conf)/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+import { Anchor } from "@/app/conf/_design-system/anchor"
+import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 
 interface ConferenceFooterBoxProps {
   href: string

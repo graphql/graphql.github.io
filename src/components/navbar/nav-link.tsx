@@ -3,7 +3,7 @@
 import clsx from "clsx"
 import type * as normalizePages from "nextra/normalize-pages"
 import React from "react"
-import { Anchor } from "@/app/(conf)/conf/_design-system/anchor"
+import { Anchor } from "@/app/conf/_design-system/anchor"
 import { usePathname } from "next/navigation"
 
 export const navLinkClasses =

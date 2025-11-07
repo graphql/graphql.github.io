@@ -1,10 +1,10 @@
-import { SectionLabel } from "@/app/(conf)/conf/_design-system/section-label"
+import { SectionLabel } from "@/app/conf/_design-system/section-label"
 
-import GiftIcon from "@/app/(conf)/conf/_design-system/pixelarticons/gift.svg?svgr"
-import TournamentIcon from "@/app/(conf)/conf/_design-system/pixelarticons/tournament.svg?svgr"
-import ZapIcon from "@/app/(conf)/conf/_design-system/pixelarticons/zap.svg?svgr"
-import BullseyeIcon from "@/app/(conf)/conf/_design-system/pixelarticons/bullseye.svg?svgr"
-import SearchIcon from "@/app/(conf)/conf/_design-system/pixelarticons/search.svg?svgr"
+import GiftIcon from "@/app/conf/_design-system/pixelarticons/gift.svg?svgr"
+import TournamentIcon from "@/app/conf/_design-system/pixelarticons/tournament.svg?svgr"
+import ZapIcon from "@/app/conf/_design-system/pixelarticons/zap.svg?svgr"
+import BullseyeIcon from "@/app/conf/_design-system/pixelarticons/bullseye.svg?svgr"
+import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 
 const items = [
   {

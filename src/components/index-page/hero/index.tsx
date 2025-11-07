@@ -1,7 +1,7 @@
-import { StripesDecoration } from "@/app/(conf)/conf/_design-system/stripes-decoration"
-import CheckIcon from "@/app/(conf)/conf/_design-system/pixelarticons/check.svg?svgr"
-import { Button } from "@/app/(conf)/conf/_design-system/button"
-import { ImageLoaded } from "@/app/(conf)/conf/2025/components/image-loaded"
+import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
+import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
+import { Button } from "@/app/conf/_design-system/button"
+import { ImageLoaded } from "@/app/conf/2025/components/image-loaded"
 
 import logoBlurred from "./logo-blurred.webp"
 import Head from "next/head"

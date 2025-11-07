@@ -1,6 +1,6 @@
 import { clsx } from "clsx"
 
-import { Button } from "@/app/(conf)/conf/_design-system/button"
+import { Button } from "@/app/conf/_design-system/button"
 
 import MetaLockup from "./logos/Meta.svg?svgr"
 import IBMWordmark from "./logos/IBM.svg?svgr"

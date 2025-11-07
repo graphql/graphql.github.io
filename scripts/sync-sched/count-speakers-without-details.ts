@@ -3,7 +3,7 @@
 import { join } from "node:path"
 import { readFile } from "node:fs/promises"
 
-import type { SchedSpeaker } from "@/app/(conf)/conf/_api/sched-types"
+import type { SchedSpeaker } from "@/app/conf/_api/sched-types"
 
 /**
  * We count the number of speakers we didn't sync details for

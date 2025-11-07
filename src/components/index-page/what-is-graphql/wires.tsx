@@ -10,7 +10,7 @@ import {
   useReducer,
   useRef,
 } from "react"
-import { throttle } from "@/app/(conf)/conf/_design-system/utils/throttle"
+import { throttle } from "@/app/conf/_design-system/utils/throttle"
 
 import { Code } from "nextra/components"
 

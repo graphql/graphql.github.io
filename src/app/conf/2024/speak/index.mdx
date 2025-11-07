@@ -1,0 +1,136 @@
+import { Button } from "@/app/conf/_components/button"
+
+# Speak at GraphQLConf
+
+**September 10-12, 2024 | San Francisco, CA**
+
+Putting on an amazing conference depends on great content, which is where you come in! Join
+other GraphQL leaders and community members as a presenter by submitting to our Call for
+Proposals (CFP) and sharing your experience across a wide range of topics.
+
+For any questions regarding the CFP process, please email cfp@linuxfoundation.org.
+
+export const isExpired = new Date() > new Date("2024/05/22 12:00")
+
+<Button
+  className="!text-white"
+  href="https://sessionize.com/graphqlconf-2024"
+  disabled={isExpired}
+>
+  {isExpired ? "CFP Closed" : "Submit a Proposal"}
+</Button>
+
+> Please be aware that the Linux Foundation will now be utilizing Sessionize for CFP
+> submissions. Sessionize is a cloud-based event content management software designed to be
+> intuitive and user-friendly. If you need guidance, please review [how to submit your session for
+> an event](https://sessionize.com/playbook/submit-your-session-for-an-event) to see step-by-step instructions and helpful screenshots.
+
+Click through the tabs on this page to access the information.
+
+<div className="mt-6 grid grid-cols-2 gap-x-4">
+  {toc.map(({ value, id }) => (
+    <a key={id} href={`#${id}`}>
+      {value}
+    </a>
+  ))}
+</div>
+
+## Dates to Remember
+
+- CFP Close: **Friday, May 31 at 11:59 pm PDT (UTC -7)**
+- CFP Notifications: **Monday, June 24**
+- Schedule Announced: **Wednesday, June 26**
+- Slides due date: **Friday, September 6**
+- Event Dates: **Tuesday, September 10 - Thursday, September 12, 2024**
+
+## Suggested Topics
+
+{<h3>GraphQL Spec</h3>}
+Latest and greatest developments in the GraphQL specification, reference implementation, and related
+official specifications such as GraphQL-over-HTTP specification.
+
+{<h3>GraphQL in Production</h3>}
+Best practices, real world use cases, spectacular success, spectacular failures, and lessons
+learned from production deployments of GraphQL.
+
+{<h3>GraphQL Security</h3>}
+Authentication/authorization, security testing, threat models, GraphQL and OWASP Top 10,
+exploit analysis and retrospective, full-lifecycle security considerations.
+
+{<h3>GraphQL Clients</h3>}
+Client development (web, mobile, and beyond) with GraphQL, frontend frameworks, GraphQL
+IDEs.
+
+{<h3>Backend</h3>}
+GraphQL server implementations, data sources for GraphQL resolvers, alternative execution strategies,
+and related backend development concerns.
+
+{<h3>Scaling</h3>}
+Everything related to scaling GraphQL: testing, automation, performance, social/organizational
+considerations.
+
+{<h3>GraphQL Academia</h3>}
+Research papers or studies in academia that involve GraphQL.
+
+{<h3>Emerging Community Trends</h3>}
+What’s happening at the vanguard of GraphQL adoption that will help define the future of
+GraphQL usage in the community.
+
+{<h3>API Platform</h3>}
+Integration with platform providers/frameworks, serverless, mesh architectures, AI/ML.
+
+{<h3>Federation and Composite Schemas</h3>}
+Building a schema from multiple smaller schemas: technologies, experiences, specifications, best
+practices, things to avoid.
+
+{<h3>Developer Experience</h3>}
+The latest and greatest developments in GraphiQL and other GraphQL IDEs, frontend and backend tooling,
+editor integrations, AI assistance and more.
+
+{<h3>Defies Categorization</h3>}
+Have a talk idea that doesn’t fit inside the topics above? Challenge accepted! Wow us with your
+awesome talk submission and we’ll work with you to fit it into our track structure.
+
+## Submission Types
+
+- **Session Presentation:** Typically 30-40 minutes in length, 1-2 speakers presenting on a topic
+- **Panel Discussion:** Typically 30-40 minutes in length, 3-4 speakers presenting on a topic
+- **Birds of a Feather:** Typically 45 minutes to 1 hour in length
+- **Lightning Talk:** Typically 5-10 minutes in length
+- **Workshop:** Typically 1-2 hours in length
+
+## Important Notes
+
+- All speakers are required to adhere to our [Code of Conduct](/conf/2024/faq/#codeofconduct). We also highly recommend that speakers take our online [Inclusive Speaker Orientation Course](https://training.linuxfoundation.org/linux-courses/open-source-compliance-courses/inclusive-speaker-orientation).
+- Panel submissions must include the names of all participants in the initial submission to be considered. In an effort to promote speaker diversity, The Linux Foundation does not accept submissions with all-male panels, and speakers must not all be from the same company.
+- Complimentary Passes For Speakers – One complimentary pass for the event will be provided for each accepted speaker.
+- Avoid sales or marketing pitches and discussing unlicensed or potentially closed-source technologies when preparing your proposal; these talks are almost always rejected due to the fact that they take away from the integrity of our events, and are rarely well-received by conference attendees.
+- You are allowed to be listed as a speaker on a maximum of two proposals submitted to the CFP, regardless of the format. If you are listed on more than two, we will contact you to remove yourself from any additional proposals.
+- You may only be selected to speak on one panel and one non-panel session per event.
+- All accepted speakers are required to submit their slides prior to the event.
+
+## Prepare to Submit
+
+While it is not our intention to provide you with strict instructions on how to prepare your proposal, we hope you will take a moment to review the following guidelines that we have put together to help you prepare the best submission possible. To get started, here are three things that you should consider before submitting your proposal:
+
+1. What are you hoping to get from your presentation?
+1. What do you expect the audience to gain from your presentation?
+1. How will your presentation help better the ecosystem?
+
+There are plenty of ways to give a presentation about projects and technologies without focusing on company-specific efforts. Remember the things to consider that we mentioned above when writing your proposal and think of ways to make it interesting for attendees while still letting you share your experiences, educate the community about an issue, or generate interest in a project.
+
+{<h3>Writing Your Proposal</h3>}
+
+Your abstract title will be the main point of reference for attendees to decide if they want to attend your talk, so choose it carefully. The title should accurately reflect the content of your talk. Speakers are required to adhere to our [Code of Conduct](https://events.linuxfoundation.org/about/code-of-conduct). We also highly recommend that speakers take our online [Inclusive Speaker Orientation Course](https://training.linuxfoundation.org/linux-courses/open-source-compliance-courses/inclusive-speaker-orientation).
+
+{<h3>How to Give a Great Talk</h3>}
+
+We want to make sure submitters receive resources to help put together a great submission and if accepted, give the best presentation possible. To help with this, we recommend viewing seasoned speaker Dawn Foster’s in-depth talk: [Getting Over Your Imposter Syndrome to Become a Conference Speaker – Dawn Foster, VMware](https://youtu.be/2I5fYBLCfUA).
+
+{<h3>Have More Questions? First Time Submitting? Don’t Feel Intimidated</h3>}
+
+Linux Foundation events are an excellent way to get to know the community and share your ideas and the work that you are doing and we strongly encourage first-time speakers to submit talks for our events. In the instance that you aren’t sure about your abstract, [reach out to us](mailto:cfp@linuxfoundation.org) and we will be more than happy to work with you on your proposal.
+
+## Code of Conduct
+
+The Linux Foundation is dedicated to providing a harassment-free experience for participants at all of our events. We encourage all submitters to review our complete [Code of Conduct](https://events.linuxfoundation.org/about/code-of-conduct).
