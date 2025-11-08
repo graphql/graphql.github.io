@@ -31,7 +31,7 @@
     "@codemirror/lint": "6.8.5",
     "@codemirror/state": "6.4.0",
     "@codemirror/view": "6.24.0",
-    "@graphql-tools/schema": "10.0.25",
+    "@graphql-tools/schema": "10.0.27",
     "@hasparus/lezer-json-shikified": "1.1.3",
     "@headlessui/react": "^2.2.4",
     "@igorkowalczyk/is-browser": "^5.1.0",
