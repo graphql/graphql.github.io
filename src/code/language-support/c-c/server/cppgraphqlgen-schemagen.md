@@ -1,7 +1,6 @@
 ---
 name: cppgraphqlgen-schemagen
 description: A C++20 GraphQL service generator using the schema document. You can use this to implement a GraphQL service with resolvers backed by whatever C++ libraries you need.
-url: https://github.com/microsoft/cppgraphqlgen
 github: microsoft/cppgraphqlgen
 ---
 
