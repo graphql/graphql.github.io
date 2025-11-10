@@ -1,11 +1,4 @@
 export default {
-  index: {
-    type: "page",
-    display: "hidden",
-    theme: {
-      layout: "raw",
-    },
-  },
   learn: {
     type: "page",
     title: "Learn",

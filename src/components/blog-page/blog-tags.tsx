@@ -25,7 +25,12 @@ export function BlogTags({
         }
 
         const tagElement = (
-          <Tag className={opaque ? "bg-neu-0" : ""} color={color}>
+          // conditionally add a key here to avoid react list key errors
+          <Tag
+            key={!links ? tag : undefined}
+            className={opaque ? "bg-neu-0" : ""}
+            color={color}
+          >
             {tag.replaceAll("-", " ")}
           </Tag>
         )

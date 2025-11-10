@@ -2,7 +2,7 @@ import { Radio as BaseRadio } from "@base-ui-components/react/radio"
 
 import { clsx as cn } from "clsx"
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react"
-import { RadioIcon } from "../app/conf/_design-system/pixelarticons/radio-icon"
+import { RadioIcon } from "@/app/conf/_design-system/pixelarticons/radio-icon"
 
 export { RadioGroup } from "@base-ui-components/react/radio-group"
 

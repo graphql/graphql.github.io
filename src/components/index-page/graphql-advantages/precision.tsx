@@ -1,3 +1,5 @@
+"use client"
+
 import { ComponentPropsWithoutRef, useEffect, useRef } from "react"
 import { Code } from "nextra/components"
 import { clsx } from "clsx"

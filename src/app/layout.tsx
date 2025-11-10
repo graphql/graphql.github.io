@@ -1,9 +1,15 @@
 import { ReactElement, ReactNode } from "react"
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import GoogleAnalytics from "@/app/ga"
 
-import "../conf.css"
-import "../globals.css"
+// @ts-expect-error: we want to import the same version as Nextra for the main page
+import { ThemeProvider } from "next-themes"
+
+import { NewFontsStyleTag } from "./fonts"
+import { MenuProvider } from "./(main)/menu-provider"
+
+import "@/globals.css"
+import "@/app/colors.css"
 
 export const metadata: Metadata = {
   twitter: {
@@ -36,7 +42,14 @@ export default function RootLayout({
       </head>
       <body className="bg-neu-0">
         <GoogleAnalytics />
-        {children}
+        <NewFontsStyleTag />
+        <ThemeProvider attribute="class">
+          <MenuProvider>
+            <div className="isolate bg-neu-0 text-neu-900 antialiased">
+              {children}
+            </div>
+          </MenuProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

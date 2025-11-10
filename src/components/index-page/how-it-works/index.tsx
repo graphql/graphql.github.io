@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef, useState } from "react"
 import { useInView } from "motion/react"
 import dynamic from "next/dynamic"

@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 
 import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
-import { Tag } from "../../app/conf/_design-system/tag"
+import { Tag } from "@/app/conf/_design-system/tag"
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",

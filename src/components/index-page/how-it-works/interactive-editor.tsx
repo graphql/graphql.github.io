@@ -1,5 +1,7 @@
+"use client"
+
 import { graphql } from "graphql"
-import React, { useState } from "react"
+import { useRef, useState } from "react"
 
 import { getVariableToType } from "@/components/interactive-code-block/get-variable-to-type"
 import { QueryEditor } from "@/components/interactive-code-block/query-editor"
@@ -20,7 +22,7 @@ export default function InteractiveEditor() {
   const [results, setResults] = useState(INITIAL_RESULTS_TEXT)
   const [variableTypes, setVariableTypes] = useState<Record<string, string>>({})
   const [variables, setVariables] = useState("")
-  const editorQueryId = React.useRef(0)
+  const editorQueryId = useRef(0)
 
   async function runQuery(
     options: { manual: boolean },

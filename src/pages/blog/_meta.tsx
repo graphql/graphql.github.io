@@ -1,8 +1,5 @@
 import { useConfig } from "nextra-theme-docs"
-import NextLink from "next/link"
 
-import { Tag } from "../../app/conf/_design-system/tag"
-import { blogTagColors } from "../../components/blog-page/blog-tag-colors"
 import { BlogCardPicture } from "../../components/blog-page/blog-card-picture"
 import { BlogMdxContent } from "../../components/blog-page/mdx-types"
 import { BlogTags } from "../../components/blog-page/blog-tags"
