@@ -115,7 +115,7 @@
     "jsdom": "^26.1.0",
     "prettier": "3.5.3",
     "prettier-plugin-pkg": "^0.21.0",
-    "prettier-plugin-tailwindcss": "^0.6.12",
+    "prettier-plugin-tailwindcss": "^0.7.0",
     "remark-frontmatter": "5.0.0",
     "remark-lint-first-heading-level": "3.1.2",
     "remark-lint-heading-increment": "3.1.2",
