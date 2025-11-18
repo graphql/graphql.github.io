@@ -64,7 +64,7 @@ importers:
         version: 5.1.0(tailwindcss@3.4.18(tsx@4.20.6)(yaml@2.8.1))
       '@lezer/highlight':
         specifier: 1.2.1
-        version: 1.2.1
+        version: 1.2.3
       '@next/bundle-analyzer':
         specifier: ^15.4.5
         version: 15.5.6
@@ -94,7 +94,7 @@ importers:
         version: 2.1.1
       cm6-graphql:
         specifier: ^0.2.1
-        version: 0.2.1(@codemirror/autocomplete@6.18.6)(@codemirror/language@6.10.0)(@codemirror/lint@6.8.5)(@codemirror/state@6.4.0)(@codemirror/view@6.24.0)(@lezer/highlight@1.2.1)(graphql@16.10.0)
+        version: 0.2.1(@codemirror/autocomplete@6.18.6)(@codemirror/language@6.10.0)(@codemirror/lint@6.8.5)(@codemirror/state@6.4.0)(@codemirror/view@6.24.0)(@lezer/highlight@1.2.3)(graphql@16.10.0)
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
@@ -1840,6 +1840,9 @@ packages:
 
   '@lezer/highlight@1.2.1':
     resolution: {integrity: sha512-Z5duk4RN/3zuVO7Jq0pGLJ3qynpxUVsh7IbUbGj88+uV2ApSAn6kWg2au3iJb+0Zi7kKtqffIESgNcRXWZWmSA==}
+
+  '@lezer/highlight@1.2.3':
+    resolution: {integrity: sha512-qXdH7UqTvGfdVBINrgKhDsVTJTxactNNxLk7+UMwZhU13lMHaOBlJe9Vqp907ya56Y3+ed2tlqzys7jDkTmW0g==}
 
   '@lezer/lr@1.4.2':
     resolution: {integrity: sha512-pu0K1jCIdnQ12aWNaAVU5bzi7Bd1w54J3ECgANPmYLtQKP0HBj2cE/5coBD66MT10xbtIuUr7tg0Shbsvk0mDA==}
@@ -8426,6 +8429,10 @@ snapshots:
     dependencies:
       '@lezer/common': 1.2.3
 
+  '@lezer/highlight@1.2.3':
+    dependencies:
+      '@lezer/common': 1.2.3
+
   '@lezer/lr@1.4.2':
     dependencies:
       '@lezer/common': 1.2.3
@@ -9656,14 +9663,14 @@ snapshots:
 
   clsx@2.1.1: {}
 
-  cm6-graphql@0.2.1(@codemirror/autocomplete@6.18.6)(@codemirror/language@6.10.0)(@codemirror/lint@6.8.5)(@codemirror/state@6.4.0)(@codemirror/view@6.24.0)(@lezer/highlight@1.2.1)(graphql@16.10.0):
+  cm6-graphql@0.2.1(@codemirror/autocomplete@6.18.6)(@codemirror/language@6.10.0)(@codemirror/lint@6.8.5)(@codemirror/state@6.4.0)(@codemirror/view@6.24.0)(@lezer/highlight@1.2.3)(graphql@16.10.0):
     dependencies:
       '@codemirror/autocomplete': 6.18.6
       '@codemirror/language': 6.10.0
       '@codemirror/lint': 6.8.5
       '@codemirror/state': 6.4.0
       '@codemirror/view': 6.24.0
-      '@lezer/highlight': 1.2.1
+      '@lezer/highlight': 1.2.3
       graphql: 16.10.0
       graphql-language-service: 5.5.0(graphql@16.10.0)
 
