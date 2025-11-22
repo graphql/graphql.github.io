@@ -31,7 +31,7 @@ importers:
     dependencies:
       '@base-ui-components/react':
         specifier: 1.0.0-beta.4
-        version: 1.0.0-beta.4(@types/react@18.3.26)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.0.0-beta.4(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@codemirror/autocomplete':
         specifier: 6.18.6
         version: 6.18.6
@@ -145,10 +145,10 @@ importers:
         version: 3.0.1(less-loader@12.3.0(less@4.4.1))(less@4.4.1)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       nextra:
         specifier: 3.3.1
-        version: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.26)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+        version: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       nextra-theme-docs:
         specifier: 3.3.1
-        version: 3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.26)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       numbro:
         specifier: 2.5.0
         version: 2.5.0
@@ -233,7 +233,7 @@ importers:
         version: 8.1.0(typescript@5.9.3)
       '@testing-library/react':
         specifier: ^16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react@18.3.26)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/codemirror':
         specifier: 5.60.17
         version: 5.60.17
@@ -248,7 +248,7 @@ importers:
         version: 22.18.13
       '@types/react':
         specifier: ^18.3.23
-        version: 18.3.26
+        version: 18.3.27
       '@types/rss':
         specifier: 0.0.32
         version: 0.0.32
@@ -2456,8 +2456,8 @@ packages:
   '@types/prop-types@15.7.15':
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
 
-  '@types/react@18.3.26':
-    resolution: {integrity: sha512-RFA/bURkcKzx/X9oumPG9Vp3D3JUgus/d0b67KB0t5S/raciymilkOa66olh78MUI92QLbEJevO7rvqU/kjwKA==}
+  '@types/react@18.3.27':
+    resolution: {integrity: sha512-cisd7gxkzjBKU2GgdYrTdtQx1SORymWyaAFhaxQPK9bYO9ot3Y5OikQRvY0VYQtvwjeQnizCINJAenh/V7MK2w==}
 
   '@types/rss@0.0.32':
     resolution: {integrity: sha512-2oKNqKyUY4RSdvl5eZR1n2Q9yvw3XTe3mQHsFPn9alaNBxfPnbXBtGP8R0SV8pK1PrVnLul0zx7izbm5/gF5Qw==}
@@ -3084,8 +3084,8 @@ packages:
     resolution: {integrity: sha512-2z+rWdzbbSZv6/rhtvzvqeZQHrBaqgogqt85sqFNbabZOuFbCVFb8kPeEtZjiKkbrm395irpNKiYeFeLiQnFPg==}
     engines: {node: '>=18'}
 
-  csstype@3.1.3:
-    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   cytoscape-cose-bilkent@4.1.0:
     resolution: {integrity: sha512-wgQlVIUJF13Quxiv5e1gstZ08rnZj2XaLHGoFMYXz7SkNfCDOOteKBE6SYRfA9WxxI/iBc3ajfDoc6hb/MRAHQ==}
@@ -7397,10 +7397,10 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@base-ui-components/react@1.0.0-beta.4(@types/react@18.3.26)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@base-ui-components/react@1.0.0-beta.4(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.28.4
-      '@base-ui-components/utils': 0.1.2(@types/react@18.3.26)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@base-ui-components/utils': 0.1.2(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@floating-ui/react-dom': 2.1.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@floating-ui/utils': 0.2.10
       react: 18.3.1
@@ -7409,9 +7409,9 @@ snapshots:
       tabbable: 6.2.0
       use-sync-external-store: 1.5.0(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.26
+      '@types/react': 18.3.27
 
-  '@base-ui-components/utils@0.1.2(@types/react@18.3.26)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@base-ui-components/utils@0.1.2(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@floating-ui/utils': 0.2.10
@@ -7420,7 +7420,7 @@ snapshots:
       reselect: 5.1.1
       use-sync-external-store: 1.5.0(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.26
+      '@types/react': 18.3.27
 
   '@braintree/sanitize-url@7.1.1': {}
 
@@ -8484,10 +8484,10 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mdx-js/react@3.1.0(@types/react@18.3.26)(react@18.3.1)':
+  '@mdx-js/react@3.1.0(@types/react@18.3.27)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.26
+      '@types/react': 18.3.27
       react: 18.3.1
 
   '@mermaid-js/parser@0.6.2':
@@ -8920,14 +8920,14 @@ snapshots:
       picocolors: 1.1.1
       pretty-format: 27.5.1
 
-  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react@18.3.26)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.28.3
       '@testing-library/dom': 10.4.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.26
+      '@types/react': 18.3.27
 
   '@theguild/federation-composition@0.19.1(graphql@16.10.0)':
     dependencies:
@@ -9135,10 +9135,10 @@ snapshots:
 
   '@types/prop-types@15.7.15': {}
 
-  '@types/react@18.3.26':
+  '@types/react@18.3.27':
     dependencies:
       '@types/prop-types': 15.7.15
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@types/rss@0.0.32': {}
 
@@ -9833,7 +9833,7 @@ snapshots:
       '@asamuzakjp/css-color': 3.2.0
       rrweb-cssom: 0.8.0
 
-  csstype@3.1.3: {}
+  csstype@3.2.3: {}
 
   cytoscape-cose-bilkent@4.1.0(cytoscape@3.33.1):
     dependencies:
@@ -12244,7 +12244,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextra-theme-docs@3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.26)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nextra-theme-docs@3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@headlessui/react': 2.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
@@ -12252,18 +12252,18 @@ snapshots:
       flexsearch: 0.7.43
       next: 14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes: 0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.26)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      nextra: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
       zod: 3.25.76
 
-  nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.26)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
+  nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
     dependencies:
       '@formatjs/intl-localematcher': 0.5.10
       '@headlessui/react': 2.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mdx-js/mdx': 3.1.0(acorn@8.15.0)
-      '@mdx-js/react': 3.1.0(@types/react@18.3.26)(react@18.3.1)
+      '@mdx-js/react': 3.1.0(@types/react@18.3.27)(react@18.3.1)
       '@napi-rs/simple-git': 0.1.22
       '@shikijs/twoslash': 1.29.2(typescript@5.9.3)
       '@theguild/remark-mermaid': 0.1.3(react@18.3.1)
