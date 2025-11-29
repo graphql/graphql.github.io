@@ -136,7 +136,7 @@ importers:
         version: 14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-query-params:
         specifier: ^5.0.1
-        version: 5.1.0(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 5.1.0(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       next-sitemap:
         specifier: ^4.2.3
         version: 4.2.3(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -214,7 +214,7 @@ importers:
         version: 5.0.0
       use-query-params:
         specifier: ^2.2.1
-        version: 2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@graphql-eslint/eslint-plugin':
         specifier: 4.4.0
@@ -5763,8 +5763,8 @@ packages:
   sentence-case@3.0.4:
     resolution: {integrity: sha512-8LS0JInaQMCRoQ7YUytAo/xUu5W2XnQxV2HI/6uM6U7CITS1RqPElr30V6uIqyMKM9lJGRVFy5/4CuzcixNYSg==}
 
-  serialize-query-params@2.0.2:
-    resolution: {integrity: sha512-1chMo1dST4pFA9RDXAtF0Rbjaut4is7bzFbI1Z26IuMub68pNCILku85aYmeFhvnY//BXUPUhoRMjYcsT93J/Q==}
+  serialize-query-params@2.0.4:
+    resolution: {integrity: sha512-y9WzzDj3BsGgKLCh0ugiinufS//YqOfao/yVJjkXA4VLuyNCfHOLU/cbulGPxs3aeCqhvROw7qPL04JSZnCo0w==}
 
   server-only@0.0.1:
     resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
@@ -6344,8 +6344,8 @@ packages:
   urlpattern-polyfill@10.1.0:
     resolution: {integrity: sha512-IGjKp/o0NL3Bso1PymYURCJxMPNAf/ILOpendP9f5B6e1rTJgdgiOvgfoT8VxCAdY+Wisb9uhGaJJf3yZ2V9nw==}
 
-  use-query-params@2.2.1:
-    resolution: {integrity: sha512-i6alcyLB8w9i3ZK3caNftdb+UnbfBRNPDnc89CNQWkGRmDrm/gfydHvMBfVsQJRq3NoHOM2dt/ceBWG2397v1Q==}
+  use-query-params@2.2.2:
+    resolution: {integrity: sha512-OwGab8u8/x2xZp9uSyBsx0kXlkR9IR436zbygsYVGikPYY3OJosvve6IJVGwIJPcfyb/YHwvPrUNu65/JR++Kw==}
     peerDependencies:
       '@reach/router': ^1.2.1
       react: '>=16.8.0'
@@ -12191,12 +12191,12 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  next-query-params@5.1.0(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  next-query-params@5.1.0(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       next: 14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       tslib: 2.8.1
-      use-query-params: 2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      use-query-params: 2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   next-sitemap@4.2.3(next@14.2.33(@babel/core@7.28.3)(@playwright/test@1.55.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
@@ -13198,7 +13198,7 @@ snapshots:
       tslib: 2.8.1
       upper-case-first: 2.0.2
 
-  serialize-query-params@2.0.2: {}
+  serialize-query-params@2.0.4: {}
 
   server-only@0.0.1: {}
 
@@ -13953,11 +13953,11 @@ snapshots:
 
   urlpattern-polyfill@10.1.0: {}
 
-  use-query-params@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      serialize-query-params: 2.0.2
+      serialize-query-params: 2.0.4
 
   use-sync-external-store@1.5.0(react@18.3.1):
     dependencies:
