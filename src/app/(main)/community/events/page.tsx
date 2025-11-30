@@ -33,7 +33,7 @@ export default async function EventsPage() {
     <>
       <NavbarFixed />
       <TocHero
-        heading="Events & Meetups"
+        heading="Events"
         text="Connect with the GraphQL community through events and meetups around the world."
         decoration={<Stripes />}
       >
@@ -62,8 +62,8 @@ export default async function EventsPage() {
                 frontMatter: {},
               },
               {
-                name: "Events & Meetups",
-                title: "Events & Meetups",
+                name: "Events",
+                title: "Events",
                 route: "/community/events",
                 type: "page",
                 children: [],

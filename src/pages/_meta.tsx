@@ -22,7 +22,7 @@ export default {
         href: "/community/resources/official-channels",
       },
       events: {
-        title: "Events & Meetups",
+        title: "Events",
         type: "page",
         href: "/community/events",
       },

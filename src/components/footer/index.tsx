@@ -68,7 +68,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
         route: "/community/resources/official-channels",
       },
       {
-        title: "Events & Meetups",
+        title: "Events",
         route: "/community/events",
       },
       {
