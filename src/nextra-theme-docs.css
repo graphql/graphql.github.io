@@ -1585,7 +1585,7 @@ pre
 }
 :target > .subheading-anchor:is(html[class~="dark"] *):after {
   --tw-text-opacity: 1;
-  color: rgb(115 115 115 / var(--tw-text-opacity, 1));
+  color: rgb(110 117 87 / var(--tw-text-opacity, 1));
 }
 .subheading-anchor:after {
   --tw-content: "#";

@@ -7,7 +7,7 @@ export function LookingForMore(props: React.HTMLAttributes<HTMLElement>) {
       {...props}
       className={clsx("gql-container gql-section", props.className)}
     >
-      <div className="mx-auto grid max-w-[1504px] gap-0 bg-pri-dark lg:grid-cols-[752px_1fr]">
+      <div className="mx-auto grid max-w-[1504px] gap-0 bg-pri-dark text-white lg:grid-cols-[752px_1fr]">
         <div className="flex flex-col justify-between gap-8 border-pri-light p-8 lg:border-r lg:p-16">
           <h2 className="typography-h2">Looking for more?</h2>
           <p className="typography-body-lg max-w-[624px]">

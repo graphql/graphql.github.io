@@ -30,7 +30,9 @@ const createHeading = (
     id,
     className,
     ...props
-  }: React.ComponentPropsWithoutRef<"h2">): React.ReactElement {
+  }: React.ComponentPropsWithoutRef<"h2"> & {
+    size?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+  }): React.ReactElement {
     // Nextra tracks anchors in context
     const setActiveAnchor = useSetActiveAnchor()
     const slugs = useSlugs()
@@ -61,7 +63,7 @@ const createHeading = (
           className === "sr-only"
             ? // can be added by footnotes
               "sr-only"
-            : clsx(headingClasses[Tag], "text-neu-900", className)
+            : clsx(headingClasses[props.size || Tag], "text-neu-900", className)
         }
         {...props}
       >

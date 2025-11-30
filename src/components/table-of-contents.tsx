@@ -86,7 +86,7 @@ export function TableOfContents({
                     }[depth],
                     "block",
                     activeAnchor[id]?.isActive
-                      ? "text-pri-base contrast-more:!text-pri-base"
+                      ? "text-pri-base contrast-more:!text-pri-base dark:text-pri-light"
                       : "",
                   )}
                 >

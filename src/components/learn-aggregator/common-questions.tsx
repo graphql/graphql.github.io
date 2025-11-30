@@ -25,19 +25,16 @@ export function CommonQuestionsSection(
       <ul className="row-span-full mt-6 ![grid-column:2] *:border-b *:border-neu-200 dark:*:border-neu-100 lg:w-[380px] xl:w-[496px]">
         <CommonQuestionsItem
           title="Getting started"
-          href="/learn/faq#getting-started"
+          href="/faq#getting-started"
         />
-        <CommonQuestionsItem title="General" href="/learn/faq#general" />
+        <CommonQuestionsItem title="General" href="/faq#general" />
         <CommonQuestionsItem
           title="Best practices"
-          href="/learn/faq#best-practices"
+          href="/faq#best-practices"
         />
-        <CommonQuestionsItem
-          title="Specification"
-          href="/learn/faq#specification"
-        />
-        <CommonQuestionsItem title="Frontend" href="/learn/faq#frontend" />
-        <CommonQuestionsItem title="Foundation" href="/learn/faq#foundation" />
+        <CommonQuestionsItem title="Specification" href="/faq#specification" />
+        <CommonQuestionsItem title="Frontend" href="/faq#frontend" />
+        <CommonQuestionsItem title="Foundation" href="/faq#foundation" />
       </ul>
     </section>
   )

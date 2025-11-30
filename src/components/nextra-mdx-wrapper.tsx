@@ -36,6 +36,10 @@ export function NextraMdxWrapper({
     directories,
   } = config.normalizePagesResult
 
+  if (themeContext.toc && typeof themeContext.toc === "object") {
+    toc = themeContext.toc
+  }
+
   const tocEl =
     activeType === "page" ||
     !themeContext.toc ||
