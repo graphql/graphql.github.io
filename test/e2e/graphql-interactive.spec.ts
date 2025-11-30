@@ -65,7 +65,7 @@ test.describe("Learn", () => {
   test("adds appearsIn field to hero query and gets correct response", async ({
     page,
   }) => {
-    await page.goto("/learn")
+    await page.goto("/learn/introduction")
     await page.waitForSelector(".cm-editor", { timeout: 10000 })
 
     const heroEditor = await findEditorByContent(page, "hero")
