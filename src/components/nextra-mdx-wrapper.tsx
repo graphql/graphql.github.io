@@ -4,7 +4,7 @@ import { Heading } from "nextra"
 import { useConfig, useThemeConfig, SkipNavContent } from "nextra-theme-docs"
 import { clsx } from "clsx"
 
-import { NavLinks } from "./nav-links.tsx"
+import { NavLinks } from "./nav-links"
 import { Sidebar } from "./sidebar"
 import { renderComponent } from "./utils/render-component"
 import { TableOfContents } from "./table-of-contents"
