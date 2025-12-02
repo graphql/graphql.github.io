@@ -1,12 +1,10 @@
 import { ReactNode, useState } from "react"
 import { clsx } from "clsx"
 
-import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 
 import { Eyebrow } from "@/_design-system/eyebrow"
 
-import blurBean from "./learn-blur-bean.webp"
 import { Button } from "@/app/conf/_design-system/button"
 
 export interface TeaserSectionProps
@@ -154,30 +152,5 @@ function TeaserSectionListItem({
         </span>
       </a>
     </li>
-  )
-}
-
-export function LearnHeroStripes() {
-  return (
-    <div
-      role="presentation"
-      // eslint-disable-next-line tailwindcss/no-contradicting-classname
-      className="pointer-events-none absolute inset-0 h-[300px] bg-neu-50 [--end-1:#FFF] [--end-2:rgb(255_204_239/.2)] [--start-1:#FFEAF8] [--start-2:hsl(var(--color-sec-lighter))] dark:[--end-1:hsl(var(--color-neu-0))] dark:[--end-2:hsl(var(--color-pri-base)/.1)] dark:[--start-1:hsl(var(--color-neu-100)/.2)] dark:[--start-2:hsl(var(--color-sec-light)/.1)] sm:h-[360px] lg:h-[480px]"
-      style={{
-        maskImage: `url(${blurBean.src})`,
-        WebkitMaskImage: `url(${blurBean.src})`,
-        maskSize: "2200px",
-        WebkitMaskSize: "2200px",
-        maskPosition: "50% 60%",
-        WebkitMaskPosition: "50% 60%",
-        maskRepeat: "no-repeat",
-        WebkitMaskRepeat: "no-repeat",
-      }}
-    >
-      <StripesDecoration
-        evenClassName="bg-[linear-gradient(180deg,var(--start-1)_-80%,var(--end-1)_102%)]"
-        oddClassName="bg-[linear-gradient(180deg,var(--start-2)_-80%,var(--end-2)_102%)]"
-      />
-    </div>
   )
 }
