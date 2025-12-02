@@ -57,7 +57,7 @@ export function NextraMdxWrapper({
   return (
     <div
       className={clsx(
-        "mx-auto flex",
+        "mx-auto flex pb-8 xl:pb-12",
         themeContext.layout !== "raw" && "max-w-[90rem]",
       )}
     >
