@@ -4,7 +4,7 @@ import { Heading } from "nextra"
 import { useConfig, useThemeConfig, SkipNavContent } from "nextra-theme-docs"
 import { clsx } from "clsx"
 
-import { NavLinks } from "./nav-links"
+import { LearnNavLinkCard, ArrowNavLinks } from "./nav-links"
 import { Sidebar } from "./sidebar"
 import { renderComponent } from "./utils/render-component"
 import { TableOfContents } from "./table-of-contents"
@@ -50,28 +50,47 @@ export function NextraMdxWrapper({
       </nav>
     )
 
+  const isLearnPage = config.filePath.includes("/learn/")
+  const showLearnNavLinkCard =
+    activeType !== "page" && themeContext.pagination && isLearnPage
+
   return (
-    <div
-      className={clsx(
-        "mx-auto flex pb-8 xl:pb-12",
-        themeContext.layout !== "raw" && "max-w-[90rem]",
+    <>
+      <div
+        className={clsx(
+          "mx-auto flex pb-8",
+          themeContext.layout !== "raw" && "max-w-[90rem]",
+          !showLearnNavLinkCard && "xl:pb-12",
+        )}
+      >
+        <Sidebar
+          docsDirectories={docsDirectories}
+          fullDirectories={directories}
+          toc={toc}
+          asPopover={config.hideSidebar}
+          includePlaceholder={themeContext.layout === "default"}
+        />
+        {tocEl}
+        <SkipNavContent />
+        <Body isLearnPage={isLearnPage}>{children}</Body>
+      </div>
+      {showLearnNavLinkCard && (
+        <LearnNavLinkCard
+          flatDocsDirectories={config.normalizePagesResult.flatDocsDirectories}
+          currentIndex={config.normalizePagesResult.activeIndex}
+        />
       )}
-    >
-      <Sidebar
-        docsDirectories={docsDirectories}
-        fullDirectories={directories}
-        toc={toc}
-        asPopover={config.hideSidebar}
-        includePlaceholder={themeContext.layout === "default"}
-      />
-      {tocEl}
-      <SkipNavContent />
-      <Body>{children}</Body>
-    </div>
+    </>
   )
 }
 
-function Body({ children }: { children: ReactNode }): ReactElement {
+function Body({
+  children,
+  isLearnPage,
+}: {
+  children: ReactNode
+  isLearnPage: boolean
+}): ReactElement {
   const config = useConfig()
   const themeConfig = useThemeConfig()
   const mounted = useMounted()
@@ -108,8 +127,8 @@ function Body({ children }: { children: ReactNode }): ReactElement {
       {children}
       {gitTimestampEl}
       {renderComponent(themeContext.bottomContent)}
-      {activeType !== "page" && themeContext.pagination && (
-        <NavLinks
+      {activeType !== "page" && themeContext.pagination && !isLearnPage && (
+        <ArrowNavLinks
           flatDocsDirectories={flatDocsDirectories}
           currentIndex={activeIndex}
         />

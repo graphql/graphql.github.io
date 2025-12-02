@@ -346,7 +346,7 @@ function ToolsAndLibrariesSidebar({
       <SidebarFooter
         setSidebar={setSidebarShown}
         showSidebar={sidebarShown}
-        className="mt-4 max-md:hidden"
+        className="mt-4 !pl-4 max-md:hidden"
         hiddenOnMobile={false}
       />
     </div>
