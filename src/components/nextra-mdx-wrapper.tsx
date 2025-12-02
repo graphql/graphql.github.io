@@ -1,14 +1,10 @@
 import type { ReactElement, ReactNode } from "react"
 import { useMounted } from "nextra/hooks"
 import { Heading } from "nextra"
-import {
-  useConfig,
-  useThemeConfig,
-  SkipNavContent,
-  NavLinks,
-} from "nextra-theme-docs"
+import { useConfig, useThemeConfig, SkipNavContent } from "nextra-theme-docs"
 import { clsx } from "clsx"
 
+import { NavLinks } from "./nav-links.tsx"
 import { Sidebar } from "./sidebar"
 import { renderComponent } from "./utils/render-component"
 import { TableOfContents } from "./table-of-contents"
