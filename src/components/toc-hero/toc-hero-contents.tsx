@@ -16,7 +16,7 @@ export function TocHeroContents({
     <div
       {...rest}
       className={clsx(
-        "mt-2 w-full border border-neu-300 bg-neu-0/[.64] backdrop-blur-[6px] dark:border-neu-100 lg:mt-4",
+        "mt-2 w-full border border-neu-300 bg-neu-0/[.64] dark:border-neu-100 lg:mt-4",
         className,
       )}
     >
