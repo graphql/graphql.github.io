@@ -449,7 +449,7 @@ export function Sidebar({
             <div
               className={cn(
                 "overflow-y-auto",
-                "grow p-4 md:h-[calc(100vh-var(--nextra-navbar-height)-var(--nextra-menu-height))]",
+                "grow p-4 md:h-[calc(100vh-var(--nextra-navbar-height)-var(--nextra-menu-height))] xl:pl-0",
                 showSidebar ? "nextra-scrollbar" : "no-scrollbar",
               )}
               ref={sidebarRef}
@@ -512,9 +512,7 @@ export function SidebarFooter({
   return (
     <div
       className={cn(
-        "nextra-sidebar-footer sticky bottom-0",
-        "flex items-center gap-2 py-4",
-        "mx-3 px-1", // to hide focused sidebar links
+        "nextra-sidebar-footer sticky bottom-0 mx-3 flex items-center gap-2 px-1 py-4 xl:-ml-1 xl:mr-0 xl:px-0",
         showSidebar
           ? hasI18n && "justify-end"
           : "flex-col flex-wrap justify-center py-4",
