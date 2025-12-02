@@ -119,7 +119,7 @@ function TeaserSectionListItem({
     <li className={clsx("flex text-neu-900", className)} {...rest}>
       <a
         href={href}
-        className="gql-focus-visible grid border border-neu-200 bg-neu-0 transition-colors [grid-template-areas:'icon_header''desc_desc'] [grid-template-columns:72px_1fr] [grid-template-rows:auto_1fr] hover:ring hover:ring-neu-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-neu-100 dark:hover:ring-neu-50 lg:[grid-template-areas:'icon_header_header''icon_desc_arrow'] lg:[grid-template-columns:190px_1fr_64px]"
+        className="gql-focus-visible grid w-full border border-neu-200 bg-neu-0 transition-colors [grid-template-areas:'icon_header''desc_desc'] [grid-template-columns:72px_1fr] [grid-template-rows:auto_1fr] hover:ring hover:ring-neu-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-neu-100 dark:hover:ring-neu-50 lg:[grid-template-areas:'icon_header_header''icon_desc_arrow'] lg:[grid-template-columns:190px_1fr_64px]"
       >
         <span
           className={clsx(
