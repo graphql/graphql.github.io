@@ -50,47 +50,28 @@ export function NextraMdxWrapper({
       </nav>
     )
 
-  const isLearnPage = config.filePath.includes("/learn/")
-  const showLearnNavLinkCard =
-    activeType !== "page" && themeContext.pagination && isLearnPage
-
   return (
-    <>
-      <div
-        className={clsx(
-          "mx-auto flex pb-8",
-          themeContext.layout !== "raw" && "max-w-[90rem]",
-          !showLearnNavLinkCard && "xl:pb-12",
-        )}
-      >
-        <Sidebar
-          docsDirectories={docsDirectories}
-          fullDirectories={directories}
-          toc={toc}
-          asPopover={config.hideSidebar}
-          includePlaceholder={themeContext.layout === "default"}
-        />
-        {tocEl}
-        <SkipNavContent />
-        <Body isLearnPage={isLearnPage}>{children}</Body>
-      </div>
-      {showLearnNavLinkCard && (
-        <LearnNavLinkCard
-          flatDocsDirectories={config.normalizePagesResult.flatDocsDirectories}
-          currentIndex={config.normalizePagesResult.activeIndex}
-        />
+    <div
+      className={clsx(
+        "mx-auto flex pb-8 xl:pb-12",
+        themeContext.layout !== "raw" && "max-w-[90rem]",
       )}
-    </>
+    >
+      <Sidebar
+        docsDirectories={docsDirectories}
+        fullDirectories={directories}
+        toc={toc}
+        asPopover={config.hideSidebar}
+        includePlaceholder={themeContext.layout === "default"}
+      />
+      {tocEl}
+      <SkipNavContent />
+      <Body>{children}</Body>
+    </div>
   )
 }
 
-function Body({
-  children,
-  isLearnPage,
-}: {
-  children: ReactNode
-  isLearnPage: boolean
-}): ReactElement {
+function Body({ children }: { children: ReactNode }): ReactElement {
   const config = useConfig()
   const themeConfig = useThemeConfig()
   const mounted = useMounted()
@@ -121,18 +102,27 @@ function Body({
       <div className="mt-16" />
     )
 
+  const isLearnPage = config.filePath.includes("/learn/")
+
   const content = (
     <>
       {renderComponent(themeContext.topContent)}
       {children}
       {gitTimestampEl}
       {renderComponent(themeContext.bottomContent)}
-      {activeType !== "page" && themeContext.pagination && !isLearnPage && (
-        <ArrowNavLinks
-          flatDocsDirectories={flatDocsDirectories}
-          currentIndex={activeIndex}
-        />
-      )}
+      {activeType !== "page" &&
+        themeContext.pagination &&
+        (isLearnPage ? (
+          <LearnNavLinkCard
+            flatDocsDirectories={flatDocsDirectories}
+            currentIndex={activeIndex}
+          />
+        ) : (
+          <ArrowNavLinks
+            flatDocsDirectories={flatDocsDirectories}
+            currentIndex={activeIndex}
+          />
+        ))}
     </>
   )
 
@@ -159,7 +149,8 @@ function Body({
     <article
       className={clsx(
         classes.main,
-        "nextra-content flex min-h-[calc(100vh-var(--nextra-navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]",
+        "nextra-content flex min-h-[calc(100vh-var(--nextra-navbar-height))] min-w-0 justify-center pr-[calc(env(safe-area-inset-right)-1.5rem)]",
+        isLearnPage ? "pb-4" : "pb-8",
         themeContext.typesetting === "article" &&
           "nextra-body-typesetting-article",
       )}

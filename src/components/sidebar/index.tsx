@@ -512,7 +512,7 @@ export function SidebarFooter({
   return (
     <div
       className={cn(
-        "nextra-sidebar-footer sticky bottom-0 mx-3 flex items-center gap-2 px-1 py-4 xl:-ml-1 xl:mr-0 xl:px-0",
+        "nextra-sidebar-footer sticky bottom-0 mx-3 flex items-center gap-2 px-1 py-4 xl:ml-0.5 xl:mr-0 xl:px-0",
         showSidebar
           ? hasI18n && "justify-end"
           : "flex-col flex-wrap justify-center py-4",

@@ -43,82 +43,78 @@ export function LearnNavLinkCard({
   const section = pageData?.section
 
   return (
-    <div
+    <NextLink
+      href={displayPost.route}
       className={clsx(
-        "gql-container gql-section bg-neu-0 py-8 lg:py-16 xl:py-20 print:hidden",
+        "gql-focus-visible relative mx-auto flex max-w-[1056px] items-center gap-8 border border-neu-200 bg-neu-0 p-8 hover:ring hover:ring-neu-100 dark:border-neu-50 dark:hover:ring-neu-50/50",
         className,
       )}
     >
-      <NextLink
-        href={displayPost.route}
-        className="gql-focus-visible relative mx-auto flex max-w-[1056px] items-center gap-8 border border-neu-200 bg-neu-0 p-8 hover:ring hover:ring-neu-100 dark:border-neu-50 dark:hover:ring-neu-50/50"
-      >
-        <div
-          className={clsx(
-            "pointer-events-none absolute inset-0 left-4 overflow-hidden",
-            section === "getting-started" &&
-              "[--start:var(--color-pri-lightest)] dark:[--start:var(--color-pri-darker)]",
-            section === "best-practices" &&
-              "[--start:var(--color-sec-lighter)] dark:[--start:var(--color-sec-darker)]",
-          )}
-          style={{
-            maskImage: `url(${blurCorner.src})`,
-            WebkitMaskImage: `url(${blurCorner.src})`,
-            maskSize: "50% 50%",
-            WebkitMaskSize: "50% 50%",
-            maskPosition: "top right",
-            WebkitMaskPosition: "top right",
-            maskRepeat: "no-repeat",
-            WebkitMaskRepeat: "no-repeat",
-          }}
-        >
-          <StripesDecoration
-            oddClassName="bg-[linear-gradient(180deg,hsl(var(--start))_0%,hsl(var(--color-neu-0)/0)_50%)]"
-            stripeWidth="12px"
-          />
-        </div>
-
-        <div className="flex flex-1 flex-col gap-6">
-          <p className="typography-menu text-pri-base dark:text-pri-light">
-            {isNext ? "next lesson" : "previous lesson"}
-          </p>
-
-          <div className="flex flex-col gap-4 text-neu-900">
-            <h2 className="typography-h2">{displayPost.title}</h2>
-            {pageData?.description && (
-              <p className="typography-body-lg max-w-[560px]">
-                {pageData.description}
-              </p>
-            )}
-          </div>
-
-          <div className="flex h-12 items-center justify-center self-start bg-neu-900 px-8 py-2">
-            <span className="typography-button text-neu-0">
-              Go to {isNext ? "next" : "previous"} lesson
-            </span>
-          </div>
-        </div>
-
-        {pageData?.icon && (
-          <div className="relative flex size-[222px] bg-neu-0">
-            <div
-              className={clsx(
-                "shrink-0 items-center justify-center p-12",
-                section === "getting-started" &&
-                  "bg-pri-lightest dark:bg-pri-lighter/5",
-                section === "best-practices" &&
-                  "bg-sec-lighter dark:bg-sec-lighter/10",
-              )}
-            >
-              <img
-                src={pageData.icon}
-                alt=""
-                className="size-full object-contain"
-              />
-            </div>
-          </div>
+      <div
+        className={clsx(
+          "pointer-events-none absolute inset-0 left-4 overflow-hidden",
+          section === "getting-started" &&
+            "[--start:var(--color-pri-lightest)] dark:[--start:var(--color-pri-darker)]",
+          section === "best-practices" &&
+            "[--start:var(--color-sec-lighter)] dark:[--start:var(--color-sec-darker)]",
         )}
-      </NextLink>
-    </div>
+        style={{
+          maskImage: `url(${blurCorner.src})`,
+          WebkitMaskImage: `url(${blurCorner.src})`,
+          maskSize: "50% 50%",
+          WebkitMaskSize: "50% 50%",
+          maskPosition: "top right",
+          WebkitMaskPosition: "top right",
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+        }}
+      >
+        <StripesDecoration
+          oddClassName="bg-[linear-gradient(180deg,hsl(var(--start))_0%,hsl(var(--color-neu-0)/0)_50%)]"
+          stripeWidth="12px"
+        />
+      </div>
+
+      <div className="flex flex-1 flex-col gap-4">
+        <p className="typography-menu text-pri-base dark:text-pri-light">
+          {isNext ? "next lesson" : "previous lesson"}
+        </p>
+
+        <div className="flex flex-col gap-4 text-neu-900">
+          <h2 className="typography-h2">{displayPost.title}</h2>
+          {pageData?.description && (
+            <p className="typography-body-md max-w-[560px]">
+              {pageData.description}
+            </p>
+          )}
+        </div>
+
+        <div className="flex h-12 items-center justify-center self-start bg-neu-900 px-8 py-2">
+          <span className="typography-button text-neu-0">
+            Go to {isNext ? "next" : "previous"} lesson
+          </span>
+        </div>
+      </div>
+
+      {pageData?.icon && (
+        <div className="relative flex size-[222px] bg-neu-0">
+          <div
+            className={clsx(
+              "shrink-0 items-center justify-center p-12",
+              section === "getting-started" &&
+                "bg-pri-lightest dark:bg-pri-lighter/5",
+              section === "best-practices" &&
+                "bg-sec-lighter dark:bg-sec-lighter/10",
+            )}
+          >
+            <img
+              src={pageData.icon}
+              alt=""
+              className="size-full object-contain"
+            />
+          </div>
+        </div>
+      )}
+    </NextLink>
   )
 }
