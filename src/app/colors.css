@@ -1,5 +1,6 @@
 :root,
 .light {
+  --color-pri-lightest: 319 100% 96%;
   --color-pri-lighter: 319 100% 90%;
   --color-pri-light: 318 100% 80%;
   --color-pri-base: 319 100% 44.1%;

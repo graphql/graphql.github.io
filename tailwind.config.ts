@@ -38,6 +38,7 @@ const config: Config = {
         black: "#1b1b1b",
 
         // #region new design system colors
+        "pri-lightest": "hsl(var(--color-pri-lightest) / <alpha-value>)",
         "pri-lighter": "hsl(var(--color-pri-lighter) / <alpha-value>)",
         "pri-light": "hsl(var(--color-pri-light) / <alpha-value>)",
         "pri-base": "hsl(var(--color-pri-base) / <alpha-value>)",
