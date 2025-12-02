@@ -4,15 +4,17 @@ import { learnPages } from "./learn-aggregator/learn-pages"
 
 export function Cards({
   items,
-  numbered = false,
+  numbered,
 }: {
   items: {
-    icon?: (({ className }: { className?: string }) => React.ReactNode) | React.ReactNode
+    icon?:
+      | (({ className }: { className?: string }) => React.ReactNode)
+      | React.ReactNode
     title: string
     description?: string
     link: string
   }[]
-  numbered?: boolean
+  numbered?: string
 }) {
   return (
     <ul className="grid grid-cols-1 justify-stretch gap-2 pt-6 sm:grid-cols-2 lg:gap-4">
@@ -41,7 +43,7 @@ export function Cards({
               <span className="flex flex-col gap-1 [grid-area:header]">
                 {numbered && (
                   <span className="typography-body-sm px-2 pt-2 text-neu-700 max-lg:typography-body-md lg:px-4 lg:pt-4">
-                    Lesson {index + 1}
+                    {numbered} {index + 1}
                   </span>
                 )}
                 <span
@@ -52,7 +54,11 @@ export function Cards({
                 >
                   {item.icon && (
                     <span className="flex items-center justify-center border-r border-neu-200 p-2 lg:p-4">
-                      {typeof item.icon === "function" ? <item.icon className="size-8 shrink-0" /> : item.icon}
+                      {typeof item.icon === "function" ? (
+                        <item.icon className="size-8 shrink-0" />
+                      ) : (
+                        item.icon
+                      )}
                     </span>
                   )}
                   {item.title}
