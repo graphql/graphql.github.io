@@ -5,7 +5,7 @@ import type { ReactElement } from "react"
 import { useThemeConfig } from "nextra-theme-docs"
 import type { DocsThemeConfig } from "nextra-theme-docs"
 
-import { ArrowDown } from "@/app/conf/_design-system/pixelarticons/arrow-down"
+import ArrowDown from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 
 interface NavLinkProps {
   currentIndex: number
