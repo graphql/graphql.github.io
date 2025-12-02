@@ -69,7 +69,12 @@ const _items: Record<
     section: "getting-started",
   },
   // ---
-  "best-practices": null,
+  "best-practices": {
+    description:
+      "Understand the context behind the GraphQL Best Practices lessons.",
+    icon: new URL("./assets/keyboard.svg", import.meta.url).href,
+    section: "best-practices",
+  },
   "thinking-in-graphs": {
     description:
       "Learn how to shift your mindset from RESTful endpoints to graph-based thinking, aligning your schema with business logic and legacy systems.",
