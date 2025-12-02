@@ -25,7 +25,7 @@ export default {
     type: "separator",
     title: "Best Practices",
   },
-  "best-practices": "",
+  "best-practices": "Introduction",
   "thinking-in-graphs": "",
   "serving-over-http": "",
   "file-uploads": "",
