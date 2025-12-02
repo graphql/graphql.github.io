@@ -1,24 +1,15 @@
-import cn from "clsx"
+// eslint-disable-next-line no-restricted-imports -- since we don't need newWindow prop
 import NextLink from "next/link"
-import { ArrowRightIcon } from "nextra/icons"
 import type { Item } from "nextra/normalize-pages"
 import type { ReactElement } from "react"
 import { useThemeConfig } from "nextra-theme-docs"
 import type { DocsThemeConfig } from "nextra-theme-docs"
 
+import { ArrowDown } from "@/app/conf/_design-system/pixelarticons/arrow-down"
+
 interface NavLinkProps {
   currentIndex: number
   flatDocsDirectories: Item[]
-}
-
-const classes = {
-  link: cn(
-    "nextra-focus _text-gray-600 dark:_text-gray-400",
-    "hover:_text-gray-800 dark:hover:_text-gray-200",
-    "contrast-more:_text-gray-700 contrast-more:dark:_text-gray-100",
-    "_flex _max-w-[50%] _items-center _gap-1 _py-4 _text-base _font-medium _transition-colors [word-break:break-word] md:_text-lg",
-  ),
-  icon: cn("_inline _h-5 _shrink-0"),
 }
 
 export function ArrowNavLinks({
@@ -38,34 +29,29 @@ export function ArrowNavLinks({
   if (!prev && !next) return null
 
   return (
-    <div
-      className={cn(
-        "_mb-8 _flex _items-center _border-t _pt-8 dark:_border-neutral-800",
-        "contrast-more:_border-neutral-400 dark:contrast-more:_border-neutral-400",
-        "print:_hidden",
-      )}
-    >
+    <div className="mb-8 flex items-center gap-4 border-t border-neu-200 pt-8 print:hidden">
       {prev && (
         <NextLink
           href={prev.route}
           title={prev.title}
-          className={cn(classes.link, "ltr:_pr-4 rtl:_pl-4")}
+          className="gql-focus-visible typography-link flex max-w-[50%] items-center gap-2 border border-neu-200 pr-2 text-left text-base no-underline hover:bg-neu-50 hover:ring hover:ring-neu-100 dark:border-neu-100 dark:hover:bg-neu-50/50 dark:hover:ring-neu-50"
         >
-          <ArrowRightIcon className={cn(classes.icon, "ltr:_rotate-180")} />
-          {prev.title}
+          <span className="border-r p-2">
+            <ArrowDown className="size-8 shrink-0 rotate-90" />
+          </span>
+          <span className="[word-break:break-word]">{prev.title}</span>
         </NextLink>
       )}
       {next && (
         <NextLink
           href={next.route}
           title={next.title}
-          className={cn(
-            classes.link,
-            "ltr:_ml-auto ltr:_pl-4 ltr:_text-right rtl:_mr-auto rtl:_pr-4 rtl:_text-left",
-          )}
+          className="gql-focus-visible typography-link ml-auto flex max-w-[50%] items-center gap-2 border border-neu-200 pl-2 text-left text-base no-underline hover:bg-neu-50 hover:ring hover:ring-neu-100 dark:border-neu-100 dark:hover:bg-neu-50/50 dark:hover:ring-neu-50"
         >
-          {next.title}
-          <ArrowRightIcon className={cn(classes.icon, "rtl:_rotate-180")} />
+          <span className="[word-break:break-word]">{next.title}</span>
+          <span className="border-l border-neu-200 p-2 dark:border-neu-100">
+            <ArrowDown className="size-8 shrink-0 -rotate-90" />
+          </span>
         </NextLink>
       )}
     </div>
