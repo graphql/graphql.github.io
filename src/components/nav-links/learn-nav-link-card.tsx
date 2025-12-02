@@ -97,7 +97,7 @@ export function LearnNavLinkCard({
       </div>
 
       {pageData?.icon && (
-        <div className="relative flex size-[222px] bg-neu-0">
+        <div className="relative flex size-[222px] bg-neu-0/[.64] backdrop-blur-[6px]">
           <div
             className={clsx(
               "shrink-0 items-center justify-center p-12",
