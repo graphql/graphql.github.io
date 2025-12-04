@@ -116,6 +116,7 @@ function Body({ children }: { children: ReactNode }): ReactElement {
           <LearnNavLinkCard
             flatDocsDirectories={flatDocsDirectories}
             currentIndex={activeIndex}
+            articleNoun="lesson"
           />
         ) : (
           <ArrowNavLinks

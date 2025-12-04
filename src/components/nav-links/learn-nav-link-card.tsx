@@ -14,12 +14,14 @@ interface LearnNavLinkCardProps {
   currentIndex: number
   flatDocsDirectories: Item[]
   className?: string
+  articleNoun: string
 }
 
 export function LearnNavLinkCard({
   flatDocsDirectories,
   currentIndex,
   className,
+  articleNoun,
 }: LearnNavLinkCardProps): ReactElement | null {
   const themeConfig = useThemeConfig()
   const nav = themeConfig.navigation
@@ -46,7 +48,7 @@ export function LearnNavLinkCard({
     <NextLink
       href={displayPost.route}
       className={clsx(
-        "gql-focus-visible relative mx-auto flex max-w-[1056px] items-center gap-8 border border-neu-200 bg-neu-0 p-8 hover:ring hover:ring-neu-100 dark:border-neu-50 dark:hover:ring-neu-50/50",
+        "gql-focus-visible relative mx-auto flex max-w-[1056px] items-center gap-8 border border-neu-200 bg-neu-0 p-8 @container hover:ring hover:ring-neu-100 dark:border-neu-50 dark:hover:ring-neu-50/50",
         className,
       )}
     >
@@ -75,29 +77,29 @@ export function LearnNavLinkCard({
         />
       </div>
 
-      <div className="flex flex-1 flex-col gap-4">
-        <p className="typography-menu text-pri-base dark:text-pri-light">
-          {isNext ? "next lesson" : "previous lesson"}
+      <div className="flex flex-1 flex-col gap-3 sm:gap-4">
+        <p className="typography-menu text-xs text-pri-base @[740px]:text-sm dark:text-pri-light">
+          {isNext ? `next ${articleNoun}` : `previous ${articleNoun}`}
         </p>
 
-        <div className="flex flex-col gap-4 text-neu-900">
-          <h2 className="typography-h2">{displayPost.title}</h2>
-          {pageData?.description && (
-            <p className="typography-body-md max-w-[560px]">
-              {pageData.description}
-            </p>
-          )}
-        </div>
+        <h2 className="typography-h2 md:typography-h3 md:@[700px]:typography-h2">
+          {displayPost.title}
+        </h2>
+        {pageData?.description && (
+          <p className="typography-body-md max-w-[560px]">
+            {pageData.description}
+          </p>
+        )}
 
         <div className="flex h-12 items-center justify-center self-start bg-neu-900 px-8 py-2">
           <span className="typography-button text-neu-0">
-            Go to {isNext ? "next" : "previous"} lesson
+            Go to {isNext ? "next" : "previous"} {articleNoun}
           </span>
         </div>
       </div>
 
       {pageData?.icon && (
-        <div className="relative flex size-[222px] bg-neu-0/[.64] backdrop-blur-[6px]">
+        <div className="relative hidden size-[222px] bg-neu-0/[.64] backdrop-blur-[6px] @[680px]:flex">
           <div
             className={clsx(
               "shrink-0 items-center justify-center p-12",
