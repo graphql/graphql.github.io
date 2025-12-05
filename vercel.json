@@ -401,6 +401,46 @@
       "permanent": true
     },
     {
+      "source": "/community/resources/official-channels",
+      "destination": "/resources/official-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/training-courses",
+      "destination": "/resources/training-courses",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/community-channels",
+      "destination": "/resources/community-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/blogs-and-newsletters",
+      "destination": "/resources/blogs-and-newsletters",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/videos",
+      "destination": "/resources/videos",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/vendor-channels",
+      "destination": "/resources/vendor-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/books",
+      "destination": "/resources/books",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/more-resources",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
       "source": "/blog/2020-10-15-graphql-foundation-monthly-newsletter-september-2020/",
       "destination": "/blog/2020-10-15-newsletter-september-2020",
       "permanent": true
