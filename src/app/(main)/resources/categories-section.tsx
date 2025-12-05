@@ -96,11 +96,11 @@ function CategoryCard({ category }: { category: Category }) {
   return (
     <Link
       href={`/resources/${category.id}`}
-      className="group flex h-[202px] flex-col justify-between border border-neu-200 bg-neu-0 p-6 hover:bg-neu-50"
+      className="group flex h-[202px] flex-col justify-between border border-neu-200 bg-neu-0 p-6 transition-colors hover:bg-neu-50 hover:duration-0"
     >
       <div className="flex items-start justify-between">
         {category.icon}
-        <ArrowDownIcon className="size-6 -rotate-90 text-neu-900 opacity-0 duration-150 group-hover:opacity-100 group-focus-visible:opacity-100" />
+        <ArrowDownIcon className="size-6 -rotate-90 text-neu-900 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-hover:duration-0 group-focus-visible:opacity-100" />
       </div>
       <div>
         <h3 className="typography-h3 group-hover:hidden">{category.name}</h3>
