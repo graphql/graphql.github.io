@@ -4,7 +4,7 @@ export function ResourcesHero() {
   return (
     <section className="relative overflow-hidden bg-neu-0 pt-[calc(var(--nextra-navbar-height)+24px)] lg:h-[600px]">
       <LearnHeroStripes
-        className="!h-full"
+        className="!h-full ![--start-2:hsl(var(--color-sec-lighter)/.5)] dark:![--start-2:hsl(319,100%,30%)]"
         style={{
           maskSize: "2000px",
           WebkitMaskSize: "2000px",
