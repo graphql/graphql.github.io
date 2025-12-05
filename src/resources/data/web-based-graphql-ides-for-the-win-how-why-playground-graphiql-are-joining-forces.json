@@ -1,9 +1,5 @@
 {
   "title": "Web-based GraphQL IDEs for the win: How & Why Playground & GraphiQL are joining forces",
   "url": "https://graphql.org/blog/2020-04-03-graphiql-graphql-playground/",
-  "tags": [
-    "blog",
-    "developer-experience",
-    "frontend"
-  ]
+  "tags": ["blog", "developer-experience", "frontend"]
 }

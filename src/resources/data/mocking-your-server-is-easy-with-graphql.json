@@ -1,8 +1,5 @@
 {
   "title": "Mocking your server is easy with GraphQL",
   "url": "https://graphql.org/blog/2016-04-19-mocking/",
-  "tags": [
-    "blog",
-    "backend"
-  ]
+  "tags": ["blog", "backend"]
 }

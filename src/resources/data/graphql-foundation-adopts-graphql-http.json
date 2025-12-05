@@ -1,8 +1,5 @@
 {
   "title": "GraphQL Foundation adopts graphql-http",
   "url": "https://graphql.org/blog/2022-11-07-graphql-http/",
-  "tags": [
-    "blog",
-    "api-platform-and-gateways"
-  ]
+  "tags": ["blog", "api-platform-and-gateways"]
 }
