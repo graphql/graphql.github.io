@@ -1,25 +1,14 @@
-<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 46 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Group">
-<path id="Vector" d="M45.72 2.29504H43.425V29.715H45.72V2.29504Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_2" d="M2.28 45.7199V43.4399H3.8147e-06V47.9999H45.72V43.4399H43.425V45.7199H2.28Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_3" d="M43.425 41.1451H41.145V43.4401H43.425V41.1451Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_4" d="M41.145 38.8651H38.865V41.1451H41.145V38.8651Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_5" d="M9.15 34.2901V36.5701H36.57V34.2901H29.715V32.0101H43.425V29.7151H2.28V32.0101H16.005V34.2901H9.15ZM18.285 32.0101H27.435V34.2901H18.285V32.0101Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_6" d="M38.865 36.57H36.57V38.865H38.865V36.57Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_7" d="M41.145 4.57498H4.57501V27.435H41.145V4.57498ZM38.865 25.14H6.85501V6.85498H38.865V25.14Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_8" d="M36.57 41.1451H34.29V43.4401H36.57V41.1451Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_9" d="M34.29 38.8651H31.995V41.1451H34.29V38.8651Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_10" d="M29.715 41.1451H27.435V43.4401H29.715V41.1451Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_11" d="M27.435 38.8651H25.14V41.1451H27.435V38.8651Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_12" d="M22.86 41.1451H20.565V43.4401H22.86V41.1451Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_13" d="M20.565 38.8651H18.285V41.1451H20.565V38.8651Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_14" d="M18.285 41.1451H16.005V43.4401H18.285V41.1451Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_15" d="M13.71 38.8651H11.43V41.1451H13.71V38.8651Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_16" d="M11.43 41.1451H9.15V43.4401H11.43V41.1451Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_17" d="M9.15 36.57H6.855V38.865H9.15V36.57Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_18" d="M6.85501 38.8651H4.57501V41.1451H6.85501V38.8651Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_19" d="M43.425 0H2.28V2.295H43.425V0Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_20" d="M4.575 41.1451H2.28V43.4401H4.575V41.1451Z" fill="var(--fill-0, #990069)"/>
-<path id="Vector_21" d="M2.28 2.29504H3.8147e-06V29.715H2.28V2.29504Z" fill="var(--fill-0, #990069)"/>
-</g>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="currentColor"
+  overflow="visible"
+  preserveAspectRatio="none"
+  viewBox="0 0 46 48"
+>
+  <path
+    d="M45.72 2.295h-2.295v27.42h2.295zM2.28 45.72v-2.28H0V48h45.72v-4.56h-2.295v2.28z"
+  />
+  <path
+    d="M43.425 41.145h-2.28v2.295h2.28zM41.145 38.865h-2.28v2.28h2.28zM9.15 34.29v2.28h27.42v-2.28h-6.855v-2.28h13.71v-2.295H2.28v2.295h13.725v2.28zm9.135-2.28h9.15v2.28h-9.15zM38.865 36.57H36.57v2.295h2.295zM41.145 4.575H4.575v22.86h36.57zm-2.28 20.565H6.855V6.855h32.01zM36.57 41.145h-2.28v2.295h2.28zM34.29 38.865h-2.295v2.28h2.295zM29.715 41.145h-2.28v2.295h2.28zM27.435 38.865H25.14v2.28h2.295zM22.86 41.145h-2.295v2.295h2.295zM20.565 38.865h-2.28v2.28h2.28zM18.285 41.145h-2.28v2.295h2.28zM13.71 38.865h-2.28v2.28h2.28zM11.43 41.145H9.15v2.295h2.28zM9.15 36.57H6.855v2.295H9.15zM6.855 38.865h-2.28v2.28h2.28zM43.425 0H2.28v2.295h41.145zM4.575 41.145H2.28v2.295h2.295zM2.28 2.295H0v27.42h2.28z"
+  />
 </svg>
