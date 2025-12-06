@@ -13,7 +13,7 @@ export function ToolsLibrariesSection() {
           </span>
         </div>
 
-        <div className="mt-12 flex flex-col items-start gap-12 lg:flex-row lg:justify-between">
+        <div className="mt-8 flex flex-col items-start gap-12 lg:flex-row lg:justify-between">
           <div className="max-w-[788px]">
             <h2 className="typography-h2 text-balance text-neu-900">
               Build GraphQL with Tools & Libraries
