@@ -8,7 +8,7 @@ export function VideoResourcesSection() {
       <Eyebrow>video resources library</Eyebrow>
 
       <div className="mt-8 flex flex-col items-start gap-8 lg:flex-row lg:justify-between">
-        <div className="flex shrink-0 items-center justify-center border border-neu-200 bg-neu-0 text-neu-400 max-lg:size-16 max-lg:p-2 lg:order-1 lg:size-[294px]">
+        <div className="flex shrink-0 items-center justify-center border border-neu-200 bg-neu-0 text-neu-400 dark:border-neu-100 dark:bg-neu-0/50 max-lg:size-16 max-lg:p-2 lg:order-1 lg:size-[294px]">
           <VideoPlayerIcon className="size-12 lg:size-36" />
         </div>
 
@@ -21,7 +21,7 @@ export function VideoResourcesSection() {
             meetups, and expert engineers — keeping you up to date in a
             fast-moving ecosystem.
           </p>
-          <Button href="/conf" className="mt-10 w-fit max-lg:w-full">
+          <Button href="/conf" className="mt-10 sm:w-fit">
             Go to Video Resources
           </Button>
         </div>

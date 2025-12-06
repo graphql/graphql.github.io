@@ -25,10 +25,14 @@ export default function ResourcesPage() {
         <ToolsLibrariesSection />
         <SpecificationSection />
         <BlogSection />
+      </div>
+      <div className="bg-neu-50 dark:bg-neu-50/25 lg:py-16 xl:py-24">
         <VideoResourcesSection />
+        <hr className="gql-section mx-auto my-8 max-w-[90rem] border-neu-200 !py-0 dark:border-neu-100 xl:my-16" />
         <ReadingResourcesSection />
       </div>
       <LookingForMore
+        className="xl:py-24"
         description="Discover even more ways to learn and connect with the GraphQL community."
         links={[
           { href: "/community", label: "Community" },

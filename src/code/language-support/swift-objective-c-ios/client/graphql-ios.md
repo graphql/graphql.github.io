@@ -5,4 +5,4 @@ github: funcompany/graphql-ios
 tags:
   - tools-and-libraries
   - client
----q
+---

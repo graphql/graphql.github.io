@@ -68,7 +68,7 @@ export async function BlogSection() {
     .slice(0, 5)
 
   return (
-    <section className="gql-section" id="blog">
+    <section className="gql-section xl:pb-24" id="blog">
       <header className="flex flex-col gap-6">
         <div className="flex items-center gap-1">
           <PlayIcon className="size-4 text-pri-base" />
