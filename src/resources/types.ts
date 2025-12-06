@@ -21,10 +21,10 @@ export type ResourceTag = Topic | Kind
 export const ResourceMetadata = type({
   title: "string>0",
   url: "string.url",
-  "kind?": type.enumerated(kinds),
-  "topics?": type.enumerated(topics).array(),
+  "kind?": type.enumerated(...kinds),
+  "topics?": type.enumerated(...topics).array(),
   "description?": "string>0",
-  tags: type.enumerated([...topics, ...kinds]).array(),
+  tags: type.enumerated(...topics, ...kinds).array(),
 })
 
 export type ResourceMetadata = typeof ResourceMetadata.inferOut
