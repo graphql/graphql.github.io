@@ -1,17 +1,14 @@
 import { Button } from "@/app/conf/_design-system/button"
-import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import ToolsIcon from "./assets/tools.svg?svgr"
+import { Eyebrow } from "@/_design-system/eyebrow"
 
 export function ToolsLibrariesSection() {
   return (
     <section className="gql-section" id="tools-and-libraries">
       <div className="border border-sec-base bg-sec-lighter p-8 dark:border-sec-darker dark:bg-sec-darker/15 lg:p-16">
-        <div className="flex items-center gap-1 text-sec-darker dark:text-sec-light">
-          <PlayIcon className="size-4" />
-          <span className="font-mono text-sm uppercase">
-            tools and libraries
-          </span>
-        </div>
+        <Eyebrow className="!text-sec-darker dark:!text-sec-light">
+          tools and libraries
+        </Eyebrow>
 
         <div className="mt-8 flex flex-col items-start gap-12 lg:flex-row lg:justify-between">
           <div className="max-w-[788px]">

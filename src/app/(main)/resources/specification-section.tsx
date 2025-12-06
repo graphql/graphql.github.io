@@ -1,17 +1,14 @@
 import { Button } from "@/app/conf/_design-system/button"
-import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import ArchiveIcon from "./assets/archive.svg?svgr"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
+import { Eyebrow } from "@/_design-system/eyebrow"
 
 export function SpecificationSection() {
   return (
     <section className="gql-section" id="specification">
       <div className="relative overflow-hidden border border-pri-lighter bg-pri-lightest p-8 dark:border-pri-darker dark:bg-pri-darker/15 lg:p-16">
         <Stripes />
-        <div className="relative flex items-center gap-1 text-pri-base dark:text-pri-light">
-          <PlayIcon className="size-4" />
-          <span className="font-mono text-sm uppercase">specification</span>
-        </div>
+        <Eyebrow>specification</Eyebrow>
 
         <div className="mt-8 flex flex-col items-start gap-12 lg:flex-row lg:justify-between">
           <div className="flex size-[268px] shrink-0 items-center justify-center bg-pri-lighter p-12 text-pri-base dark:bg-pri-darker/20">
