@@ -1,8 +1,10 @@
 ---
 name: GraphQL Protect
 description: GraphQL Protect is a GraphQL Protect is dead-simple yet highly customizable security proxy compatible with any HTTP GraphQL Server or Gateway.
-#url: https://github.com/ldebruijn/graphql-protect/
 github: ldebruijn/graphql-protect
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 [GraphQL Protect](https://github.com/ldebruijn/graphql-protect) helps you protect your GraphQL API against abuse by providing a large number of plug-and-play protection mechanism with sane defaults, while still allowing you complete customizability.

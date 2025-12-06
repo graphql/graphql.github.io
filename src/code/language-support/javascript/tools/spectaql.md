@@ -3,6 +3,9 @@ name: SpectaQL
 description: SpectaQL generates static HTML documentation from a GraphQL schema.
 github: anvilco/spectaql
 npm: "spectaql"
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 SpectaQL is a Node.js library that generates static documentation for a GraphQL schema using a variety of options:

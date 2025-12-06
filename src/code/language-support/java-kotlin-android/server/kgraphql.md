@@ -3,6 +3,9 @@ name: KGraphQL
 description: KGraphQL is a Kotlin implementation of GraphQL. It provides a rich DSL to set up the GraphQL schema.
 url: https://kgraphql.io/
 github: aPureBase/KGraphQL
+tags:
+  - tools-and-libraries
+  - server
 ---
 
 Here's an example on how to create a simple schema based on a kotlin data class plus a property resolver that gets applied onto your class.

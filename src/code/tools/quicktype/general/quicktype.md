@@ -4,4 +4,7 @@ description: Generate types for GraphQL queries in TypeScript, Swift, golang, C#
 url: https://quicktype.io/
 github: glideapps/quicktype
 npm: "quicktype"
+tags:
+  - tools-and-libraries
+  - tools
 ---

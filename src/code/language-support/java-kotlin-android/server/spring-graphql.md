@@ -3,6 +3,9 @@ name: Spring for GraphQL
 description: Spring for GraphQL provides support for Spring applications built on GraphQL Java.
 url: https://spring.io/projects/spring-graphql
 github: spring-projects/spring-graphql
+tags:
+  - tools-and-libraries
+  - server
 ---
 
 Spring for GraphQL provides support for Spring applications built on

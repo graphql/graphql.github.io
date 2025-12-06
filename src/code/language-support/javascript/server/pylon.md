@@ -3,6 +3,9 @@ name: Pylon
 description: A code-first framework for GraphQL API development, where your schema reflects your functionality. Run `npm create pylon@latest` to get started.
 url: https://pylon.cronit.io
 github: getcronit/pylon
+tags:
+  - tools-and-libraries
+  - server
 ---
 
 1. **Create**
