@@ -10,9 +10,9 @@ export function SpecificationSection() {
         <Stripes />
         <Eyebrow>specification</Eyebrow>
 
-        <div className="mt-8 flex flex-col items-start gap-12 lg:flex-row lg:justify-between">
-          <div className="flex size-[268px] shrink-0 items-center justify-center bg-pri-lighter p-12 text-pri-base dark:bg-pri-darker/20">
-            <ArchiveIcon className="size-40" aria-hidden />
+        <div className="mt-8 flex flex-col items-start gap-8 lg:flex-row lg:justify-between">
+          <div className="flex size-[268px] shrink-0 items-center justify-center bg-pri-lighter p-12 text-pri-base dark:bg-pri-darker/20 max-lg:size-16 max-lg:p-2">
+            <ArchiveIcon className="size-40 max-lg:size-12" aria-hidden />
           </div>
 
           <div className="max-w-[788px]">
@@ -20,11 +20,11 @@ export function SpecificationSection() {
               Read the GraphQL Specification
             </h2>
             <p className="typography-body-lg mt-6 text-neu-800 lg:mt-10">
-              The specification defines the core structure of GraphQL. It’s the
+              The specification defines the core structure of GraphQL. It's the
               foundation for building consistent servers, clients, and tools.
               Read the spec to better understand how GraphQL works.
             </p>
-            <Button href="/spec" className="mt-10 w-fit">
+            <Button href="/spec" className="mt-10 w-fit max-lg:w-full">
               Go to specification
             </Button>
           </div>
