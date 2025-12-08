@@ -5,5 +5,5 @@ url: https://www.apollographql.com/docs/ios/
 github: apollographql/apollo-ios
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

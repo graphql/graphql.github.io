@@ -5,7 +5,7 @@ url: https://denisart.github.io/graphql-query/
 github: denisart/graphql-query
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 **graphql_query** is complete GraphQL query string builder for python. With **graphql_query**

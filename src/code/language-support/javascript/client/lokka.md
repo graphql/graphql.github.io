@@ -5,5 +5,5 @@ github: kadirahq/lokka
 npm: "lokka"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

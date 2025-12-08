@@ -5,5 +5,5 @@ github: Houfeng/gq-loader
 npm: "gq-loader"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

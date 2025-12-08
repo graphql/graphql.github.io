@@ -5,5 +5,5 @@ github: choojs/nanographql
 npm: "nanographql"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

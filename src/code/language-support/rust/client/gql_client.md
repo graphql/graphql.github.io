@@ -4,7 +4,7 @@ description: Minimal GraphQL client for Rust
 github: arthurkhlghatyan/gql-client-rs
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 Usage example

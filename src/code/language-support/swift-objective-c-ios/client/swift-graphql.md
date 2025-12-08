@@ -4,7 +4,7 @@ description: A GraphQL client that lets you forget about GraphQL.
 github: maticzav/swift-graphql
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 SwiftGraphQL is a Swift code generator and a lightweight GraphQL client. It lets you create queries using Swift, and guarantees that every query you create is valid.

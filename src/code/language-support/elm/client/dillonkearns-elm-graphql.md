@@ -4,5 +4,5 @@ description: Library and command-line code generator to create type-safe Elm cod
 github: dillonkearns/elm-graphql
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

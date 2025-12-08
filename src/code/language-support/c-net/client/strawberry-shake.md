@@ -5,7 +5,7 @@ url: https://chillicream.com/docs/strawberryshake/
 github: ChilliCream/hotchocolate
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 Strawberry Shake removes the complexity of state management and lets you interact with local and remote data through GraphQL.

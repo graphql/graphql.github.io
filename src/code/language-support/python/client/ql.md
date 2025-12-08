@@ -5,7 +5,7 @@ url: https://dsal3389.github.io/ql/
 github: dsal3389/ql
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 GraphQL client library, wrapped around pydantic classes for type validation,

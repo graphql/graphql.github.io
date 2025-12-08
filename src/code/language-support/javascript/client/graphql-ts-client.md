@@ -5,5 +5,5 @@ github: babyfish-ct/graphql-ts-client
 npm: "graphql-ts-client-api"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

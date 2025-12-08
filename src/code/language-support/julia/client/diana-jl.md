@@ -4,5 +4,5 @@ description: A Julia GraphQL server implementation.
 github: neomatrixcode/Diana.jl
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

@@ -4,5 +4,5 @@ description: A GraphQL client implemented in Clojurescript with support for webs
 github: oliyh/re-graph
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

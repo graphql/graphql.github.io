@@ -4,5 +4,5 @@ description: A simple Python GraphQL client. Supports generating code generation
 github: profusion/sgqlc
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

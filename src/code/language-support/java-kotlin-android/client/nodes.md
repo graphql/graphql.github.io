@@ -4,5 +4,5 @@ description: A GraphQL JVM Client designed for constructing queries from standar
 github: americanexpress/nodes
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

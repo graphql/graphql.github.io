@@ -5,7 +5,7 @@ url: https://linq2graphql.com
 github: linq2graphql/linq2graphql.client
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 Linq2GraphQL generates C# classes from the GraphQL schema and and togheter with the nuget package Linq2GraphQL.Client it makes it possible to query the server using Linq expressions.

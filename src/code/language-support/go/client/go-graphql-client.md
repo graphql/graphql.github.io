@@ -4,5 +4,5 @@ description: A GraphQL Go client with Mutation, Query and Subscription support.
 github: hasura/go-graphql-client
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

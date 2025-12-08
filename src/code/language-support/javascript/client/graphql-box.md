@@ -5,7 +5,7 @@ github: badbatch/graphql-box
 npm: "@graphql-box/client"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 The example below installs and initializes the GraphQLBox client with a persisted cache and debugging enabled.

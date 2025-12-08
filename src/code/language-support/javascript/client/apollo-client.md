@@ -6,5 +6,5 @@ github: apollographql/apollo-client
 npm: "@apollo/client"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

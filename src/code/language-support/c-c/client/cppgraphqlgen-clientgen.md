@@ -4,7 +4,7 @@ description: A C++20 GraphQL request client generator and response parser using 
 github: microsoft/cppgraphqlgen
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 The `clientgen` utility is based on `schemagen` and shares the same external dependencies. The command line arguments

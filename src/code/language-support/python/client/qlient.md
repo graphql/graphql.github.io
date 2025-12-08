@@ -4,7 +4,7 @@ description: A fast and modern graphql client designed with simplicity in mind.
 github: qlient-org/python-qlient
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 Here's an example of a qlient hello world.

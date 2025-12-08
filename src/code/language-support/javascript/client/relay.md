@@ -6,7 +6,7 @@ github: facebook/relay
 npm: "react-relay"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 Relay is a JavaScript framework for building data-driven React applications.

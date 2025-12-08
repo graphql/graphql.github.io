@@ -5,5 +5,5 @@ github: enisdenjo/graphql-ws
 npm: "graphql-ws"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

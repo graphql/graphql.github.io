@@ -6,7 +6,7 @@ github: gqty-dev/gqty
 npm: "gqty"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 GQty is a query builder, a query fetcher and a cache manager solution all-in-one.

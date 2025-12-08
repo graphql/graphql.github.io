@@ -6,5 +6,5 @@ github: aws-amplify/amplify-js
 npm: "aws-amplify"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

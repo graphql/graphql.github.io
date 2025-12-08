@@ -4,5 +4,5 @@ description: A Tool for Writing Declarative, Type-Safe and Data-Driven Applicati
 github: nerdsupremacist/Graphaello
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

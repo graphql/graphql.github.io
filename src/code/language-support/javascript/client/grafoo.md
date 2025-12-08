@@ -5,5 +5,5 @@ github: grafoojs/grafoo
 npm: "@grafoo/core"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

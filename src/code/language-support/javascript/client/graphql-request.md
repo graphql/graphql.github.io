@@ -5,5 +5,5 @@ github: jasonkuhrt/graphql-request
 npm: "graphql-request"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

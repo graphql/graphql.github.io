@@ -4,5 +4,5 @@ description: Basic example GraphQL client for .NET.
 github: bkniffler/graphql-net-client
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

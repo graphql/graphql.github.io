@@ -4,7 +4,7 @@ description: A Julia GraphQL client for seamless integration with a GraphQL serv
 github: DeloitteDigitalAPAC/GraphQLClient.jl
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 - **Querying**, **mutating** and **subscribing** without manual writing of query strings (unless you want to!)

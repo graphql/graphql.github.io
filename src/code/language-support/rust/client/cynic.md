@@ -5,7 +5,7 @@ url: https://cynic-rs.dev
 github: obmarg/cynic
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 A client library for rust that generates queries from types you provide,

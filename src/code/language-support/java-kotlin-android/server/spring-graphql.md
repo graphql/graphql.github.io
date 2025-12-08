@@ -32,7 +32,7 @@ public class GreetingController {
 }
 ```
 
-- Client support for executing GraphQL requests over HTTP, WebSocket, and RSocket.
+- frontend support for executing GraphQL requests over HTTP, WebSocket, and RSocket.
 - Dedicated support for testing GraphQL requests over HTTP, WebSocket, and RSocket, as well as for testing directly against a server.
 
 To get started, check the Spring GraphQL starter on https://start.spring.io and the

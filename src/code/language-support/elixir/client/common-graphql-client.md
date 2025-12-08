@@ -4,5 +4,5 @@ description: Elixir GraphQL Client with HTTP and WebSocket support
 github: annkissam/common_graphql_client
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

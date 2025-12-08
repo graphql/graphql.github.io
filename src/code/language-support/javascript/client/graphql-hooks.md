@@ -5,7 +5,7 @@ github: nearform/graphql-hooks
 npm: graphql-hooks
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 - 🥇 First-class hooks API

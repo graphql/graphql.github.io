@@ -5,5 +5,5 @@ github: hasura/graphqurl
 npm: "graphqurl"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

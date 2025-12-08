@@ -5,5 +5,5 @@ url: https://github.com/prisma/python-graphql-client
 github: prisma-labs/python-graphql-client
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---

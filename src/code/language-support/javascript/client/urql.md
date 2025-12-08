@@ -6,7 +6,7 @@ github: FormidableLabs/urql
 npm: "@urql/core"
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
 
 `urql` is a GraphQL client that exposes a set of helpers for several frameworks.

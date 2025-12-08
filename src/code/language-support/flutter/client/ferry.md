@@ -5,5 +5,5 @@ url: https://ferrygraphql.com/
 github: gql-dart/ferry
 tags:
   - tools-and-libraries
-  - client
+  - frontend
 ---
