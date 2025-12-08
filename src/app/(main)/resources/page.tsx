@@ -19,7 +19,10 @@ export default function ResourcesPage() {
   return (
     <main className="gql-all-anchors-focusable">
       <NavbarFixed />
-      <ResourcesHero />
+      <ResourcesHero
+        heading="Resource Hub"
+        text="Choose a hub to explore curated resources by topic or browse all Tools, the GraphQL Specification, Blog, Video and Reading Libraries."
+      />
       <div className="gql-container">
         <CategoriesSection />
         <ToolsLibrariesSection />
