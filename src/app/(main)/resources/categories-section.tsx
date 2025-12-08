@@ -107,7 +107,7 @@ function CategoryCard({ category }: { category: Category }) {
     >
       <div className="flex items-start justify-between">
         {category.icon}
-        <ArrowDownIcon className="size-6 -rotate-90 text-neu-900 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-hover:duration-0 group-focus-visible:opacity-100" />
+        <ArrowDownIcon className="size-6 -rotate-90 text-neu-900 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-hover:duration-0 group-focus-visible:opacity-100 max-lg:opacity-80" />
       </div>
       <div>
         <h3 className="typography-h3 lg:group-hover:hidden">{category.name}</h3>
