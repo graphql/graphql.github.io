@@ -16,7 +16,7 @@ export function BlogCategoryLinks() {
   return (
     <>
       <Collapsible.Root className="mt-8 sm:hidden">
-        <Collapsible.Trigger className="flex h-12 w-full items-center justify-between border-y border-neu-400 p-4 text-neu-800">
+        <Collapsible.Trigger className="flex h-12 w-full items-center justify-between border-y border-neu-400 p-4 text-neu-800 dark:border-neu-100">
           <span className="font-mono text-sm uppercase">categories</span>
           <CaretDownIcon className="size-6 transition-transform [[data-panel-open]_&]:rotate-180" />
         </Collapsible.Trigger>

@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function ResourcesPage() {
   return (
-    <>
+    <main className="gql-all-anchors-focusable">
       <NavbarFixed />
       <ResourcesHero />
       <div className="gql-container">
@@ -39,6 +39,6 @@ export default function ResourcesPage() {
           { href: "/learn", label: "Learn" },
         ]}
       />
-    </>
+    </main>
   )
 }

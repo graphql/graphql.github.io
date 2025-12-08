@@ -5,10 +5,10 @@ import grayMatter from "gray-matter"
 
 import { Button } from "@/app/conf/_design-system/button"
 import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
-import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
-import { BlogTags } from "@/components/blog-page/blog-tags"
+
 import { blogTagColors } from "@/components/blog-page/blog-tag-colors"
 import { BlogCategoryLinks } from "./blog-category-links"
+import { BlogPostListItem } from "./blog-post-list-item"
 
 interface BlogFrontMatter {
   title: string
@@ -82,9 +82,9 @@ export async function BlogSection() {
 
       <BlogCategoryLinks />
 
-      <div className="mt-4 grid grid-flow-row grid-cols-[auto_1fr] grid-rows-5 divide-neu-200 *:border-b dark:*:border-neu-100 md:grid-cols-[auto_1fr_auto_auto_auto]">
+      <ul className="mt-4 grid grid-flow-row grid-cols-[auto_1fr] grid-rows-5 *:border-b dark:*:border-neu-100 md:grid-cols-[auto_1fr_auto_auto_auto]">
         {blogPosts.map(post => (
-          <BlogPostRow
+          <BlogPostListItem
             key={post.fileName}
             date={new Date(post.date).toISOString().slice(0, 10)}
             category={post.tags?.[0] ?? "blog"}
@@ -93,63 +93,11 @@ export async function BlogSection() {
             author={post.byline}
           />
         ))}
-      </div>
+      </ul>
 
       <div className="mt-8 flex justify-center lg:mt-16">
         <Button href="/blog">Read all posts</Button>
       </div>
     </section>
   )
-}
-
-interface BlogPostRowProps {
-  date: string
-  category: string
-  title: string
-  href: string
-  author: string
-}
-
-function BlogPostRow({
-  date,
-  category,
-  title,
-  href,
-  author,
-}: BlogPostRowProps) {
-  return (
-    <Link
-      href={href}
-      className="group typography-menu col-span-full grid grid-flow-row grid-cols-subgrid grid-rows-1 items-center gap-x-6 gap-y-px py-6 hover:bg-neu-50 dark:hover:bg-neu-50/50 max-md:grid-rows-2"
-    >
-      <time className="pr-6 text-neu-700 [grid-column:1]">
-        {formatDate(date)}
-      </time>
-      <div className="[grid-column:2] max-md:!row-span-1 max-md:[grid-column:1]">
-        <BlogTags tags={[category]} opaque />
-      </div>
-
-      <p className="truncate [grid-column:3] max-md:[grid-column:2] max-md:[grid-row:0]">
-        {title}
-      </p>
-      <p className="text-neu-700 [grid-column:4] max-md:[grid-column:2] max-md:[grid-row:1]">
-        {author}
-      </p>
-
-      <div className="row-span-full pr-6 [grid-column:5] max-sm:hidden">
-        <ArrowDownIcon className="size-8 -rotate-90 text-neu-400 group-hover:text-neu-800" />
-      </div>
-    </Link>
-  )
-}
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString)
-  return date
-    .toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    })
-    .replaceAll("/", "-")
 }
