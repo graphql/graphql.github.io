@@ -16,16 +16,16 @@ export function BlogCategoryLinks() {
   return (
     <>
       <Collapsible.Root className="mt-8 sm:hidden">
-        <Collapsible.Trigger className="flex h-12 w-full items-center justify-between border-y border-neu-400 p-4 text-neu-800 dark:border-neu-100">
+        <Collapsible.Trigger className="gql-focus-visible flex h-12 w-full items-center justify-between border-y border-neu-400 p-4 text-neu-800 dark:border-neu-100">
           <span className="font-mono text-sm uppercase">categories</span>
-          <CaretDownIcon className="size-6 transition-transform [[data-panel-open]_&]:rotate-180" />
+          <CaretDownIcon className="size-6 [[data-panel-open]_&]:rotate-180" />
         </Collapsible.Trigger>
-        <Collapsible.Panel>
+        <Collapsible.Panel className="absolute z-10 w-full border-b border-neu-200 bg-neu-50 backdrop-blur-xl dark:border-neu-100 dark:bg-neu-50/25">
           {categories.map(category => (
             <Link
               key={category}
               href={`/blog?tag=${encodeURIComponent(category)}`}
-              className="flex h-12 w-full items-center border-b border-neu-200 bg-neu-50 p-4 font-mono text-sm uppercase text-neu-800 last:border-b-0 hover:bg-neu-100"
+              className="flex h-12 w-full items-center border-b border-neu-200 p-4 font-mono text-sm uppercase text-neu-800 last:border-b-0 hover:bg-neu-100 dark:border-neu-100"
             >
               {category.replace(/-/g, " ")}
             </Link>

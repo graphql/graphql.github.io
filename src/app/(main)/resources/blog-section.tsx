@@ -82,7 +82,7 @@ export async function BlogSection() {
 
       <BlogCategoryLinks />
 
-      <ul className="mt-4 grid grid-flow-row grid-cols-[auto_1fr] grid-rows-5 *:border-b dark:*:border-neu-100 md:grid-cols-[auto_1fr_auto_auto_auto]">
+      <ul className="mt-4 flex grid-flow-row grid-cols-[auto_1fr] grid-rows-5 flex-col *:border-b dark:*:border-neu-100 md:grid md:grid-cols-[auto_1fr_auto_auto_auto]">
         {blogPosts.map(post => (
           <BlogPostListItem
             key={post.fileName}
