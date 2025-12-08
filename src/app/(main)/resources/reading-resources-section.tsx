@@ -59,7 +59,7 @@ function ReadingLink({ href, icon, label }: ReadingLinkProps) {
   return (
     <Link
       href={href}
-      className="group typography-body-md flex items-center justify-between gap-6 border border-neu-200 bg-neu-0 p-6 hover:bg-neu-100 dark:border-neu-100 dark:bg-neu-0/50 [&>svg]:size-6"
+      className="group typography-body-md flex items-center justify-between gap-6 border border-neu-200 bg-neu-0 p-6 hover:ring hover:ring-neu-100 dark:border-neu-100 dark:bg-neu-0/50 dark:hover:ring-neu-50 [&>svg]:size-6"
     >
       {icon}
       {label}

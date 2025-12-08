@@ -148,7 +148,7 @@ function BlogPostRow({
       </p>
 
       <div className="row-span-full pr-6 [grid-column:5] max-sm:hidden">
-        <ArrowDownIcon className="size-8 -rotate-90 text-neu-400" />
+        <ArrowDownIcon className="size-8 -rotate-90 text-neu-400 group-hover:text-neu-800" />
       </div>
     </Link>
   )
