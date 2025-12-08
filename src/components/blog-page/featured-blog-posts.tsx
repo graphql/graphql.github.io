@@ -47,7 +47,7 @@ export function FeaturedBlogPosts({
               byline={firstFeatured.frontMatter.byline}
               date={firstFeatured.frontMatter.date}
             />
-            <BlogCardArrow className="border border-neu-300 p-4 dark:border-neu-50" />
+            <BlogCardArrow className="border border-neu-300 p-4 dark:border-neu-100" />
           </footer>
         </div>
       </NextLink>

@@ -8,6 +8,7 @@ import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 import { BlogTags } from "@/components/blog-page/blog-tags"
 import { blogTagColors } from "@/components/blog-page/blog-tag-colors"
+import { BlogCategoryLinks } from "./blog-category-links"
 
 interface BlogFrontMatter {
   title: string
@@ -68,8 +69,8 @@ export async function BlogSection() {
     .slice(0, 5)
 
   return (
-    <section className="gql-section xl:pb-24" id="blog">
-      <header className="flex flex-col gap-6">
+    <section className="gql-section max-sm:px-0 xl:pb-24" id="blog">
+      <header className="flex flex-col gap-6 max-sm:px-4">
         <div className="flex items-center gap-1">
           <PlayIcon className="size-4 text-pri-base" />
           <span className="font-mono text-sm uppercase text-pri-base">
@@ -79,19 +80,7 @@ export async function BlogSection() {
         <h2 className="typography-h2">The GraphQL Blog</h2>
       </header>
 
-      <div className="mt-8">
-        <span className="font-mono text-sm uppercase text-neu-700">
-          categories
-        </span>
-        <div className="nextra-scrollbar overflow-auto pb-4">
-          <BlogTags
-            tags={Object.keys(blogTagColors)}
-            opaque
-            links
-            className="mt-4"
-          />
-        </div>
-      </div>
+      <BlogCategoryLinks />
 
       <div className="mt-4 grid grid-flow-row grid-cols-[auto_1fr] grid-rows-5 divide-neu-200 *:border-b dark:*:border-neu-100 md:grid-cols-[auto_1fr_auto_auto_auto]">
         {blogPosts.map(post => (

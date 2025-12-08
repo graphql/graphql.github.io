@@ -52,14 +52,14 @@ export function BlogPage({
       </div>
 
       <div className="gql-container">
-        <div className="gql-section max-sm:pt-0">
+        <div className="gql-section max-sm:px-2 max-sm:pt-0">
           <section className="flex justify-between gap-2 max-sm:flex-col sm:items-end">
             <h2 className="typography-h2 capitalize">
               {currentTag || "All Posts"}
             </h2>
             <section>
               <h3 className="typography-menu">Categories</h3>
-              <ul className="mt-4 flex gap-2 max-sm:overflow-auto sm:flex-wrap">
+              <ul className="mt-4 flex gap-2 pb-2 max-sm:overflow-auto sm:flex-wrap">
                 {Object.entries(tags)
                   .sort((a, b) => b[1] - a[1])
                   .map(([tag, count], i) => (
@@ -79,7 +79,7 @@ export function BlogPage({
               </ul>
             </section>
           </section>
-          <section className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(368px,1fr))] gap-4 md:mt-8 lg:mt-16 lg:gap-6">
+          <section className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(368px,1fr))] gap-4 sm:mt-4 md:mt-8 lg:mt-16 lg:gap-6">
             {blogs.map(
               page =>
                 (!currentTag || page.frontMatter.tags.includes(currentTag)) && (
