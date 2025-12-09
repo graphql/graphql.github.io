@@ -5,7 +5,7 @@ url: https://jerowork.github.io/graphql-attribute-schema
 github: jerowork/graphql-attribute-schema
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Easily build your GraphQL schema for `webonyx/graphql-php` using PHP attributes instead of large configuration arrays.

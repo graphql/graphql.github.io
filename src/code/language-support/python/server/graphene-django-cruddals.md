@@ -5,7 +5,7 @@ url: https://graphene-django-cruddals.readthedocs.io/en/latest/
 github: juanjcardona13/graphene_django_cruddals
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 You can install the package with pip

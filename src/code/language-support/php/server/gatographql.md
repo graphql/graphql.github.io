@@ -5,5 +5,5 @@ url: https://gatographql.com
 github: GatoGraphQL/GatoGraphQL
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

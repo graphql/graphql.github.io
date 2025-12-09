@@ -4,7 +4,7 @@ description: Async-graphql is a high-performance server-side library that suppor
 github: async-graphql/async-graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 ```rust

@@ -5,7 +5,7 @@ url: https://tartiflette.io
 github: tartiflette/tartiflette
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 To run a tartiflette hello world script:

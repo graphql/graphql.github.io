@@ -6,7 +6,7 @@ github: mercurius-js/mercurius
 npm: "mercurius"
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 To run an hello world script with `mercurius`:

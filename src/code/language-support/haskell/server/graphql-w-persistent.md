@@ -5,7 +5,7 @@ url: https://hackage.haskell.org/package/graphql-w-persistent
 github: jasonsychau/graphql-w-persistent
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 One time setup: build schema, deploy as microservice or within server, query SQL database with GraphQL!

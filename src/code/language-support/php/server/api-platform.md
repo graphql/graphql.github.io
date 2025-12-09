@@ -5,7 +5,7 @@ url: https://api-platform.com
 github: api-platform/api-platform
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 The following class is enough to create both a Relay-compatible GraphQL server and a hypermedia API supporting modern REST formats (JSON-LD, JSONAPI...):

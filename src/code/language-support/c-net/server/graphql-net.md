@@ -4,5 +4,5 @@ description: Convert GraphQL to IQueryable
 github: chkimes/graphql-net
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

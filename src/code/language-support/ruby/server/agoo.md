@@ -5,7 +5,7 @@ github: ohler55/agoo
 gem: agoo
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 ```ruby

@@ -6,7 +6,7 @@ github: apollographql/apollo-server
 npm: "@apollo/server"
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 To run a hello world server with Apollo Server:

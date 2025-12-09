@@ -5,5 +5,5 @@ url: https://grooviter.github.io/gql/
 github: grooviter/gql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

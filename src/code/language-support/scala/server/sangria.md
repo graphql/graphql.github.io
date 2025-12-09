@@ -5,7 +5,7 @@ url: https://sangria-graphql.github.io/
 github: sangria-graphql/sangria
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 An example of a hello world GraphQL schema and query with `sangria`:

@@ -5,7 +5,7 @@ url: https://chillicream.com/docs/hotchocolate/
 github: ChilliCream/hotchocolate
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Hot Chocolate takes the complexity away from building a fully-fledged GraphQL server and lets you focus on delivering the next big thing.

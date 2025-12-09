@@ -4,5 +4,5 @@ description: Swift library for writing Declarative, Type-Safe GraphQL APIs with 
 github: nerdsupremacist/GraphZahl
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

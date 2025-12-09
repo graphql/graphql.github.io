@@ -4,7 +4,7 @@ description: A Haskell library for building GraphQL APIs.
 github: morpheusgraphql/morpheus-graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Hello world example with `morpheus-graphql`:

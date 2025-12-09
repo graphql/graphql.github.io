@@ -5,7 +5,7 @@ url: https://siler.leocavalcante.com/graphql/
 github: leocavalcante/siler
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 To run a Siler hello world script:

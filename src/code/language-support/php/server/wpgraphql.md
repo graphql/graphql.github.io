@@ -4,5 +4,5 @@ description: A free, open-source WordPress plugin that provides an extendable Gr
 github: wp-graphql/wp-graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

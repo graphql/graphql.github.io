@@ -5,7 +5,7 @@ url: https://higherkindness.io/mu-haskell/
 github: higherkindness/mu-haskell
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Example implementation of a GraphQL server with type-level representation of the schema auto-generated:

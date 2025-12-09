@@ -5,7 +5,7 @@ url: https://90horasporsemana.com/graphbox/
 github: yefeza/django-graphbox
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 A Quickstart for Django Graphbox:

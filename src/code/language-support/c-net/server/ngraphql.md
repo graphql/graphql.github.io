@@ -4,5 +4,5 @@ description: A set of packages for implementing high-performant GraphQL servers 
 github: rivantsov/ngraphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

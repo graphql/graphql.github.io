@@ -4,7 +4,7 @@ description: A lightweight graphql calculation engine.
 github: graphql-calculator/graphql-calculator
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 GraphQL Calculator is a lightweight graphql calculation engine,

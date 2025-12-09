@@ -5,7 +5,7 @@ url: http://graphene-python.org/
 github: graphql-python/graphene
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 To run a Graphene hello world script:

@@ -5,7 +5,7 @@ url: https://pylon.cronit.io
 github: getcronit/pylon
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 1. **Create**

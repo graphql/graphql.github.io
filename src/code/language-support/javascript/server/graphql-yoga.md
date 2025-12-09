@@ -5,7 +5,7 @@ github: dotansimha/graphql-yoga
 npm: "graphql-yoga"
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 - Built around the Fetch API `Request` & `Response` objects

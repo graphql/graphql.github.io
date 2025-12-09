@@ -5,7 +5,7 @@ url: https://strawberry.rocks
 github: strawberry-graphql/strawberry
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Here's an example of a Strawberry hello world, first install the library:

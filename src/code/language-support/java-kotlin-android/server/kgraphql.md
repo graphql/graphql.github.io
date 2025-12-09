@@ -5,7 +5,7 @@ url: https://kgraphql.io/
 github: aPureBase/KGraphQL
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Here's an example on how to create a simple schema based on a kotlin data class plus a property resolver that gets applied onto your class.

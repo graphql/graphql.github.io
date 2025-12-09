@@ -5,7 +5,7 @@ url: https://babyfish-ct.github.io/jimmer/
 github: babyfish-ct/jimmer
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 ## Introduce

@@ -5,7 +5,7 @@ url: https://lib.ballerina.io/ballerina/graphql/latest
 github: ballerina-platform/module-ballerina-graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
   - frontend
 ---
 

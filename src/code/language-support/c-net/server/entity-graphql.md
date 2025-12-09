@@ -5,7 +5,7 @@ url: https://entitygraphql.github.io
 github: EntityGraphQL/EntityGraphQL
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 ```csharp

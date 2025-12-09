@@ -4,5 +4,5 @@ description: Swift library for building GraphQL schemas/types fast, safely and e
 github: GraphQLSwift/Graphiti
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

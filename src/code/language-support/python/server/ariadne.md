@@ -5,7 +5,7 @@ url: https://ariadnegraphql.org
 github: mirumee/ariadne
 tags:
   - tools-and-libraries
-  - server
+  - backend
   - schema-design
 ---
 

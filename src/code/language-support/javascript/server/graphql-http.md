@@ -5,5 +5,5 @@ github: graphql/graphql-http
 npm: "graphql-http"
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

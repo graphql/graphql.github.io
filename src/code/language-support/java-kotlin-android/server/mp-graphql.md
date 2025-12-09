@@ -4,7 +4,7 @@ description: MP GraphQL is a code-first specification for building GraphQL appli
 github: eclipse/microprofile-graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 MicroProfile GraphQL is a GraphQL server and client specification for building GraphQL applications. It's unique

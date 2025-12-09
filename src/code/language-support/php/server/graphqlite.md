@@ -5,7 +5,7 @@ url: https://graphqlite.thecodingmachine.io
 github: thecodingmachine/graphqlite
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 It is framework agnostic with bindings available for Symfony and Laravel.

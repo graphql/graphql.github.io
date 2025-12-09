@@ -4,5 +4,5 @@ description: A Go/Golang library to help construct a graphql-go server supportin
 github: graphql-go/relay
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

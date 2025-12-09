@@ -4,7 +4,7 @@ description: A set of reusable GraphQL components for Clojure conforming to the 
 github: alumbra/alumbra
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 ```clojure

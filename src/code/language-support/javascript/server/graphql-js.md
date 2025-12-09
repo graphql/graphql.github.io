@@ -6,7 +6,7 @@ github: graphql/graphql-js
 npm: "graphql"
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 To run a `GraphQL.js` hello world script from the command line:

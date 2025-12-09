@@ -4,7 +4,7 @@ description: A Perl port of GraphQL reference implementation
 github: graphql-perl/graphql-perl
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 - [MetaCPAN documentation](https://metacpan.org/pod/GraphQL)

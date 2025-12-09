@@ -4,7 +4,7 @@ description: A GraphQL implementation for modern PHP. Includes features from lat
 github: infinityloop-dev/graphpinator
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 GraPHPinator is feature complete PHP implementation of GraphQL server. Its job is transformation of query string into resolved Json result for a given Schema.

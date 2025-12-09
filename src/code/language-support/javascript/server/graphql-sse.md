@@ -5,5 +5,5 @@ github: enisdenjo/graphql-sse
 npm: "graphql-sse"
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

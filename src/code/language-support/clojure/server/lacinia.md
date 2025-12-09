@@ -4,5 +4,5 @@ description: A full implementation of the GraphQL specification that aims to mai
 github: walmartlabs/lacinia
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

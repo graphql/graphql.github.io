@@ -5,7 +5,7 @@ github: rmosolgo/graphql-ruby
 gem: graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 To run a hello world script with `graphql-ruby`:

@@ -4,5 +4,5 @@ description: A GraphQL implementation with easy schema building, live queries, a
 github: samsarahq/thunder
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

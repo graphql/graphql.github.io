@@ -4,5 +4,5 @@ description: A PHP GraphQL Framework.
 github: railt/railt
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---

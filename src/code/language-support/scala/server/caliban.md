@@ -5,7 +5,7 @@ url: https://ghostdogpr.github.io/caliban/
 github: ghostdogpr/caliban
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 An example of a simple GraphQL schema and query with `caliban`:

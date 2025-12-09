@@ -4,7 +4,7 @@ description: GraphQL for .NET
 github: graphql-dotnet/graphql-dotnet
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 ```csharp

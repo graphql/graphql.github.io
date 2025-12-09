@@ -6,7 +6,7 @@ github: virtualshield/rails-graphql
 gem: rails-graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 ```ruby

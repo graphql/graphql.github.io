@@ -4,7 +4,7 @@ description: A Clojure library that provides a GraphQL implementation.
 github: tendant/graphql-clj
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Code that executes a hello world GraphQL query with `graphql-clj`:

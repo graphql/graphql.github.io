@@ -4,7 +4,7 @@ description: A Java library for building GraphQL APIs.
 github: graphql-java/graphql-java
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 See the [Getting Started tutorial](https://www.graphql-java.com/tutorials/getting-started-with-spring-boot) on the GraphQL Java website.

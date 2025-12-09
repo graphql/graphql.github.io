@@ -5,7 +5,7 @@ url: https://spring.io/projects/spring-graphql
 github: spring-projects/spring-graphql
 tags:
   - tools-and-libraries
-  - server
+  - backend
 ---
 
 Spring for GraphQL provides support for Spring applications built on
@@ -17,7 +17,7 @@ Spring for GraphQL provides support for Spring applications built on
 
 Features:
 
-- Server handling of GraphQL requests over HTTP, WebSocket, and RSocket.
+- backend handling of GraphQL requests over HTTP, WebSocket, and RSocket.
 - An annotation-based programming model where @Controller components use annotations to declare handler methods with flexible method signatures to fetch the data for specific GraphQL fields. For example:
 
 ```java
