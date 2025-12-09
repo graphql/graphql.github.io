@@ -63,28 +63,35 @@ const variants: Record<
       "Browse reading materials to learn best practices and stay up to date with the ecosystem.",
     eyebrow: "Reading resources",
     filter: resource =>
-      resource.tags.includes("blog") || resource.tags.includes("guide"),
+      resource.tags.some(
+        tag =>
+          tag === "blog-or-newsletter" || tag === "guide" || tag === "book",
+      ),
   },
   "blogs-and-newsletters": {
     title: "Blogs & Newsletters",
     description:
       "Popular sources to learn and keep track of the GraphQL ecosystem.",
     eyebrow: "Stay informed",
-    filter: resource =>
-      resource.tags.includes("blog") && !hasTopicTag(resource),
+    filter: resource => resource.tags.includes("blog-or-newsletter"),
   },
   "individual-posts": {
     title: "Individual Posts",
     description: "Notable posts from the community.",
     eyebrow: "Deep dives",
-    filter: resource => resource.tags.includes("blog") && hasTopicTag(resource),
+    filter: resource =>
+      resource.tags.some(
+        tag =>
+          tag === "guide" ||
+          (tag === "blog" && !resource.url.startsWith("/blog")),
+      ),
   },
   books: {
     title: "Books",
     description:
       "Books to help you level up your GraphQL knowledge and practice.",
     eyebrow: "Read and learn",
-    filter: resource => resource.tags.includes("guide"),
+    filter: resource => resource.tags.includes("book"),
   },
 }
 

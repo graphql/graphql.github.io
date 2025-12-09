@@ -20,6 +20,7 @@ export const kinds = [
   "tools-and-libraries",
   "guide",
   "book",
+  "blog-or-newsletter",
 ] as const
 export type Kind = (typeof kinds)[number]
 
