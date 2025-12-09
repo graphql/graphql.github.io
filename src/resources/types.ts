@@ -14,7 +14,13 @@ export const topics = [
 ] as const
 export type Topic = (typeof topics)[number]
 
-export const kinds = ["video", "blog", "tools-and-libraries", "guide"] as const
+export const kinds = [
+  "video",
+  "blog",
+  "tools-and-libraries",
+  "guide",
+  "book",
+] as const
 export type Kind = (typeof kinds)[number]
 
 export type ResourceTag = Topic | Kind

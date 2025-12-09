@@ -1,13 +1,14 @@
 import Link from "next/link"
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { notFound } from "next/navigation"
+import { Breadcrumbs } from "@/_design-system/breadcrumbs"
+import { clsx } from "clsx"
 
 import { ResourcesHero } from "../resources-hero"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import { ResourceHubCard } from "../resource-hub-card"
 import { readResources } from "@/resources/data"
 import { topics, type ResourceMetadata, type Topic } from "@/resources/types"
-import { clsx } from "clsx"
 
 export const subcategories = [
   "blogs-and-newsletters",
@@ -21,23 +22,30 @@ type Variant = Subcategory | "all"
 
 const topicSet = new Set<Topic>(topics)
 
-const tabs: { label: string; href: string; variant: Variant }[] = [
-  {
-    label: "All reading resources",
-    href: "/resources/reading",
-    variant: "all",
-  },
+const tabs: {
+  label: string
+  href: string
+  variant: Variant
+  color: string
+}[] = [
   {
     label: "Blogs & newsletters",
     href: "/resources/reading/blogs-and-newsletters",
     variant: "blogs-and-newsletters",
+    color: "hsl(var(--color-pri-base))",
   },
   {
     label: "Individual posts",
     href: "/resources/reading/individual-posts",
     variant: "individual-posts",
+    color: "#FF8800",
   },
-  { label: "Books", href: "/resources/reading/books", variant: "books" },
+  {
+    label: "Books",
+    href: "/resources/reading/books",
+    variant: "books",
+    color: "#00C6AC",
+  },
 ]
 
 const variants: Record<
@@ -121,62 +129,64 @@ export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
       a.title.localeCompare(b.title, "en", { sensitivity: "base" }),
     )
 
+  const activePath = [
+    {
+      name: "Home",
+      route: "/",
+    },
+    {
+      name: "Resource Hub",
+      route: "/resources",
+    },
+    {
+      name: "Reading Resources Library",
+      route: "/resources/reading",
+    },
+  ].map(item => ({
+    ...item,
+    title: item.name,
+    type: "page",
+    children: [],
+    frontMatter: {},
+  }))
+
   return (
     <main className="gql-all-anchors-focusable">
       <NavbarFixed />
-      <div className="gql-container pt-6 lg:pt-8">
+      <ResourcesHero
+        heading="Reading Resources Library"
+        text="Grow your GraphQL expertise with a curated selection of articles, blogs, and books that support continuous learning and keep you in sync with the latest developments."
+      />
+      <section className="gql-container gql-section">
+        <Breadcrumbs activePath={activePath} />
         <nav
-          aria-label="Breadcrumb"
-          className="flex flex-wrap gap-2 text-neu-700"
+          className="mt-6 grid grid-cols-3 divide-x divide-neu-200 border border-neu-200 dark:divide-neu-100 dark:border-neu-100"
+          aria-label="Reading resource types"
         >
-          <Link
-            href="/resources"
-            className="typography-body-sm underline-offset-2 hover:underline"
-          >
-            Resource Hub
-          </Link>
-          <span aria-hidden>›</span>
-          <Link
-            href="/resources/reading"
-            className="typography-body-sm underline-offset-2 hover:underline"
-          >
-            Reading Resources
-          </Link>
-          <span aria-hidden>›</span>
-          <span className="typography-body-sm text-neu-900">
-            {config.title}
-          </span>
-        </nav>
-      </div>
-      <ResourcesHero heading={config.title} text={config.description} />
-      <nav
-        className="gql-container mt-6 lg:mt-8"
-        aria-label="Reading resource types"
-      >
-        <ul className="flex flex-wrap gap-2">
           {tabs.map(tab => {
             const active = tab.variant === variant
             return (
-              <li key={tab.variant}>
-                <Link
-                  href={tab.href}
-                  aria-current={active ? "page" : undefined}
-                  className={clsx(
-                    "typography-body-sm border border-neu-200 px-3 py-2 text-neu-800 hover:bg-neu-50 dark:border-neu-100 dark:hover:bg-neu-50/50",
-                    active
-                      ? "bg-neu-50 font-semibold ring-1 ring-neu-300 dark:ring-neu-100"
-                      : "bg-neu-0",
-                  )}
-                >
-                  {tab.label}
-                </Link>
-              </li>
+              <Link
+                key={tab.variant}
+                href={tab.href}
+                aria-current={active ? "page" : undefined}
+                style={
+                  {
+                    "--color": tab.color,
+                  } as React.CSSProperties
+                }
+                scroll={false}
+                className={clsx(
+                  "typography-body-lg flex h-full flex-col gap-2 bg-neu-0 px-4 py-3 text-left transition hover:bg-neu-50 dark:bg-neu-0/60 dark:hover:bg-neu-50/40",
+                  active &&
+                    "bg-[--color] text-neu-0 hover:bg-[hsl(from_var(--color)_h_s_l/.9)]",
+                )}
+              >
+                {tab.label}
+              </Link>
             )
           })}
-        </ul>
-      </nav>
-
-      <section className="gql-container gql-section">
+        </nav>
         <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map(resource => (
             <li key={resource.url}>
