@@ -128,9 +128,10 @@ const config: Config = {
     plugin(({ addBase }) => {
       // heading styles
       addBase({
-        ".typography-d1, .typography-h1, .typography-h2, .typography-h3": {
-          lineHeight: "1.2",
-        },
+        ".typography-d1, .typography-h1, .typography-h2, .typography-h3, .typography-h4":
+          {
+            lineHeight: "1.2",
+          },
         ".typography-d1": {
           fontSize: "48px",
           "@screen lg": {
@@ -153,6 +154,12 @@ const config: Config = {
           fontSize: "24px",
           "@screen md": {
             fontSize: "32px",
+          },
+        },
+        ".typography-h4": {
+          fontSize: "20px",
+          "@screen md": {
+            fontSize: "28px",
           },
         },
       })
