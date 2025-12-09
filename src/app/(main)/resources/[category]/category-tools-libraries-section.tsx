@@ -3,6 +3,7 @@ import { glob } from "node:fs/promises"
 import { readFile } from "node:fs/promises"
 import matter from "gray-matter"
 
+import type { CSSProperties } from "react"
 import { Button } from "@/app/conf/_design-system/button"
 import blurCorner from "./blur-corner.webp"
 import { Eyebrow } from "@/_design-system/eyebrow"
@@ -46,7 +47,13 @@ async function loadLibraries(): Promise<LibraryEntry[]> {
     entries.push({ name, href, group, tags })
   }
 
-  return entries
+  const deduped = entries.filter(
+    (item, index, self) =>
+      index ===
+      self.findIndex(t => t.name.toLowerCase() === item.name.toLowerCase()),
+  )
+
+  return deduped
 }
 
 function displayName(id: string) {
@@ -100,7 +107,7 @@ export async function CategoryToolsLibrariesSection({
             <h2 className="typography-h3 text-pretty">
               Build GraphQL with tools and libraries
             </h2>
-            <p className="typography-body-md text-neu-700 dark:text-neu-100">
+            <p className="typography-body-md text-neu-800">
               Explore language and platform tooling to ship production-ready
               graphs.
             </p>
@@ -111,35 +118,53 @@ export async function CategoryToolsLibrariesSection({
         </div>
 
         <div className="flex flex-wrap gap-4 pb-2 lg:overflow-visible">
-          {grouped.map(group => (
-            <div
-              key={group.id}
-              className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:bg-neu-50/50 lg:w-1/3 lg:min-w-0"
-            >
-              <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 px-4 py-3 text-neu-900">
-                {/* todo: we should have an icon here */}
-                {group.name}
+          {grouped.map((group, index) => {
+            const nextLength = grouped[index + 1]?.items.length ?? 0
+            const columns =
+              nextLength > 0 && group.items.length >= nextLength * 1.9 ? 2 : 1
+            const listStyle = { "--item-columns": columns } as CSSProperties
+            const breakIndex =
+              columns === 2 ? Math.floor(group.items.length / 2) : 0
+
+            return (
+              <div
+                key={group.id}
+                className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:bg-neu-50/50 lg:w-1/3 lg:min-w-0"
+              >
+                <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 px-4 py-3 text-neu-900">
+                  {/* todo: we should have an icon here */}
+                  {group.name}
+                </div>
+                <ul
+                  className="gap-0 divide-y divide-neu-200 dark:divide-neu-100 lg:[column-count:var(--item-columns,1)]"
+                  style={listStyle}
+                >
+                  {group.items.map((item, i) => (
+                    <li
+                      key={`${group.id}-${item.name}`}
+                      style={{
+                        borderTop: breakIndex === i ? "none" : "",
+                        borderLeftWidth: breakIndex >= i ? "1px" : "",
+                      }}
+                    >
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900 transition-colors hover:bg-neu-0 hover:duration-0"
+                        >
+                          {item.name}
+                        </a>
+                      ) : (
+                        <span className="flex items-center justify-between bg-neu-50 px-4 py-3 text-neu-900">
+                          {item.name}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="divide-y divide-neu-200 dark:divide-neu-100">
-                {group.items.map(item => (
-                  <li key={`${group.id}-${item.name}`}>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900 transition-colors hover:bg-neu-0 hover:duration-0"
-                      >
-                        {item.name}
-                      </a>
-                    ) : (
-                      <span className="flex items-center justify-between bg-neu-50 px-4 py-3 text-neu-900">
-                        {item.name}
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </section>
     </div>
