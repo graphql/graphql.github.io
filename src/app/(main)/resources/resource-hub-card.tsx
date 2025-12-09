@@ -4,6 +4,33 @@ import { clsx } from "clsx"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 import ClockIcon from "@/app/conf/_design-system/pixelarticons/clock.svg?svgr"
 import { Tag } from "@/app/conf/_design-system/tag"
+import { Topic } from "@/resources/types"
+import { blogTagColors } from "@/components/blog-page/blog-tag-colors"
+
+export const tagColors: Record<Topic | (string & {}), string> = {
+  ...blogTagColors,
+  backend: "#36C1A0",
+  "defies-categorization": "#894545",
+  "developer-experience": "#6fc9af",
+  "federation-and-composite-schemas": "#cbc749",
+  "graphql-clients": "#ca78fc",
+  "graphql-in-production": "#e4981f",
+  "graphql-security": "#CC6BB0",
+  "graphql-spec": "#6B73CC",
+  scaling: "#8D8D8D",
+  frontend: "violet",
+  documentation: "salmon",
+  "schema-evolution": "thistle",
+  security: "cornflowerblue",
+  "case-studies": "#B36B00",
+  "federation-and-distributed-systems": "#FF8F70",
+  federation: "#5C7CFA",
+  tools: "#0FA3B1",
+  "api-platform-and-gateways": "#F4B400",
+  "schema-design": "#7E57C2",
+  ai: "#FF5FA2",
+  monitoring: "#2D9CDB",
+}
 
 interface ResourceHubCardProps {
   href: string

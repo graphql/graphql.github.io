@@ -6,4 +6,5 @@ export const blogTagColors: Record<string, string> = {
   spec: "#00C6AC",
   grants: "#84BD01",
   "in-the-news": "#3F3A3D",
+  "developer-experience": "#6fc9af",
 }

@@ -1,5 +1,4 @@
 import { Metadata } from "next"
-import Link from "next/link"
 import { notFound } from "next/navigation"
 
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
@@ -13,13 +12,12 @@ import {
 } from "@/resources/types"
 
 import { categoryNames, categorySubtitles } from "../subtitles"
-import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 import { ResourcesHero } from "../resources-hero"
 import { TocHeroContents } from "@/components/toc-hero"
 import { Eyebrow } from "@/_design-system/eyebrow"
-import { Button } from "@/app/conf/_design-system/button"
-
-import ToolsIcon from "../assets/tools.svg?svgr"
+import { ResourceHubCard } from "../resource-hub-card"
+import { BlogPostsSection } from "./blog-posts-section"
+import { CategoryToolsLibrariesSection } from "./category-tools-libraries-section"
 
 const sectionKindNames: Record<Kind, string> = {
   video: "Featured videos",
@@ -29,8 +27,14 @@ const sectionKindNames: Record<Kind, string> = {
 }
 
 // TODO: I'd prefer to have this in JSX over "JSON" objects
+const blogTitles: Partial<Record<Topic, string>> = {
+  frontend: "Insights for frontend devs",
+  backend: "Insights for backend devs",
+}
+
 const blogDescriptions: Partial<Record<Topic, string>> = {
   frontend: "Stay up to date with insights from the GraphQL community.",
+  backend: "Stay up to date with insights from the GraphQL community.",
 }
 
 function sectionHeading(
@@ -147,10 +151,23 @@ function CategorySection({
   category: Topic
 }) {
   if (section.kind === "tools-and-libraries") {
+    return <CategoryToolsLibrariesSection category={category} />
+  }
+
+  if (section.kind === "blog") {
     return (
-      <CategoryToolsAndLibraries
-        category={category}
-        resources={section.resources}
+      <BlogPostsSection
+        title={blogTitles[category] ?? "Insights from the community"}
+        description={
+          blogDescriptions[category] ??
+          "Stay up to date with insights from the GraphQL community."
+        }
+        posts={section.resources.map(resource => ({
+          href: resource.url,
+          title: resource.title,
+          author: resource.author ?? "GraphQL Community",
+          tags: resource.tags.filter(tag => tag !== "blog" && tag !== category),
+        }))}
       />
     )
   }
@@ -166,18 +183,13 @@ function CategorySection({
           <h2 className="typography-h3 text-pretty">
             {sectionHeading(section, category)}
           </h2>
-          {section.kind === "blog" && blogDescriptions[category] ? (
-            <p className="typography-body-md text-neu-800">
-              {blogDescriptions[category]}
-            </p>
-          ) : null}
         </div>
         <span className="typography-menu text-neu-600">
           {section.resources.length} resources
         </span>
       </header>
 
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {section.resources.map(resource => (
           <li key={resource.url}>
             <ResourceCard resource={resource} />
@@ -188,81 +200,34 @@ function CategorySection({
   )
 }
 
-function CategoryToolsAndLibraries({
-  category,
-  resources,
-}: {
-  category: Topic
-  resources: ResourceMetadata[]
-}) {
-  const sectionId = sectionKindNames["tools-and-libraries"]
-    .toLowerCase()
-    .replace(/ /g, "-")
-  const featured = resources.slice(0, 4)
-
-  return (
-    <section
-      id={sectionId}
-      className="flex flex-col gap-8 border border-sec-base bg-sec-lighter p-6 dark:border-sec-darker dark:bg-sec-darker/15 lg:gap-10 lg:p-10"
-    >
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-col gap-3">
-          <Eyebrow className="!text-sec-darker dark:!text-sec-light">
-            {sectionKindNames["tools-and-libraries"]}
-          </Eyebrow>
-          <h2 className="typography-h3 text-pretty">
-            Build GraphQL with tools and libraries
-          </h2>
-          <p className="typography-body-md text-neu-800">
-            Explore language and platform tooling to ship production-ready{" "}
-            {categoryNames[category].toLowerCase()} graphs.
-          </p>
-          <Button href="/code" className="mt-2 w-fit max-lg:w-full">
-            Explore Tools & Libraries
-          </Button>
-        </div>
-
-        <div className="flex size-24 shrink-0 items-center justify-center bg-sec-light text-sec-dark dark:bg-sec-darker/30 lg:size-32">
-          <ToolsIcon className="size-16" aria-hidden />
-        </div>
-      </div>
-
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {featured.map(resource => (
-          <li key={resource.url}>
-            <ResourceCard resource={resource} />
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
+const tagColors: Partial<Record<Topic, string>> = {
+  frontend: "hsl(var(--color-pri-base))",
+  backend: "hsl(var(--color-sec-base))",
+  federation: "hsl(var(--color-ter-base))",
+  "schema-design": "hsl(var(--color-qua-base))",
+  "api-platform-and-gateways": "hsl(var(--color-qui-base))",
+  "developer-experience": "hsl(var(--color-sen-base))",
+  security: "hsl(var(--color-oct-base))",
+  ai: "hsl(var(--color-non-base))",
+  monitoring: "hsl(var(--color-dec-base))",
+  tools: "hsl(var(--color-ele-base))",
 }
 
 function ResourceCard({ resource }: { resource: ResourceMetadata }) {
-  const kind = resource.kind ?? getKindFromTags(resource)
+
+  const tags = resource.tags
+    .map(tag => ({
+      label: tag,
+      color: "hsl(var(--color-neu-500))",
+    }))
+    .filter(tag => tag.label !== "video")
 
   return (
-    <Link
+    <ResourceHubCard
       href={resource.url}
-      className="flex h-full flex-col gap-3 border border-neu-200 bg-neu-0 p-6 text-left transition-colors hover:bg-neu-50 hover:duration-0 dark:border-neu-100"
-    >
-      {kind ? (
-        <span className="font-mono text-xs uppercase text-neu-700">
-          {sectionLabel(kind)}
-        </span>
-      ) : null}
-      <h3 className="typography-h4 text-pretty text-neu-900">
-        {resource.title}
-      </h3>
-      {resource.description ? (
-        <p className="typography-body-md text-neu-800">
-          {resource.description}
-        </p>
-      ) : null}
-      <span className="typography-menu mt-auto inline-flex items-center gap-2 text-pri-base">
-        Open resource
-        <ArrowDownIcon className="size-5 -rotate-90" aria-hidden />
-      </span>
-    </Link>
+      title={resource.title}
+      author={resource.author}
+      tags={tags}
+    />
   )
 }
