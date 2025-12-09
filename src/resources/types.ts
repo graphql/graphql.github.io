@@ -22,6 +22,7 @@ export type ResourceTag = Topic | Kind
 export const ResourceMetadata = type({
   title: "string>0",
   url: type("string.url").or("/^\\/.+$/"),
+  "author?": "string",
   "kind?": type.enumerated(...kinds),
   "topics?": type.enumerated(...topics).array(),
   "description?": "string>0",

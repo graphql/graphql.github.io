@@ -29,17 +29,17 @@ export function ReadingResourcesSection() {
 
         <div className="flex flex-col gap-2 md:w-[358px] lg:gap-6">
           <ReadingLink
-            href="/blog"
+            href="/resources/reading/blogs-and-newsletters"
             icon={<NewspaperIcon className="text-pri-base" />}
             label="Blogs and newsletters"
           />
           <ReadingLink
-            href="/community/resources"
+            href="/resources/reading/individual-posts"
             icon={<WriteIcon className="text-[#FF8800]" />}
-            label="Individual Posts"
+            label="Individual posts"
           />
           <ReadingLink
-            href="/community/resources/books"
+            href="/resources/reading/books"
             icon={<BookIcon className="text-[#00C6AC]" />}
             label="Books"
           />

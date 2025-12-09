@@ -1,5 +1,6 @@
 {
-  "title": "Build a GraphQL Backend with the Serverless Framework - Ryan Brown",
+  "title": "Build a GraphQL Backend with the Serverless Framework",
+  "author": "Ryan Brown",
   "url": "https://acloud.guru/learn/serverless-with-graphql",
   "tags": ["video", "backend"]
 }

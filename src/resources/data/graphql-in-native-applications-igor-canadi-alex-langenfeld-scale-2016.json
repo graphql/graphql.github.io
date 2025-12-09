@@ -1,5 +1,6 @@
 {
-  "title": "GraphQL in native applications - Igor Canadi & Alex Langenfeld, @Scale 2016",
+  "title": "GraphQL in native applications",
+  "author": "Igor Canadi & Alex Langenfeld",
   "url": "https://atscaleconference.com/videos/graphql-in-native-applications-at-scale/",
   "tags": ["video", "frontend"]
 }
