@@ -11,14 +11,14 @@ import BookIcon from "./assets/bookmark.svg?svgr"
 export function ReadingResourcesSection() {
   return (
     <section className="gql-container gql-section" id="reading-resources">
-      <div className="flex flex-col gap-8 md:gap-12 lg:flex-row lg:items-start lg:justify-between">
+      <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-12">
         <div className="max-w-[794px]">
           <Eyebrow>reading resources library</Eyebrow>
 
           <h2 className="typography-h2 mt-6 text-balance">
             Dive into GraphQL content
           </h2>
-          <p className="typography-body-lg mt-6 lg:mt-10">
+          <p className="typography-body-lg mt-6 md:mt-10">
             Browse reading materials to learn best practices and stay up to date
             with the ecosystem.
           </p>
@@ -27,7 +27,7 @@ export function ReadingResourcesSection() {
           </Button>
         </div>
 
-        <div className="flex flex-col gap-4 md:gap-6 lg:w-[358px]">
+        <div className="flex flex-col gap-2 md:w-[358px] lg:gap-6">
           <ReadingLink
             href="/blog"
             icon={<NewspaperIcon className="text-pri-base" />}
