@@ -10,6 +10,7 @@ export const topics = [
   "security",
   "ai",
   "monitoring",
+  "tools",
 ] as const
 export type Topic = (typeof topics)[number]
 

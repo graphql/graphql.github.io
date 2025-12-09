@@ -17,6 +17,9 @@ import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.sv
 import { ResourcesHero } from "../resources-hero"
 import { TocHeroContents } from "@/components/toc-hero"
 import { Eyebrow } from "@/_design-system/eyebrow"
+import { Button } from "@/app/conf/_design-system/button"
+
+import ToolsIcon from "../assets/tools.svg?svgr"
 
 const sectionKindNames: Record<Kind, string> = {
   video: "Featured videos",
@@ -25,8 +28,21 @@ const sectionKindNames: Record<Kind, string> = {
   guide: "Guides",
 }
 
-function sectionHeading(section: { kind: Kind; resources: ResourceMetadata[] }) {
-  
+// TODO: I'd prefer to have this in JSX over "JSON" objects
+const blogDescriptions: Partial<Record<Topic, string>> = {
+  frontend: "Stay up to date with insights from the GraphQL community.",
+}
+
+function sectionHeading(
+  section: { kind: Kind; resources: ResourceMetadata[] },
+  category: Topic,
+) {
+  if (section.kind === "video") {
+    if (category === "frontend") return "Master GraphQL on the frontend"
+    if (category === "backend") return "Master GraphQL on the backend"
+  }
+
+  return sectionLabel(section.kind)
 }
 
 interface PageParams {
@@ -81,33 +97,11 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
         ) : (
           <div className="flex flex-col gap-12 lg:gap-16">
             {grouped.map(section => (
-              <section
-                id={sectionKindNames[section.kind]
-                  .toLowerCase()
-                  .replace(/ /g, "-")}
+              <CategorySection
                 key={section.kind}
-                className="flex flex-col gap-6"
-              >
-                <header className="flex items-center justify-between gap-4">
-                  <div className="flex flex-col gap-3">
-                    <Eyebrow>{sectionKindNames[section.kind]}</Eyebrow>
-                    <h2 className="typography-h3 text-pretty">
-                      {sectionHeading(section, category)}
-                    </h2>
-                  </div>
-                  <span className="typography-menu text-neu-600">
-                    {section.resources.length} resources
-                  </span>
-                </header>
-
-                <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  {section.resources.map(resource => (
-                    <li key={resource.url}>
-                      <ResourceCard resource={resource} />
-                    </li>
-                  ))}
-                </ul>
-              </section>
+                section={section}
+                category={category}
+              />
             ))}
           </div>
         )}
@@ -143,6 +137,105 @@ function getKindFromTags(resource: ResourceMetadata) {
 
 function sectionLabel(kind: Kind) {
   return sectionKindNames[kind] ?? `${kind[0].toUpperCase()}${kind.slice(1)}`
+}
+
+function CategorySection({
+  section,
+  category,
+}: {
+  section: { kind: Kind; resources: ResourceMetadata[] }
+  category: Topic
+}) {
+  if (section.kind === "tools-and-libraries") {
+    return (
+      <CategoryToolsAndLibraries
+        category={category}
+        resources={section.resources}
+      />
+    )
+  }
+
+  return (
+    <section
+      id={sectionKindNames[section.kind].toLowerCase().replace(/ /g, "-")}
+      className="flex flex-col gap-6"
+    >
+      <header className="flex items-center justify-between gap-4">
+        <div className="flex flex-col gap-3">
+          <Eyebrow>{sectionKindNames[section.kind]}</Eyebrow>
+          <h2 className="typography-h3 text-pretty">
+            {sectionHeading(section, category)}
+          </h2>
+          {section.kind === "blog" && blogDescriptions[category] ? (
+            <p className="typography-body-md text-neu-800">
+              {blogDescriptions[category]}
+            </p>
+          ) : null}
+        </div>
+        <span className="typography-menu text-neu-600">
+          {section.resources.length} resources
+        </span>
+      </header>
+
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {section.resources.map(resource => (
+          <li key={resource.url}>
+            <ResourceCard resource={resource} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+function CategoryToolsAndLibraries({
+  category,
+  resources,
+}: {
+  category: Topic
+  resources: ResourceMetadata[]
+}) {
+  const sectionId = sectionKindNames["tools-and-libraries"]
+    .toLowerCase()
+    .replace(/ /g, "-")
+  const featured = resources.slice(0, 4)
+
+  return (
+    <section
+      id={sectionId}
+      className="flex flex-col gap-8 border border-sec-base bg-sec-lighter p-6 dark:border-sec-darker dark:bg-sec-darker/15 lg:gap-10 lg:p-10"
+    >
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-3">
+          <Eyebrow className="!text-sec-darker dark:!text-sec-light">
+            {sectionKindNames["tools-and-libraries"]}
+          </Eyebrow>
+          <h2 className="typography-h3 text-pretty">
+            Build GraphQL with tools and libraries
+          </h2>
+          <p className="typography-body-md text-neu-800">
+            Explore language and platform tooling to ship production-ready{" "}
+            {categoryNames[category].toLowerCase()} graphs.
+          </p>
+          <Button href="/code" className="mt-2 w-fit max-lg:w-full">
+            Explore Tools & Libraries
+          </Button>
+        </div>
+
+        <div className="flex size-24 shrink-0 items-center justify-center bg-sec-light text-sec-dark dark:bg-sec-darker/30 lg:size-32">
+          <ToolsIcon className="size-16" aria-hidden />
+        </div>
+      </div>
+
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {featured.map(resource => (
+          <li key={resource.url}>
+            <ResourceCard resource={resource} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
 }
 
 function ResourceCard({ resource }: { resource: ResourceMetadata }) {
