@@ -4,10 +4,11 @@ import { readFile } from "node:fs/promises"
 import { cache } from "react"
 import matter from "gray-matter"
 
-import { ResourceMetadata, type ResourceTag } from "./types"
+import { ResourceMetadata, type ResourceTag, topics } from "./types"
 
 const dataGlob = "src/resources/data/*.json"
 const codeGlob = "src/code/**/*.md"
+const blogGlob = "src/pages/blog/**/*.mdx"
 
 export const readResources = cache(async () => {
   const resources: ResourceMetadata[] = []
@@ -16,6 +17,67 @@ export const readResources = cache(async () => {
     const raw = await readFile(file, "utf8")
     const parsed = JSON.parse(raw)
     resources.push(ResourceMetadata.assert(parsed))
+  }
+
+  for await (const file of glob(blogGlob)) {
+    const raw = await readFile(file, "utf8")
+    const { data, content } = matter(raw)
+
+    const title: string | undefined = data.title
+    if (!title) continue
+
+    const slug = blogSlug(file)
+
+    const bodyLines = content
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .map(line =>
+        line
+          .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+          .replace(/`+/g, "")
+          .replace(/[*_~]+/g, "")
+          .replace(/^#+\s*/, "")
+          .replace(/<\/?[^>]+>/g, "")
+          .trim(),
+      )
+      .filter(line => line.length > 0)
+
+    const excerpt = bodyLines.slice(0, 2).join(" ")
+
+    const description =
+      typeof data.description === "string" && data.description.length > 0
+        ? data.description
+        : excerpt || undefined
+
+    const topicsFromFrontmatter: ResourceTag[] = Array.isArray(data.topics)
+      ? data.topics.filter((tag): tag is ResourceTag =>
+          topics.includes(tag as (typeof topics)[number]),
+        )
+      : []
+
+    const topicTagsFromTags: ResourceTag[] = Array.isArray(data.tags)
+      ? data.tags.filter((tag): tag is ResourceTag =>
+          topics.includes(tag as (typeof topics)[number]),
+        )
+      : []
+
+    const tags: ResourceTag[] = [
+      "blog",
+      ...topicsFromFrontmatter,
+      ...topicTagsFromTags,
+    ]
+
+    resources.push(
+      ResourceMetadata.assert({
+        title,
+        url: slug,
+        author: data.byline,
+        description,
+        kind: "blog",
+        tags,
+      }),
+    )
   }
 
   for await (const file of glob(codeGlob)) {
@@ -52,4 +114,14 @@ export const readResources = cache(async () => {
 export async function getResourcesByTag(tag: ResourceTag) {
   const resources = await readResources()
   return resources.filter(resource => resource.tags.includes(tag))
+}
+
+function blogSlug(file: string) {
+  const relative = path.relative("src/pages", file)
+  const withoutExt = relative.replace(/\.mdx$/, "")
+  const normalized = withoutExt.split(path.sep).join("/")
+  const clean = normalized.endsWith("/index")
+    ? normalized.slice(0, -"index".length - 1)
+    : normalized
+  return `/${clean}`
 }
