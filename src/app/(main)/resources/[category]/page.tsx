@@ -24,6 +24,8 @@ const sectionKindNames: Record<Kind, string> = {
   blog: "Blog posts",
   "tools-and-libraries": "Tools & Libraries",
   guide: "Guides",
+  book: "Books",
+  "blog-or-newsletter": "Blogs & Newsletters",
 }
 
 // TODO: I'd prefer to have this in JSX over "JSON" objects
@@ -93,23 +95,13 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
         />
       </ResourcesHero>
 
-      <div className="gql-container gql-section pb-16 pt-12 lg:pb-24 lg:pt-20">
-        {grouped.length === 0 ? (
-          <p className="typography-body-md text-neu-700">
-            No resources available for this category yet. Check back soon.
-          </p>
-        ) : (
-          <div className="flex flex-col gap-12 lg:gap-16">
-            {grouped.map(section => (
-              <CategorySection
-                key={section.kind}
-                section={section}
-                category={category}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      {grouped.map(section => (
+        <CategorySection
+          key={section.kind}
+          section={section}
+          category={category}
+        />
+      ))}
     </main>
   )
 }
@@ -175,7 +167,7 @@ function CategorySection({
   return (
     <section
       id={sectionKindNames[section.kind].toLowerCase().replace(/ /g, "-")}
-      className="flex flex-col gap-6"
+      className="gql-container gql-section flex flex-col gap-6"
     >
       <header className="flex items-center justify-between gap-4">
         <div className="flex flex-col gap-3">
@@ -192,42 +184,15 @@ function CategorySection({
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {section.resources.map(resource => (
           <li key={resource.url}>
-            <ResourceCard resource={resource} />
+            <ResourceHubCard
+              href={resource.url}
+              title={resource.title}
+              author={resource.author}
+              tags={resource.tags}
+            />
           </li>
         ))}
       </ul>
     </section>
-  )
-}
-
-const tagColors: Partial<Record<Topic, string>> = {
-  frontend: "hsl(var(--color-pri-base))",
-  backend: "hsl(var(--color-sec-base))",
-  federation: "hsl(var(--color-ter-base))",
-  "schema-design": "hsl(var(--color-qua-base))",
-  "api-platform-and-gateways": "hsl(var(--color-qui-base))",
-  "developer-experience": "hsl(var(--color-sen-base))",
-  security: "hsl(var(--color-oct-base))",
-  ai: "hsl(var(--color-non-base))",
-  monitoring: "hsl(var(--color-dec-base))",
-  tools: "hsl(var(--color-ele-base))",
-}
-
-function ResourceCard({ resource }: { resource: ResourceMetadata }) {
-
-  const tags = resource.tags
-    .map(tag => ({
-      label: tag,
-      color: "hsl(var(--color-neu-500))",
-    }))
-    .filter(tag => tag.label !== "video")
-
-  return (
-    <ResourceHubCard
-      href={resource.url}
-      title={resource.title}
-      author={resource.author}
-      tags={tags}
-    />
   )
 }

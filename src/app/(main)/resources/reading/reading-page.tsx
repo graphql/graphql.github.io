@@ -6,7 +6,7 @@ import { clsx } from "clsx"
 
 import { ResourcesHero } from "../resources-hero"
 import { Eyebrow } from "@/_design-system/eyebrow"
-import { ResourceHubCard } from "../resource-hub-card"
+import { ReadingResourcesCard } from "./reading-resources-card"
 import { readResources } from "@/resources/data"
 import { topics, type ResourceMetadata, type Topic } from "@/resources/types"
 
@@ -118,13 +118,6 @@ function uniqueByTitle(resources: ResourceMetadata[]) {
   })
 }
 
-function formatTags(resource: ResourceMetadata) {
-  return resource.tags.map(tag => ({
-    label: tag,
-    color: "hsl(var(--color-neu-500))",
-  }))
-}
-
 export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
   const config = variants[variant]
   if (!config) return notFound()
@@ -197,12 +190,7 @@ export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
         <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map(resource => (
             <li key={resource.url}>
-              <ResourceHubCard
-                href={resource.url}
-                title={resource.title}
-                author={resource.author}
-                tags={formatTags(resource)}
-              />
+              <ReadingResourcesCard resource={resource} />
             </li>
           ))}
         </ul>

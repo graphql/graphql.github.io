@@ -3,11 +3,12 @@ import { glob } from "node:fs/promises"
 import { readFile } from "node:fs/promises"
 import matter from "gray-matter"
 
-import { clsx } from "clsx"
 import { Button } from "@/app/conf/_design-system/button"
+import blurCorner from "./blur-corner.webp"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import slugMap from "@/code/slug-map.json"
 import { type Topic } from "@/resources/types"
+import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
 interface LibraryEntry {
   name: string
@@ -78,78 +79,93 @@ export async function CategoryToolsLibrariesSection({
         )
         .slice(0, 20),
     }))
-    .sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }))
+    .sort((a, b) => b.items.length - a.items.length)
 
   if (grouped.length === 0) {
     return null
   }
 
-  const desktopLayoutClass =
-    grouped.length > 2 ? "lg:grid lg:grid-cols-1 lg:gap-6" : "lg:grid lg:grid-cols-2 lg:gap-6"
-
   return (
-    <section
-      id="tools-and-libraries"
-      className="flex flex-col gap-8 border border-sec-base bg-sec-lighter p-6 dark:border-sec-darker dark:bg-sec-darker/15 lg:gap-10 lg:p-10"
-    >
-      <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-col gap-3">
-          <Eyebrow className="!text-sec-darker dark:!text-sec-light">
-            key tools & libraries
-          </Eyebrow>
-          <h2 className="typography-h3 text-pretty">
-            Build GraphQL with tools and libraries
-          </h2>
-          <p className="typography-body-md text-neu-800">
-            Explore language and platform tooling to ship production-ready
-            graphs.
-          </p>
-        </div>
-        <Button href="/code" variant="tertiary" className="w-fit">
-          See all Tools & Libraries
-        </Button>
-      </div>
-
-      <div
-        className={clsx(
-          "flex gap-4 overflow-x-auto pb-2 lg:overflow-visible",
-          desktopLayoutClass,
-        )}
+    <div className="relative bg-neu-100 dark:bg-neu-50/25">
+      <Stripes />
+      <section
+        id="tools-and-libraries"
+        className="gql-container gql-section relative flex flex-col gap-8 overflow-hidden"
       >
-        {grouped.map(group => (
-          <div
-            key={group.id}
-            className="min-w-[280px] shrink-0 border border-neu-200 bg-neu-0 shadow-[0_1px_0_#E5E7EB] dark:border-neu-100 dark:bg-neu-0/60 lg:min-w-0"
-          >
-            <div className="flex items-center gap-3 border-b border-neu-200 px-4 py-3 text-neu-900 dark:border-neu-100">
-              <span className="font-mono text-sm uppercase text-neu-700">
-                {group.name}
-              </span>
-            </div>
-            <ul className="divide-y divide-neu-200 dark:divide-neu-100">
-              {group.items.map(item => (
-                <li key={`${group.id}-${item.name}`}>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className="flex items-center justify-between px-4 py-3 text-neu-900 transition-colors hover:bg-neu-50 dark:hover:bg-neu-50/50"
-                    >
-                      <span>{item.name}</span>
-                      <span aria-hidden className="text-neu-500">
-                        →
-                      </span>
-                    </a>
-                  ) : (
-                    <span className="flex items-center justify-between px-4 py-3 text-neu-900">
-                      <span>{item.name}</span>
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-3">
+            <Eyebrow className="!text-pri-base dark:!text-pri-light">
+              key tools & libraries
+            </Eyebrow>
+            <h2 className="typography-h3 text-pretty">
+              Build GraphQL with tools and libraries
+            </h2>
+            <p className="typography-body-md text-neu-700 dark:text-neu-100">
+              Explore language and platform tooling to ship production-ready
+              graphs.
+            </p>
           </div>
-        ))}
-      </div>
-    </section>
+          <Button href="/code" variant="primary" className="w-fit">
+            See all Tools & Libraries
+          </Button>
+        </div>
+
+        <div className="flex flex-wrap gap-4 pb-2 lg:overflow-visible">
+          {grouped.map(group => (
+            <div
+              key={group.id}
+              className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:bg-neu-50/50 lg:w-1/3 lg:min-w-0"
+            >
+              <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 px-4 py-3 text-neu-900">
+                {/* todo: we should have an icon here */}
+                {group.name}
+              </div>
+              <ul className="divide-y divide-neu-200 dark:divide-neu-100">
+                {group.items.map(item => (
+                  <li key={`${group.id}-${item.name}`}>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900 transition-colors hover:bg-neu-0 hover:duration-0"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <span className="flex items-center justify-between bg-neu-50 px-4 py-3 text-neu-900">
+                        {item.name}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function Stripes() {
+  return (
+    <div
+      className="pointer-events-none absolute inset-x-0 top-0 h-[542px]"
+      style={{
+        maskImage: `url(${blurCorner.src})`,
+        WebkitMaskImage: `url(${blurCorner.src})`,
+        maskSize: "62% 62%",
+        WebkitMaskSize: "62% 62%",
+        maskPosition: "top right",
+        WebkitMaskPosition: "top right",
+        maskRepeat: "no-repeat",
+        WebkitMaskRepeat: "no-repeat",
+      }}
+    >
+      <StripesDecoration
+        evenClassName="bg-[linear-gradient(90deg,hsl(var(--color-pri-lighter))_0_12px,hsl(var(--color-pri-light))_12px_24px)] dark:bg-[linear-gradient(90deg,hsl(var(--color-sec-dark)/0.22)_0_12px,hsl(var(--color-sec-base)/0.22)_12px_24px)]"
+        oddClassName="bg-[linear-gradient(90deg,hsl(var(--color-pri-light))_0_12px,hsl(var(--color-pri-base)/0)_12px_24px)] dark:bg-[linear-gradient(90deg,hsl(var(--color-sec-base)/0.14)_0_12px,hsl(var(--color-sec-light)/0.14)_12px_24px)]"
+        angle="-90deg"
+      />
+    </div>
   )
 }

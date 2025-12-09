@@ -49,13 +49,15 @@ export function ReadingResourcesSection() {
   )
 }
 
-interface ReadingLinkProps {
+function ReadingLink({
+  href,
+  icon,
+  label,
+}: {
   href: string
   icon: React.ReactNode
   label: string
-}
-
-function ReadingLink({ href, icon, label }: ReadingLinkProps) {
+}) {
   return (
     <Link
       href={href}

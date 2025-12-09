@@ -28,7 +28,7 @@ export function BlogPostsSection({
   readAllLabel = "Read all GraphQL stories",
 }: BlogPostsSectionProps) {
   return (
-    <section className="flex flex-col gap-10 lg:gap-16">
+    <section className="gql-container gql-section flex flex-col gap-10 lg:gap-16">
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-3">
           <Eyebrow>Blog posts</Eyebrow>
