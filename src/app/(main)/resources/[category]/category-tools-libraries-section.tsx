@@ -11,10 +11,14 @@ import slugMap from "@/code/slug-map.json"
 import { type Topic } from "@/resources/types"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
+import { icons } from "./icons"
+import { ChevronRight } from "@/app/conf/_design-system/pixelarticons/chevron-right"
+
 interface LibraryEntry {
   name: string
   href?: string
   group: string
+  icon: React.ReactNode
   tags: string[]
 }
 
@@ -126,14 +130,24 @@ export async function CategoryToolsLibrariesSection({
             const breakIndex =
               columns === 2 ? Math.floor(group.items.length / 2) : 0
 
+            const Icon = icons[group.id]
+
             return (
               <div
                 key={group.id}
                 className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:bg-neu-50/50 lg:w-1/3 lg:min-w-0"
               >
                 <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 px-4 py-3 text-neu-900">
-                  {/* todo: we should have an icon here */}
+                  {Icon && (
+                    <div className="border-r border-inherit p-3">
+                      <Icon className="size-10" />
+                    </div>
+                  )}
                   {group.name}
+                  <div className="border-l border-inherit p-3 max-md:hidden">
+                    {/* TODO: On mobile */}
+                    <ChevronRight className="rotate-90" />
+                  </div>
                 </div>
                 <ul
                   className="gap-0 divide-y divide-neu-200 dark:divide-neu-100 lg:[column-count:var(--item-columns,1)]"
