@@ -3,7 +3,7 @@
   "type": "module",
   "repository": "graphql/graphql.github.io website",
   "private": true,
-  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
+  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a",
   "scripts": {
     "analyze": "ANALYZE=true next build",
     "build": "next build",
@@ -25,7 +25,7 @@
     "validate:snippets": "node scripts/validate-snippets.js"
   },
   "dependencies": {
-    "@base-ui-components/react": "1.0.0-beta.4",
+    "@base-ui-components/react": "1.0.0-rc.0",
     "@codemirror/autocomplete": "6.18.6",
     "@codemirror/commands": "6.3.3",
     "@codemirror/language": "6.10.0",
@@ -60,7 +60,7 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^0.469.0",
     "motion": "^12.11.0",
-    "next": "14.2.34",
+    "next": "14.2.35",
     "next-query-params": "^5.0.1",
     "next-sitemap": "^4.2.3",
     "next-with-less": "^3.0.1",
