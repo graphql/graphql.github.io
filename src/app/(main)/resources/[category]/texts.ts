@@ -1,6 +1,5 @@
 import { Kind, Topic } from "@/resources/types"
 
-// @ts-ignore
 export const texts: {
   [key in Topic]: {
     heading: string
@@ -115,4 +114,43 @@ export const texts: {
       },
     },
   },
+  "schema-design": {
+    heading: "Schema Design",
+    subtitle: "Learn how to design and maintain GraphQL schemas.",
+    sections: {},
+  },
+  "api-platform-and-gateways": {
+    heading: "API Platform and Gateways",
+    subtitle: "Learn how to build and deploy API Gateways and Supergraphs.",
+    sections: {},
+  },
+  "developer-experience": {
+    heading: "Developer Experience",
+    subtitle: "Learn how to improve your developer experience.",
+    sections: {},
+  },
+  tools: {
+    heading: "Tools",
+    subtitle: "Discover the best tools for GraphQL development.",
+    sections: {},
+  },
+}
+
+export const sectionKindNames: Record<Kind, string> = {
+  video: "Featured videos",
+  blog: "Blog posts",
+  "tools-and-libraries": "Tools & Libraries",
+  guide: "Guides",
+  book: "Books",
+  "blog-or-newsletter": "Blogs & Newsletters",
+  docs: "Documentation",
+}
+
+export function sectionId(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/ & /g, "-and-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
 }

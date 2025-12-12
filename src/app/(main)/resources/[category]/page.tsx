@@ -11,46 +11,14 @@ import {
   type Topic,
 } from "@/resources/types"
 
-import { categoryNames, categorySubtitles } from "../subtitles"
 import { ResourcesHero } from "../resources-hero"
 import { TocHeroContents } from "@/components/toc-hero"
-import { Eyebrow } from "@/_design-system/eyebrow"
-import { ResourceHubCard } from "../resource-hub-card"
 import { BlogPostsSection } from "./blog-posts-section"
 import { CategoryToolsLibrariesSection } from "./category-tools-libraries-section"
+import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 
-const sectionKindNames: Record<Kind, string> = {
-  video: "Featured videos",
-  blog: "Blog posts",
-  "tools-and-libraries": "Tools & Libraries",
-  guide: "Guides",
-  book: "Books",
-  "blog-or-newsletter": "Blogs & Newsletters",
-}
-
-// TODO: I'd prefer to have this in JSX over "JSON" objects
-const blogTitles: Partial<Record<Topic, string>> = {
-  frontend: "Insights for frontend devs",
-  backend: "Insights for backend devs",
-}
-
-const blogDescriptions: Partial<Record<Topic, string>> = {
-  frontend: "Stay up to date with insights from the GraphQL community.",
-  backend: "Stay up to date with insights from the GraphQL community.",
-}
-
-function sectionHeading(
-  section: { kind: Kind; resources: ResourceMetadata[] },
-  category: Topic,
-) {
-  if (section.kind === "video") {
-    if (category === "frontend") return "Master GraphQL on the frontend"
-    // todo: paragraph: "Watch talks and tutorials from GraphQL Conf and community experts. See how teams integrate GraphQL on the frontend and learn from real-world case studies."
-    if (category === "backend") return "Master GraphQL on the backend"
-  }
-
-  return sectionLabel(section.kind)
-}
+import { sectionKindNames, sectionId, texts } from "./texts"
+import { CardsSection } from "./cards-section"
 
 interface PageParams {
   category: string
@@ -68,8 +36,8 @@ export async function generateMetadata({
   const category = params.category as Topic
   if (!topics.includes(category)) return {}
 
-  const title = `${categoryNames[category]} Resources`
-  const description = categorySubtitles[category]
+  const title = `${texts[category].heading} Resources`
+  const description = texts[category].subtitle
 
   return { title, description }
 }
@@ -82,19 +50,44 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
   const deduped = uniqueByTitle(resources)
   const grouped = groupByKind(deduped)
 
+  const activePath = [
+    {
+      name: "Home",
+      route: "/",
+    },
+    {
+      name: "Resource Hub",
+      route: "/resources",
+    },
+    {
+      name: texts[category].heading,
+      route: `/resources/${category}`,
+    },
+  ].map(item => ({
+    ...item,
+    title: item.name,
+    type: "page",
+    children: [],
+    frontMatter: {},
+  }))
+
   return (
     <main className="gql-all-anchors-focusable">
       <NavbarFixed />
 
       <ResourcesHero
-        heading={categoryNames[category]}
-        text={categorySubtitles[category]}
+        heading={texts[category].heading}
+        text={texts[category].subtitle}
       >
         <TocHeroContents
           sections={grouped.map(section => sectionLabel(section.kind))}
           className="max-w-[528px]"
         />
       </ResourcesHero>
+
+      <section className="gql-container gql-section">
+        <Breadcrumbs activePath={activePath} />
+      </section>
 
       {grouped.map(section => (
         <CategorySection
@@ -148,11 +141,12 @@ function CategorySection({
   }
 
   if (section.kind === "blog") {
+    const blogSection = texts[category].sections["blog-or-newsletter"]
     return (
       <BlogPostsSection
-        title={blogTitles[category] ?? "Insights from the community"}
+        title={blogSection?.heading ?? "Insights from the community"}
         description={
-          blogDescriptions[category] ??
+          blogSection?.text ??
           "Stay up to date with insights from the GraphQL community."
         }
         posts={section.resources.map(resource => ({
@@ -165,35 +159,5 @@ function CategorySection({
     )
   }
 
-  return (
-    <section
-      id={sectionKindNames[section.kind].toLowerCase().replace(/ /g, "-")}
-      className="gql-container gql-section flex flex-col gap-6"
-    >
-      <header className="flex items-center justify-between gap-4">
-        <div className="flex flex-col gap-3">
-          <Eyebrow>{sectionKindNames[section.kind]}</Eyebrow>
-          <h2 className="typography-h3 text-pretty">
-            {sectionHeading(section, category)}
-          </h2>
-        </div>
-        <span className="typography-menu text-neu-600">
-          {section.resources.length} resources
-        </span>
-      </header>
-
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {section.resources.map(resource => (
-          <li key={resource.url}>
-            <ResourceHubCard
-              href={resource.url}
-              title={resource.title}
-              author={resource.author}
-              tags={resource.tags}
-            />
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
+  return <CardsSection section={section} category={category} />
 }

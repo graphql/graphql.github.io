@@ -4,6 +4,8 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import { BlogCard } from "@/components/blog-page/blog-card"
 
+import { sectionId } from "./texts"
+
 export interface BlogPost {
   href: string
   title: string
@@ -28,7 +30,10 @@ export function BlogPostsSection({
   readAllLabel = "Read all GraphQL stories",
 }: BlogPostsSectionProps) {
   return (
-    <section className="gql-container gql-section flex flex-col gap-10 lg:gap-16">
+    <section
+      id={sectionId("Blog posts")}
+      className="gql-container gql-section flex flex-col gap-10 lg:gap-16"
+    >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-3">
           <Eyebrow>Blog posts</Eyebrow>
