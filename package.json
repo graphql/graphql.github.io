@@ -59,7 +59,7 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^0.469.0",
     "motion": "^12.11.0",
-    "next": "14.2.34",
+    "next": "14.2.35",
     "next-query-params": "^5.0.1",
     "next-sitemap": "^4.2.3",
     "next-with-less": "^3.0.1",

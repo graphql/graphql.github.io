@@ -67,10 +67,10 @@ importers:
         version: 1.2.3
       '@next/bundle-analyzer':
         specifier: ^15.4.5
-        version: 15.5.6
+        version: 15.5.9
       '@plaiceholder/next':
         specifier: ^3.0.0
-        version: 3.0.0(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)
+        version: 3.0.0(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)
       '@sparticuz/chromium':
         specifier: ^138.0.2
         version: 138.0.2
@@ -132,23 +132,23 @@ importers:
         specifier: ^12.11.0
         version: 12.23.25(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next:
-        specifier: 14.2.34
-        version: 14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 14.2.35
+        version: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-query-params:
         specifier: ^5.0.1
-        version: 5.1.0(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 5.1.0(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       next-sitemap:
         specifier: ^4.2.3
-        version: 4.2.3(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 4.2.3(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       next-with-less:
         specifier: ^3.0.1
-        version: 3.0.1(less-loader@12.3.0(less@4.4.1))(less@4.4.1)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 3.0.1(less-loader@12.3.0(less@4.4.1))(less@4.4.1)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       nextra:
         specifier: 3.3.1
-        version: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+        version: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       nextra-theme-docs:
         specifier: 3.3.1
-        version: 3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       numbro:
         specifier: 2.5.0
         version: 2.5.0
@@ -224,7 +224,7 @@ importers:
         version: 0.1.0(eslint@8.57.1)
       '@next/eslint-plugin-next':
         specifier: ^15.3.3
-        version: 15.5.6
+        version: 15.5.9
       '@playwright/test':
         specifier: ^1.54.2
         version: 1.57.0
@@ -935,6 +935,7 @@ packages:
   '@base-ui-components/react@1.0.0-rc.0':
     resolution: {integrity: sha512-9lhUFbJcbXvc9KulLev1WTFxS/alJRBWDH/ibKSQaNvmDwMFS2gKp1sTeeldYSfKuS/KC1w2MZutc0wHu2hRHQ==}
     engines: {node: '>=14.0.0'}
+    deprecated: Package was renamed to @base-ui/react
     peerDependencies:
       '@types/react': ^17 || ^18 || ^19
       react: ^17 || ^18 || ^19
@@ -945,6 +946,7 @@ packages:
 
   '@base-ui-components/utils@0.2.2':
     resolution: {integrity: sha512-rNJCD6TFy3OSRDKVHJDzLpxO3esTV1/drRtWNUpe7rCpPN9HZVHUCuP+6rdDYDGWfXnQHbqi05xOyRP2iZAlkw==}
+    deprecated: Package was renamed to @base-ui/utils
     peerDependencies:
       '@types/react': ^17 || ^18 || ^19
       react: ^17 || ^18 || ^19
@@ -1968,17 +1970,17 @@ packages:
     resolution: {integrity: sha512-bMVoAKhpjTOPHkW/lprDPwv5aD4R4C3Irt8vn+SKA9wudLe9COLxOhurrKRsxmZccUbWXRF7vukNeGUAj5P8kA==}
     engines: {node: '>= 10'}
 
-  '@next/bundle-analyzer@15.5.6':
-    resolution: {integrity: sha512-IHeyk2s9/fVDAGDLNbBkCSG8XBabhuMajiaJggjsg4GyFIswh78DzLo5Nl5th8QTs3U/teYeczvfeV9w1Tx3qA==}
+  '@next/bundle-analyzer@15.5.9':
+    resolution: {integrity: sha512-lT1EBpFyGVN9u8M43f2jE78DsCu0A5KPA5OkF5PdIHrKDo4oTJ4lUQKciA9T2u9gccSXIPQcZb5TYkHF4f8iiw==}
 
   '@next/env@13.5.11':
     resolution: {integrity: sha512-fbb2C7HChgM7CemdCY+y3N1n8pcTKdqtQLbC7/EQtPdLvlMUT9JX/dBYl8MMZAtYG4uVMyPFHXckb68q/NRwqg==}
 
-  '@next/env@14.2.34':
-    resolution: {integrity: sha512-iuGW/UM+EZbn2dm+aLx+avo1rVap+ASoFr7oLpTBVW2G2DqhD5l8Fme9IsLZ6TTsp0ozVSFswidiHK1NGNO+pg==}
+  '@next/env@14.2.35':
+    resolution: {integrity: sha512-DuhvCtj4t9Gwrx80dmz2F4t/zKQ4ktN8WrMwOuVzkJfBilwAwGr6v16M5eI8yCuZ63H9TTuEU09Iu2HqkzFPVQ==}
 
-  '@next/eslint-plugin-next@15.5.6':
-    resolution: {integrity: sha512-YxDvsT2fwy1j5gMqk3ppXlsgDopHnkM4BoxSVASbvvgh5zgsK8lvWerDzPip8k3WVzsTZ1O7A7si1KNfN4OZfQ==}
+  '@next/eslint-plugin-next@15.5.9':
+    resolution: {integrity: sha512-kUzXx0iFiXw27cQAViE1yKWnz/nF8JzRmwgMRTMh8qMY90crNsdXJRh2e+R0vBpFR3kk1yvAR7wev7+fCCb79Q==}
 
   '@next/swc-darwin-arm64@14.2.33':
     resolution: {integrity: sha512-HqYnb6pxlsshoSTubdXKu15g3iivcbsMXg4bYpjL2iS/V6aQot+iyF4BUc2qA/J/n55YtvE4PHMKWBKGCF/+wA==}
@@ -4925,8 +4927,8 @@ packages:
       less-loader: '>= 7.0.0'
       next: '>= 11.0.1'
 
-  next@14.2.34:
-    resolution: {integrity: sha512-s7mRraWlkEVRLjHHdu5khn0bSnmUh+U+YtigBc+t2Ge7jJHFIVBZna+W9Jcx7b04HhM7eJWrNJ2A+sQs9gJ3eg==}
+  next@14.2.35:
+    resolution: {integrity: sha512-KhYd2Hjt/O1/1aZVX3dCwGXM1QmOV4eNM2UTacK5gipDdPN/oHHK/4oVGy7X8GMfPMsUTUEmGlsy0EY1YGAkig==}
     engines: {node: '>=18.17.0'}
     hasBin: true
     peerDependencies:
@@ -8108,14 +8110,14 @@ snapshots:
   '@graphql-tools/optimize@2.0.0(graphql@16.10.0)':
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/relay-operation-optimizer@7.0.23(graphql@16.10.0)':
     dependencies:
       '@ardatan/relay-compiler': 12.0.3(graphql@16.10.0)
       '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
@@ -8620,7 +8622,7 @@ snapshots:
       '@napi-rs/simple-git-win32-ia32-msvc': 0.1.22
       '@napi-rs/simple-git-win32-x64-msvc': 0.1.22
 
-  '@next/bundle-analyzer@15.5.6':
+  '@next/bundle-analyzer@15.5.9':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
@@ -8629,9 +8631,9 @@ snapshots:
 
   '@next/env@13.5.11': {}
 
-  '@next/env@14.2.34': {}
+  '@next/env@14.2.35': {}
 
-  '@next/eslint-plugin-next@15.5.6':
+  '@next/eslint-plugin-next@15.5.9':
     dependencies:
       fast-glob: 3.3.1
 
@@ -8731,9 +8733,9 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@plaiceholder/next@3.0.0(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)':
+  '@plaiceholder/next@3.0.0(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)':
     dependencies:
-      next: 14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       plaiceholder: 3.0.0(sharp@0.34.4)
       sharp: 0.34.4
 
@@ -9633,7 +9635,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   camelcase-css@2.0.1: {}
 
@@ -9644,7 +9646,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   ccount@2.0.1: {}
@@ -9810,7 +9812,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case: 2.0.2
 
   convert-source-map@2.0.0: {}
@@ -10909,7 +10911,7 @@ snapshots:
   graphql-tag@2.12.6(graphql@16.10.0):
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   graphql-ws@6.0.6(graphql@16.10.0)(ws@8.18.3):
     dependencies:
@@ -11111,7 +11113,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   hosted-git-info@7.0.2:
     dependencies:
@@ -12284,36 +12286,36 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  next-query-params@5.1.0(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  next-query-params@5.1.0(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
-      next: 14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       tslib: 2.8.1
       use-query-params: 2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  next-sitemap@4.2.3(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  next-sitemap@4.2.3(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       '@corex/deepmerge': 4.0.43
       '@next/env': 13.5.11
       fast-glob: 3.3.3
       minimist: 1.2.8
-      next: 14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   next-themes@0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  next-with-less@3.0.1(less-loader@12.3.0(less@4.4.1))(less@4.4.1)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  next-with-less@3.0.1(less-loader@12.3.0(less@4.4.1))(less@4.4.1)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       clone-deep: 4.0.1
       less: 4.4.1
       less-loader: 12.3.0(less@4.4.1)
-      next: 14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@next/env': 14.2.34
+      '@next/env': 14.2.35
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
       caniuse-lite: 1.0.30001754
@@ -12337,21 +12339,21 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextra-theme-docs@3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nextra-theme-docs@3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@headlessui/react': 2.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       escape-string-regexp: 5.0.0
       flexsearch: 0.7.43
-      next: 14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes: 0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      nextra: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
       zod: 3.25.76
 
-  nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
+  nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
     dependencies:
       '@formatjs/intl-localematcher': 0.5.10
       '@headlessui/react': 2.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -12374,7 +12376,7 @@ snapshots:
       mdast-util-gfm: 3.1.0
       mdast-util-to-hast: 13.2.0
       negotiator: 1.0.0
-      next: 14.2.34(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       p-limit: 6.2.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -12408,7 +12410,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   node-domexception@1.0.0: {}
 
@@ -12578,7 +12580,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   parent-module@1.0.1:
     dependencies:
@@ -12645,12 +12647,12 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   path-data-parser@0.1.0: {}
 
@@ -13288,7 +13290,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   serialize-query-params@2.0.4: {}
