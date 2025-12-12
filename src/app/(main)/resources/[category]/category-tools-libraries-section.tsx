@@ -2,8 +2,8 @@ import path from "node:path"
 import { glob } from "node:fs/promises"
 import { readFile } from "node:fs/promises"
 import matter from "gray-matter"
-
 import type { CSSProperties } from "react"
+
 import { Button } from "@/app/conf/_design-system/button"
 import blurCorner from "./blur-corner.webp"
 import { Eyebrow } from "@/_design-system/eyebrow"
@@ -11,8 +11,8 @@ import slugMap from "@/code/slug-map.json"
 import { type Topic } from "@/resources/types"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
-import { ChevronRight } from "@/app/conf/_design-system/pixelarticons/chevron-right"
 import { IconSpritesheet, IconName } from "./spritesheet"
+import CaretDown from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
 
 interface LibraryEntry {
   name: string
@@ -72,7 +72,7 @@ export async function CategoryToolsLibrariesSection({
   const libraries = await librariesPromise
   const filtered = libraries.filter(item => item.tags.includes(category))
 
-  const grouped = Array.from(
+  const sortedGroups = Array.from(
     filtered.reduce<Map<string, LibraryEntry[]>>((acc, item) => {
       const list = acc.get(item.group) ?? []
       list.push(item)
@@ -90,6 +90,14 @@ export async function CategoryToolsLibrariesSection({
         .slice(0, 20),
     }))
     .sort((a, b) => b.items.length - a.items.length)
+
+  const grouped: GroupData[] = sortedGroups.map((group, index) => {
+    const nextLength = sortedGroups[index + 1]?.items.length ?? 0
+    const columns =
+      nextLength > 0 && group.items.length >= nextLength * 1.9 ? 2 : 1
+    const breakIndex = columns === 2 ? Math.ceil(group.items.length / 2) : 0
+    return { ...group, columns, breakIndex }
+  })
 
   if (grouped.length === 0) {
     return null
@@ -124,69 +132,104 @@ export async function CategoryToolsLibrariesSection({
           </Button>
         </div>
 
-        <div className="flex flex-wrap gap-4 pb-2 lg:overflow-visible">
-          {grouped.map((group, index) => {
-            const nextLength = grouped[index + 1]?.items.length ?? 0
-            const columns =
-              nextLength > 0 && group.items.length >= nextLength * 1.9 ? 2 : 1
-            const listStyle = { "--item-columns": columns } as CSSProperties
-            const breakIndex =
-              columns === 2 ? Math.floor(group.items.length / 2) : 0
-
-            return (
-              <div
-                key={group.id}
-                className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:border-neu-100 dark:bg-neu-50/25 lg:w-1/3 lg:min-w-0"
-              >
-                <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 text-neu-900 dark:bg-transparent">
-                  <div className="border-r border-inherit p-3">
-                    <IconSpritesheet
-                      sprite={group.id as IconName}
-                      className="size-10 text-neu-800 dark:text-neu-700"
-                    />
-                  </div>
-                  <div className="px-4 py-3">{group.name}</div>
-                  <div className="border-l border-inherit p-3 md:hidden">
-                    {/* TODO: On mobile */}
-                    <ChevronRight className="rotate-90" />
-                  </div>
-                </div>
-                <ul
-                  className="gap-0 divide-y divide-neu-200 dark:divide-neu-100 lg:[column-count:var(--item-columns,1)]"
-                  style={listStyle}
-                >
-                  {group.items.map((item, i) => (
-                    <li
-                      key={`${group.id}-${item.name}`}
-                      style={
-                        breakIndex
-                          ? {
-                              borderTop: i === breakIndex ? "none" : "",
-                              borderLeftWidth: i >= breakIndex ? "1px" : "",
-                            }
-                          : {}
-                      }
-                    >
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900 transition-colors hover:bg-neu-0 hover:duration-0"
-                        >
-                          {item.name}
-                        </a>
-                      ) : (
-                        <span className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900">
-                          {item.name}
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )
-          })}
+        <div className="flex flex-wrap gap-4 pb-2 max-md:flex-col md:flex-nowrap md:items-start">
+          {distributeToColumns(grouped).map((column, colIndex) => (
+            <div
+              key={colIndex}
+              className="flex w-full flex-col gap-4 max-md:contents"
+            >
+              {column.map(group => (
+                <Group key={group.id} group={group} />
+              ))}
+            </div>
+          ))}
         </div>
       </section>
+    </div>
+  )
+}
+
+interface GroupData {
+  id: string
+  name: string
+  items: LibraryEntry[]
+  columns: 1 | 2
+  breakIndex: number
+}
+
+function distributeToColumns(groups: GroupData[]): [GroupData[], GroupData[]] {
+  const left: GroupData[] = []
+  const right: GroupData[] = []
+
+  let leftHeight = 0
+  let rightHeight = 0
+
+  for (const group of groups) {
+    const itemRows =
+      group.columns === 2
+        ? Math.ceil(group.items.length / 2)
+        : group.items.length
+    const height = itemRows + 1
+    if (leftHeight <= rightHeight) {
+      left.push(group)
+      leftHeight += height
+    } else {
+      right.push(group)
+      rightHeight += height
+    }
+  }
+
+  return [left, right]
+}
+
+function Group({ group }: { group: GroupData }) {
+  const listStyle = { "--item-columns": group.columns } as CSSProperties
+
+  return (
+    <div className="shrink-0 grow border border-neu-200 bg-neu-50 dark:border-neu-100 dark:bg-neu-50/25 lg:min-w-0 xl:min-w-[480px]">
+      <div className="typography-body-lg flex items-center border-b border-inherit bg-neu-50 text-neu-900 dark:bg-transparent">
+        <div className="border-r border-inherit p-2 lg:p-3">
+          <IconSpritesheet
+            sprite={group.id as IconName}
+            className="size-8 text-neu-800 dark:text-neu-700 lg:size-10"
+          />
+        </div>
+        <div className="p-2 lg:px-4 lg:py-3">{group.name}</div>
+        <div className="ml-auto flex aspect-square h-12 shrink-0 items-center justify-center border-l border-inherit p-2 md:hidden">
+          <CaretDown className="size-6 shrink-0 fill-neu-700" />
+        </div>
+      </div>
+      <ul
+        className="divide-y divide-neu-200 dark:divide-neu-100 lg:[column-count:var(--item-columns,1)]"
+        style={listStyle}
+      >
+        {group.items.map((item, i) => (
+          <li
+            key={`${group.id}-${item.name}`}
+            style={
+              group.breakIndex
+                ? {
+                    borderTop: i === group.breakIndex ? "none" : "",
+                    borderLeftWidth: i >= group.breakIndex ? "1px" : "",
+                  }
+                : {}
+            }
+          >
+            {item.href ? (
+              <a
+                href={item.href}
+                className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900 transition-colors hover:bg-neu-0 hover:duration-0"
+              >
+                {item.name}
+              </a>
+            ) : (
+              <span className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900">
+                {item.name}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
