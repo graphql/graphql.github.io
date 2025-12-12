@@ -29,8 +29,11 @@ interface IconSpritesheetProps extends SVGProps<SVGSVGElement> {
 export function IconSpritesheet({ sprite, ...props }: IconSpritesheetProps) {
   return (
     <>
-      <svg {...props}>
-        <use href={`${sheet}#${sprite}`} />
+      <svg fill="currentColor" {...props}>
+        <use
+          href={`${sheet}#${sprite}`}
+          style={{ "--bg": "hsl(var(--color-neu-50))" } as {}}
+        />
       </svg>
     </>
   )
