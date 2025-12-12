@@ -7,7 +7,6 @@ import {
   ComboboxInput,
   ComboboxOption,
   ComboboxOptions,
-  Label,
 } from "@headlessui/react"
 
 import { Button } from "@/app/conf/_design-system/button"
@@ -71,9 +70,9 @@ export function VideoLibrary({ resources }: VideoLibraryProps) {
           />
 
           <div className="flex flex-col gap-2 lg:w-52">
-            <Label className="typography-menu font-mono font-medium uppercase text-neu-900">
+            <span className="typography-menu font-mono font-medium uppercase text-neu-900">
               Sort
-            </Label>
+            </span>
             <div className="relative border border-neu-500 bg-neu-0 text-neu-800 focus-within:ring focus-within:ring-neu-300 dark:border-neu-200 dark:bg-neu-0/50 dark:focus-within:ring-neu-200">
               <select
                 value={sortOrder}
@@ -108,18 +107,13 @@ export function VideoLibrary({ resources }: VideoLibraryProps) {
 
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map(resource => {
-          const tags = resource.tags.map(tag => ({
-            label: tag,
-            color: "hsl(var(--color-neu-500))",
-          }))
-
           return (
             <li key={resource.url}>
               <ResourceHubCard
                 href={resource.url}
                 title={resource.title}
                 author={resource.author}
-                tags={tags}
+                tags={resource.tags}
               />
             </li>
           )
@@ -152,9 +146,9 @@ function TopicsCombobox({
   return (
     <Combobox immediate multiple value={value} onChange={onChange}>
       <div className="flex flex-col gap-2 lg:w-full">
-        <Label className="typography-menu font-mono font-medium uppercase text-neu-900">
+        <span className="typography-menu font-mono font-medium uppercase text-neu-900">
           {label}
-        </Label>
+        </span>
         <label className="relative w-full border border-neu-500 bg-neu-0 p-2 focus-within:outline-none focus-within:ring focus-within:ring-neu-300 dark:border-neu-200 dark:bg-neu-0/50 dark:focus-within:ring-neu-200">
           <ComboboxInput
             value={query}

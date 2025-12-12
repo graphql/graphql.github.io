@@ -45,6 +45,7 @@ function sectionHeading(
 ) {
   if (section.kind === "video") {
     if (category === "frontend") return "Master GraphQL on the frontend"
+    // todo: paragraph: "Watch talks and tutorials from GraphQL Conf and community experts. See how teams integrate GraphQL on the frontend and learn from real-world case studies."
     if (category === "backend") return "Master GraphQL on the backend"
   }
 

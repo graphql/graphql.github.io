@@ -50,16 +50,7 @@ export function ReadingResourcesCard({
       title={resource.title}
       author={resource.author}
       authorPlacement="body"
-      tags={
-        config
-          ? [
-              {
-                label: config.label,
-                color: config.color,
-              },
-            ]
-          : undefined
-      }
+      tags={resource.tags}
       icon={
         config ? (
           <div

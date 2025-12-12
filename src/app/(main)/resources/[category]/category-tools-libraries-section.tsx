@@ -12,13 +12,12 @@ import { type Topic } from "@/resources/types"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
 import { ChevronRight } from "@/app/conf/_design-system/pixelarticons/chevron-right"
-import { Icon, IconName } from "./icons"
+import { IconSpritesheet, IconName } from "./spritesheet"
 
 interface LibraryEntry {
   name: string
   href?: string
   group: string
-  icon: React.ReactNode
   tags: string[]
 }
 
@@ -130,8 +129,6 @@ export async function CategoryToolsLibrariesSection({
             const breakIndex =
               columns === 2 ? Math.floor(group.items.length / 2) : 0
 
-            console.log({ index, group: group.name, breakIndex })
-
             return (
               <div
                 key={group.id}
@@ -139,7 +136,10 @@ export async function CategoryToolsLibrariesSection({
               >
                 <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 text-neu-900">
                   <div className="border-r border-inherit p-3">
-                    <Icon icon={group.id as IconName} className="size-10" />
+                    <IconSpritesheet
+                      sprite={group.id as IconName}
+                      className="size-10"
+                    />
                   </div>
                   <div className="px-4 py-3">{group.name}</div>
                   <div className="border-l border-inherit p-3 md:hidden">

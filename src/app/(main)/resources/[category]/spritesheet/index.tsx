@@ -1,6 +1,6 @@
 import type { SVGProps } from "react"
 
-const sprite = new URL("./sprite.svg", import.meta.url).href
+import sheet from "./sheet.svg?resource"
 
 export type IconName =
   | "ballerina"
@@ -22,14 +22,16 @@ export type IconName =
   | "scala"
   | "swift"
 
-interface IconProps extends SVGProps<SVGSVGElement> {
-  icon: IconName
+interface IconSpritesheetProps extends SVGProps<SVGSVGElement> {
+  sprite: IconName
 }
 
-export function Icon({ icon, ...props }: IconProps) {
+export function IconSpritesheet({ sprite, ...props }: IconSpritesheetProps) {
   return (
-    <svg {...props}>
-      <use href={`${sprite}#${icon}`} />
-    </svg>
+    <>
+      <svg {...props}>
+        <use href={`${sheet}#${sprite}`} />
+      </svg>
+    </>
   )
 }
