@@ -11,8 +11,8 @@ import slugMap from "@/code/slug-map.json"
 import { type Topic } from "@/resources/types"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
-import { icons } from "./icons"
 import { ChevronRight } from "@/app/conf/_design-system/pixelarticons/chevron-right"
+import { Icon, IconName } from "./icons"
 
 interface LibraryEntry {
   name: string
@@ -130,21 +130,19 @@ export async function CategoryToolsLibrariesSection({
             const breakIndex =
               columns === 2 ? Math.floor(group.items.length / 2) : 0
 
-            const Icon = icons[group.id]
+            console.log({ index, group: group.name, breakIndex })
 
             return (
               <div
                 key={group.id}
                 className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:bg-neu-50/50 lg:w-1/3 lg:min-w-0"
               >
-                <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 px-4 py-3 text-neu-900">
-                  {Icon && (
-                    <div className="border-r border-inherit p-3">
-                      <Icon className="size-10" />
-                    </div>
-                  )}
-                  {group.name}
-                  <div className="border-l border-inherit p-3 max-md:hidden">
+                <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 text-neu-900">
+                  <div className="border-r border-inherit p-3">
+                    <Icon icon={group.id as IconName} className="size-10" />
+                  </div>
+                  <div className="px-4 py-3">{group.name}</div>
+                  <div className="border-l border-inherit p-3 md:hidden">
                     {/* TODO: On mobile */}
                     <ChevronRight className="rotate-90" />
                   </div>
@@ -156,10 +154,14 @@ export async function CategoryToolsLibrariesSection({
                   {group.items.map((item, i) => (
                     <li
                       key={`${group.id}-${item.name}`}
-                      style={{
-                        borderTop: breakIndex === i ? "none" : "",
-                        borderLeftWidth: breakIndex >= i ? "1px" : "",
-                      }}
+                      style={
+                        breakIndex
+                          ? {
+                              borderTop: i === breakIndex ? "none" : "",
+                              borderLeftWidth: i >= breakIndex ? "1px" : "",
+                            }
+                          : {}
+                      }
                     >
                       {item.href ? (
                         <a
