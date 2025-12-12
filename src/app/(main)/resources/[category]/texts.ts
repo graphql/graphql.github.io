@@ -96,4 +96,23 @@ export const texts: {
       },
     },
   },
+  monitoring: {
+    heading: "Monitoring",
+    subtitle:
+      "Stay ahead of issues by monitoring queries and watching error trends.",
+    sections: {
+      "tools-and-libraries": {
+        heading: "GraphQL monitoring tools",
+        text: "Connect GraphQL tracing and alerting systems to reduce blind spots in production.",
+      },
+      docs: {
+        heading: "Monitoring in practice",
+        text: "Learn how to track the right signals in your GraphQL ecosystem — from latency and error rates to resolver-level performance.",
+      },
+      "blog-or-newsletter": {
+        heading: "Latest insights on monitoring",
+        text: "Read the latest announcements and technical deep dives.",
+      },
+    },
+  },
 }
