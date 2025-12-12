@@ -49,7 +49,7 @@ function NavbarMenu({
             key={key}
             href={item.href || routes[key]?.route}
             target={item.newWindow ? "_blank" : undefined}
-            className="block py-3.5 pl-2 pr-9"
+            className="block py-3.5 pl-2 pr-9 underline-offset-2 hover:underline focus-visible:underline"
             closeOnClick
             render={(
               props: React.ComponentPropsWithoutRef<"a">,
@@ -58,7 +58,7 @@ function NavbarMenu({
               <Anchor {...props} href={props.href!}>
                 <span
                   className={clsx(
-                    "typography-menu px-3 py-1 underline-offset-2 hover:underline focus-visible:underline",
+                    "typography-menu px-3 py-1",
                     state.active && "underline",
                   )}
                 >
