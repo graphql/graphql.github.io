@@ -183,11 +183,17 @@ function distributeToColumns(groups: GroupData[]): [GroupData[], GroupData[]] {
 }
 
 function Group({ group }: { group: GroupData }) {
-  const listStyle = { "--item-columns": group.columns } as CSSProperties
-
   return (
-    <div className="shrink-0 grow border border-neu-200 bg-neu-50 dark:border-neu-100 dark:bg-neu-50/25 lg:min-w-0 xl:min-w-[480px]">
-      <div className="typography-body-lg flex items-center border-b border-inherit bg-neu-50 text-neu-900 dark:bg-transparent">
+    <div className="group/item shrink-0 grow border border-neu-200 bg-neu-50 dark:border-neu-100 dark:bg-neu-50/25 lg:min-w-0 xl:min-w-[480px]">
+      <input
+        type="checkbox"
+        id={`group-${group.id}`}
+        className="peer sr-only"
+      />
+      <label
+        htmlFor={`group-${group.id}`}
+        className="typography-body-lg flex cursor-pointer items-center border-inherit bg-neu-50 text-neu-900 peer-checked:border-b dark:bg-transparent md:pointer-events-none md:cursor-default md:border-b"
+      >
         <div className="border-r border-inherit p-2 lg:p-3">
           <IconSpritesheet
             sprite={group.id as IconName}
@@ -196,12 +202,12 @@ function Group({ group }: { group: GroupData }) {
         </div>
         <div className="p-2 lg:px-4 lg:py-3">{group.name}</div>
         <div className="ml-auto flex aspect-square h-12 shrink-0 items-center justify-center border-l border-inherit p-2 md:hidden">
-          <CaretDown className="size-6 shrink-0 fill-neu-700" />
+          <CaretDown className="size-6 shrink-0 fill-neu-700 group-has-[:checked]/item:rotate-180" />
         </div>
-      </div>
+      </label>
       <ul
-        className="divide-y divide-neu-200 dark:divide-neu-100 lg:[column-count:var(--item-columns,1)]"
-        style={listStyle}
+        className="divide-y divide-neu-200 [column-gap:0] dark:divide-neu-100 max-md:hidden peer-checked:max-md:block md:block lg:[column-count:var(--item-columns,1)]"
+        style={{ "--item-columns": group.columns } as CSSProperties}
       >
         {group.items.map((item, i) => (
           <li
