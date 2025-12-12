@@ -6,10 +6,94 @@ export const texts: {
     heading: string
     subtitle: string
     sections: {
-      [key in Kind]: {
+      [key in Kind]?: {
         heading: string
-        paragraph: string
+        text: string
       }
     }
   }
-} = {}
+} = {
+  frontend: {
+    heading: "Frontend",
+    subtitle: "Learn how to use GraphQL on the frontend.",
+    sections: {
+      video: {
+        heading: "Master GraphQL on the frontend",
+        text: "Watch talks and tutorials from GraphQL Conf and community experts. See how teams integrate GraphQL on the frontend and learn from real-world case studies.",
+      },
+      "tools-and-libraries": {
+        heading: "Frontend tools & libraries",
+        text: "Explore the most popular GraphQL client libraries and frameworks for frontend. These tools help you fetch and manage data with GraphQL.",
+      },
+      "blog-or-newsletter": {
+        heading: "Insights for frontend devs",
+        text: "Stay up to date with insights from the GraphQL community.",
+      },
+    },
+  },
+  backend: {
+    heading: "Backend",
+    subtitle:
+      "Build powerful GraphQL backends with the right tools, libraries and expert insights.",
+    sections: {
+      video: {
+        heading: "Master GraphQL on the backend",
+        text: "Discover videos and tutorials to help you build, deploy and scale your GraphQL backend.",
+      },
+      "tools-and-libraries": {
+        heading: "Backend tools & libraries",
+        text: "Find the right GraphQL backend stack — from JavaScript to Rust and beyond.",
+      },
+      "blog-or-newsletter": {
+        heading: "Build better GraphQL infrastructure",
+        text: "Dive into articles on server architecture, schema design and best practices for running GraphQL at scale.",
+      },
+    },
+  },
+  federation: {
+    heading: "Federation",
+    subtitle: "Learn how to build and compose GraphQL graphs with federation.",
+    sections: {
+      video: {
+        heading: "Master GraphQL federation",
+        text: "Watch talks and tutorials from GraphQL Conf and community experts. See how teams build and compose GraphQL graphs with federation.",
+      },
+      "tools-and-libraries": {
+        heading: "Tools & libraries for federated graphs",
+        text: "Run federated GraphQL graphs at scale with the right tools — from open-source routers to managed platforms.",
+      },
+      "blog-or-newsletter": {
+        heading: "Latest updates on federation & composition",
+        text: "Read the latest announcements and technical deep dives.",
+      },
+    },
+  },
+  ai: {
+    heading: "Artificial Intelligence",
+    subtitle: "Explore how to use GraphQL for AI systems.",
+    sections: {
+      "tools-and-libraries": {
+        heading: "GraphQL tools for AI",
+        text: "Discover the best tools for building AI systems with GraphQL.",
+      },
+      "blog-or-newsletter": {
+        heading: "Latest insights on AI & GraphQL",
+        text: "Read the latest announcements and technical deep dives.",
+      },
+    },
+  },
+  security: {
+    heading: "Security",
+    subtitle: "Learn how to secure your GraphQL APIs.",
+    sections: {
+      "tools-and-libraries": {
+        heading: "GraphQL security tools",
+        text: "Find resources to help secure GraphQL APIs across various languages and frameworks.",
+      },
+      docs: {
+        heading: "Security in practice",
+        text: "Follow proven patterns to delegate authorization correctly and protect your GraphQL APIs from malicious operations.",
+      },
+    },
+  },
+}

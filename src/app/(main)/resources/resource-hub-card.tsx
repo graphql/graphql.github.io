@@ -61,7 +61,7 @@ export function ResourceHubCard({
     <Link
       href={href}
       className={clsx(
-        "group grid h-full grid-rows-[1fr_auto] border border-neu-200 bg-neu-50 text-left hover:ring hover:ring-neu-100 dark:border-neu-100 dark:bg-neu-50/50 dark:hover:ring-neu-50",
+        "group grid h-full grid-rows-[1fr_auto] border border-neu-200 bg-neu-50 text-left hover:ring hover:ring-neu-100 dark:border-neu-100 dark:bg-neu-50/25 dark:hover:ring-neu-50",
         className,
       )}
     >
