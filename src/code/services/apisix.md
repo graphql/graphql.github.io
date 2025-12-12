@@ -6,4 +6,5 @@ github: apache/apisix
 tags:
   - tools-and-libraries
   - tools
+  - monitoring
 ---
