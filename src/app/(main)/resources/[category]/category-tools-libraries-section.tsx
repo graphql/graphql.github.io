@@ -115,7 +115,11 @@ export async function CategoryToolsLibrariesSection({
               graphs.
             </p>
           </div>
-          <Button href="/code" variant="primary" className="w-fit">
+          <Button
+            href="/community/tools-and-libraries/"
+            variant="primary"
+            className="w-fit"
+          >
             See all Tools & Libraries
           </Button>
         </div>
@@ -132,13 +136,13 @@ export async function CategoryToolsLibrariesSection({
             return (
               <div
                 key={group.id}
-                className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:bg-neu-50/50 lg:w-1/3 lg:min-w-0"
+                className="min-w-[480px] shrink-0 grow border border-neu-200 bg-neu-50 dark:border-neu-100 dark:bg-neu-50/25 lg:w-1/3 lg:min-w-0"
               >
-                <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 text-neu-900">
+                <div className="typography-body-lg flex items-center gap-3 border-b border-inherit bg-neu-50 text-neu-900 dark:bg-transparent">
                   <div className="border-r border-inherit p-3">
                     <IconSpritesheet
                       sprite={group.id as IconName}
-                      className="size-10"
+                      className="size-10 text-neu-800 dark:text-neu-700"
                     />
                   </div>
                   <div className="px-4 py-3">{group.name}</div>
@@ -171,7 +175,7 @@ export async function CategoryToolsLibrariesSection({
                           {item.name}
                         </a>
                       ) : (
-                        <span className="flex items-center justify-between bg-neu-50 px-4 py-3 text-neu-900">
+                        <span className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900">
                           {item.name}
                         </span>
                       )}
