@@ -17,6 +17,11 @@ declare module "*?raw" {
   export default content
 }
 
+declare module "*.svg?resource" {
+  const url: string
+  export default url
+}
+
 // We're importing a transitive dependency to avoid a bug.
 declare module "next-themes" {
   export function ThemeProvider(props: {
