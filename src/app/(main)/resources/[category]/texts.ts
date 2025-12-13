@@ -146,11 +146,10 @@ export const sectionKindNames: Record<Kind, string> = {
   docs: "Documentation",
 }
 
-export function sectionId(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/ & /g, "-and-")
-    .replace(/[^a-z0-9-]/g, "")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "")
+export function slugify(name: string): string {
+  return name.toLowerCase().replace(/ & /g, "-and-").replace(/ /g, "-")
 }
+
+export const sectionIds: Record<Kind, string> = Object.fromEntries(
+  Object.entries(sectionKindNames).map(([kind, name]) => [kind, slugify(name)]),
+) as Record<Kind, string>
