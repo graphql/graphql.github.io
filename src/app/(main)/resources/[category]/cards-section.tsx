@@ -4,7 +4,7 @@ import { Button } from "@/app/conf/_design-system/button"
 
 import { ResourceHubCard } from "../resource-hub-card"
 
-import { texts, sectionKindNames, sectionId } from "./texts"
+import { texts, sectionKindNames, sectionIds } from "./texts"
 
 function sectionLabel(kind: Kind) {
   return sectionKindNames[kind] ?? `${kind[0].toUpperCase()}${kind.slice(1)}`
@@ -20,11 +20,10 @@ export function CardsSection({
   const sectionData = texts[category].sections[section.kind]
   const heading = sectionData?.heading ?? sectionLabel(section.kind)
   const text = sectionData?.text
-  const label = sectionLabel(section.kind)
 
   return (
     <section
-      id={sectionId(label)}
+      id={sectionIds[section.kind]}
       className="gql-container gql-section flex flex-col gap-6"
     >
       <header className="flex items-center justify-between gap-4">

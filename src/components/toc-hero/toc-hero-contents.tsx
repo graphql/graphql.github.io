@@ -1,6 +1,7 @@
 import { clsx } from "clsx"
 
 import { ChevronRight } from "@/app/conf/_design-system/pixelarticons/chevron-right"
+import { slugify } from "@/app/(main)/resources/[category]/texts"
 
 export interface TocHeroContentsProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -34,7 +35,7 @@ export function TocHeroContents({
             typeof section === "string"
               ? {
                   name: section,
-                  href: `#${section.toLowerCase().replace(/ /g, "-")}`,
+                  href: `#${slugify(section)}`,
                 }
               : section
 

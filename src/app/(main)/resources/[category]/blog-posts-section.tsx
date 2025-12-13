@@ -3,8 +3,7 @@
 import { Button } from "@/app/conf/_design-system/button"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import { BlogCard } from "@/components/blog-page/blog-card"
-
-import { sectionId } from "./texts"
+import { sectionIds } from "./texts"
 
 export interface BlogPost {
   href: string
@@ -31,7 +30,7 @@ export function BlogPostsSection({
 }: BlogPostsSectionProps) {
   return (
     <section
-      id={sectionId("Blog posts")}
+      id={sectionIds["blog-or-newsletter"]}
       className="gql-container gql-section flex flex-col gap-10 lg:gap-16"
     >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
