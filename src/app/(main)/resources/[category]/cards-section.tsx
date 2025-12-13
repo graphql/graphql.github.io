@@ -30,11 +30,15 @@ export function CardsSection({
         <div className="flex flex-col gap-3">
           <Eyebrow>{sectionKindNames[section.kind]}</Eyebrow>
           <h2 className="typography-h3 text-pretty">{heading}</h2>
-          {text && <p className="typography-body-md text-neu-800">{text}</p>}
+          {text && (
+            <p className="typography-body-md max-w-[700px] text-neu-800">
+              {text}
+            </p>
+          )}
         </div>
         {section.kind === "video" ? (
           <Button href="/resources/video" variant="primary" size="md">
-            Go to full Video Resources Library
+            Go to Video Resources Library
           </Button>
         ) : (
           <span className="typography-menu text-neu-600">
