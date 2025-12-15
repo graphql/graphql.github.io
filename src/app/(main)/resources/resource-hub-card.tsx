@@ -95,7 +95,7 @@ export function ResourceHubCard({
             <span className="typography-body-sm text-neu-800">{author}</span>
           ) : null}
           {duration ? (
-            <span className="flex items-center gap-2 text-neu-800">
+            <span className="ml-auto flex items-center gap-2 text-neu-800">
               <ClockIcon className="size-5" />
               <span className="typography-body-sm">{duration}</span>
             </span>
