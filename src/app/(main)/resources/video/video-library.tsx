@@ -116,7 +116,7 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
                 href={resource.url}
                 title={resource.title}
                 author={resource.author}
-                tags={resource.tags}
+                tags={resource.tags.filter(tag => tag !== "video")}
               />
             </li>
           )
