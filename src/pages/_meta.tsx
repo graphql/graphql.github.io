@@ -13,8 +13,9 @@ export default {
   resources: {
     type: "menu",
     title: "Resource Hub",
-    href: "/resources",
+    menu: "/resources",
     items: {
+      index: "",
       frontend: "",
       backend: "",
       federation: "",
@@ -24,7 +25,7 @@ export default {
       "tools-and-libraries": "Tools & Libraries",
       spec: {
         type: "page",
-        title: "Spec",
+        title: "Specification",
         href: "https://spec.graphql.org",
         newWindow: true,
       },
