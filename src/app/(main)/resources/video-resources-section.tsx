@@ -21,7 +21,7 @@ export function VideoResourcesSection() {
             meetups, and expert engineers — keeping you up to date in a
             fast-moving ecosystem.
           </p>
-          <Button href="/conf" className="mt-10 sm:w-fit">
+          <Button href="/resources/video" className="mt-10 sm:w-fit">
             Go to Video Resources
           </Button>
         </div>
