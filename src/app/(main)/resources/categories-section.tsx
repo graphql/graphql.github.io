@@ -103,7 +103,7 @@ function CategoryCard({ category }: { category: Category }) {
   return (
     <Link
       href={`/resources/${category.id}`}
-      className="group flex flex-col justify-between gap-4 border border-neu-200 bg-neu-0 p-6 transition-colors hover:bg-neu-50 hover:duration-0 dark:border-neu-100 lg:h-[202px] lg:gap-6"
+      className="group flex flex-col justify-between gap-4 border border-neu-200 bg-neu-0 p-6 transition-colors hover:bg-neu-50 hover:duration-0 dark:border-neu-100 dark:hover:bg-neu-50/50 lg:h-[202px] lg:gap-6"
     >
       <div className="flex items-start justify-between">
         {category.icon}

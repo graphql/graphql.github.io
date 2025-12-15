@@ -140,7 +140,7 @@ function Stripes() {
     <div
       role="presentation"
       // eslint-disable-next-line tailwindcss/no-contradicting-classname
-      className="pointer-events-none absolute inset-0 overflow-visible [--end-1:hsl(var(--color-sec-base))] [--end-2:hsl(var(--color-sec-light))] [--start-1:hsl(var(--color-sec-lighter))] [--start-2:hsl(var(--color-sec-dark))]"
+      className="pointer-events-none absolute inset-0 overflow-visible [--end-1:hsl(var(--color-sec-base))] [--end-2:hsl(var(--color-sec-light))] [--start-1:hsl(var(--color-sec-lighter))] [--start-2:hsl(var(--color-sec-dark))] dark:[--end-1:hsl(var(--color-neu-50))] dark:[--end-2:hsl(var(--color-sec-dark)/.5)] dark:[--start-1:hsl(var(--color-sec-darker))] dark:[--start-2:hsl(var(--color-sec-dark))]"
       style={{
         maskImage: `url(${blurBean.src})`,
         WebkitMaskImage: `url(${blurBean.src})`,
