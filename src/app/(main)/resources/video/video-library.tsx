@@ -1,22 +1,14 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import {
-  Combobox,
-  ComboboxButton,
-  ComboboxInput,
-  ComboboxOption,
-  ComboboxOptions,
-} from "@headlessui/react"
 import { clsx } from "clsx"
 
 import { Button } from "@/app/conf/_design-system/button"
 import { Tag } from "@/app/conf/_design-system/tag"
 import CaretDownIcon from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
-import { CheckboxIcon } from "@/app/conf/_design-system/pixelarticons/checkbox-icon"
 import { type ResourceMetadata, topics, type Topic } from "@/resources/types"
 
-import { ResourceHubCard } from "../resource-hub-card"
+import { ResourceHubCard, tagColors } from "../resource-hub-card"
 
 interface VideoLibraryProps {
   resources: ResourceMetadata[]
@@ -62,12 +54,18 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
   }, [resources, selectedTopics, sortOrder])
 
   return (
-    <div className={clsx("flex flex-col gap-6", className)}>
+    <section
+      className={clsx(
+        "gql-section gql-container flex flex-col gap-6",
+        className,
+      )}
+    >
       <div className="flex flex-col gap-4 border-b border-neu-200 pb-6 dark:border-neu-100 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-4 lg:w-full lg:flex-row lg:items-end lg:gap-6">
-          <TopicsCombobox
+          <TopicsFilter
             label="Topics"
             options={topicOptions}
+            resources={resources}
             value={selectedTopics}
             onChange={setSelectedTopics}
           />
@@ -82,7 +80,7 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
                 onChange={event =>
                   setSortOrder(event.target.value as SortOrder)
                 }
-                className="typography-body-sm w-full bg-transparent px-3 py-2 outline-none"
+                className="typography-body-sm w-full appearance-none bg-transparent px-3 py-2 outline-none"
               >
                 <option value="az">Title A–Z</option>
                 <option value="za">Title Z–A</option>
@@ -122,118 +120,88 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
           )
         })}
       </ul>
-    </div>
+    </section>
   )
 }
 
-function TopicsCombobox({
+function TopicsFilter({
   label,
   options,
+  resources,
   value,
   onChange,
 }: {
   label: string
   options: string[]
+  resources: ResourceMetadata[]
   value: string[]
   onChange: (next: string[]) => void
 }) {
-  const [query, setQuery] = useState("")
+  const topicCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    resources.forEach(resource => {
+      resource.tags.forEach(tag => {
+        if (options.includes(tag)) {
+          counts[tag] = (counts[tag] || 0) + 1
+        }
+      })
+    })
+    return counts
+  }, [resources, options])
 
-  const filteredOptions =
-    query === ""
-      ? options
-      : options.filter(option =>
-          option.toLowerCase().includes(query.toLowerCase()),
-        )
+  const toggleTopic = (topic: string) => {
+    if (value.includes(topic)) {
+      onChange(value.filter(t => t !== topic))
+    } else {
+      onChange([...value, topic])
+    }
+  }
+
+  const hasSelection = value.length > 0
 
   return (
-    <Combobox immediate multiple value={value} onChange={onChange}>
-      <div className="flex flex-col gap-2 lg:w-full">
-        <span className="typography-menu font-mono font-medium uppercase text-neu-900">
-          {label}
-        </span>
-        <label className="relative w-full border border-neu-500 bg-neu-0 p-2 focus-within:outline-none focus-within:ring focus-within:ring-neu-300 dark:border-neu-200 dark:bg-neu-0/50 dark:focus-within:ring-neu-200">
-          <ComboboxInput
-            value={query}
-            onChange={event => setQuery(event.target.value)}
-            className="typography-body-sm bg-transparent leading-none text-neu-800 !outline-offset-0 max-lg:typography-body-md placeholder:text-neu-600 focus:outline-none"
-            placeholder="Any topic"
-            autoComplete="true"
-          />
-          <ComboboxButton className="absolute inset-y-0 right-0 flex items-center px-2 focus:outline-none">
-            <CaretDownIcon
-              className="ui-open:rotate-180 size-5 text-neu-400 transition-transform duration-150 group-hover:text-neu-500"
-              aria-hidden="true"
-            />
-          </ComboboxButton>
-
-          {value.length > 0 && (
-            <div className="inset-y-0 left-0 z-[1] mt-1 flex items-center overflow-x-auto pr-8">
-              <div className="flex flex-wrap items-center gap-1">
-                {value.map(topic => (
-                  <Tag
-                    key={topic}
-                    color="hsl(var(--color-neu-500))"
-                    className="bg-neu-0"
-                  >
-                    {topic.replaceAll("-", " ")}
-                  </Tag>
-                ))}
-              </div>
-            </div>
-          )}
-        </label>
-
-        <div className="relative">
-          <ComboboxOptions className="absolute z-10 -mt-px max-h-60 w-full overflow-auto border border-neu-500 bg-neu-0 p-1 text-base">
-            {filteredOptions.map(option => (
-              <ComboboxOption key={option} value={option}>
-                {({ active, selected }) => (
-                  <TopicOption
-                    active={active}
-                    selected={selected}
-                    option={option}
-                  />
+    <section className="flex flex-col gap-2 lg:w-full">
+      <h3 className="typography-menu font-mono font-medium uppercase text-neu-900">
+        {label}
+      </h3>
+      <ul className="flex gap-2 pb-2 max-sm:overflow-auto sm:flex-wrap">
+        {options.map((topic, i) => {
+          const isSelected = value.includes(topic)
+          const count = topicCounts[topic] || 0
+          return (
+            <li key={topic}>
+              <button
+                type="button"
+                onClick={() => toggleTopic(topic)}
+                data-active={isSelected ? "" : undefined}
+                tabIndex={i === 0 ? 0 : -1}
+                className={clsx(
+                  "gql-focus-visible -m-1 flex p-1 ring-inset ring-neu-400 transition-opacity duration-75 hover:opacity-100 hover:ring dark:ring-neu-50",
+                  hasSelection && !isSelected && "opacity-50",
                 )}
-              </ComboboxOption>
-            ))}
-          </ComboboxOptions>
-        </div>
-      </div>
-    </Combobox>
+                onKeyDown={arrowsMoveSideways}
+              >
+                <Tag color={tagColors[topic]}>
+                  {topic.replaceAll("-", " ")} ({count})
+                </Tag>
+              </button>
+            </li>
+          )
+        })}
+      </ul>
+    </section>
   )
 }
 
-function TopicOption({
-  active,
-  selected,
-  option,
-}: {
-  active: boolean
-  selected: boolean
-  option: string
-}) {
-  return (
-    <div
-      className={[
-        "typography-body-sm relative flex cursor-default select-none items-center p-1 font-sans",
-        active ? "bg-neu-100 dark:bg-neu-50" : "",
-      ].join(" ")}
-    >
-      <CheckboxIcon
-        className={["size-5 shrink-0", active ? "text-neu-700" : ""].join(" ")}
-        checked={selected}
-      />
-      <div className="min-w-0 flex-1 overflow-hidden pl-1 [container-type:inline-size]">
-        <span
-          className={[
-            "relative block w-fit min-w-full whitespace-nowrap pt-px transition-all [--delta-x:calc(-100%+100cqi)]",
-            active ? "animate-show-overflow" : "",
-          ].join(" ")}
-        >
-          {option}
-        </span>
-      </div>
-    </div>
-  )
+function arrowsMoveSideways(event: React.KeyboardEvent) {
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    const target = event.currentTarget as HTMLElement
+    const sibling =
+      event.key === "ArrowLeft"
+        ? target.parentElement?.previousElementSibling?.querySelector("button")
+        : target.parentElement?.nextElementSibling?.querySelector("button")
+    if (sibling instanceof HTMLElement) {
+      sibling.focus()
+    }
+  }
 }
