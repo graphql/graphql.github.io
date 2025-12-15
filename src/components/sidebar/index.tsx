@@ -57,7 +57,7 @@ const Folder = memo(function FolderInner(props: FolderProps) {
 
 const classes = {
   link: cn(
-    "flex px-2 py-1.5 text-sm transition-colors [word-break:break-word]",
+    "flex px-2 capitalize py-1.5 text-sm transition-colors [word-break:break-word]",
     "cursor-pointer contrast-more:border contrast-more:hover:underline gql-focus-visible focus-visible:outline-offset-1",
   ),
   inactive: cn(
@@ -143,6 +143,8 @@ function FolderImpl({ item, anchors, onFocus }: FolderProps): ReactElement {
       (menu.children || []).map(route => [route.name, route]),
     )
     item.children = Object.entries(menu.items || {}).map(([key, item]) => {
+      if (!item.title) item.title = key
+
       const route = routes[key] || {
         name: key,
         route: menu.route + "/" + key,

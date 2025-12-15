@@ -18,7 +18,7 @@ export default {
       frontend: "",
       backend: "",
       federation: "",
-      ai: "",
+      ai: "AI",
       security: "",
       monitoring: "",
       "tools-and-libraries": "Tools & Libraries",
@@ -36,9 +36,7 @@ export default {
     type: "menu",
     title: "Community",
     items: {
-      "tools-and-libraries": {
-        title: "Tools and Libraries",
-      },
+      // TODO: Set a redirect from /community/tools-and-libraries to /resources/tools-and-libraries
       events: {
         title: "Events",
         type: "page",
