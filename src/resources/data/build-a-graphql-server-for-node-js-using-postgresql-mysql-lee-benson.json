@@ -2,5 +2,9 @@
   "title": "Build a GraphQL server for Node.js, using PostgreSQL/MySQL",
   "author": "Lee Benson",
   "url": "https://www.youtube.com/watch?v=DNPVqK_woRQ",
-  "tags": ["video", "backend"]
+  "tags": [
+    "video",
+    "backend"
+  ],
+  "duration": "45:04"
 }

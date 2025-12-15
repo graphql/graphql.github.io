@@ -2,5 +2,9 @@
   "title": "GraphQL: From Zero to Scala",
   "author": "Jérémie Astori",
   "url": "https://www.youtube.com/watch?v=6ttypoLyRaU",
-  "tags": ["video", "backend"]
+  "tags": [
+    "video",
+    "backend"
+  ],
+  "duration": "15:31"
 }
