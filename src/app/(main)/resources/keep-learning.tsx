@@ -1,28 +1,39 @@
+import { clsx } from "clsx"
+
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
-import blurCorner from "./[category]/blur-corner.webp"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import { Anchor } from "@/app/conf/_design-system/anchor"
 
-// "bg-[linear-gradient(90deg,hsl(var(--color-sec-lighter))_0_12px,hsl(var(--color-sec-light))_12px_24px)] dark:bg-[linear-gradient(90deg,hsl(var(--color-sec-dark)/0.22)_0_12px,hsl(var(--color-sec-base)/0.22)_12px_24px)]"
+import blurCorner from "./[category]/blur-corner.webp"
 
 export function KeepLearning({
   title,
   href,
   stripes,
+  className,
 }: {
   title: string
   href: string
   stripes: string
+  className?: string
 }) {
   return (
-    <section className="gql-container gql-section flex">
-      <h2 className="max-md:hidden">Keep Learning</h2>
-      <Anchor href={href} className="relative">
-        <span className="typography-menu flex gap-1 text-pri-base dark:text-pri-dark">
+    <section
+      className={clsx(
+        "gql-container gql-section flex justify-between",
+        className,
+      )}
+    >
+      <h2 className="typography-h2 max-md:hidden">Keep Learning</h2>
+      <Anchor
+        href={href}
+        className="relative max-w-[656px] flex-1 border border-neu-200 p-4 dark:border-neu-50 md:p-6 lg:p-8"
+      >
+        <span className="typography-menu flex gap-1 text-pri-base dark:text-pri-light">
           Next
           <ArrowDownIcon className="size-4 -rotate-90" />
         </span>
-        <p>{title}</p>
+        <p className="typography-h3 mt-8">{title}</p>
         <Stripes stripes={stripes} />
       </Anchor>
     </section>
