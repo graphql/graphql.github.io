@@ -1,11 +1,10 @@
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { getResourcesByTag } from "@/resources/data"
-import VideoPlayerIcon from "../assets/video-player.svg?svgr"
 import { ResourcesHero } from "../resources-hero"
-import { Eyebrow } from "@/_design-system/eyebrow"
 import { VideoLibrary } from "./video-library"
 import { KeepLearning } from "../keep-learning"
 import { LookingForMore } from "@/components/looking-for-more"
+import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 
 export const metadata = {
   title: "Video Resources Library",
@@ -34,30 +33,47 @@ export default async function VideoResourcesPage() {
         text="Expand your expertise with curated videos to help you master GraphQL and stay up to date with its evolving ecosystem."
       />
 
-      <section className="gql-container pb-16 pt-12 lg:pb-24">
-        <header className="flex flex-col gap-6 border-b border-neu-200 pb-8 dark:border-neu-100 lg:flex-row lg:items-end lg:justify-between">
-          <div className="flex items-start gap-4">
-            <div className="flex size-14 items-center justify-center border border-neu-200 bg-neu-0 text-neu-500 dark:border-neu-100 dark:bg-neu-0/50 lg:size-16">
-              <VideoPlayerIcon className="size-8 lg:size-10" aria-hidden />
-            </div>
-            <div className="flex flex-col gap-3">
-              <Eyebrow>Watch and learn</Eyebrow>
-              <h2 className="typography-h2 text-pretty">
-                Curated GraphQL talks
-              </h2>
-              <p className="typography-body-md max-w-[720px] text-neu-800">
-                Browse recorded sessions from GraphQL Conf alongside community
-                talks and workshops.
-              </p>
-            </div>
-          </div>
+      <section className="gql-container gql-section">
+        <Breadcrumbs
+          activePath={[
+            {
+              name: "home",
+              route: "/",
+              title: "Home",
+              type: "page",
+              children: [],
+              frontMatter: {},
+            },
+            {
+              name: "resources",
+              route: "/resources",
+              title: "Resource Hub",
+              type: "page",
+              children: [],
+              frontMatter: {},
+            },
+            {
+              name: "Video Resources Library",
+              route: "",
+              title: "Video Resources Library",
+              type: "page",
+              children: [],
+            },
+          ]}
+        />
+      </section>
 
-          <span className="font-mono text-sm uppercase text-neu-700">
-            {unique.length} videos
-          </span>
+      <section className="gql-container pb-16 pt-12 lg:pb-24">
+        <header className="gql-section flex flex-wrap justify-between gap-x-8 gap-y-4 max-md:text-center">
+          <h2 className="typography-h2 text-pretty">Browse GraphQL Videos</h2>
+          <p className="typography-body-md max-w-[578px] text-neu-800">
+            The video library includes talks from GraphQL Conf and archival
+            presentations by developers from Facebook and beyond, shared at
+            conferences and meetups worldwide.
+          </p>
         </header>
 
-        <VideoLibrary resources={unique} className="mt-10 lg:mt-16" />
+        <VideoLibrary resources={unique} className="mt-8 lg:mt-12" />
 
         <KeepLearning
           className="mt-10 lg:mt-16"

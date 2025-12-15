@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
+import type { Item } from "nextra/normalize-pages"
 
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { getResourcesByTag } from "@/resources/data"
@@ -50,7 +51,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
   const deduped = uniqueByTitle(resources)
   const grouped = groupByKind(deduped)
 
-  const activePath = [
+  const activePath: Item[] = [
     {
       name: "Home",
       route: "/",
@@ -61,7 +62,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
     },
     {
       name: texts[category].heading,
-      route: `/resources/${category}`,
+      route: "",
     },
   ].map(item => ({
     ...item,

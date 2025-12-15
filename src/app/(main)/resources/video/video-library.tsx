@@ -89,25 +89,10 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
             </div>
           </div>
         </div>
-
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-sm uppercase text-neu-700">
-            {filtered.length} videos
-          </span>
-          {selectedTopics.length > 0 && (
-            <Button
-              variant="tertiary"
-              className="h-fit items-center gap-x-2 bg-neu-100 !p-2 text-neu-700 hover:bg-neu-200/80 hover:text-neu-900"
-              onClick={() => setSelectedTopics([])}
-            >
-              Clear filters
-            </Button>
-          )}
-        </div>
       </div>
 
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {filtered.map(resource => {
+        {filtered.slice(0, 6).map(resource => {
           return (
             <li key={resource.url}>
               <ResourceHubCard
@@ -120,6 +105,34 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
           )
         })}
       </ul>
+      {filtered.length > 6 && (
+        <details className="group">
+          {/* we're using <details> for SEO and Cmd+F support */}
+          <summary className="pointer-events-none mt-2 flex list-none items-center justify-center group-open:hidden">
+            <Button
+              as="span"
+              variant="primary"
+              className="pointer-events-auto w-fit cursor-pointer"
+            >
+              Load more
+            </Button>
+          </summary>
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {filtered.slice(6).map(resource => {
+              return (
+                <li key={resource.url}>
+                  <ResourceHubCard
+                    href={resource.url}
+                    title={resource.title}
+                    author={resource.author}
+                    tags={resource.tags.filter(tag => tag !== "video")}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        </details>
+      )}
     </section>
   )
 }
