@@ -176,7 +176,7 @@ function TopicsFilter({
                 data-active={isSelected ? "" : undefined}
                 tabIndex={i === 0 ? 0 : -1}
                 className={clsx(
-                  "gql-focus-visible -m-1 flex p-1 ring-inset ring-neu-400 transition-opacity duration-75 hover:opacity-100 hover:ring dark:ring-neu-50",
+                  "gql-focus-visible -m-1 flex p-1 !outline-offset-0 ring-inset ring-neu-400 transition-opacity duration-75 hover:opacity-100 hover:ring dark:ring-neu-50",
                   hasSelection && !isSelected && "opacity-50",
                 )}
                 onKeyDown={arrowsMoveSideways}
