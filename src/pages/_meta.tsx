@@ -11,11 +11,25 @@ export default {
     title: "Learn",
   },
   resources: {
-    type: "page",
-    title: "Resources",
+    type: "menu",
+    title: "Resource Hub",
     href: "/resources",
-    theme: {
-      layout: "raw",
+    items: {
+      frontend: "",
+      backend: "",
+      federation: "",
+      ai: "",
+      security: "",
+      monitoring: "",
+      "tools-and-libraries": "Tools & Libraries",
+      spec: {
+        type: "page",
+        title: "Spec",
+        href: "https://spec.graphql.org",
+        newWindow: true,
+      },
+      video: "Video Resources Library",
+      reading: "Reading Resources Library",
     },
   },
   community: {
@@ -24,10 +38,6 @@ export default {
     items: {
       "tools-and-libraries": {
         title: "Tools and Libraries",
-      },
-      resources: {
-        title: "Resources",
-        href: "/community/resources/official-channels",
       },
       events: {
         title: "Events",
@@ -43,15 +53,8 @@ export default {
     },
   },
   faq: {
-    type: "page",
-    title: "FAQ",
     type: "hidden",
-  },
-  spec: {
-    type: "page",
-    title: "Spec",
-    href: "https://spec.graphql.org",
-    newWindow: true,
+    title: "FAQ",
   },
   blog: {
     type: "page",

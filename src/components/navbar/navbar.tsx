@@ -44,30 +44,35 @@ function NavbarMenu({
         {children}
       </NavigationMenu.Trigger>
       <NavigationMenu.Content className="flex flex-col py-1 text-sm">
-        {Object.entries(menu.items || {}).map(([key, item]) => (
-          <NavigationMenu.Link
-            key={key}
-            href={item.href || routes[key]?.route}
-            target={item.newWindow ? "_blank" : undefined}
-            className="block py-3.5 pl-2 pr-9 underline-offset-2 hover:underline focus-visible:underline"
-            closeOnClick
-            render={(
-              props: React.ComponentPropsWithoutRef<"a">,
-              state: NavigationMenu.Link.State,
-            ) => (
-              <Anchor {...props} href={props.href!}>
-                <span
-                  className={clsx(
-                    "typography-menu px-3 py-1",
-                    state.active && "underline",
-                  )}
-                >
-                  {item.title}
-                </span>
-              </Anchor>
-            )}
-          />
-        ))}
+        {Object.entries(menu.items || {}).map(([key, item]) => {
+          if (typeof item === "string") item = { title: item }
+          if (!item.title) item.title = key
+
+          return (
+            <NavigationMenu.Link
+              key={key}
+              href={item.href || routes[key]?.route}
+              target={item.newWindow ? "_blank" : undefined}
+              className="block py-3.5 pl-2 pr-9 underline-offset-2 hover:underline focus-visible:underline"
+              closeOnClick
+              render={(
+                props: React.ComponentPropsWithoutRef<"a">,
+                state: NavigationMenu.Link.State,
+              ) => (
+                <Anchor {...props} href={props.href!}>
+                  <span
+                    className={clsx(
+                      "typography-menu px-3 py-1",
+                      state.active && "underline",
+                    )}
+                  >
+                    {item.title}
+                  </span>
+                </Anchor>
+              )}
+            />
+          )
+        })}
       </NavigationMenu.Content>
     </NavigationMenu.Item>
   )
