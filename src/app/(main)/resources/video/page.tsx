@@ -4,6 +4,8 @@ import VideoPlayerIcon from "../assets/video-player.svg?svgr"
 import { ResourcesHero } from "../resources-hero"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import { VideoLibrary } from "./video-library"
+import { KeepLearning } from "../keep-learning"
+import { LookingForMore } from "@/components/looking-for-more"
 
 export const metadata = {
   title: "Video Resources Library",
@@ -55,9 +57,22 @@ export default async function VideoResourcesPage() {
           </span>
         </header>
 
-        <div className="mt-10">
-          <VideoLibrary resources={unique} />
-        </div>
+        <VideoLibrary resources={unique} className="mt-10 lg:mt-16" />
+
+        <KeepLearning
+          className="mt-10 lg:mt-16"
+          title="Reading Resources Library"
+          href="/resources/reading"
+          stripes="[--start:hsl(var(--color-sec-light)/.9)] dark:[--start:hsl(var(--color-sec-darker))] bg-[linear-gradient(to_bottom,var(--start),hsl(var(--color-neu-0)))]"
+        />
+
+        <LookingForMore
+          description="Discover even more ways to learn and connect with the GraphQL community."
+          links={[
+            { href: "/community", label: "Community" },
+            { href: "/learn", label: "Learn" },
+          ]}
+        />
       </section>
     </main>
   )

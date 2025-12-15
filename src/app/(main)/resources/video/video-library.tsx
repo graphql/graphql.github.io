@@ -8,21 +8,24 @@ import {
   ComboboxOption,
   ComboboxOptions,
 } from "@headlessui/react"
+import { clsx } from "clsx"
 
 import { Button } from "@/app/conf/_design-system/button"
 import { Tag } from "@/app/conf/_design-system/tag"
 import CaretDownIcon from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
 import { CheckboxIcon } from "@/app/conf/_design-system/pixelarticons/checkbox-icon"
-import { ResourceHubCard } from "../resource-hub-card"
 import { type ResourceMetadata, topics, type Topic } from "@/resources/types"
+
+import { ResourceHubCard } from "../resource-hub-card"
 
 interface VideoLibraryProps {
   resources: ResourceMetadata[]
+  className?: string
 }
 
 type SortOrder = "az" | "za"
 
-export function VideoLibrary({ resources }: VideoLibraryProps) {
+export function VideoLibrary({ resources, className }: VideoLibraryProps) {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([])
   const [sortOrder, setSortOrder] = useState<SortOrder>("az")
 
@@ -59,7 +62,7 @@ export function VideoLibrary({ resources }: VideoLibraryProps) {
   }, [resources, selectedTopics, sortOrder])
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className={clsx("flex flex-col gap-6", className)}>
       <div className="flex flex-col gap-4 border-b border-neu-200 pb-6 dark:border-neu-100 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-4 lg:w-full lg:flex-row lg:items-end lg:gap-6">
           <TopicsCombobox
