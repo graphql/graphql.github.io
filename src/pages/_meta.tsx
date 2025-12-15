@@ -10,6 +10,14 @@ export default {
     type: "page",
     title: "Learn",
   },
+  resources: {
+    type: "page",
+    title: "Resources",
+    href: "/resources",
+    theme: {
+      layout: "raw",
+    },
+  },
   community: {
     type: "menu",
     title: "Community",
@@ -37,6 +45,7 @@ export default {
   faq: {
     type: "page",
     title: "FAQ",
+    type: "hidden",
   },
   spec: {
     type: "page",
