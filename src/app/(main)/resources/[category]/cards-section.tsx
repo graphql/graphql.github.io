@@ -56,17 +56,47 @@ export function CardsSection({
       </header>
 
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {section.resources.map(resource => (
+        {section.resources.slice(0, 6).map(resource => (
           <li key={resource.url}>
             <ResourceHubCard
               href={resource.url}
               title={resource.title}
               author={resource.author}
-              tags={resource.tags}
+              tags={resource.tags.filter(tag => tag !== section.kind)}
+              duration={resource.duration}
             />
           </li>
         ))}
       </ul>
+      {section.resources.length > 6 && (
+        <details className="group">
+          {/* we're using <details> for SEO and Cmd+F support */}
+          <summary className="pointer-events-none mt-2 flex list-none items-center justify-center group-open:hidden">
+            <Button
+              as="span"
+              variant="primary"
+              className="pointer-events-auto w-fit cursor-pointer"
+            >
+              Load more
+            </Button>
+          </summary>
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {section.resources.slice(6).map(resource => {
+              return (
+                <li key={resource.url}>
+                  <ResourceHubCard
+                    href={resource.url}
+                    title={resource.title}
+                    author={resource.author}
+                    tags={resource.tags.filter(tag => tag !== section.kind)}
+                    duration={resource.duration}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        </details>
+      )}
     </section>
   )
 }
