@@ -113,7 +113,7 @@ export async function CategoryToolsLibrariesSection({
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col gap-3">
             <Eyebrow className="!text-pri-base dark:!text-pri-light">
-              key tools & libraries
+              tools & libraries
             </Eyebrow>
             <h2 className="typography-h3 text-pretty">
               Build GraphQL with tools and libraries
@@ -125,7 +125,7 @@ export async function CategoryToolsLibrariesSection({
           </div>
           <Button
             href="/community/tools-and-libraries/"
-            variant="primary"
+            variant="secondary"
             className="w-fit"
           >
             See all Tools & Libraries

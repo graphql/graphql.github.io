@@ -17,7 +17,7 @@ import { BlogPostsSection } from "./blog-posts-section"
 import { CategoryToolsLibrariesSection } from "./category-tools-libraries-section"
 import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 
-import { sectionKindNames, sectionId, texts } from "./texts"
+import { sectionKindNames, texts } from "./texts"
 import { CardsSection } from "./cards-section"
 
 interface PageParams {

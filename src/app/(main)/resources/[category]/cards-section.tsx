@@ -21,6 +21,22 @@ export function CardsSection({
   const heading = sectionData?.heading ?? sectionLabel(section.kind)
   const text = sectionData?.text
 
+  let cta: React.ReactNode | undefined
+
+  if (section.kind === "video") {
+    cta = (
+      <Button href="/resources/video" variant="secondary" size="md">
+        Go to Video Resources Library
+      </Button>
+    )
+  } else if (section.kind === "docs") {
+    cta = (
+      <Button href="/resources/docs" variant="secondary" size="md">
+        Go to Documentation
+      </Button>
+    )
+  }
+
   return (
     <section
       id={sectionIds[section.kind]}
@@ -36,15 +52,7 @@ export function CardsSection({
             </p>
           )}
         </div>
-        {section.kind === "video" ? (
-          <Button href="/resources/video" variant="primary" size="md">
-            Go to Video Resources Library
-          </Button>
-        ) : (
-          <span className="typography-menu text-neu-600">
-            {section.resources.length} resources
-          </span>
-        )}
+        {cta}
       </header>
 
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
