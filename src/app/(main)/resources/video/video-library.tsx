@@ -56,11 +56,11 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
   return (
     <section
       className={clsx(
-        "gql-section gql-container flex flex-col gap-6",
+        "gql-section gql-container flex flex-col gap-4",
         className,
       )}
     >
-      <div className="flex flex-col gap-4 border-b border-neu-200 pb-6 dark:border-neu-100 lg:flex-row lg:items-end lg:justify-between">
+      <div className="flex flex-col gap-4 pb-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-4 lg:w-full lg:flex-row lg:items-end lg:gap-6">
           <TopicsFilter
             label="Topics"
@@ -100,6 +100,7 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
                 title={resource.title}
                 author={resource.author}
                 tags={resource.tags.filter(tag => tag !== "video")}
+                duration={resource.duration}
               />
             </li>
           )
@@ -126,6 +127,7 @@ export function VideoLibrary({ resources, className }: VideoLibraryProps) {
                     title={resource.title}
                     author={resource.author}
                     tags={resource.tags.filter(tag => tag !== "video")}
+                    duration={resource.duration}
                   />
                 </li>
               )
