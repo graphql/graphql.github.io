@@ -54,12 +54,11 @@ export function ReadingResourcesCard({
       tags={resource.tags}
       icon={
         config ? (
-          <div
-            className="flex size-12 items-center justify-center text-[color:var(--icon-color)]"
-            style={{ ["--icon-color" as string]: config.color }}
-          >
-            <config.Icon className="size-8" aria-hidden />
-          </div>
+          <config.Icon
+            className="size-6 md:size-8"
+            style={{ color: config.color }}
+            aria-hidden
+          />
         ) : null
       }
     />

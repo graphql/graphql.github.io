@@ -104,7 +104,7 @@ export function ResourceHubCard({
           </div>
         </div>
         {icon ? (
-          <div className="absolute right-0 top-0 flex size-[53px] shrink-0 items-center justify-center self-start justify-self-end border-b border-l border-inherit md:size-[72px]">
+          <div className="absolute right-0 top-0 flex size-12 shrink-0 place-content-center place-items-center self-start justify-self-end border-b border-l border-inherit md:size-[72px]">
             {icon}
           </div>
         ) : null}
