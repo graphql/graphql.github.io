@@ -34,6 +34,7 @@ export const ResourceMetadata = type({
   "kind?": type.enumerated(...kinds),
   "topics?": type.enumerated(...topics).array(),
   "description?": "string>0",
+  "duration?": "string",
   tags: type.enumerated(...topics, ...kinds).array(),
 })
 

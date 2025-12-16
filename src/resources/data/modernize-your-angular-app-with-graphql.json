@@ -2,9 +2,6 @@
   "title": "Modernize Your Angular App with GraphQL",
   "author": "Uri Goldshtein",
   "url": "https://www.youtube.com/watch?v=E8feZBidZcs",
-  "tags": [
-    "video",
-    "frontend"
-  ],
+  "tags": ["video", "frontend"],
   "duration": "37:38"
 }
