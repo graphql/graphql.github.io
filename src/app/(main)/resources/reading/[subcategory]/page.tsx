@@ -1,11 +1,7 @@
 import { notFound } from "next/navigation"
 
-import {
-  ReadingLibraryPage,
-  readingMetadata,
-  subcategories,
-  type Subcategory,
-} from "../reading-page"
+import { ReadingLibraryPage, readingMetadata } from "../reading-page"
+import { subcategories, type Subcategory } from "../reading-page-categories"
 
 interface PageParams {
   subcategory: string

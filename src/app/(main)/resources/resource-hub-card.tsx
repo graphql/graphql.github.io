@@ -31,7 +31,7 @@ export const tagColors: Record<Topic | (string & {}), string> = {
   "schema-design": "#7E57C2",
   ai: "#FF5FA2",
   monitoring: "#2D9CDB",
-  "blog-or-newsletter": "#FF8800",
+  "blog-or-newsletter": "hsl(var(--color-pri-base))",
   book: "#00C6AC",
   guide: "#FF8800",
 }
@@ -61,11 +61,17 @@ export function ResourceHubCard({
     <Link
       href={href}
       className={clsx(
-        "group grid h-full grid-rows-[1fr_auto] border border-neu-200 bg-neu-50 text-left hover:ring hover:ring-neu-100 dark:border-neu-100 dark:bg-neu-50/25 dark:hover:ring-neu-50",
+        "group relative grid h-full grid-rows-[1fr_auto] border border-neu-200 bg-neu-50 text-left hover:ring hover:ring-neu-100 dark:border-neu-100 dark:bg-neu-50/25 dark:hover:ring-neu-50",
+        authorPlacement === "body" && "min-h-[180px]",
         className,
       )}
     >
-      <div className="grid grid-cols-[1fr_auto] gap-4 border-b border-inherit p-4 md:p-6">
+      <div
+        className={clsx(
+          "flex gap-4 border-b border-inherit p-4 md:p-6",
+          authorPlacement === "body" && "max-w-[calc(100%-53px)]",
+        )}
+      >
         <div className="flex flex-col gap-4">
           {tags?.length ? (
             <div className="flex flex-wrap gap-2">
@@ -76,32 +82,55 @@ export function ResourceHubCard({
               ))}
             </div>
           ) : null}
-          <div className="flex flex-col gap-3">
+          <div
+            className={clsx(
+              "flex flex-col gap-3",
+              authorPlacement === "body" && "mt-auto",
+            )}
+          >
             {authorPlacement === "body" && author ? (
               <span className="typography-body-sm text-neu-800">{author}</span>
             ) : null}
-            <h3 className="typography-h4 text-pretty text-neu-900 md:typography-h3">
+            <h3
+              className={clsx(
+                "text-pretty text-neu-900",
+                title.length > 100
+                  ? "typography-body-lg"
+                  : "typography-h4 md:typography-h3",
+              )}
+            >
               {title}
             </h3>
           </div>
         </div>
         {icon ? (
-          <div className="self-start justify-self-end">{icon}</div>
+          <div className="absolute right-0 top-0 flex size-[53px] shrink-0 items-center justify-center self-start justify-self-end border-b border-l border-inherit md:size-[72px]">
+            {icon}
+          </div>
         ) : null}
       </div>
-      <div className="grid grid-cols-[1fr_auto] items-center">
-        <div className="flex items-center gap-4 p-4 md:p-6">
-          {authorPlacement === "footer" && author ? (
-            <span className="typography-body-sm text-neu-800">{author}</span>
-          ) : null}
-          {duration ? (
-            <span className="ml-auto flex items-center gap-2 text-neu-800">
-              <ClockIcon className="size-5" />
-              <span className="typography-body-sm">{duration}</span>
-            </span>
-          ) : null}
-        </div>
-        <div className="flex size-[53px] items-center justify-center border-l border-neu-200 dark:border-neu-100 md:size-[72px]">
+      <div
+        className={clsx(
+          "grid items-center",
+          authorPlacement === "body"
+            ? "absolute bottom-0 right-0 border-l border-t border-neu-200 dark:border-neu-100"
+            : "grid-cols-[1fr_auto] divide-x divide-neu-200 dark:divide-neu-100",
+        )}
+      >
+        {(authorPlacement === "footer" || !!duration) && (
+          <div className="flex items-center gap-4 p-4 md:p-6">
+            {authorPlacement === "footer" && author ? (
+              <span className="typography-body-sm text-neu-800">{author}</span>
+            ) : null}
+            {duration ? (
+              <span className="ml-auto flex items-center gap-2 text-neu-800">
+                <ClockIcon className="size-5" />
+                <span className="typography-body-sm">{duration}</span>
+              </span>
+            ) : null}
+          </div>
+        )}
+        <div className="flex size-[53px] items-center justify-center md:size-[72px]">
           <ArrowDownIcon className="size-8 -rotate-90 md:size-10" aria-hidden />
         </div>
       </div>

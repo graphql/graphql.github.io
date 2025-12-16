@@ -1,57 +1,24 @@
 import Link from "next/link"
-import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { notFound } from "next/navigation"
-import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 import { clsx } from "clsx"
 
-import { ResourcesHero } from "../resources-hero"
-import { Eyebrow } from "@/_design-system/eyebrow"
-import { ReadingResourcesCard } from "./reading-resources-card"
+import { NavbarFixed } from "@/components/navbar/navbar-fixed"
+import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 import { readResources } from "@/resources/data"
 import { topics, type ResourceMetadata, type Topic } from "@/resources/types"
 import { LookingForMore } from "@/components/looking-for-more"
 import { KeepLearning } from "../keep-learning"
+import { Button } from "@/app/conf/_design-system/button"
 
-export const subcategories = [
-  "blogs-and-newsletters",
-  "individual-posts",
-  "books",
-] as const
+import { tabs, type ReadingPageTab } from "./reading-page-categories"
 
-export type Subcategory = (typeof subcategories)[number]
-
-type Variant = Subcategory | "all"
+import { ResourcesHero } from "../resources-hero"
+import { ReadingResourcesCard } from "./reading-resources-card"
 
 const topicSet = new Set<Topic>(topics)
 
-const tabs: {
-  label: string
-  href: string
-  variant: Variant
-  color: string
-}[] = [
-  {
-    label: "Blogs & newsletters",
-    href: "/resources/reading/blogs-and-newsletters",
-    variant: "blogs-and-newsletters",
-    color: "hsl(var(--color-pri-base))",
-  },
-  {
-    label: "Individual posts",
-    href: "/resources/reading/individual-posts",
-    variant: "individual-posts",
-    color: "#FF8800",
-  },
-  {
-    label: "Books",
-    href: "/resources/reading/books",
-    variant: "books",
-    color: "#00C6AC",
-  },
-]
-
 const variants: Record<
-  Variant,
+  ReadingPageTab,
   {
     title: string
     description: string
@@ -97,7 +64,7 @@ const variants: Record<
   },
 }
 
-export function readingMetadata(variant: Variant) {
+export function readingMetadata(variant: ReadingPageTab) {
   const config = variants[variant]
   if (!config) return {}
   return {
@@ -120,7 +87,11 @@ function uniqueByTitle(resources: ResourceMetadata[]) {
   })
 }
 
-export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
+export async function ReadingLibraryPage({
+  variant,
+}: {
+  variant: ReadingPageTab
+}) {
   const config = variants[variant]
   if (!config) return notFound()
 
@@ -153,7 +124,7 @@ export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
   }))
 
   return (
-    <main className="gql-all-anchors-focusable">
+    <main className="gql-all-anchors-focusable pb-8 md:pb-16 lg:pb-24">
       <NavbarFixed />
       <ResourcesHero
         heading="Reading Resources Library"
@@ -192,7 +163,7 @@ export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
                 className={clsx(
                   "typography-body-lg flex h-full flex-col gap-2 bg-neu-0 px-4 py-3 text-left transition hover:bg-neu-50 dark:bg-neu-0/60 dark:hover:bg-neu-50/40",
                   active &&
-                    "bg-[--color] text-neu-0 hover:bg-[hsl(from_var(--color)_h_s_l/.9)]",
+                    "!bg-[--color] text-neu-0 hover:!bg-[hsl(from_var(--color)_h_s_l/.9)]",
                 )}
               >
                 {tab.label}
@@ -201,12 +172,35 @@ export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
           })}
         </nav>
         <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map(resource => (
+          {filtered.slice(0, 9).map(resource => (
             <li key={resource.url}>
               <ReadingResourcesCard resource={resource} />
             </li>
           ))}
         </ul>
+        {filtered.length > 9 && (
+          <details className="group">
+            {/* we're using <details> for SEO and Cmd+F support */}
+            <summary className="pointer-events-none mt-2 flex list-none items-center justify-center group-open:hidden">
+              <Button
+                as="span"
+                variant="primary"
+                className="pointer-events-auto mt-4 w-fit cursor-pointer"
+              >
+                Load more
+              </Button>
+            </summary>
+            <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {filtered.slice(6).map(resource => {
+                return (
+                  <li key={resource.url}>
+                    <ReadingResourcesCard resource={resource} />
+                  </li>
+                )
+              })}
+            </ul>
+          </details>
+        )}
       </section>
 
       <KeepLearning

@@ -63,8 +63,8 @@ export default async function VideoResourcesPage() {
         />
       </section>
 
-      <section className="gql-container pb-16 lg:pb-24 xl:pt-12">
-        <header className="gql-section flex flex-wrap justify-between gap-x-8 gap-y-4">
+      <section className="gql-container pb-8 md:pb-16 lg:pb-24 xl:pt-12">
+        <header className="gql-section flex flex-wrap justify-between gap-x-8 gap-y-4 !pt-0">
           <h2 className="typography-h2 text-pretty">Browse GraphQL Videos</h2>
           <p className="typography-body-md max-w-[578px] text-neu-800">
             The video library includes talks from GraphQL Conf and archival
