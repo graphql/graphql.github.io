@@ -1,9 +1,10 @@
-"use client"
+import { clsx } from "clsx"
 
 import { Button } from "@/app/conf/_design-system/button"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import { BlogCard } from "@/components/blog-page/blog-card"
-import { sectionIds } from "./texts"
+
+import { sectionIds } from "./categories-config"
 
 export interface BlogPost {
   href: string
@@ -19,6 +20,7 @@ export interface BlogPostsSectionProps {
   posts: BlogPost[]
   readAllHref?: string
   readAllLabel?: string
+  className?: string
 }
 
 export function BlogPostsSection({
@@ -27,11 +29,15 @@ export function BlogPostsSection({
   posts,
   readAllHref = "/blog",
   readAllLabel = "Read all GraphQL stories",
+  className,
 }: BlogPostsSectionProps) {
   return (
     <section
       id={sectionIds["blog-or-newsletter"]}
-      className="gql-container gql-section flex flex-col gap-10 lg:gap-16"
+      className={clsx(
+        "gql-container gql-section flex flex-col gap-10 lg:gap-16",
+        className,
+      )}
     >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-3">

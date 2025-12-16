@@ -5,9 +5,7 @@ import { Collapsible } from "@base-ui-components/react/collapsible"
 
 import CaretDownIcon from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
 import { BlogTags } from "@/components/blog-page/blog-tags"
-import { blogTagColors } from "@/components/blog-page/blog-tag-colors"
-
-const categories = Object.keys(blogTagColors)
+import { blogCategories } from "@/components/blog-page/blog-categories"
 
 /**
  * Shows tags on desktop and a collapsible on mobile.
@@ -21,7 +19,7 @@ export function BlogCategoryLinks() {
           <CaretDownIcon className="size-6 [[data-panel-open]_&]:rotate-180" />
         </Collapsible.Trigger>
         <Collapsible.Panel className="absolute z-10 w-full border-b border-neu-200 bg-neu-50 backdrop-blur-xl dark:border-neu-100 dark:bg-[hsl(77_15%_10%/.5)]">
-          {categories.map(category => (
+          {blogCategories.map(category => (
             <Link
               key={category}
               href={`/blog?tag=${encodeURIComponent(category)}`}
@@ -38,7 +36,7 @@ export function BlogCategoryLinks() {
           categories
         </span>
         <div className="nextra-scrollbar overflow-auto pb-4">
-          <BlogTags tags={categories} opaque links className="mt-4" />
+          <BlogTags tags={blogCategories} opaque links className="mt-4" />
         </div>
       </div>
     </>

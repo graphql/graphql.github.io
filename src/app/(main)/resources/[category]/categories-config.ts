@@ -1,17 +1,7 @@
+import { LearnPagePath } from "@/components/learn-aggregator/learn-pages"
 import { Kind, Topic } from "@/resources/types"
 
-export const texts: {
-  [key in Topic]: {
-    heading: string
-    subtitle: string
-    sections: {
-      [key in Kind]?: {
-        heading: string
-        text: string
-      }
-    }
-  }
-} = {
+export const categoriesConfig: CategoriesConfig = {
   frontend: {
     heading: "Frontend",
     subtitle: "Learn how to use GraphQL on the frontend.",
@@ -24,7 +14,21 @@ export const texts: {
         heading: "Frontend tools & libraries",
         text: "Explore the most popular GraphQL client libraries and frameworks for frontend. These tools help you fetch and manage data with GraphQL.",
       },
-      "blog-or-newsletter": {
+      docs: {
+        heading: "Learn the basics",
+        text: "Learn practical GraphQL techniques for the frontend. Explore essential topics for building user interfaces.",
+        docs: [
+          "queries",
+          "mutations",
+          "subscriptions",
+          "validation",
+          "execution",
+          "response",
+          // best practices
+          "pagination",
+        ],
+      },
+      blog: {
         heading: "Insights for frontend devs",
         text: "Stay up to date with insights from the GraphQL community.",
       },
@@ -43,7 +47,7 @@ export const texts: {
         heading: "Backend tools & libraries",
         text: "Find the right GraphQL backend stack — from JavaScript to Rust and beyond.",
       },
-      "blog-or-newsletter": {
+      blog: {
         heading: "Build better GraphQL infrastructure",
         text: "Dive into articles on server architecture, schema design and best practices for running GraphQL at scale.",
       },
@@ -61,7 +65,26 @@ export const texts: {
         heading: "Tools & libraries for federated graphs",
         text: "Run federated GraphQL graphs at scale with the right tools — from open-source routers to managed platforms.",
       },
-      "blog-or-newsletter": {
+      docs: {
+        heading: "Lessons on the GraphQL backend",
+        text: "Build and run GraphQL servers — from defining a schema to handling production traffic.",
+        docs: [
+          "queries",
+          "mutations",
+          "subscriptions",
+          "validation",
+          "execution",
+          "response",
+          // best practices
+          "serving-over-http",
+          "file-uploads",
+          "pagination",
+          "performance",
+          "debug-errors",
+          "caching",
+        ],
+      },
+      blog: {
         heading: "Latest updates on federation & composition",
         text: "Read the latest announcements and technical deep dives.",
       },
@@ -75,7 +98,7 @@ export const texts: {
         heading: "GraphQL tools for AI",
         text: "Discover the best tools for building AI systems with GraphQL.",
       },
-      "blog-or-newsletter": {
+      blog: {
         heading: "Latest insights on AI & GraphQL",
         text: "Read the latest announcements and technical deep dives.",
       },
@@ -153,3 +176,22 @@ export function slugify(name: string): string {
 export const sectionIds: Record<Kind, string> = Object.fromEntries(
   Object.entries(sectionKindNames).map(([kind, name]) => [kind, slugify(name)]),
 ) as Record<Kind, string>
+
+type CategoriesConfig = {
+  [key in Topic]: {
+    heading: string
+    subtitle: string
+    sections: {
+      [key in Kind]?: {
+        heading: string
+        text: string
+      }
+    } & {
+      docs?: {
+        heading: string
+        text: string
+        docs?: LearnPagePath[]
+      }
+    }
+  }
+}

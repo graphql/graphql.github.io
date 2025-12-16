@@ -7,10 +7,10 @@ import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
 import { LookingForMore } from "@/components/looking-for-more"
 
-import { blogTagColors } from "./blog-tag-colors"
 import { BlogCard } from "./blog-card"
 import { BlogMdxContent } from "./mdx-types"
 import { FeaturedBlogPosts } from "./featured-blog-posts"
+import { tagColors } from "@/app/conf/_design-system/tag-colors"
 
 const mask = `url(${new URL("./blur-bean.webp", import.meta.url).href})`
 
@@ -71,7 +71,7 @@ export function BlogPage({
                       className="-m-1 flex p-1 ring-inset ring-neu-400 transition-opacity duration-75 hover:ring focus:!outline-offset-0 dark:ring-neu-50 [:has(>:hover)>&:not(:hover)]:opacity-70"
                       onKeyDown={arrowsMoveSideways}
                     >
-                      <Tag color={blogTagColors[tag]}>
+                      <Tag color={tagColors[tag]}>
                         {tag.replaceAll("-", " ")} ({count})
                       </Tag>
                     </NextLink>

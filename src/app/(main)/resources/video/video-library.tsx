@@ -7,8 +7,9 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Tag } from "@/app/conf/_design-system/tag"
 import CaretDownIcon from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
 import { type ResourceMetadata, topics, type Topic } from "@/resources/types"
+import { tagColors } from "@/app/conf/_design-system/tag-colors"
 
-import { ResourceHubCard, tagColors } from "../resource-hub-card"
+import { ResourceHubCard } from "../resource-hub-card"
 
 interface VideoLibraryProps {
   resources: ResourceMetadata[]

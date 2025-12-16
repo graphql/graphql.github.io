@@ -1,8 +1,8 @@
 import meta from "../../pages/learn/_meta"
 
-type LearnPagePath = Exclude<keyof typeof meta, `-- ${string}` | "index">
+export type LearnPagePath = Exclude<keyof typeof meta, `-- ${string}` | "index">
 
-interface LearnPageItem {
+export interface LearnPageItem {
   title: string
   description: string
   icon: string

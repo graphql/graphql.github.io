@@ -1,14 +1,13 @@
 import fs from "node:fs/promises"
 import path from "node:path"
-import Link from "next/link"
 import grayMatter from "gray-matter"
 
 import { Button } from "@/app/conf/_design-system/button"
 import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 
-import { blogTagColors } from "@/components/blog-page/blog-tag-colors"
 import { BlogCategoryLinks } from "./blog-category-links"
 import { BlogPostListItem } from "./blog-post-list-item"
+import { blogCategories } from "@/components/blog-page/blog-categories"
 
 interface BlogFrontMatter {
   title: string
@@ -57,7 +56,7 @@ async function getBlogFrontMatters() {
 
 export async function BlogSection() {
   const blogs = await getBlogFrontMatters()
-  const blogPosts = Object.keys(blogTagColors)
+  const blogPosts = blogCategories
     .flatMap(tag => blogs.filter(blog => blog.tags?.includes(tag)).slice(0, 5))
     .reduce<BlogFrontMatterWithFile[]>((unique, blog) => {
       if (!unique.some(item => item.fileName === blog.fileName)) {

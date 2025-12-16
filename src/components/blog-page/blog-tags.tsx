@@ -2,7 +2,7 @@ import NextLink from "next/link"
 
 import { Tag } from "@/app/conf/_design-system/tag"
 
-import { blogTagColors } from "./blog-tag-colors"
+import { tagColors } from "@/app/conf/_design-system/tag-colors"
 import clsx from "clsx"
 
 export function BlogTags({
@@ -11,7 +11,7 @@ export function BlogTags({
   className,
   links,
 }: {
-  tags: string[]
+  tags: readonly string[]
   opaque?: boolean
   className?: string
   links?: boolean
@@ -19,7 +19,7 @@ export function BlogTags({
   return (
     <span className={clsx("flex gap-2", className)}>
       {tags.map(tag => {
-        const color = blogTagColors[tag]
+        const color = tagColors[tag]
         if (!color && process.env.NODE_ENV !== "production") {
           throw new Error(`No color found for tag: ${tag}`)
         }

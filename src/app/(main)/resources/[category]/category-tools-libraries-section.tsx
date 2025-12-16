@@ -1,8 +1,10 @@
 import path from "node:path"
 import { glob } from "node:fs/promises"
 import { readFile } from "node:fs/promises"
+
 import matter from "gray-matter"
 import type { CSSProperties } from "react"
+import { clsx } from "clsx"
 
 import { Button } from "@/app/conf/_design-system/button"
 import blurCorner from "./blur-corner.webp"
@@ -66,8 +68,10 @@ function displayName(id: string) {
 
 export async function CategoryToolsLibrariesSection({
   category,
+  className,
 }: {
   category: Topic
+  className?: string
 }) {
   const libraries = await librariesPromise
   const filtered = libraries.filter(item => item.tags.includes(category))
@@ -108,14 +112,17 @@ export async function CategoryToolsLibrariesSection({
       <Stripes />
       <section
         id="tools-and-libraries"
-        className="gql-container gql-section relative flex flex-col gap-8 overflow-hidden"
+        className={clsx(
+          "gql-container gql-section relative flex flex-col gap-8 overflow-hidden",
+          className,
+        )}
       >
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-4 xl:gap-6">
             <Eyebrow className="!text-pri-base dark:!text-pri-light">
               tools & libraries
             </Eyebrow>
-            <h2 className="typography-h3 text-pretty">
+            <h2 className="typography-h2 text-pretty">
               Build GraphQL with tools and libraries
             </h2>
             <p className="typography-body-md text-neu-800">

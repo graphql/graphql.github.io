@@ -1,7 +1,7 @@
 import { clsx } from "clsx"
 
 import { ChevronRight } from "@/app/conf/_design-system/pixelarticons/chevron-right"
-import { slugify } from "@/app/(main)/resources/[category]/texts"
+import { slugify } from "@/app/(main)/resources/[category]/categories-config"
 
 export interface TocHeroContentsProps
   extends React.HTMLAttributes<HTMLDivElement> {

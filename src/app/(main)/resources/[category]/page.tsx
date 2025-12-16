@@ -18,8 +18,10 @@ import { BlogPostsSection } from "./blog-posts-section"
 import { CategoryToolsLibrariesSection } from "./category-tools-libraries-section"
 import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 
-import { sectionKindNames, texts } from "./texts"
+import { sectionKindNames, categoriesConfig } from "./categories-config"
 import { CardsSection } from "./cards-section"
+import { DocsSection } from "./docs-section"
+import { LookingForMore } from "@/components/looking-for-more"
 
 interface PageParams {
   category: string
@@ -37,8 +39,8 @@ export async function generateMetadata({
   const category = params.category as Topic
   if (!topics.includes(category)) return {}
 
-  const title = `${texts[category].heading} Resources`
-  const description = texts[category].subtitle
+  const title = `${categoriesConfig[category].heading} Resources`
+  const description = categoriesConfig[category].subtitle
 
   return { title, description }
 }
@@ -47,9 +49,14 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
   const category = params.category as Topic
   if (!topics.includes(category)) return notFound()
 
+  const sections = Object.keys(categoriesConfig[category].sections)
   const resources = await getResourcesByTag(category)
   const deduped = uniqueByTitle(resources)
-  const grouped = groupByKind(deduped)
+  const grouped = groupByKind(deduped).sort((a, b) => {
+    const aIndex = sections.findIndex(s => s === a.kind)
+    const bIndex = sections.findIndex(s => s === b.kind)
+    return aIndex - bIndex
+  })
 
   const activePath: Item[] = [
     {
@@ -61,7 +68,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       route: "/resources",
     },
     {
-      name: texts[category].heading,
+      name: categoriesConfig[category].heading,
       route: "",
     },
   ].map(item => ({
@@ -77,8 +84,8 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       <NavbarFixed />
 
       <ResourcesHero
-        heading={texts[category].heading}
-        text={texts[category].subtitle}
+        heading={categoriesConfig[category].heading}
+        text={categoriesConfig[category].subtitle}
       >
         <TocHeroContents
           sections={grouped.map(section => sectionLabel(section.kind))}
@@ -92,11 +99,21 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
 
       {grouped.map(section => (
         <CategorySection
+          className="py-8 lg:py-16 xl:py-20 2xl:py-24"
           key={section.kind}
           section={section}
           category={category}
         />
       ))}
+
+      <LookingForMore
+        description="Discover even more ways to learn and connect with the GraphQL community."
+        links={[
+          { href: "/community", label: "Community" },
+          { href: "/learn", label: "Learn" },
+        ]}
+        className="my-8 lg:mb-16 lg:mt-12"
+      />
     </main>
   )
 }
@@ -133,32 +150,57 @@ function sectionLabel(kind: Kind) {
 function CategorySection({
   section,
   category,
+  className,
 }: {
   section: { kind: Kind; resources: ResourceMetadata[] }
   category: Topic
+  className?: string
 }) {
-  if (section.kind === "tools-and-libraries") {
-    return <CategoryToolsLibrariesSection category={category} />
-  }
+  switch (section.kind) {
+    case "tools-and-libraries":
+      return (
+        <CategoryToolsLibrariesSection
+          category={category}
+          className={className}
+        />
+      )
 
-  if (section.kind === "blog") {
-    const blogSection = texts[category].sections["blog-or-newsletter"]
-    return (
-      <BlogPostsSection
-        title={blogSection?.heading ?? "Insights from the community"}
-        description={
-          blogSection?.text ??
-          "Stay up to date with insights from the GraphQL community."
-        }
-        posts={section.resources.map(resource => ({
-          href: resource.url,
-          title: resource.title,
-          author: resource.author ?? "GraphQL Community",
-          tags: resource.tags.filter(tag => tag !== "blog" && tag !== category),
-        }))}
-      />
-    )
-  }
+    case "blog": {
+      const blogSection = categoriesConfig[category].sections["blog"]
 
-  return <CardsSection section={section} category={category} />
+      return (
+        <BlogPostsSection
+          title={blogSection?.heading ?? "Insights from the community"}
+          description={
+            blogSection?.text ??
+            "Stay up to date with insights from the GraphQL community."
+          }
+          posts={section.resources.map(resource => ({
+            href: resource.url,
+            title: resource.title,
+            author: resource.author ?? "GraphQL Community",
+            tags: resource.tags.filter(
+              tag => tag !== "blog" && tag !== category,
+            ),
+          }))}
+          className={className}
+        />
+      )
+    }
+
+    case "docs": {
+      const docsSection = categoriesConfig[category].sections.docs
+      if (!docsSection) return null
+      return <DocsSection {...docsSection} className={className} />
+    }
+
+    default:
+      return (
+        <CardsSection
+          section={section}
+          category={category}
+          className={className}
+        />
+      )
+  }
 }

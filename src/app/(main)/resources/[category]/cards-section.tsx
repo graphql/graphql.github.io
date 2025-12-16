@@ -1,10 +1,16 @@
+import { clsx } from "clsx"
+
 import { Kind, ResourceMetadata, Topic } from "@/resources/types"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import { Button } from "@/app/conf/_design-system/button"
 
 import { ResourceHubCard } from "../resource-hub-card"
 
-import { texts, sectionKindNames, sectionIds } from "./texts"
+import {
+  categoriesConfig,
+  sectionKindNames,
+  sectionIds,
+} from "./categories-config"
 
 function sectionLabel(kind: Kind) {
   return sectionKindNames[kind] ?? `${kind[0].toUpperCase()}${kind.slice(1)}`
@@ -13,11 +19,13 @@ function sectionLabel(kind: Kind) {
 export function CardsSection({
   section,
   category,
+  className,
 }: {
   section: { kind: Kind; resources: ResourceMetadata[] }
   category: Topic
+  className?: string
 }) {
-  const sectionData = texts[category].sections[section.kind]
+  const sectionData = categoriesConfig[category].sections[section.kind]
   const heading = sectionData?.heading ?? sectionLabel(section.kind)
   const text = sectionData?.text
 
@@ -29,23 +37,20 @@ export function CardsSection({
         Go to Video Resources Library
       </Button>
     )
-  } else if (section.kind === "docs") {
-    cta = (
-      <Button href="/resources/docs" variant="secondary" size="md">
-        Go to Documentation
-      </Button>
-    )
   }
 
   return (
     <section
       id={sectionIds[section.kind]}
-      className="gql-container gql-section flex flex-col gap-6"
+      className={clsx(
+        "gql-container gql-section flex flex-col gap-6",
+        className,
+      )}
     >
-      <header className="flex items-center justify-between gap-4">
-        <div className="flex flex-col gap-3">
+      <header className="flex items-end justify-between gap-4">
+        <div className="flex flex-col gap-4 xl:gap-6">
           <Eyebrow>{sectionKindNames[section.kind]}</Eyebrow>
-          <h2 className="typography-h3 text-pretty">{heading}</h2>
+          <h2 className="typography-h2 text-pretty">{heading}</h2>
           {text && (
             <p className="typography-body-md max-w-[700px] text-neu-800">
               {text}
@@ -55,7 +60,7 @@ export function CardsSection({
         {cta}
       </header>
 
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:mt-6">
         {section.resources.slice(0, 6).map(resource => (
           <li key={resource.url}>
             <ResourceHubCard
