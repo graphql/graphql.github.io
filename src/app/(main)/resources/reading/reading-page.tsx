@@ -159,8 +159,19 @@ export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
       />
       <section className="gql-container gql-section">
         <Breadcrumbs activePath={activePath} />
+        <header className="mt-16 flex flex-wrap justify-between gap-x-8 gap-y-4 pt-2">
+          <h2 className="typography-h2 text-pretty">Browse GraphQL Videos</h2>
+          <p className="typography-body-md max-w-[578px] text-neu-800">
+            The video library includes talks from GraphQL Conf and archival
+            presentations by developers from Facebook and beyond, shared at
+            conferences and meetups worldwide.
+          </p>
+        </header>
+        <p className="typography-menu mt-8 lg:mt-12 xl:mt-16">
+          Select a category
+        </p>
         <nav
-          className="mt-6 grid grid-cols-3 divide-x divide-neu-200 border border-neu-200 dark:divide-neu-100 dark:border-neu-100"
+          className="mt-4 grid grid-cols-3 divide-x divide-neu-200 border border-neu-200 dark:divide-neu-100 dark:border-neu-100"
           aria-label="Reading resource types"
         >
           {tabs.map(tab => {
