@@ -22,6 +22,7 @@ import { sectionKindNames, categoriesConfig } from "./categories-config"
 import { CardsSection } from "./cards-section"
 import { DocsSection } from "./docs-section"
 import { LookingForMore } from "@/components/looking-for-more"
+import { unsafeKeys } from "@/app/conf/_design-system/utils/unsafe-keys"
 
 interface PageParams {
   category: string
@@ -49,14 +50,10 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
   const category = params.category as Topic
   if (!topics.includes(category)) return notFound()
 
-  const sections = Object.keys(categoriesConfig[category].sections)
+  const sections = unsafeKeys(categoriesConfig[category].sections)
   const resources = await getResourcesByTag(category)
   const deduped = uniqueByTitle(resources)
-  const grouped = groupByKind(deduped).sort((a, b) => {
-    const aIndex = sections.findIndex(s => s === a.kind)
-    const bIndex = sections.findIndex(s => s === b.kind)
-    return aIndex - bIndex
-  })
+  const grouped = groupByKind(deduped)
 
   const activePath: Item[] = [
     {
@@ -88,7 +85,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
         text={categoriesConfig[category].subtitle}
       >
         <TocHeroContents
-          sections={grouped.map(section => sectionLabel(section.kind))}
+          sections={sections.map(sectionLabel)}
           className="max-w-[528px]"
         />
       </ResourcesHero>
@@ -97,14 +94,18 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
         <Breadcrumbs activePath={activePath} />
       </section>
 
-      {grouped.map(section => (
-        <CategorySection
-          className="py-8 lg:py-16 xl:py-20 2xl:py-24"
-          key={section.kind}
-          section={section}
-          category={category}
-        />
-      ))}
+      {sections.map(key => {
+        const data = grouped.find(group => group.kind === key)
+
+        return (
+          <CategorySection
+            className="py-8 lg:py-16 xl:py-20 2xl:py-24"
+            key={key}
+            section={data ?? { kind: key as Kind, resources: [] }}
+            category={category}
+          />
+        )
+      })}
 
       <LookingForMore
         description="Discover even more ways to learn and connect with the GraphQL community."

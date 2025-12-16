@@ -47,24 +47,6 @@ export const categoriesConfig: CategoriesConfig = {
         heading: "Backend tools & libraries",
         text: "Find the right GraphQL backend stack — from JavaScript to Rust and beyond.",
       },
-      blog: {
-        heading: "Build better GraphQL infrastructure",
-        text: "Dive into articles on server architecture, schema design and best practices for running GraphQL at scale.",
-      },
-    },
-  },
-  federation: {
-    heading: "Federation",
-    subtitle: "Learn how to build and compose GraphQL graphs with federation.",
-    sections: {
-      video: {
-        heading: "Master GraphQL federation",
-        text: "Watch talks and tutorials from GraphQL Conf and community experts. See how teams build and compose GraphQL graphs with federation.",
-      },
-      "tools-and-libraries": {
-        heading: "Tools & libraries for federated graphs",
-        text: "Run federated GraphQL graphs at scale with the right tools — from open-source routers to managed platforms.",
-      },
       docs: {
         heading: "Lessons on the GraphQL backend",
         text: "Build and run GraphQL servers — from defining a schema to handling production traffic.",
@@ -83,6 +65,24 @@ export const categoriesConfig: CategoriesConfig = {
           "debug-errors",
           "caching",
         ],
+      },
+      blog: {
+        heading: "Build better GraphQL infrastructure",
+        text: "Dive into articles on server architecture, schema design and best practices for running GraphQL at scale.",
+      },
+    },
+  },
+  federation: {
+    heading: "Federation",
+    subtitle: "Learn how to build and compose GraphQL graphs with federation.",
+    sections: {
+      video: {
+        heading: "Master GraphQL federation",
+        text: "Watch talks and tutorials from GraphQL Conf and community experts. See how teams build and compose GraphQL graphs with federation.",
+      },
+      "tools-and-libraries": {
+        heading: "Tools & libraries for federated graphs",
+        text: "Run federated GraphQL graphs at scale with the right tools — from open-source routers to managed platforms.",
       },
       blog: {
         heading: "Latest updates on federation & composition",

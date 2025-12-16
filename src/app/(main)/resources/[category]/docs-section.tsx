@@ -29,7 +29,7 @@ export function DocsSection({
 
   return (
     <section
-      id={sectionIds["blog-or-newsletter"]}
+      id={sectionIds["docs"]}
       className={clsx(
         "gql-container gql-section flex flex-col gap-10 lg:gap-16",
         className,
@@ -37,7 +37,7 @@ export function DocsSection({
     >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-4 xl:gap-6">
-          <Eyebrow>Blog posts</Eyebrow>
+          <Eyebrow>Documentation</Eyebrow>
           <h2 className="typography-h2 max-w-[700px] text-pretty">{heading}</h2>
           <p className="typography-body-md max-w-[577px] text-neu-800">
             {text}
@@ -48,15 +48,13 @@ export function DocsSection({
         </Button>
       </header>
 
-      {/* todo: partition by section */}
-      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {pages.map((page, index) => (
           <TeaserSectionListItem
             key={index}
-            number={index + 1}
             title={page.title}
             description={page.description}
-            icon={page.icon}
+            icon={<img src={page.icon} alt="" />}
             section={page.section}
             href={page.href}
           />

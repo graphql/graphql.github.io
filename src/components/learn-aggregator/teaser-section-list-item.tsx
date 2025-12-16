@@ -4,7 +4,7 @@ import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.sv
 
 export interface TeaserSectionListItemProps
   extends React.HTMLAttributes<HTMLLIElement> {
-  number: number
+  number?: number
   title: string
   description: string
   icon: React.ReactNode
@@ -39,11 +39,18 @@ export function TeaserSectionListItem({
           {icon}
         </span>
 
-        <span className="flex flex-col gap-1 px-2 pt-2 [grid-area:header] lg:px-4 lg:pt-4">
-          <span className="typography-body-sm text-neu-700 max-lg:typography-body-md">
-            {/* TODO: Are we really sure these are Lessons? */}
-            Lesson {number}
-          </span>
+        <span
+          className={clsx(
+            "flex flex-col gap-1 px-2 [grid-area:header] lg:px-4",
+            number === undefined ? "pt-4 lg:pt-6" : "pt-2 lg:pt-4",
+          )}
+        >
+          {number !== undefined && (
+            <span className="typography-body-sm text-neu-700 max-lg:typography-body-md">
+              {/* TODO: Are we really sure these are Lessons? */}
+              Lesson {number}
+            </span>
+          )}
           <span className="typography-h3 font-normal text-neu-900">
             {title}
           </span>

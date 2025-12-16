@@ -33,7 +33,7 @@ export function BlogPostsSection({
 }: BlogPostsSectionProps) {
   return (
     <section
-      id={sectionIds["blog-or-newsletter"]}
+      id={sectionIds["blog"]}
       className={clsx(
         "gql-container gql-section flex flex-col gap-10 lg:gap-16",
         className,
