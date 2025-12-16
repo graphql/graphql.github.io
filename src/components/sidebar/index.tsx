@@ -31,6 +31,7 @@ import {
 
 import ArrowBarLeft from "@/app/conf/_design-system/pixelarticons/arrow-bar-left.svg?svgr"
 import { Anchor } from "@/app/conf/_design-system/anchor"
+import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 
 import { renderComponent } from "../utils/render-component"
 import { ThemeSwitch } from "../theme-switch"
@@ -143,12 +144,16 @@ function FolderImpl({ item, anchors, onFocus }: FolderProps): ReactElement {
       (menu.children || []).map(route => [route.name, route]),
     )
     item.children = Object.entries(menu.items || {}).map(([key, item]) => {
+      if (typeof item === "string") item = { title: item }
       if (!item.title) item.title = key
 
       const route = routes[key] || {
         name: key,
         route: menu.route + "/" + key,
       }
+
+      if (key === "index") route.route = menu.route
+
       return {
         ...route,
         ...item,
@@ -275,13 +280,24 @@ function File({
     <li className={cn(classes.list, { active })}>
       <Anchor
         href={(item as PageItem).href || item.route}
-        className={cn(classes.link, active ? classes.active : classes.inactive)}
+        className={cn(
+          classes.link,
+          active ? classes.active : classes.inactive,
+          item.name === "index" && "flex items-center gap-2",
+        )}
         onClick={() => {
           setMenu(false)
         }}
         onFocus={onFocus}
       >
-        {item.title}
+        {item.name !== "index" ? (
+          item.title
+        ) : (
+          <>
+            Explore {item.title}
+            <ArrowDownIcon className="ml-auto size-4 -rotate-90" />
+          </>
+        )}
       </Anchor>
       {active && anchors.length > 0 && (
         <ul className={cn(classes.list, classes.border, "ml-3")}>

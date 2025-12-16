@@ -13,9 +13,9 @@ export default {
   resources: {
     type: "menu",
     title: "Resource Hub",
-    menu: "/resources",
+    route: "/resources",
     items: {
-      index: "",
+      index: "Resource Hub",
       frontend: "",
       backend: "",
       federation: "",
