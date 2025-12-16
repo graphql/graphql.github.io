@@ -9,6 +9,8 @@ import { Eyebrow } from "@/_design-system/eyebrow"
 import { ReadingResourcesCard } from "./reading-resources-card"
 import { readResources } from "@/resources/data"
 import { topics, type ResourceMetadata, type Topic } from "@/resources/types"
+import { LookingForMore } from "@/components/looking-for-more"
+import { KeepLearning } from "../keep-learning"
 
 export const subcategories = [
   "blogs-and-newsletters",
@@ -206,6 +208,21 @@ export async function ReadingLibraryPage({ variant }: { variant: Variant }) {
           ))}
         </ul>
       </section>
+
+      <KeepLearning
+        className="mt-10 lg:mt-16"
+        title="Video Resources Library"
+        href="/resources/video"
+        stripes="[--start:hsl(var(--color-pri-light)/.9)] dark:[--start:hsl(var(--color-pri-darker))] bg-[linear-gradient(to_bottom,var(--start),hsl(var(--color-neu-0)))]"
+      />
+
+      <LookingForMore
+        description="Discover even more ways to learn and connect with the GraphQL community."
+        links={[
+          { href: "/community", label: "Community" },
+          { href: "/learn", label: "Learn" },
+        ]}
+      />
     </main>
   )
 }
