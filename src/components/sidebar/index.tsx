@@ -32,6 +32,7 @@ import {
 import ArrowBarLeft from "@/app/conf/_design-system/pixelarticons/arrow-bar-left.svg?svgr"
 import { Anchor } from "@/app/conf/_design-system/anchor"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+import CaretDownIcon from "@/app/conf/_design-system/pixelarticons/caret-down.svg?svgr"
 
 import { renderComponent } from "../utils/render-component"
 import { ThemeSwitch } from "../theme-switch"
@@ -206,12 +207,11 @@ function FolderImpl({ item, anchors, onFocus }: FolderProps): ReactElement {
         onFocus={onFocus}
       >
         {item.title}
-        <ArrowRightIcon
-          height="18"
+        <CaretDownIcon
           className={cn(
-            "shrink-0 p-0.5 hover:bg-neu-100/5",
+            "size-5 shrink-0 fill-neu-800 p-0.5 hover:bg-neu-100/5",
             "origin-center transition-transform motion-reduce:*:transition-none",
-            open && "rotate-90",
+            !open && "-rotate-90",
           )}
         />
       </ComponentToUse>
@@ -295,7 +295,7 @@ function File({
         ) : (
           <>
             Explore {item.title}
-            <ArrowDownIcon className="ml-auto size-4 -rotate-90" />
+            <ArrowDownIcon className="ml-auto mr-0.5 size-4 -rotate-90" />
           </>
         )}
       </Anchor>
