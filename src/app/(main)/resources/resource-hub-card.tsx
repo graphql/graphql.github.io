@@ -68,8 +68,8 @@ export function ResourceHubCard({
     >
       <div
         className={clsx(
-          "flex gap-4 border-b border-inherit p-4 md:p-6",
-          authorPlacement === "body" && "max-w-[calc(100%-53px)]",
+          "flex gap-4 border-inherit p-4 md:p-6",
+          authorPlacement === "body" ? "max-w-[calc(100%-53px)]" : "border-b",
         )}
       >
         <div className="flex flex-col gap-4">
