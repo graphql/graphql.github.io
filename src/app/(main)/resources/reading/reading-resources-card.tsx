@@ -1,10 +1,11 @@
 import type { ComponentType, SVGProps } from "react"
 
-import BookmarkIcon from "../assets/bookmark.svg?svgr"
-import InfoIcon from "@/app/conf/_design-system/pixelarticons/info.svg?svgr"
-import NotesIcon from "@/app/conf/_design-system/pixelarticons/notes.svg?svgr"
 import { ResourceHubCard } from "../resource-hub-card"
 import type { ResourceMetadata } from "@/resources/types"
+
+import NewspaperIcon from "../assets/newspaper.svg?svgr"
+import WriteIcon from "../assets/write-note.svg?svgr"
+import BookIcon from "../assets/bookmark.svg?svgr"
 
 type CornerIcon = ComponentType<SVGProps<SVGElement>>
 
@@ -14,14 +15,14 @@ const readingKindConfig: Record<
   ReadingKind,
   { label: string; color: string; Icon: CornerIcon }
 > = {
-  book: { label: "books", color: "#00C6AC", Icon: BookmarkIcon },
+  book: { label: "books", color: "#00C6AC", Icon: BookIcon },
   "blog-or-newsletter": {
     label: "blogs & newsletters",
     color: "hsl(var(--color-pri-base))",
-    Icon: NotesIcon,
+    Icon: NewspaperIcon,
   },
-  blog: { label: "blog posts", color: "#FF8800", Icon: NotesIcon },
-  guide: { label: "guides", color: "#FF8800", Icon: InfoIcon },
+  blog: { label: "blog posts", color: "#FF8800", Icon: WriteIcon },
+  guide: { label: "guides", color: "#FF8800", Icon: WriteIcon },
 }
 
 function pickReadingKind(resource: ResourceMetadata): ReadingKind | undefined {
