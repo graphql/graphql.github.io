@@ -2,9 +2,10 @@ import { clsx } from "clsx"
 
 import { Button } from "@/app/conf/_design-system/button"
 import { Eyebrow } from "@/_design-system/eyebrow"
-
+import { partition } from "@/app/conf/_design-system/utils/partition"
 import { TeaserSectionListItem } from "@/components/learn-aggregator/teaser-section-list-item"
 import {
+  LearnPageItem,
   LearnPagePath,
   learnPages,
 } from "@/components/learn-aggregator/learn-pages"
@@ -27,6 +28,11 @@ export function DocsSection({
   const pages =
     docs?.map(path => learnPages[path]).filter(page => page !== null) ?? []
 
+  const [gettingStarted, bestPractices] = partition(
+    pages,
+    page => page.section === "getting-started",
+  )
+
   return (
     <section
       id={sectionIds["docs"]}
@@ -48,18 +54,40 @@ export function DocsSection({
         </Button>
       </header>
 
-      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {pages.map((page, index) => (
-          <TeaserSectionListItem
-            key={index}
-            title={page.title}
-            description={page.description}
-            icon={<img src={page.icon} alt="" />}
-            section={page.section}
-            href={page.href}
-          />
-        ))}
-      </ul>
+      {gettingStarted && (
+        <>
+          <h3 className="typography-h3">Getting Started</h3>
+          <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {gettingStarted.map((page, index) => (
+              <TeaserSectionListItem
+                key={index}
+                title={page.title}
+                description={page.description}
+                icon={<img src={page.icon} alt="" />}
+                section={page.section}
+                href={page.href}
+              />
+            ))}
+          </ul>
+        </>
+      )}
+      {bestPractices && (
+        <>
+          <h3 className="typography-h3">Best Practices</h3>
+          <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {bestPractices.map((page, index) => (
+              <TeaserSectionListItem
+                key={index}
+                title={page.title}
+                description={page.description}
+                icon={<img src={page.icon} alt="" />}
+                section={page.section}
+                href={page.href}
+              />
+            ))}
+          </ul>
+        </>
+      )}
     </section>
   )
 }
