@@ -40,7 +40,7 @@ export function BlogPostsSection({
       )}
     >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4 xl:gap-6">
           <Eyebrow>Blog posts</Eyebrow>
           <h2 className="typography-h2 max-w-[700px] text-pretty">{title}</h2>
           <p className="typography-body-md max-w-[577px] text-neu-800">
