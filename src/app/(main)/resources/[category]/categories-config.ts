@@ -122,6 +122,7 @@ export const categoriesConfig: CategoriesConfig = {
       docs: {
         heading: "Security in practice",
         text: "Follow proven patterns to delegate authorization correctly and protect your GraphQL APIs from malicious operations.",
+        docs: ["authorization", "security"],
       },
     },
   },
