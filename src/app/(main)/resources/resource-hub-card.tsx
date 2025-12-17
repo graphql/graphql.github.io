@@ -92,7 +92,9 @@ export function ResourceHubCard({
         {(authorPlacement === "footer" || !!duration) && (
           <div className="flex items-center gap-4 p-4 md:p-6">
             {authorPlacement === "footer" && author ? (
-              <span className="typography-body-sm text-neu-800">{author}</span>
+              <span className="typography-body-sm flex h-[1em] items-center justify-center text-neu-800">
+                <span>{author}</span>
+              </span>
             ) : null}
             {duration ? (
               <span className="ml-auto flex items-center gap-2 text-neu-800">
