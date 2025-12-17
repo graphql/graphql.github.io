@@ -30,10 +30,26 @@ function matchesSearch(resource: ResourceMetadata, query: string): boolean {
   return fuzzyMatch(searchable, query)
 }
 
-function Cell({ children }: { children: string | undefined }) {
+type TooltipState = {
+  content: string
+  x: number
+  y: number
+} | null
+
+type CellProps = {
+  children: string | undefined
+  onMouseMove: (e: React.MouseEvent, content: string) => void
+  onMouseLeave: () => void
+}
+
+function Cell({ children, onMouseMove, onMouseLeave }: CellProps) {
   if (!children) return <td className="px-2 py-1" />
   return (
-    <td className="max-w-[200px] truncate px-2 py-1" title={children}>
+    <td
+      className="max-w-[200px] cursor-copy truncate px-2 py-1"
+      onMouseMove={e => onMouseMove(e, children)}
+      onMouseLeave={onMouseLeave}
+    >
       {children}
     </td>
   )
@@ -47,8 +63,25 @@ export function ResourcesTable({ resources }: ResourcesTableProps) {
   const [search, setSearch] = useState("")
   const [query, setQuery] = useState("")
   const [isPending, startTransition] = useTransition()
+  const [tooltip, setTooltip] = useState<TooltipState>(null)
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
 
   const filtered = resources.filter(r => matchesSearch(r, query))
+
+  const handleMouseMove = (e: React.MouseEvent, content: string) => {
+    setTooltip({ content, x: e.clientX, y: e.clientY })
+  }
+
+  const handleMouseLeave = () => {
+    setTooltip(null)
+  }
+
+  const handleRowClick = async (resource: ResourceMetadata, index: number) => {
+    const json = JSON.stringify(resource, null, 2)
+    await navigator.clipboard.writeText(json)
+    setCopiedIndex(index)
+    setTimeout(() => setCopiedIndex(null), 1500)
+  }
 
   return (
     <div className="p-4">
@@ -82,18 +115,71 @@ export function ResourcesTable({ resources }: ResourcesTableProps) {
         </thead>
         <tbody>
           {filtered.map((resource, i) => (
-            <tr key={i} className="border-t border-neu-200">
-              <Cell>{resource.title}</Cell>
-              <Cell>{resource.url}</Cell>
-              <Cell>{resource.author}</Cell>
-              <Cell>{resource.kind}</Cell>
-              <Cell>{resource.description}</Cell>
-              <Cell>{resource.duration}</Cell>
-              <Cell>{resource.tags.join(", ")}</Cell>
+            <tr
+              key={i}
+              className={clsx(
+                "cursor-pointer border-t border-neu-200 transition-colors hover:bg-neu-50/50 hover:duration-0",
+                copiedIndex === i && "bg-green-100 dark:bg-green-900/30",
+              )}
+              onClick={() => handleRowClick(resource, i)}
+            >
+              <Cell
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {resource.title}
+              </Cell>
+              <Cell
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {resource.url}
+              </Cell>
+              <Cell
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {resource.author}
+              </Cell>
+              <Cell
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {resource.kind}
+              </Cell>
+              <Cell
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {resource.description}
+              </Cell>
+              <Cell
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {resource.duration}
+              </Cell>
+              <Cell
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {resource.tags.join(", ")}
+              </Cell>
             </tr>
           ))}
         </tbody>
       </table>
+      {tooltip && (
+        <div
+          className="pointer-events-none fixed z-50 max-w-md border border-neu-50 bg-neu-0/50 px-2 py-1 font-mono text-sm shadow-lg backdrop-blur-md"
+          style={{
+            left: tooltip.x + 12,
+            top: tooltip.y + 12,
+          }}
+        >
+          {tooltip.content}
+        </div>
+      )}
     </div>
   )
 }
