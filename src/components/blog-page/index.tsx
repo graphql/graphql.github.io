@@ -71,7 +71,7 @@ export function BlogPage({
                       className="-m-1 flex p-1 ring-inset ring-neu-400 transition-opacity duration-75 hover:ring focus:!outline-offset-0 dark:ring-neu-50 [:has(>:hover)>&:not(:hover)]:opacity-70"
                       onKeyDown={arrowsMoveSideways}
                     >
-                      <Tag color={tagColors[tag]}>
+                      <Tag color={tagColors[tag as keyof typeof tagColors]}>
                         {tag.replaceAll("-", " ")} ({count})
                       </Tag>
                     </NextLink>

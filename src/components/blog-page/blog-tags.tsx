@@ -19,7 +19,7 @@ export function BlogTags({
   return (
     <span className={clsx("flex gap-2", className)}>
       {tags.map(tag => {
-        const color = tagColors[tag]
+        const color = tagColors[tag as keyof typeof tagColors]
         if (!color && process.env.NODE_ENV !== "production") {
           throw new Error(`No color found for tag: ${tag}`)
         }

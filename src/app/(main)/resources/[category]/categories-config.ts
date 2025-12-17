@@ -1,6 +1,8 @@
 import { LearnPagePath } from "@/components/learn-aggregator/learn-pages"
 import { Kind, Topic } from "@/resources/types"
 
+// TODO: If the pages need to be customized further, consider flattening [category]/page.tsx
+//       into multiple page files and defining the following texts in usual JSX.
 export const categoriesConfig: CategoriesConfig = {
   frontend: {
     heading: "Frontend",

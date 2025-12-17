@@ -197,7 +197,7 @@ function TopicsFilter({
                 )}
                 onKeyDown={arrowsMoveSideways}
               >
-                <Tag color={tagColors[topic]}>
+                <Tag color={tagColors[topic as keyof typeof tagColors]}>
                   {topic.replaceAll("-", " ")} ({count})
                 </Tag>
               </button>
