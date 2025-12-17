@@ -6,4 +6,5 @@ github: TykTechnologies/tyk
 tags:
   - tools-and-libraries
   - tools
+  - federation
 ---

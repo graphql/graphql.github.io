@@ -5,4 +5,5 @@ url: https://hygraph.com/
 tags:
   - tools-and-libraries
   - tools
+  - federation
 ---

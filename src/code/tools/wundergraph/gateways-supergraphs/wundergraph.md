@@ -6,6 +6,7 @@ github: wundergraph/cosmo
 tags:
   - tools-and-libraries
   - tools
+  - federation
 ---
 
 [WunderGraph](https://wundergraph.com) composes all your APIs into a single unified GraphQL API and

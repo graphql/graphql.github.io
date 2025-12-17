@@ -6,4 +6,5 @@ npm: "@Escape-Technologies/graphql-armor"
 tags:
   - tools-and-libraries
   - tools
+  - security
 ---
