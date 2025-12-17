@@ -206,6 +206,13 @@ function distributeToColumns(groups: GroupData[]): [GroupData[], GroupData[]] {
 }
 
 function Group({ group }: { group: GroupData }) {
+  // When odd count in 2-column layout, last item spans full width
+  const isOddTwoColumn = group.columns === 2 && group.items.length % 2 === 1
+  // Adjust break index: exclude spanning item from column distribution
+  const effectiveBreakIndex = isOddTwoColumn
+    ? Math.ceil((group.items.length - 1) / 2)
+    : group.breakIndex
+
   return (
     <div className="group/item shrink-0 grow border border-neu-200 bg-neu-50 dark:border-neu-100 dark:bg-neu-50/25 lg:min-w-0 xl:min-w-[480px]">
       <input
@@ -232,32 +239,40 @@ function Group({ group }: { group: GroupData }) {
         className="divide-y divide-neu-200 [column-gap:0] dark:divide-neu-100 max-md:hidden peer-checked:max-md:block md:block lg:[column-count:var(--item-columns,1)]"
         style={{ "--item-columns": group.columns } as CSSProperties}
       >
-        {group.items.map((item, i) => (
-          <li
-            key={`${group.id}-${item.name}`}
-            style={
-              group.breakIndex
-                ? {
-                    borderTop: i === group.breakIndex ? "none" : "",
-                    borderLeftWidth: i >= group.breakIndex ? "1px" : "",
-                  }
-                : {}
-            }
-          >
-            {item.href ? (
-              <a
-                href={item.href}
-                className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900 transition-colors hover:bg-neu-0 hover:duration-0"
-              >
-                {item.name}
-              </a>
-            ) : (
-              <span className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900">
-                {item.name}
-              </span>
-            )}
-          </li>
-        ))}
+        {group.items.map((item, i) => {
+          const isLastItem = i === group.items.length - 1
+          const spansFullWidth = isOddTwoColumn && isLastItem
+          const isAtBreak = i === effectiveBreakIndex
+          const isInSecondColumn = !spansFullWidth && i >= effectiveBreakIndex
+
+          return (
+            <li
+              key={`${group.id}-${item.name}`}
+              className={clsx(spansFullWidth && "lg:[column-span:all]")}
+              style={
+                group.columns === 2
+                  ? {
+                      borderTop: isAtBreak ? "none" : "",
+                      borderLeftWidth: isInSecondColumn ? "1px" : "",
+                    }
+                  : {}
+              }
+            >
+              {item.href ? (
+                <a
+                  href={item.href}
+                  className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900 transition-colors hover:bg-neu-0 hover:duration-0"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <span className="flex items-center justify-between bg-neu-0/40 px-4 py-3 text-neu-900">
+                  {item.name}
+                </span>
+              )}
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
