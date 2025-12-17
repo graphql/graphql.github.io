@@ -54,7 +54,7 @@ export function DocsSection({
         </Button>
       </header>
 
-      {gettingStarted && (
+      {gettingStarted.length > 0 && (
         <>
           <h3 className="typography-h3">Getting Started</h3>
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -71,7 +71,7 @@ export function DocsSection({
           </ul>
         </>
       )}
-      {bestPractices && (
+      {bestPractices.length > 0 && (
         <>
           <h3 className="typography-h3">Best Practices</h3>
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
