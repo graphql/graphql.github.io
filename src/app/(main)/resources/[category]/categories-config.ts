@@ -140,10 +140,6 @@ export const categoriesConfig: CategoriesConfig = {
         text: "Learn how to track the right signals in your GraphQL ecosystem — from latency and error rates to resolver-level performance.",
         docs: ["caching", "performance"],
       },
-      "blog-or-newsletter": {
-        heading: "Latest insights on monitoring",
-        text: "Read the latest announcements and technical deep dives.",
-      },
     },
   },
 }
