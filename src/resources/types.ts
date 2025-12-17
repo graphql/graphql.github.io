@@ -4,13 +4,9 @@ export const topics = [
   "frontend",
   "backend",
   "federation",
-  "schema-design",
-  "api-platform-and-gateways",
-  "developer-experience",
   "security",
   "ai",
   "monitoring",
-  "tools",
 ] as const
 export type Topic = (typeof topics)[number]
 

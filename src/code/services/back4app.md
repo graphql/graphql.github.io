@@ -4,6 +4,4 @@ description: Fully managed GraphQL backend based on open source Parse Platform. 
 url: https://www.back4app.com/docs/parse-graphql/graphql-getting-started
 tags:
   - tools-and-libraries
-  - tools
-  - api-platform-and-gateways
 ---

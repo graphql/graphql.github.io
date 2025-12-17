@@ -50,10 +50,12 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
   const category = params.category as Topic
   if (!topics.includes(category)) return notFound()
 
-  const sections = unsafeKeys(categoriesConfig[category].sections)
+  let sections = unsafeKeys(categoriesConfig[category].sections)
   const resources = await getResourcesByTag(category)
   const deduped = uniqueByTitle(resources)
   const grouped = groupByKind(deduped)
+
+  if (sections.length === 0) sections = grouped.map(group => group.kind)
 
   const activePath: Item[] = [
     {

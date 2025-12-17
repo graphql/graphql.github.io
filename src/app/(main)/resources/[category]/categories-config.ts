@@ -137,26 +137,6 @@ export const categoriesConfig: CategoriesConfig = {
       },
     },
   },
-  "schema-design": {
-    heading: "Schema Design",
-    subtitle: "Learn how to design and maintain GraphQL schemas.",
-    sections: {},
-  },
-  "api-platform-and-gateways": {
-    heading: "API Platform and Gateways",
-    subtitle: "Learn how to build and deploy API Gateways and Supergraphs.",
-    sections: {},
-  },
-  "developer-experience": {
-    heading: "Developer Experience",
-    subtitle: "Learn how to improve your developer experience.",
-    sections: {},
-  },
-  tools: {
-    heading: "Tools",
-    subtitle: "Discover the best tools for GraphQL development.",
-    sections: {},
-  },
 }
 
 export const sectionKindNames: Record<Kind, string> = {

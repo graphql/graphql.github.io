@@ -1,5 +1,7 @@
 import { type Topic } from "@/resources/types"
 
+// TODO: These can be moved to the categories-config.ts object.
+
 export const categoryNames: Record<Topic, string> = {
   frontend: "Frontend",
   backend: "Backend",
@@ -7,10 +9,6 @@ export const categoryNames: Record<Topic, string> = {
   security: "Security",
   ai: "AI",
   monitoring: "Monitoring",
-  "api-platform-and-gateways": "API Platform and Gateways",
-  "developer-experience": "Developer Experience",
-  "schema-design": "Schema Design",
-  tools: "Tools",
 }
 
 export const categorySubtitles: Record<Topic, string> = {
@@ -22,9 +20,4 @@ export const categorySubtitles: Record<Topic, string> = {
   security: "Learn how to secure your GraphQL APIs.",
   monitoring:
     "Stay ahead of performance issues by monitoring queries and watching error trends.",
-  "api-platform-and-gateways":
-    "Learn how to build and deploy API Gateways and Supergraphs.",
-  "developer-experience": "Learn how to improve your developer experience.",
-  "schema-design": "Learn how to design and maintain GraphQL schemas.",
-  tools: "Discover the best tools for GraphQL development.",
 }

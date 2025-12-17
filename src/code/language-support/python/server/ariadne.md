@@ -6,7 +6,6 @@ github: mirumee/ariadne
 tags:
   - tools-and-libraries
   - backend
-  - schema-design
 ---
 
 Ariadne can be installed with pip:

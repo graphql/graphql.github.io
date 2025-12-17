@@ -47,7 +47,7 @@ export function CardsSection({
         className,
       )}
     >
-      <header className="flex items-end justify-between gap-4">
+      <header className="flex items-end justify-between gap-4 max-sm:flex-col max-sm:items-stretch">
         <div className="flex flex-col gap-4 xl:gap-6">
           <Eyebrow>{sectionKindNames[section.kind]}</Eyebrow>
           <h2 className="typography-h2 text-pretty">{heading}</h2>

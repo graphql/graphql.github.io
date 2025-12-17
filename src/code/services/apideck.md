@@ -4,6 +4,4 @@ description: A GraphQL API to query and mutate data across APIs like Salesforce,
 url: https://www.apideck.com/products/graphql/
 tags:
   - tools-and-libraries
-  - tools
-  - developer-experience
 ---

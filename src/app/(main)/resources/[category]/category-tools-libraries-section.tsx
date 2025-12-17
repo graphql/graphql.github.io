@@ -133,7 +133,7 @@ export async function CategoryToolsLibrariesSection({
           <Button
             href="/community/tools-and-libraries/"
             variant="secondary"
-            className="w-fit"
+            className="md:w-fit"
           >
             See all Tools & Libraries
           </Button>
