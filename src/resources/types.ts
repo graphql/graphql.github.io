@@ -1,3 +1,4 @@
+import { tagColors } from "@/app/conf/_design-system/tag-colors"
 import { type } from "arktype"
 
 export const topics = [
@@ -31,7 +32,7 @@ export const ResourceMetadata = type({
   "topics?": type.enumerated(...topics).array(),
   "description?": "string>0",
   "duration?": "string",
-  tags: type.enumerated(...topics, ...kinds).array(),
+  tags: type.enumerated(...Object.keys(tagColors)).array(),
 })
 
 export type ResourceMetadata = typeof ResourceMetadata.inferOut

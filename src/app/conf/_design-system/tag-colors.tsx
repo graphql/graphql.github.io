@@ -1,4 +1,4 @@
-export const tagColors: Record<string, string> = {
+export const tagColors = {
   newsletter: "#FFCCEF",
   announcements: "#F80",
   blog: "#012FFF",
@@ -7,7 +7,7 @@ export const tagColors: Record<string, string> = {
   grants: "#84BD01",
   "in-the-news": "#3F3A3D",
   "developer-experience": "#6fc9af",
-  
+
   backend: "#36C1A0",
   "defies-categorization": "#894545",
   "federation-and-composite-schemas": "#cbc749",
@@ -31,4 +31,6 @@ export const tagColors: Record<string, string> = {
   "blog-or-newsletter": "hsl(var(--color-pri-base))",
   book: "#00C6AC",
   guide: "#FF8800",
-}
+  video: "hsl(var(--color-pri-dark))",
+  "tools-and-libraries": "hsl(var(--color-sec-dark))",
+} satisfies Record<string, string>
