@@ -11,6 +11,7 @@ import { BlogCard } from "./blog-card"
 import { BlogMdxContent } from "./mdx-types"
 import { FeaturedBlogPosts } from "./featured-blog-posts"
 import { tagColors } from "@/app/conf/_design-system/tag-colors"
+import { blogCategories } from "./blog-categories"
 
 const mask = `url(${new URL("./blur-bean.webp", import.meta.url).href})`
 
@@ -61,6 +62,11 @@ export function BlogPage({
               <h3 className="typography-menu">Categories</h3>
               <ul className="mt-4 flex gap-2 pb-2 max-sm:overflow-auto sm:flex-wrap">
                 {Object.entries(tags)
+                  .filter(([tag]) =>
+                    // we generate pages for all tags, but link only to a selected subset
+                    // to avoid category pages with 1 post
+                    (blogCategories as readonly string[]).includes(tag),
+                  )
                   .sort((a, b) => b[1] - a[1])
                   .map(([tag, count], i) => (
                     <NextLink
