@@ -63,6 +63,11 @@ async function loadLibraries(): Promise<LibraryEntry[]> {
 
 function displayName(id: string) {
   const key = id as keyof typeof slugMap
+
+  if (key === "tools" || key === "services") {
+    return "Tools / Services"
+  }
+
   return slugMap[key] ?? id
 }
 
@@ -80,6 +85,11 @@ export async function CategoryToolsLibrariesSection({
     filtered.reduce<Map<string, LibraryEntry[]>>((acc, item) => {
       const list = acc.get(item.group) ?? []
       list.push(item)
+
+      if (item.group === "tools") {
+        item.group = "services"
+      }
+
       acc.set(item.group, list)
       return acc
     }, new Map()),
@@ -114,10 +124,16 @@ export async function CategoryToolsLibrariesSection({
         id="tools-and-libraries"
         className={clsx(
           "gql-container gql-section relative flex flex-col gap-8 overflow-hidden",
+          grouped.length > 1 ? "" : "lg:flex-row",
           className,
         )}
       >
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div
+          className={clsx(
+            "flex flex-col gap-3 lg:justify-between",
+            grouped.length > 1 ? "lg:flex-row lg:items-end" : "",
+          )}
+        >
           <div className="flex flex-col gap-4 xl:gap-6">
             <Eyebrow className="!text-pri-base dark:!text-pri-light">
               tools & libraries
@@ -133,7 +149,7 @@ export async function CategoryToolsLibrariesSection({
           <Button
             href="/community/tools-and-libraries/"
             variant="secondary"
-            className="md:w-fit"
+            className="md:w-fit [&:not(:hover)]:!bg-neu-200 dark:[&:not(:hover)]:!bg-neu-100"
           >
             See all Tools & Libraries
           </Button>
