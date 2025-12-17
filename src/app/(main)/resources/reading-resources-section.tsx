@@ -23,7 +23,7 @@ export function ReadingResourcesSection() {
             with the ecosystem.
           </p>
           <Button href="/community/resources" className="mt-10 sm:w-fit">
-            Explore reading resources
+            Go to Reading Resources
           </Button>
         </div>
 

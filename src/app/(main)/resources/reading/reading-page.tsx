@@ -123,6 +123,8 @@ export async function ReadingLibraryPage({
     frontMatter: {},
   }))
 
+  const FIRST_PAGE_COUNT = 9
+
   return (
     <main className="gql-all-anchors-focusable pb-8 md:pb-16 lg:pb-24">
       <NavbarFixed />
@@ -172,13 +174,13 @@ export async function ReadingLibraryPage({
           })}
         </nav>
         <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.slice(0, 9).map(resource => (
+          {filtered.slice(0, FIRST_PAGE_COUNT).map(resource => (
             <li key={resource.url}>
               <ReadingResourcesCard resource={resource} />
             </li>
           ))}
         </ul>
-        {filtered.length > 9 && (
+        {filtered.length > FIRST_PAGE_COUNT && (
           <details className="group">
             {/* we're using <details> for SEO and Cmd+F support */}
             <summary className="pointer-events-none mt-2 flex list-none items-center justify-center group-open:hidden">
@@ -190,8 +192,8 @@ export async function ReadingLibraryPage({
                 Load more
               </Button>
             </summary>
-            <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {filtered.slice(6).map(resource => {
+            <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {filtered.slice(FIRST_PAGE_COUNT).map(resource => {
                 return (
                   <li key={resource.url}>
                     <ReadingResourcesCard resource={resource} />

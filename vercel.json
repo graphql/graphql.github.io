@@ -501,6 +501,11 @@
       "permanent": true
     },
     {
+      "source": "/community/resources",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
       "source": "/community/resources/official-channels",
       "destination": "/community/official-channels",
       "permanent": true
