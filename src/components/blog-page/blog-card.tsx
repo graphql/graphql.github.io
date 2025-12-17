@@ -26,7 +26,7 @@ export function BlogCard({
   ...rest
 }: BlogCardProps) {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <BlogTags
         tags={frontMatter.tags}
         opaque
