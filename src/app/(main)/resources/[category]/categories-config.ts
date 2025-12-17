@@ -86,6 +86,11 @@ export const categoriesConfig: CategoriesConfig = {
         heading: "Tools & libraries for federated graphs",
         text: "Run federated GraphQL graphs at scale with the right tools — from open-source routers to managed platforms.",
       },
+      docs: {
+        heading: "Federation in practice",
+        text: "Learn the basics of planning and operating a federated graph.",
+        docs: ["federation", "security"],
+      },
       blog: {
         heading: "Latest updates on federation & composition",
         text: "Read the latest announcements and technical deep dives.",
@@ -132,6 +137,7 @@ export const categoriesConfig: CategoriesConfig = {
       docs: {
         heading: "Monitoring in practice",
         text: "Learn how to track the right signals in your GraphQL ecosystem — from latency and error rates to resolver-level performance.",
+        docs: ["caching", "performance"],
       },
       "blog-or-newsletter": {
         heading: "Latest insights on monitoring",
