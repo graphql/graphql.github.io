@@ -8,6 +8,7 @@ import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import { BlogCategoryLinks } from "./blog-category-links"
 import { BlogPostListItem } from "./blog-post-list-item"
 import { blogCategories } from "@/components/blog-page/blog-categories"
+import { Eyebrow } from "@/_design-system/eyebrow"
 
 interface BlogFrontMatter {
   title: string
@@ -70,12 +71,7 @@ export async function BlogSection() {
   return (
     <section className="gql-section max-sm:px-0 xl:pb-24" id="blog">
       <header className="flex flex-col gap-6 max-sm:px-4">
-        <div className="flex items-center gap-1">
-          <PlayIcon className="size-4 text-pri-base" />
-          <span className="font-mono text-sm uppercase text-pri-base">
-            Blog
-          </span>
-        </div>
+        <Eyebrow>Blog</Eyebrow>
         <h2 className="typography-h2">The GraphQL Blog</h2>
       </header>
 
