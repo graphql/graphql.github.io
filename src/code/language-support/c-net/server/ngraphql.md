@@ -5,4 +5,5 @@ github: rivantsov/ngraphql
 tags:
   - tools-and-libraries
   - backend
+  - monitoring
 ---

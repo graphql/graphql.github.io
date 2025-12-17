@@ -6,6 +6,7 @@ npm: "graphql-shield"
 tags:
   - tools-and-libraries
   - tools
+  - security
 ---
 
 GraphQL Shield helps you create a permission layer for your application. Using an intuitive rule-API, you'll gain the power of the shield engine on every request and reduce the load time of every request with smart caching. This way you can make sure your application will remain quick, and no internal data will be exposed.

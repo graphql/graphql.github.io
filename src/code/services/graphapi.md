@@ -6,4 +6,5 @@ github: graphapi-io/resources
 tags:
   - tools-and-libraries
   - tools
+  - security
 ---

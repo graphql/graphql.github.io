@@ -5,4 +5,5 @@ github: walmartlabs/lacinia
 tags:
   - tools-and-libraries
   - backend
+  - ai
 ---

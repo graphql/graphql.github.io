@@ -5,4 +5,5 @@ url: https://graphql.security/
 tags:
   - tools-and-libraries
   - tools
+  - security
 ---
