@@ -22,7 +22,12 @@ export default {
       ai: "AI",
       security: "",
       monitoring: "",
-      "tools-and-libraries": "Tools & Libraries",
+      "tools-and-libraries": {
+        type: "page",
+        title: "Tools & Libraries",
+        // for now, until we have bandwidth to migrate it to App Router
+        href: "/community/tools-and-libraries",
+      },
       spec: {
         type: "page",
         title: "Specification",
@@ -37,12 +42,16 @@ export default {
     type: "menu",
     title: "Community",
     items: {
-      // TODO: Set a redirect from /community/tools-and-libraries to /resources/tools-and-libraries
       events: {
         title: "Events",
         type: "page",
         href: "/community/events",
       },
+      "official-channels": { title: "Official Channels" },
+      "training-courses": { title: "Training Courses" },
+      "community-channels": { title: "Community Channels" },
+      "vendor-channels": { title: "Vendor Channels" },
+      "more-resources": { title: "Community Resources" },
       ambassadors: { title: "Ambassador Program" },
       contribute: {
         title: "Contribute to GraphQL",
