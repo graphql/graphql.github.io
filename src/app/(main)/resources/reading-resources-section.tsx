@@ -22,7 +22,7 @@ export function ReadingResourcesSection() {
             Browse reading materials to learn best practices and stay up to date
             with the ecosystem.
           </p>
-          <Button href="/community/resources" className="mt-10 sm:w-fit">
+          <Button href="/resources/reading" className="mt-10 sm:w-fit">
             Go to Reading Resources
           </Button>
         </div>
