@@ -24,7 +24,7 @@ export interface Ambassador {
   tags: AmbassadorTag[]
 }
 
-export const ambassadors: Ambassador[] = [
+export const ambassadors202509: Ambassador[] = [
   {
     label: "An Ngo",
     imageUrl: "https://github.com/vliegveld5.png",
@@ -704,3 +704,10 @@ export const ambassadors: Ambassador[] = [
     ],
   },
 ]
+
+export const ambassadors202512: Ambassador[] = []
+
+export const ambassadors = [
+  ...ambassadors202509,
+  //...ambassadors202512
+].sort((a, z) => a.label.localeCompare(z.label, "en-US"))
