@@ -5,7 +5,6 @@ import { Eyebrow } from "@/_design-system/eyebrow"
 import { partition } from "@/app/conf/_design-system/utils/partition"
 import { TeaserSectionListItem } from "@/components/learn-aggregator/teaser-section-list-item"
 import {
-  LearnPageItem,
   LearnPagePath,
   learnPages,
 } from "@/components/learn-aggregator/learn-pages"
