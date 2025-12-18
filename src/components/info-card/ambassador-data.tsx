@@ -345,7 +345,7 @@ export const ambassadors: Ambassador[] = [
       },
       {
         label: "LinkedIn",
-        url: "https://www.linkedin.com/in/jem-gillam-92063b14/",
+        url: "https://www.linkedin.com/in/jemgillam/",
         icon: <LinkedInIcon className="size-5" />,
       },
     ],
@@ -426,11 +426,6 @@ export const ambassadors: Ambassador[] = [
         label: "LinkedIn",
         url: "https://www.linkedin.com/in/lenz-w-069040113/",
         icon: <LinkedInIcon className="size-5" />,
-      },
-      {
-        label: "X",
-        url: "https://x.com/jovidecroock",
-        icon: <TwitterIcon className="size-5" />,
       },
       {
         label: "Website",
