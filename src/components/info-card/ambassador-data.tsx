@@ -90,6 +90,19 @@ export const ambassadors: Ambassador[] = [
     ],
   },
   {
+    label: "Chanda Raj Kumar",
+    imageUrl: "/img/ambassadors/chanda-raj-kumar.jpg",
+    alt: "Chanda Raj Kumar",
+    organization: "KL University",
+    tags: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/chanda-raj-kumar-88799a1b3/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+    ],
+  },
+  {
     label: "Derek Kuz",
     imageUrl: "https://github.com/dariuszkuc.png",
     alt: "Derek Kuz",
@@ -221,7 +234,7 @@ export const ambassadors: Ambassador[] = [
     label: "Giuseppe Abrignani",
     imageUrl: "/img/ambassadors/giuseppe-abrignani.jpg",
     alt: "Giuseppe Abrignani",
-    organization: "The Guild",
+    organization: "Oranj Tech",
     tags: [
       {
         label: "LinkedIn",
@@ -403,6 +416,29 @@ export const ambassadors: Ambassador[] = [
         label: "Website",
         url: "https://www.jovidecroock.com/blog/",
         icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Laurin Quast",
+    imageUrl: " https://github.com/n1ru4l.png",
+    alt: "Laurin Quast",
+    organization: "The Guild",
+    tags: [
+      {
+        label: "GitHub",
+        url: " https://github.com/n1ru4l",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/laurin-quast-a47b871b4/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Twitter",
+        url: "https://x.com/n1rual",
+        icon: <TwitterIcon className="size-5" />,
       },
     ],
   },
