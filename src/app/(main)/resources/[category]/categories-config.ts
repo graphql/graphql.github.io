@@ -1,5 +1,6 @@
-import { LearnPagePath } from "@/components/learn-aggregator/learn-pages"
-import { Kind, Topic } from "@/resources/types"
+import type { LearnPagePath } from "@/components/learn-aggregator/learn-pages"
+import type { Kind, Topic } from "@/resources/types"
+import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-working-groups"
 
 // TODO: If the pages need to be customized further, consider flattening [category]/page.tsx
 //       into multiple page files and defining the following texts in usual JSX.
@@ -95,6 +96,15 @@ export const categoriesConfig: CategoriesConfig = {
         heading: "Latest updates on federation & composition",
         text: "Read the latest announcements and technical deep dives.",
       },
+      event: {
+        heading: "Help shape the standards",
+        text: "Join the Composite Schemas Working Group meetings to participate in the latest developments in Federation and Composite Schemas.",
+        predicate: (event: WorkingGroupMeeting) => {
+          return (
+            event.summary?.toLowerCase().includes("composite schemas") || false
+          )
+        },
+      },
     },
   },
   ai: {
@@ -108,6 +118,15 @@ export const categoriesConfig: CategoriesConfig = {
       blog: {
         heading: "Latest insights on AI & GraphQL",
         text: "Read the latest announcements and technical deep dives.",
+      },
+      event: {
+        heading: "AI Working Group",
+        text: "Help define the intersection of GraphQL and AI. Join the working group meetings to contribute to the latest developments.",
+        predicate: (event: WorkingGroupMeeting) => {
+          return (
+            event.summary?.toLowerCase().includes("ai working group") || false
+          )
+        },
       },
     },
   },
@@ -152,6 +171,7 @@ export const sectionKindNames: Record<Kind, string> = {
   book: "Books",
   "blog-or-newsletter": "Blogs & Newsletters",
   docs: "Documentation",
+  event: "Upcoming events",
 }
 
 export function slugify(name: string): string {
@@ -176,6 +196,11 @@ type CategoriesConfig = {
         heading: string
         text: string
         docs?: LearnPagePath[]
+      }
+      event?: {
+        heading: string
+        text: string
+        predicate: (event: WorkingGroupMeeting) => boolean
       }
     }
   }

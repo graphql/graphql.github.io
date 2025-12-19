@@ -23,6 +23,8 @@ import { CardsSection } from "./cards-section"
 import { DocsSection } from "./docs-section"
 import { LookingForMore } from "@/components/looking-for-more"
 import { unsafeKeys } from "@/app/conf/_design-system/utils/unsafe-keys"
+import { CategoryWorkingGroups } from "./category-working-groups"
+import { loadWorkingGroupMeetings } from "../../community/events/get-all-events"
 
 interface PageParams {
   category: string
@@ -57,6 +59,8 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
 
   if (sections.length === 0) sections = grouped.map(group => group.kind)
 
+  sections = await ensureFutureEvents(sections, category)
+
   const activePath: Item[] = [
     {
       name: "Home",
@@ -88,7 +92,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       >
         <TocHeroContents
           sections={sections.map(sectionLabel)}
-          className="max-w-[528px]"
+          className="max-w-[360px] [&:has(li:nth-child(3))]:max-w-[600px]"
         />
       </ResourcesHero>
 
@@ -119,6 +123,25 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       />
     </main>
   )
+}
+
+/**
+ * if there is no events in the future, we remove the section from the TOC
+ */
+async function ensureFutureEvents(sections: Kind[], category: Topic) {
+  if (!sections.includes("event")) return sections
+
+  const events = await loadWorkingGroupMeetings()
+  const predicate = categoriesConfig[category].sections.event?.predicate
+
+  if (predicate) {
+    const futureEvents = events
+      .filter(predicate)
+      .filter(event => new Date(event.start).getTime() >= Date.now())
+
+    if (futureEvents.length === 0)
+      return sections.filter(section => section !== "event")
+  }
 }
 
 function uniqueByTitle(resources: ResourceMetadata[]) {
@@ -195,6 +218,10 @@ function CategorySection({
       const docsSection = categoriesConfig[category].sections.docs
       if (!docsSection) return null
       return <DocsSection {...docsSection} className={className} />
+    }
+
+    case "event": {
+      return <CategoryWorkingGroups category={category} className={className} />
     }
 
     default:

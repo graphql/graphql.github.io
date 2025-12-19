@@ -47,7 +47,12 @@ export function BlogPostsSection({
             {description}
           </p>
         </div>
-        <Button href={readAllHref} variant="secondary" size="md">
+        <Button
+          href={readAllHref}
+          variant="secondary"
+          size="md"
+          className="md:w-fit"
+        >
           {readAllLabel}
         </Button>
       </header>

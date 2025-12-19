@@ -33,8 +33,15 @@ export function CardsSection({
 
   if (section.kind === "video") {
     cta = (
-      <Button href="/resources/video" variant="secondary" size="md">
-        Go to Video Resources Library
+      <Button
+        href="/resources/video"
+        variant="secondary"
+        size="md"
+        className="shrink-0"
+      >
+        <span>
+          Go to Video <span className="max-xl:hidden">Resources </span>Library
+        </span>
       </Button>
     )
   }
@@ -80,7 +87,7 @@ export function CardsSection({
             <Button
               as="span"
               variant="primary"
-              className="pointer-events-auto w-fit cursor-pointer"
+              className="pointer-events-auto cursor-pointer md:w-fit"
             >
               Load more
             </Button>

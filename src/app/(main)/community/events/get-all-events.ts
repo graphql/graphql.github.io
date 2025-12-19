@@ -1,5 +1,6 @@
 import { join } from "node:path"
 import { readFile } from "node:fs/promises"
+import { cache } from "react"
 
 import { meetups } from "@/components/meetups"
 
@@ -14,7 +15,7 @@ const WORKING_GROUP_MEETINGS_FILE = join(
   "scripts/sync-working-groups/working-group-events.ndjson",
 )
 
-export async function getAllEvents() {
+export const getAllEvents = cache(async () => {
   const workingGroupMeetings = await loadWorkingGroupMeetings()
 
   let pastEvents: AnyEvent[] = []
@@ -77,9 +78,9 @@ export async function getAllEvents() {
   upcomingEvents = upcomingEvents.sort(sortByDate)
 
   return { pastEvents, upcomingEvents }
-}
+})
 
-async function loadWorkingGroupMeetings(): Promise<WorkingGroupMeeting[]> {
+export const loadWorkingGroupMeetings = cache(async () => {
   try {
     const raw = (await readFile(WORKING_GROUP_MEETINGS_FILE, "utf8")).trim()
     if (!raw) return []
@@ -91,4 +92,4 @@ async function loadWorkingGroupMeetings(): Promise<WorkingGroupMeeting[]> {
     console.error("Failed to read working group meetings", error)
     return []
   }
-}
+})

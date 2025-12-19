@@ -19,6 +19,7 @@ export const kinds = [
   "book",
   "blog-or-newsletter",
   "docs",
+  "event",
 ] as const
 export type Kind = (typeof kinds)[number]
 

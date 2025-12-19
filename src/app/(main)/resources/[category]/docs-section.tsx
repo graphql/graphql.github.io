@@ -48,7 +48,12 @@ export function DocsSection({
             {text}
           </p>
         </div>
-        <Button href="/learn" variant="secondary" size="md">
+        <Button
+          href="/learn"
+          variant="secondary"
+          size="md"
+          className="md:w-fit"
+        >
           Go to Learn
         </Button>
       </header>
