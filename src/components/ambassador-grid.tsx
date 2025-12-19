@@ -18,6 +18,7 @@ function buildRows(ambassador: Ambassador): InfoCardRow[] {
     },
     {
       type: "label",
+      hideInConciseMode: true,
       label:
         ambassador.tags.length > 0 ? (
           <div className="flex flex-wrap items-center gap-3">
@@ -39,7 +40,13 @@ function buildRows(ambassador: Ambassador): InfoCardRow[] {
   ]
 }
 
-export function AmbassadorGrid({ ambassadors }: { ambassadors: Ambassador[] }) {
+export function AmbassadorGrid({
+  ambassadors,
+  concise,
+}: {
+  ambassadors: Ambassador[]
+  concise?: boolean
+}) {
   return (
     <div className="mx-auto mt-10 flex w-full max-w-6xl flex-wrap justify-center gap-8">
       {ambassadors.map((ambassador, index) => (
@@ -47,6 +54,7 @@ export function AmbassadorGrid({ ambassadors }: { ambassadors: Ambassador[] }) {
           key={`${ambassador.label}-${index}`}
           rows={buildRows(ambassador)}
           className="h-full"
+          concise={concise}
         />
       ))}
     </div>

@@ -25,10 +25,14 @@ export function TocHeroContents({
         What will you find here?
       </h2>
       <ul
-        className="grid grid-flow-row-dense grid-rows-2 gap-px border-t border-inherit bg-neu-300 dark:bg-neu-100"
-        style={{
-          gridTemplateColumns: `repeat(${sections.length / 2}, 1fr)`,
-        }}
+        className={clsx(
+          "grid grid-flow-row-dense grid-rows-2 gap-px border-t border-inherit bg-neu-300 dark:bg-neu-100",
+          sections.length % 3 === 0
+            ? "grid-cols-2 lg:grid-cols-[repeat(3,1fr)]"
+            : sections.length % 2 === 0
+              ? "grid-cols-2"
+              : "grid-cols-1",
+        )}
       >
         {sections.map((section, i) => {
           const { name, href } =
@@ -42,10 +46,10 @@ export function TocHeroContents({
           return (
             <li key={i}>
               <a
-                className="flex items-center gap-2 whitespace-nowrap bg-neu-0 p-3 hover:bg-neu-50 lg:py-5"
+                className="flex h-full items-center gap-2 bg-neu-0 p-2 text-left hover:bg-neu-50 max-sm:text-sm sm:gap-2 sm:p-3 lg:py-5"
                 href={href}
               >
-                <ChevronRight className="size-4 translate-x-[0.5px]" />
+                <ChevronRight className="size-4 shrink-0 translate-x-[0.5px]" />
                 {name}
               </a>
             </li>

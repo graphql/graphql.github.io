@@ -4,17 +4,20 @@ import { ReactNode } from "react"
 export interface InfoCardLabelRow {
   type: "label"
   label: ReactNode
+  hideInConciseMode?: boolean
 }
 
 export interface InfoCardTitleRow {
   type: "title"
   title: ReactNode
+  hideInConciseMode?: boolean
 }
 
 export interface InfoCardImageRow {
   type: "image"
   imageUrl: string
   alt?: string
+  hideInConciseMode?: boolean
 }
 
 export type InfoCardRow = InfoCardLabelRow | InfoCardTitleRow | InfoCardImageRow
@@ -22,6 +25,7 @@ export type InfoCardRow = InfoCardLabelRow | InfoCardTitleRow | InfoCardImageRow
 export interface InfoCardProps {
   rows: InfoCardRow[]
   className?: string
+  concise?: boolean
 }
 
 export function InfoCardRow({ row }: { row: InfoCardRow }) {
@@ -54,7 +58,7 @@ export function InfoCardRow({ row }: { row: InfoCardRow }) {
   }
 }
 
-export function InfoCard({ rows, className }: InfoCardProps) {
+export function InfoCard({ rows, concise, className }: InfoCardProps) {
   return (
     <div
       className={clsx(
@@ -63,9 +67,11 @@ export function InfoCard({ rows, className }: InfoCardProps) {
       )}
     >
       <div className="flex flex-1 flex-col">
-        {rows.map((row, i) => (
-          <InfoCardRow key={i} row={row} />
-        ))}
+        {rows.map((row, i) =>
+          !concise || !row.hideInConciseMode ? (
+            <InfoCardRow key={i} row={row} />
+          ) : null,
+        )}
       </div>
     </div>
   )
