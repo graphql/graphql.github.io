@@ -515,7 +515,7 @@ export const ambassadors202512: Ambassador[] = [
     label: "Chanda Raj Kumar",
     imageUrl: "/img/ambassadors/chanda-raj-kumar.jpg",
     alt: "Chanda Raj Kumar",
-    organization: "KL University",
+    organization: "KL University Hyderabad",
     tags: [
       {
         label: "LinkedIn",
