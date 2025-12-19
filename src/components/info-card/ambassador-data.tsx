@@ -394,7 +394,7 @@ export const ambassadors202509: Ambassador[] = [
     label: "Sarah Sanders",
     imageUrl: "/img/ambassadors/sarah-sanders.jpg",
     alt: "Sarah Sanders",
-    organization: "Docker",
+    organization: "PostHog",
     tags: [
       {
         label: "LinkedIn",
