@@ -59,7 +59,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
 
   if (sections.length === 0) sections = grouped.map(group => group.kind)
 
-  sections = await ensureFutureEvents(sections, category)
+  sections = await removeEventsSectionWithoutFutureEvents(sections, category)
 
   const activePath: Item[] = [
     {
@@ -128,20 +128,25 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
 /**
  * if there is no events in the future, we remove the section from the TOC
  */
-async function ensureFutureEvents(sections: Kind[], category: Topic) {
-  if (!sections.includes("event")) return sections
+async function removeEventsSectionWithoutFutureEvents(
+  sections: Kind[],
+  category: Topic,
+) {
+  if (sections.includes("event")) {
+    const events = await loadWorkingGroupMeetings()
+    const predicate = categoriesConfig[category].sections.event?.predicate
 
-  const events = await loadWorkingGroupMeetings()
-  const predicate = categoriesConfig[category].sections.event?.predicate
+    if (predicate) {
+      const futureEvents = events
+        .filter(predicate)
+        .filter(event => new Date(event.start).getTime() >= Date.now())
 
-  if (predicate) {
-    const futureEvents = events
-      .filter(predicate)
-      .filter(event => new Date(event.start).getTime() >= Date.now())
-
-    if (futureEvents.length === 0)
-      return sections.filter(section => section !== "event")
+      if (futureEvents.length === 0)
+        return sections.filter(section => section !== "event")
+    }
   }
+
+  return sections
 }
 
 function uniqueByTitle(resources: ResourceMetadata[]) {
