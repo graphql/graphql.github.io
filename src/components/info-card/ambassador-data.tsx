@@ -527,7 +527,7 @@ export const ambassadors202512: Ambassador[] = [
   {
     label: "Derek Kuz",
     imageUrl: "https://github.com/dariuszkuc.png",
-    alt: "Derek Kuz",
+    alt: "Derek Kuc",
     organization: "Apollo",
     tags: [
       {
@@ -544,6 +544,11 @@ export const ambassadors202512: Ambassador[] = [
         label: "LinkedIn",
         url: "https://www.linkedin.com/in/dkuc/",
         icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Twitter",
+        url: "https://x.com/derek_kuc",
+        icon: <TwitterIcon className="size-5" />,
       },
     ],
   },
