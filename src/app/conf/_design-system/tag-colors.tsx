@@ -1,7 +1,7 @@
 export const tagColors = {
   newsletter: "#FFCCEF",
   announcements: "#F80",
-  blog: "#012FFF",
+  blog: "#298cc5",
   foundation: "#5800FF",
   spec: "#00C6AC",
   grants: "#84BD01",

@@ -5,6 +5,7 @@ import { Eyebrow } from "@/_design-system/eyebrow"
 import { Button } from "@/app/conf/_design-system/button"
 
 import { ResourceHubCard } from "../resource-hub-card"
+import { ReadingResourcesCard } from "../reading/reading-resources-card"
 
 import {
   categoriesConfig,
@@ -44,6 +45,17 @@ export function CardsSection({
         </span>
       </Button>
     )
+  } else if (section.kind === "post") {
+    cta = (
+      <Button
+        href="/resources/reading"
+        variant="secondary"
+        size="md"
+        className="shrink-0"
+      >
+        Browse all reading resources
+      </Button>
+    )
   }
 
   return (
@@ -70,12 +82,10 @@ export function CardsSection({
       <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:mt-6">
         {section.resources.slice(0, 6).map(resource => (
           <li key={resource.url}>
-            <ResourceHubCard
-              href={resource.url}
-              title={resource.title}
-              author={resource.author}
-              tags={resource.tags.filter(tag => tag !== section.kind)}
-              duration={resource.duration}
+            <Card
+              resource={resource}
+              kind={section.kind}
+              category={category}
             />
           </li>
         ))}
@@ -93,22 +103,46 @@ export function CardsSection({
             </Button>
           </summary>
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {section.resources.slice(6).map(resource => {
-              return (
-                <li key={resource.url}>
-                  <ResourceHubCard
-                    href={resource.url}
-                    title={resource.title}
-                    author={resource.author}
-                    tags={resource.tags.filter(tag => tag !== section.kind)}
-                    duration={resource.duration}
-                  />
-                </li>
-              )
-            })}
+            {section.resources.slice(6).map(resource => (
+              <li key={resource.url}>
+                <Card
+                  resource={resource}
+                  kind={section.kind}
+                  category={category}
+                />
+              </li>
+            ))}
           </ul>
         </details>
       )}
     </section>
+  )
+}
+
+function Card({
+  resource,
+  kind,
+  category,
+}: {
+  resource: ResourceMetadata
+  kind: Kind
+  category: Topic
+}) {
+  const filteredTags = resource.tags.filter(
+    tag => tag !== kind && tag !== category,
+  )
+
+  if (kind === "post") {
+    return <ReadingResourcesCard resource={{ ...resource, tags: filteredTags }} />
+  }
+
+  return (
+    <ResourceHubCard
+      href={resource.url}
+      title={resource.title}
+      author={resource.author}
+      tags={filteredTags}
+      duration={resource.duration}
+    />
   )
 }
