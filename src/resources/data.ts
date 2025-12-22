@@ -73,8 +73,8 @@ export const readResources = cache(async () => {
         title,
         url: slug,
         author: data.byline,
+        date: data.date,
         description,
-        kind: "blog",
         tags,
       }),
     )

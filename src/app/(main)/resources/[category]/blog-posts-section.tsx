@@ -10,7 +10,7 @@ export interface BlogPost {
   href: string
   title: string
   author: string
-  date?: Date
+  date: Date
   tags: string[]
 }
 
@@ -65,7 +65,7 @@ export function BlogPostsSection({
             frontMatter={{
               title: post.title,
               byline: post.author,
-              date: post.date ?? new Date(),
+              date: post.date,
               tags: post.tags,
             }}
           />
