@@ -102,7 +102,8 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       {sections.map(key => {
         const data = grouped.get(key)
 
-        if (!data?.length) {
+        // "event" section uses working group meetings, not resources
+        if (key !== "event" && !data?.length) {
           return null
         }
 
@@ -110,7 +111,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
           <CategorySection
             className="py-8 lg:py-16 xl:py-20 2xl:py-24"
             key={key}
-            section={{ kind: key, resources: data }}
+            section={{ kind: key, resources: data ?? [] }}
             category={category}
           />
         )
