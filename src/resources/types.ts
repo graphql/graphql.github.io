@@ -20,20 +20,52 @@ export const kinds = [
   "blog-or-newsletter",
   "docs",
   "event",
+  "list",
+  "post",
 ] as const
 export type Kind = (typeof kinds)[number]
 
 export type ResourceTag = Topic | Kind
 
+const POSTS_TAGS = ["blog", "post", "guide", "list"]
+export function getResourceKind({ tags, title }: ResourceMetadata): Kind {
+  // We don't have separate tabs for posts, guides and lists.
+  if (POSTS_TAGS.some(tag => tags.includes(tag))) {
+    return "post"
+  }
+
+  const kind = kinds.find(kind => tags.includes(kind))
+  if (!kind) {
+    throw new Error(
+      `Unknown kind for tags: ${tags.join(", ")} in "${title}". Won't be able to group the resource.`,
+    )
+  }
+
+  return kind
+}
+
+export function groupByKind(resources: ResourceMetadata[]) {
+  const res = new Map<Kind, ResourceMetadata[]>()
+
+  for (const resource of resources) {
+    const kind = getResourceKind(resource)
+    res.get(kind)?.push(resource) ?? res.set(kind, [resource])
+  }
+
+  return res
+}
+
 export const ResourceMetadata = type({
+  origin: type.enumerated("/blog", "/data", "/events", "$tools", "$docs"),
+
   title: "string>0",
   url: type("string.url").or("/^\\/.+$/"),
   "author?": "string",
-  "kind?": type.enumerated(...kinds),
   "topics?": type.enumerated(...topics).array(),
   "description?": "string>0",
   "duration?": "string",
   tags: type.enumerated(...Object.keys(tagColors)).array(),
+  date: "Date?",
 })
 
 export type ResourceMetadata = typeof ResourceMetadata.inferOut

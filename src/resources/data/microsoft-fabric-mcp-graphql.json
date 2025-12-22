@@ -1,0 +1,6 @@
+{
+  "title": "Connect AI Agents to Microsoft Fabric with GraphQL and MCP",
+  "url": "https://learn.microsoft.com/en-us/fabric/data-engineering/api-graphql-local-model-context-protocol",
+  "description": "Enable AI assistants like Claude and GitHub Copilot to query Fabric data using conversational language via GraphQL",
+  "tags": ["ai", "blog", "backend"]
+}

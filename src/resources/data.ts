@@ -16,6 +16,7 @@ export const readResources = cache(async () => {
   for await (const file of glob(dataGlob)) {
     const raw = await readFile(file, "utf8")
     const parsed = JSON.parse(raw)
+    parsed.origin = "/data"
     resources.push(ResourceMetadata.assert(parsed))
   }
 
@@ -70,6 +71,8 @@ export const readResources = cache(async () => {
 
     resources.push(
       ResourceMetadata.assert({
+        origin: "/blog",
+
         title,
         url: slug,
         author: data.byline,
@@ -100,10 +103,12 @@ export const readResources = cache(async () => {
 
     resources.push(
       ResourceMetadata.assert({
+        origin: "$tools",
+
         title,
         url,
-        description: data.description,
         tags,
+        description: data.description,
       }),
     )
   }

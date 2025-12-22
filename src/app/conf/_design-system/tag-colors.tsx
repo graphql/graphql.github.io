@@ -33,4 +33,6 @@ export const tagColors = {
   guide: "#FF8800",
   video: "hsl(var(--color-pri-dark))",
   "tools-and-libraries": "hsl(var(--color-sec-dark))",
+  list: "#00C6AC",
+  post: "#FF8800",
 } satisfies Record<string, string>

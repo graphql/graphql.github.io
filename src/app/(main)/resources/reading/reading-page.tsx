@@ -5,7 +5,12 @@ import { clsx } from "clsx"
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 import { readResources } from "@/resources/data"
-import { topics, type ResourceMetadata, type Topic } from "@/resources/types"
+import {
+  topics,
+  type ResourceMetadata,
+  type Topic,
+  getResourceKind,
+} from "@/resources/types"
 import { LookingForMore } from "@/components/looking-for-more"
 import { KeepLearning } from "../keep-learning"
 import { Button } from "@/app/conf/_design-system/button"
@@ -32,35 +37,29 @@ const variants: Record<
       "Browse reading materials to learn best practices and stay up to date with the ecosystem.",
     eyebrow: "Reading resources",
     filter: resource =>
-      resource.tags.some(
-        tag =>
-          tag === "blog-or-newsletter" || tag === "guide" || tag === "book",
-      ),
+      resource.origin === "/data" &&
+      getResourceKind(resource) === "blog-or-newsletter",
   },
   "blogs-and-newsletters": {
     title: "Blogs & Newsletters",
     description:
       "Popular sources to learn and keep track of the GraphQL ecosystem.",
     eyebrow: "Stay informed",
-    filter: resource => resource.tags.includes("blog-or-newsletter"),
+    filter: resource => getResourceKind(resource) === "blog-or-newsletter",
   },
   "individual-posts": {
     title: "Individual Posts",
     description: "Notable posts from the community.",
     eyebrow: "Deep dives",
     filter: resource =>
-      resource.tags.some(
-        tag =>
-          tag === "guide" ||
-          (tag === "blog" && !resource.url.startsWith("/blog")),
-      ),
+      resource.origin === "/data" && getResourceKind(resource) === "post",
   },
   books: {
     title: "Books",
     description:
       "Books to help you level up your GraphQL knowledge and practice.",
     eyebrow: "Read and learn",
-    filter: resource => resource.tags.includes("book"),
+    filter: resource => getResourceKind(resource) === "book",
   },
 }
 

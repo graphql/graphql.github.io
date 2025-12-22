@@ -5,6 +5,7 @@ import type { Item } from "nextra/normalize-pages"
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { getResourcesByTag } from "@/resources/data"
 import {
+  groupByKind,
   Kind,
   kinds,
   topics,
@@ -57,7 +58,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
   const deduped = uniqueByTitle(resources)
   const grouped = groupByKind(deduped)
 
-  if (sections.length === 0) sections = grouped.map(group => group.kind)
+  if (sections.length === 0) sections = Array.from(grouped.keys())
 
   sections = await removeEventsSectionWithoutFutureEvents(sections, category)
 
@@ -101,13 +102,17 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       </section>
 
       {sections.map(key => {
-        const data = grouped.find(group => group.kind === key)
+        const data = grouped.get(key)
+
+        if (!data?.length) {
+          return null
+        }
 
         return (
           <CategorySection
             className="py-8 lg:py-16 xl:py-20 2xl:py-24"
             key={key}
-            section={data ?? { kind: key as Kind, resources: [] }}
+            section={{ kind: key, resources: data }}
             category={category}
           />
         )
@@ -159,21 +164,6 @@ function uniqueByTitle(resources: ResourceMetadata[]) {
   })
 }
 
-function groupByKind(resources: ResourceMetadata[]) {
-  return kinds
-    .map(kind => ({
-      kind,
-      resources: resources.filter(
-        resource => (resource.kind ?? getKindFromTags(resource)) === kind,
-      ),
-    }))
-    .filter(section => section.resources.length > 0)
-}
-
-function getKindFromTags(resource: ResourceMetadata) {
-  return kinds.find(kind => resource.tags.includes(kind))
-}
-
 function sectionLabel(kind: Kind) {
   return sectionKindNames[kind] ?? `${kind[0].toUpperCase()}${kind.slice(1)}`
 }
@@ -206,14 +196,25 @@ function CategorySection({
             blogSection?.text ??
             "Stay up to date with insights from the GraphQL community."
           }
-          posts={section.resources.map(resource => ({
-            href: resource.url,
-            title: resource.title,
-            author: resource.author ?? "GraphQL Community",
-            tags: resource.tags.filter(
-              tag => tag !== "blog" && tag !== category,
-            ),
-          }))}
+          posts={section.resources.map(resource => {
+            if (!resource.date) {
+              throw new Error(`Resource ${resource.title} has no .date`)
+            }
+
+            if (!resource.author) {
+              throw new Error(`Resource ${resource.title} has no .author`)
+            }
+
+            return {
+              href: resource.url,
+              title: resource.title,
+              author: resource.author,
+              date: resource.date,
+              tags: resource.tags.filter(
+                tag => tag !== "blog" && tag !== category,
+              ),
+            }
+          })}
           className={className}
         />
       )
