@@ -60,8 +60,6 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
 
   if (sections.length === 0) sections = Array.from(grouped.keys())
 
-  sections = await removeEventsSectionWithoutFutureEvents(sections, category)
-
   const activePath: Item[] = [
     {
       name: "Home",
@@ -128,28 +126,6 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       />
     </main>
   )
-}
-
-/**
- * if there are no events at all, we remove the section from the TOC
- */
-async function removeEventsSectionWithoutFutureEvents(
-  sections: Kind[],
-  category: Topic,
-) {
-  if (sections.includes("event")) {
-    const events = await loadWorkingGroupMeetings()
-    const predicate = categoriesConfig[category].sections.event?.predicate
-
-    if (predicate) {
-      const matchingEvents = events.filter(predicate)
-
-      if (matchingEvents.length === 0)
-        return sections.filter(section => section !== "event")
-    }
-  }
-
-  return sections
 }
 
 function uniqueByTitle(resources: ResourceMetadata[]) {

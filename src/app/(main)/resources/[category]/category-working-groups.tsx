@@ -27,12 +27,9 @@ export async function CategoryWorkingGroups({
   )
 
   const hasFutureEvents = futureEvents.length > 0
-  const events = hasFutureEvents
-    ? futureEvents
-    : matchingMeetings
-        .filter(event => new Date(event.start).getTime() < Date.now())
-        .sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime())
-        .slice(0, 4)
+
+  // soonest/most recent first
+  const events = hasFutureEvents ? futureEvents : matchingMeetings.reverse()
 
   if (events.length === 0) return null
 
@@ -43,7 +40,9 @@ export async function CategoryWorkingGroups({
     >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-4 xl:gap-6">
-          <Eyebrow>{hasFutureEvents ? "Upcoming events" : "Past events"}</Eyebrow>
+          <Eyebrow>
+            {hasFutureEvents ? "Upcoming events" : "Past events"}
+          </Eyebrow>
           <h2 className="typography-h2 max-w-[700px] text-pretty">{heading}</h2>
           <p className="typography-body-md max-w-[577px] text-neu-800">
             {text}

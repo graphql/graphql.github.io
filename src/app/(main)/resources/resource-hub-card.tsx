@@ -68,7 +68,9 @@ export function ResourceHubCard({
                 "text-pretty text-neu-900",
                 title.length > 100
                   ? "typography-body-lg"
-                  : "typography-h4 md:typography-h3",
+                  : title.length > 65
+                    ? "typography-h4"
+                    : "typography-h4 md:typography-h3",
               )}
             >
               {title}

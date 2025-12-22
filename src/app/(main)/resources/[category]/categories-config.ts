@@ -179,7 +179,7 @@ export const sectionKindNames: Record<Kind, string> = {
   book: "Books",
   "blog-or-newsletter": "Blogs & Newsletters",
   docs: "Documentation",
-  event: "Upcoming events",
+  event: "Events",
   post: "Community posts",
   list: "Community lists",
 }
