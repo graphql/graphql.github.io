@@ -130,7 +130,7 @@ export async function CategoryToolsLibrariesSection({
       >
         <div
           className={clsx(
-            "flex flex-col gap-3 lg:justify-between",
+            "flex flex-col gap-3 lg:justify-between lg:gap-y-8",
             grouped.length > 1 ? "lg:flex-row lg:items-end" : "",
           )}
         >

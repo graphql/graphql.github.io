@@ -1,6 +1,6 @@
 {
   "title": "GraphQL Field Discovery and Query Generation Using Generative AI",
-  "url": "https://graphql.org/conf/2024/schedule/83cfae91425cec04854a0ebc173d9c77/",
+  "url": "/conf/2024/schedule/83cfae91425cec04854a0ebc173d9c77/",
   "description": "GraphQLConf 2024 talk by Intuit on using GenAI to help developers with attribute discovery and query generation",
   "tags": ["ai", "video"]
 }

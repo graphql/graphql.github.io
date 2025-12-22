@@ -4,7 +4,7 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Eyebrow } from "@/_design-system/eyebrow"
 import { BlogCard } from "@/components/blog-page/blog-card"
 
-import { sectionIds } from "./categories-config"
+import { sectionIds, sectionKindNames } from "./categories-config"
 
 export interface BlogPost {
   href: string
@@ -41,7 +41,7 @@ export function BlogPostsSection({
     >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-4 xl:gap-6">
-          <Eyebrow>Blog posts</Eyebrow>
+          <Eyebrow>{sectionKindNames["blog"]}</Eyebrow>
           <h2 className="typography-h2 max-w-[700px] text-pretty">{title}</h2>
           <p className="typography-body-md max-w-[577px] text-neu-800">
             {description}

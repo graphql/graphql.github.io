@@ -20,10 +20,19 @@ export async function CategoryWorkingGroups({
   const { heading, text } = categoriesConfig[category].sections.event || {}
 
   const meetings = await loadWorkingGroupMeetings()
+  const matchingMeetings = meetings.filter(predicate)
 
-  const events = meetings
-    .filter(predicate)
-    .filter(event => new Date(event.start).getTime() >= Date.now())
+  const futureEvents = matchingMeetings.filter(
+    event => new Date(event.start).getTime() >= Date.now(),
+  )
+
+  const hasFutureEvents = futureEvents.length > 0
+  const events = hasFutureEvents
+    ? futureEvents
+    : matchingMeetings
+        .filter(event => new Date(event.start).getTime() < Date.now())
+        .sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime())
+        .slice(0, 4)
 
   if (events.length === 0) return null
 
@@ -34,7 +43,7 @@ export async function CategoryWorkingGroups({
     >
       <header className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col gap-4 xl:gap-6">
-          <Eyebrow>Upcoming events</Eyebrow>
+          <Eyebrow>{hasFutureEvents ? "Upcoming events" : "Past events"}</Eyebrow>
           <h2 className="typography-h2 max-w-[700px] text-pretty">{heading}</h2>
           <p className="typography-body-md max-w-[577px] text-neu-800">
             {text}

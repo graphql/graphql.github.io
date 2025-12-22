@@ -128,6 +128,14 @@ export const categoriesConfig: CategoriesConfig = {
           )
         },
       },
+      post: {
+        heading: "AI & GraphQL in the wild",
+        text: "See how developers are connecting GraphQL to build MCP servers and power agentic workflows.",
+      },
+      video: {
+        heading: "GraphQL and AI in videos",
+        text: "Watch talks on bridging GraphQL APIs and AI: from tool-calling patterns to building context for LLMs and agents.",
+      },
     },
   },
   security: {
@@ -165,13 +173,15 @@ export const categoriesConfig: CategoriesConfig = {
 
 export const sectionKindNames: Record<Kind, string> = {
   video: "Featured videos",
-  blog: "Blog posts",
+  blog: "GraphQL Blog",
   "tools-and-libraries": "Tools & Libraries",
   guide: "Guides",
   book: "Books",
   "blog-or-newsletter": "Blogs & Newsletters",
   docs: "Documentation",
   event: "Upcoming events",
+  post: "Community posts",
+  list: "Community lists",
 }
 
 export function slugify(name: string): string {

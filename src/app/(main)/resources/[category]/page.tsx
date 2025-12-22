@@ -131,7 +131,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
 }
 
 /**
- * if there is no events in the future, we remove the section from the TOC
+ * if there are no events at all, we remove the section from the TOC
  */
 async function removeEventsSectionWithoutFutureEvents(
   sections: Kind[],
@@ -142,11 +142,9 @@ async function removeEventsSectionWithoutFutureEvents(
     const predicate = categoriesConfig[category].sections.event?.predicate
 
     if (predicate) {
-      const futureEvents = events
-        .filter(predicate)
-        .filter(event => new Date(event.start).getTime() >= Date.now())
+      const matchingEvents = events.filter(predicate)
 
-      if (futureEvents.length === 0)
+      if (matchingEvents.length === 0)
         return sections.filter(section => section !== "event")
     }
   }

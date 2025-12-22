@@ -28,7 +28,16 @@ export type Kind = (typeof kinds)[number]
 export type ResourceTag = Topic | Kind
 
 const POSTS_TAGS = ["blog", "post", "guide", "list"]
-export function getResourceKind({ tags, title }: ResourceMetadata): Kind {
+export function getResourceKind({
+  tags,
+  title,
+  origin,
+}: ResourceMetadata): Kind {
+  // Blog posts from GraphQL.org are shown separately from other "Reading" resources.
+  if (origin === "/blog") {
+    return "blog"
+  }
+
   // We don't have separate tabs for posts, guides and lists.
   if (POSTS_TAGS.some(tag => tags.includes(tag))) {
     return "post"
