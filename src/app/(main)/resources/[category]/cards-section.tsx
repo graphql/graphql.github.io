@@ -82,11 +82,7 @@ export function CardsSection({
       <ul className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:mt-6">
         {section.resources.slice(0, 6).map(resource => (
           <li key={resource.url}>
-            <Card
-              resource={resource}
-              kind={section.kind}
-              category={category}
-            />
+            <Card resource={resource} kind={section.kind} category={category} />
           </li>
         ))}
       </ul>
@@ -133,7 +129,9 @@ function Card({
   )
 
   if (kind === "post") {
-    return <ReadingResourcesCard resource={{ ...resource, tags: filteredTags }} />
+    return (
+      <ReadingResourcesCard resource={{ ...resource, tags: filteredTags }} />
+    )
   }
 
   return (

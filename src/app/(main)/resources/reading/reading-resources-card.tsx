@@ -39,7 +39,9 @@ export function ReadingResourcesCard({
   const kind = pickReadingKind(resource)
   const Icon = kind ? readingKindIcons[kind] : undefined
   const firstTag = resource.tags[0]
-  const color = firstTag ? tagColors[firstTag as keyof typeof tagColors] : undefined
+  const color = firstTag
+    ? tagColors[firstTag as keyof typeof tagColors]
+    : undefined
 
   return (
     <ResourceHubCard
@@ -50,11 +52,7 @@ export function ReadingResourcesCard({
       tags={resource.tags}
       icon={
         Icon ? (
-          <Icon
-            className="size-6 md:size-8"
-            style={{ color }}
-            aria-hidden
-          />
+          <Icon className="size-6 md:size-8" style={{ color }} aria-hidden />
         ) : null
       }
     />
