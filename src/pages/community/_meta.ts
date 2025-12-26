@@ -1,11 +1,15 @@
 export default {
+  resources: "Resources",
   "tools-and-libraries": {
     theme: {
       layout: "raw",
     },
   },
-  resources: "Resources",
-  events: "",
+  events: {
+    type: "page",
+    href: "/community/events",
+  },
+  ambassadors: "Ambassador Program",
   contribute: "Contribute to GraphQL",
   foundation: "Foundation",
 }

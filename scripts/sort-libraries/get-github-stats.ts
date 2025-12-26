@@ -80,7 +80,7 @@ type GitHubStatsFetchResponse =
       }
     }
 
-type GitHubInfo = {
+export type GitHubInfo = {
   hasCommitsInLast3Months: boolean
   stars: number
   formattedStars: string

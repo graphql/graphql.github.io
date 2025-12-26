@@ -1,0 +1,12 @@
+{
+  "name": "@graphql-website/sync-working-groups",
+  "private": true,
+  "type": "module",
+  "main": "./sync-working-groups.ts",
+  "scripts": {
+    "start": "node ./sync-working-groups.ts"
+  },
+  "dependencies": {
+    "arktype": "^2.1.27"
+  }
+}

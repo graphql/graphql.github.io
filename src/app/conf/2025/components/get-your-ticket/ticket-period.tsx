@@ -32,15 +32,15 @@ export function TicketPeriod({
       )}
     >
       <header className="border-b border-pri-lighter p-6">
-        <h3 className="text-white typography-h3">{name}</h3>
+        <h3 className="typography-h3 text-white">{name}</h3>
       </header>
       <div className="flex h-full flex-col justify-end gap-6 p-6">
         <div className="flex items-end justify-between gap-2">
-          <span className="text-white typography-h3 @[356px]:typography-h2">
+          <span className="typography-h3 text-white @[356px]:typography-h2">
             {price}
           </span>
           {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-          <span className="ticket-period--date text-right text-white typography-body-md">
+          <span className="ticket-period--date typography-body-md text-right text-white">
             {Array.isArray(date) ? (
               <>
                 <Time date={date[0]} />

@@ -1,43 +1,39 @@
 import clsx from "clsx"
 
-const maskEvenWide =
-  "repeating-linear-gradient(to right, transparent, transparent 12px, black 12px, black 24px)"
+const maskEven =
+  "repeating-linear-gradient(to right, transparent, transparent var(--stripe-width), black var(--stripe-width), black calc(var(--stripe-width) * 2))"
 
-const maskOddWide =
-  "repeating-linear-gradient(to right, black, black 12px, transparent 12px, transparent 24px)"
-
-const maskEvenThin =
-  "repeating-linear-gradient(to right, transparent, transparent 5.2px, black 5.2px, black 10.4px)"
-
-const maskOddThin =
-  "repeating-linear-gradient(to right, black, black 5.2px, transparent 5.2px, transparent 10.4px)"
+const maskOdd =
+  "repeating-linear-gradient(to right, black, black var(--stripe-width), transparent var(--stripe-width), transparent calc(var(--stripe-width) * 2))"
 
 export interface StripesDecorationProps {
   evenClassName?: string
   oddClassName?: string
-  thin?: boolean
+  stripeWidth?: string
 }
 
-export function StripesDecoration(props: StripesDecorationProps) {
-  const [maskEven, maskOdd] = props.thin
-    ? [maskEvenThin, maskOddThin]
-    : [maskEvenWide, maskOddWide]
-
+export function StripesDecoration({
+  stripeWidth = "12px",
+  evenClassName,
+  oddClassName,
+}: StripesDecorationProps) {
   return (
     <>
-      {props.evenClassName && (
+      {evenClassName && (
         <div
-          className={clsx("absolute inset-0", props.evenClassName)}
+          className={clsx("absolute inset-0", evenClassName)}
           style={{
+            ...({ "--stripe-width": stripeWidth } as React.CSSProperties),
             maskImage: maskEven,
             WebkitMaskImage: maskEven,
           }}
         />
       )}
-      {props.oddClassName && (
+      {oddClassName && (
         <div
-          className={clsx("absolute inset-0", props.oddClassName)}
+          className={clsx("absolute inset-0", oddClassName)}
           style={{
+            ...({ "--stripe-width": stripeWidth } as React.CSSProperties),
             maskImage: maskOdd,
             WebkitMaskImage: maskOdd,
           }}

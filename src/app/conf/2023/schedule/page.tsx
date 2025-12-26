@@ -13,7 +13,7 @@ export default function SchedulePage() {
     <>
       <div className="container">
         <div className="prose max-w-full py-10 text-white lg:prose-lg">
-          <h1 className="text-white">GraphQLConf 2023 Schedule</h1>
+          <h1 className="!text-white">GraphQLConf 2023 Schedule</h1>
           <section className="mx-0 my-8 px-0">
             <div className="mb-1.5 flex gap-8">
               <span className="flex items-center">
@@ -43,7 +43,7 @@ export default function SchedulePage() {
                 San Francisco Bay Area, CA
               </span>
             </div>
-            <h3 className="text-white">Important Notes</h3>
+            <h3 className="!text-white">Important Notes</h3>
             <ul>
               <li>All session times are in Pacific Daylight Time (UTC -7).</li>
               <li>

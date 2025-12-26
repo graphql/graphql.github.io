@@ -4,7 +4,7 @@ import marcImage from "public/img/conf/speakers/marcandre.jpg"
 import iditImage from "public/img/conf/speakers/idit.jpg"
 import uriImage from "public/img/conf/speakers/uri.jpg"
 import { LinkedInIcon, TwitterIcon } from "@/icons"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 import type { StaticImageData } from "next/image"
 import NextLink from "next/link"
 
@@ -69,6 +69,7 @@ export function Speakers() {
                 className="shrink-0 [&:hover+div>a>span]:text-primary"
               >
                 <NextImage
+                  placeholder="blur"
                   alt={speaker.name}
                   src={speaker.image}
                   className="size-36 shrink-0 rounded-full border-2 border-transparent object-cover object-center transition-colors hover:border-primary"

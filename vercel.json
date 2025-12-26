@@ -71,6 +71,16 @@
       "permanent": true
     },
     {
+      "source": "/conf/2025/gallery",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/sets/72177720328905487/",
+      "permanent": true
+    },
+    {
+      "source": "/conf/2025/gallery/",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/sets/72177720328905487/",
+      "permanent": true
+    },
+    {
       "source": "/conf/gallery",
       "destination": "https://www.graphql.org/conf/2024/gallery",
       "permanent": false
@@ -491,6 +501,11 @@
       "permanent": false
     },
     {
+      "source": "/conf/2024/sessions",
+      "destination": "/conf/2024/schedule",
+      "permanent": true
+    },
+    {
       "source": "/conf/2024/sessions/:path/",
       "destination": "/conf/2024/schedule/:path",
       "permanent": true
@@ -572,7 +587,27 @@
     },
     {
       "source": "/schedule/",
-      "destination": "/conf/2024/schedule/",
+      "destination": "/conf/2025/schedule/",
+      "permanent": false
+    },
+    {
+      "source": "/spec",
+      "destination": "https://spec.graphql.org",
+      "permanent": true
+    },
+    {
+      "source": "/landscape",
+      "destination": "https://landscape.graphql.org",
+      "permanent": true
+    },
+    {
+      "source": "/docs",
+      "destination": "/learn/introduction/",
+      "permanent": true
+    },
+    {
+      "source": "/conf/2025/event-resources",
+      "destination": "https://sites.google.com/linuxfoundation.org/graphqlconf2025event-resources/event-resources",
       "permanent": false
     }
   ]

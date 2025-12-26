@@ -2,6 +2,7 @@ import { SocialIcons } from "./social-icons"
 import NextLink from "next/link"
 import { ReactNode } from "react"
 import { clsx } from "clsx"
+
 import { Badge } from "./badge"
 
 export function Footer({

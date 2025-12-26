@@ -2,8 +2,9 @@ import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
 import logoMask from "./logo-mask.webp"
 
-export interface CtaCardSectionProps extends React.HTMLAttributes<HTMLElement> {
-  title: string
+export interface CtaCardSectionProps
+  extends Omit<React.HTMLAttributes<HTMLElement>, "title"> {
+  title: React.ReactNode
   description: string
   children: React.ReactNode
 }
@@ -16,17 +17,17 @@ export function CtaCardSection({
   ...rest
 }: CtaCardSectionProps) {
   return (
-    <div className="gql-conf-section">
+    <div className="gql-section">
       <section
         className="relative overflow-hidden bg-gradient-to-r from-pri-dark to-pri-base p-6 dark:from-pri-darker dark:to-pri-dark sm:p-16"
         {...rest}
       >
         <div className="relative z-10 flex flex-col gap-10 sm:items-start [@media(max-width:420px)]:text-center">
           <div className="flex flex-col gap-6">
-            <h2 className="text-neu-0 typography-d1 dark:text-neu-900">
+            <h2 className="typography-d1 text-neu-0 dark:text-neu-900">
               {heading}
             </h2>
-            <p className="max-w-[555px] text-pretty text-neu-50 typography-body-lg dark:text-neu-800">
+            <p className="typography-body-lg max-w-[555px] text-pretty text-neu-50 dark:text-neu-800">
               {description}
             </p>
           </div>
@@ -55,7 +56,7 @@ export function CtaCardSection({
           }}
         >
           <StripesDecoration
-            thin
+            stripeWidth="5.2px"
             oddClassName="bg-[linear-gradient(180deg,var(--start)_0%,var(--end)_100%)]"
           />
         </div>
