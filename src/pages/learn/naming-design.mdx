@@ -1,0 +1,572 @@
+# Establish naming conventions and design standards
+
+Naming conventions determine how easily developers understand and use your GraphQL API. Consistent naming patterns make schemas predictable, enable code generation tools to work smoothly, and prevent confusion as your API grows.
+
+The GraphQL specification doesn't define naming conventions. This guide documents patterns that have proven effective in production APIs. These are conventions, not absolute rules. Your API may have valid reasons to deviate, but do so deliberately and document why.
+
+## Apply field and type naming patterns
+
+The following recommendations are based on patterns commonly used in production APIs:
+
+| Element | Convention | Example | Rationale |
+|---------|-----------|---------|-----------|
+| Fields | camelCase | `firstName`, `createdAt` | Matches JavaScript variable conventions |
+| Arguments | camelCase | `userId`, `includeArchived` | Consistency with fields |
+| Types | PascalCase | `User`, `ProductConnection` | Matches class naming in most languages |
+| Enums | PascalCase | `OrderStatus`, `Currency` | Consistency with other types |
+| Enum values | SCREAMING_SNAKE_CASE | `IN_PROGRESS`, `COMPLETED` | Distinguishes constants from types |
+| Interfaces | PascalCase | `Node`, `Timestamped` | Same as types |
+| Unions | PascalCase | `SearchResult`, `MediaItem` | Same as types |
+
+### Name boolean fields with prefixes
+
+Boolean fields should start with `is` or `has` to clearly indicate they return true or false values:
+
+```graphql
+type User {
+  id: ID!
+  name: String!
+  isActive: Boolean!
+  hasSubscription: Boolean!
+}
+```
+
+This pattern appears in the GraphQL specification itself with `isDeprecated` in introspection types.
+
+### Use plural names for list fields
+
+List fields should use plural nouns to indicate they return multiple items:
+
+```graphql
+type User {
+  id: ID!
+  posts: [Post!]!
+  featuredPost: Post
+}
+```
+
+### Avoid verb prefixes on query fields
+
+Query fields should describe the data they return, not the action of retrieval:
+
+```graphql
+# Preferred
+type Query {
+  user(id: ID!): User
+  posts(first: Int): PostConnection
+}
+
+# Avoid
+type Query {
+  getUser(id: ID!): User
+  fetchPosts(first: Int): PostConnection
+}
+```
+
+The operation type already indicates this is a query. Adding `get` or `fetch` creates inconsistency with nested fields.
+
+## Choose a mutation naming strategy
+
+Two patterns exist for mutation names, and both work well in production.
+
+### Verb-first mutation naming
+
+Start mutation names with action verbs:
+
+```graphql
+type Mutation {
+  createUser(input: CreateUserInput!): CreateUserPayload!
+  updateProduct(input: UpdateProductInput!): UpdateProductPayload!
+  deletePost(id: ID!): DeletePostPayload!
+  sendPasswordResetEmail(email: String!): SendPasswordResetPayload!
+}
+```
+
+This pattern reads naturally and handles non-CRUD operations well.
+
+### Noun-first mutation naming
+
+Start mutation names with the entity being modified:
+
+```graphql
+type Mutation {
+  userCreate(input: CreateUserInput!): CreateUserPayload!
+  productUpdate(input: UpdateProductInput!): UpdateProductPayload!
+  postDelete(id: ID!): DeletePostPayload!
+  passwordResetEmailSend(email: String!): SendPasswordResetPayload!
+}
+```
+
+This pattern groups related mutations alphabetically, making schema discovery easier. [Shopify uses this convention](https://shopify.dev/docs/api/admin-graphql) across their public API.
+
+### Pick one pattern
+
+Consistency matters more than which pattern you choose:
+
+| Pattern | Pros | Cons | Best for |
+|---------|------|------|----------|
+| Verb-first | Natural language, handles non-CRUD well | Scattered alphabetically | APIs with many business operations |
+| Noun-first | Groups by entity, easy discovery | Awkward for non-CRUD actions | CRUD-heavy APIs, large schemas |
+
+## Name input and output types with clear suffixes
+
+### Mark input types with Input suffix
+
+All input object types should end with `Input`:
+
+```graphql
+input CreateUserInput {
+  email: String!
+  name: String!
+  role: UserRole!
+}
+
+input UpdateProductInput {
+  id: ID!
+  name: String
+  price: Int
+}
+
+input SearchFiltersInput {
+  category: String
+  minPrice: Int
+  maxPrice: Int
+}
+```
+
+### Wrap mutation results in payload types
+
+Return structured payload types from mutations instead of entities directly:
+
+```graphql
+# Inflexible, doesn't evolve well
+type Mutation {
+  createUser(input: CreateUserInput!): User
+}
+
+# Flexible, can add fields without breaking changes
+type Mutation {
+  createUser(input: CreateUserInput!): CreateUserPayload!
+}
+
+type CreateUserPayload {
+  user: User
+  userErrors: [UserError!]!
+}
+```
+
+Payload types let you add validation errors and related entities without breaking existing clients.
+
+## Design nullability patterns thoughtfully
+
+GraphQL fields are nullable by default. Thoughtful nullability design helps schemas evolve gracefully and handle partial failures.
+
+### Be deliberate about non-null fields
+
+Reserve non-null (`!`) for fields that genuinely cannot fail. Start with nullable fields unless you have strong evidence they will always return values:
+
+```graphql
+# Overly strict, a single field failure breaks entire response
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  price: Int!
+  category: Category!
+}
+
+# Resilient, failures affect only unavailable fields
+type Product {
+  id: ID!
+  name: String!
+  description: String
+  price: Int
+  category: Category
+}
+```
+
+Core identity fields like `id` and required business attributes should be non-null. Everything else should remain nullable to handle edge cases gracefully.
+
+### Understand null bubbling behavior
+
+When a non-nullable field resolves to null, GraphQL propagates that null up to the nearest nullable parent. If `email` fails to resolve below, the entire `user` becomes null:
+
+```graphql
+type Query {
+  user(id: ID!): User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+```
+
+When in doubt, prefer nullable fields for resilience.
+
+### Use consistent list nullability
+
+For list fields, use `[Item!]!` so clients receive an empty array instead of null:
+
+```graphql
+type User {
+  id: ID!
+  posts: [Post!]!
+  comments: [Comment!]!
+}
+```
+
+### Handle input nullability carefully
+
+Input types face a three-way distinction: omitting a field, explicitly passing null, and providing a value. This matters for partial updates where clients need to clear optional fields.
+
+```graphql
+input UpdateUserInput {
+  id: ID!
+
+  "Pass a value to update, null to clear, or omit to leave unchanged"
+  bio: String
+
+  "Pass a value to update, or omit to leave unchanged (cannot be cleared)"
+  name: String
+}
+```
+
+Some teams prefer explicit flags for nullable fields to avoid ambiguity:
+
+```graphql
+input UpdateUserInput {
+  id: ID!
+  name: String
+  bio: String
+  clearBio: Boolean  # If true, sets bio to null regardless of bio field
+}
+```
+
+Whichever pattern you choose, document the behavior clearly in field descriptions.
+
+## Document schemas comprehensively
+
+### Write clear field descriptions
+
+Every non-obvious field should have a description:
+
+```graphql
+type Product {
+  id: ID!
+  
+  "Display name shown to customers in search results and product pages"
+  name: String!
+  
+  """
+  Current price in USD cents. May be null during off-season periods when
+  product pricing is unavailable. Check 'availableForPurchase' before
+  displaying price to customers.
+  """
+  price: Int
+  
+  "Indicates whether product can currently be added to cart"
+  availableForPurchase: Boolean!
+}
+```
+
+### Document deprecations with migration paths
+
+Include what to use instead and when removal will occur:
+
+```graphql
+type User {
+  id: ID!
+  userId: ID! @deprecated(reason: "Use 'id' instead. Removal scheduled for v3.0.")
+}
+```
+
+## Use custom scalars for domain-specific types
+
+Custom scalars add validation and semantic meaning beyond built-in types. Use them for values with specific formats or constraints.
+
+### Common custom scalars
+
+| Scalar | Use instead of | Purpose |
+|--------|---------------|---------|
+| `DateTime` | `String` | ISO 8601 timestamps with timezone |
+| `Date` | `String` | Calendar dates without time |
+| `Email` | `String` | Validated email addresses |
+| `URL` | `String` | Valid URLs |
+| `UUID` | `ID` or `String` | Standardized unique identifiers |
+| `JSON` | `String` | Arbitrary JSON when schema flexibility is needed |
+
+### When to use custom scalars
+
+```graphql
+# Without custom scalars - no validation, unclear format
+type User {
+  id: ID!
+  email: String!
+  createdAt: String!
+  avatarUrl: String
+}
+
+# With custom scalars - self-documenting, validated
+type User {
+  id: ID!
+  email: Email!
+  createdAt: DateTime!
+  avatarUrl: URL
+}
+```
+
+Custom scalars shift validation to the GraphQL layer, so invalid values fail before reaching resolvers. Many GraphQL implementations provide libraries with common scalars, such as [graphql-scalars](https://the-guild.dev/graphql/scalars) for JavaScript.
+
+### Trade-offs to consider
+
+Custom scalars have costs: they require implementation in every client and server, reduce portability, and add complexity. Use them when:
+
+- The format has clear validation rules (emails, URLs, dates)
+- Multiple fields share the same constraints
+- Client code generation benefits from the type distinction
+
+Avoid creating custom scalars for types that are really just strings with business rules, like `Username` or `ProductCode`. These are better enforced in resolver logic.
+
+## Choose an error handling approach
+
+### Use top-level errors for exceptional failures
+
+The standard GraphQL `errors` array handles infrastructure and system failures:
+
+```graphql
+{
+  "data": null,
+  "errors": [{
+    "message": "Database connection failed",
+    "extensions": {
+      "code": "INTERNAL_SERVER_ERROR"
+    }
+  }]
+}
+```
+
+### Use errors-as-data for domain errors
+
+Business logic errors belong in the schema as structured types:
+
+```graphql
+type Mutation {
+  createUser(input: CreateUserInput!): CreateUserPayload!
+}
+
+type CreateUserPayload {
+  user: User
+  userErrors: [UserError!]!
+}
+
+type UserError {
+  message: String!
+  field: [String!]
+  code: UserErrorCode!
+}
+
+enum UserErrorCode {
+  USERNAME_TAKEN
+  INVALID_EMAIL
+  PASSWORD_TOO_SHORT
+}
+```
+
+This pattern makes errors discoverable through introspection and provides type safety.
+
+### Choose based on whether errors are exceptional
+
+| Error type | Pattern | Example |
+|-----------|---------|---------|
+| Infrastructure failure | Top-level error | Database timeout, network error |
+| Invalid GraphQL | Top-level error | Syntax error, unknown field |
+| Authentication required | Top-level error | Missing auth token |
+| Business rule violation | errors-as-data | Username taken, invalid email |
+| Validation failure | errors-as-data | Required field missing |
+| Domain constraint | errors-as-data | Insufficient inventory |
+
+## Implement pagination with connections
+
+The [Relay Cursor Connections Specification](https://relay.dev/graphql/connections.htm) is widely used for paginating GraphQL lists.
+
+### Structure connection types
+
+```graphql
+type Query {
+  posts(first: Int, after: String): PostConnection!
+}
+
+type PostConnection {
+  edges: [PostEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+```
+
+Use the pattern `{TypeName}Connection` and `{TypeName}Edge` for naming.
+
+### When to use connections
+
+| Use connections for | Use simple lists for |
+|-------------------|---------------------|
+| Dynamic, frequently changing data | Static, rarely changing data |
+| Large datasets requiring pagination | Small datasets (< 100 items) |
+| Data where items may be added/removed | Configuration or reference data |
+| Social feeds, activity streams | Enum-like lookup tables |
+
+If a list might grow unbounded, use connections from the start.
+
+## Enforce standards with tooling
+
+### Configure schema linting
+
+[GraphQL-ESLint](https://the-guild.dev/graphql/eslint/docs) provides linting with configurable naming rules:
+
+```javascript
+export default {
+  overrides: [{
+    files: ['**/*.graphql'],
+    parser: '@graphql-eslint/eslint-plugin',
+    plugins: ['@graphql-eslint'],
+    rules: {
+      '@graphql-eslint/naming-convention': ['error', {
+        types: 'PascalCase',
+        FieldDefinition: 'camelCase',
+        InputValueDefinition: 'camelCase',
+        Argument: 'camelCase',
+        DirectiveDefinition: 'camelCase',
+        EnumValueDefinition: 'SCREAMING_SNAKE_CASE',
+        'FieldDefinition[parent.name.value=Query]': {
+          forbiddenPrefixes: ['get', 'fetch'],
+        },
+        'FieldDefinition[parent.name.value=Mutation]': {
+          forbiddenSuffixes: ['Mutation'],
+        },
+      }],
+      '@graphql-eslint/require-description': ['error', {
+        types: true,
+        FieldDefinition: true,
+      }],
+      '@graphql-eslint/require-deprecation-reason': 'error',
+    },
+  }],
+};
+```
+
+Adjust the mutation rules based on your chosen naming pattern. For noun-first APIs, add `forbiddenPrefixes: ['create', 'update', 'delete']` to enforce consistency.
+
+### Validate in CI/CD pipelines
+
+```yaml
+name: Schema Validation
+on:
+  pull_request:
+    paths:
+      - 'schema/**/*.graphql'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Lint schema
+        run: npx eslint "schema/**/*.graphql"
+      
+      - name: Check documentation
+        run: |
+          npx graphql-schema-linter \
+            --rules fields-have-descriptions \
+            --rules types-have-descriptions \
+            schema/**/*.graphql
+```
+
+## Avoid common anti-patterns
+
+### Don't expose IDs instead of objects
+
+```graphql
+# Avoid
+type Post {
+  id: ID!
+  title: String!
+  authorId: ID!
+}
+
+# Prefer
+type Post {
+  id: ID!
+  title: String!
+  author: User!
+}
+```
+
+Model relationships as edges in the graph, not as foreign key IDs.
+
+### Don't mirror database structure
+
+Schemas should reflect your business domain, not your database tables:
+
+```graphql
+# Avoid
+type UserTable {
+  user_id: Int!
+  first_name: String
+  last_name: String
+  created_timestamp: String
+}
+
+# Prefer
+type User {
+  id: ID!
+  name: String!
+  createdAt: DateTime!
+  profile: UserProfile
+}
+```
+
+### Don't overuse non-null fields
+
+```graphql
+# Fragile
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  phone: String!
+  address: String!
+  preferences: UserPreferences!
+}
+
+# Resilient
+type User {
+  id: ID!
+  name: String!
+  email: String
+  phone: String
+  address: String
+  preferences: UserPreferences
+}
+```
+
+Start with nullable fields and tighten constraints only after understanding real-world failure patterns.
