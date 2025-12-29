@@ -161,8 +161,12 @@ export async function CategoryToolsLibrariesSection({
               key={colIndex}
               className="flex w-full flex-col gap-4 max-md:contents"
             >
-              {column.map(group => (
-                <Group key={group.id} group={group} />
+              {column.map((group, i) => (
+                <Group
+                  key={group.id}
+                  group={group}
+                  mobileDefaultExpanded={i === 0}
+                />
               ))}
             </div>
           ))}
@@ -205,7 +209,13 @@ function distributeToColumns(groups: GroupData[]): [GroupData[], GroupData[]] {
   return [left, right]
 }
 
-function Group({ group }: { group: GroupData }) {
+function Group({
+  group,
+  mobileDefaultExpanded,
+}: {
+  group: GroupData
+  mobileDefaultExpanded: boolean
+}) {
   // When odd count in 2-column layout, last item spans full width
   const isOddTwoColumn = group.columns === 2 && group.items.length % 2 === 1
   // Adjust break index: exclude spanning item from column distribution
@@ -219,6 +229,7 @@ function Group({ group }: { group: GroupData }) {
         type="checkbox"
         id={`group-${group.id}`}
         className="peer sr-only"
+        defaultChecked={mobileDefaultExpanded}
       />
       <label
         htmlFor={`group-${group.id}`}
@@ -248,15 +259,11 @@ function Group({ group }: { group: GroupData }) {
           return (
             <li
               key={`${group.id}-${item.name}`}
-              className={clsx(spansFullWidth && "lg:[column-span:all]")}
-              style={
-                group.columns === 2
-                  ? {
-                      borderTop: isAtBreak ? "none" : "",
-                      borderLeftWidth: isInSecondColumn ? "1px" : "",
-                    }
-                  : {}
-              }
+              className={clsx(
+                spansFullWidth && "lg:[column-span:all]",
+                group.columns === 2 && isInSecondColumn && "lg:border-l",
+                group.columns === 2 && isAtBreak && "lg:!border-t-0",
+              )}
             >
               {item.href ? (
                 <a
