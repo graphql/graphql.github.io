@@ -139,7 +139,7 @@ export async function CategoryToolsLibrariesSection({
               tools & libraries
             </Eyebrow>
             <h2 className="typography-h2 text-pretty">
-              Build GraphQL with tools and libraries
+              {capitalizeTopic(category)} tools & libraries
             </h2>
             <p className="typography-body-md text-neu-800">
               Explore language and platform tooling to ship production-ready
@@ -300,4 +300,9 @@ function Stripes() {
       />
     </div>
   )
+}
+
+function capitalizeTopic(topic: Topic) {
+  if (topic === "ai") return "AI"
+  return topic.charAt(0).toUpperCase() + topic.slice(1)
 }
