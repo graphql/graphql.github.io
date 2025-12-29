@@ -124,7 +124,7 @@ export async function CategoryToolsLibrariesSection({
         id="tools-and-libraries"
         className={clsx(
           "gql-container gql-section relative flex flex-col gap-8 overflow-hidden",
-          grouped.length > 1 ? "" : "lg:flex-row",
+          grouped.length > 1 ? "" : "lg:flex-row lg:justify-between",
           className,
         )}
       >
