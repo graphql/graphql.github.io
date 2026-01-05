@@ -32,6 +32,7 @@ export function HowItWorks() {
   return (
     <section
       ref={sectionRef}
+      id="how-it-works"
       className="gql-container gql-section xl:py-20"
       // this is mostly for Playwright, we're not getting a hydration warning normally
       suppressHydrationWarning
