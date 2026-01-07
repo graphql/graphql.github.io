@@ -525,7 +525,7 @@ export const ambassadors202512: Ambassador[] = [
     ],
   },
   {
-    label: "Derek Kuz",
+    label: "Derek Kuc",
     imageUrl: "https://github.com/dariuszkuc.png",
     alt: "Derek Kuc",
     organization: "Apollo",
