@@ -7,6 +7,6 @@
     "start": "node ./sync-working-groups.ts"
   },
   "dependencies": {
-    "arktype": "2.1.28"
+    "arktype": "2.1.29"
   }
 }
