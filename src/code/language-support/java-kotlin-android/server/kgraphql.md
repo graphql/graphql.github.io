@@ -1,19 +1,19 @@
 ---
 name: KGraphQL
-description: KGraphQL is a Kotlin implementation of GraphQL. It provides a rich DSL to set up the GraphQL schema.
-url: https://kgraphql.io/
-github: aPureBase/KGraphQL
+description: KGraphQL is a pure Kotlin implementation of a code-first GraphQL server with focus on a rich and easy-to-use DSL that leverages existing code to set up the schema.
+url: https://stuebingerb.github.io/KGraphQL/
+github: stuebingerb/KGraphQL
 tags:
   - tools-and-libraries
   - backend
 ---
 
-Here's an example on how to create a simple schema based on a kotlin data class plus a property resolver that gets applied onto your class.
+Here's an example of how to create a simple schema based on a Kotlin data class plus a property resolver that gets applied onto your class:
 
 ```kotlin
 data class Article(val id: Int, val text: String)
 
-fun main() {
+suspend fun main() {
     val schema = KGraphQL.schema {
         query("article") {
             resolver { id: Int?, text: String ->
@@ -21,7 +21,7 @@ fun main() {
             }
         }
         type<Article> {
-            property<String>("fullText") {
+            property("fullText") {
                 resolver { article: Article ->
                     "${article.id}: ${article.text}"
                 }
@@ -36,17 +36,19 @@ fun main() {
                 fullText
             }
         }
-    """).let(::println)
+    """.trimIndent()).let(::println)
+
+    // {"data":{"article":{"id":5,"fullText":"5: Hello World"}}}
 }
 ```
 
 KGraphQL is using coroutines behind the scenes to provide great asynchronous performance.
 
-See [KGraphQL docs](https://kgraphql.io/Installation/) for more in depth usage.
+See [KGraphQL docs](https://stuebingerb.github.io/KGraphQL/Installation/) for more in depth usage.
 
 ## Ktor Plugin
 
-KGraphQL has a Ktor plugin which gives you a fully functional GraphQL server with a single [install](https://ktor.io/docs/zfeatures.html) function call. Example below shows how to set up a GraphQL server within Ktor and it will give you a [GraphQL Playground](https://github.com/graphql/graphql-playground) out of the box by entering `localhost:8080/graphql`.
+KGraphQL has a Ktor plugin which gives you a fully functional GraphQL server with a single [install](https://ktor.io/docs/server-plugins.html#install) function call. The example below shows how to set up a GraphQL server within Ktor and it will give you a [GraphQL IDE](https://github.com/graphql/graphiql/tree/main) out of the box by entering `localhost:8080/graphql`.
 
 ```kotlin
 fun Application.module() {
@@ -61,4 +63,4 @@ fun Application.module() {
 }
 ```
 
-You can follow the [Ktor tutorial](https://kgraphql.io/Tutorials/ktor/) to set up a KGraphQL server with ktor from scratch up.
+You can follow the [Ktor tutorial](https://stuebingerb.github.io/KGraphQL/Tutorials/ktor/) to set up a KGraphQL server with Ktor.
