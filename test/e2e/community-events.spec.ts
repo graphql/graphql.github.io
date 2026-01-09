@@ -219,7 +219,9 @@ test("event type filters hide cards and lock the last active tag", async ({
     const badgeLocator = tagBadge(definition.badgeText)
     if ((await definition.filter.count()) === 0) continue
     const filterDefinition = { ...definition, badges: badgeLocator }
-    activeFilters.push(filterDefinition)
+    if (definition.kind != "working group") {
+      activeFilters.push(filterDefinition)
+    }
     if (await definition.filter.isEnabled()) {
       toggleableFilters.push(filterDefinition)
     }
