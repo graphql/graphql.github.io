@@ -1,0 +1,281 @@
+# Schema Ownership and Governance Models
+
+Establish who owns which parts of your GraphQL schema and how teams make decisions about schema changes. Clear ownership boundaries help teams contribute effectively, maintain consistency, and coordinate across domains.
+
+This guide presents three governance models you can adapt to your organization's structure. You'll learn how to implement each model, manage ownership boundaries, and scale your approach as your organization grows.
+
+## Choose a governance approach
+
+Organizations typically adopt one of three governance models for managing GraphQL schemas. Choose based on how much central oversight you want versus team autonomy and iteration speed.
+
+## Centralized governance
+
+A single team controls the entire schema. All other teams submit changes for the central team to review and approve.
+
+Use this model when you want strict consistency across domains, need high oversight due to regulatory requirements, or prefer centralized quality control. The trade-off is slower iteration since all changes flow through one team.
+
+### Implement centralized ownership
+
+Start by designating one team as the schema owners. This team reviews all proposed schema changes for consistency with organizational standards. Teams can submit changes through pull requests, office hours, or a review queue depending on your workflow.
+
+Create a central repository where the schema lives. The owning team reviews proposals and either approves them or requests revisions to align with standards.
+
+```javascript
+import { validateSchema } from 'graphql';
+import { checkNamingConventions } from './lint-rules.js';
+import { detectBreakingChanges } from './breaking-changes.js';
+
+export async function validateSchemaChange(proposedSchema, currentSchema) {
+  const validationErrors = validateSchema(proposedSchema);
+  
+  if (validationErrors.length > 0) {
+    return { approved: false, issues: validationErrors };
+  }
+  
+  const breakingChanges = await detectBreakingChanges(
+    currentSchema,
+    proposedSchema
+  );
+  
+  const namingViolations = await checkNamingConventions(proposedSchema);
+  
+  const allIssues = [...breakingChanges, ...namingViolations];
+  
+  return {
+    approved: allIssues.length === 0,
+    issues: allIssues
+  };
+}
+```
+
+This example validates proposed schema changes before the central team reviews them. The automated checks catch GraphQL validity issues, breaking changes, and naming standard violations.
+
+To set this up:
+
+- Configure automated validation in your CI pipeline that runs on every proposed change
+- Add the central team as required reviewers through CODEOWNERS or branch protection rules
+- Establish turnaround time commitments so contributing teams know when to expect feedback
+- Document submission guidelines so teams understand what information to include with proposals
+
+### Manage centralized ownership
+
+The central team needs clear processes to avoid becoming a bottleneck:
+
+- Define what types of changes need architectural review versus standard approval
+- Set and track service level agreements for review turnaround (48 hours is common)
+- Monitor metrics like time from proposal to merge and revision cycles per change
+- Refine your standards and guidelines when high revision counts indicate confusion
+
+## Federated governance
+
+Teams own distinct portions of the schema called subgraphs. Each team has full autonomy over their domain and deploys independently. Teams follow shared standards but don't need approval for changes within their boundaries.
+
+Use this model when you want teams to iterate quickly without coordination overhead, have clearly separated domains, or value deployment independence. The trade-off is requiring stronger standards and tooling to maintain consistency.
+
+### Implement federated ownership
+
+Divide your schema into domains that align with team responsibilities. The authentication team owns the users subgraph, the catalog team owns products, the commerce team owns orders. Each team maintains their subgraph in a separate repository.
+
+```javascript
+export const subgraphOwnership = {
+  users: {
+    team: 'identity-team',
+    contacts: ['alice@company.com', 'bob@company.com'],
+    repository: 'https://github.com/company/users-subgraph'
+  },
+  products: {
+    team: 'catalog-team',
+    contacts: ['charlie@company.com'],
+    repository: 'https://github.com/company/products-subgraph'
+  },
+  orders: {
+    team: 'commerce-team',
+    contacts: ['dana@company.com', 'evan@company.com'],
+    repository: 'https://github.com/company/orders-subgraph'
+  }
+};
+
+export function getSubgraphOwner(typename) {
+  for (const [subgraph, metadata] of Object.entries(subgraphOwnership)) {
+    const capitalizedSubgraph = subgraph.charAt(0).toUpperCase() + subgraph.slice(1);
+    if (typename.startsWith(capitalizedSubgraph)) {
+      return metadata;
+    }
+  }
+  return null;
+}
+```
+
+This example maintains a registry that maps schema segments to teams. Automation uses this registry to route notifications, assign reviewers, and identify who to contact about specific types.
+
+To set up federated ownership:
+
+- Create a central registry documenting which team owns which subgraph
+- Store ownership metadata where CI/CD systems can access it
+- Build tooling that uses this registry to notify affected teams when dependencies change
+
+### Manage federated ownership
+
+A working group coordinates across teams without gatekeeping (see [Create a working group](#create-a-working-group)). Track dependencies explicitly to understand which teams need notification when changes occur.
+
+```javascript
+export const schemaDependencies = {
+  products: {
+    dependsOn: ['users', 'inventory'],
+    consumedBy: ['search', 'recommendations']
+  },
+  orders: {
+    dependsOn: ['products', 'users', 'payments'],
+    consumedBy: ['analytics', 'customer-support']
+  },
+  users: {
+    dependsOn: [],
+    consumedBy: ['products', 'orders', 'social']
+  }
+};
+
+export function getAffectedTeams(changedDomain) {
+  const directConsumers = schemaDependencies[changedDomain]?.consumedBy || [];
+  
+  const indirectConsumers = Object.entries(schemaDependencies)
+    .filter(([_, deps]) => deps.dependsOn.includes(changedDomain))
+    .map(([domain]) => domain);
+  
+  return [...new Set([...directConsumers, ...indirectConsumers])];
+}
+```
+
+This example tracks dependencies and calculates which teams need notification when a domain changes. Integrate this with your CI pipeline to notify affected teams automatically.
+
+When multiple subgraphs contribute fields to the same entity, use custom directives to mark ownership:
+
+```graphql
+directive @owner(team: String!) on OBJECT | INTERFACE
+
+type Product @key(fields: "id") @owner(team: "catalog-team") {
+  id: ID!
+  name: String!
+  price: Money!
+}
+
+extend type Product @owner(team: "inventory-team") {
+  stockLevel: Int!
+  warehouseLocation: String!
+}
+```
+
+This example marks which team owns each portion of an entity. The catalog team owns the base Product definition while inventory owns stock-related extensions. Build tooling that parses these directives to route documentation questions and assign reviewers.
+
+To maintain healthy federation:
+
+- Require approval from consuming teams before breaking changes merge
+- Monitor coordination overhead and refine processes when bottlenecks emerge
+
+### Prevent composition conflicts
+
+Validate that subgraph changes compose correctly with all other subgraphs before deployment.
+
+```javascript
+export async function publishSubgraphSchema(subgraphName, schema) {
+  const registry = await getSchemaRegistry();
+  
+  const compositionResult = await registry.checkComposition({
+    subgraph: subgraphName,
+    schema: schema,
+    includeAllSubgraphs: true
+  });
+  
+  if (!compositionResult.success) {
+    throw new Error(
+      `Composition failed: ${compositionResult.errors.join(', ')}`
+    );
+  }
+  
+  await registry.publish({
+    subgraph: subgraphName,
+    schema: schema
+  });
+  
+  return compositionResult;
+}
+```
+
+This example checks composition before publishing a subgraph schema. The validation prevents deployments that would break the composed graph.
+
+To prevent composition conflicts:
+
+- Integrate composition checks into your CI/CD pipeline
+- Reject deployments that fail composition validation
+- Use separate schema variants for staging and production to test changes before they affect production traffic
+
+## Hybrid governance
+
+Combine central and federated approaches. Critical shared types receive central oversight while domain-specific types use federated ownership.
+
+Use this model when you have clear shared primitives like User, Organization, or common interfaces alongside specialized domain types. Hybrid governance balances consistency for core types with autonomy for domain-specific work.
+
+### Implement hybrid ownership
+
+Define explicit rules for what falls under central versus federated control. Common patterns include central ownership of root query and mutation fields, shared types used across multiple domains, error types and standard interfaces, while teams own domain-specific types.
+
+Document these boundaries clearly. Teams need to know which changes require central approval versus those they can make independently. Create a reference document listing centrally controlled types and the process for proposing changes to them.
+
+### Manage hybrid ownership
+
+The central team maintains shared types while individual teams own their domains. When a team needs to modify a shared type, they submit a proposal explaining the use case and proposed changes. The central team reviews for broad impact and approves changes that serve multiple consumers.
+
+Track which types are centrally controlled versus federated. Update this list as your schema evolves. When shared patterns emerge across domain-specific types, consider centralizing them to reduce duplication.
+
+## Scale your governance model
+
+Governance should remain flexible as your organization grows. Start simple and add structure when you experience coordination challenges.
+
+**Small organizations** need minimal formal processes:
+
+- Direct communication suffices for coordination
+- Focus on learning GraphQL patterns 
+- Document basic design decisions for future reference
+
+**Growing organizations** create coordination challenges:
+
+- Bottlenecks appear in reviews as more teams contribute
+- Different teams have competing priorities
+- Formalize design guidelines and establish review processes
+- Create clear approval workflows and escalation paths
+
+**Large organizations** often adopt federated governance when:
+
+- Schemas become too large for one team to manage effectively
+- Velocity slows despite adding more engineers
+- Different domains need independent deployment schedules
+- Teams have distinct ownership boundaries that align with schema domains
+
+Before adopting federation, ensure you have clear domain boundaries, cultural readiness for distributed ownership, and infrastructure for schema registries and composition validation.
+
+## Create a working group
+
+For federated or hybrid governance, establish a working group with representatives from all contributing teams.
+
+Key roles include:
+
+- Executive sponsor for prioritization and resource allocation
+- Graph champion who drives adoption and maintains documentation
+- Subgraph leads from each domain team
+- Platform representative for infrastructure and tooling
+
+The group establishes standards, defines review processes, and provides coordination mechanisms. They should not gate-keep contributions but instead create frameworks that enable teams to make good decisions independently.
+
+Meet regularly to maintain alignment. Use asynchronous channels for quick questions. Document decisions publicly so teams can reference them when making similar choices.
+
+## Track governance effectiveness
+
+Measure whether your governance enables fast iteration while maintaining quality.
+
+Key metrics to track include:
+
+- Time from proposal to deployment, where long lead times indicate bottlenecks
+- Breaking change frequency and client impact
+- Ratio of issues caught in CI versus production
+- Team satisfaction with the governance process
+
+Adjust based on these metrics. If reviews slow development, examine whether you've over-centralized. If quality drops, strengthen automated validation. Governance should evolve as your organization's needs change.
