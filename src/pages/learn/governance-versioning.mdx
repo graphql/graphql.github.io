@@ -1,0 +1,419 @@
+# Schema Change Management
+
+GraphQL schemas evolve continuously rather than through versioned releases. This approach allows you to add capabilities without breaking existing clients while maintaining a single schema that serves all consumers.
+
+This guide shows you how to evolve your schema safely using additive changes, deprecation, and migration strategies that minimize disruption to clients.
+
+## Understand schema evolution
+
+GraphQL favors evolution over versioning. Instead of releasing `v1`, `v2`, `v3` of your entire API, you make incremental backward-compatible changes to a single schema that all clients use.
+
+This works because GraphQL clients request only the fields they need. When you add new fields or types, existing queries ignore them and continue working unchanged. Clients adopt new capabilities at their own pace without forced migrations.
+
+Evolution doesn't forbid versioning entirely. You could create `/graphql/v2` for major overhauls. However, this sacrifices GraphQL's benefits and forces you to maintain multiple schemas simultaneously. Most organizations stick with continuous evolution and use careful planning to roll out changes.
+
+## Make additive changes
+
+The safest schema changes add new capabilities without modifying existing ones. These changes don't break any current queries.
+
+Safe additive changes include:
+
+- Adding new fields to existing types
+- Adding new types
+- Adding new queries or mutations  
+- Adding optional arguments to fields
+- Making required fields optional
+
+```graphql
+# Before
+type User {
+  id: ID!
+  email: String!
+}
+
+# After, with a new field added safely
+type User {
+  id: ID!
+  email: String!
+  createdAt: DateTime!
+}
+```
+
+This example adds a `createdAt` field to the `User` type. Existing queries that request `id` and `email` continue working exactly as before. New clients can request `createdAt` whenever they're ready to use it.
+
+When adding new fields, make them nullable or provide sensible defaults unless you have certainty they'll always have values. Nullable fields let you return null for older data that lacks the new information, maintaining backward compatibility.
+
+### Handle optional arguments carefully
+
+Adding optional arguments to fields is generally safe, but requires default behavior that matches how the field worked before the argument existed.
+
+```graphql
+type Query {
+  products(
+    first: Int = 20
+    sortBy: ProductSort = POPULARITY
+  ): [Product!]!
+}
+```
+
+This example adds a `sortBy` argument to an existing products query. The default value, `POPULARITY` ensures the query behaves identically for clients that don't provide the argument. New clients can specify different sorting when needed.
+
+To implement this safely, your resolver must handle the argument being absent and provide behavior that matches existing client expectations.
+
+## Identify breaking changes
+
+Breaking changes modify or remove existing schema elements in ways that cause previously valid queries to fail or return different data.
+
+Common breaking changes include:
+
+- Removing fields or types
+- Renaming fields or types
+- Changing field types, such as `String` to `Int`
+- Removing or renaming enum values
+- Making optional arguments required
+- Changing argument types
+
+```graphql
+# Breaking, removing a field
+type User {
+  id: ID!
+  name: String!
+- email: String!  # Queries requesting this field will fail
+}
+
+# Breaking, changing field type
+type Product {
+  id: ID!
+- price: Float!
++ price: Money!  # Queries expecting Float receive Money instead
+}
+
+# Breaking, making field non-null
+type Order {
+  id: ID!
+- discount: Float
++ discount: Float!  # Queries might receive errors if discount is null
+}
+```
+
+These examples show schema changes that break existing queries. Clients requesting the removed email field receive errors. Clients expecting a `Floa`t for price get a `Money` object instead. Queries relying on `null` discounts fail validation.
+
+Avoid these changes when possible. When unavoidable, use the [deprecation process](#deprecate-fields-before-removal) to give clients time to migrate.
+
+## Deprecate fields before removal
+
+The `@deprecated` directive marks fields and enum values as obsolete while keeping them functional. This gives clients advance warning to update their queries before you remove the deprecated element.
+
+```graphql
+type User {
+  id: ID!
+  name: String! @deprecated(reason: "Use firstName and lastName instead")
+  firstName: String!
+  lastName: String!
+}
+```
+
+This example deprecates the name field while providing `firstName` and `lastName` as replacements. The reason parameter explains what clients should do instead.
+
+Clients see deprecation warnings in GraphQL tools like GraphiQL, for example. The field still works, allowing gradual migration rather than immediate breakage.
+
+To deprecate effectively, provide a clear reason explaining what clients should use instead and keep the deprecated field fully functional throughout the migration period. Track usage metrics so you know when removal is safe, and communicate the deprecation timeline to client teams.
+
+### Maintain deprecated fields
+
+During the deprecation period, keep the old field working. Implement it by delegating to the new structure so clients get consistent data regardless of which field they query.
+
+```javascript
+export const resolvers = {
+  User: {
+    name: (user) => {
+      // Maintain backward compatibility by combining new fields
+      return `${user.firstName} ${user.lastName}`;
+    },
+    firstName: (user) => user.firstName,
+    lastName: (user) => user.lastName
+  }
+};
+```
+
+This example keeps the deprecated name field functional by constructing it from `firstName` and `lastName`. Clients using the old field receive correct data while they migrate to the new structure.
+
+When implementing deprecated fields, log warnings when they're accessed. This telemetry helps you track which clients still depend on deprecated elements and when usage drops low enough for safe removal.
+
+## Follow the deprecation lifecycle
+
+Use a predictable process for introducing breaking changes: add the new element, deprecate the old one, migrate clients, then remove the deprecated element.
+
+### Add new capabilities first
+
+Before deprecating anything, add the replacement field, type, or argument. Ensure it provides all functionality clients need from the deprecated element.
+
+### Announce deprecations
+
+Communicate deprecations clearly and well in advance. Public APIs should announce breaking changes months ahead. Some organizations announce GraphQL changes three months before implementation and make changes only at quarter boundaries.
+
+Internal APIs can use shorter timelines but still need clear communication. Send notifications to client teams, update your documentation, and publish changelogs explaining what's deprecated and what to use instead.
+
+### Track migration progress
+
+Monitor which clients still use deprecated fields. Implement tracking that logs when deprecated elements are accessed, including which client made the request.
+
+```javascript
+import { GraphQLError } from 'graphql';
+
+export function wrapDeprecatedResolver(resolver, fieldName, reason) {
+  return (parent, args, context, info) => {
+    // Log deprecated field access
+    context.metrics.recordDeprecatedFieldUsage({
+      field: fieldName,
+      client: context.clientId,
+      timestamp: Date.now()
+    });
+    
+    // Return the actual result
+    return resolver(parent, args, context, info);
+  };
+}
+```
+
+This example wraps resolvers for deprecated fields to track usage. It records which client accessed the deprecated field so you can identify who needs to migrate.
+
+To track effectively, store deprecated field usage with client identifiers in your metrics system. Query this data regularly to identify clients that haven't migrated and contact those teams directly when deprecation deadlines approach.
+
+### Remove after migration completes
+
+Remove deprecated elements only when usage drops to acceptable levels or the deadline passes. For critical systems, wait until usage reaches zero. For less critical fields, you might remove after usage drops below a threshold appropriate for your context.
+
+Before removing, send final warnings to any remaining clients with a specific deadline and offer migration assistance if needed. After removal, monitor for errors that might indicate missed clients.
+
+## Handle dangerous changes
+
+Some changes appear safe but can cause subtle issues. These "dangerous" changes don't break the schema structurally but might break client logic.
+
+### Adding enum values
+
+Adding values to an enum is technically additive, but clients might not handle unknown values gracefully.
+
+```graphql
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
++ CANCELLED  # New value might surprise clients
+}
+```
+
+This example adds `CANCELLED` to an existing enum. Clients with switch statements or exhaustive pattern matching might not handle the new value, leading to runtime errors or unexpected behavior.
+
+When adding enum values, document them clearly and consider whether clients need updates to handle the new case. Some teams add new enum values behind feature flags initially to control rollout.
+
+### Adding interface implementations
+
+When you add a new type implementing an existing interface, queries returning that interface might receive the new type unexpectedly.
+
+```graphql
+interface Node {
+  id: ID!
+}
+
+type User implements Node {
+  id: ID!
+  name: String!
+}
+
+type Organization implements Node {  # New type
+  id: ID!
+  name: String!
+  members: [User!]!
+}
+```
+
+This example adds `Organization` as a new implementation of `Node`. Queries selecting `Node` might now receive `Organization` objects. Clients using type checks or fragment spreads need to handle the new type.
+
+When adding interface implementations, communicate to clients that new types might appear in responses. Encourage clients to use proper type checking with `__typename` rather than assuming specific types.
+
+## Coordinate breaking changes across teams
+
+When breaking changes affect multiple teams, coordinate the migration carefully to minimize disruption.
+
+### Establish deprecation timelines
+
+Set clear windows for each phase of the deprecation process:
+
+- **Announcement:** Notify all consuming teams of the upcoming change
+- **Deprecation period:** Keep old and new elements available simultaneously
+- **Migration deadline:** Date by which clients must complete migration
+- **Removal date:** When the deprecated element disappears from the schema
+
+Longer timelines work better for public APIs or mobile apps where users control update timing. Shorter timelines suffice for internal services where you coordinate deployments directly.
+
+### Provide migration guidance
+
+Give clients specific instructions for migrating from deprecated elements to their replacements. Document what changes they need in their queries, what new data structures to expect, and any behavioral differences.
+
+When providing migration support, offer office hours or dedicated channels where teams can ask questions, and review client queries proactively to identify teams affected by the change.
+
+## Plan schema migrations
+
+Large schema changes sometimes require coordinated data and code migrations. Plan these carefully to avoid downtime or data inconsistencies.
+
+### Coordinate with data migrations
+
+When schema changes require underlying data modifications, complete data migration before publishing the schema change.
+
+For example, if you're splitting a name field into `firstName` and `lastName`, migrate existing data first:
+
+1. Add `firstName` and `lastName` columns to your database
+2. Populate them from existing name data
+3. Deploy the schema change adding `firstName` and `lastName` fields
+4. Deprecate the name field
+5. After migration period, remove name from schema
+6. After another period, remove name column from database
+
+This sequence ensures data exists in the new structure before clients start requesting it, preventing null values or errors.
+
+### Handle gradual rollouts
+
+For changes affecting many clients, consider gradual rollouts. One approach some teams use is feature flags or progressive deployment.
+
+```javascript
+export function getUserName(user, context) {
+  // Feature flag controls new behavior
+  if (context.features.isEnabled('split-name-field')) {
+    return {
+      firstName: user.firstName,
+      lastName: user.lastName
+    };
+  }
+
+  // Fall back to legacy behavior
+  return {
+    name: user.name
+  };
+}
+```
+
+This example uses feature flags to roll out a new field structure gradually. You might enable the flag for internal clients first, then progressively for external clients, monitoring for issues at each stage.
+
+When rolling out gradually, track errors and performance metrics for each cohort so you can roll back quickly if issues emerge before continuing the rollout.
+
+## Detect breaking changes automatically
+
+Automated tools catch breaking changes before they reach production, reducing the risk of accidentally breaking clients.
+
+### Integrate schema validation in CI
+
+Run breaking change detection in your continuous integration pipeline on every pull request.
+
+```javascript
+import { findBreakingChanges } from 'graphql';
+import { readFileSync } from 'fs';
+
+export async function checkSchemaChanges(currentSchemaPath, proposedSchemaPath) {
+  const currentSchema = readFileSync(currentSchemaPath, 'utf-8');
+  const proposedSchema = readFileSync(proposedSchemaPath, 'utf-8');
+  
+  const breakingChanges = findBreakingChanges(currentSchema, proposedSchema);
+  
+  if (breakingChanges.length > 0) {
+    console.error('Breaking changes detected:');
+    breakingChanges.forEach(change => {
+      console.error(`- ${change.type}: ${change.description}`);
+    });
+    process.exit(1);
+  }
+  
+  console.log('No breaking changes detected');
+}
+```
+
+This example uses GraphQL's built-in breaking change detection to compare schemas. The check fails the build if breaking changes appear, forcing explicit acknowledgment before merging.
+
+To implement automated detection, store your schema in version control and run breaking change detection on every pull request. Require manual approval for PRs containing breaking changes and document the reason for each breaking change in commit messages.
+
+### Compare against production traffic
+
+Schema comparison alone doesn't tell you if a change actually affects clients. Compare proposed changes against real client queries to identify true impact.
+
+```javascript
+export async function analyzeFieldUsage(fieldPath, queryLogs) {
+  const affectedQueries = queryLogs.filter(log => 
+    log.query.includes(fieldPath)
+  );
+  
+  return {
+    totalQueries: queryLogs.length,
+    affectedQueries: affectedQueries.length,
+    affectedClients: new Set(affectedQueries.map(q => q.clientId)).size,
+    usagePercentage: (affectedQueries.length / queryLogs.length) * 100
+  };
+}
+```
+
+This example analyzes query logs to determine how many clients actually use a field you're considering deprecating. Use this data to prioritize migration efforts and estimate impact.
+
+When analyzing usage, collect at least 30 days of query data for representative samples and identify both the number of queries and number of unique clients affected. Check usage patterns and use this data to set realistic migration timelines.
+
+## Document evolution decisions
+
+Maintain clear records of schema changes, deprecations, and migration timelines so teams can reference them when planning client updates.
+
+### Maintain a changelog
+
+Document all schema changes in a changelog that clients can reference. Include what changed, when it changed, and what clients should do.
+
+```markdown
+# Schema changelog
+
+## 2025-02-01
+### Added
+- `Product.availableIn` field returns locations where product is available
+- `ProductSort.PRICE_ASC` and `ProductSort.PRICE_DESC` enum values
+
+### Deprecated
+- `Product.inStock` field - use `Product.availableIn` to check availability
+
+### Removed
+- `User.phoneNumber` field (deprecated 2024-11-01)
+
+## 2025-01-15
+### Added
+- `Order.estimatedDelivery` field for delivery date estimates
+
+### Changed
+- `Order.status` now includes `CANCELLED` enum value
+```
+
+This example shows a clear changelog format with additions, deprecations, and removals organized by date. Include specific migration guidance for deprecated elements.
+
+When maintaining changelogs, publish them prominently in your documentation and send notifications when new changes appear. Archive old entries but keep them searchable for teams maintaining older clients.
+
+### Track deprecation status
+
+Maintain a registry of all deprecated elements with their timelines and removal dates.
+
+```javascript
+export const deprecations = {
+  'User.name': {
+    deprecatedDate: '2024-12-01',
+    reason: 'Use firstName and lastName instead',
+    migrationDeadline: '2025-02-01',
+    removalDate: '2025-02-15',
+    replacements: ['User.firstName', 'User.lastName'],
+    status: 'active'  // active, migrating, or removed
+  },
+  'Product.inStock': {
+    deprecatedDate: '2025-01-01',
+    reason: 'Use availableIn to check specific locations',
+    migrationDeadline: '2025-03-01',
+    removalDate: '2025-03-15',
+    replacements: ['Product.availableIn'],
+    status: 'active'
+  }
+};
+```
+
+This example maintains structured deprecation metadata that tracks the full lifecycle from deprecation through removal. Update the status as migrations progress.
+
+When tracking deprecations, make this information available through your documentation, your GraphQL schema via `@deprecated` directives, and programmatic APIs that client teams can query to audit their usage.

@@ -27,4 +27,9 @@ export default {
   performance: "",
   security: "",
   federation: "",
+    "-- 3": {
+    type: "separator",
+    title: "Schema Governance",
+  },
+    "governance-versioning": "",
 }
