@@ -17,14 +17,14 @@ export function JoinTheCommunity() {
         </div>
         <div className="flex flex-col *:flex-1">
           <Anchor
-            href="/community/tools-and-libraries"
+            href="https://discord.graphql.org/"
             className="flex items-center justify-between gap-4 whitespace-pre border-b border-pri-light px-6 py-8 hover:bg-white/10 lg:h-1/3 lg:px-8 lg:pr-12 xl:gap-6"
           >
             Discord
             <DiscordIcon className="size-8 fill-white" />
           </Anchor>
           <Anchor
-            href="/community/events"
+            href="/community/"
             className="flex items-center justify-between gap-4 whitespace-pre border-pri-light px-6 py-8 hover:bg-white/10 lg:h-1/3 lg:px-8 lg:pr-12 xl:gap-6"
           >
             Explore community resources
