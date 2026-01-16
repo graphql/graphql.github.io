@@ -1,0 +1,52 @@
+.gql-prose {
+  --prose-width: 640px;
+  --grid-col-aside: 1;
+  --grid-col-content: 1;
+
+  @apply xl:[--grid-col-content:3];
+  @apply typography-body-md grid grid-cols-1 gap-6 xl:grid-cols-[auto_1fr_var(--prose-width)_1fr];
+
+  & > * {
+    grid-column: var(--grid-col-content);
+  }
+}
+
+.gql-prose,
+.gql-prose-inner {
+  & h1 {
+    @apply typography-h2 lg:col-span-full xl:pb-16;
+  }
+  & h2 {
+    @apply typography-h3;
+  }
+  & a:not(.raw) {
+    @apply typography-link;
+  }
+
+  & > p,
+  & > ul,
+  & > ol {
+    @apply max-w-[var(--prose-width)] text-neu-800;
+  }
+
+  & > p {
+    @apply text-pretty;
+  }
+
+  & > ul {
+    @apply list-disc pl-4;
+  }
+
+  & > ol {
+    @apply list-decimal pl-4;
+  }
+}
+
+.gql-prose-inner {
+  @apply grid grid-cols-1 gap-6;
+}
+
+.gql-sticky-aside {
+  grid-column: var(--grid-col-aside);
+  @apply xl:sticky xl:top-[calc(var(--navbar-h)+1rem)];
+}
