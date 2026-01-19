@@ -32,6 +32,7 @@ export function Venue(props: VenueProps) {
           }}
         />
         <article className="relative flex shrink-0 flex-col gap-6 max-xl:max-w-[476px]">
+          {/*
           <h2 className="typography-h2">
             A place of innovation &&nbsp;creation
           </h2>
@@ -40,15 +41,15 @@ export function Venue(props: VenueProps) {
             city centre, changed into a place of culture & business.
           </p>
           <div className="flex-1" />
-          <p className="typography-body-lg">
-            Pakhuis De Zwijger <br />
-            Piet Heinkade 179, 1019 HC <br />
-            Amsterdam, Netherlands
-          </p>
+          */}
+          <p className="typography-body-lg">Menlo Park, California</p>
+          {/*
           <Button href="https://maps.app.goo.gl/W7nX1NejhWw9PqxF7">
             Google Maps
           </Button>
+          */}
         </article>
+        {/*
         <div className="relative flex-1">
           <h3 className="typography-h3 mb-6">How to get to the venue?</h3>
           <Accordion
@@ -147,6 +148,7 @@ export function Venue(props: VenueProps) {
             ]}
           />
         </div>
+        */}
       </div>
     </section>
   )

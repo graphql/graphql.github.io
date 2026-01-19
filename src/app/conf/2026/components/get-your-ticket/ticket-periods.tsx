@@ -16,6 +16,8 @@ export function TicketPeriods() {
 
   return (
     <>
+      TBD
+      {/*
       <TicketPeriod
         name="Early Bird"
         price="$599"
@@ -40,6 +42,7 @@ export function TicketPeriods() {
         comingSoon={!!now && now < STANDARD_END_DATE}
         soldOut={!!now && now > LATE_END_DATE}
       />
+*/}
     </>
   )
 }

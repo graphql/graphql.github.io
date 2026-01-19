@@ -29,7 +29,7 @@ export function RegisterToday({ className }: RegisterTodayProps) {
       <div className="flex flex-col justify-between">
         <div>
           <h2 className="typography-h2 text-neu-900">
-            Let's celebrate 10 years of GraphQL together
+            Let's celebrate GraphQL's success and plan for its future
           </h2>
           <p className="typography-h3 mt-6 text-neu-800 md:mt-10">
             Join two transformative days of expert insights and innovation to
@@ -40,11 +40,7 @@ export function RegisterToday({ className }: RegisterTodayProps) {
           <Button disabled className="opacity-55" href={GET_TICKETS_LINK}>
             Registration Coming Soon
           </Button>
-          <Button
-            className="opacity-55"
-            variant="secondary"
-            href="#sponsors"
-          >
+          <Button className="opacity-55" variant="secondary" href="#sponsors">
             Explore Sponsorship
           </Button>
         </div>
