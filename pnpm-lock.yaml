@@ -51,8 +51,8 @@ importers:
         specifier: 6.39.9
         version: 6.39.9
       '@graphql-tools/schema':
-        specifier: 10.0.30
-        version: 10.0.30(graphql@16.10.0)
+        specifier: 10.0.31
+        version: 10.0.31(graphql@16.10.0)
       '@hasparus/lezer-json-shikified':
         specifier: 1.1.3
         version: 1.1.3
@@ -133,7 +133,7 @@ importers:
         version: 0.469.0(react@18.3.1)
       motion:
         specifier: ^12.11.0
-        version: 12.23.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 12.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next:
         specifier: 14.2.35
         version: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1490,8 +1490,8 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/merge@9.1.6':
-    resolution: {integrity: sha512-bTnP+4oom4nDjmkS3Ykbe+ljAp/RIiWP3R35COMmuucS24iQxGLa9Hn8VMkLIoaoPxgz6xk+dbC43jtkNsFoBw==}
+  '@graphql-tools/merge@9.1.7':
+    resolution: {integrity: sha512-Y5E1vTbTabvcXbkakdFUt4zUIzB1fyaEnVmIWN0l0GMed2gdD01TpZWLUm4RNAxpturvolrb24oGLQrBbPLSoQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -1508,8 +1508,8 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/schema@10.0.30':
-    resolution: {integrity: sha512-yPXU17uM/LR90t92yYQqn9mAJNOVZJc0nQtYeZyZeQZeQjwIGlTubvvoDL0fFVk+wZzs4YQOgds2NwSA4npodA==}
+  '@graphql-tools/schema@10.0.31':
+    resolution: {integrity: sha512-ZewRgWhXef6weZ0WiP7/MV47HXiuFbFpiDUVLQl6mgXsWSsGELKFxQsyUCBos60Qqy1JEFAIu3Ns6GGYjGkqkQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -1540,6 +1540,12 @@ packages:
 
   '@graphql-tools/utils@10.9.1':
     resolution: {integrity: sha512-B1wwkXk9UvU7LCBkPs8513WxOQ2H8Fo5p8HR1+Id9WmYE5+bd51vqN+MbrqvWczHCH2gwkREgHJN88tE0n1FCw==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+
+  '@graphql-tools/utils@11.0.0':
+    resolution: {integrity: sha512-bM1HeZdXA2C3LSIeLOnH/bcqSgbQgKEDrjxODjqi3y58xai2TkNrtYcQSoWzGbt9VMN1dORGjR7Vem8SPnUFQA==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -3762,8 +3768,8 @@ packages:
   fraction.js@5.3.4:
     resolution: {integrity: sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==}
 
-  framer-motion@12.23.26:
-    resolution: {integrity: sha512-cPcIhgR42xBn1Uj+PzOyheMtZ73H927+uWPDVhUMqxy8UHt6Okavb6xIz9J/phFUHUj0OncR6UvMfJTXoc/LKA==}
+  framer-motion@12.26.2:
+    resolution: {integrity: sha512-lflOQEdjquUi9sCg5Y1LrsZDlsjrHw7m0T9Yedvnk7Bnhqfkc89/Uha10J3CFhkL+TCZVCRw9eUGyM/lyYhXQA==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -4875,14 +4881,14 @@ packages:
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
 
-  motion-dom@12.23.23:
-    resolution: {integrity: sha512-n5yolOs0TQQBRUFImrRfs/+6X4p3Q4n1dUEqt/H58Vx7OW6RF+foWEgmTVDhIWJIMXOuNNL0apKH2S16en9eiA==}
+  motion-dom@12.26.2:
+    resolution: {integrity: sha512-KLMT1BroY8oKNeliA3JMNJ+nbCIsTKg6hJpDb4jtRAJ7nCKnnpg/LTq/NGqG90Limitz3kdAnAVXecdFVGlWTw==}
 
-  motion-utils@12.23.6:
-    resolution: {integrity: sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==}
+  motion-utils@12.24.10:
+    resolution: {integrity: sha512-x5TFgkCIP4pPsRLpKoI86jv/q8t8FQOiM/0E8QKBzfMozWHfkKap2gA1hOki+B5g3IsBNpxbUnfOum1+dgvYww==}
 
-  motion@12.23.26:
-    resolution: {integrity: sha512-Ll8XhVxY8LXMVYTCfme27WH2GjBrCIzY4+ndr5QKxsK+YwCtOi2B/oBi5jcIbik5doXuWT/4KKDOVAZJkeY5VQ==}
+  motion@12.26.2:
+    resolution: {integrity: sha512-2Q6g0zK1gUJKhGT742DAe42LgietcdiJ3L3OcYAHCQaC1UkLnn6aC8S/obe4CxYTLAgid2asS1QdQ/blYfo5dw==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -7809,7 +7815,7 @@ snapshots:
   '@graphql-codegen/core@5.0.0(graphql@16.10.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 6.0.0(graphql@16.10.0)
-      '@graphql-tools/schema': 10.0.30(graphql@16.10.0)
+      '@graphql-tools/schema': 10.0.31(graphql@16.10.0)
       '@graphql-tools/utils': 10.10.0(graphql@16.10.0)
       graphql: 16.10.0
       tslib: 2.6.3
@@ -7850,7 +7856,7 @@ snapshots:
   '@graphql-codegen/schema-ast@5.0.0(graphql@16.10.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 6.0.0(graphql@16.10.0)
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       graphql: 16.10.0
       tslib: 2.6.3
 
@@ -7943,7 +7949,7 @@ snapshots:
 
   '@graphql-tools/batch-execute@9.0.19(graphql@16.10.0)':
     dependencies:
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       '@whatwg-node/promise-helpers': 1.3.2
       dataloader: 2.2.3
       graphql: 16.10.0
@@ -7964,8 +7970,8 @@ snapshots:
     dependencies:
       '@graphql-tools/batch-execute': 9.0.19(graphql@16.10.0)
       '@graphql-tools/executor': 1.4.9(graphql@16.10.0)
-      '@graphql-tools/schema': 10.0.30(graphql@16.10.0)
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/schema': 10.0.31(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/promise-helpers': 1.3.2
       dataloader: 2.2.3
@@ -7982,13 +7988,13 @@ snapshots:
   '@graphql-tools/executor-common@0.0.4(graphql@16.10.0)':
     dependencies:
       '@envelop/core': 5.3.0
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       graphql: 16.10.0
 
   '@graphql-tools/executor-common@0.0.6(graphql@16.10.0)':
     dependencies:
       '@envelop/core': 5.3.0
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       graphql: 16.10.0
 
   '@graphql-tools/executor-graphql-ws@2.0.7(graphql@16.10.0)':
@@ -8052,7 +8058,7 @@ snapshots:
 
   '@graphql-tools/executor@1.4.9(graphql@16.10.0)':
     dependencies:
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.10.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/disposablestack': 0.0.6
@@ -8143,7 +8149,7 @@ snapshots:
 
   '@graphql-tools/load@8.1.2(graphql@16.10.0)':
     dependencies:
-      '@graphql-tools/schema': 10.0.30(graphql@16.10.0)
+      '@graphql-tools/schema': 10.0.31(graphql@16.10.0)
       '@graphql-tools/utils': 10.9.1(graphql@16.10.0)
       graphql: 16.10.0
       p-limit: 3.1.0
@@ -8155,30 +8161,30 @@ snapshots:
       graphql: 16.10.0
       tslib: 2.8.1
 
-  '@graphql-tools/merge@9.1.6(graphql@16.10.0)':
+  '@graphql-tools/merge@9.1.7(graphql@16.10.0)':
     dependencies:
-      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
+      '@graphql-tools/utils': 11.0.0(graphql@16.10.0)
       graphql: 16.10.0
       tslib: 2.8.1
 
   '@graphql-tools/optimize@2.0.0(graphql@16.10.0)':
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/relay-operation-optimizer@7.0.23(graphql@16.10.0)':
     dependencies:
       '@ardatan/relay-compiler': 12.0.3(graphql@16.10.0)
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
-  '@graphql-tools/schema@10.0.30(graphql@16.10.0)':
+  '@graphql-tools/schema@10.0.31(graphql@16.10.0)':
     dependencies:
-      '@graphql-tools/merge': 9.1.6(graphql@16.10.0)
-      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
+      '@graphql-tools/merge': 9.1.7(graphql@16.10.0)
+      '@graphql-tools/utils': 11.0.0(graphql@16.10.0)
       graphql: 16.10.0
       tslib: 2.8.1
 
@@ -8262,10 +8268,18 @@ snapshots:
       graphql: 16.10.0
       tslib: 2.8.1
 
+  '@graphql-tools/utils@11.0.0(graphql@16.10.0)':
+    dependencies:
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.10.0)
+      '@whatwg-node/promise-helpers': 1.3.2
+      cross-inspect: 1.0.1
+      graphql: 16.10.0
+      tslib: 2.8.1
+
   '@graphql-tools/wrap@10.1.4(graphql@16.10.0)':
     dependencies:
       '@graphql-tools/delegate': 10.2.23(graphql@16.10.0)
-      '@graphql-tools/schema': 10.0.30(graphql@16.10.0)
+      '@graphql-tools/schema': 10.0.31(graphql@16.10.0)
       '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
       '@whatwg-node/promise-helpers': 1.3.2
       graphql: 16.10.0
@@ -9690,7 +9704,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   camelcase-css@2.0.1: {}
 
@@ -9703,7 +9717,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   ccount@2.0.1: {}
@@ -9869,7 +9883,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case: 2.0.2
 
   convert-source-map@2.0.0: {}
@@ -10789,10 +10803,10 @@ snapshots:
 
   fraction.js@5.3.4: {}
 
-  framer-motion@12.23.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@12.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      motion-dom: 12.23.23
-      motion-utils: 12.23.6
+      motion-dom: 12.26.2
+      motion-utils: 12.24.10
       tslib: 2.8.1
     optionalDependencies:
       react: 18.3.1
@@ -10972,7 +10986,7 @@ snapshots:
   graphql-tag@2.12.6(graphql@16.10.0):
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   graphql-ws@6.0.6(graphql@16.10.0)(ws@8.18.3):
     dependencies:
@@ -11174,7 +11188,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   hosted-git-info@7.0.2:
     dependencies:
@@ -12307,15 +12321,15 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.6.1
 
-  motion-dom@12.23.23:
+  motion-dom@12.26.2:
     dependencies:
-      motion-utils: 12.23.6
+      motion-utils: 12.24.10
 
-  motion-utils@12.23.6: {}
+  motion-utils@12.24.10: {}
 
-  motion@12.23.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  motion@12.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      framer-motion: 12.23.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 12.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tslib: 2.8.1
     optionalDependencies:
       react: 18.3.1
@@ -12471,7 +12485,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   node-domexception@1.0.0: {}
 
@@ -12639,7 +12653,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   parent-module@1.0.1:
     dependencies:
@@ -12706,12 +12720,12 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   path-data-parser@0.1.0: {}
 
@@ -13357,7 +13371,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   serialize-query-params@2.0.4: {}
