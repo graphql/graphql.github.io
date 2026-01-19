@@ -38,4 +38,4 @@ export type SchedSpeaker = {
   _years: ConferenceYear[]
 }
 
-export type ConferenceYear = 2025 | 2024 | 2023
+export type ConferenceYear = 2026 | 2025 | 2024 | 2023

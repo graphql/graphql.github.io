@@ -21,7 +21,7 @@ export function GetYourTicket({ className }: { className?: string }) {
             Get your ticket
           </h2>
           <p className="typography-body-lg text-neu-800">
-            The registration deadline is 23:59 CET on the respective date.
+            The registration deadline is 23:59 PT on the respective date.
           </p>
         </header>
 

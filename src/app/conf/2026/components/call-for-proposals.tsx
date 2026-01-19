@@ -23,10 +23,7 @@ function DatesTab() {
         term="Schedule Announced"
         definition="Wednesday, 4 March"
       />
-      <DefinitionListItem
-        term="Slides due date"
-        definition="Monday, 4 May"
-      />
+      <DefinitionListItem term="Slides due date" definition="Monday, 4 May" />
       <DefinitionListItem
         term="Event Dates"
         definition="Wednesday, May 6 - Thursday, May 7"
@@ -81,12 +78,14 @@ function TopicsTab() {
           <li>Security</li>
           <li>Scaling</li>
           <li>Observability, telemetry and tracing</li>
+          <li>Integrating AI and LLMs</li>
         </ul>
         <li>Developer Experience</li>
         <ul className="list-disc space-y-2 pl-6">
           <li>Frontend</li>
           <li>Backend</li>
           <li>Patterns and community trends</li>
+          <li>DX with AI and LLMs</li>
           <li>Testing</li>
           <li>Documentation</li>
         </ul>
@@ -256,10 +255,10 @@ function ProcessTab() {
       </ul>
       <h3 className="typography-h3 mt-6">Subject Matter Experts</h3>
       <p className="mt-2">
-        This will be a panel of volunteers
-        drawn from industry experts, working group members, security and
-        observability experts, and maintainers and contributors to open source
-        GraphQL projects. When evaluating the talks, they will{" "}
+        This will be a panel of volunteers drawn from industry experts, working
+        group members, security and observability experts, and maintainers and
+        contributors to open source GraphQL projects. When evaluating the talks,
+        they will{" "}
         <strong>focus on how exciting and engaging the talks are</strong> and
         use the following criteria:
       </p>

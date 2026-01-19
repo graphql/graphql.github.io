@@ -58,7 +58,6 @@ export default function Layout({
         links={[
           { children: "Sponsor", href: "/conf/2026/#sponsors" },
           { children: "Speakers", href: "/#speakers" },
-          { children: "GraphQLConf 2024", href: "/conf/2024" },
           { children: "GraphQLConf 2025", href: "/conf/2025" },
           { children: "FAQ", href: "#faq" },
           { children: "Contact Us", href: "/conf/2026/resources/#contact" },

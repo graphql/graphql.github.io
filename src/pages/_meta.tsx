@@ -108,10 +108,10 @@ export default {
     title: (
       <Emphasis>
         GraphQLConf
-        <span className="max-xl:hidden"> 2025</span>
+        <span className="max-xl:hidden"> 2026</span>
       </Emphasis>
     ),
-    route: "/conf/2025",
+    route: "/conf/2026",
   },
   "graphql-js": {
     type: "page",

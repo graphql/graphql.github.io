@@ -33,9 +33,9 @@ export default async function SessionOGImage({
     (
       <SessionOpengraphImage
         session={session}
-        date="May 6-8"
+        date="May 6-7"
         year="2026"
-        location="Amsterdam, Netherlands"
+        location="Menlo Park, California"
       />
     ),
     {

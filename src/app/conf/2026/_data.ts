@@ -6,7 +6,7 @@ import { readSpeakers } from "../_api/sched-data"
 const speakersData = require("../../../../scripts/sync-sched/speakers.json")
 const equalitySets: string[][] = speakersData.equal || []
 
-export const schedule: ScheduleSession[] = require("../../../../scripts/sync-sched/schedule-2025.json")
+export const schedule: ScheduleSession[] = require("../../../../scripts/sync-sched/schedule-2026.json")
 
 type SpeakerUsername = SchedSpeaker["username"]
 
@@ -22,7 +22,7 @@ for (const session of schedule) {
   }
 }
 
-export const speakers: SchedSpeaker[] = readSpeakers(2025).filter(speaker =>
+export const speakers: SchedSpeaker[] = readSpeakers(2026).filter(speaker =>
   speakerSessions.has(speaker.username),
 )
 
@@ -34,9 +34,11 @@ export const previousEditionSessions = new Map<
 {
   const schedule2023 = require("../../../../scripts/sync-sched/schedule-2023.json")
   const schedule2024 = require("../../../../scripts/sync-sched/schedule-2024.json")
+  const schedule2025 = require("../../../../scripts/sync-sched/schedule-2025.json")
 
   collectSessionsFromPreviousYears(schedule2023)
   collectSessionsFromPreviousYears(schedule2024)
+  collectSessionsFromPreviousYears(schedule2025)
 }
 
 function collectSessionsFromPreviousYears(schedule: ScheduleSession[]) {
