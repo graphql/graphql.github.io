@@ -51,24 +51,9 @@ export default function Page() {
           <MarqueeRows
             variant="secondary"
             items={[
-              [
-                "MENLO PARK",
-                "MAY 2026",
-                "TWO DAYS",
-                "META CAMPUS",
-              ],
-              [
-                "TWO DAYS",
-                "META CAMPUS",
-                "CALIFORNIA",
-                "GRAPHQL COMMUNITY",
-              ],
-              [
-                "CALIFORNIA",
-                "10 YEARS OF GRAPHQL",
-                "06-07 MAY",
-                "MENLO PARK",
-              ],
+              ["MENLO PARK", "MAY 2026", "TWO DAYS", "META CAMPUS"],
+              ["TWO DAYS", "META CAMPUS", "CALIFORNIA", "GRAPHQL COMMUNITY"],
+              ["CALIFORNIA", "10 YEARS OF GRAPHQL", "06-07 MAY", "MENLO PARK"],
             ]}
             className="my-8 xl:mb-16 xl:mt-10 2xl:mb-24"
           />

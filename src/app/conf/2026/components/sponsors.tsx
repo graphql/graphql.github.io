@@ -11,7 +11,7 @@ interface Sponsor {
 }
 
 const sponsorPlatinum: Sponsor[] = [
-    {
+  {
     icon: (props: React.HTMLAttributes<HTMLDivElement>) => (
       <div {...props} className={clsx(props.className, "relative size-full")}>
         <img
