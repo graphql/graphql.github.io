@@ -22,7 +22,7 @@ for (const session of schedule) {
   }
 }
 
-export const speakers: SchedSpeaker[] = readSpeakers(2025).filter(speaker =>
+export const speakers: SchedSpeaker[] = readSpeakers(2026).filter(speaker =>
   speakerSessions.has(speaker.username),
 )
 

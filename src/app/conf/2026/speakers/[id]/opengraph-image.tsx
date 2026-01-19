@@ -35,7 +35,7 @@ export default async function SpeakerOGImage({
         speaker={speaker}
         date="May 6-7"
         year="2026"
-        location="Amsterdam, Netherlands"
+        location="Menlo Park, California"
       />
     ),
     {

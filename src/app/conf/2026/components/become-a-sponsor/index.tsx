@@ -18,6 +18,7 @@ export function BecomeASponsor() {
               to industry leaders and decision-makers.
             </p>
           </div>
+          {/* TODO
           <Button
             variant="primary"
             href="https://events.linuxfoundation.org/sponsor-GraphQLConf-25?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=sponsor_section"
@@ -27,6 +28,7 @@ export function BecomeASponsor() {
           >
             Sponsor
           </Button>
+          */}
         </header>
         <dl className="relative z-10 mt-10 border border-neu-300 md:backdrop-blur-[6.4px] xl:mt-16">
           <DefinitionListItem

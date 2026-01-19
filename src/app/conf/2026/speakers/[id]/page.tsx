@@ -120,7 +120,7 @@ export default function SpeakerPage({ params }: SpeakerProps) {
           <div className="gql-container">
             <CtaCardSection
               title="Get your ticket"
-              description="Join three transformative days of expert insights and innovation to shape the next decade of APIs!"
+              description="Join two transformative days of expert insights and innovation to shape the next decade of APIs!"
             >
               <Button
                 disabled
