@@ -46,8 +46,7 @@ export function Footer({
       <div className="relative flex justify-between gap-10 p-4 text-sm max-lg:flex-col md:px-6 2xl:px-10">
         <div className="flex flex-col font-light max-md:gap-5">
           <p>
-            Copyright © {new Date().getFullYear()} The GraphQL Foundation. All
-            rights reserved.
+            Copyright © {new Date().getFullYear()} The GraphQL Foundation.
           </p>
           <p>
             For web site terms of use, trademark policy and general project

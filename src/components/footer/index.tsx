@@ -177,8 +177,7 @@ export function Footer() {
             <ThemeSwitch />
           </div>
           <p className="typography-body-xs flex flex-col text-pretty max-md:gap-5">
-            Copyright © {new Date().getFullYear()} The GraphQL Foundation. All
-            rights reserved.
+            Copyright © {new Date().getFullYear()} The GraphQL Foundation.
           </p>
         </div>
       </div>

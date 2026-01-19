@@ -53,7 +53,7 @@ export async function GET() {
     site_url: SITE_URL,
     // managingEditor: "info@graphql.org",
     // webMaster: "info@graphql.org",
-    copyright: `Copyright © ${new Date().getFullYear()} The GraphQL Foundation. All rights reserved.`,
+    copyright: `Copyright © ${new Date().getFullYear()} The GraphQL Foundation.`,
     language: "en-US",
     // Published date as last blog post date
     pubDate: blogs[0].frontMatter.date.toUTCString(),
