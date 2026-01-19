@@ -31,9 +31,17 @@ export default function Page() {
 
       <div className="gql-container gql-section">
         <div className="grid lg:grid-cols-2 lg:gap-5 max-lg:[&>:not(:first-child)]:border-t-0">
-          {speakers.map(speaker => (
-            <SpeakerCard key={speaker.username} speaker={speaker} year="2026" />
-          ))}
+          {speakers.length === 0 ? (
+            <>Speakers not yet announced</>
+          ) : (
+            speakers.map(speaker => (
+              <SpeakerCard
+                key={speaker.username}
+                speaker={speaker}
+                year="2026"
+              />
+            ))
+          )}
         </div>
       </div>
 
