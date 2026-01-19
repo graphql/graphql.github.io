@@ -138,7 +138,13 @@ export function ScheduleList({
   const firstDay = Object.values(filteredSessions)[0]
   if (!firstDay) {
     // No schedule yet
-    return <>Schedule has not yet been announced</>
+    return (
+      <>
+        <div className="typography-body-sm">
+          <h3 className="mb-5">Schedule not yet announced</h3>
+        </div>
+      </>
+    )
   }
   // if the first day has less than 3 sessions, it's probably a "day zero" with extra events or workshops
   const firstDayIsDayZero = Object.keys(firstDay).length < 3
