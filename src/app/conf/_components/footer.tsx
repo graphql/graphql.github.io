@@ -44,9 +44,7 @@ export function Footer({
       </div>
       <div className="container flex justify-between gap-10 text-sm max-lg:flex-col">
         <div className="flex flex-col font-light max-md:gap-5">
-          <p>
-            Copyright © {new Date().getFullYear()} The GraphQL Foundation.
-          </p>
+          <p>Copyright © {new Date().getFullYear()} The GraphQL Foundation.</p>
           <p>
             For web site terms of use, trademark policy and general project
             policies please see{" "}
