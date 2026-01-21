@@ -4,7 +4,7 @@ import NextImage from "next/image"
 import { Button } from "../../../_design-system/button"
 import { GET_TICKETS_LINK } from "../../links"
 
-import speakerImage from "./speaker.webp"
+import speakerImage from "./audience.jpg"
 
 export interface RegisterTodayProps {
   className?: string
@@ -20,7 +20,7 @@ export function RegisterToday({ className }: RegisterTodayProps) {
     >
       <NextImage
         src={speakerImage}
-        alt="GraphQL Conference"
+        alt="GraphQL Conference audience"
         width="450"
         height="566"
         className="aspect-[312/392] w-full object-cover max-sm:hidden sm:aspect-[2] lg:aspect-[450/566] lg:h-[566px] lg:w-[450px]"
