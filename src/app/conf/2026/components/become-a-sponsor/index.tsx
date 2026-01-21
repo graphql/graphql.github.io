@@ -21,7 +21,7 @@ export function BecomeASponsor() {
           {/* TODO
           <Button
             variant="primary"
-            href="https://events.linuxfoundation.org/sponsor-GraphQLConf-25?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=sponsor_section"
+            href="http://events.linuxfoundation.org/sponsor-graphqlconf26"
             target="_blank"
             rel="noreferrer"
             className="md:w-fit"
