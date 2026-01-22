@@ -62,15 +62,13 @@ export function RegisterSection({ className, ...props }: RegisterSectionProps) {
               graphql_events@linuxfoundation.org
             </a>
           </p>
-          {/* TODO
           <Button
             variant="primary"
             className="mt-6"
-            href="https://events.linuxfoundation.org/wp-content/uploads/2025/02/sponsor_GraphQLConf_2025_022025.pdf"
+            href="https://events.linuxfoundation.org/sponsor-graphqlconf26"
           >
             Become a sponsor
           </Button>
-          */}
         </article>
         <article className="border border-neu-400 p-6">
           <h3 className="typography-h3">Media</h3>

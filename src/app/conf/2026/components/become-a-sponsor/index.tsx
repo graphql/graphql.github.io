@@ -18,17 +18,15 @@ export function BecomeASponsor() {
               to industry leaders and decision-makers.
             </p>
           </div>
-          {/* TODO
           <Button
             variant="primary"
-            href="http://events.linuxfoundation.org/sponsor-graphqlconf26"
+            href="https://events.linuxfoundation.org/sponsor-graphqlconf26"
             target="_blank"
             rel="noreferrer"
             className="md:w-fit"
           >
             Sponsor
           </Button>
-          */}
         </header>
         <dl className="relative z-10 mt-10 border border-neu-300 md:backdrop-blur-[6.4px] xl:mt-16">
           <DefinitionListItem
