@@ -24,6 +24,24 @@ import image2024_11 from "./2024/11.webp"
 import image2024_12 from "./2024/12.webp"
 import image2024_13 from "./2024/13.webp"
 
+import image2025_1 from "./2025/1.webp"
+import image2025_2 from "./2025/13.webp"
+import image2025_3 from "./2025/4.webp"
+import image2025_4 from "./2025/3.webp"
+import image2025_5 from "./2025/7.webp"
+import image2025_6 from "./2025/6.webp"
+import image2025_7 from "./2025/5.webp"
+import image2025_8 from "./2025/8.webp"
+import image2025_9 from "./2025/9.webp"
+import image2025_10 from "./2025/10.webp"
+import image2025_11 from "./2025/12.webp"
+import image2025_12 from "./2025/11.webp"
+import image2025_13 from "./2025/2.webp"
+import image2025_14 from "./2025/16.webp"
+import image2025_15 from "./2025/15.webp"
+import image2025_16 from "./2025/14.webp"
+import image2025_17 from "./2025/17.webp"
+
 export const imagesByYear = {
   "2023": [
     image2023_8,
@@ -52,5 +70,24 @@ export const imagesByYear = {
     image2024_8,
     image2024_4,
     image2024_1,
+  ],
+  "2025": [
+    image2025_1,
+    image2025_2,
+    image2025_3,
+    image2025_4,
+    image2025_5,
+    image2025_6,
+    image2025_7,
+    image2025_8,
+    image2025_9,
+    image2025_10,
+    image2025_11,
+    image2025_12,
+    image2025_13,
+    image2025_14,
+    image2025_15,
+    image2025_16,
+    image2025_17,
   ],
 }
