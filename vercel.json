@@ -547,7 +547,7 @@
     },
     {
       "source": "/conf/",
-      "destination": "/conf/2025/",
+      "destination": "/conf/2026/",
       "permanent": false
     },
     {
