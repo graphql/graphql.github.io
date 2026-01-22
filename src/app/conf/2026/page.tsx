@@ -57,6 +57,7 @@ export default function Page() {
             ]}
             className="my-8 xl:mb-16 xl:mt-10 2xl:mb-24"
           />
+          <Venue />
           <GalleryStrip />
           <Testimonials />
           <GraphQLFoundationCard />

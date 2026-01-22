@@ -47,7 +47,6 @@ export default function Layout({
             children: "2025 Event Photos",
             href: GALLERY_LINK,
           },
-          { children: "FAQ", href: "/conf/2026/#faq" },
         ]}
       />
       <ThemeProvider attribute="class">

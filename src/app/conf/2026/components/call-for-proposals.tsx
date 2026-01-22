@@ -57,38 +57,21 @@ function TopicsTab() {
     <div className="bg-sec-light p-4">
       <h3 className="typography-h3">Suggested Topics</h3>
       <ul className="mt-2 list-disc space-y-2 pl-6">
-        <li>GraphQL Working Group</li>
-        <ul className="list-disc space-y-2 pl-6">
-          <li>
-            GraphQL Specification (including incremental delivery, nullability)
-          </li>
-          <li>GraphQL-over-HTTP specification</li>
-          <li>Federation specification</li>
-          <li>
-            Reference software (GraphQL.js, graphql-http, GraphiQL and LSP)
-          </li>
-        </ul>
-        <li>GraphQL in Production</li>
-        <ul className="list-disc space-y-2 pl-6">
-          <li>Case studies</li>
-          <li>Federation and Distributed Systems</li>
-          <li>
-            Schema evolution (including backwards compatibility and versioning)
-          </li>
-          <li>Security</li>
-          <li>Scaling</li>
-          <li>Observability, telemetry and tracing</li>
-          <li>Integrating AI and LLMs</li>
-        </ul>
-        <li>Developer Experience</li>
-        <ul className="list-disc space-y-2 pl-6">
-          <li>Frontend</li>
-          <li>Backend</li>
-          <li>Patterns and community trends</li>
-          <li>DX with AI and LLMs</li>
-          <li>Testing</li>
-          <li>Documentation</li>
-        </ul>
+        <li>AI and LLMs</li>
+        <li>Clients</li>
+        <li>Community</li>
+        <li>Federation and Distributed Systems</li>
+        <li>GraphQL Specification</li>
+        <li>Observability, telemetry and tracing</li>
+        <li>Other GraphQL working groups</li>
+        <li>Performance</li>
+        <li>Production Insights - huge scale</li>
+        <li>Production Insights - regular scale</li>
+        <li>Schema design and evolution</li>
+        <li>Security</li>
+        <li>Servers</li>
+        <li>Tooling, DX, testing, and documentation</li>
+        <li>Trends</li>
       </ul>
     </div>
   )
@@ -209,16 +192,8 @@ function TypesTab() {
         definition="Typically 30 minutes in length, 3-4 speakers presenting on a topic"
       />
       <DefinitionListItem
-        term="Birds of a Feather"
-        definition="Typically 45 minutes to 1 hour in length"
-      />
-      <DefinitionListItem
         term="Lightning Talk"
         definition="Typically 5-10 minutes in length"
-      />
-      <DefinitionListItem
-        term="Workshop"
-        definition="Typically 1-2 hours in length"
       />
     </DefinitionListBox>
   )

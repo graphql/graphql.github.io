@@ -32,26 +32,27 @@ export function Venue(props: VenueProps) {
           }}
         />
         <article className="relative flex shrink-0 flex-col gap-6 max-xl:max-w-[476px]">
-          {/*
-          <h2 className="typography-h2">
-            A place of innovation &&nbsp;creation
-          </h2>
-          <p className="typography-body-lg">
-            A former warehouse, located in an industrial area near the Amsterdam
-            city centre, changed into a place of culture & business.
-          </p>
-          <div className="flex-1" />
-          */}
-          <p className="typography-body-lg">Menlo Park, California</p>
-          {/*
+          {
+          <><h2 className="typography-h2">
+              Venue
+            </h2><p className="typography-body-lg">
+                We're heading back to where it all began: GraphQLConf 2026 will be hosted at Meta's Menlo Park campus,
+                where GraphQL was first conceptualized by Facebook engineers in 2012. 
+              </p><div className="flex-1" /></>
+          }
+          <p className="typography-body-lg">Meta MPK 22 Bayfront Campus <br />
+305 Constitution Dr <br />
+Menlo Park, CA 94025
+</p>
+          {
           <Button href="https://maps.app.goo.gl/W7nX1NejhWw9PqxF7">
             Google Maps
           </Button>
-          */}
+          }
         </article>
-        {/*
+        {
         <div className="relative flex-1">
-          <h3 className="typography-h3 mb-6">How to get to the venue?</h3>
+          <h3 className="typography-h3 mb-6">How to get there</h3>
           <Accordion
             className="[&_svg]:fill-neu-900"
             items={[
@@ -59,88 +60,117 @@ export function Venue(props: VenueProps) {
                 title: "Public Transportation",
                 description: (
                   <>
-                    Take tram 26 from Amsterdam Central Station to the
-                    "Kattenburgerstraat" stop.
-                    <br />
-                    The venue is in front of the tram stop.
+                    The city is served by multiple public transportation providers: <br />
+                    <ul>
+                    <li><a href="https://www.caltrain.com/">Caltrain</a></li>
+                    <li><a href="https://www.samtrans.com/">SamTrans</a></li>
+                    <li><a href="https://dumbartonexpress.com/">Dumbarton Express</a> (connects <a href="https://www.bart.gov/stations/ucty">Union City BART</a> to Menlo Park)</li>
+                    <li><a href="https://www.menlopark.gov/Government/Departments/Public-Works/Transportation-Division/City-Shuttle-services">City Shuttles</a></li><br />
+                    Review local and regional transportation options for getting around Menlo Park.
+                    </ul>
                   </>
                 ),
               },
               {
                 title: "Airport Information",
-                description:
-                  "Amsterdam Airport Schiphol is about 20 km from the venue. Take a direct train to Amsterdam Central Station, then follow the public transportation instructions.",
+                description: (
+                  <>
+                    There are multiple airports within a reasonable driving distance to Menlo Park: <br />
+                    <ul>
+                      <li><a href="https://www.flysfo.com/">San Francisco International Airport (SFO) </a></li>
+                      <li><a href="https://www.flysanjose.com/">San Jose Mineta International Airport (SJC)</a></li>
+                      <li><a href="https://www.iflyoak.com/">Oakland International Airport (OAK)</a></li>
+                    </ul>
+                  </>
+                ),
               },
               {
                 title: "Parking at venue",
                 description: (
                   <>
-                    Limited parking is available at the venue. We recommend
-                    using public transportation when possible. Learn more about
-                    parking at{" "}
-                    <a
-                      className="typography-link"
-                      href="https://dezwijger.nl/about-us-en/contact"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Pakhuis de Zwijger
-                    </a>
-                    . If&nbsp;you require an accessible parking spot, park at
-                    Vriesseveem 4 or Withoedenveem 16 where you can park if you
-                    have a Disability Parking Card.
+                    Coming Soon!
                   </>
                 ),
               },
             ]}
           />
-          <h3 className="typography-h3 my-6">Where to stay?</h3>
+          <h3 className="typography-h3 my-6">Where to stay</h3>
           <Accordion
             className="[&_svg]:fill-neu-900"
             items={[
               {
-                title: "Mövenpick Hotel Amsterdam City Centre",
-                link: "https://movenpick.accor.com/en/europe/netherlands/amsterdam/hotel-amsterdam.html?utm_source=google&utm_medium=local&utm_campaign=hotel-MHR-Amsterdam-city-center&y_source=1_MTUzNjI2OTgtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+                title: "The Cottages Hotel",
+                link: "https://cottageshotel.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
                 description: (
                   <>
-                    Piet Heinkade 11
+                    1704 El Camino Real
                     <br />
-                    1019 BR Amsterdam, Netherlands
+                    Menlo Park, CA 94027
                     <br />
                     Phone:{" "}
-                    <a className="typography-link" href="tel:+31 20 519 1200">
-                      +31 20 519 1200
+                    <a className="typography-link" href="tel:650 326 9010">
+                      650-326-9010
                     </a>
                   </>
                 ),
               },
               {
-                title: "Inntel Hotels Amsterdam Landmark",
-                link: "https://www.inntelhotelsamsterdamlandmark.nl/",
+                title: "Aloft Silicon Valley",
+                link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
                 description: (
                   <>
-                    VOC-kade 600
+                    8200 Gateway Blvd
                     <br />
-                    1018 LG Amsterdam, Netherlands
+                    Newark, CA 94560
                     <br />
                     Phone:{" "}
-                    <a className="typography-link" href="tel:+31 20 227 2550">
-                      +31 20 227 2550
+                    <a className="typography-link" href="tel:510 494 8800">
+                      510-494-8800
                     </a>
                   </>
                 ),
               },
               {
-                title: "DoubleTree by Hilton Amsterdam Central Station",
-                link: "https://www.hilton.com/en/hotels/amscsdi-doubletree-amsterdam-centraal-station/?SEO_id=GMB-EMEA-DI-AMSCSDI",
+                title: "CitizenM Menlo Park Hotel",
+                link: "https://www.marriott.com/en-us/hotels/sfopk-citizenm-menlo-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
                 description: (
                   <>
-                    Oosterdoksstraat 4 <br />
-                    1011 DK Amsterdam, Netherlands
+                    2 Meta Way <br />
+                    Menlo Park, CA 94025
                     <br />
                     Phone:{" "}
-                    <a className="typography-link" href="tel:+31 20 530 0800">
-                      +31 20 530 0800
+                    <a className="typography-link" href="tel:650 278 4448">
+                      650-278-4448
+                    </a>
+                  </>
+                ),
+              },
+              {
+                title: "Courtyard by Marriott Redwood City",
+                link: "https://www.marriott.com/en-us/hotels/sford-courtyard-redwood-city/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+                description: (
+                  <>
+                    600 Bair Island Rd <br />
+                    Redwood City, CA 94063
+                    <br />
+                    Phone:{" "}
+                    <a className="typography-link" href="tel:650 216 9435">
+                      650-216-9435
+                    </a>
+                  </>
+                ),
+              },
+              {
+                title: "Hotel Nia",
+                link: "https://www.hotelnia.com/",
+                description: (
+                  <>
+                    200 Independence Dr <br />
+                    Menlo Park, CA 94025
+                    <br />
+                    Phone:{" "}
+                    <a className="typography-link" href="tel:650 900 3434">
+                      650-900-3434
                     </a>
                   </>
                 ),
@@ -148,7 +178,7 @@ export function Venue(props: VenueProps) {
             ]}
           />
         </div>
-        */}
+        }
       </div>
     </section>
   )
