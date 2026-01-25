@@ -1,0 +1,59 @@
+---
+title: "GraphQL AI Working Group Recap: November 2025"
+date: 2026-01-20
+tags: ["blog"]
+byline: Kewei Qu
+featured: true
+---
+
+## Overview
+
+The GraphQL AI Working Group met in November 2025 to continue its exploration of how large language model agents can safely and reliably interact with GraphQL APIs. Building on the October discussion, the session focused on techniques that help agents write valid GraphQL operations with minimal hallucination and execute those operations on behalf of users to unblock real world data access needs.
+
+The discussion centered on two complementary approaches for guiding agents through large GraphQL schemas, followed by an update on early model benchmarking efforts.
+
+## Writing Valid GraphQL Operations with LLM Agents
+
+A primary goal of the working group is to reduce incorrect field selection, invalid queries, and fabricated schema elements when LLMs generate GraphQL operations. Two approaches were discussed in depth.
+
+### Approach One: Similarity Search Over the Schema
+
+The first approach uses semantic similarity search to help an agent navigate a GraphQL schema.
+
+The agent begins at the root query and mutation fields of a given schema. From there, it performs a level based traversal, identifying relevant types and fields using similarity search against the user’s intent. The agent then recursively explores related types and fields, gradually constructing a valid GraphQL operation.
+
+This method allows the agent to stay grounded in the actual schema structure while dynamically discovering only the parts of the schema that are relevant to the task at hand. It is particularly useful for large schemas where providing the entire schema to the model is impractical.
+
+### Approach Two: Checked In Subschemas
+
+The second approach relies on checked in subschemas that are designed to fit comfortably within an LLM context window.
+
+In this model, the agent is initially provided with an entry point subschema that contains all accessible root fields for queries and mutations, along with commonly used types. Additional schema dependencies are declared using a directive such as `@require_graphql_subschema`, which instructs the agent to load and reference other subschemas as needed.
+
+This approach constrains the agent’s view of the schema while still allowing it to expand its knowledge in a controlled and explicit way. Detailed documentation and design discussion for this mechanism can be found in the working group issue tracker, specifically [issue number 54 in the GraphQL AI Working Group repository](https://github.com/graphql/ai-wg/issues/54).
+
+## Early Model Benchmarking Results
+
+The working group also shared an update on early benchmarking efforts comparing how different LLMs perform at writing GraphQL operations.
+
+At this stage, the group does not yet have a fully reliable GraphQL AST based grading system, which means results cannot be evaluated with complete certainty. Despite this limitation, early experiments show promising trends.
+
+Initial results indicate that Claude Sonnet 4.5 models are producing the strongest outcomes in terms of correctness and schema adherence, with GPT 5 models following closely behind. These findings are considered preliminary and are intended to guide future, more rigorous evaluation work rather than serve as definitive rankings.
+
+## Next Steps
+
+The working group identified several areas of focus for upcoming meetings and collaboration:
+
+1. Developing reference implementations of LLM agents that apply schema similarity search and subschema based navigation.
+2. Building a robust GraphQL AST based grading system to improve the accuracy of benchmarking.
+3. Publishing shared benchmarks and example schemas to help the broader community evaluate and iterate on GraphQL aware AI agents.
+
+These efforts aim to make GraphQL a reliable and first class interface for AI driven systems while preserving the strong typing and correctness guarantees that GraphQL provides.
+
+## Get Involved 
+
+Grab a calendar invite at [calendar.graphql.org](https://calendar.graphql.org)!
+To join, open a [PR against the agenda](https://github.com/graphql/ai-wg/tree/main/agendas) and add yourself. If you've not already signed the free GraphQL specification membership agreement, the EasyCLA robot will guide you how to do so once you've opened the PR.
+
+Like all GraphQL working groups, this one is **open to everyone**. Whether you’re building AI APIs, researching integrations, or just curious about the possibilities, you’re welcome to join. If you can't make it, you can always catch up via the [GraphQL Foundation Working Groups YouTube channel](https://www.youtube.com/@GraphQLFoundation).
+

@@ -4,4 +4,7 @@ description: A JavaScript library for application development using cloud servic
 url: https://docs.amplify.aws/
 github: aws-amplify/amplify-js
 npm: "aws-amplify"
+tags:
+  - tools-and-libraries
+  - frontend
 ---

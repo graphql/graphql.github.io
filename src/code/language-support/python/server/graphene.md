@@ -3,6 +3,9 @@ name: Graphene
 description: A Python library for building GraphQL APIs.
 url: http://graphene-python.org/
 github: graphql-python/graphene
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 To run a Graphene hello world script:

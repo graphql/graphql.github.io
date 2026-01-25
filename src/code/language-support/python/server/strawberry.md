@@ -3,6 +3,9 @@ name: Strawberry
 description: Strawberry is a Python library for implementing code first GraphQL servers using modern Python features like type hints.
 url: https://strawberry.rocks
 github: strawberry-graphql/strawberry
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 Here's an example of a Strawberry hello world, first install the library:

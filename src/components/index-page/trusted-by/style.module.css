@@ -1,0 +1,29 @@
+.logos {
+  & .shopify > svg {
+    transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  & > a {
+    transition: background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &::before {
+      transition: background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    & :is(svg, path) {
+      transition: fill 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    &:not(:hover) svg,
+    &:not(:hover) path {
+      fill: hsl(var(--color-neu-600));
+    }
+
+    html[class~="dark"] & {
+      &:not(:hover) svg,
+      &:not(:hover) path {
+        fill: hsl(var(--color-neu-200));
+      }
+    }
+  }
+}

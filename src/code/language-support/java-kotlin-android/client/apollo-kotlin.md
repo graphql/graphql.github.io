@@ -2,6 +2,9 @@
 name: Apollo Kotlin
 description: A strongly-typed, caching GraphQL client for the JVM, Android, and Kotlin multiplatform.
 github: apollographql/apollo-kotlin
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 Apollo Kotlin (formerly known as Apollo Android) is a GraphQL client with support for Android, Java8+, iOS and Kotlin multiplatform in general. It features:

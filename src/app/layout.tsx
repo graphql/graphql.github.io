@@ -1,6 +1,8 @@
 import { ReactElement, ReactNode } from "react"
 import { Metadata } from "next"
 import GoogleAnalytics from "@/app/ga"
+
+import "../conf.css"
 import "../globals.css"
 
 export const metadata: Metadata = {
@@ -32,7 +34,7 @@ export default function RootLayout({
       <head>
         <style>{`html { scroll-padding-top: 5rem }`}</style>
       </head>
-      <body className="bg-conf-black">
+      <body className="bg-neu-0">
         <GoogleAnalytics />
         {children}
       </body>

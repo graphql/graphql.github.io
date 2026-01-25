@@ -4,4 +4,7 @@ description: A set of utils for faster development of GraphQL tools (Schema and 
 url: https://graphql-tools.com
 github: ardatan/graphql-tools
 npm: "graphql-tools"
+tags:
+  - tools-and-libraries
+  - tools
 ---

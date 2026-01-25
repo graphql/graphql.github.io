@@ -4,4 +4,7 @@ description: GraphQL Modules lets you separate your backend implementation to sm
 url: https://graphql-modules.com
 github: Urigo/graphql-modules
 npm: "graphql-modules"
+tags:
+  - tools-and-libraries
+  - tools
 ---

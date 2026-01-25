@@ -3,6 +3,9 @@ name: Microfiber
 description: A library to query and manipulate GraphQL Introspection Query results.
 github: anvilco/graphql-introspection-tools
 npm: "microfiber"
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 Microfiber is a JavaScript library that allows:

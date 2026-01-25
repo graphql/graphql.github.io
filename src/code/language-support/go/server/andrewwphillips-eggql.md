@@ -2,6 +2,9 @@
 name: EGGQL
 description: Easy to use, complete Go implementation of GraphQL. Simple and schema-less.
 github: andrewwphillips/eggql
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 The purpose of Eggql is to make it as simple as possible to create a GraphQL server. You don't need to create GraphQL schema (though you can view the schema that is created if interested). It is currently in beta release but is a complete implementation of a GraphQL server apart from subscriptions.

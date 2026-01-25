@@ -4,4 +4,7 @@ description: builds a powerful, extensible and performant GraphQL API from a Pos
 url: https://www.graphile.org/postgraphile
 github: graphile/postgraphile
 npm: "postgraphile"
+tags:
+  - tools-and-libraries
+  - tools
 ---

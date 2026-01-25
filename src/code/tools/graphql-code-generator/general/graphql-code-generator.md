@@ -4,4 +4,7 @@ description: GraphQL code generator with flexible support for custom plugins and
 url: https://graphql-code-generator.com
 github: dotansimha/graphql-code-generator
 npm: "@graphql-codegen/cli"
+tags:
+  - tools-and-libraries
+  - tools
 ---

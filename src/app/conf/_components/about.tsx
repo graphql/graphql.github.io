@@ -1,7 +1,7 @@
 import { ComponentProps } from "react"
 import ConfImage from "../2023/gallery/images/8.jpg"
 import ConfImage2 from "../2023/gallery/images/9.jpg"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 
 const list = [
   { title: "Cloud Engineering" },
@@ -87,6 +87,7 @@ export function About() {
             src={ConfImage}
             className="aspect-video w-full rounded-md object-cover"
             alt="GraphQL Conf Image"
+            placeholder="blur"
           />
         </div>
 
@@ -95,6 +96,7 @@ export function About() {
             alt="GraphQL Conf Image"
             src={ConfImage2}
             className="aspect-square w-full rounded-md object-cover max-lg:order-2"
+            placeholder="blur"
           />
           <div className="flex flex-col gap-14">
             <p className="lg:text-lg">

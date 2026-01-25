@@ -2,6 +2,9 @@
 name: graphql-dotnet
 description: GraphQL for .NET
 github: graphql-dotnet/graphql-dotnet
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 ```csharp

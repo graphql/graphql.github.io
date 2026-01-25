@@ -1,4 +1,4 @@
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 import { SessionList } from "./schedule/session-list"
 import { Button } from "./button"
 import leeImage from "../2023/gallery/images/3.jpg"
@@ -51,6 +51,7 @@ export async function Thanks() {
               alt="Lee Byron"
               className="aspect-video rounded-md object-cover"
               src={leeImage}
+              placeholder="blur"
             />
           </div>
         </div>

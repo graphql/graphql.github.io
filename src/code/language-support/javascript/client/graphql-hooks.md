@@ -3,6 +3,9 @@ name: graphql-hooks
 description: Minimal React hooks-first GraphQL client with a tiny bundle, SSR support and caching
 github: nearform/graphql-hooks
 npm: graphql-hooks
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 - 🥇 First-class hooks API

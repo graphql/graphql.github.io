@@ -1,17 +1,76 @@
+import { Cards } from "../../../components/cards"
+
 # Participating in Development
 
 GraphQL is developed in the open, through [GitHub](https://github.com/graphql) and working group meetings that are open for anyone to attend (so long as they are covered under the [free membership agreement](https://github.com/graphql/graphql-wg/tree/HEAD/membership)). In addition, anybody is welcome to view the [recordings of our meetings on YouTube](https://youtube.graphql.org)
 
-## First steps
-
-If you want to get involved in GraphQL, add yourself to the meeting agenda for one of our [working groups or implementations](https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md#about-the-graphql-specification-project), sign the document if you haven't already, and show up! Or, if you prefer, just open a PR against our projects as this will also initiate the spec membership signature process.
-
-We welcome your participation!
-
 ## Getting up to speed
 
-All of our work [happens in the open](https://github.com/graphql). In addition, we record our workgroups' meetings on [YouTube](https://youtube.graphql.org). If you are interested in quickly getting up to speed on what's happening in a working group, the meeting minutes and [replays](https://youtube.graphql.org) are a great place to begin.
+All of our work [happens in the open](https://github.com/graphql). In addition, we record our workgroups' meetings on [YouTube](https://youtube.graphql.org). If you are interested in quickly getting up to speed on what's happening in a working group, the meeting minutes (`notes` folder in the relevant repository) and [replays](https://youtube.graphql.org) are a great place to begin.
 
 ## Asking questions
 
 The best place to ask a development-related question is in a working group meeting, or by opening a GitHub issue. Please note that if you have an implementation question, you may get a faster answer by [asking in one of the channels more geared toward users](/community/resources/official-channels/).
+
+
+## GraphQL projects and implementations
+
+<Cards
+  items={[
+
+    {
+      title: "GraphQL Specification",
+      link: "https://github.com/graphql/graphql-spec",
+      description: "This is a Working Draft of the Specification for GraphQL, a query language for APIs created by Facebook. The target audience for this specification is not the client developer, but those who have, or are actively interested in, building their own GraphQL implementations and tools. To join in with its development, join the main GraphQL Working Group",
+    },
+    {
+      title: "GraphQL.js",
+      link: "https://github.com/graphql/graphql-js",
+      description: "The JavaScript reference implementation for GraphQL.",
+    },
+    {
+      title: "GraphiQL IDE",
+      link: "https://github.com/graphql/graphiql",
+      description: "Whether you want a simple GraphiQL IDE instance for your server, or a more advanced web or desktop GraphQL IDE experience for your framework or plugin, or you want to build an IDE extension or plugin, you've come to the right place!",
+    },
+    {
+      title: "GraphQL Website",
+      link: "https://github.com/graphql/graphql.github.io",
+      description: "The source repository for this very website: GraphQL Documentation, community initiatives and more",
+    },
+    {
+      title: "GraphQL over HTTP Specification",
+      link: "https://github.com/graphql/graphql-over-http",
+      description: "HTTP is the most common choice as the client-server protocol when using GraphQL because of its ubiquity. However the GraphQL specification deliberately does not specify the transport layer. This specification is intended to fill this gap by specifying how GraphQL should be served over HTTP. ",
+    },
+    {
+      title: "graphql-http",
+      link: "https://github.com/graphql/graphql-http",
+      description: "Simple, pluggable, zero-dependency, GraphQL over HTTP spec compliant server, client and audit suite.",
+    },
+        {
+      title: "GraphQL Composite Schema Spec",
+      link: "https://github.com/graphql/composite-schemas-spec",
+      description: "Describes how to construct a single unified GraphQL schema, the composite schema, from multiple GraphQL schemas, each termed a source schema.",
+    },
+    {
+      title: "GraphQL Scalars Specification",
+      link: "https://github.com/graphql/graphql-scalars",
+      description: "Providing a directory of GraphQL Custom Scalar specifications, contributed by the community. GraphQL Custom Scalar specifications are language agnostic and thus can be used to document and standardize behavior across different languages.",
+    },
+    {
+      title: "Dataloader",
+      link: "https://github.com/graphql/dataloader",
+      description: "A generic utility to be used as part of your application's data fetching layer to provide a simplified and consistent API over various remote data sources such as databases or web services via batching and caching.",
+    },
+    {
+      title: "SWAPI GraphQL Wrapper",
+      link: "https://github.com/graphql/swapi-graphql",
+      description: "A wrapper around the Star Wars API, or \"swapi\" (Swah-pee) the world's first quantified and programmatically-accessible data source for all the data from the Star Wars canon universe, converting it into a GraphQL schema.",
+    },
+  ]}
+  />
+
+If you want to get involved in GraphQL, add yourself to the meeting agenda for one of our [working groups or implementations](./project-meetings/#quick-guide-how-to-join), sign the document if you haven't already, and show up! Or, if you prefer, just open a PR against our projects as this will also initiate the spec membership signature process.
+
+We welcome your participation!

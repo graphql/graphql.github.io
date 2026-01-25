@@ -14,7 +14,7 @@ export const InfoGrid: React.FC<InfoGridProps> = ({
   id,
 }) => (
   <section id={id}>
-    <h1 className="mb-4 typography-h2">{title}</h1>
+    <h1 className="typography-h2 mb-4">{title}</h1>
     <p className="typography-body-lg xl:mb-4">{subtitle}</p>
     <div
       style={{
@@ -24,7 +24,7 @@ export const InfoGrid: React.FC<InfoGridProps> = ({
     >
       {listItems.map(({ title, description }, index) => (
         <div key={index} className="min-w-64 border border-neu-400 p-3">
-          <h2 className="mb-2 typography-body-lg">{title}</h2>
+          <h2 className="typography-body-lg mb-2">{title}</h2>
           <p
             className="typography-body-md [&_a]:typography-link"
             dangerouslySetInnerHTML={{ __html: description }}

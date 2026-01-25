@@ -4,6 +4,9 @@ description: A highly customizable and versatile GraphQL client with which you a
 url: https://formidable.com/open-source/urql/docs/
 github: FormidableLabs/urql
 npm: "@urql/core"
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 `urql` is a GraphQL client that exposes a set of helpers for several frameworks.

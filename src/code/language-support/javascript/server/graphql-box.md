@@ -3,6 +3,9 @@ name: GraphQLBox server
 description: An extensible GraphQL server with modules for caching, request parsing, debugging, subscriptions and more...
 github: badbatch/graphql-box
 npm: "@graphql-box/server"
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 The example below installs and initializes the GraphQLBox server with a persisted cache and debugging enabled.

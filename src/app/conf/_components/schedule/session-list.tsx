@@ -3,23 +3,9 @@
 import { compareAsc } from "date-fns"
 import { ComponentProps, ReactElement, useEffect, useState } from "react"
 import { Filters } from "./filters"
-import { SchedSpeaker } from "../../2023/types"
+import { SchedSpeaker, ScheduleSession } from "../../2023/types"
 import { clsx } from "clsx"
 import NextLink from "next/link"
-
-export interface ScheduleSession {
-  id: string
-  audience: string
-  description: string
-  event_end: string
-  event_start: string
-  event_subtype: string
-  event_type: string
-  name: string
-  venue?: string
-  speakers?: SchedSpeaker[] | string
-  files?: { name: string; path: string }[]
-}
 
 export interface ConcurrentSessions {
   [date: string]: ScheduleSession[]
@@ -169,7 +155,7 @@ export function SessionList({
                     <NextLink
                       key={session.id}
                       className={`${clsx(
-                        "white flex flex-col overflow-hidden rounded-md text-current shadow-2xl hover:no-underline focus:no-underline",
+                        "flex flex-col overflow-hidden rounded-md text-current shadow-2xl hover:no-underline focus:no-underline",
                       )} ${minimalVersion ? "bg-[#251f30]" : ""}`}
                       href={
                         minimalVersion

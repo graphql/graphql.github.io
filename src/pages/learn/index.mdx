@@ -1,105 +1,78 @@
-import { Callout } from "nextra/components"
+---
+title: Learn
+---
 
-# Introduction to GraphQL
+import { Button } from '@/app/conf/_design-system/button';
 
-<p className="learn-subtitle">Learn about GraphQL, how it works, and how to use it</p>
+import { NavbarFixed } from '../../components/navbar/navbar-fixed'
+import { TocHero, TocHeroContents } from '../../components/toc-hero'
+import { TeaserSection } from '../../components/learn-aggregator/teaser-section'
+import { LearnHeroStripes } from '../../components/learn-aggregator/learn-hero-stripes'
+import { pagesBySection } from '../../components/learn-aggregator/learn-pages'
+import { CommonQuestionsSection } from '../../components/learn-aggregator/common-questions'
+import { TrainingCoursesSection } from '../../components/learn-aggregator/training-courses'
+import { LookingForMore } from "../../components/looking-for-more"
 
-GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data. The [GraphQL specification](https://spec.graphql.org/) was open-sourced in 2015 and has since been implemented in a variety of programming languages. GraphQL isn't tied to any specific database or storage engine—it is backed by your existing code and data.
-
-<Callout type="info">If you're already familiar with GraphQL and would like to read documentation on how to build a GraphQL service, then there are libraries to help you implement GraphQL in [many different languages](/community/tools-and-libraries/?tags=server). There are also many libraries available that allow [client applications to query existing GraphQL APIs](/community/tools-and-libraries/?tags=client).</Callout>
-
-## Describe your API with a type system
-
-A GraphQL service is created by [defining types and their fields](/learn/schema/), and then writing a function for each field to [provide the required data](/learn/execution/). For example, a GraphQL service that tells you the name of a logged-in user might look like this:
-
-```graphql
-type Query {
-  me: User
-}
-
-type User {
-  name: String
-}
-```
-
-Along with functions for each field on each type:
-
-```js
-// Provide data for the `me` field on the `Query` type
-function Query_me(query, args, context, info) {
-  return context.request.auth.user
-}
-
-// Provide data for the `name` field on the `User` type
-function User_name(user, args, context, info) {
-  return context.db.getUserFullName(user.id)
-}
-```
-
-In the example above, the function that provides data for the `me` field on the `Query` type uses information about the authenticated user who made the request, while the `name` field on the `User` type is populated by using that user's ID to fetch their full name from a database.
-
-## Query exactly what you need
-
-After a GraphQL service is running (typically at a URL on a web service), it can receive [GraphQL queries](/learn/queries/) to validate and execute from clients. The service first checks a query to ensure it only refers to the types and fields defined for the API and then runs the provided functions to produce a result.
-
-For example, the query:
-
-```graphql
-{
-  me {
-    name
+<NavbarFixed />
+<TocHero
+  className="mb-4 lg:mb-8"
+  heading="Learn GraphQL"
+  text={
+    <>
+    Get hands-on with the fundamentals of GraphQL. Start with the basics and see how it compares to other technologies.
+    <br className='max-lg:hidden' />{" "}
+    Then move on to best practices for designing better APIs.
+    </>
   }
-}
-```
+  decoration={<LearnHeroStripes />}
+>
+  <Button href="/learn/introduction" className="lg:w-fit">
+    Start with the basics
+  </Button>
+  <TocHeroContents
+    sections={["Learn GraphQL", "Tutorials", "Best Practices", "FAQ"]}
+    className='max-w-[528px]'
+  />
+</TocHero>
 
-Could produce the following JSON result:
-
-```json
-{
-  "data": {
-    "me": {
-      "name": "Luke Skywalker"
-    }
+<TeaserSection 
+  id="learn-graphql"
+  eyebrow="Learn GraphQL"
+  title="Getting started with GraphQL"
+  description=
+    "In this tutorial-style introduction to GraphQL, you'll learn the core concepts that power every GraphQL API. Follow a step-by-step path from basic queries to advanced features."
+  cta={
+    <Button href="/learn/introduction" className='md:w-fit'>
+      Start learning
+    </Button>
   }
-}
-```
+  firstIconsEager
+  items={pagesBySection["getting-started"]}
+/>
 
-With even a simple query, we can see some of the key features that make GraphQL so powerful. The client can make queries to the API that mirror the structure of the data that they need and then receive just that data in the expected shape with a single request—and without having to worry about which underlying data sources provided it.
-
-## Evolve your API without versioning
-
-Client requirements change over time and GraphQL allows your API to evolve in response to those needs and without the overhead of managing different API versions. For example, if a new feature calls for more specific name values to be available, then the `User` type could be updated as follows:
-
-```graphql
-type User {
-  fullName: String
-  nickname: String
-  name: String @deprecated(reason: "Use `fullName`.")
-}
-```
-
-Client tooling will encourage developers to use the new fields and remove usage of the deprecated `name` field. The field can be removed once it is determined it is no longer used; in the meantime GraphQL will continue to provide its data as expected.
-
-## Try it out!
-
-The best way to learn GraphQL is to start writing queries. The query editors used throughout this guide are **interactive**, so try adding an `id` and `appearsIn` fields to the `hero` object to see an updated result:
-
-```graphql
-# { "graphiql": true }
-{
-  hero {
-    name
-    # add additional fields here!
+<TeaserSection
+  id="best-practices"
+  eyebrow="Best practices"
+  title="Practical guidelines"
+  description=
+    "Here you'll explore real-world strategies for designing and operating GraphQL APIs. These guides will help you build for scale and safety."
+  cta={
+    <Button href="/learn/best-practices" className='md:w-fit'>
+      Explore all best practices
+    </Button>
   }
-}
-```
+  items={pagesBySection["best-practices"]}
+/>
 
-<Callout type="info">
-The examples in this guide are based on [a modified version of the SWAPI GraphQL schema](https://github.com/graphql/graphql.github.io/blob/source/src/components/marked/swapi-schema.tsx). Because these queries are designed for illustrative purposes, they will not run on the full version of the SWAPI GraphQL API due to differences between the two schemas. [You can try the full version of the API here.](https://graphql.org/swapi-graphql/)
-</Callout>
+<TrainingCoursesSection id="tutorials" />
 
-## Next steps
+<CommonQuestionsSection id="faq" />
 
-Now that you know some key GraphQL concepts, you're ready to learn about all of the different aspects of its [type system](/learn/schema/).
+<LookingForMore
+  description="Learning is just the beginning. Discover tools and other resources — or connect with the GraphQL community around the world."
+  links={[
+    { href: "/resources", label: "Resources" },
+    { href: "/community", label: "Community" },
+  ]}
+/>
 
-For an in-depth learning experience with practical tutorials, see [the available training courses](/community/resources/training-courses).

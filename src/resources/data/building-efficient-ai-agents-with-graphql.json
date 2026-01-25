@@ -1,0 +1,6 @@
+{
+  "title": "Every Token Counts: Building Efficient AI Agents with GraphQL and Apollo MCP Server",
+  "url": "https://www.apollographql.com/blog/building-efficient-ai-agents-with-graphql-and-apollo-mcp-server",
+  "description": "Learn how GraphQL's precise field selection keeps context windows focused and reduces token usage for AI agents",
+  "tags": ["ai", "blog"]
+}
