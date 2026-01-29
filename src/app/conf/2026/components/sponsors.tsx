@@ -1,5 +1,9 @@
 import { clsx } from "clsx"
 import { ChevronRight } from "../../_design-system/pixelarticons/chevron-right"
+import TheGuild from "public/img/conf/Sponsors/TheGuild.svg?svgr"
+import Wundergraph from "public/img/conf/Sponsors/WunderGraph-graded.svg?svgr"
+import Grafast from "public/img/conf/Sponsors/Grafast.svg?svgr"
+import Chillicream from "public/img/conf/Sponsors/Chillicream.svg?svgr"
 
 interface Sponsor {
   icon:
@@ -34,11 +38,66 @@ const sponsorPlatinum: Sponsor[] = [
   },
 ]
 
-const sponsorGold: Sponsor[] = []
+const sponsorGold: Sponsor[] = [
+    {
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <Wundergraph
+        {...props}
+        className={clsx(
+          props.className,
+          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
+        )}
+      />
+    ),
+    name: "Wundergraph",
+    link: "https://wundergraph.com/",
+  },
+    {
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <TheGuild
+        {...props}
+        className={clsx(
+          props.className,
+          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
+        )}
+      />
+    ),
+    name: "The Guild",
+    link: "https://the-guild.dev/graphql/hive",
+  },
+]
 
-const sponsorSilver: Sponsor[] = []
+const sponsorSilver: Sponsor[] = [
+    {
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <Chillicream
+        {...props}
+        className={clsx(
+          props.className,
+          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
+        )}
+      />
+    ),
+    name: "Chillicream",
+    link: "https://the-guild.dev/graphql/hive",
+  },
+]
 
-const sponsorBronze: Sponsor[] = []
+const sponsorBronze: Sponsor[] = [
+  {
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <Grafast
+        {...props}
+        className={clsx(
+          props.className,
+          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
+        )}
+      />
+    ),
+    name: "Grafast",
+    link: "https://grafast.org/",
+  },
+]
 
 export interface SponsorsProps {
   heading?: string
