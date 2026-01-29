@@ -79,7 +79,7 @@ const sponsorSilver: Sponsor[] = [
       />
     ),
     name: "Chillicream",
-    link: "https://the-guild.dev/graphql/hive",
+    link: "https://chillicream.com/",
   },
 ]
 
