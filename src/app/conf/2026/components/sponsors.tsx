@@ -17,19 +17,22 @@ interface Sponsor {
 const sponsorPlatinum: Sponsor[] = [
   {
     icon: (props: React.HTMLAttributes<HTMLDivElement>) => (
-      <div {...props} className={clsx(props.className, "relative size-full")}>
+      <div
+        {...props}
+        className={clsx(props.className, "relative aspect-video flex-shrink-0")}
+      >
         <img
           src={
             new URL("/public/img/conf/Sponsors/Meta.svg", import.meta.url).href
           }
-          className="absolute inset-0 size-full object-cover dark:hidden"
+          className="absolute inset-0 size-full object-contain dark:hidden"
         />
         <img
           src={
             new URL("/public/img/conf/Sponsors/Meta-dark.svg", import.meta.url)
               .href
           }
-          className="absolute inset-0 hidden size-full object-cover dark:block"
+          className="absolute inset-0 hidden size-full object-contain dark:block"
         />
       </div>
     ),
