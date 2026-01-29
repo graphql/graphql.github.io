@@ -39,7 +39,7 @@ const sponsorPlatinum: Sponsor[] = [
 ]
 
 const sponsorGold: Sponsor[] = [
-    {
+  {
     icon: (props: React.SVGProps<SVGElement>) => (
       <Wundergraph
         {...props}
@@ -52,7 +52,7 @@ const sponsorGold: Sponsor[] = [
     name: "Wundergraph",
     link: "https://wundergraph.com/",
   },
-    {
+  {
     icon: (props: React.SVGProps<SVGElement>) => (
       <TheGuild
         {...props}
@@ -68,7 +68,7 @@ const sponsorGold: Sponsor[] = [
 ]
 
 const sponsorSilver: Sponsor[] = [
-    {
+  {
     icon: (props: React.SVGProps<SVGElement>) => (
       <Chillicream
         {...props}
