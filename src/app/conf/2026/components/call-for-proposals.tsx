@@ -286,7 +286,7 @@ export function CallForProposals() {
   useEffect(() => {
     const checkDate = () => {
       const currentDate = new Date()
-      const closingDate = new Date("2026-02-01T00:00:00Z")
+      const closingDate = new Date("2026-02-11T00:00:00Z")
       if (currentDate >= closingDate) {
         setButtonText("CFP Closed")
         setIsDisabled(true)
