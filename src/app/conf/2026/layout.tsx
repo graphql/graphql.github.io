@@ -41,6 +41,7 @@ export default function Layout({
         year={2026}
         links={[
           { children: "CFP", href: "https://sessionize.com/graphqlconf-2026/" },
+          { children: "Register", href: "https://register.linuxfoundation.org/graphql-conf-2026" },
           { children: "Sponsors", href: "/conf/2026/#sponsors" },
           { children: "Resources", href: "/conf/2026/resources" },
           {

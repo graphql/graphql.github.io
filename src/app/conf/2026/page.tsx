@@ -32,6 +32,9 @@ export default function Page() {
         <Button className="md:w-fit" href={BECOME_A_SPEAKER_LINK}>
           Submit Your Talk
         </Button>
+        <Button className="md:w-fit" href={GET_TICKETS_LINK}>
+          Get Your Ticket
+        </Button>
       </Hero>
       <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
         <MarqueeRows
@@ -66,12 +69,11 @@ export default function Page() {
             description="Join two transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
             <Button
-              disabled
               className="opacity-55"
               variant="primary"
               href={GET_TICKETS_LINK}
             >
-              Coming Soon
+              Register Now
             </Button>
           </CtaCardSection>
           <MarqueeRows
