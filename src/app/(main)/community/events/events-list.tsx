@@ -121,7 +121,7 @@ function isUrl(
 function calendarEventName(event: CalendarEvent) {
   let summary = event.summary
   if (summary) {
-    summary = summary.replace(/^Local\s*[:-]\s*/i, "")
+    summary = summary.replace(/^(Local|Conference)\s*[:-]\s*/i, "")
     return summary
   } else {
     return "Working Group"
