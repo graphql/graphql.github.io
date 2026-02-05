@@ -92,6 +92,8 @@ function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
     } else if (/\bGraphQLConf[0-9]*\b/i.test(summary)) {
       // Handled elsewhere
       return "duplicate"
+    } else if (/\bConference\b/i.test(summary)) {
+      return "conference"
     } else {
       // Probably a working group
       return "working-group"
