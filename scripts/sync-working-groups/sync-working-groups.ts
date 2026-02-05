@@ -9,7 +9,7 @@ const API_KEY = process.env.GOOGLE_CALENDAR_API_KEY
 const OUTPUT_FILE = new URL("./working-group-events.ndjson", import.meta.url)
 const DAYS_BACK = 36
 const DAYS_TO_KEEP = 90
-const DAYS_AHEAD = 36
+const DAYS_AHEAD = 500
 
 const Instant = type({
   "dateTime?": "string",
