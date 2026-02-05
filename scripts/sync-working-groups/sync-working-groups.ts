@@ -64,6 +64,8 @@ async function main() {
   const searchParams = new URLSearchParams({
     key: API_KEY,
     singleEvents: "true",
+    orderBy: "startTime",
+    maxResults: "250",
   })
 
   const timeMin =
@@ -74,7 +76,6 @@ async function main() {
   const timeMax = new Date(now.getTime() + DAYS_AHEAD * 24 * 60 * 60 * 1000)
   searchParams.set("timeMin", timeMin.toISOString())
   searchParams.set("timeMax", timeMax.toISOString())
-  searchParams.set("orderBy", "startTime")
   console.log(
     `\nSyncing from: ${timeMin.toLocaleDateString()} (${timeMin.toISOString()})`,
   )
