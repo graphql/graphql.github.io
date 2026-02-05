@@ -49,7 +49,7 @@ export function Venue(props: VenueProps) {
             Menlo Park, CA 94025
           </p>
           {
-            <Button href="https://maps.app.goo.gl/W7nX1NejhWw9PqxF7">
+            <Button href="https://maps.app.goo.gl/rRTvnDFk8LgwHjsV7">
               Google Maps
             </Button>
           }
