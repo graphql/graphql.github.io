@@ -57,9 +57,10 @@ export function FilterChip({
 
 type AnyEvent = Event | Meetup | CalendarEvent
 
+// NOTE: the order of this controls the order of the tag toggles
 const DEFAULT_VISIBILITY = {
-  meetup: true,
   conference: true,
+  meetup: true,
   "working-group": true,
   "foundation-meeting": true,
 } satisfies Record<EventKind, boolean>
@@ -164,7 +165,7 @@ export function EventsList({
   const [kindFilters, setKindFilters] = useState(DEFAULT_VISIBILITY)
 
   const { events, tags } = useMemo(() => {
-    const tags: Set<EventKind> = new Set()
+    const visibleTags: Set<EventKind> = new Set()
     /** Determines if this event kind should be shown, and if so ensures the tag is present in tags */
     const shouldShow = (kind: EventKind, date?: Date): boolean => {
       if (kind === "working-group" || kind === "foundation-meeting") {
@@ -172,7 +173,7 @@ export function EventsList({
         // we filter out all working groups further in the future than 30 days
         if (!isSoon(date)) return false
       }
-      tags.add(kind)
+      visibleTags.add(kind)
       return kindFilters[kind]
     }
     const majorEvents: AnyEvent[] = []
@@ -207,6 +208,11 @@ export function EventsList({
     }
     // Ensure that major events are surfaced higher than minor events, even though this breaks date order
     const events = [...majorEvents, ...minorEvents]
+    const keys = Object.keys(DEFAULT_VISIBILITY)
+    // Sort tags into a sensible order
+    const tags = [...visibleTags].sort(
+      (a, z) => keys.indexOf(a) - keys.indexOf(z),
+    )
     return { events, tags }
   }, [allEvents, kindFilters])
 
@@ -216,7 +222,7 @@ export function EventsList({
         <fieldset>
           <legend className="typography-menu mt-2">Event type</legend>
           <div className="mt-4 flex gap-3">
-            {Array.from(tags).map(tag => (
+            {tags.map(tag => (
               <EventFilterTag
                 key={tag}
                 kind={tag}
