@@ -64,7 +64,7 @@ const classNameFromKind = {
     "bg-[hsl(var(--color-pri-base)/var(--bg-opacity))] dark:bg-white/5",
   meetup: "bg-[hsl(var(--color-sec-base)/var(--bg-opacity))]",
   "working-group": "bg-[hsl(229deg_100%_70.4%_/_var(--bg-opacity))]",
-  "foundation-meeting": "bg-[hsl(35deg_100%_70.4%_/_var(--bg-opacity))]",
+  "foundation-meeting": "bg-[hsl(35deg_100%_63%_/_var(--bg-opacity))]",
 } satisfies { [kind in EventKind]: string }
 
 export function EventCard({
