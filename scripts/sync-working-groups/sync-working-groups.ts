@@ -7,9 +7,9 @@ const CALENDAR_ID =
   "linuxfoundation.org_ik79t9uuj2p32i3r203dgv5mo8@group.calendar.google.com"
 const API_KEY = process.env.GOOGLE_CALENDAR_API_KEY
 const OUTPUT_FILE = new URL("./working-group-events.ndjson", import.meta.url)
-const DAYS_BACK = 30
+const DAYS_BACK = 36
 const DAYS_TO_KEEP = 90
-const DAYS_AHEAD = 30
+const DAYS_AHEAD = 36
 
 const Instant = type({
   "dateTime?": "string",
