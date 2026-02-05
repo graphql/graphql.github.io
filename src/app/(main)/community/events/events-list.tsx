@@ -205,7 +205,11 @@ export function EventsList({
           ) : "start" in event ? (
             <EventCard
               key={event.id}
-              href={isUrl(event.location) ? event.location : event.htmlLink}
+              href={
+                isUrl(event.location) && !/zoom/i.test(event.location)
+                  ? event.location
+                  : event.htmlLink
+              }
               date={new Date(event.start)}
               name={event.summary ?? "Working Group"}
               city={
