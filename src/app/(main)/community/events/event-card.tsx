@@ -55,7 +55,7 @@ export interface EventCardProps {
   city: ReactNode
   name: ReactNode
   meta?: ReactNode
-  kind: "meetup" | "conference" | "working-group"
+  kind: "meetup" | "conference" | "working-group" | "foundation-meeting"
   className?: string
 }
 

@@ -40,6 +40,7 @@ const responseSchema = type({
   "nextPageToken?": "string",
 })
 
+/** Misnomer, this is just an event from the public calendar, not necessarily a working group */
 export type WorkingGroupMeeting =
   typeof calendarEventSchema.inferIntrospectableOut
 
