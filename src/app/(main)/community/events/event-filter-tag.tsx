@@ -2,13 +2,18 @@ import { Tag } from "@/app/conf/_design-system/tag"
 import { CheckboxIcon } from "@/app/conf/_design-system/pixelarticons/checkbox-icon"
 import clsx from "clsx"
 
-export type EventKind = "meetup" | "conference" | "working-group"
+export type EventKind =
+  | "meetup"
+  | "conference"
+  | "working-group"
+  | "foundation-meeting"
 
 export const eventTagColors = {
   conference: "hsl(var(--color-pri-base))",
   meetup: "hsl(var(--color-sec-dark))",
   "working-group": "#6883FF",
-}
+  "foundation-meeting": "#FFB140",
+} satisfies { [kind in EventKind]: string }
 
 export interface EventFilterTagProps
   extends Omit<React.HTMLAttributes<HTMLLabelElement>, "onChange"> {
