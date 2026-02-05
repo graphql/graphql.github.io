@@ -85,6 +85,8 @@ function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
     const summary = event.summary ?? ""
     if (/\b(Subcommittee|Committee)\b/i.test(summary)) {
       return "foundation-meeting"
+    } else if (/\bWorking\s*Session\b/i.test(summary)) {
+      return "foundation-meeting"
     } else if (/\bGoverning\b/i.test(summary)) {
       return "foundation-meeting"
     } else if (/\bLocal\b/i.test(summary)) {
