@@ -13,6 +13,14 @@ export interface Event {
 
 export const events: Event[] = [
   {
+    name: "GraphQLConf 2026",
+    slug: "graphql-conf-2026",
+    location: "Menlo Park, California",
+    date: "2026-05-06T16:00:00+00:00",
+    eventLink: "/conf/2026",
+    host: "GraphQL Foundation",
+  },
+  {
     name: "GraphQL Day at APIDays",
     slug: "graphql-day-at-apidays",
     location: "CNIT La Defense, Paris",
