@@ -107,6 +107,10 @@ function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
   }
 }
 
+function isUrl(string: string | null | undefined): string is string {
+  return string != null && /^https?:\/\//.test(string)
+}
+
 export function EventsList({
   events: allEvents,
   className,
@@ -197,10 +201,14 @@ export function EventsList({
           ) : "start" in event ? (
             <EventCard
               key={event.id}
-              href={event.htmlLink}
+              href={isUrl(event.location) ? event.location : event.htmlLink}
               date={new Date(event.start)}
               name={event.summary ?? "Working Group"}
-              city="Online" // event.location is a zoom link, we could potentially use but we'd have to refactor the event-card to avoid nested anchors
+              city={
+                !event.location || isUrl(event.location)
+                  ? "Online"
+                  : event.location
+              }
               kind={kind}
             />
           ) : (
