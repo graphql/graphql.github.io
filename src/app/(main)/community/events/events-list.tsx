@@ -175,25 +175,38 @@ export function EventsList({
       tags.add(kind)
       return kindFilters[kind]
     }
-    const events = allEvents.filter(event => {
+    const majorEvents: AnyEvent[] = []
+    const minorEvents: AnyEvent[] = []
+    const target = {
+      conference: majorEvents,
+      meetup: majorEvents,
+      "working-group": minorEvents,
+      "foundation-meeting": minorEvents,
+    } satisfies { [kind in EventKind]: AnyEvent[] }
+    for (const event of allEvents) {
       const kind = categorizeEvent(event)
       if (kind === null) {
         if (process.env.NODE_ENV !== "production") {
           console.warn("Could not determine event type for event", event)
         }
         // Uncategorized!
-        return false
-      }
-      if (kind === "duplicate") {
+        continue
+      } else if (kind === "duplicate") {
         // Doubly categorized; filter out
-        return false
+        continue
       } else if ("start" in event) {
         const date = new Date(event.start)
-        return shouldShow(kind, date)
+        if (shouldShow(kind, date)) {
+          target[kind].push(event)
+        }
       } else {
-        return shouldShow(kind)
+        if (shouldShow(kind)) {
+          target[kind].push(event)
+        }
       }
-    })
+    }
+    // Ensure that major events are surfaced higher than minor events, even though this breaks date order
+    const events = [...majorEvents, ...minorEvents]
     return { events, tags }
   }, [allEvents, kindFilters])
 
