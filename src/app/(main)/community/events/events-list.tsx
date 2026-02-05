@@ -111,8 +111,45 @@ function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
   }
 }
 
-function isUrl(string: string | null | undefined): string is string {
+function isUrl(
+  string: string | null | undefined,
+): string is `http${"s" | ""}://${string}` {
   return string != null && /^https?:\/\//.test(string)
+}
+
+function calendarEventName(event: CalendarEvent) {
+  let summary = event.summary
+  if (summary) {
+    summary = summary.replace(/^Local\s*[:-]\s*/i, "")
+    return summary
+  } else {
+    return "Working Group"
+  }
+}
+
+function calendarEventUrl(event: CalendarEvent) {
+  // First, is the event location a non-zoom URL?
+  if (isUrl(event.location) && !/zoom/i.test(event.location)) {
+    return event.location
+  }
+  // Failing that, extract the first explicit link from the description
+  const description = event.description
+  if (description != null) {
+    const text = description.replace(/<[^>]+>/g, " ")
+    const matches = text.match(/\bhttps?:\/\/\S+/)
+    if (matches) {
+      return matches[0]
+    }
+  }
+  // Failing that, use the calendar link
+  return event.htmlLink
+}
+
+function calendarEventCity(event: CalendarEvent) {
+  if (!event.location || isUrl(event.location)) {
+    return "Online"
+  }
+  return event.location
 }
 
 export function EventsList({
@@ -203,20 +240,13 @@ export function EventsList({
               kind={kind}
             />
           ) : "start" in event ? (
+            // It's from the calendar
             <EventCard
               key={event.id}
-              href={
-                isUrl(event.location) && !/zoom/i.test(event.location)
-                  ? event.location
-                  : event.htmlLink
-              }
+              href={calendarEventUrl(event)}
               date={new Date(event.start)}
-              name={event.summary ?? "Working Group"}
-              city={
-                !event.location || isUrl(event.location)
-                  ? "Online"
-                  : event.location
-              }
+              name={calendarEventName(event)}
+              city={calendarEventCity(event)}
               kind={kind}
             />
           ) : (
