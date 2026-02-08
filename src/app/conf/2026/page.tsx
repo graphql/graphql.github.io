@@ -29,12 +29,12 @@ export default function Page() {
     <main className="gql-all-anchors-focusable">
       <Hero year="2026" bottom={<HeroImage />}>
         <HeroDateAndLocation />
-        <Button className="md:w-fit" href={BECOME_A_SPEAKER_LINK}>
-          Submit Your Talk
-        </Button>
-        <Button className="md:w-fit" href={GET_TICKETS_LINK}>
-          Get Your Ticket
-        </Button>
+        <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
+          <Button href={BECOME_A_SPEAKER_LINK}>Submit your talk</Button>
+          <Button variant="tertiary" href={GET_TICKETS_LINK}>
+            Get a ticket
+          </Button>
+        </div>
       </Hero>
       <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
         <MarqueeRows
@@ -73,7 +73,7 @@ export default function Page() {
               variant="primary"
               href={GET_TICKETS_LINK}
             >
-              Register Now
+              Register now
             </Button>
           </CtaCardSection>
           <MarqueeRows
