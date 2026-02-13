@@ -13,6 +13,19 @@ const FAQS = [
     ),
   },
   {
+    question: "Is anything happening on May 08 after the main conference?",
+    answer: (
+      <>
+        Working Group Day is on May 08, 2026. For attendance, schedule, and
+        day-of logistics, see{" "}
+        <a className="typography-link" href="/conf/2026/wg-day">
+          the WG Day page
+        </a>
+        .
+      </>
+    ),
+  },
+  {
     question: "Can I sponsor the event?",
     answer: (
       <>

@@ -46,6 +46,7 @@ export default function Layout({
             href: "https://register.linuxfoundation.org/graphql-conf-2026",
           },
           { children: "Sponsors", href: "/conf/2026/#sponsors" },
+          { children: "WG Day", href: "/conf/2026/wg-day" },
           { children: "Resources", href: "/conf/2026/resources" },
           {
             children: "2025 Event Photos",

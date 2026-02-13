@@ -28,6 +28,10 @@ function DatesTab() {
         term="Event Dates"
         definition="Wednesday, May 6 - Thursday, May 7"
       />
+      <DefinitionListItem
+        term="WG Day"
+        definition="Friday, May 8 (9:30 AM - 4:30 PM)"
+      />
     </DefinitionListBox>
   )
 }

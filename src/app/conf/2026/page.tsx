@@ -21,7 +21,7 @@ import { HeroImage } from "./components/hero/hero-image"
 import { HERO_MARQUEE_ITEMS } from "./utils"
 
 export const metadata: Metadata = {
-  title: "GraphQLConf 2026 — May 06-07",
+  title: "GraphQLConf 2026 — May 06-07 + WG Day May 08",
 }
 
 export default function Page() {

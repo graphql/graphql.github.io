@@ -66,6 +66,9 @@ export function Navbar({ links, year }: NavbarProps): ReactElement {
               <span>-</span>
               <time dateTime="2026-05-07">07, 2026</time>
             </p>
+            <p className="text-sm text-neu-800 dark:text-neu-100">
+              WG Day: <time dateTime="2026-05-08">May 08</time>
+            </p>
             <address className="text-sm not-italic">
               Menlo Park, California
             </address>

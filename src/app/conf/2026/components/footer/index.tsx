@@ -33,6 +33,12 @@ export function Footer({
               07<span className="max-sm:hidden">, 2026</span>
             </time>
           </p>
+          <p className="flex items-center whitespace-pre">
+            WG Day:
+            <span className="ml-1">
+              <time dateTime="2026-05-08">May 08</time>
+            </span>
+          </p>
           <address className="not-italic">Menlo Park, California</address>
         </div>
       </div>
