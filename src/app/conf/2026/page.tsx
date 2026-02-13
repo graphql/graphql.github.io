@@ -68,11 +68,7 @@ export default function Page() {
             title="Get your ticket"
             description="Join two transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
-            <Button
-              className="opacity-55"
-              variant="primary"
-              href={GET_TICKETS_LINK}
-            >
+            <Button variant="primary" href={GET_TICKETS_LINK}>
               Register now
             </Button>
           </CtaCardSection>
