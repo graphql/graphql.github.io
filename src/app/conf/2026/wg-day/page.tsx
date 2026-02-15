@@ -78,7 +78,6 @@ export default function WGDayPage() {
               <li>
                 Location: Meta MPK 21 (adjacent to the main conference building)
               </li>
-              <li>Setup: Classroom-style seating for note-taking</li>
               <li>Time: Drop-in between 9:30 AM-4:30 PM PT (last entry 2:00 PM</li>
               <li>
                 Informal format: drop in and out as needed; early departures for
