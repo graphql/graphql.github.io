@@ -49,7 +49,7 @@ export default function WGDayPage() {
       <main className="gql-all-anchors-focusable gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
         <section className="gql-container gql-section space-y-10 xl:mb-16 xl:mt-8">
           <article className="space-y-4">
-            <h2 className="typography-h2">What it is</h2>
+            <h2 className="typography-h2">What is it?</h2>
             <p className="typography-body-lg max-w-4xl">
               WG Day is a low-overhead in-person collaboration day right after
               GraphQLConf. There is no fixed schedule, no recording, and no
@@ -67,7 +67,7 @@ export default function WGDayPage() {
               group participants first. Additional attendees can join via a
               waitlist, with priority for maintainers of GraphQL-related open
               source software (clients, servers, libraries, frameworks, tooling,
-              and documentation), plus board members and ambassadors. Room
+              and documentation), plus Foundation board members and GraphQL Ambassadors. Room
               capacity is 48.
             </p>
           </article>
@@ -79,8 +79,7 @@ export default function WGDayPage() {
                 Location: Meta MPK 21 (adjacent to the main conference building)
               </li>
               <li>Setup: Classroom-style seating for note-taking</li>
-              <li>Booked hours: 9:00 AM-5:00 PM PT</li>
-              <li>Suggested discussion window: 9:30 AM-4:30 PM PT</li>
+              <li>Time: Drop-in between 9:30 AM-4:30 PM PT (last entry 2:00 PM</li>
               <li>
                 Informal format: drop in and out as needed; early departures for
                 travel are absolutely fine
