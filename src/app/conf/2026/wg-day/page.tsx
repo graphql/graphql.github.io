@@ -84,8 +84,6 @@ export default function WGDayPage() {
                 travel are absolutely fine
               </li>
               <li>
-                Arrival guidance: please arrive by 2:00 PM when possible
-                (attendance may wind down earlier and hosts may close early)
               </li>
               <li>
                 Lunch plan: we expect to head to the cafeteria; if you arrive
