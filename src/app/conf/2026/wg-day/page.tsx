@@ -67,8 +67,8 @@ export default function WGDayPage() {
               group participants first. Additional attendees can join via a
               waitlist, with priority for maintainers of GraphQL-related open
               source software (clients, servers, libraries, frameworks, tooling,
-              and documentation), plus Foundation board members and GraphQL Ambassadors. Room
-              capacity is 48.
+              and documentation), plus Foundation board members and GraphQL
+              Ambassadors. Room capacity is 48.
             </p>
           </article>
 
@@ -78,13 +78,14 @@ export default function WGDayPage() {
               <li>
                 Location: Meta MPK 21 (adjacent to the main conference building)
               </li>
-              <li>Time: Drop-in between 9:30 AM-4:30 PM PT (last entry 2:00 PM</li>
+              <li>
+                Time: Drop-in between 9:30 AM-4:30 PM PT (last entry 2:00 PM
+              </li>
               <li>
                 Informal format: drop in and out as needed; early departures for
                 travel are absolutely fine
               </li>
-              <li>
-              </li>
+              <li></li>
               <li>
                 Lunch plan: we expect to head to the cafeteria; if you arrive
                 around midday, you may need to meet the group there
