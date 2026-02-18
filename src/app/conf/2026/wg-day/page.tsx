@@ -99,7 +99,7 @@ export default function WGDayPage() {
               Questions about attendance, waitlist priority, or logistics:
             </p>
             <Button
-              href="mailto:graphql_events@linuxfoundation.org?subject=GraphQLConf%202026%20WG%20Day"
+              href="mailto:operations@graphql.org?subject=GraphQLConf%202026%20WG%20Day"
               className="w-fit"
             >
               Email the event team
