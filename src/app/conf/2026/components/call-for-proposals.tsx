@@ -13,7 +13,7 @@ function DatesTab() {
       <DefinitionListItem term="CFP Opens" definition="Thursday, 16 January" />
       <DefinitionListItem
         term="CFP Close"
-        definition="Wednesday, February 11, 11:59 PM PST (UTC-8)"
+        definition="Wednesday, February 11, 11:59 PM PST (UTC-8) - deadline passed"
       />
       <DefinitionListItem
         term="CFP Notifications"
