@@ -1,6 +1,7 @@
 import { clsx } from "clsx"
 import { ChevronRight } from "../../_design-system/pixelarticons/chevron-right"
 import TheGuild from "public/img/conf/Sponsors/TheGuild.svg?svgr"
+import Apollo from "public/img/conf/Sponsors/Apollo.svg?svgr"
 import Wundergraph from "public/img/conf/Sponsors/WunderGraph-graded.svg?svgr"
 import Grafast from "public/img/conf/Sponsors/Grafast.svg?svgr"
 import Chillicream from "public/img/conf/Sponsors/Chillicream.svg?svgr"
@@ -71,6 +72,19 @@ const sponsorGold: Sponsor[] = [
 ]
 
 const sponsorSilver: Sponsor[] = [
+  {
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <Apollo
+        {...props}
+        className={clsx(
+          props.className,
+          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
+        )}
+      />
+    ),
+    name: "Apollo",
+    link: "https://www.apollographql.com",
+  },
   {
     icon: (props: React.SVGProps<SVGElement>) => (
       <Chillicream
