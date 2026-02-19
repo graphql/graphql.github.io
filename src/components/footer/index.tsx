@@ -107,7 +107,7 @@ const FOOTER_SECTIONS: FooterSection[] = [
   },
 ]
 
-const CONFERENCE_YEAR = 2025
+const CONFERENCE_YEAR = 2026
 const HAS_CONFERENCE_BOX = true
 
 export function Footer() {
