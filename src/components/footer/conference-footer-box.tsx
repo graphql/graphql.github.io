@@ -22,15 +22,15 @@ export function ConferenceFooterBox({
     >
       <div className="flex flex-1 flex-col gap-4 border-b border-pri-lighter p-4 dark:border-pri-light/50">
         <h2 className="font-mono text-2xl uppercase leading-none md:text-3xl">
-          <span className="max-xs:hidden">Join</span> GraphQLConf 2025
+          <span className="max-xs:hidden">Join</span> GraphQLConf 2026
         </h2>
       </div>
 
       <div className="typography-body-sm flex font-sans">
         <div className="flex-1 justify-center border-r border-pri-lighter p-4 dark:border-pri-light/50">
-          September <span className="whitespace-nowrap">08–10</span>
+          May <span className="whitespace-nowrap">06–07</span>
           <br />
-          Amsterdam, Netherlands
+          Menlo Park, California
         </div>
 
         <div className="flex w-[min(calc(25%-.5px),73.5px)] items-center justify-center">
