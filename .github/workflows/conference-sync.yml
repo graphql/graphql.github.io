@@ -15,9 +15,9 @@ jobs:
 
       - name: Sync conference data from Sched
         run: |
-          tsx scripts/sync-sched/sync.ts --year 2025
+          tsx scripts/sync-sched/sync.ts --year 2026
         env:
-          SCHED_ACCESS_TOKEN_2025: ${{ secrets.SCHED_ACCESS_TOKEN_2025 }}
+          SCHED_ACCESS_TOKEN_2026: ${{ secrets.SCHED_ACCESS_TOKEN_2026 }}
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
