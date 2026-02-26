@@ -108,7 +108,7 @@ export default function WGDayPage() {
           </article>
 
           <article className="space-y-4">
-            <h2 className="typography-h2">Join the waitlist</h2>
+            <h2 className="typography-h2">Join us</h2>
             <p className="typography-body-lg max-w-4xl">
               Attendance is managed by an invite system and waitlist. You can
               request to attend by filling out the form linked below. For
