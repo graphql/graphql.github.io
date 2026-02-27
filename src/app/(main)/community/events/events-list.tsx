@@ -79,9 +79,7 @@ function isSoon(date: Date) {
 }
 
 function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
-  if ("node" in event) {
-    return "meetup"
-  } else if ("start" in event) {
+  if ("start" in event) {
     // From https://calendar.graphql.org
     const summary = event.summary ?? ""
     if (/\b(Subcommittee|Committee)\b/i.test(summary)) {
@@ -249,16 +247,7 @@ export function EventsList({
           if (kind === "duplicate" || kind == null) {
             return null
           }
-          return "node" in event ? (
-            <EventCard
-              key={event.node.id}
-              name={event.node.name}
-              href={event.node.link}
-              city={event.node.city + ", " + event.node.country}
-              date={event.node.next || event.node.prev}
-              kind={kind}
-            />
-          ) : "start" in event ? (
+          return "start" in event ? (
             // It's from the calendar
             <EventCard
               key={event.id}
