@@ -38,7 +38,6 @@ export const getAllEvents = cache(async () => {
 
   const getDate = (event: AnyEvent) => {
     if ("date" in event) return new Date(event.date)
-    if ("node" in event) return new Date(event.node.next || event.node.prev)
     return new Date(event.start)
   }
 
