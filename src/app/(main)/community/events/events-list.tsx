@@ -7,7 +7,7 @@ import type { WorkingGroupMeeting as CalendarEvent } from "@/../scripts/sync-wor
 
 import { EventCard } from "./event-card"
 import { EventsScrollview } from "./events-scrollview"
-import type { Event, Meetup } from "./events"
+import type { Event } from "./events"
 import { EventFilterTag, EventKind } from "./event-filter-tag"
 
 interface FilterChipProps extends ComponentPropsWithoutRef<"button"> {
@@ -55,7 +55,7 @@ export function FilterChip({
   )
 }
 
-type AnyEvent = Event | Meetup | CalendarEvent
+type AnyEvent = Event | CalendarEvent
 
 // NOTE: the order of this controls the order of the tag toggles
 const DEFAULT_VISIBILITY = {

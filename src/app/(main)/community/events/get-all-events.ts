@@ -4,9 +4,9 @@ import { cache } from "react"
 
 import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-working-groups"
 
-import { events, type Event, type Meetup } from "./events"
+import { events, type Event } from "./events"
 
-type AnyEvent = Event | Meetup | WorkingGroupMeeting
+type AnyEvent = Event | WorkingGroupMeeting
 
 const WORKING_GROUP_MEETINGS_FILE = join(
   process.cwd(),
