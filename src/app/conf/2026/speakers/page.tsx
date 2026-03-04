@@ -21,7 +21,7 @@ export default function Page() {
       <Hero pageName="Speakers" year={year}>
         <div className="mt-[18px] flex gap-4">
           <Button disabled className="opacity-55" href={GET_TICKETS_LINK}>
-            Sold out
+            Get tickets
           </Button>
           <Button variant="tertiary" href={`/conf/${year}/schedule`}>
             See the schedule
@@ -59,7 +59,7 @@ export default function Page() {
               variant="primary"
               href={GET_TICKETS_LINK}
             >
-              Sold out
+              Get tickets
             </Button>
           </CtaCardSection>
           <div className="py-8">
