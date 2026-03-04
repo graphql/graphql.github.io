@@ -40,11 +40,13 @@ export default function Layout({
       <Navbar
         year={2026}
         links={[
-          { children: "CFP", href: "https://sessionize.com/graphqlconf-2026/" },
+          // { children: "CFP", href: "https://sessionize.com/graphqlconf-2026/" },
           {
             children: "Register",
             href: "https://register.linuxfoundation.org/graphql-conf-2026",
           },
+          { children: "Schedule", href: "/conf/2026/schedule" },
+          { children: "Speakers", href: "/conf/2026/speakers" },
           { children: "Sponsors", href: "/conf/2026/#sponsors" },
           { children: "WG Day", href: "/conf/2026/wg-day" },
           { children: "Resources", href: "/conf/2026/resources" },
