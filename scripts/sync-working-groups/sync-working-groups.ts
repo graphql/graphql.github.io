@@ -137,11 +137,8 @@ async function main() {
   const allMeetings = mergeMeetings(existingMeetings, newMeetings, timeMin)
   const netChange = allMeetings.length - existingMeetings.length
 
-  if (netChange > 0) {
-    console.log(`Added ${netChange} new event(s)`)
-  } else if (netChange < 0) {
-    console.log(`Removed ${Math.abs(netChange)} event(s)`)
-  }
+  console.log(`Net change: ${(netChange > 0 ? "+" : "") + netChange} event(s)`)
+
   const cutoffDateStr = cutoffDate.toISOString().split("T")[0]
   const futureLimit = new Date(now.getTime() + DAYS_AHEAD * 24 * 60 * 60 * 1000)
   const futureLimitStr = futureLimit.toISOString().split("T")[0]
@@ -209,6 +206,9 @@ function mergeMeetings(
     }
   }
 
+  if (toDelete.size) {
+    console.log(`Deleted ${toDelete.size} event(s)`)
+  }
   for (const id of toDelete) {
     byId.delete(id)
   }
