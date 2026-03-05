@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger redeploy
-        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }} >/dev/null 2>&1
+        run: curl --fail --silent --show-error -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }} >/dev/null
