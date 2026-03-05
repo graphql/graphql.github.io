@@ -54,6 +54,20 @@
       "~syncedDetailsAt": 1749568381879
     },
     {
+      "username": "acon2",
+      "company": "Meta",
+      "position": "Engineering Manager",
+      "name": "Adam Conrad",
+      "about": "Engineering Manager for integrating GraphQL in our mobile applications at Meta. Previously focused on React at Meta.",
+      "location": "Boston, MA",
+      "url": "https://www.adamconrad.dev",
+      "avatar": "//avatars.sched.co/a/b5/24427754/avatar.jpg.320x320px.jpg?834",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
+    },
+    {
       "username": "adam_malone.2791s6x2",
       "company": "Hasura",
       "position": "Global Director, Sales Engineering",
@@ -650,6 +664,20 @@
       "~syncedDetailsAt": 1758551361502
     },
     {
+      "username": "benjamin.golub",
+      "company": "Meta",
+      "position": "Software Engineer",
+      "name": "Ben Golub",
+      "about": "Ben has been with Meta (then Facebook) since 2009 and has worked on the Graph API, GraphQL, Hack, HHVM, and more.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/f/f1/24427748/avatar.jpg.320x320px.jpg?75b",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
+    },
+    {
       "username": "benjamin154",
       "company": "Grafbase",
       "position": "Software Engineer",
@@ -885,7 +913,7 @@
       "company": "Stax.ai",
       "position": "Head of Engineering",
       "name": "Cameron Sechrist",
-      "about": "Cameron Sechrist is a dynamic software engineer, seasoned entrepreneur, and compliance expert with over a decade of experience driving technological innovation and ensuring robust data security across diverse industries. His entrepreneurial journey began remarkably early, with his first company founded at the age of 15, a path that has since led to three successful company exits. Outside of work, Cam enjoys hanging with his puppies, Hope and Eddie.",
+      "about": "Cameron Sechrist is a dynamic software engineer, seasoned entrepreneur, and compliance expert with over a decade of experience driving technological innovation and ensuring robust data security across diverse industries. His entrepreneurial journey began remarkably early, with his first company founded at the age of 15, a path that has since led to three successful company exits. Outside of work, Cam enjoys hanging with his puppy, Hope.",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/8/da/24421523/avatar.jpg.320x320px.jpg?6ce",
@@ -1636,6 +1664,20 @@
       "~syncedDetailsAt": 1772651522172
     },
     {
+      "username": "htnguyen203",
+      "company": "Meta",
+      "position": "Software Engineer",
+      "name": "Hugh Nguyen",
+      "about": "Hugh Nguyen is a Software Engineer working on Metamate team at Meta, which builds AI powered products and platforms. Hugh is working on enabling AI agents to access all internal knowledge through GraphQL, a novel approach to rapidly expand AI agent's capabilities.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/d/03/24427739/avatar.jpg.320x320px.jpg?4bf",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
+    },
+    {
       "username": "idit_levine.25krdj4u",
       "company": "Solo.io",
       "position": "Founder",
@@ -1710,21 +1752,6 @@
         2026
       ],
       "~syncedDetailsAt": 1758137788992
-    },
-    {
-      "username": "james1756",
-      "company": "Airbnb",
-      "position": "Engineer",
-      "name": "James Bellenger",
-      "about": "Running and baking enthusiast.",
-      "location": "",
-      "url": "",
-      "avatar": "//avatars.sched.co/5/ff/24421556/avatar.jpg.320x320px.jpg?51d",
-      "socialurls": [],
-      "_years": [
-        2026
-      ],
-      "~syncedDetailsAt": 1772651522172
     },
     {
       "username": "jamie855",
@@ -1820,6 +1847,20 @@
         2025
       ],
       "~syncedDetailsAt": 1758551366618
+    },
+    {
+      "username": "jbellenger",
+      "company": "Airbnb",
+      "position": "Engineer",
+      "name": "James Bellenger",
+      "about": "Running and baking enthusiast.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/ff/24421556/avatar.jpg.320x320px.jpg?51d",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
     },
     {
       "username": "jeanleonino",
@@ -2202,7 +2243,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "laurent57",
@@ -2424,7 +2466,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "mansi.mittal",
@@ -2776,7 +2819,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "minghe.huang",
@@ -2805,7 +2849,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "oleksandr_bidiuk",
@@ -2819,7 +2864,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "omribruchim",
@@ -2952,7 +2998,7 @@
       "about": "TBD",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/9/1a/18743864/avatar.jpg.320x320px.jpg?7fa",
+      "avatar": "//avatars.sched.co/9/1a/18743864/avatar.jpg.320x320px.jpg?18e",
       "socialurls": [],
       "_years": [
         2023,
@@ -2994,7 +3040,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "rama_palaniappan",
@@ -3036,6 +3083,20 @@
       "~syncedDetailsAt": 1749502056389
     },
     {
+      "username": "ravisastryk",
+      "company": "",
+      "position": "Engineering Leader | Go Ecosystem Contributor | Security Tooling Author",
+      "name": "Ravi Sastry Kadali",
+      "about": "Ravi Sastry Kadali is a Tech Lead, Staff Engineer at Samsung with two decades of security expertise. He built platform integrity systems at Meta protecting 3B+ users, delivered Windows releases at Microsoft, and developed intrusion detection systems for India's Defense R&D Org. An active open-source contributor to Kubernetes, etcd, gosec, gqlgen, he created the go-safeinput and cryptoguard-go libraries. Kadali is an IEEE Senior Member with awards for Outstanding Achievement in Cybersecurity.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/3/ce/10492261/avatar.jpg.320x320px.jpg?e74",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
+    },
+    {
       "username": "raymie2",
       "company": "Airbnb",
       "position": "Viaduct Tech Lead",
@@ -3067,7 +3128,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "rickbijkerk54",
@@ -3140,7 +3202,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "ruben.cagnie",
@@ -3345,7 +3408,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "serhii.korin",
@@ -3403,7 +3467,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "shashank.gugnani",
