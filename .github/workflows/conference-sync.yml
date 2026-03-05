@@ -1,41 +1,12 @@
 # Sched's API rate limits are very limited, so we sync non-critical part of the data on a cron.
 on:
   workflow_dispatch:
-  # schedule:
-  # - cron: "*/10 * * * *" # every ten minutes
+  schedule:
+    - cron: "0 */3 * * *" # Every 3 hours
 
 jobs:
-  sync:
+  redeploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-        with:
-          ref: source
-
-      - name: Setup environment
-        uses: the-guild-org/shared-config/setup@main
-        with:
-          packageManager: pnpm
-          workingDirectory: ./
-
-      - name: Install Dependencies
-        run: pnpm i
-
-      - name: Sync conference data from Sched
-        run: pnpm exec tsx scripts/sync-sched/sync.ts --year 2026
-        env:
-          SCHED_ACCESS_TOKEN_2026: ${{ secrets.SCHED_ACCESS_TOKEN_2026 }}
-
-      - name: Commit changes
-        uses: planetscale/ghcommit-action@v0.1.6
-        with:
-          file_pattern: "scripts/sync-sched/*.json"
-          commit_message: "Sync conference data from Sched"
-          repo: ${{ github.repository }}
-          branch: source
-          empty: false
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Trigger redeploy
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }} >/dev/null 2>&1

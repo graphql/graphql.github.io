@@ -17,6 +17,7 @@
     "postbuild": "next-sitemap",
     "prebuild": "tsx scripts/get-github-info && node scripts/sync-landing-schema && node scripts/sync-working-groups",
     "start": "next start",
+    "sync:sched": "tsx scripts/sync-sched/sync.ts --year 2026",
     "test": "playwright test && pnpm test:unit",
     "test:e2e": "playwright test",
     "test:show-report": "playwright show-report",
