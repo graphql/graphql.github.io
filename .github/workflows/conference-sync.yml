@@ -15,6 +15,15 @@ jobs:
         with:
           ref: source
 
+      - name: Setup environment
+        uses: the-guild-org/shared-config/setup@main
+        with:
+          packageManager: pnpm
+          workingDirectory: ./
+
+      - name: Install Dependencies
+        run: pnpm i
+
       - name: Sync conference data from Sched
         run: pnpm exec tsx scripts/sync-sched/sync.ts --year 2026
         env:
