@@ -213,9 +213,7 @@ function mergeMeetings(
     byId.delete(id)
   }
 
-  const list = Array.from(byId.values())
-  list.sort((a, z) => a.start.localeCompare(z.start))
-  return list
+  return Array.from(byId.values())
 }
 
 try {
