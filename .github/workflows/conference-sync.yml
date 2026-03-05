@@ -11,16 +11,22 @@ jobs:
       contents: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          ref: source
 
       - name: Sync conference data from Sched
-        run: |
-          tsx scripts/sync-sched/sync.ts --year 2026
+        run: pnpm exec tsx scripts/sync-sched/sync.ts --year 2026
         env:
           SCHED_ACCESS_TOKEN_2026: ${{ secrets.SCHED_ACCESS_TOKEN_2026 }}
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: planetscale/ghcommit-action@v0.1.6
         with:
           file_pattern: "scripts/sync-sched/*.json"
           commit_message: "Sync conference data from Sched"
+          repo: ${{ github.repository }}
+          branch: source
+          empty: false
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
