@@ -176,12 +176,15 @@ export function EventsList({
     }
     const majorEvents: AnyEvent[] = []
     const minorEvents: AnyEvent[] = []
+
+    // Prioritize major vs minor events
     const target = {
       conference: majorEvents,
       meetup: majorEvents,
       "working-group": minorEvents,
       "foundation-meeting": minorEvents,
     } satisfies { [kind in EventKind]: AnyEvent[] }
+
     for (const event of allEvents) {
       const kind = categorizeEvent(event)
       if (kind === null) {
