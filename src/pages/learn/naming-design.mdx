@@ -1,4 +1,6 @@
-# Establish naming conventions and design standards
+import { Callout } from "nextra/components"
+
+# Naming Conventions and Design Standards
 
 Naming conventions determine how easily developers understand and use your GraphQL API. Consistent naming patterns make schemas predictable, enable code generation tools to work smoothly, and prevent confusion as your API grows.
 
@@ -282,6 +284,8 @@ type User {
 }
 ```
 
+For a complete deprecation lifecycle including tracking usage and coordinating removal, see [Schema Change Management](/learn/governance-versioning/).
+
 ## Use custom scalars for domain-specific types
 
 Custom scalars add validation and semantic meaning beyond built-in types. Use them for values with specific formats or constraints.
@@ -335,7 +339,7 @@ Avoid creating custom scalars for types that are really just strings with busine
 
 The standard GraphQL `errors` array handles infrastructure and system failures:
 
-```graphql
+```json
 {
   "data": null,
   "errors": [{
@@ -389,7 +393,7 @@ This pattern makes errors discoverable through introspection and provides type s
 
 ## Implement pagination with connections
 
-The [Relay Cursor Connections Specification](https://relay.dev/graphql/connections.htm) is widely used for paginating GraphQL lists.
+The [Relay Cursor Connections Specification](https://relay.dev/graphql/connections.htm) is widely used for paginating GraphQL lists. For a broader overview of pagination approaches, see [Pagination](/learn/pagination/).
 
 ### Structure connection types
 
@@ -469,6 +473,14 @@ export default {
 
 Adjust the mutation rules based on your chosen naming pattern. For noun-first APIs, add `forbiddenPrefixes: ['create', 'update', 'delete']` to enforce consistency.
 
+For broader schema validation beyond linting — including breaking change detection, coverage analysis, and schema diffing — consider [GraphQL Inspector](https://the-guild.dev/graphql/inspector).
+
+<Callout type="info">
+
+See the [tools and libraries](/community/tools-and-libraries/) page for more schema validation and linting tools.
+
+</Callout>
+
 ### Validate in CI/CD pipelines
 
 ```yaml
@@ -500,6 +512,12 @@ jobs:
             --rules types-have-descriptions \
             schema/**/*.graphql
 ```
+
+<Callout type="info">
+
+For monitoring schema quality and tracking naming convention compliance over time, see the [monitoring resources](/resources/monitoring/) page.
+
+</Callout>
 
 ## Avoid common anti-patterns
 

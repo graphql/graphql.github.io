@@ -27,9 +27,9 @@ export default {
   performance: "",
   security: "",
   federation: "",
-    "-- 3": {
+  "-- 3": {
     type: "separator",
     title: "Schema Governance",
   },
-  "naming-design": "",
+  "naming-design": "Naming Conventions and Design Standards",
 }
