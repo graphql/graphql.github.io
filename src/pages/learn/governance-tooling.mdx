@@ -1,10 +1,12 @@
+import { Callout } from "nextra/components"
+
 # Tooling and Automation for Governance
 
 Governance practices require supporting infrastructure that automates validation, tracks changes, and provides visibility. This guide shows you how to set up the tools and workflows that make schema governance practical and sustainable.
 
 ## Set up a schema registry
 
-A schema registry stores and versions your GraphQL schemas, acting as the source of truth for what's deployed. Without a registry, teams often discover breaking changes only after deployment, when clients start failing. A registry enables you to compare proposed changes against production schemas before merge, track which schema version each environment runs, and maintain an audit trail of who changed what and when.
+A schema registry stores and versions your GraphQL schemas. Without a registry, teams often discover breaking changes only after deployment, when clients start failing. A registry enables you to compare proposed changes against production schemas before merge, track which schema version each environment runs, and maintain an audit trail of who changed what and when.
 
 ### Choose registry infrastructure
 
@@ -15,6 +17,12 @@ Registry options range from fully managed to DIY, depending on your team's needs
 - **Lightweight approaches** work for smaller teams: store schemas in Git with validation in CI, use a shared S3 bucket with versioned objects, or build a simple API that stores schemas in your existing database. These approaches lack advanced features but may be all you need to start.
 
 Consider data sensitivity, team size, integration with existing CI/CD workflows, federation requirements, and budget when choosing your registry infrastructure.
+
+<Callout type="info">
+
+Browse [Tools and Libraries](/community/tools-and-libraries/) for current registry and schema management options. For a deeper look at the tradeoffs of building your own, see [In-House Schema Registry - the Good, the Bad, and the Ugly](https://graphql.org/conf/2024/schedule/af55205b1d68ec3b3d1b1663e4bd2adf/) from GraphQL Conf 2024.
+
+</Callout>
 
 ### Publish schemas automatically
 
@@ -32,11 +40,11 @@ await fetch(`${registryUrl}/schema/publish`, {
 
 This example posts the schema to a registry with version metadata.
 
-Add publication as a deployment step after successful builds, include metadata like git commit and author, and fail deployments if publication fails.
+Add publication as a deployment step after successful builds but before deployment. Include metadata like git commit and author, and fail deployments if publication fails.  
 
 ## Automate validation in CI/CD
 
-Schema validation catches problems before they reach production. The `graphql` package provides `findBreakingChanges` and `findDangerousChanges` functions that compare two schemas and return lists of differences.
+Schema validation catches problems before they reach production. Tools like [graphql-inspector](https://github.com/graphql-hive/graphql-inspector) provide ready-to-use CLI commands and CI integrations for detecting breaking changes. Under the hood, the `graphql` package provides a `findSchemaChanges` function that compares two schemas and returns a list of differences, each categorized as breaking, dangerous, or safe.
 
 **Breaking changes** will cause existing client queries to fail: removing a field, changing a field's type, or removing an enum value. These should block merges by default.
 
@@ -45,13 +53,18 @@ Schema validation catches problems before they reach production. The `graphql` p
 Set up validation to run on every pull request that touches schema files. Most teams configure this as a required status check that must pass before merging.
 
 ```javascript
-import { findBreakingChanges, findDangerousChanges } from 'graphql';
+import {
+  findSchemaChanges,
+  BreakingChangeType,
+  DangerousChangeType,
+} from 'graphql';
 
 const currentSchema = await fetchFromRegistry('production');
 const proposedSchema = await loadLocal('./schema.graphql');
 
-const breaking = findBreakingChanges(currentSchema, proposedSchema);
-const dangerous = findDangerousChanges(currentSchema, proposedSchema);
+const changes = findSchemaChanges(currentSchema, proposedSchema);
+const breaking = changes.filter(c => c.type in BreakingChangeType);
+const dangerous = changes.filter(c => c.type in DangerousChangeType);
 
 if (breaking.length > 0) {
   console.log('Breaking changes:', breaking.map(c => c.description));
@@ -118,7 +131,7 @@ Configure the workflow as a required status check in your repository settings so
 For federated architectures, each subgraph must compose successfully with others before deployment. Composition failures—like conflicting type definitions or missing entity resolvers—should block merges.
 
 ```javascript
-import { composeServices } from '@apollo/composition';
+import { composeServices, compositionHasErrors } from '@theguild/federation-composition';
 
 const subgraphs = [
   { name: 'users', typeDefs: usersSchema },
@@ -128,7 +141,7 @@ const subgraphs = [
 
 const result = composeServices(subgraphs);
 
-if (result.errors?.length > 0) {
+if (compositionHasErrors(result)) {
   console.error('Composition failed:', result.errors);
   process.exit(1);
 }
@@ -140,9 +153,15 @@ This example validates that subgraphs compose into a valid supergraph. Run compo
 
 For teams using federation, composition validation is critical. A subgraph change that passes its own tests might still break the composed graph. Catch these issues before merge by fetching the latest schemas from other subgraphs and composing them with the proposed changes.
 
+<Callout type="info">
+
+See [Federation Resources](/resources/federation/) for composition tools and gateway options.
+
+</Callout>
+
 ## Generate reference documentation automatically
 
-GraphQL's introspection makes documentation generation straightforward. Since your schema contains type names, field names, arguments, and descriptions, tools can generate complete API reference docs with litte manual effort.
+GraphQL's introspection makes documentation generation straightforward. Since your schema contains type names, field names, arguments, and descriptions, tools can generate complete API reference docs with little manual effort. Many schema registries include built-in schema explorers that handle this automatically, but teams often want to customize the documentation experience for their API consumers.
 
 The key to making GraphQL documentation effective is to make documentation generation automatic. Run it in CI after schema changes merge, and publish to wherever your developers look for docs.
 
@@ -189,6 +208,12 @@ function trackFieldUsage(info, fieldsUsed) {
 This pattern records each field accessed during a request. Integrate it with your server's plugin or middleware system—most GraphQL servers provide hooks into the field resolution lifecycle.
 
 For high-traffic APIs, sampling reduces overhead while still providing useful data. A 1-10% sample rate is often sufficient to identify usage patterns. Store usage data in a time-series database or analytics system where you can query trends over time, and build dashboards that show deprecated field usage as clients migrate.
+
+<Callout type="info">
+
+See [Monitoring Resources](/resources/monitoring/) for tools that provide usage analytics out of the box.
+
+</Callout>
 
 ## Integrate with developer tools
 
@@ -245,7 +270,7 @@ Automated alerts ensure the right people know about schema issues without manual
 
 ### Alert on deprecated field usage
 
-When clients continue using deprecated fields as the removal deadline approaches, send notifications to the responsible teams.
+Schema-level `@deprecated` directives tell client developers that a field will go away, but they're easy to overlook. Usage-based alerts add concrete impact: which clients are still calling the field, how often, and how close the removal deadline is. This makes the notification actionable rather than informational.
 
 ```javascript
 async function checkDeprecationDeadlines(usageData, deprecations) {
@@ -277,40 +302,20 @@ Configure your CI system to send notifications to a dedicated channel when schem
 
 For federated graphs, composition failures in one subgraph can block other teams. Set up alerts that notify affected teams immediately when composition breaks, including which subgraph caused the failure and what types are in conflict.
 
-## Plan for rollbacks
+## Handle production issues
 
-Even with thorough validation, problematic schema changes occasionally reach production. Prepare rollback procedures before you need them.
+Even with thorough validation, problematic schema changes occasionally reach production. Treat your API like a database: once a change is live and clients depend on it, always move forward rather than rolling back.
 
-### Keep previous schema versions accessible
+### Fix forward
 
-Your schema registry should maintain a history of deployed schemas. When issues arise, you need to quickly identify which version was stable and redeploy it.
+Rolling back a schema can break clients that already adapted to the new version. Instead, fix issues by shipping a new schema change that corrects the problem while preserving compatibility with existing clients.
 
-```javascript
-async function rollbackSchema(environment, targetVersion) {
-  const previousSchema = await registry.getSchema(environment, targetVersion);
+When a problematic field is deployed, add the corrected field alongside it and deprecate the broken one. When a type change causes errors, extend the schema to support both the old and new shapes while you migrate clients. This keeps the API moving in one direction and avoids creating a second breaking change for clients that already updated.
 
-  await registry.publish({
-    environment,
-    schema: previousSchema,
-    metadata: {
-      type: 'rollback',
-      rolledBackFrom: await registry.getCurrentVersion(environment),
-      reason: 'Production issue detected'
-    }
-  });
-}
-```
+### Keep schema history for debugging
 
-This example retrieves a previous schema version and republishes it as the current version.
+Your schema registry should maintain a history of deployed schemas. This history is valuable for debugging and auditing, not for rollbacks. When issues arise, you can compare the current schema against previous versions to identify exactly what changed and plan your fix-forward strategy.
 
-### Document rollback procedures
+### When rollbacks are an option
 
-Create runbooks that describe how to roll back schema changes. Include how to identify the last known good schema version, steps to redeploy the previous schema, how to communicate the rollback to client teams, and post-rollback verification steps.
-
-Test rollback procedures periodically. A rollback process you've never run is a rollback process that might fail when you need it most.
-
-### Handle data-dependent rollbacks
-
-Some schema changes depend on underlying data changes. Rolling back the schema without rolling back the data can cause errors. Document which schema changes have data dependencies and what order operations must happen during rollback.
-
-For complex changes, consider deploying schema and data changes in separate releases. This gives you more granular rollback options if issues arise.
+For internal APIs where you control all clients, or for changes caught before any client adoption, a rollback may be the fastest path to resolution. If your team does need this option, keep previous schema versions accessible in your registry and document the procedure in advance. But for public or widely consumed APIs, fixing forward is almost always the safer choice.
