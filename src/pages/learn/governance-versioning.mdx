@@ -1,3 +1,5 @@
+import { Callout } from "nextra/components"
+
 # Schema Change Management
 
 GraphQL schemas evolve continuously rather than through versioned releases. This approach allows you to add capabilities without breaking existing clients while maintaining a single schema that serves all consumers.
@@ -73,30 +75,56 @@ Common breaking changes include:
 - Making optional arguments required
 - Changing argument types
 
+**Removing a field:**
+
 ```graphql
-# Breaking, removing a field
+# Before
 type User {
   id: ID!
   name: String!
-- email: String!  # Queries requesting this field will fail
+  email: String!
 }
 
-# Breaking, changing field type
-type Product {
+# After — queries requesting `email` will fail
+type User {
   id: ID!
-- price: Float!
-+ price: Money!  # Queries expecting Float receive Money instead
-}
-
-# Breaking, making field non-null
-type Order {
-  id: ID!
-- discount: Float
-+ discount: Float!  # Queries might receive errors if discount is null
+  name: String!
 }
 ```
 
-These examples show schema changes that break existing queries. Clients requesting the removed email field receive errors. Clients expecting a `Floa`t for price get a `Money` object instead. Queries relying on `null` discounts fail validation.
+**Changing a field type:**
+
+```graphql
+# Before
+type Product {
+  id: ID!
+  price: Float!
+}
+
+# After — clients expecting Float receive Money instead
+type Product {
+  id: ID!
+  price: Money!
+}
+```
+
+**Making a nullable field non-null:**
+
+```graphql
+# Before
+type Order {
+  id: ID!
+  discount: Float
+}
+
+# After — queries might receive errors if discount is null
+type Order {
+  id: ID!
+  discount: Float!
+}
+```
+
+These examples show schema changes that break existing queries. Clients requesting the removed `email` field receive errors. Clients expecting a `Float` for `price` get a `Money` object instead. Queries relying on `null` discounts fail validation.
 
 Avoid these changes when possible. When unavoidable, use the [deprecation process](#deprecate-fields-before-removal) to give clients time to migrate.
 
@@ -159,8 +187,6 @@ Internal APIs can use shorter timelines but still need clear communication. Send
 Monitor which clients still use deprecated fields. Implement tracking that logs when deprecated elements are accessed, including which client made the request.
 
 ```javascript
-import { GraphQLError } from 'graphql';
-
 export function wrapDeprecatedResolver(resolver, fieldName, reason) {
   return (parent, args, context, info) => {
     // Log deprecated field access
@@ -195,12 +221,21 @@ Some changes appear safe but can cause subtle issues. These "dangerous" changes 
 Adding values to an enum is technically additive, but clients might not handle unknown values gracefully.
 
 ```graphql
+# Before
 enum OrderStatus {
   PENDING
   CONFIRMED
   SHIPPED
   DELIVERED
-+ CANCELLED  # New value might surprise clients
+}
+
+# After — new value might surprise clients
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
 }
 ```
 
@@ -278,23 +313,19 @@ This sequence ensures data exists in the new structure before clients start requ
 For changes affecting many clients, consider gradual rollouts. One approach some teams use is feature flags or progressive deployment.
 
 ```javascript
-export function getUserName(user, context) {
-  // Feature flag controls new behavior
-  if (context.features.isEnabled('split-name-field')) {
-    return {
-      firstName: user.firstName,
-      lastName: user.lastName
-    };
-  }
-
-  // Fall back to legacy behavior
+export function getUserResolvers(context) {
   return {
-    name: user.name
+    name: (user) => {
+      // Always available during deprecation period
+      return `${user.firstName} ${user.lastName}`;
+    },
+    firstName: (user) => user.firstName,
+    lastName: (user) => user.lastName
   };
 }
 ```
 
-This example uses feature flags to roll out a new field structure gradually. You might enable the flag for internal clients first, then progressively for external clients, monitoring for issues at each stage.
+This example keeps both old and new fields available simultaneously. The feature flag approach applies at the data layer — for instance, controlling when to start populating `firstName` and `lastName` from a new data source — rather than changing the schema shape per client.
 
 When rolling out gradually, track errors and performance metrics for each cohort so you can roll back quickly if issues emerge before continuing the rollout.
 
@@ -302,20 +333,26 @@ When rolling out gradually, track errors and performance metrics for each cohort
 
 Automated tools catch breaking changes before they reach production, reducing the risk of accidentally breaking clients.
 
+<Callout type="info">
+
+See the [tools and libraries](/community/tools-and-libraries/) page for available schema validation tools.
+
+</Callout>
+
 ### Integrate schema validation in CI
 
 Run breaking change detection in your continuous integration pipeline on every pull request.
 
 ```javascript
-import { findBreakingChanges } from 'graphql';
+import { buildSchema, findBreakingChanges } from 'graphql';
 import { readFileSync } from 'fs';
 
 export async function checkSchemaChanges(currentSchemaPath, proposedSchemaPath) {
-  const currentSchema = readFileSync(currentSchemaPath, 'utf-8');
-  const proposedSchema = readFileSync(proposedSchemaPath, 'utf-8');
-  
+  const currentSchema = buildSchema(readFileSync(currentSchemaPath, 'utf-8'));
+  const proposedSchema = buildSchema(readFileSync(proposedSchemaPath, 'utf-8'));
+
   const breakingChanges = findBreakingChanges(currentSchema, proposedSchema);
-  
+
   if (breakingChanges.length > 0) {
     console.error('Breaking changes detected:');
     breakingChanges.forEach(change => {
@@ -323,12 +360,14 @@ export async function checkSchemaChanges(currentSchemaPath, proposedSchemaPath) 
     });
     process.exit(1);
   }
-  
+
   console.log('No breaking changes detected');
 }
 ```
 
-This example uses GraphQL's built-in breaking change detection to compare schemas. The check fails the build if breaking changes appear, forcing explicit acknowledgment before merging.
+This example uses GraphQL's built-in `findBreakingChanges` function to compare schemas. Note that it requires `GraphQLSchema` objects built with `buildSchema()`, not raw SDL strings. The check fails the build if breaking changes appear, forcing explicit acknowledgment before merging.
+
+For more comprehensive schema diff capabilities, including dangerous change detection and CI integrations, consider using [GraphQL Inspector](https://the-guild.dev/graphql/inspector), which builds on these primitives.
 
 To implement automated detection, store your schema in version control and run breaking change detection on every pull request. Require manual approval for PRs containing breaking changes and document the reason for each breaking change in commit messages.
 
@@ -337,11 +376,22 @@ To implement automated detection, store your schema in version control and run b
 Schema comparison alone doesn't tell you if a change actually affects clients. Compare proposed changes against real client queries to identify true impact.
 
 ```javascript
-export async function analyzeFieldUsage(fieldPath, queryLogs) {
-  const affectedQueries = queryLogs.filter(log => 
-    log.query.includes(fieldPath)
-  );
-  
+import { parse, visit } from 'graphql';
+
+export async function analyzeFieldUsage(typeName, fieldName, queryLogs) {
+  const affectedQueries = queryLogs.filter(log => {
+    const doc = parse(log.query);
+    let found = false;
+    visit(doc, {
+      Field(node) {
+        if (node.name.value === fieldName) {
+          found = true;
+        }
+      }
+    });
+    return found;
+  });
+
   return {
     totalQueries: queryLogs.length,
     affectedQueries: affectedQueries.length,
@@ -351,9 +401,15 @@ export async function analyzeFieldUsage(fieldPath, queryLogs) {
 }
 ```
 
-This example analyzes query logs to determine how many clients actually use a field you're considering deprecating. Use this data to prioritize migration efforts and estimate impact.
+This example parses query logs and walks the AST to find field references, avoiding false positives from simple string matching. For production use, consider tools like [GraphQL Inspector](https://the-guild.dev/graphql/inspector) that provide built-in usage analysis. Use this data to prioritize migration efforts and estimate impact.
 
 When analyzing usage, collect at least 30 days of query data for representative samples and identify both the number of queries and number of unique clients affected. Check usage patterns and use this data to set realistic migration timelines.
+
+<Callout type="info">
+
+For monitoring tools that help with usage tracking, see the [monitoring resources](/resources/monitoring/) page.
+
+</Callout>
 
 ## Document evolution decisions
 
