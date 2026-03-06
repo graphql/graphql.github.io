@@ -176,9 +176,9 @@ function areTypesCompatible(type1, type2) {
 }
 ```
 
-This example validates that types defined across multiple subgraphs don't conflict. Common failures include conflicting field types across subgraphs and incompatible type definitions. Adapt this pattern to your federation implementation's specific composition rules.
+This example validates that types defined across multiple subgraphs don't conflict. Common failures include conflicting field types across subgraphs and incompatible type definitions. Adapt this pattern to your federation implementation's specific composition rules. For an open-source composition library, see [federation-composition](https://github.com/graphql-hive/federation-composition).
 
-To integrate composition validation, run it whenever a subgraph schema changes. Catch composition failures in CI rather than discovering them when deploying to production. For teams working across multiple repositories, establish a shared schema registry that validates composition when subgraphs are published.
+To integrate composition validation, run it whenever a subgraph schema changes. Catch composition failures in CI rather than discovering them when deploying to production. For teams working across multiple repositories, establish a shared schema registry that validates composition when subgraphs are published. See [Federation resources](/resources/federation/) for additional tools.
 
 ## Integrate with CI/CD
 
@@ -419,7 +419,7 @@ function createResolverWithTracking(resolver, typeName, fieldName) {
 
 This example wraps resolver execution to track which fields are accessed. The usage data flows to your metrics system where you aggregate it across all requests.
 
-To use field usage data effectively, set a threshold for safe removal, such as zero requests in the past 30 days. Account for seasonal patterns in your application where certain fields may only be used during specific times of year. Communicate usage data back to client teams so they can identify queries that still reference deprecated fields.
+To use field usage data effectively, set a threshold for safe removal, such as zero requests in the past 30 days. Account for seasonal patterns in your application where certain fields may only be used during specific times of year. Communicate usage data back to client teams so they can identify queries that still reference deprecated fields. For monitoring tools that can help with field-level tracking, see [Monitoring resources](/resources/monitoring/).
 
 ## Schedule periodic reviews
 
@@ -445,7 +445,7 @@ export async function generateSchemaHealthReport(schema, usageData) {
   const fields = types.flatMap(typeName => {
     const type = schema.getType(typeName);
     if ('getFields' in type) {
-      return Object.keys(type.getFields());
+      return Object.keys(type.getFields()).map(f => `${typeName}.${f}`);
     }
     return [];
   });
@@ -473,7 +473,7 @@ export async function generateSchemaHealthReport(schema, usageData) {
 
 This example generates metrics about schema health by examining the schema structure and comparing it against usage data. The metrics reveal opportunities for cleanup and improvement.
 
-To act on schema health reviews, create tickets for deprecating unused fields, assign ownership of undocumented types to teams for documentation, and establish targets for improving metrics over the next quarter. Track progress in your regular team meetings to maintain momentum.
+To act on schema health reviews, create tickets for deprecating unused fields, assign ownership of undocumented types to teams for documentation, and establish targets for improving metrics over the next quarter. Track progress in your regular team meetings to maintain momentum. For tools that support schema health analysis, see [Monitoring resources](/resources/monitoring/).
 
 ## Scale across teams
 
@@ -529,3 +529,5 @@ Start lightweight and add structure only when coordination breaks down. Match pr
 This guide establishes the workflow for reviewing schema changes. The schema review series continues with guides on naming conventions and standards, ownership and governance models, versioning and evolution strategies, and tooling and automation. Each guide builds on the process foundations established here.
 
 For teams just starting schema reviews, begin with automated syntax validation and breaking change detection. Add linting rules as you identify consistency issues in reviews. Introduce formal approval workflows only after informal coordination breaks down. Build your review process incrementally based on problems you actually encounter.
+
+For a list of tools that support schema governance workflows, see [Tools and Libraries](/community/tools-and-libraries/) and [Federation resources](/resources/federation/).

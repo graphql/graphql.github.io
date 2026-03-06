@@ -42,5 +42,5 @@ export default {
     type: "separator",
     title: "Schema Governance",
   },
-  "review-and-validate-schema-changes": "",
+  "schema-review": "",
 }
