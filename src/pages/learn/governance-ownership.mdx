@@ -1,12 +1,10 @@
+import { Callout } from "nextra/components"
+
 # Schema Ownership and Governance Models
 
 Establish who owns which parts of your GraphQL schema and how teams make decisions about schema changes. Clear ownership boundaries help teams contribute effectively, maintain consistency, and coordinate across domains.
 
-This guide presents three governance models you can adapt to your organization's structure. You'll learn how to implement each model, manage ownership boundaries, and scale your approach as your organization grows.
-
-## Choose a governance approach
-
-Organizations typically adopt one of three governance models for managing GraphQL schemas. Choose based on how much central oversight you want versus team autonomy and iteration speed.
+This guide presents three governance models — centralized, federated, and hybrid — that you can adapt to your organization's structure. Choose based on how much central oversight you want versus team autonomy and iteration speed.
 
 ## Centralized governance
 
@@ -48,7 +46,13 @@ export async function validateSchemaChange(proposedSchema, currentSchema) {
 }
 ```
 
-This example validates proposed schema changes before the central team reviews them. The automated checks catch GraphQL validity issues, breaking changes, and naming standard violations.
+This example validates proposed schema changes before the central team reviews them. The automated checks catch GraphQL validity issues, breaking changes, and naming standard violations. For more comprehensive validation, consider [GraphQL Inspector](https://the-guild.dev/graphql/inspector) which provides breaking change detection, schema diffing, and CI integrations.
+
+<Callout type="info">
+
+See the [tools and libraries](/community/tools-and-libraries/) page for available schema validation and linting tools.
+
+</Callout>
 
 To set this up:
 
@@ -95,18 +99,12 @@ export const subgraphOwnership = {
   }
 };
 
-export function getSubgraphOwner(typename) {
-  for (const [subgraph, metadata] of Object.entries(subgraphOwnership)) {
-    const capitalizedSubgraph = subgraph.charAt(0).toUpperCase() + subgraph.slice(1);
-    if (typename.startsWith(capitalizedSubgraph)) {
-      return metadata;
-    }
-  }
-  return null;
+export function getSubgraphOwner(subgraphName) {
+  return subgraphOwnership[subgraphName] || null;
 }
 ```
 
-This example maintains a registry that maps schema segments to teams. Automation uses this registry to route notifications, assign reviewers, and identify who to contact about specific types.
+This example maintains a registry that maps subgraphs to the teams responsible for them. Automation uses this registry to route notifications, assign reviewers, and identify who to contact about specific parts of the schema.
 
 To set up federated ownership:
 
@@ -147,7 +145,7 @@ export function getAffectedTeams(changedDomain) {
 
 This example tracks dependencies and calculates which teams need notification when a domain changes. Integrate this with your CI pipeline to notify affected teams automatically.
 
-When multiple subgraphs contribute fields to the same entity, use custom directives to mark ownership:
+When multiple subgraphs contribute fields to the same entity, you can define custom directives to mark ownership. The `@key` directive below comes from [federation specifications](/learn/federation/), while `@owner` is a custom directive you define for your own tooling:
 
 ```graphql
 directive @owner(team: String!) on OBJECT | INTERFACE
@@ -164,7 +162,7 @@ extend type Product @owner(team: "inventory-team") {
 }
 ```
 
-This example marks which team owns each portion of an entity. The catalog team owns the base Product definition while inventory owns stock-related extensions. Build tooling that parses these directives to route documentation questions and assign reviewers.
+This example marks which team owns each portion of an entity. The catalog team owns the base Product definition while inventory owns stock-related extensions. Build tooling that parses the `@owner` directive to route documentation questions and assign reviewers.
 
 To maintain healthy federation:
 
@@ -173,40 +171,47 @@ To maintain healthy federation:
 
 ### Prevent composition conflicts
 
-Validate that subgraph changes compose correctly with all other subgraphs before deployment.
+Validate that subgraph changes compose correctly with all other subgraphs before deployment. The following pseudocode illustrates the general pattern — your schema registry or composition tool handles the specifics:
 
 ```javascript
+// Pseudocode — use your schema registry's API
 export async function publishSubgraphSchema(subgraphName, schema) {
   const registry = await getSchemaRegistry();
-  
+
   const compositionResult = await registry.checkComposition({
     subgraph: subgraphName,
     schema: schema,
     includeAllSubgraphs: true
   });
-  
+
   if (!compositionResult.success) {
     throw new Error(
       `Composition failed: ${compositionResult.errors.join(', ')}`
     );
   }
-  
+
   await registry.publish({
     subgraph: subgraphName,
     schema: schema
   });
-  
+
   return compositionResult;
 }
 ```
 
-This example checks composition before publishing a subgraph schema. The validation prevents deployments that would break the composed graph.
+This example checks composition before publishing a subgraph schema. The validation prevents deployments that would break the composed graph. For open source composition validation, consider [`@graphql-hive/federation-composition`](https://github.com/graphql-hive/federation-composition).
 
 To prevent composition conflicts:
 
 - Integrate composition checks into your CI/CD pipeline
 - Reject deployments that fail composition validation
 - Use separate schema variants for staging and production to test changes before they affect production traffic
+
+<Callout type="info">
+
+See the [federation resources](/resources/federation/) page for composition tools and federation frameworks.
+
+</Callout>
 
 ## Hybrid governance
 
@@ -233,7 +238,7 @@ Governance should remain flexible as your organization grows. Start simple and a
 **Small organizations** need minimal formal processes:
 
 - Direct communication suffices for coordination
-- Focus on learning GraphQL patterns 
+- Focus on learning GraphQL patterns
 - Document basic design decisions for future reference
 
 **Growing organizations** create coordination challenges:
@@ -279,3 +284,9 @@ Key metrics to track include:
 - Team satisfaction with the governance process
 
 Adjust based on these metrics. If reviews slow development, examine whether you've over-centralized. If quality drops, strengthen automated validation. Governance should evolve as your organization's needs change.
+
+<Callout type="info">
+
+For monitoring tools that help track schema usage and breaking changes, see the [monitoring resources](/resources/monitoring/) page.
+
+</Callout>
