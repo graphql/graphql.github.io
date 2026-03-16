@@ -37,16 +37,16 @@ export function Venue(props: VenueProps) {
               <h2 className="typography-h2">Venue</h2>
               <p className="typography-body-lg">
                 We're heading back to where it all began: GraphQLConf 2026 will
-                be hosted at Meta's Menlo Park campus, where GraphQL was first
+                be hosted at Meta's Fremont campus, where GraphQL was first
                 conceptualized by Facebook engineers in 2012.
               </p>
               <div className="flex-1" />
             </>
           }
           <p className="typography-body-lg">
-            Meta MPK 22 Bayfront Campus <br />
-            305 Constitution Dr <br />
-            Menlo Park, CA 94025
+            Meta FRE 117 - Fremont Campus <br />
+            6611 Dumbarton Circle <br />
+            Fremont, CA 94555
           </p>
           {
             <Button href="https://maps.app.goo.gl/rRTvnDFk8LgwHjsV7">

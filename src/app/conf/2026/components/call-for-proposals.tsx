@@ -23,14 +23,14 @@ function DatesTab() {
         term="Schedule Announced"
         definition="Wednesday, 4 March"
       />
-      <DefinitionListItem term="Slides due date" definition="Monday, 4 May" />
+      <DefinitionListItem term="Slides due date" definition="Monday, 11 May" />
       <DefinitionListItem
         term="Event Dates"
-        definition="Wednesday, May 6 - Thursday, May 7"
+        definition="Tuesday, May 19 - Wednesday, May 20"
       />
       <DefinitionListItem
         term="WG Day"
-        definition="Friday, May 8 (9:30 AM - 4:30 PM)"
+        definition="Thursday, May 21 (9:30 AM - 4:30 PM)"
       />
     </DefinitionListBox>
   )
