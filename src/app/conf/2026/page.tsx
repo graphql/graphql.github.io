@@ -30,7 +30,6 @@ export default function Page() {
       <Hero year="2026" bottom={<HeroImage />}>
         <HeroDateAndLocation />
         <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
-          <Button href={BECOME_A_SPEAKER_LINK}>Submit your talk</Button>
           <Button variant="tertiary" href={GET_TICKETS_LINK}>
             Get a ticket
           </Button>
