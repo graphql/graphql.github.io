@@ -49,7 +49,7 @@ export function Venue(props: VenueProps) {
             Fremont, CA 94555
           </p>
           {
-            <Button href="https://maps.app.goo.gl/rRTvnDFk8LgwHjsV7">
+            <Button href="https://maps.app.goo.gl/2nBp7Pp3Qrs8299G9">
               Google Maps
             </Button>
           }
