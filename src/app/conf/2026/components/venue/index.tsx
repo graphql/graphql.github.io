@@ -136,9 +136,9 @@ export function Venue(props: VenueProps) {
                   link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/",
                   description: (
                     <>
-                     8200 Gateway Blvd
+                      8200 Gateway Blvd
                       <br />
-                     Newark, CA 94560
+                      Newark, CA 94560
                       <br />
                       Phone:{" "}
                       <a className="typography-link" href="tel:650 326 9010">
