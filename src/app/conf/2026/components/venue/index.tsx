@@ -132,78 +132,48 @@ export function Venue(props: VenueProps) {
               className="[&_svg]:fill-neu-900"
               items={[
                 {
-                  title: "The Cottages Hotel",
-                  link: "https://cottageshotel.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+                  title: "Aloft Silicon Valley",
+                  link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/",
                   description: (
                     <>
-                      1704 El Camino Real
+                     8200 Gateway Blvd
                       <br />
-                      Menlo Park, CA 94027
+                     Newark, CA 94560
                       <br />
                       Phone:{" "}
                       <a className="typography-link" href="tel:650 326 9010">
-                        650-326-9010
-                      </a>
-                    </>
-                  ),
-                },
-                {
-                  title: "Aloft Silicon Valley",
-                  link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
-                  description: (
-                    <>
-                      8200 Gateway Blvd
-                      <br />
-                      Newark, CA 94560
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:510 494 8800">
                         510-494-8800
                       </a>
                     </>
                   ),
                 },
                 {
-                  title: "CitizenM Menlo Park Hotel",
-                  link: "https://www.marriott.com/en-us/hotels/sfopk-citizenm-menlo-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+                  title: "Courtyard by Marriott Fremont Silicon Valley",
+                  link: "https://www.marriott.com/en-us/hotels/sjcfe-courtyard-fremont-silicon-valley/overview/",
                   description: (
                     <>
-                      2 Meta Way <br />
-                      Menlo Park, CA 94025
+                      47000 Lakeview Blvd
+                      <br />
+                      Fremont, CA 94538
+                      <br />
+                      Phone:{" "}
+                      <a className="typography-link" href="tel:510 494 8800">
+                        510-656-1800
+                      </a>
+                    </>
+                  ),
+                },
+                {
+                  title: "Residence Inn by Marriott Newark Silicon Valley",
+                  link: "https://www.marriott.com/en-us/hotels/sjcnw-residence-inn-newark-silicon-valley/overview/",
+                  description: (
+                    <>
+                      35466 Dumbarton Court <br />
+                      Newark, CA 94560
                       <br />
                       Phone:{" "}
                       <a className="typography-link" href="tel:650 278 4448">
-                        650-278-4448
-                      </a>
-                    </>
-                  ),
-                },
-                {
-                  title: "Courtyard by Marriott Redwood City",
-                  link: "https://www.marriott.com/en-us/hotels/sford-courtyard-redwood-city/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
-                  description: (
-                    <>
-                      600 Bair Island Rd <br />
-                      Redwood City, CA 94063
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 216 9435">
-                        650-216-9435
-                      </a>
-                    </>
-                  ),
-                },
-                {
-                  title: "Hotel Nia",
-                  link: "https://www.hotelnia.com/",
-                  description: (
-                    <>
-                      200 Independence Dr <br />
-                      Menlo Park, CA 94025
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 900 3434">
-                        650-900-3434
+                        510-739-6000
                       </a>
                     </>
                   ),
