@@ -37,19 +37,19 @@ export function Venue(props: VenueProps) {
               <h2 className="typography-h2">Venue</h2>
               <p className="typography-body-lg">
                 We're heading back to where it all began: GraphQLConf 2026 will
-                be hosted at Meta's Menlo Park campus, where GraphQL was first
+                be hosted at Meta's Fremont campus, where GraphQL was first
                 conceptualized by Facebook engineers in 2012.
               </p>
               <div className="flex-1" />
             </>
           }
           <p className="typography-body-lg">
-            Meta MPK 22 Bayfront Campus <br />
-            305 Constitution Dr <br />
-            Menlo Park, CA 94025
+            Meta FRE 117 - Fremont Campus <br />
+            6611 Dumbarton Circle <br />
+            Fremont, CA 94555
           </p>
           {
-            <Button href="https://maps.app.goo.gl/rRTvnDFk8LgwHjsV7">
+            <Button href="https://maps.app.goo.gl/2nBp7Pp3Qrs8299G9">
               Google Maps
             </Button>
           }
@@ -132,24 +132,8 @@ export function Venue(props: VenueProps) {
               className="[&_svg]:fill-neu-900"
               items={[
                 {
-                  title: "The Cottages Hotel",
-                  link: "https://cottageshotel.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
-                  description: (
-                    <>
-                      1704 El Camino Real
-                      <br />
-                      Menlo Park, CA 94027
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 326 9010">
-                        650-326-9010
-                      </a>
-                    </>
-                  ),
-                },
-                {
                   title: "Aloft Silicon Valley",
-                  link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+                  link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/",
                   description: (
                     <>
                       8200 Gateway Blvd
@@ -157,53 +141,39 @@ export function Venue(props: VenueProps) {
                       Newark, CA 94560
                       <br />
                       Phone:{" "}
-                      <a className="typography-link" href="tel:510 494 8800">
+                      <a className="typography-link" href="tel:650 326 9010">
                         510-494-8800
                       </a>
                     </>
                   ),
                 },
                 {
-                  title: "CitizenM Menlo Park Hotel",
-                  link: "https://www.marriott.com/en-us/hotels/sfopk-citizenm-menlo-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+                  title: "Courtyard by Marriott Fremont Silicon Valley",
+                  link: "https://www.marriott.com/en-us/hotels/sjcfe-courtyard-fremont-silicon-valley/overview/",
                   description: (
                     <>
-                      2 Meta Way <br />
-                      Menlo Park, CA 94025
+                      47000 Lakeview Blvd
+                      <br />
+                      Fremont, CA 94538
+                      <br />
+                      Phone:{" "}
+                      <a className="typography-link" href="tel:510 494 8800">
+                        510-656-1800
+                      </a>
+                    </>
+                  ),
+                },
+                {
+                  title: "Residence Inn by Marriott Newark Silicon Valley",
+                  link: "https://www.marriott.com/en-us/hotels/sjcnw-residence-inn-newark-silicon-valley/overview/",
+                  description: (
+                    <>
+                      35466 Dumbarton Court <br />
+                      Newark, CA 94560
                       <br />
                       Phone:{" "}
                       <a className="typography-link" href="tel:650 278 4448">
-                        650-278-4448
-                      </a>
-                    </>
-                  ),
-                },
-                {
-                  title: "Courtyard by Marriott Redwood City",
-                  link: "https://www.marriott.com/en-us/hotels/sford-courtyard-redwood-city/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
-                  description: (
-                    <>
-                      600 Bair Island Rd <br />
-                      Redwood City, CA 94063
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 216 9435">
-                        650-216-9435
-                      </a>
-                    </>
-                  ),
-                },
-                {
-                  title: "Hotel Nia",
-                  link: "https://www.hotelnia.com/",
-                  description: (
-                    <>
-                      200 Independence Dr <br />
-                      Menlo Park, CA 94025
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 900 3434">
-                        650-900-3434
+                        510-739-6000
                       </a>
                     </>
                   ),

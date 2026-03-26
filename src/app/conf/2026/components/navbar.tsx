@@ -62,15 +62,15 @@ export function Navbar({ links, year }: NavbarProps): ReactElement {
 
           <div className="typography-menu mr-auto flex h-full flex-col justify-center whitespace-pre border-x border-blk/60 px-4 dark:border-white/80 max-xl:hidden">
             <p className="flex items-center gap-2 text-sm">
-              <time dateTime="2026-05-06">May 06</time>
+              <time dateTime="2026-05-19">May 19</time>
               <span>-</span>
-              <time dateTime="2026-05-07">07, 2026</time>
+              <time dateTime="2026-05-20">20, 2026</time>
             </p>
             <p className="text-sm text-neu-800 dark:text-neu-100">
-              WG Day: <time dateTime="2026-05-08">May 08</time>
+              WG Day: <time dateTime="2026-05-21">May 21</time>
             </p>
             <address className="text-sm not-italic">
-              Menlo Park, California
+              Fremont, California
             </address>
           </div>
 

@@ -21,7 +21,7 @@ import { HeroImage } from "./components/hero/hero-image"
 import { HERO_MARQUEE_ITEMS } from "./utils"
 
 export const metadata: Metadata = {
-  title: "GraphQLConf 2026 — May 06-07 + WG Day May 08",
+  title: "GraphQLConf 2026 — May 19-20 + WG Day May 21",
 }
 
 export default function Page() {
@@ -30,7 +30,6 @@ export default function Page() {
       <Hero year="2026" bottom={<HeroImage />}>
         <HeroDateAndLocation />
         <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
-          <Button href={BECOME_A_SPEAKER_LINK}>Submit your talk</Button>
           <Button variant="tertiary" href={GET_TICKETS_LINK}>
             Get a ticket
           </Button>
@@ -54,9 +53,9 @@ export default function Page() {
           <MarqueeRows
             variant="secondary"
             items={[
-              ["MENLO PARK", "MAY 2026", "TWO DAYS", "META CAMPUS"],
+              ["FREMONT", "MAY 2026", "TWO DAYS", "META CAMPUS"],
               ["TWO DAYS", "META CAMPUS", "CALIFORNIA", "GRAPHQL COMMUNITY"],
-              ["CALIFORNIA", "10 YEARS OF GRAPHQL", "06-07 MAY", "MENLO PARK"],
+              ["CALIFORNIA", "10 YEARS OF GRAPHQL", "19-20 MAY", "FREMONT"],
             ]}
             className="my-8 xl:mb-16 xl:mt-10 2xl:mb-24"
           />

@@ -13,12 +13,12 @@ import { GALLERY_LINK } from "./links"
 
 export const metadata = {
   description:
-    "Join the official GraphQL Conference by the GraphQL Foundation in Menlo Park, California, from May 06-07, 2026. Discover the future of GraphQL with leading experts, workshops, and networking opportunities.",
+    "Join the official GraphQL Conference by the GraphQL Foundation in Fremont, California, from May 19-20, 2026. Discover the future of GraphQL with leading experts, workshops, and networking opportunities.",
   openGraph: {
     images: [
       {
         url: "/img/og-graphql-conf-2025.jpeg",
-        alt: "GraphQLConf 2026 hosted by the GraphQL Foundation. May 06-07. Menlo Park, California",
+        alt: "GraphQLConf 2026 hosted by the GraphQL Foundation. May 19-20. Fremont, California",
       },
     ],
   },

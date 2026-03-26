@@ -11,7 +11,7 @@ import WGImage from "./attendees.jpg"
 export const metadata: Metadata = {
   title: "WG Day | GraphQLConf 2026",
   description:
-    "Working Group Day at GraphQLConf 2026 on May 22 at Meta's Fremont Campus for GraphQL working group members and maintainers of key GraphQL OSS, with intentionally unstructured time for technical discussion and social connection.",
+    "Working Group Day at GraphQLConf 2026 on May 21 at Meta's Fremont Campus for GraphQL working group members and maintainers of key GraphQL OSS, with intentionally unstructured time for technical discussion and social connection.",
 }
 
 export default function WGDayPage() {
@@ -44,7 +44,7 @@ export default function WGDayPage() {
             <strong>Time:</strong> 9:30 AM-4:30 PM PT
           </p>
           <p className="typography-body-md">
-            <strong>Location:</strong> Meta Fremont Campus
+            <strong>Location:</strong> Meta FRE 117, Fremont
           </p>
         </div>
       </Hero>

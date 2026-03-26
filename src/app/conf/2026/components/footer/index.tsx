@@ -27,19 +27,19 @@ export function Footer({
         {logo}
         <div className="typography-body-lg flex gap-x-4 max-sm:grid max-sm:grid-cols-2 max-sm:items-start max-sm:text-lg sm:gap-y-2">
           <p className="flex items-center whitespace-pre">
-            <time dateTime="2026-05-06">May 06</time>
+            <time dateTime="2026-05-19">May 19</time>
             <span>-</span>
-            <time dateTime="2026-05-07">
-              07<span className="max-sm:hidden">, 2026</span>
+            <time dateTime="2026-05-20">
+              20<span className="max-sm:hidden">, 2026</span>
             </time>
           </p>
           <p className="flex items-center whitespace-pre">
             WG Day:
             <span className="ml-1">
-              <time dateTime="2026-05-08">May 08</time>
+              <time dateTime="2026-05-21">May 21</time>
             </span>
           </p>
-          <address className="not-italic">Menlo Park, California</address>
+          <address className="not-italic">Fremont, California</address>
         </div>
       </div>
       <ul className="grid grid-cols-2 gap-px bg-neu-400 py-px dark:bg-neu-100 lg:grid-cols-4">
