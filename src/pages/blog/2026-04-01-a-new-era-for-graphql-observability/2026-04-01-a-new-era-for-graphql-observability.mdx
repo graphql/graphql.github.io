@@ -11,11 +11,11 @@ GraphQL is ten years old. During those ten years, teams small and large have ado
 During those 10 years, one thing was heavily criticized: the [HTTP 200 status code](https://x.com/iamdevloper/status/1384074981840097289). Today, we're fixing that once and for all: **GraphQL is switching to HTTP 500**.
 
 
-## Why GraphQL returns 200
+## Why GraphQL returned 200
 
-Unlike REST APIs, where an HTTP 404 or 500 immediately tells you something went wrong, GraphQL takes a different approach. A GraphQL response can contain **both** `data` and `errors` at the same time. A single query might fetch five fields successfully and fail on a sixth — and the client still needs the five good fields.
+To understand why this change matters, let's look at why GraphQL used 200 in the first place. Unlike REST APIs, where an HTTP 404 or 500 immediately tells you something went wrong, GraphQL takes a different approach. A GraphQL response can contain **both** `data` and `errors` at the same time. A single query might fetch five fields successfully and fail on a sixth — and the client still needs the five good fields.
 
-Because partial data is a valid and expected outcome, the HTTP status code can't summarize what happened. The real error information lives inside the response body:
+Because partial data is a valid and expected outcome, the HTTP status code alone can't summarize what happened. The real error information lives inside the response body:
 
 ```json
 {
@@ -40,9 +40,9 @@ Because partial data is a valid and expected outcome, the HTTP status code can't
 
 The request itself succeeded — the server understood the query, executed it, and returned what it could. That's a 200 in HTTP terms. The `errors` array tells the client exactly which fields failed and why, while `data` still carries everything that resolved correctly.
 
-This is powerful, but it makes traditional monitoring harder. Your dashboards see a wall of `200 OK` while users may be experiencing real failures. Alerting on HTTP status codes alone won't catch a broken resolver that's silently nulling out a critical field.
+This was a reasonable trade-off at the time, but it made traditional monitoring much harder. Your dashboards see a wall of `200 OK` while users may be experiencing real failures. Alerting on HTTP status codes alone won't catch a broken resolver that's silently nulling out a critical field. After ten years, the community has spoken loud and clear: this has to change.
 
-## Introducing: HTTP 500 by default
+## The fix: HTTP 500 by default
 
 After years of debate, mass confusion on Twitter, and one too many "GraphQL is broken" blog posts, the GraphQL Working Group has reached a historic decision: **starting with the October 2026 spec release, all GraphQL responses will return HTTP 500**.
 
