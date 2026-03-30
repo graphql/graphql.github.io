@@ -4,7 +4,10 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
-import { BecomeASpeakerSection, CfpButton } from "../components/become-a-speaker"
+import {
+  BecomeASpeakerSection,
+  CfpButton,
+} from "../components/become-a-speaker"
 import { EventPartnersSection } from "../components/event-partners"
 import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
