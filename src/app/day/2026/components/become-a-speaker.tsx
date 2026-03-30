@@ -2,6 +2,14 @@ import { Button } from "@/app/conf/_design-system/button"
 
 const CFP_LINK = "https://forms.gle/M1kiuvwK2wLJyNzi9"
 
+export function CfpButton({ className }: { className?: string }) {
+  return (
+    <Button href={CFP_LINK} className={className}>
+      Submit a talk
+    </Button>
+  )
+}
+
 export function BecomeASpeakerSection({
   cfpDeadline,
 }: {
@@ -28,9 +36,7 @@ export function BecomeASpeakerSection({
         {cfpDeadline && (
           <p className="typography-body-lg">The CFP closes on {cfpDeadline}.</p>
         )}
-        <Button href={CFP_LINK} className="whitespace-nowrap md:w-fit">
-          Submit a talk
-        </Button>
+        <CfpButton className="whitespace-nowrap md:w-fit" />
       </div>
     </section>
   )
