@@ -44,6 +44,7 @@ export default {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
+                  timeZone: "UTC",
                 })}
               </time>
             </div>
