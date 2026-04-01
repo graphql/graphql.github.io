@@ -38,7 +38,7 @@ export default function WGDayPage() {
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <p className="typography-body-md">
             <strong>Date:</strong>{" "}
-            <time dateTime="2026-05-08">May 22, 2026</time>
+            <time dateTime="2026-05-21">May 21, 2026</time>
           </p>
           <p className="typography-body-md">
             <strong>Time:</strong> 9:30 AM-4:30 PM PT
