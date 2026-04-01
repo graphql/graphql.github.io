@@ -321,7 +321,7 @@ export const ambassadors202509: Ambassador[] = [
     label: "Michael Watson",
     imageUrl: "https://github.com/michael-watson.png",
     alt: "Michael Watson",
-    organization: "Apollo",
+    organization: "Independent",
     tags: [
       {
         label: "BlueSky",
@@ -698,7 +698,7 @@ export const ambassadors202512: Ambassador[] = [
     label: "Valentin Cocaud",
     imageUrl: "https://github.com/EmrysMyrddin.png",
     alt: "Valentin Cocaud",
-    organization: "The Guild",
+    organization: "Independent",
     tags: [
       {
         label: "GitHub",
@@ -737,7 +737,7 @@ export const ambassadors202603: Ambassador[] = [
     label: "Ayush More",
     imageUrl: "/img/ambassadors/ayush-more.jpg",
     alt: "Ayush More",
-    organization: "Student",
+    organization: "Independent",
     tags: [
       {
         label: "GitHub",
