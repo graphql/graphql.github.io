@@ -33,7 +33,8 @@ export function RegisterToday({ className }: RegisterTodayProps) {
           </h2>
           <p className="typography-h3 mt-6 text-neu-800 md:mt-10">
             Join two transformative days of expert insights and innovation to
-            shape the next decade of APIs!
+            shape the next decade of APIs! Register by May 12 to secure your
+            ticket.
           </p>
         </div>
         <div className="mt-4 flex gap-x-6 gap-y-4 max-sm:flex-col">

@@ -31,7 +31,7 @@ export default function Page() {
         <HeroDateAndLocation />
         <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
           <Button variant="tertiary" href={GET_TICKETS_LINK}>
-            Get a ticket
+            Register by May 12
           </Button>
         </div>
       </Hero>
@@ -68,7 +68,7 @@ export default function Page() {
             description="Join two transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
             <Button variant="primary" href={GET_TICKETS_LINK}>
-              Register now
+              Register by May 12
             </Button>
           </CtaCardSection>
           <MarqueeRows

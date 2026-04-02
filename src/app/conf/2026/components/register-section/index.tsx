@@ -19,7 +19,8 @@ export function RegisterSection({ className, ...props }: RegisterSectionProps) {
         <p className="typography-body-lg mt-6">
           Join a diverse community of GraphQL developers, architects, and
           enthusiasts while experiencing premium content and networking
-          opportunities in a vendor-neutral environment.
+          opportunities in a vendor-neutral environment. Act now - registration
+          closes May 12!
         </p>
         <p className="typography-body-sm mt-6 md:mt-16">
           We never sell attendee lists or contact information, nor do we

@@ -64,34 +64,10 @@ export function Venue(props: VenueProps) {
                   title: "Public Transportation",
                   description: (
                     <>
-                      The city is served by multiple public transportation
-                      providers: <br />
-                      <ul>
-                        <li>
-                          <a href="https://www.caltrain.com/">Caltrain</a>
-                        </li>
-                        <li>
-                          <a href="https://www.samtrans.com/">SamTrans</a>
-                        </li>
-                        <li>
-                          <a href="https://dumbartonexpress.com/">
-                            Dumbarton Express
-                          </a>{" "}
-                          (connects{" "}
-                          <a href="https://www.bart.gov/stations/ucty">
-                            Union City BART
-                          </a>{" "}
-                          to Menlo Park)
-                        </li>
-                        <li>
-                          <a href="https://www.menlopark.gov/Government/Departments/Public-Works/Transportation-Division/City-Shuttle-services">
-                            City Shuttles
-                          </a>
-                        </li>
-                        <br />
-                        Review local and regional transportation options for
-                        getting around Menlo Park.
-                      </ul>
+                      Review local and regional transportation options for
+                      getting around Fremont:
+                      https://www.fremont.gov/residents/public-transportation
+                      <br />
                     </>
                   ),
                 },
@@ -100,7 +76,7 @@ export function Venue(props: VenueProps) {
                   description: (
                     <>
                       There are multiple airports within a reasonable driving
-                      distance to Menlo Park: <br />
+                      distance to the Fremont Campus: <br />
                       <ul>
                         <li>
                           <a href="https://www.flysfo.com/">
