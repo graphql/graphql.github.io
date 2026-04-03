@@ -24,15 +24,14 @@ export const EVENTS: EventMapItem[] = [
     lon: -74.006,
     lat: 40.7128,
   },
-  // Amsterdam TBC — uncomment when confirmed
-  // {
-  //   id: "amsterdam",
-  //   city: "Amsterdam",
-  //   date: "Jun 9-10 [TBC]",
-  //   href: "/day/2026/amsterdam",
-  //   lon: 4.9041,
-  //   lat: 52.3676,
-  // },
+  {
+    id: "amsterdam",
+    city: "Amsterdam",
+    date: "Jun 9-10",
+    href: "/day/2026/amsterdam",
+    lon: 4.9041,
+    lat: 52.3676,
+  },
   {
     id: "melbourne",
     city: "Melbourne",
