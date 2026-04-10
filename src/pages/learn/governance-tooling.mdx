@@ -270,7 +270,9 @@ Automated alerts ensure the right people know about schema issues without manual
 
 ### Alert on deprecated field usage
 
-Schema-level `@deprecated` directives tell client developers that a field will go away, but they're easy to overlook. Usage-based alerts add concrete impact: which clients are still calling the field, how often, and how close the removal deadline is. This makes the notification actionable rather than informational.
+Client teams should detect `@deprecated` field usage at build time using linting or code generation tools, so deprecated references are caught before code ships. For example, GraphQL code generators and lint rules can flag deprecated field usage as warnings or errors during CI, preventing new usage from reaching production.
+
+For backend teams, the problem is different: even after client teams stop adding new usage, older app versions may continue calling deprecated fields. Backend teams need runtime usage data to know when it's safe to remove a field. Set up alerts that notify backend owners as a deprecation deadline approaches and usage is still active.
 
 ```javascript
 async function checkDeprecationDeadlines(usageData, deprecations) {
@@ -290,7 +292,7 @@ async function checkDeprecationDeadlines(usageData, deprecations) {
 }
 ```
 
-This example checks usage against deprecation deadlines and notifies owners when clients haven't migrated.
+This gives backend teams visibility into real traffic so they can coordinate with client teams who still have active usage, rather than guessing when it's safe to remove a field.
 
 ### Alert on validation failures
 
