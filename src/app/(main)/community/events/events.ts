@@ -31,6 +31,15 @@ export const events: Event[] = [
     hostLink: "https://www.joinfost.io",
   },
   {
+    name: "GraphQL Day at FOST Bengaluru",
+    slug: "graphql-day-fost-bengaluru-2026",
+    location: "Bengaluru",
+    date: "2026-08-19T09:00:00+05:30",
+    eventLink: "/day/2026/bengaluru",
+    host: "FOST & GraphQL Community",
+    hostLink: "https://www.joinfost.io",
+  },
+  {
     name: "WG Day 2026",
     slug: "wg-day-2026",
     location: "Menlo Park, California",

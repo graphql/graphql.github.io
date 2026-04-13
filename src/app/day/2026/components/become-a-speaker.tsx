@@ -2,9 +2,15 @@ import { Button } from "@/app/conf/_design-system/button"
 
 const CFP_LINK = "https://forms.gle/M1kiuvwK2wLJyNzi9"
 
-export function CfpButton({ className }: { className?: string }) {
+export function CfpButton({
+  className,
+  cfpLink,
+}: {
+  className?: string
+  cfpLink?: string
+}) {
   return (
-    <Button href={CFP_LINK} className={className}>
+    <Button href={cfpLink || CFP_LINK} className={className}>
       Submit a talk
     </Button>
   )
@@ -12,8 +18,10 @@ export function CfpButton({ className }: { className?: string }) {
 
 export function BecomeASpeakerSection({
   cfpDeadline,
+  cfpLink,
 }: {
   cfpDeadline?: string
+  cfpLink?: string
 }) {
   return (
     <section className="gql-section xl:py-12">
@@ -36,7 +44,7 @@ export function BecomeASpeakerSection({
         {cfpDeadline && (
           <p className="typography-body-lg">The CFP closes on {cfpDeadline}.</p>
         )}
-        <CfpButton className="whitespace-nowrap md:w-fit" />
+        <CfpButton cfpLink={cfpLink} className="whitespace-nowrap md:w-fit" />
       </div>
     </section>
   )
