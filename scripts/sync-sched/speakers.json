@@ -39,6 +39,20 @@
   ],
   "speakers": [
     {
+      "username": "6654cd5ffe035ffb380835a054460703",
+      "company": "Wundergraph",
+      "position": "Senior Founding Software Engineer",
+      "name": "David Stutt",
+      "about": "David is one of the four founding engineers at WunderGraph who collectively built the software foundations of the company. David's career began in the finance sector of software engineering before moving exclusively to API management in 2022. From that point, David started his deep-dive journey into GraphQL and Federation. David was also the creator of the popular \"Will It Compose\" game that was presented by Jens Neuse at GraphQL Conf 2023 at the beginning of his Dataloader 3.0 session, which remains the most-watched video on the GraphQL Working Groups YouTube channel. In addition, David is a member of the composite schema working group committee and tries to provide contributions and input where possible.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/80/24560846/avatar.jpg.320x320px.jpg?4b2",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
+    },
+    {
       "username": "abbottry",
       "company": "NASA EED-3 / Element 84",
       "position": "Senior Software Engineer",
@@ -62,10 +76,20 @@
       "location": "Boston, MA",
       "url": "https://www.adamconrad.dev",
       "avatar": "//avatars.sched.co/a/b5/24427754/avatar.jpg.320x320px.jpg?834",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/acconrad"
+        },
+        {
+          "service": "Instagram",
+          "url": "https://www.instagram.com/heyitsacon/"
+        }
+      ],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "adam_malone.2791s6x2",
@@ -198,7 +222,7 @@
     {
       "username": "aish6595",
       "company": "Amazon",
-      "position": "Amazon Pricing GraphQL Developer",
+      "position": "Software Development Engineer",
       "name": "Aishwarya Tirumala",
       "about": "Aishwarya is a Software Engineer on Amazon's Retail Pricing Platform team, where she builds the GraphQL based infrastructure that powers pricing data access across Amazon's global marketplace. She's passionate about leveraging GraphQL to simplify complex data access patterns and building event-driven architectures that keep distributed systems in sync at massive scale. She presented on GraphQL at GraceHopperConference 2025 sharing insights from operating production services at enterprise scale.",
       "location": "",
@@ -667,7 +691,7 @@
       "username": "benjamin.golub",
       "company": "Meta",
       "position": "Software Engineer",
-      "name": "Ben Golub",
+      "name": "Benjamin Golub",
       "about": "Ben has been with Meta (then Facebook) since 2009 and has worked on the Graph API, GraphQL, Hack, HHVM, and more.",
       "location": "",
       "url": "",
@@ -675,7 +699,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "benjamin154",
@@ -790,8 +815,8 @@
       "position": "Senior Product Manager",
       "name": "Braxton Bragg",
       "about": "Product manager with 13 years experience on a variety of consumer-facing products. I currently support the Mobile GraphQL platform at Meta.",
-      "location": "",
-      "url": "",
+      "location": "New York",
+      "url": "https://www.braxtonbragg.co/",
       "avatar": "//avatars.sched.co/8/f4/24421517/avatar.jpg.320x320px.jpg?ac4",
       "socialurls": [],
       "_years": [
@@ -1230,8 +1255,8 @@
     },
     {
       "username": "eddynguyen",
-      "company": "The Guild & SEEK",
-      "position": "Lead Engineer",
+      "company": "The Guild",
+      "position": "Software Developer",
       "name": "Eddy Nguyen",
       "about": "Eddy is a Lead Engineer at SEEK, where he builds GraphQL-driven applications by day. By night, he moonlights at The Guild as a GraphQL Code Generator maintainer—with the unrelenting support of his two cats.",
       "location": "",
@@ -1613,7 +1638,7 @@
       "position": "Staff Software Engineer",
       "name": "Greg MacWilliam",
       "about": "Greg is an API Foundations engineer at Shopify focused on GraphQL scalability and performance. He’s an open-source contributor on several GraphQL projects, and author of The Schema Stitching Handbook. Coder. Dad. Likes dogs, juggles fire.",
-      "location": "",
+      "location": "Rochester, NY",
       "url": "",
       "avatar": "//avatars.sched.co/9/75/24421547/avatar.jpg.320x320px.jpg?82f",
       "socialurls": [],
@@ -1629,8 +1654,8 @@
       "name": "Roy Derks",
       "about": "Roy Derks is a lifelong software developer, author and public speaker from the Netherlands. Currently chasing his dreams in Silicon Valley, California. Roy's mission is to make the world a better place through technology by inspiring developers all over the world, more specifically AI and Web Development technologies. Before jumping into Developer Advocacy and joining IBM in Product Management, he founded and worked at multiple startups.",
       "location": "Santa Clara, CA",
-      "url": "https://x.com/gethackteam",
-      "avatar": "//avatars.sched.co/a/20/16832291/avatar.jpg.320x320px.jpg?c19",
+      "url": "",
+      "avatar": "//avatars.sched.co/a/20/16832291/avatar.jpg.320x320px.jpg?2e3",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1675,7 +1700,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "idit_levine.25krdj4u",
@@ -1860,7 +1886,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "jeanleonino",
@@ -2460,7 +2487,7 @@
       "position": "Senior Software Engineer",
       "name": "Sreekanth Ramakrishnan",
       "about": "Sreekanth Ramakrishnan is a Senior Software Engineer on the Member API team at Netflix, where he works on systems that power dynamic, real-time experiences in Netflix pages across devices worldwide. He focuses on GraphQL, distributed systems, and server-driven UI architecture. Prior to Netflix, he worked on large-scale personalization and distributed platforms at Yahoo and Oracle. Outside of work, he enjoys building AI-powered side projects, traveling, and playing and watching soccer.",
-      "location": "",
+      "location": "San Francisco",
       "url": "",
       "avatar": "//avatars.sched.co/0/00/24421595/avatar.jpg.320x320px.jpg?c3b",
       "socialurls": [],
@@ -2536,9 +2563,9 @@
     {
       "username": "mark1437",
       "company": "Yelp",
-      "position": "Mark Larah",
+      "position": "Group Tech Lead",
       "name": "Mark Larah",
-      "about": "Originally from the UK. Now living in Austin, TX. Leading GraphQL infrastructure at Yelp.",
+      "about": "",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/e/b9/23416744/avatar.jpg.320x320px.jpg?60a",
@@ -2638,7 +2665,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "matt1575",
@@ -2809,8 +2837,8 @@
     },
     {
       "username": "michaelwatson93",
-      "company": "Self",
-      "position": "Platform Engineering - AI/MCP",
+      "company": "Expedia Group",
+      "position": "Principal Developer Relations Engineer",
       "name": "Michael Watson",
       "about": "Michael Watson was Head of Developer Relations at Apollo GraphQL, where he's spent ~8 years helping enterprises adopt GraphQL at scale. He founded the MCP Server Builder Series, a 3,000+ developer community with events in SF, NYC, London, and Amsterdam. Michael has delivered keynotes on agentic MCP workflows and worked with engineering teams at Netflix, Walmart, Wayfair, and more.",
       "location": "",
@@ -2992,8 +3020,8 @@
     },
     {
       "username": "qkw1221",
-      "company": "Meta",
-      "position": "Senior Staff Software Engineer at Meta",
+      "company": "Meta Platforms",
+      "position": "Software Engineer",
       "name": "Kewei Qu",
       "about": "TBD",
       "location": "",
@@ -3084,10 +3112,10 @@
     },
     {
       "username": "ravisastryk",
-      "company": "",
-      "position": "Engineering Leader | Go Ecosystem Contributor | Security Tooling Author",
+      "company": "Open Source Contributor",
+      "position": "Go Ecosystem Contributor & Security Engineer",
       "name": "Ravi Sastry Kadali",
-      "about": "Ravi Sastry Kadali is a Tech Lead, Staff Engineer at Samsung with two decades of security expertise. He built platform integrity systems at Meta protecting 3B+ users, delivered Windows releases at Microsoft, and developed intrusion detection systems for India's Defense R&D Org. An active open-source contributor to Kubernetes, etcd, gosec, gqlgen, he created the go-safeinput and cryptoguard-go libraries. Kadali is an IEEE Senior Member with awards for Outstanding Achievement in Cybersecurity.",
+      "about": "Ravi Sastry Kadali is a security and systems engineer with over 20 years of experience building production infrastructure across defense, enterprise, and hyperscale consumer platforms — with Go as his tool of choice. He is a contributor to the Go project itself (golang/go), with accepted patches touching the toolchain and standard library. His open-source contributions span the broader Go ecosystem — including Kubernetes, etcd, gosec, semgrep, and Aqua Security's Trivy — and he is the creator and maintainer of go-safeinput, a unified injection defense library addressing the MITRE CWE Top 25, SecurePrompt, a pre-flight AI prompt security scanner, and cryptoguard-go. His work sits at the intersection of Go static analysis, performance, and security — the same intersection that drew him to exploring LLM-assisted analyzer authoring for go fix. Ravi has built high-throughput, security-critical Go systems across some of the world's largest platforms. At Meta, he built platform integrity systems protecting 3B+ users. At Microsoft, he delivered Windows releases impacting 400M+ users. At Neustar Security Services, he developed GraphQL-based Go microservices powering DDoS mitigation for thousands of enterprise brands backed by 15+ Tbps scrubbing capacity. At X Corp, he strengthened platform security and trust infrastructure. At India's Defense R&D Organization (DRDO), he developed intrusion detection systems for national defense. Across every role, the common thread has been Go and systems-level performance in security-critical infrastructure.",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/3/ce/10492261/avatar.jpg.320x320px.jpg?e74",
@@ -3123,7 +3151,7 @@
       "name": "Michael Rebello",
       "about": "Michael is a Staff Engineer at Airbnb focusing on GraphQL clients, with >10 years of tech experience. Previously, he spent 6 years at Lyft as Staff Engineer leading mobile networking, building the rider app, and contributing to their engineering blog. He's spoken at conferences globally and made significant open-source contributions as a founding member of Envoy Mobile and author/maintainer of Connect-Swift. Both of these projects are now part of the Cloud Native Computing Foundation.",
       "location": "",
-      "url": "",
+      "url": "www.michaelrebello.com",
       "avatar": "//avatars.sched.co/e/3a/24421568/avatar.jpg.320x320px.jpg?145",
       "socialurls": [],
       "_years": [
@@ -3290,6 +3318,20 @@
         2025
       ],
       "~syncedDetailsAt": 1758137788992
+    },
+    {
+      "username": "samd6",
+      "company": "Zillow Group",
+      "position": "Senior Principal Engineer",
+      "name": "Sam Deng",
+      "about": "Senior Principal SDE at Zillow Group by day, avid user by night. Sam Deng is catalyst for foundational platforms that power the Zillow Super App. He is a purveyor of dad jokes, software architect, former runner, and occasional AI-empowered code slinger.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/b2/24450482/avatar.jpg.320x320px.jpg?f7c",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
     },
     {
       "username": "sanvertarmur",
@@ -3460,7 +3502,7 @@
       "company": "Starbucks",
       "position": "Engineer Lead",
       "name": "Sharon Gorla",
-      "about": "I’m an engineering leader with 16+ years of experience driving digital transformation, modernizing systems, and building high-performing teams. At Starbucks, I led Next‑Gen POS modernization, earned a U.S. patent, and founded the GraphQL Community of Practice. I’m passionate about scalable architecture, inclusive culture, and developing future engineering leaders.",
+      "about": "I’m an engineering leader with 16+ years of experience driving digital transformation, modernizing systems, and building high-performing teams. At Starbucks, I'm lead engineer for Next‑Gen POS modernization, earned a U.S. patent, and founded the GraphQL Community of Practice. I’m passionate about scalable architecture, inclusive culture, and developing future engineering leaders.",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/5/bf/24421592/avatar.jpg.320x320px.jpg?0bf",
@@ -3485,6 +3527,20 @@
         2026
       ],
       "~syncedDetailsAt": 1749502079623
+    },
+    {
+      "username": "shravanth",
+      "company": "Independent Researcher",
+      "position": "AWS Solutions Architect",
+      "name": "Shravanth Venkatesh",
+      "about": "Shravanth is a AWS Certified Solutions Architect and Principal Software Engineer with 8+ years designing and scaling production systems on AWS. Leading teams shipping serverless healthcare platforms across AWS, he saw firsthand how GraphQL's flexibility quietly reshapes cost and performance in ways teams don't anticipate until production traffic hits.",
+      "location": "San Mateo, CA",
+      "url": "https://www.shravanthv.com/",
+      "avatar": "//avatars.sched.co/4/8b/24876191/avatar.jpg.320x320px.jpg?80d",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
     },
     {
       "username": "siva27",
@@ -3590,6 +3646,20 @@
       "~syncedDetailsAt": 1749568381878
     },
     {
+      "username": "stephen.haberman",
+      "company": "Homebound",
+      "position": "Software Engineer",
+      "name": "Stephen Haberman",
+      "about": "With two decades of experience, Stephen is a seasoned software engineer known for delivering robust systems that drive business value, while also being a passionate builder at heart, crafting codebases that developers (hopefully!) enjoy working in.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/b/98/24561062/avatar.jpg.320x320px.jpg?466",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
+    },
+    {
       "username": "stephenchambers",
       "company": "Netflix",
       "position": "N/A",
@@ -3603,6 +3673,20 @@
         2025
       ],
       "~syncedDetailsAt": 1758551361502
+    },
+    {
+      "username": "sulbigar.shanawaz",
+      "company": "Capital One",
+      "position": "Distinguished Engineer",
+      "name": "Sulbigar Shanawaz",
+      "about": "<b>Sulbigar Shanawaz</b> is a Distinguished Engineer at Capital One, where he leads architectural strategy for the Enterprise Entitlements platform. He specializes in centralizing customer data security by engineering robust validation frameworks for regulatory, compliance, and audit requirements across high-scale data exchange channels, including REST and GraphQL APIs.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/1/02/24460403/avatar.jpg.320x320px.jpg?fc8",
+      "socialurls": [],
+      "_years": [
+        2026
+      ]
     },
     {
       "username": "suresh_muthu",
@@ -3684,7 +3768,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "thomas.heyenbrock",
@@ -3712,7 +3797,7 @@
     },
     {
       "username": "thorekoritzius",
-      "company": "Self",
+      "company": "MWAY",
       "position": "Software Engineer",
       "name": "Thore Koritzius",
       "about": "Thore is an ML Engineer focused on multimodal LLM systems, with experience across the AI stack—from training embedding models and optimizing RAG pipelines to deploying on-prem LLM infrastructure. A GraphQL and Rust enthusiast, he enjoys building high-performance systems and exploring modern developer tools. His journey into AI began with research on Physics-Informed Neural Networks during his Master’s thesis, sparking a lasting passion for applied machine learning.",
@@ -3762,7 +3847,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "tom817",
@@ -3840,7 +3926,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "twitter7",
@@ -3906,7 +3993,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "vincent.desmares",
@@ -3935,7 +4023,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "vmjohnson999",
@@ -4078,7 +4167,7 @@
       "company": "Apollo",
       "position": "Software Engineer",
       "name": "Zack Warnimont",
-      "about": "Zack is a Software Engineer currently working at Apollo. He has worked for companies small and large over the last 10 years, with an emphasis on deployment safety and development efficiency.\n \nIn his free time, Zack enjoys playing piano and spending time with his family. Ask him anything about music!",
+      "about": "Zack is a Software Engineer currently working at Apollo. He has worked for companies small and large over the last 10 years, with an emphasis on deployment safety and development efficiency.\n\nIn his free time, Zack enjoys playing piano and spending time with his family. Ask him anything about music!",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/a/76/24421607/avatar.jpg.320x320px.jpg?084",
