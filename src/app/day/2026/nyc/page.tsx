@@ -15,6 +15,9 @@ import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
 
+const TICKET_LINK =
+  "https://portal.joinfost.io/event/future-of-software-technology-new-york-2026/82677ac7-3989-456b-93a7-b1c215bd51d6/apidays-new-york"
+
 const MARQUEE_ITEMS = [
   ["NEW YORK", "MAY 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
   [
@@ -43,8 +46,8 @@ export default function NYCPage() {
             location="New York City"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
-              Tickets coming soon
+            <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
+              Get your ticket
             </Button>
             <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
@@ -62,15 +65,15 @@ export default function NYCPage() {
           <EventPartnersSection />
           <GallerySection moving />
           <CtaCardSection
-            title="Stay tuned"
+            title="Get your ticket"
             description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST NYC."
           >
             <Button
-              disabled
+              href={TICKET_LINK}
               variant="primary"
-              className="whitespace-nowrap opacity-55"
+              className="whitespace-nowrap"
             >
-              Tickets coming soon
+              Get your ticket
             </Button>
           </CtaCardSection>
           <MarqueeRows
