@@ -5,6 +5,7 @@ import { Hero, HeroStripes } from "../2026/components/hero"
 import { NavbarPlaceholder } from "../2026/components/navbar"
 
 import { AmsterdamBanner } from "./_components/amsterdam-banner"
+import { NycBanner } from "./_components/nyc-banner"
 import { LanguageBanner } from "./_components/language-banner"
 import { AiHeroBanner } from "./_components/ai-hero-banner"
 
@@ -46,6 +47,7 @@ export default function ConferenceKitPage() {
 
           <div className="flex max-w-full gap-4 overflow-scroll p-4">
             <AmsterdamBanner />
+            <NycBanner />
             <LanguageBanner />
             <AiHeroBanner />
           </div>

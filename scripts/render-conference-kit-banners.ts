@@ -27,6 +27,7 @@ type ColorScheme = "light" | "dark"
 
 const BANNERS: ReadonlyArray<{ slug: string; colorScheme: ColorScheme }> = [
   { slug: "amsterdam", colorScheme: "light" },
+  { slug: "nyc", colorScheme: "light" },
   // The language banner's inline `getCity` snippet uses shiki's dark token
   // colors; next-themes flips html.dark when prefers-color-scheme matches.
   { slug: "language", colorScheme: "dark" },
