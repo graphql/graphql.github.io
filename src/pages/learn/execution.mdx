@@ -58,7 +58,7 @@ At the top level of every GraphQL server is an Object type that represents the p
 In this example, our `Query` type provides a field called `human` which accepts the argument `id`. The resolver function for this field likely accesses a database and then constructs and returns a `Human` type:
 
 ```js
-function resolveHumanQuery(obj, args, context, info) {
+function resolveHuman(obj, args, context, info) {
   return context.db.loadHumanByID(args.id).then(userData => new Human(userData));
 }
 ```
