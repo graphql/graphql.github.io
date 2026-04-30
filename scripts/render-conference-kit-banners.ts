@@ -3,7 +3,11 @@
  * them into public/conference-kit/conference-kit.zip. Expects a dev/prod server to
  * already be running on $URL (default http://localhost:3000) — invoke after
  * `pnpm dev` is up, or against a `pnpm start` instance. Override SCALE for
- * print-grade output (e.g. SCALE=6 → 3600×8472 ≈ 100 dpi at 850×2000 mm).
+ * print-grade output. SCALE=11 is the practical maximum: headless Chromium's
+ * compositor caps GPU textures at 16 384 px, and the banner height at SCALE=12
+ * (1412×12=16 944 px) exceeds that, causing partial renders. SCALE=11 gives
+ * 6 600×15 532 px ≈ 197 dpi at 850×2000 mm, which large-format print shops
+ * accept without complaint.
  *
  * Only the zip is written to public/. Loose PNGs land in a tmp dir and are
  * cleaned up so the served directory stays minimal.
@@ -21,7 +25,7 @@ const exec = promisify(execFile)
 const URL = process.env.URL ?? "http://localhost:3000"
 const PAGE = `${URL}/conf/conference-kit/`
 const PUBLIC_DIR = path.resolve(process.cwd(), "public/conference-kit")
-const SCALE = Number(process.env.SCALE ?? 4)
+const SCALE = Number(process.env.SCALE ?? 11)
 
 type ColorScheme = "light" | "dark"
 
