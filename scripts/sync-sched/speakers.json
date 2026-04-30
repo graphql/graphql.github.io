@@ -50,7 +50,23 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1777561604519
+    },
+    {
+      "username": "9b868b5052cc363f49b944ab9f70357e",
+      "company": "Apollo GraphQL",
+      "position": "Staff Solutions Architect",
+      "name": "Erik Bylund",
+      "about": "",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/9/53/24999816/avatar.jpg.320x320px.jpg?a8c",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "abbottry",
@@ -597,7 +613,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "ardatanrikulu",
@@ -942,21 +958,6 @@
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/8/da/24421523/avatar.jpg.320x320px.jpg?6ce",
-      "socialurls": [],
-      "_years": [
-        2026
-      ],
-      "~syncedDetailsAt": 1772616262244
-    },
-    {
-      "username": "catherine616",
-      "company": "Fern",
-      "position": "n/a",
-      "name": "Catherine Deskur",
-      "about": "Catherine Deskur is a Deployed Engineer at Fern. Her work focuses on developing features to generate best-in-class documentation for GraphQL, REST, and gRPC APIs. She graduated from Harvard University with a Bachelor's in Computer Science. Outside of her work at Fern, Catherine is a classical musician.",
-      "location": "",
-      "url": "",
-      "avatar": "//avatars.sched.co/9/43/24421526/avatar.jpg.320x320px.jpg?69d",
       "socialurls": [],
       "_years": [
         2026
@@ -1671,7 +1672,7 @@
         2024,
         2026
       ],
-      "~syncedDetailsAt": 1749497439360
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "hpsiddhu",
@@ -1995,7 +1996,7 @@
         2023,
         2026
       ],
-      "~syncedDetailsAt": 1749505650884
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "jerel.miller",
@@ -2300,7 +2301,7 @@
     {
       "username": "laurinquast",
       "company": "The Guild",
-      "position": "?",
+      "position": "Developer",
       "name": "Laurin Quast",
       "about": "Laurin Quast is a developer that started exploring GraphQL, by leading API development at a start-up. Realizing that there are still many unsolved problems and challenges within the space, he started contributing to famous JavaScript libraries, such as GraphQL Code Generator. Diving deeper, the transition into becoming a full-time role at The Guild was inevitable. Currently, he is leading the Hive Console team helping teams scale GraphQL across teams and organizations.",
       "location": "",
@@ -2322,7 +2323,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "ldebruijn",
@@ -2579,7 +2580,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "martijn.walraven",
@@ -2596,7 +2597,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "martinbonnin42",
@@ -2654,35 +2655,21 @@
       "~syncedDetailsAt": 1749501892530
     },
     {
-      "username": "matt_mahoney.29fjqfma",
-      "company": "",
-      "position": "",
-      "name": "Matt Mahoney",
-      "about": "",
-      "location": "",
-      "url": "",
-      "avatar": "",
-      "socialurls": [],
-      "_years": [
-        2026
-      ],
-      "~syncedDetailsAt": 1776345623093
-    },
-    {
       "username": "matt1575",
       "company": "Apollo GraphQL",
-      "position": "CEO & Co-Founder",
+      "position": "CEO and co-founder",
       "name": "Matt DeBergalis",
-      "about": "Matt DeBergalis is the Chief Executive Officer and Co-Founder of Apollo GraphQL, where he is responsible for pioneering the next frontier of the company’s cutting-edge technology. Prior to Apollo, Matt was the co-founder of Meteor Development Group and co-creator of Meteor.js, which grew to become one of the most popular open-source projects in the world for developing full-stack web apps with JavaScript. He attended MIT and resides in the San Francisco Bay Area with his family.",
+      "about": "",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/c/59/7503056/avatar.jpg.320x320px.jpg?f15",
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758137781378
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "matteo.collina1",
@@ -3119,10 +3106,16 @@
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/3/ce/10492261/avatar.jpg.320x320px.jpg?e74",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/ravisastryk"
+        }
+      ],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "raymie2",
@@ -3199,7 +3192,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "robrichard87",
@@ -3216,7 +3209,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "rribeirodejesus",
@@ -3263,7 +3256,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "saihaj",
@@ -3331,7 +3324,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "sanvertarmur",
@@ -3526,7 +3520,7 @@
         2024,
         2026
       ],
-      "~syncedDetailsAt": 1749502079623
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "shravanth",
@@ -3537,10 +3531,16 @@
       "location": "San Mateo, CA",
       "url": "https://www.shravanthv.com/",
       "avatar": "//avatars.sched.co/4/8b/24876191/avatar.jpg.320x320px.jpg?80d",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/shravanth-v/"
+        }
+      ],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "siva27",
@@ -3613,7 +3613,7 @@
         2025,
         2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "stefan239",
@@ -3651,13 +3651,19 @@
       "position": "Software Engineer",
       "name": "Stephen Haberman",
       "about": "With two decades of experience, Stephen is a seasoned software engineer known for delivering robust systems that drive business value, while also being a passionate builder at heart, crafting codebases that developers (hopefully!) enjoy working in.",
-      "location": "",
-      "url": "",
+      "location": "Omaha, NE",
+      "url": "https://www.draconianoverlord.com/",
       "avatar": "//avatars.sched.co/b/98/24561062/avatar.jpg.320x320px.jpg?466",
-      "socialurls": [],
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/stephenhaberman/"
+        }
+      ],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "stephenchambers",
@@ -3686,7 +3692,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "suresh_muthu",
@@ -3762,7 +3769,7 @@
       "position": "Product Lead",
       "name": "Rohit Gupta",
       "about": "Rohit Gupta leads the product strategy for Wayfair’s GraphQL platform, powering over 200 subgraphs across customer, supplier, and supply chain domains. With 15 years of experience across engineering and product management, he brings deep expertise in platform products, APIs, and eCommerce. At Wayfair, Rohit is driving key initiatives to harness AI for accelerating developer productivity and building an AI-first Supergraph that positions the company for the AI-powered era.",
-      "location": "",
+      "location": "Mountain View, CA",
       "url": "",
       "avatar": "//avatars.sched.co/b/25/24421586/avatar.jpg.320x320px.jpg?6ff",
       "socialurls": [],
@@ -3959,7 +3966,7 @@
       "company": "The Guild",
       "position": "CEO",
       "name": "Uri Goldshtein",
-      "about": "The Guild, the largest open source group in the GraphQL ecosystem",
+      "about": "",
       "location": "",
       "url": "http://the-guild.dev",
       "avatar": "//avatars.sched.co/8/2b/14900013/avatar.jpg.320x320px.jpg?06d",
@@ -4174,7 +4181,8 @@
       "socialurls": [],
       "_years": [
         2026
-      ]
+      ],
+      "~syncedDetailsAt": 1777561604519
     }
   ]
 }
