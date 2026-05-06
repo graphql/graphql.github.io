@@ -4,15 +4,13 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
-import {
-  CfpButton,
-} from "../components/become-a-speaker"
+import { CfpButton } from "../components/become-a-speaker"
 import { EventPartnersSection } from "../components/event-partners"
 import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
-import {ScheduleSection} from "@/app/day/2026/amsterdam/schedule-section.tsx";
+import { ScheduleSection } from "@/app/day/2026/amsterdam/schedule-section.tsx"
 
 const MARQUEE_ITEMS = [
   ["AMSTERDAM", "JUNE 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
@@ -26,7 +24,8 @@ const MARQUEE_ITEMS = [
   ],
 ]
 
-const TICKET_LINK = "https://portal.joinfost.io/event/future-of-software-technologies-amsterdam-2026/cf522e15-399f-4c1f-8365-3a72346f16f0"
+const TICKET_LINK =
+  "https://portal.joinfost.io/event/future-of-software-technologies-amsterdam-2026/cf522e15-399f-4c1f-8365-3a72346f16f0"
 
 export const metadata: Metadata = {
   title: "GraphQL Day @ FOST AMSTERDAM — June 9-10",

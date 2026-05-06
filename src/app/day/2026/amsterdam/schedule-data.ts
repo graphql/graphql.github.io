@@ -37,7 +37,7 @@ export const AMSTERDAM_TIMEZONE = "Europe/Amsterdam"
 /** Color per topic, picked to read clearly against the cream/dark backgrounds. */
 export const tagColors: Record<string, string> = {
   Security: "#CC6BB0",
-  "MCP": "#894545",
+  MCP: "#894545",
   "Service Mesh": "#36C1A0",
   "AI Agents": "#7e66cc",
   Federation: "#FC8251",
@@ -50,12 +50,12 @@ export const amsterdamSessions: AmsterdamSession[] = [
   {
     id: 3224,
     uuid: "80952503-07dd-4e31-acaf-b9e400f55126",
-    title: "18 things \"everyone knows\" about GraphQL vs REST",
+    title: '18 things "everyone knows" about GraphQL vs REST',
     start: "2026-06-10T09:30:00+02:00",
     end: "2026-06-10T09:55:00+02:00",
     tags: ["GraphQL", "REST"],
     description:
-      "<p>Living in the GraphQL bubble for the last few years, I've watched the ecosystem grow up in a way that's hard to appreciate from the outside. The spec, the tooling, the vendors, the federation story, all visibly stronger than just two years ago. GraphQL was never bad, It was misunderstood, overhyped and overused. Fast forward to today, the dust has settled. Enterprises are on the slope of enlightenment, yet the people who pick the query language still have to handle pushback: \"\"GraphQL breaks caching!,\"\" \"\"it has the N+1 problem,\"\" \"\"OpenAPI is much simpler.\"\" Almost all of that pushback is grounded in views that were already outdated when first written down. So I traced 18 of the most repeated GraphQL vs REST claims back to their primary sources: papers, RFCs, doc pages, security reports. Only three survived cleanly. This talk sends you home able to articulate GraphQL's real strengths, and its honest trade-offs, with receipts. We'll close on where GraphQL's value is growing fastest: as an abstraction layer for LLMs and agents, where a single typed graph is a far simpler surface to integrate against than hundreds of REST API endpoints.</p>\n",
+      '<p>Living in the GraphQL bubble for the last few years, I\'ve watched the ecosystem grow up in a way that\'s hard to appreciate from the outside. The spec, the tooling, the vendors, the federation story, all visibly stronger than just two years ago. GraphQL was never bad, It was misunderstood, overhyped and overused. Fast forward to today, the dust has settled. Enterprises are on the slope of enlightenment, yet the people who pick the query language still have to handle pushback: ""GraphQL breaks caching!,"" ""it has the N+1 problem,"" ""OpenAPI is much simpler."" Almost all of that pushback is grounded in views that were already outdated when first written down. So I traced 18 of the most repeated GraphQL vs REST claims back to their primary sources: papers, RFCs, doc pages, security reports. Only three survived cleanly. This talk sends you home able to articulate GraphQL\'s real strengths, and its honest trade-offs, with receipts. We\'ll close on where GraphQL\'s value is growing fastest: as an abstraction layer for LLMs and agents, where a single typed graph is a far simpler surface to integrate against than hundreds of REST API endpoints.</p>\n',
     venue: "TBA",
     speakers: [
       {
@@ -180,7 +180,8 @@ export const amsterdamSessions: AmsterdamSession[] = [
   {
     id: 3226,
     uuid: "02d9d427-d1ff-4f78-8d8c-243565d0f1cd",
-    title: "Closing the Loop: How GraphQL Gives Coding Agents Eyes on What Actually Matters",
+    title:
+      "Closing the Loop: How GraphQL Gives Coding Agents Eyes on What Actually Matters",
     start: "2026-06-10T12:00:00+02:00",
     end: "2026-06-10T12:25:00+02:00",
     tags: ["AI Agents", "Schema Evolution", "Observability"],
