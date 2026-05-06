@@ -116,6 +116,34 @@ const sponsorBronze: Sponsor[] = [
   },
 ]
 
+const sponsorCommunity: Sponsor[] = [
+  {
+    icon: (props: React.HTMLAttributes<HTMLDivElement>) => (
+      <div
+        {...props}
+        className={clsx(props.className, "relative aspect-video flex-shrink-0")}
+      >
+        <img
+          src={
+            new URL("/public/img/conf/Sponsors/airbnb.svg", import.meta.url).href
+          }
+          className="absolute inset-0 size-full object-contain dark:hidden"
+        />
+        <img
+          src={
+            new URL("/public/img/conf/Sponsors/airbnb.svg", import.meta.url)
+              .href
+          }
+          className="absolute inset-0 hidden size-full object-contain dark:block"
+        />
+      </div>
+    ),
+    name: "Airbnb",
+    link: "https://www.airbnb.com/",
+  },
+]
+
+
 export interface SponsorsProps {
   heading?: string
 }
@@ -137,6 +165,10 @@ const sponsorTiers: Tier[] = [
   {
     name: "Silver",
     items: sponsorSilver,
+  },
+    {
+    name: "Open Source Community Sponsor",
+    items: sponsorCommunity,
   },
   {
     name: "Bronze",
