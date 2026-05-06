@@ -14,6 +14,7 @@ import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
+import {ScheduleSection} from "@/app/day/2026/singapore/schedule-section.tsx";
 
 const MARQUEE_ITEMS = [
   ["AMSTERDAM", "JUNE 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
@@ -26,6 +27,9 @@ const MARQUEE_ITEMS = [
     "AMSTERDAM",
   ],
 ]
+
+const TICKET_LINK =
+    "https://portal.joinfost.io/event/future-of-software-technologies-amsterdam-2026/cf522e15-399f-4c1f-8365-3a72346f16f0"
 
 export const metadata: Metadata = {
   title: "GraphQL Day @ FOST AMSTERDAM — June 9-10",
@@ -43,8 +47,8 @@ export default function AmsterdamPage() {
             location="Amsterdam, The Netherlands"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
-              Tickets coming soon
+            <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
+              Get your ticket
             </Button>
             <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
@@ -57,20 +61,15 @@ export default function AmsterdamPage() {
         />
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
-          <BecomeASpeakerSection />
-          <PastSpeakersSection />
+          <ScheduleSection />
           <EventPartnersSection />
           <GallerySection moving />
           <CtaCardSection
             title="Stay tuned"
             description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST Amsterdam."
           >
-            <Button
-              disabled
-              variant="primary"
-              className="whitespace-nowrap opacity-55"
-            >
-              Tickets coming soon
+            <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
+              Get your ticket
             </Button>
           </CtaCardSection>
           <MarqueeRows
