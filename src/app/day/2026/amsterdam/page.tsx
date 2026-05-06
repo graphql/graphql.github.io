@@ -14,7 +14,7 @@ import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
-import {ScheduleSection} from "@/app/day/2026/singapore/schedule-section.tsx";
+import {ScheduleSection} from "@/app/day/2026/amsterdam/schedule-section.tsx";
 
 const MARQUEE_ITEMS = [
   ["AMSTERDAM", "JUNE 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
