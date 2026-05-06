@@ -59,7 +59,7 @@ export const amsterdamSessions: AmsterdamSession[] = [
     venue: "TBA",
     speakers: [
       {
-        id: 4557,
+        id: 1011,
         name: "Jens Neuse",
         company: "WunderGraph",
         jobtitle: "CEO",
@@ -85,7 +85,7 @@ export const amsterdamSessions: AmsterdamSession[] = [
     venue: "TBA",
     speakers: [
       {
-        id: 2446,
+        id: 1012,
         name: "Martin Bonnin",
         company: "Apollo",
         jobtitle: "Mobile Engineer",
@@ -93,7 +93,7 @@ export const amsterdamSessions: AmsterdamSession[] = [
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/martinbonnin/",
+            url: "",
           },
         ],
       },
@@ -107,11 +107,11 @@ export const amsterdamSessions: AmsterdamSession[] = [
     end: "2026-06-10T10:20:00+02:00",
     tags: ["GraphQL", "MCP", "AI Agents"],
     description:
-        "<p>As AI assistants and MCP-style tools increasingly sit in front of GraphQL APIs, embeddings have become critical for fuzzy schema search, field retrieval, and natural-language-to-query systems. Yet most teams rely on general-purpose embedding models that were not specifically designed to understand GraphQL type systems, relationships, or naming patterns. This talk shares practical experience building schema-aware embedding pipelines with off-the-shelf and fine-tuned models while exploring how far preprocessing, chunking, and schema structuring can take you before custom training is needed. We’ll discuss evaluation methods, common failure modes like field confusion and hallucinated types, and the tradeoffs between large hosted models and compact, GraphQL-focused embeddings that can run with lightweight CPU inference. The goal is to give GraphQL platform teams concrete, production-ready guidelines for choosing, adapting, and shipping embeddings that actually understand their schemas.</p>\n",
+      "<p>As AI assistants and MCP-style tools increasingly sit in front of GraphQL APIs, embeddings have become critical for fuzzy schema search, field retrieval, and natural-language-to-query systems. Yet most teams rely on general-purpose embedding models that were not specifically designed to understand GraphQL type systems, relationships, or naming patterns. This talk shares practical experience building schema-aware embedding pipelines with off-the-shelf and fine-tuned models while exploring how far preprocessing, chunking, and schema structuring can take you before custom training is needed. We’ll discuss evaluation methods, common failure modes like field confusion and hallucinated types, and the tradeoffs between large hosted models and compact, GraphQL-focused embeddings that can run with lightweight CPU inference. The goal is to give GraphQL platform teams concrete, production-ready guidelines for choosing, adapting, and shipping embeddings that actually understand their schemas.</p>\n",
     venue: "TBA",
     speakers: [
       {
-        id: 2446,
+        id: 1013,
         name: "Thore Koritzius",
         company: "",
         jobtitle: "Software Engineer",
@@ -133,11 +133,11 @@ export const amsterdamSessions: AmsterdamSession[] = [
     end: "2026-06-10T11:35:00+02:00",
     tags: ["GraphQL", "Federation", "Schema Evolution"],
     description:
-        "<p>We'll dive deeper into the concept of GraphQL Schema Evolution. How at bol, the largest ecommerce of The Netherlands and Belgium we evolve our GraphQL schemas. During this talk we'll share concrete examples of schema evolution at bol and which best practices we applied, and all the lessons learned on Schema evolution.</p>\n",
+      "<p>We'll dive deeper into the concept of GraphQL Schema Evolution. How at bol, the largest ecommerce of The Netherlands and Belgium we evolve our GraphQL schemas. During this talk we'll share concrete examples of schema evolution at bol and which best practices we applied, and all the lessons learned on Schema evolution.</p>\n",
     venue: "TBA",
     speakers: [
       {
-        id: 2446,
+        id: 1014,
         name: "An Ngo",
         company: "bol",
         jobtitle: "Lead Engineer",
@@ -159,11 +159,11 @@ export const amsterdamSessions: AmsterdamSession[] = [
     end: "2026-06-10T12:00:00+02:00",
     tags: ["GraphQL", "Federation", "Mocking"],
     description:
-        "<p>With thousands of developers acting as both consumers and producers on the Graph, friction is inevitable, often stifling development velocity. At Booking.com, we addressed this challenge by leveraging mocks throughout every stage of the software development lifecycle, from ideation to production. By building solutions that facilitate these stages, we successfully decoupled frontend and backend workflows, empowering teams to move at their own pace.</p>\n",
+      "<p>With thousands of developers acting as both consumers and producers on the Graph, friction is inevitable, often stifling development velocity. At Booking.com, we addressed this challenge by leveraging mocks throughout every stage of the software development lifecycle, from ideation to production. By building solutions that facilitate these stages, we successfully decoupled frontend and backend workflows, empowering teams to move at their own pace.</p>\n",
     venue: "TBA",
     speakers: [
       {
-        id: 2446,
+        id: 1015,
         name: "Christian Ernst",
         company: "booking.com",
         jobtitle: "Senior Software Engineer",
