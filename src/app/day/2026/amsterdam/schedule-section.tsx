@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import clsx from "clsx"
 
@@ -10,6 +13,7 @@ import {
   SocialIconType,
 } from "@/app/conf/_design-system/social-icon"
 import { formatDescription } from "@/app/conf/2026/schedule/[id]/format-description"
+import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 
 import {
   AmsterdamSession,
@@ -81,7 +85,7 @@ function SessionBlock({
       <SessionHeader session={session} className="px-2 py-8 sm:px-3 lg:py-12" />
       {session.description && (
         <>
-          <Hr className="mt-10 xl:mt-0 2xl:mt-16" />
+          <Hr className="mt-0 lg:mt-10 xl:mt-0 2xl:mt-16" />
           <SessionDescription
             description={session.description}
             sideSpeaker={sideSpeaker}
@@ -108,24 +112,46 @@ function SessionDescription({
   description: string
   sideSpeaker: AmsterdamSpeaker | null
 }) {
+  const [expanded, setExpanded] = useState(false)
   const paragraphs = parseParagraphs(description)
-  const splitAt =
-    sideSpeaker && paragraphs.length >= 2
-      ? paragraphs.length - 2
-      : paragraphs.length
-  const lead = paragraphs.slice(0, splitAt)
-  const tail = paragraphs.slice(splitAt)
+  const hasMore = paragraphs.length > 1
+  const visible = expanded ? paragraphs : paragraphs.slice(0, 1)
+  const splitAt = sideSpeaker ? Math.max(0, visible.length - 2) : visible.length
+  const lead = visible.slice(0, splitAt)
+  const tail = visible.slice(splitAt)
+  const lastInLead = tail.length === 0 ? lead.length - 1 : -1
+  const lastInTail = tail.length - 1
+
+  const toggle = hasMore && (
+    <>
+      {" "}
+      <button
+        type="button"
+        onClick={() => setExpanded(e => !e)}
+        aria-expanded={expanded}
+        className="typography-link"
+      >
+        {expanded ? "Show less." : "Read more…"}
+      </button>
+    </>
+  )
 
   return (
     <div className="typography-body-lg mt-8 px-2 pb-8 sm:px-3 lg:mt-12 xl:pb-12 [&>p+p]:mt-4 [&_a]:break-words">
       {lead.map((html, i) => (
-        <p key={`lead-${i}`} dangerouslySetInnerHTML={{ __html: html }} />
+        <p key={`lead-${i}`}>
+          <span dangerouslySetInnerHTML={{ __html: html }} />
+          {i === lastInLead && toggle}
+        </p>
       ))}
       {tail.length > 0 && (
-        <div className="mt-4 xl:flex xl:items-end xl:gap-6">
+        <div className="mt-4 first:mt-0 xl:flex xl:items-end xl:gap-6">
           <div className="xl:flex-1 [&>p+p]:mt-4">
             {tail.map((html, i) => (
-              <p key={`tail-${i}`} dangerouslySetInnerHTML={{ __html: html }} />
+              <p key={`tail-${i}`}>
+                <span dangerouslySetInnerHTML={{ __html: html }} />
+                {i === lastInTail && toggle}
+              </p>
             ))}
           </div>
           {sideSpeaker && (
