@@ -36,20 +36,20 @@ export function Venue(props: VenueProps) {
             <>
               <h2 className="typography-h2">Venue</h2>
               <p className="typography-body-lg">
-                We're heading back to where it all began: GraphQLConf 2026 will
-                be hosted at Meta's Fremont campus, where GraphQL was first
-                conceptualized by Facebook engineers in 2012.
+                GraphQLConf 2026 will be hosted at the DoubleTree by Hilton
+                Hotel Newark-Fremont, conveniently located in the heart of the
+                Bay Area.
               </p>
               <div className="flex-1" />
             </>
           }
           <p className="typography-body-lg">
-            Meta FRE 117 - Fremont Campus <br />
-            6611 Dumbarton Circle <br />
-            Fremont, CA 94555
+            DoubleTree by Hilton Hotel Newark-Fremont <br />
+            39900 Balentine Drive <br />
+            Newark, CA 94560
           </p>
           {
-            <Button href="https://maps.app.goo.gl/2nBp7Pp3Qrs8299G9">
+            <Button href="https://maps.app.goo.gl/BnPq9yu4EhMFdkY87">
               Google Maps
             </Button>
           }
@@ -76,7 +76,7 @@ export function Venue(props: VenueProps) {
                   description: (
                     <>
                       There are multiple airports within a reasonable driving
-                      distance to the Fremont Campus: <br />
+                      distance to the venue: <br />
                       <ul>
                         <li>
                           <a href="https://www.flysfo.com/">
@@ -107,6 +107,17 @@ export function Venue(props: VenueProps) {
             <Accordion
               className="[&_svg]:fill-neu-900"
               items={[
+                {
+                  title: "DoubleTree by Hilton Hotel Newark-Fremont (Conference Venue)",
+                  link: "https://www.hilton.com/en/hotels/nwkbddt-doubletree-newark-fremont/",
+                  description: (
+                    <>
+                      39900 Balentine Drive
+                      <br />
+                      Newark, CA 94560
+                    </>
+                  ),
+                },
                 {
                   title: "Aloft Silicon Valley",
                   link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/",
