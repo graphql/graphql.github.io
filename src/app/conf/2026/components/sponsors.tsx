@@ -138,28 +138,34 @@ export interface SponsorsProps {
 }
 
 interface Tier {
+  rank: number
   name: string
   items: Sponsor[]
 }
 
 const sponsorTiers: Tier[] = [
   {
+    rank: 0,
     name: "Platinum",
     items: sponsorPlatinum,
   },
   {
+    rank: 1,
     name: "Gold",
     items: sponsorGold,
   },
   {
+    rank: 2,
     name: "Silver",
     items: sponsorSilver,
   },
   {
+    rank: 2,
     name: "Open Source Community Sponsor",
     items: sponsorCommunity,
   },
   {
+    rank: 3,
     name: "Bronze",
     items: sponsorBronze,
   },
@@ -177,7 +183,7 @@ export function Sponsors({ heading }: SponsorsProps) {
               <Tier
                 key={tier.name}
                 tier={tier}
-                logoHeight={236 - sponsorTiers.indexOf(tier) * 32}
+                logoHeight={(7 - tier.rank) * 32}
               />
             ),
         )}
@@ -188,12 +194,12 @@ export function Sponsors({ heading }: SponsorsProps) {
 
 function Tier({ tier, logoHeight }: { tier: Tier; logoHeight: number }) {
   return (
-    <div className="flex gap-x-12 gap-y-4 border-t border-neu-200 py-4 dark:border-neu-50 max-md:flex-col">
+    <div className="flex gap-x-12 gap-y-4 border-t border-neu-200 py-4 pb-12 dark:border-neu-50 max-md:flex-col">
       <h3 className="flex w-[80px] shrink-0 items-center gap-1 self-start whitespace-nowrap font-mono text-sm/none font-normal uppercase text-pri-base">
         <ChevronRight className="shrink-0 translate-y-[-0.5px]" />
         {tier.name}
       </h3>
-      <div className="flex min-w-[70%] flex-wrap justify-center gap-y-4 lg:grid lg:w-full lg:grid-cols-2 lg:gap-4">
+      <div className="flex min-w-[70%] flex-wrap justify-center gap-y-4 pt-6 lg:grid lg:w-full lg:grid-cols-2 lg:gap-4">
         {tier.items.map(({ link, icon: Icon, name }, i) => (
           <a
             key={i}
