@@ -127,7 +127,7 @@ const sponsorCommunity: Sponsor[] = [
       <Airbnb {...props} viewBox="567 570 1979.77 660.012" />
     ),
     name: "Airbnb",
-    link: "https://www.airbnb.com/",
+    link: "https://viaduct.airbnb.tech/",
   },
 ]
 
