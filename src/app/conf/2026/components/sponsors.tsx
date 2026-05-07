@@ -106,6 +106,7 @@ const sponsorBronze: Sponsor[] = [
     icon: (props: React.SVGProps<SVGElement>) => (
       <Grafast
         {...props}
+        viewBox="2.5 4 80 24"
         className={clsx(
           props.className,
           "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
@@ -120,13 +121,7 @@ const sponsorBronze: Sponsor[] = [
 const sponsorCommunity: Sponsor[] = [
   {
     icon: (props: React.SVGProps<SVGElement>) => (
-      <Airbnb
-        {...props}
-        className={clsx(
-          props.className,
-          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
-        )}
-      />
+      <Airbnb {...props} viewBox="567 570 1979.77 660.012" />
     ),
     name: "Airbnb",
     link: "https://www.airbnb.com/",
