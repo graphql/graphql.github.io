@@ -5,6 +5,7 @@ import Apollo from "public/img/conf/Sponsors/Apollo.svg?svgr"
 import Wundergraph from "public/img/conf/Sponsors/WunderGraph-graded.svg?svgr"
 import Grafast from "public/img/conf/Sponsors/Grafast.svg?svgr"
 import Chillicream from "public/img/conf/Sponsors/Chillicream.svg?svgr"
+import Airbnb from "public/img/conf/Sponsors/airbnb.svg?svgr"
 
 interface Sponsor {
   icon:
@@ -118,26 +119,14 @@ const sponsorBronze: Sponsor[] = [
 
 const sponsorCommunity: Sponsor[] = [
   {
-    icon: (props: React.HTMLAttributes<HTMLDivElement>) => (
-      <div
+    icon: (props: React.SVGProps<SVGElement>) => (
+      <Airbnb
         {...props}
-        className={clsx(props.className, "relative aspect-video flex-shrink-0")}
-      >
-        <img
-          src={
-            new URL("/public/img/conf/Sponsors/airbnb.svg", import.meta.url)
-              .href
-          }
-          className="absolute inset-0 size-full object-contain dark:hidden"
-        />
-        <img
-          src={
-            new URL("/public/img/conf/Sponsors/airbnb.svg", import.meta.url)
-              .href
-          }
-          className="absolute inset-0 hidden size-full object-contain dark:block"
-        />
-      </div>
+        className={clsx(
+          props.className,
+          "[&_path]:fill-[#15252D] dark:[&_path]:fill-white",
+        )}
+      />
     ),
     name: "Airbnb",
     link: "https://www.airbnb.com/",
