@@ -27,6 +27,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="gql-all-anchors-focusable">
+      <div className="bg-amber-100 px-4 py-3 text-center text-sm font-semibold text-amber-900">
+        Important Update: GraphQLConf is changing venues from Meta&#39;s Fremont
+        Campus to the nearby DoubleTree Hotel.
+      </div>
       <Hero year="2026" bottom={<HeroImage />}>
         <HeroDateAndLocation />
         <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
