@@ -19,6 +19,9 @@ interface Sponsor {
 const sponsorPlatinum: Sponsor[] = [
   {
     icon: (props: React.HTMLAttributes<HTMLDivElement>) => (
+      // When attempting to render the Meta logo with SVGR, the image becomes
+      // corrupted (something to do with a `clip-path`?); this means we need to
+      // render as an `<img>` and prevents us updating the viewBox.
       <div
         {...props}
         className={clsx(props.className, "relative aspect-video flex-shrink-0")}
