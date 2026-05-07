@@ -176,7 +176,9 @@ const config = {
       },
     ]
   },
-  typedRoutes: true,
+  experimental: {
+    typedRoutes: true,
+  },
 }
 
 const withBundleAnalyzer = nextBundleAnalyzer({
