@@ -49,7 +49,7 @@ export function RegisterToday({ className }: RegisterTodayProps) {
               WG Day
             </a>{" "}
             brings working group members and maintainers together to continue
-            the momentum.
+            the momentum at Meta's Fremont Campus.
           </p>
         </div>
         <div className="mt-2 flex gap-x-6 gap-y-4 max-sm:flex-col">
