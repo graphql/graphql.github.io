@@ -108,7 +108,8 @@ export function Venue(props: VenueProps) {
               className="[&_svg]:fill-neu-900"
               items={[
                 {
-                  title: "DoubleTree by Hilton Hotel Newark-Fremont (Conference Venue)",
+                  title:
+                    "DoubleTree by Hilton Hotel Newark-Fremont (Conference Venue)",
                   link: "https://www.hilton.com/en/hotels/nwkbddt-doubletree-newark-fremont/",
                   description: (
                     <>
