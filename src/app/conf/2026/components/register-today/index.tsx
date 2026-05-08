@@ -33,8 +33,7 @@ export function RegisterToday({ className }: RegisterTodayProps) {
           </h2>
           <p className="typography-h3 mt-6 text-neu-800 md:mt-10">
             Join two transformative days of expert insights and innovation to
-            shape the next decade of APIs! Register by May 12 to secure your
-            ticket.
+            shape the next decade of APIs!
           </p>
         </div>
         <div className="mt-4 flex gap-x-6 gap-y-4 max-sm:flex-col">
@@ -50,7 +49,7 @@ export function RegisterToday({ className }: RegisterTodayProps) {
               WG Day
             </a>{" "}
             brings working group members and maintainers together to continue
-            the momentum.
+            the momentum at Meta's Fremont Campus.
           </p>
         </div>
         <div className="mt-2 flex gap-x-6 gap-y-4 max-sm:flex-col">
