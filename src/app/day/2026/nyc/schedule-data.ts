@@ -1,3 +1,5 @@
+import braxtonBraggAvatar from "./speakers/braxton-bragg.jpg"
+import elenaBukarevaAvatar from "./speakers/elena-bukareva.jpg"
 import jeffAuriemmaAvatar from "./speakers/jeff-auriemma.jpg"
 import michaelStaibAvatar from "./speakers/michael-staib.webp"
 import pascalSennAvatar from "./speakers/pascal-senn.webp"
@@ -43,6 +45,7 @@ export const nycSessions: EventSession[] = [
         name: "Braxton Bragg",
         company: "Meta",
         jobtitle: "Product Manager",
+        avatar: braxtonBraggAvatar,
         socialurls: [
           {
             service: "linkedin",
@@ -55,6 +58,7 @@ export const nycSessions: EventSession[] = [
         name: "Elena Bukareva",
         company: "Meta",
         jobtitle: "Engineering Manager",
+        avatar: elenaBukarevaAvatar,
         socialurls: [
           {
             service: "linkedin",
