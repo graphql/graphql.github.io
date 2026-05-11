@@ -51,6 +51,10 @@ export default function DayLayout({
             href: "/day/2026/singapore#schedule",
           },
           {
+            children: "NYC Schedule",
+            href: "/day/2026/nyc#schedule",
+          },
+          {
             children: "Code of Conduct",
             href: "https://www.apidays.global/legal/code-of-conduct#:~:text=Individuals%20who%20participate%20(or%20plan,during%20or%20after%20the%20event.",
           },

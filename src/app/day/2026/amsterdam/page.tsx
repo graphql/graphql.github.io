@@ -10,7 +10,13 @@ import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
-import { ScheduleSection } from "@/app/day/2026/amsterdam/schedule-section.tsx"
+import { EventScheduleSection } from "../components/event-schedule-section"
+import {
+  amsterdamSessions,
+  AMSTERDAM_TIMEZONE,
+  AMSTERDAM_TIMEZONE_LABEL,
+  tagColors,
+} from "./schedule-data"
 
 const MARQUEE_ITEMS = [
   ["AMSTERDAM", "JUNE 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
@@ -57,7 +63,12 @@ export default function AmsterdamPage() {
         />
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
-          <ScheduleSection />
+          <EventScheduleSection
+            sessions={amsterdamSessions}
+            timezone={AMSTERDAM_TIMEZONE}
+            timezoneLabel={AMSTERDAM_TIMEZONE_LABEL}
+            tagColors={tagColors}
+          />
           <EventPartnersSection />
           <GallerySection moving />
           <CtaCardSection

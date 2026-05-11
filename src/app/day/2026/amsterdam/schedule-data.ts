@@ -1,5 +1,3 @@
-import type { StaticImageData } from "next/image"
-
 import anNgoAvatar from "./speakers/an-ngo.webp"
 import christianErnstAvatar from "./speakers/christian-ernst.webp"
 import jensNeuseAvatar from "./speakers/jens-neuse.webp"
@@ -7,32 +5,11 @@ import martinBonninAvatar from "./speakers/martin-bonnin.webp"
 import michaelStaibAvatar from "./speakers/michael-staib.webp"
 import thoreKoritziusAvatar from "./speakers/thore-koritzius.webp"
 
-export interface AmsterdamSpeaker {
-  id: number
-  name: string
-  company: string
-  jobtitle: string
-  avatar: StaticImageData
-  socialurls: { service: string; url: string }[]
-}
-
-export interface AmsterdamSession {
-  id: number
-  uuid: string
-  title: string
-  /** ISO 8601 in venue local time, Europe/Amsterdam. */
-  start: string
-  /** ISO 8601 in venue local time, Europe/Amsterdam. */
-  end: string
-  /** Topic tags derived from the session description. */
-  tags: string[]
-  /** HTML */
-  description: string
-  venue: string
-  speakers: AmsterdamSpeaker[]
-}
+import type { EventSession } from "../components/event-schedule-section"
 
 export const AMSTERDAM_TIMEZONE = "Europe/Amsterdam"
+export const AMSTERDAM_TIMEZONE_LABEL =
+  "All times in Amsterdam Time (CEST, UTC+2)"
 
 /** Color per topic, picked to read clearly against the cream/dark backgrounds. */
 export const tagColors: Record<string, string> = {
@@ -46,7 +23,7 @@ export const tagColors: Record<string, string> = {
   Observability: "#1a5b77",
 }
 
-export const amsterdamSessions: AmsterdamSession[] = [
+export const amsterdamSessions: EventSession[] = [
   {
     id: 3224,
     uuid: "80952503-07dd-4e31-acaf-b9e400f55126",

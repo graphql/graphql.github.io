@@ -1,4 +1,8 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
+import type { StaticImageData } from "next/image"
 import clsx from "clsx"
 
 import { Tag } from "@/app/conf/_design-system/tag"
@@ -11,27 +15,42 @@ import {
 } from "@/app/conf/_design-system/social-icon"
 import { formatDescription } from "@/app/conf/2026/schedule/[id]/format-description"
 
-import {
-  SingaporeSession,
-  SingaporeSpeaker,
-  singaporeSessions,
+export interface EventSpeaker {
+  id: number
+  name: string
+  company: string
+  jobtitle: string
+  avatar?: StaticImageData
+  socialurls: { service: string; url: string }[]
+}
+
+export interface EventSession {
+  id: number
+  uuid: string
+  title: string
+  /** ISO 8601 in venue local time */
+  start: string
+  /** ISO 8601 in venue local time */
+  end: string
+  /** Topic tags derived from the session description. */
+  tags: string[]
+  /** HTML */
+  description: string
+  venue: string
+  speakers: EventSpeaker[]
+}
+
+export function EventScheduleSection({
+  sessions,
+  timezone,
+  timezoneLabel,
   tagColors,
-} from "./schedule-data"
-
-const TIME_RANGE = new Intl.DateTimeFormat("en-US", {
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: false,
-  timeZone: "Asia/Singapore",
-})
-
-const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "long",
-  timeZone: "Asia/Singapore",
-})
-
-export function ScheduleSection() {
+}: {
+  sessions: EventSession[]
+  timezone: string
+  timezoneLabel: string
+  tagColors: Record<string, string>
+}) {
   return (
     <section
       id="schedule"
@@ -42,16 +61,16 @@ export function ScheduleSection() {
           <div className="border-neu-200 dark:border-neu-100 xs:border-x">
             <div className="flex flex-wrap items-baseline justify-between gap-4 px-2 py-8 sm:px-3 lg:py-12 2xl:py-16">
               <h2 className="typography-h2">Schedule</h2>
-              <p className="typography-body-md text-neu-700">
-                All times in Singapore Time (SGT, UTC+8)
-              </p>
+              <p className="typography-body-md text-neu-700">{timezoneLabel}</p>
             </div>
 
-            {singaporeSessions.map((session, i) => (
+            {sessions.map((session, i) => (
               <SessionBlock
                 key={session.id}
                 session={session}
                 isFirst={i === 0}
+                timezone={timezone}
+                tagColors={tagColors}
               />
             ))}
           </div>
@@ -64,13 +83,14 @@ export function ScheduleSection() {
 function SessionBlock({
   session,
   isFirst,
+  timezone,
+  tagColors,
 }: {
-  session: SingaporeSession
+  session: EventSession
   isFirst: boolean
+  timezone: string
+  tagColors: Record<string, string>
 }) {
-  // On xl+ with a single speaker we slot the card next to the last two
-  // paragraphs of the description so it sits in the bottom-right corner.
-  // Multi-speaker sessions keep the regular "speakers below" layout.
   const sideSpeaker = session.speakers.length === 1 ? session.speakers[0] : null
 
   return (
@@ -78,10 +98,15 @@ function SessionBlock({
       <Hr
         className={isFirst ? "mt-8 lg:mt-12 xl:mt-0" : "mt-12 lg:mt-16 xl:mt-0"}
       />
-      <SessionHeader session={session} className="px-2 py-8 sm:px-3 lg:py-12" />
+      <SessionHeader
+        session={session}
+        timezone={timezone}
+        tagColors={tagColors}
+        className="px-2 py-8 sm:px-3 lg:py-12"
+      />
       {session.description && (
         <>
-          <Hr className="mt-10 xl:mt-0 2xl:mt-16" />
+          <Hr className="mt-0 lg:mt-10 xl:mt-0 2xl:mt-16" />
           <SessionDescription
             description={session.description}
             sideSpeaker={sideSpeaker}
@@ -106,26 +131,48 @@ function SessionDescription({
   sideSpeaker,
 }: {
   description: string
-  sideSpeaker: SingaporeSpeaker | null
+  sideSpeaker: EventSpeaker | null
 }) {
+  const [expanded, setExpanded] = useState(false)
   const paragraphs = parseParagraphs(description)
-  const splitAt =
-    sideSpeaker && paragraphs.length >= 2
-      ? paragraphs.length - 2
-      : paragraphs.length
-  const lead = paragraphs.slice(0, splitAt)
-  const tail = paragraphs.slice(splitAt)
+  const hasMore = paragraphs.length > 1
+  const visible = expanded ? paragraphs : paragraphs.slice(0, 1)
+  const splitAt = sideSpeaker ? Math.max(0, visible.length - 2) : visible.length
+  const lead = visible.slice(0, splitAt)
+  const tail = visible.slice(splitAt)
+  const lastInLead = tail.length === 0 ? lead.length - 1 : -1
+  const lastInTail = tail.length - 1
+
+  const toggle = hasMore && (
+    <>
+      {" "}
+      <button
+        type="button"
+        onClick={() => setExpanded(e => !e)}
+        aria-expanded={expanded}
+        className="typography-link"
+      >
+        {expanded ? "Show less." : "Read more…"}
+      </button>
+    </>
+  )
 
   return (
     <div className="typography-body-lg mt-8 px-2 pb-8 sm:px-3 lg:mt-12 xl:pb-12 [&>p+p]:mt-4 [&_a]:break-words">
       {lead.map((html, i) => (
-        <p key={`lead-${i}`} dangerouslySetInnerHTML={{ __html: html }} />
+        <p key={`lead-${i}`}>
+          <span dangerouslySetInnerHTML={{ __html: html }} />
+          {i === lastInLead && toggle}
+        </p>
       ))}
       {tail.length > 0 && (
-        <div className="mt-4 xl:flex xl:items-end xl:gap-6">
+        <div className="mt-4 first:mt-0 xl:flex xl:items-end xl:gap-6">
           <div className="xl:flex-1 [&>p+p]:mt-4">
             {tail.map((html, i) => (
-              <p key={`tail-${i}`} dangerouslySetInnerHTML={{ __html: html }} />
+              <p key={`tail-${i}`}>
+                <span dangerouslySetInnerHTML={{ __html: html }} />
+                {i === lastInTail && toggle}
+              </p>
             ))}
           </div>
           {sideSpeaker && (
@@ -139,12 +186,6 @@ function SessionDescription({
   )
 }
 
-/**
- * Split FOST description HTML (a sequence of `<p>...</p>` blocks) into the
- * inner HTML of each paragraph so we can render them as real React `<p>`
- * siblings — needed so we can splice the speaker card in alongside the last
- * couple of paragraphs at xl+.
- */
 function parseParagraphs(html: string): string[] {
   const formatted = formatDescription(html)
   const matches = formatted.match(/<p>[\s\S]*?<\/p>/g)
@@ -154,11 +195,26 @@ function parseParagraphs(html: string): string[] {
 
 function SessionHeader({
   session,
+  timezone,
+  tagColors,
   className,
 }: {
-  session: SingaporeSession
+  session: EventSession
+  timezone: string
+  tagColors: Record<string, string>
   className?: string
 }) {
+  const timeRange = new Intl.DateTimeFormat("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: timezone,
+  })
+  const dateFormat = new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "long",
+    timeZone: timezone,
+  })
   const start = new Date(session.start)
   const end = new Date(session.end)
 
@@ -170,9 +226,9 @@ function SessionHeader({
           <div className="flex items-center gap-2">
             <CalendarIcon className="size-5 text-sec-darker dark:text-sec-light/90 sm:size-6" />
             <time dateTime={session.start}>
-              {DATE_FORMAT.format(start)}
+              {dateFormat.format(start)}
               {", "}
-              {TIME_RANGE.formatRange(start, end)}
+              {timeRange.formatRange(start, end)}
             </time>
           </div>
           {session.venue && (
@@ -203,7 +259,7 @@ function SessionSpeakers({
   speakers,
   className,
 }: {
-  speakers: SingaporeSpeaker[]
+  speakers: EventSpeaker[]
   className?: string
 }) {
   return (
@@ -239,7 +295,7 @@ function SpeakerCard({
   speaker,
   index,
 }: {
-  speaker: SingaporeSpeaker
+  speaker: EventSpeaker
   index: number
 }) {
   const variant = STRIPE_VARIANTS[index % STRIPE_VARIANTS.length]
@@ -254,15 +310,21 @@ function SpeakerCard({
     <article className="group relative overflow-hidden border border-t-0 border-neu-200 bg-transparent @container dark:border-neu-100">
       <div className="flex h-full flex-col gap-4 p-4 @[420px]:flex-row md:gap-6 md:p-6">
         <div className="relative aspect-square h-full overflow-hidden @[420px]:w-[176px] @[420px]:shrink-0">
-          <div className="absolute inset-0 z-[1] bg-sec-light mix-blend-multiply" />
-          <Image
-            src={speaker.avatar}
-            alt=""
-            width={176}
-            height={176}
-            placeholder="blur"
-            className="size-full object-cover saturate-[.1]"
-          />
+          {speaker.avatar && (
+            <div className="absolute inset-0 z-[1] bg-sec-light mix-blend-multiply" />
+          )}
+          {speaker.avatar ? (
+            <Image
+              src={speaker.avatar}
+              alt=""
+              width={176}
+              height={176}
+              placeholder="blur"
+              className="size-full object-cover saturate-[.1]"
+            />
+          ) : (
+            <div className="size-full bg-neu-200 dark:bg-neu-100" />
+          )}
           <div
             role="presentation"
             className="pointer-events-none absolute inset-0 inset-y-[-20px]"
@@ -296,11 +358,7 @@ function SpeakerCard({
   )
 }
 
-function SpeakerSocialLinks({
-  links,
-}: {
-  links: SingaporeSpeaker["socialurls"]
-}) {
+function SpeakerSocialLinks({ links }: { links: EventSpeaker["socialurls"] }) {
   const ordered = SocialIconType.all
     .map(service =>
       links.find(l => l.service.toLowerCase() === service.toLowerCase()),
