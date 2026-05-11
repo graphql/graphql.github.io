@@ -1,35 +1,11 @@
-import type { StaticImageData } from "next/image"
-
 import akshatSharmaAvatar from "./speakers/akshat-sharma.webp"
 import michaelStaibAvatar from "./speakers/michael-staib.webp"
 import pascalSennAvatar from "./speakers/pascal-senn.webp"
 
-export interface SingaporeSpeaker {
-  id: number
-  name: string
-  company: string
-  jobtitle: string
-  avatar: StaticImageData
-  socialurls: { service: string; url: string }[]
-}
-
-export interface SingaporeSession {
-  id: number
-  uuid: string
-  title: string
-  /** ISO 8601 in venue local time, Asia/Singapore */
-  start: string
-  /** ISO 8601 in venue local time, Asia/Singapore */
-  end: string
-  /** Topic tags derived from the session description. */
-  tags: string[]
-  /** HTML */
-  description: string
-  venue: string
-  speakers: SingaporeSpeaker[]
-}
+import type { EventSession } from "../components/event-schedule-section"
 
 export const SINGAPORE_TIMEZONE = "Asia/Singapore"
+export const SINGAPORE_TIMEZONE_LABEL = "All times in Singapore Time (SGT, UTC+8)"
 
 /** Color per topic, picked to read clearly against the cream/dark backgrounds. */
 export const tagColors: Record<string, string> = {
@@ -43,7 +19,7 @@ export const tagColors: Record<string, string> = {
   Observability: "#1a5b77",
 }
 
-export const singaporeSessions: SingaporeSession[] = [
+export const singaporeSessions: EventSession[] = [
   {
     id: 3224,
     uuid: "80952503-07dd-4e31-acaf-b9e400f55126",

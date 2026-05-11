@@ -9,7 +9,13 @@ import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
-import { ScheduleSection } from "./schedule-section"
+import { EventScheduleSection } from "../components/event-schedule-section"
+import {
+  singaporeSessions,
+  SINGAPORE_TIMEZONE,
+  SINGAPORE_TIMEZONE_LABEL,
+  tagColors,
+} from "./schedule-data"
 
 const SCHEDULE_ANCHOR = "#schedule"
 
@@ -61,7 +67,12 @@ export default function SingaporePage() {
           <EventPartnersSection />
           <GallerySection moving />
         </div>
-        <ScheduleSection />
+        <EventScheduleSection
+          sessions={singaporeSessions}
+          timezone={SINGAPORE_TIMEZONE}
+          timezoneLabel={SINGAPORE_TIMEZONE_LABEL}
+          tagColors={tagColors}
+        />
         <MarqueeRows
           variant="secondary"
           className="my-8 xl:my-16"
