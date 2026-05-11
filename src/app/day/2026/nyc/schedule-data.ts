@@ -4,6 +4,7 @@ import jeffAuriemmaAvatar from "./speakers/jeff-auriemma.jpg"
 import michaelStaibAvatar from "./speakers/michael-staib.webp"
 import pascalSennAvatar from "./speakers/pascal-senn.webp"
 import vanessaJohnsonAvatar from "./speakers/vanessa-johnson.webp"
+import davidSarabiaAvatar from "./speakers/david-sarabia.jpg"
 
 import type { EventSession } from "../components/event-schedule-section"
 
@@ -153,14 +154,25 @@ export const nycSessions: EventSession[] = [
   },
   {
     id: 5,
-    uuid: "tbd-slot-1630",
-    title: "TBD",
+    uuid: "graphq-federation-as-the-trust-layer",
+    title:
+      "Voice AI for the Patients AI Left Behind: How GraphQL Federation Became Our Trust Layer",
     start: "2026-05-13T16:30:00-04:00",
     end: "2026-05-13T16:55:00-04:00",
     tags: ["GraphQL"],
-    description: "",
+    description:
+      "<p>Healthcare AI has a coverage problem. The 78-year-old Spanish-speaking grandmother with early dementia isn't downloading an app, typing into a chatbot, or navigating a patient portal. But she can answer a phone call, and she can have a conversation, if the system on the other end knows how to have one with her.</p>\n<p>At ClinicaMind, we build voice agents for exactly this population: chronic care patients across neurology, cardiology, and primary care, many of them bilingual, cognitively declining, or simply outside the demographic that healthcare software was designed for. To serve them, we needed real-time conversational AI that could resolve a patient's full longitudinal context: clinical history, cultural profile, consent state, caregiver relationships, prior call transcripts. All in under 30 milliseconds, across a federated backend, while staying HIPAA-compliant and auditable down to the field.</p>\n<p>Apollo Federation became the answer. Not as an API style, but as the architectural commitment that made the rest possible. This deep dive walks through how we modeled the Trust Engine, the five-layer system that sits between the LLM and the patient, as a set of federated subgraphs aligned to bounded contexts: Identity & Consent, Cultural & Social Fabric, Clinical Safety, Trust State, and Escalation & Handoff. We'll cover the practical decisions: why @key entity resolution became our PHI boundary, how DataLoader batching keeps voice-agent context retrieval under our latency budget, where we use domain events instead of cross-subgraph reads, and the pitfalls we hit reusing fragments across patient-facing voice flows and clinician-facing dashboards.\nYou'll leave with a concrete reference architecture for using GraphQL Federation as a trust and safety substrate, not just a data layer, in domains where the cost of getting it wrong is measured in human lives, not failed requests.</p>",
     venue: "GraphQL Stage",
-    speakers: [],
+    speakers: [
+      {
+        id: 8,
+        name: "David Sarabia",
+        company: "ClinicaMind",
+        jobtitle: "CEO",
+        avatar: davidSarabiaAvatar,
+        socialurls: [],
+      },
+    ],
   },
   {
     id: 6,
