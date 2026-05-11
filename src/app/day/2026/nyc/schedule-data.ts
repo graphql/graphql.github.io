@@ -8,7 +8,8 @@ import vanessaJohnsonAvatar from "./speakers/vanessa-johnson.webp"
 import type { EventSession } from "../components/event-schedule-section"
 
 export const NYC_TIMEZONE = "America/New_York"
-export const NYC_TIMEZONE_LABEL = "All times in Eastern Daylight Time (EDT, UTC−4)"
+export const NYC_TIMEZONE_LABEL =
+  "All times in Eastern Daylight Time (EDT, UTC−4)"
 
 /** Color per topic, picked to read clearly against the cream/dark backgrounds. */
 export const tagColors: Record<string, string> = {

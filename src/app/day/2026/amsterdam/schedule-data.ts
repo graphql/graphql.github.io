@@ -8,7 +8,8 @@ import thoreKoritziusAvatar from "./speakers/thore-koritzius.webp"
 import type { EventSession } from "../components/event-schedule-section"
 
 export const AMSTERDAM_TIMEZONE = "Europe/Amsterdam"
-export const AMSTERDAM_TIMEZONE_LABEL = "All times in Amsterdam Time (CEST, UTC+2)"
+export const AMSTERDAM_TIMEZONE_LABEL =
+  "All times in Amsterdam Time (CEST, UTC+2)"
 
 /** Color per topic, picked to read clearly against the cream/dark backgrounds. */
 export const tagColors: Record<string, string> = {

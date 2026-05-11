@@ -5,7 +5,8 @@ import pascalSennAvatar from "./speakers/pascal-senn.webp"
 import type { EventSession } from "../components/event-schedule-section"
 
 export const SINGAPORE_TIMEZONE = "Asia/Singapore"
-export const SINGAPORE_TIMEZONE_LABEL = "All times in Singapore Time (SGT, UTC+8)"
+export const SINGAPORE_TIMEZONE_LABEL =
+  "All times in Singapore Time (SGT, UTC+8)"
 
 /** Color per topic, picked to read clearly against the cream/dark backgrounds. */
 export const tagColors: Record<string, string> = {
