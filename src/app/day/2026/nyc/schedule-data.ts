@@ -12,6 +12,7 @@ export const NYC_TIMEZONE_LABEL = "All times in Eastern Daylight Time (EDT, UTC�
 
 /** Color per topic, picked to read clearly against the cream/dark backgrounds. */
 export const tagColors: Record<string, string> = {
+  GraphQL: "#e07b39",
   "GraphQL History": "#e07b39",
   "Open Source": "#36C1A0",
   Learning: "#3c8fc1",
@@ -22,8 +23,6 @@ export const tagColors: Record<string, string> = {
   "Public Sector": "#4e6e82",
   "Schema Evolution": "#cbc749",
   Observability: "#1a5b77",
-  "Data Marketplace": "#cc7a2b",
-  APIs: "#2b6ccc",
   Accessibility: "#CC6BB0",
   "CI/CD": "#4a7c59",
 }
@@ -153,28 +152,14 @@ export const nycSessions: EventSession[] = [
   },
   {
     id: 5,
-    uuid: "competing-for-relevance-graphql-ai-marketplaces",
-    title: "Competing for Relevance: GraphQL APIs in AI Data Marketplaces",
+    uuid: "tbd-slot-1630",
+    title: "TBD",
     start: "2026-05-13T16:30:00-04:00",
     end: "2026-05-13T16:55:00-04:00",
-    tags: ["AI Agents", "APIs", "Data Marketplace"],
-    description:
-      "<p>At Booking.com, GraphQL started as a way to power complex frontend experiences. Today, it is evolving into something much larger: the foundation of a data marketplace that must serve mobile, internal AI use cases, and external partners like Google &amp; OpenAI.</p>\n<p>This talk explores what happens as travel discovery shifts from websites and apps to conversational interfaces such as ChatGPT and Gemini. In that world, OTAs no longer compete only on SEO or app UX; we compete to be the first or the best data supplier to AI platforms who decide what content is surfaced.</p>\n<p>We’ll look back at how Google’s rise shaped Booking.com’s growth and draw parallels to the emerging ranking logic of AI platform data suppliers. Then we’ll zoom into the role of API platforms: what it means to treat your data layer as a marketplace with supply (backend capabilities) and demand (popular AI products and their users), and why current infrastructure cannot satisfy this emerging real-time, highly personalized demand.</p>\n<p>Finally, we’ll discuss concrete architectural and product principles for staying competitive: staying a few years ahead of the product needs, building (and rebuilding) for flexibility, defining radical latency targets, and learning continuously from demand signals.</p>\n",
+    tags: ["GraphQL"],
+    description: "",
     venue: "GraphQL Stage",
-    speakers: [
-      {
-        id: 6,
-        name: "Alex Komlev",
-        company: "Booking.com",
-        jobtitle: "Senior Engineering Manager",
-        socialurls: [
-          {
-            service: "linkedin",
-            url: "https://www.linkedin.com/in/komlev/",
-          },
-        ],
-      },
-    ],
+    speakers: [],
   },
   {
     id: 6,
