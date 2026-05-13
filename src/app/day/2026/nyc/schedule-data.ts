@@ -23,7 +23,7 @@ export const tagColors: Record<string, string> = {
   "AI Agents": "#7e66cc",
   Federation: "#FC8251",
   "Public Sector": "#4e6e82",
-  "Schema Evolution": "#cbc749",
+  "Schema Evolution": "#cbc750",
   Observability: "#1a5b77",
   Accessibility: "#CC6BB0",
   "CI/CD": "#4a7c59",
@@ -73,7 +73,7 @@ export const nycSessions: EventSession[] = [
     id: 2,
     uuid: "teach-yourself-graphql-2026",
     title: "Teach yourself GraphQL in 2026: an anti-blueprint",
-    start: "2026-05-14T14:40:00-04:00",
+    start: "2026-05-14T14:50:00-04:00",
     end: "2026-05-14T15:05:00-04:00",
     tags: ["Learning", "Schema Design", "Best Practices"],
     description:
