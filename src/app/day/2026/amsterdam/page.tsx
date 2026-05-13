@@ -46,7 +46,7 @@ export default function AmsterdamPage() {
           <HeroDateAndLocation
             date="Jun 9-10, 2026"
             dateTime="2026-06-09"
-            location="Amsterdam, The Netherlands"
+            location="Tolhuistuin, Amsterdam"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
             <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
