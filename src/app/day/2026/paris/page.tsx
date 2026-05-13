@@ -40,7 +40,7 @@ export default function ParisPage() {
           <HeroDateAndLocation
             date="December 1-3, 2026"
             dateTime="2026-12-01"
-            location="Paris, France"
+            location="CNIT Forest, Paris"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
             <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">

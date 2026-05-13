@@ -47,7 +47,7 @@ export default function NYCPage() {
           <HeroDateAndLocation
             date="May 13-14, 2026"
             dateTime="2026-05-13"
-            location="New York City"
+            location="Convene 360 Madison, New York"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
             <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
