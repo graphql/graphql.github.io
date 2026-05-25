@@ -31,7 +31,7 @@ const MARQUEE_ITEMS = [
 ]
 
 const TICKET_LINK =
-  "https://portal.joinfost.io/event/future-of-software-technologies-amsterdam-2026/cf522e15-399f-4c1f-8365-3a72346f16f0"
+  "https://portal.joinfost.io/event/future-of-software-technologies-amsterdam-2026/cf522e15-399f-4c1f-8365-3a72346f16f0/graphql-day-amsterdam-2026"
 
 export const metadata: Metadata = {
   title: "GraphQL Day @ FOST AMSTERDAM — June 9-10",
