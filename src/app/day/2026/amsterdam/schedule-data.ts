@@ -1,4 +1,4 @@
-import anNgoAvatar from "./speakers/an-ngo.webp"
+import ivanJancicAvatar from "./speakers/ivan-jancic.webp"
 import christianErnstAvatar from "./speakers/christian-ernst.webp"
 import jensNeuseAvatar from "./speakers/jens-neuse.webp"
 import martinBonninAvatar from "./speakers/martin-bonnin.webp"
@@ -105,24 +105,24 @@ export const amsterdamSessions: EventSession[] = [
   {
     id: 3228,
     uuid: "50beb1a7-7a3f-4dad-a760-a00ad96233e1",
-    title: "GraphQL: Schema evolution at the largest e-commerce in NL/BE",
+    title: "GraphQL with AWS AppSync - Building a Product API at HEMA",
     start: "2026-06-10T11:10:00+02:00",
     end: "2026-06-10T11:35:00+02:00",
-    tags: ["GraphQL", "Federation", "Schema Evolution"],
+    tags: ["GraphQL"],
     description:
-      "<p>We'll dive deeper into the concept of GraphQL Schema Evolution. How at bol, the largest ecommerce of The Netherlands and Belgium we evolve our GraphQL schemas. During this talk we'll share concrete examples of schema evolution at bol and which best practices we applied, and all the lessons learned on Schema evolution.</p>\n",
+      "<p>I will talk about "pioneer phase" of GraphQL adoption at HEMA and using AWS AppSync for the composable commerce migration, where I will share the raw and honest lessons learned when introducing a new tech stack to a 100-year-old Dutch icon.</p>\n",
     venue: "Zonzij",
     speakers: [
       {
         id: 1014,
-        name: "An Ngo",
-        company: "bol",
-        jobtitle: "Lead Engineer",
-        avatar: anNgoAvatar,
+        name: "Ivan Jančić",
+        company: "Brighting",
+        jobtitle: "Solutions Architect",
+        avatar: ivanJancicAvatar,
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/vliegveld5/",
+            url: "https://www.linkedin.com/in/ivan-jan%C4%8Di%C4%87/",
           },
         ],
       },
