@@ -20,7 +20,7 @@ const sponsorPlatinum: Sponsor[] = [
     icon: (props: React.HTMLAttributes<HTMLDivElement>) => (
       <div
         {...props}
-        className={clsx(props.className, "relative aspect-video flex-shrink-0")}
+        className={clsx(props.className, "relative aspect-video shrink-0")}
       >
         <img
           src={
