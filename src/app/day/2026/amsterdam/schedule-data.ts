@@ -110,7 +110,7 @@ export const amsterdamSessions: EventSession[] = [
     end: "2026-06-10T11:35:00+02:00",
     tags: ["GraphQL"],
     description:
-      "<p>I will talk about "pioneer phase" of GraphQL adoption at HEMA and using AWS AppSync for the composable commerce migration, where I will share the raw and honest lessons learned when introducing a new tech stack to a 100-year-old Dutch icon.</p>\n",
+      '<p>I will talk about "pioneer phase" of GraphQL adoption at HEMA and using AWS AppSync for the composable commerce migration, where I will share the raw and honest lessons learned when introducing a new tech stack to a 100-year-old Dutch icon.</p>\n',
     venue: "Zonzij",
     speakers: [
       {
