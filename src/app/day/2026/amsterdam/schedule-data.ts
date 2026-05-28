@@ -4,6 +4,7 @@ import jensNeuseAvatar from "./speakers/jens-neuse.webp"
 import martinBonninAvatar from "./speakers/martin-bonnin.webp"
 import michaelStaibAvatar from "./speakers/michael-staib.webp"
 import thoreKoritziusAvatar from "./speakers/thore-koritzius.webp"
+import pascalSennAvatar from "./speakers/pascal-senn.webp"
 
 import type { EventSession } from "../components/event-schedule-section"
 
@@ -25,6 +26,45 @@ export const tagColors: Record<string, string> = {
 
 export const amsterdamSessions: EventSession[] = [
   {
+    id: 3225,
+    uuid: "2a24223a-16d0-40fa-821b-b91c491ff9a6",
+    title: "Fragments worth sharing",
+    start: "2026-06-10T09:00:00+02:00",
+    end: "2026-06-10T09:25:00+02:00",
+    tags: ["GraphQL"],
+    description:
+      "<p>GraphQLConf is just over and so many things happened! There's too much good stuff to keep to ourselves.</p><p>In this talk, we'll piece together the fragments that matter most: the RFCs shaping the future of the spec, the proposals up for discussion, and the grants funding the work. Whether you missed the conference or just want a curated recap, you'll leave with a clear picture of where GraphQL is heading — and concrete ways to get involved, no matter how much time you have to give.</p>\n",
+    venue: "Zonzij",
+    speakers: [
+      {
+        id: 1012,
+        name: "Pascal Senn",
+        company: "ChilliCream",
+        jobtitle: "COO",
+        avatar: pascalSennAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/pascal-senn-90899a15a/",
+          },
+        ],
+      },
+      {
+        id: 1009,
+        name: "Martin Bonnin",
+        company: "Apollo",
+        jobtitle: "Mobile Engineer",
+        avatar: martinBonninAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/martinbonnin",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: 3224,
     uuid: "80952503-07dd-4e31-acaf-b9e400f55126",
     title: '18 things "everyone knows" about GraphQL vs REST',
@@ -45,32 +85,6 @@ export const amsterdamSessions: EventSession[] = [
           {
             service: "linkedin",
             url: "https://www.linkedin.com/in/jens-neuse/",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 3225,
-    uuid: "2a24223a-16d0-40fa-821b-b91c491ff9a6",
-    title: "What's next in GraphQL",
-    start: "2026-06-10T09:55:00+02:00",
-    end: "2026-06-10T10:20:00+02:00",
-    tags: ["GraphQL"],
-    description:
-      "<p>GraphQL is a wonderful piece of technology. The GraphQL spec has been a very solid foundation for the past 10 years. It's not (yet!) perfect though. Friction points exist and the community has been hard at work improving the daily GraphQL experience.\n</p>\n",
-    venue: "Zonzij",
-    speakers: [
-      {
-        id: 1012,
-        name: "Martin Bonnin",
-        company: "Apollo",
-        jobtitle: "Mobile Engineer",
-        avatar: martinBonninAvatar,
-        socialurls: [
-          {
-            service: "linkedin",
-            url: "",
           },
         ],
       },
