@@ -6,23 +6,23 @@ byline: Mark Larah
 featured: true
 ---
 
-The primary [GraphQL specification](https://spec.graphql.org/draft/) describes
-the core behavior of GraphQL; the language itself, how the server validates and
-executes queries, how errors propagate etc.
+The primary [GraphQL specification](https://spec.graphql.org/draft/) narrowly
+describes the core behavior of GraphQL; the language itself, how the server
+validates and executes queries, how errors propagate etc.
 
-In addition to the main GraphQL specification, the GraphQL Foundation also
-maintains secondary specifications such [GraphQL Over HTTP][over-http] and
-[Composite Schemas][composite-schemas] which standardize how GraphQL should be
-delivered over networks, or how distributed execution may occur respectively.
+Additionally, the GraphQL Foundation maintains secondary specifications such as
+[GraphQL Over HTTP][over-http] and [Composite Schemas][composite-schemas] which
+standardize how GraphQL should be delivered over networks and how distributed
+execution may occur.
 
 [over-http]: https://github.com/graphql/graphql-over-http/blob/main/spec/GraphQLOverHTTP.md
 [composite-schemas]: https://github.com/graphql/composite-schemas-spec
 
-Beyond these secondary specifications, GraphQL is otherwise (intentionally)
-un-opinionated about how it may be implemented. For example, we do not specify
-naming conventions in the schema or describe how caching should work in GraphQL
-clients. Such concerns are left up to developers and library authors to decide
-how they should handle this.
+Beyond these secondary specifications however, GraphQL is intentionally
+un-opinionated about how it may be implemented by users. For example, we do not
+specify naming conventions in the schema or describe how caching should work in
+GraphQL clients. Such concerns are left to developers and library authors to
+decide how they should handle this.
 
 There are, you might say, some "gaps" in the official specification(s)...
 
@@ -33,10 +33,8 @@ and are similarly intended to be adopted across different frameworks and
 organizations.
 
 As an industry, we benefit from having existing, well thought-out specifications
-to implement common problems, rather than having to reinvent the wheel each time
-with competing standards.
-
-This is a pattern we want to encourage more of!
+to address common problems - rather than teams having to reinvent the wheel each
+time, and with competing standards.
 
 ## GAPs
 
@@ -56,12 +54,12 @@ browse and discover auxiliary specifications:
    working group approval.
 
 Once merged, your GAP gets published on the GAPs homepage with a permanent link
-you can share. [gaps.graphql.org](https://gaps.graphql.org).
+you can share.
 
 ## Submit a GAP!
 
 If you've got a battle-tested solution to a common GraphQL problem, or have
-adopted a convention that you think others would find useful too, consider
-writing it up as a specification and submit is as a GAP.
+adopted a convention that you think others would also find useful, consider
+writing it up as a specification and submit it as a GAP.
 
 Help us fill in the "gaps" around the core specification :)
