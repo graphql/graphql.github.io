@@ -94,8 +94,8 @@ export const amsterdamSessions: EventSession[] = [
     id: 3227,
     uuid: "9fe789cb-67b5-4aae-ace4-943ab8f46a43",
     title: "Teaching LLMs to Understand GraphQL with Schema-Aware Embeddings",
-    start: "2026-06-10T09:55:00+02:00",
-    end: "2026-06-10T10:20:00+02:00",
+    start: "2026-06-10T10:45:00+02:00",
+    end: "2026-06-10T11:10:00+02:00",
     tags: ["GraphQL", "MCP", "AI Agents"],
     description:
       "<p>As AI assistants and MCP-style tools increasingly sit in front of GraphQL APIs, embeddings have become critical for fuzzy schema search, field retrieval, and natural-language-to-query systems. Yet most teams rely on general-purpose embedding models that were not specifically designed to understand GraphQL type systems, relationships, or naming patterns.</p>\n<p>This talk shares practical experience building schema-aware embedding pipelines with off-the-shelf and fine-tuned models while exploring how far preprocessing, chunking, and schema structuring can take you before custom training is needed. We’ll discuss evaluation methods, common failure modes like field confusion and hallucinated types, and the tradeoffs between large hosted models and compact, GraphQL-focused embeddings that can run with lightweight CPU inference. The goal is to give GraphQL platform teams concrete, production-ready guidelines for choosing, adapting, and shipping embeddings that actually understand their schemas.</p>\n",
