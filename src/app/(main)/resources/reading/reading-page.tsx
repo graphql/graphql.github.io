@@ -134,11 +134,11 @@ export async function ReadingLibraryPage({
       <section className="gql-container gql-section">
         <Breadcrumbs activePath={activePath} />
         <header className="mt-16 flex flex-wrap justify-between gap-x-8 gap-y-4 pt-2">
-          <h2 className="typography-h2 text-pretty">Browse GraphQL Videos</h2>
+          <h2 className="typography-h2 text-pretty">Browse Reading Resources</h2>
           <p className="typography-body-md max-w-[578px] text-neu-800">
-            The video library includes talks from GraphQL Conf and archival
-            presentations by developers from Facebook and beyond, shared at
-            conferences and meetups worldwide.
+            Explore a curated collection of books, blogs, newsletters, and
+            in-depth posts from the GraphQL community to deepen your knowledge
+            and stay current with best practices.
           </p>
         </header>
         <p className="typography-menu mt-8 lg:mt-12 xl:mt-16">
