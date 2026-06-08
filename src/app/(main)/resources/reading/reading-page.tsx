@@ -134,7 +134,9 @@ export async function ReadingLibraryPage({
       <section className="gql-container gql-section">
         <Breadcrumbs activePath={activePath} />
         <header className="mt-16 flex flex-wrap justify-between gap-x-8 gap-y-4 pt-2">
-          <h2 className="typography-h2 text-pretty">Browse Reading Resources</h2>
+          <h2 className="typography-h2 text-pretty">
+            Browse Reading Resources
+          </h2>
           <p className="typography-body-md max-w-[578px] text-neu-800">
             Explore a curated collection of books, blogs, newsletters, and
             in-depth posts from the GraphQL community to deepen your knowledge
