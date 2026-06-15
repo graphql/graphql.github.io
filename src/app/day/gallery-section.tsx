@@ -6,7 +6,7 @@ export function GallerySection({ moving }: { moving?: boolean }) {
       <div className="px-4 lg:px-12 xl:px-24">
         <h3 className="typography-h2 mb-2">Gallery</h3>
         <p className="typography-body-md text-neu-700">
-          Photos from GraphQL Day Paris 2025.
+          Photos from GraphQL Day.
         </p>
       </div>
       <GalleryStrip speed={moving ? 35 : 0} />
