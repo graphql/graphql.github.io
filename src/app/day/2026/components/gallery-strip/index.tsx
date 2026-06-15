@@ -9,7 +9,7 @@ import { Marquee } from "@/app/conf/_design-system/marquee"
 
 import { imagesByYear } from "./images"
 
-const YEARS = ["2025"] as const
+const YEARS = ["2025", "2026"] as const
 type Year = (typeof YEARS)[number]
 
 export interface GalleryStripProps extends React.HTMLAttributes<HTMLElement> {
@@ -21,7 +21,7 @@ export function GalleryStrip({
   speed = 0,
   ...rest
 }: GalleryStripProps) {
-  const [selectedYear, setSelectedYear] = useState<Year>("2025")
+  const [selectedYear, setSelectedYear] = useState<Year>("2026")
 
   return (
     <section
