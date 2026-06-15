@@ -13,19 +13,6 @@ import seven from "./7.jpg"
 import eight from "./8.jpg"
 
 export const imagesByYear: Record<string, StaticImageData[]> = {
-  "2025": [
-    grafastComic,
-    leBrun,
-    trustedDocuments,
-  ],
-  "2026": [
-    one,
-    two,
-    three,
-    four,
-    five,
-    six,
-    seven,
-    eight,
-  ]
+  "2025": [grafastComic, leBrun, trustedDocuments],
+  "2026": [one, two, three, four, five, six, seven, eight],
 }
