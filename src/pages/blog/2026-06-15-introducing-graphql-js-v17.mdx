@@ -28,9 +28,10 @@ problem needs tracking. If you have corrections or suggestions for the guides,
 
 GraphQL.js v17 delivers stronger runtime integration APIs, improved schema
 correctness and spec alignment, and polish to runtime and tooling APIs. It also
-includes exciting experimental features, including fragment arguments and
-incremental delivery, for teams that want to help test proposal-backed GraphQL
-features in production-shaped systems.
+includes exciting experimental features, including fragment arguments, an
+experimental error mode related to future `onError` behavior, and incremental
+delivery, for teams that want to help test proposal-backed GraphQL features in
+production-shaped systems.
 
 ### Runtime integration APIs
 
@@ -132,6 +133,25 @@ carry the same variable plumbing. This work was formerly championed by
 implementation moved the proposal forward. The
 [current PR](https://github.com/graphql/graphql-spec/pull/1224) needs a new
 champion to help carry the work through the specification process.
+
+v17 also includes an experimental preview of more flexible GraphQL error
+handling.
+[Today's error propagation can blur meaningful business `null` values with resolver failures, discard useful partial data, and create normalized-cache issues when a field error bubbles into an ancestor `null`.](https://github.com/graphql/graphql-wg/blob/main/rfcs/SemanticNullability.md)
+Future work is centered on
+[client-selected error modes](https://github.com/graphql/graphql-spec/pull/1163)
+through `onError`, including `PROPAGATE`, `NULL`, and `HALT`, plus
+[service discovery](https://github.com/graphql/graphql-spec/pull/1208) for
+supported modes and defaults.
+
+GraphQL.js v17 does not yet support the full `onError` request shape or every
+proposed mode. It supports traditional error propagation, equivalent to
+`PROPAGATE`, and one additional experimental mode, equivalent to `NULL`, via
+[`@experimental_disableErrorPropagation`](https://www.graphql-js.org/docs/disabling-error-propagation/).
+Operations using that directive keep field execution errors in `errors` with
+their normal path and set only the errored response position to `null`. Follow
+along as we continue this work in v17 through the
+[`onError` implementation](https://github.com/graphql/graphql-js/pull/4364) and
+[service capabilities](https://github.com/graphql/graphql-js/pull/4523) PRs.
 
 Last but certainly not least, v17 includes long-awaited experimental support for
 incremental delivery with `@defer` and `@stream`. GraphQL.js v17 keeps ordinary
