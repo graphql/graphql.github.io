@@ -41,6 +41,14 @@ export const EVENTS: EventMapItem[] = [
     lat: 12.9716,
   },
   {
+    id: "london",
+    city: "London",
+    date: "Sep 30-Oct 1",
+    href: "/day/2026/london",
+    lon: -0.1276,
+    lat: 51.5074,
+  },
+  {
     id: "melbourne",
     city: "Melbourne",
     date: "Oct 28-29",

@@ -14,11 +14,11 @@ import { NavbarPlaceholder } from "./2026/components/navbar"
 import fostLogo from "./2026/assets/fost-logo.avif"
 import { GallerySection } from "./gallery-section"
 
-const NUMBER_OF_CITIES_SPELLED_OUT = "six"
+const NUMBER_OF_CITIES_SPELLED_OUT = "seven"
 if (process.env.NODE_ENV === "development") {
-  if (EVENTS.length !== 6)
+  if (EVENTS.length !== 7)
     throw new Error(
-      "EVENTS is expected to be 6, please update the NUMBER_OF_CITIES_SPELLED_OUT variable",
+      "EVENTS is expected to be 7, please update the NUMBER_OF_CITIES_SPELLED_OUT variable",
     )
 }
 
