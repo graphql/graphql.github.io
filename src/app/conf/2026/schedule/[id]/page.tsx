@@ -174,7 +174,7 @@ export default function SessionPage({ params }: SessionProps) {
                 variant="primary"
                 href={GET_TICKETS_LINK}
               >
-                Sold out
+                Get tickets
               </Button>
             </CtaCardSection>
             <div className="py-8">

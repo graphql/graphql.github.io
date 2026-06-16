@@ -2,13 +2,11 @@ import { join } from "node:path"
 import { readFile } from "node:fs/promises"
 import { cache } from "react"
 
-import { meetups } from "@/components/meetups"
-
 import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-working-groups"
 
-import { events, type Event, type Meetup } from "./events"
+import { events, type Event } from "./events"
 
-type AnyEvent = Event | Meetup | WorkingGroupMeeting
+type AnyEvent = Event | WorkingGroupMeeting
 
 const WORKING_GROUP_MEETINGS_FILE = join(
   process.cwd(),
@@ -38,33 +36,8 @@ export const getAllEvents = cache(async () => {
     } else upcomingEvents.push(meeting)
   }
 
-  for (const meetup of meetups) {
-    const { next, prev } = meetup.node
-
-    // if next is in the past we treat it as past event
-    if (next && new Date(next) < now) {
-      pastEvents.push(meetup)
-    }
-    // if prev is in the past it is obviously a past event
-    else if (prev && new Date(prev) < now) {
-      pastEvents.push({
-        node: {
-          ...meetup.node,
-          // we disregard .next, it's checked in nexdt if statement
-          next: "",
-        },
-      })
-    }
-
-    // if next is in the future, it is an upcoming event
-    if (next && new Date(next) >= now) {
-      upcomingEvents.push(meetup)
-    }
-  }
-
   const getDate = (event: AnyEvent) => {
     if ("date" in event) return new Date(event.date)
-    if ("node" in event) return new Date(event.node.next || event.node.prev)
     return new Date(event.start)
   }
 

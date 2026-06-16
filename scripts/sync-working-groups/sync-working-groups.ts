@@ -7,9 +7,9 @@ const CALENDAR_ID =
   "linuxfoundation.org_ik79t9uuj2p32i3r203dgv5mo8@group.calendar.google.com"
 const API_KEY = process.env.GOOGLE_CALENDAR_API_KEY
 const OUTPUT_FILE = new URL("./working-group-events.ndjson", import.meta.url)
-const DAYS_BACK = 30
-const DAYS_TO_KEEP = 90
-const DAYS_AHEAD = 30
+const DAYS_BACK = 36
+const DAYS_TO_KEEP = 5 * 365
+const DAYS_AHEAD = 500
 
 const Instant = type({
   "dateTime?": "string",
@@ -40,6 +40,7 @@ const responseSchema = type({
   "nextPageToken?": "string",
 })
 
+/** Misnomer, this is just an event from the public calendar, not necessarily a working group */
 export type WorkingGroupMeeting =
   typeof calendarEventSchema.inferIntrospectableOut
 
@@ -55,7 +56,6 @@ async function main() {
   const existingMeetings = await readExistingMeetings()
   console.log(`Found ${existingMeetings.length} existing event(s) in file`)
 
-  const lastMeetingStart = existingMeetings.at(-1)?.start ?? null
   const cutoffDate = new Date(
     now.getTime() - DAYS_TO_KEEP * 24 * 60 * 60 * 1000,
   )
@@ -63,17 +63,15 @@ async function main() {
   const searchParams = new URLSearchParams({
     key: API_KEY,
     singleEvents: "true",
+    orderBy: "startTime",
+    maxResults: "250",
   })
 
-  const timeMin =
-    lastMeetingStart !== null && lastMeetingStart !== undefined
-      ? new Date(Math.min(Date.parse(lastMeetingStart), now.getTime()))
-      : new Date(now.getTime() - DAYS_BACK * 24 * 60 * 60 * 1000)
-
+  const timeMin = new Date(now.getTime() - DAYS_BACK * 24 * 60 * 60 * 1000)
   const timeMax = new Date(now.getTime() + DAYS_AHEAD * 24 * 60 * 60 * 1000)
+
   searchParams.set("timeMin", timeMin.toISOString())
   searchParams.set("timeMax", timeMax.toISOString())
-  searchParams.set("orderBy", "startTime")
   console.log(
     `\nSyncing from: ${timeMin.toLocaleDateString()} (${timeMin.toISOString()})`,
   )
@@ -136,14 +134,11 @@ async function main() {
     `Fetched ${newMeetings.length} event(s) from API (${newCount} new)`,
   )
 
-  const allMeetings = mergeMeetings(existingMeetings, newMeetings)
+  const allMeetings = mergeMeetings(existingMeetings, newMeetings, timeMin)
   const netChange = allMeetings.length - existingMeetings.length
 
-  if (netChange > 0) {
-    console.log(`Added ${netChange} new event(s)`)
-  } else if (netChange < 0) {
-    console.log(`Removed ${Math.abs(netChange)} event(s)`)
-  }
+  console.log(`Net change: ${(netChange > 0 ? "+" : "") + netChange} event(s)`)
+
   const cutoffDateStr = cutoffDate.toISOString().split("T")[0]
   const futureLimit = new Date(now.getTime() + DAYS_AHEAD * 24 * 60 * 60 * 1000)
   const futureLimitStr = futureLimit.toISOString().split("T")[0]
@@ -191,18 +186,31 @@ async function readExistingMeetings(): Promise<WorkingGroupMeeting[]> {
 function mergeMeetings(
   existing: WorkingGroupMeeting[],
   incoming: WorkingGroupMeeting[],
+  checkForDeletionsAfter: Date,
 ): WorkingGroupMeeting[] {
+  const toDelete = new Set<string>()
   const byId = new Map<string, WorkingGroupMeeting>()
 
   for (const meeting of existing) {
     byId.set(meeting.id, meeting)
+    if (Date.parse(meeting.start) > +checkForDeletionsAfter) {
+      toDelete.add(meeting.id)
+    }
   }
 
   for (const meeting of incoming) {
+    toDelete.delete(meeting.id)
     const existing = byId.get(meeting.id)
     if (!existing || meeting.updated > existing.updated) {
       byId.set(meeting.id, meeting)
     }
+  }
+
+  if (toDelete.size) {
+    console.log(`Deleted ${toDelete.size} event(s)`)
+  }
+  for (const id of toDelete) {
+    byId.delete(id)
   }
 
   return Array.from(byId.values())

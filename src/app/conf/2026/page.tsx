@@ -21,17 +21,23 @@ import { HeroImage } from "./components/hero/hero-image"
 import { HERO_MARQUEE_ITEMS } from "./utils"
 
 export const metadata: Metadata = {
-  title: "GraphQLConf 2026 — May 06-07",
+  title: "GraphQLConf 2026 — May 19-20 + WG Day May 21",
 }
 
 export default function Page() {
   return (
     <main className="gql-all-anchors-focusable">
+      <div className="bg-amber-100 px-4 py-3 text-center text-sm font-semibold text-amber-900">
+        Important Update: GraphQLConf is changing venues from Meta&#39;s Fremont
+        Campus to the nearby DoubleTree Hotel.
+      </div>
       <Hero year="2026" bottom={<HeroImage />}>
         <HeroDateAndLocation />
-        <Button className="md:w-fit" href={BECOME_A_SPEAKER_LINK}>
-          Submit Your Talk
-        </Button>
+        <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
+          <Button variant="tertiary" href={GET_TICKETS_LINK}>
+            Register
+          </Button>
+        </div>
       </Hero>
       <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
         <MarqueeRows
@@ -51,9 +57,9 @@ export default function Page() {
           <MarqueeRows
             variant="secondary"
             items={[
-              ["MENLO PARK", "MAY 2026", "TWO DAYS", "META CAMPUS"],
-              ["TWO DAYS", "META CAMPUS", "CALIFORNIA", "GRAPHQL COMMUNITY"],
-              ["CALIFORNIA", "10 YEARS OF GRAPHQL", "06-07 MAY", "MENLO PARK"],
+              ["FREMONT", "MAY 2026", "TWO DAYS"],
+              ["TWO DAYS", "CALIFORNIA", "GRAPHQL COMMUNITY"],
+              ["CALIFORNIA", "10 YEARS OF GRAPHQL", "19-20 MAY", "FREMONT"],
             ]}
             className="my-8 xl:mb-16 xl:mt-10 2xl:mb-24"
           />
@@ -65,13 +71,8 @@ export default function Page() {
             title="Get your ticket"
             description="Join two transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
-            <Button
-              disabled
-              className="opacity-55"
-              variant="primary"
-              href={GET_TICKETS_LINK}
-            >
-              Coming Soon
+            <Button variant="primary" href={GET_TICKETS_LINK}>
+              Register
             </Button>
           </CtaCardSection>
           <MarqueeRows

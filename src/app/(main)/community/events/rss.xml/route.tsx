@@ -18,23 +18,7 @@ export async function GET() {
   })
 
   for (const event of allEvents) {
-    if ("node" in event) {
-      let date: Date
-      if (event.node.next && new Date(event.node.next) > new Date()) {
-        date = new Date(event.node.next)
-      } else {
-        date = new Date(event.node.prev)
-      }
-
-      feed.item({
-        title: event.node.name,
-        date,
-        url: event.node.link,
-        description: "",
-        lat: event.node.latitude,
-        long: event.node.longitude,
-      })
-    } else if ("start" in event) {
+    if ("start" in event) {
       feed.item({
         title: event.summary || "GraphQL Working Group",
         date: event.start,

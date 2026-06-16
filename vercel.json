@@ -659,6 +659,11 @@
       "source": "/conf/2025/event-resources",
       "destination": "https://sites.google.com/linuxfoundation.org/graphqlconf2025event-resources/event-resources",
       "permanent": false
+    },
+    {
+      "source": "/day/2025",
+      "destination": "https://graphql.day/2025",
+      "permanent": true
     }
   ]
 }

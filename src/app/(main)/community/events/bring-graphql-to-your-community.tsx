@@ -16,10 +16,7 @@ export function BringGraphQLToYourCommunity() {
         </div>
         <div className="mt-auto flex shrink-0 flex-col gap-2 lg:w-[324px]">
           <Button
-            href={
-              "#"
-              // TODO: Where does this link? Docs?
-            }
+            href="/community/foundation/local-initiative/"
             variant="primary"
           >
             Learn more

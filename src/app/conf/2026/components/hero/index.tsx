@@ -89,13 +89,13 @@ export function HeroDateAndLocation() {
     <div className="typography-body-md flex flex-col gap-4 md:flex-row md:gap-6">
       <div className="flex items-center gap-2">
         <CalendarIcon className="size-5 sm:size-6" />
-        <time dateTime="2026-05-06">May 06</time>
+        <time dateTime="2026-05-19">May 19</time>
         <span>-</span>
-        <time dateTime="2026-05-07">07, 2026</time>
+        <time dateTime="2026-05-20">20, 2026</time>
       </div>
       <div className="flex items-center gap-2">
         <PinIcon className="size-5 sm:size-6" />
-        <address className="not-italic">Menlo Park, California</address>
+        <address className="not-italic">Fremont, California</address>
       </div>
     </div>
   )

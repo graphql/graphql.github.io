@@ -13,7 +13,7 @@ function DatesTab() {
       <DefinitionListItem term="CFP Opens" definition="Thursday, 16 January" />
       <DefinitionListItem
         term="CFP Close"
-        definition="Sunday, February 1, 11:59 PM PST (UTC-8)"
+        definition="Wednesday, February 11, 11:59 PM PST (UTC-8) - deadline passed"
       />
       <DefinitionListItem
         term="CFP Notifications"
@@ -23,10 +23,14 @@ function DatesTab() {
         term="Schedule Announced"
         definition="Wednesday, 4 March"
       />
-      <DefinitionListItem term="Slides due date" definition="Monday, 4 May" />
+      <DefinitionListItem term="Slides due date" definition="Monday, 11 May" />
       <DefinitionListItem
         term="Event Dates"
-        definition="Wednesday, May 6 - Thursday, May 7"
+        definition="Tuesday, May 19 - Wednesday, May 20"
+      />
+      <DefinitionListItem
+        term="WG Day"
+        definition="Thursday, May 21 (9:30 AM - 4:30 PM)"
       />
     </DefinitionListBox>
   )
@@ -286,7 +290,7 @@ export function CallForProposals() {
   useEffect(() => {
     const checkDate = () => {
       const currentDate = new Date()
-      const closingDate = new Date("2026-02-01T00:00:00Z")
+      const closingDate = new Date("2026-02-11T00:00:00Z")
       if (currentDate >= closingDate) {
         setButtonText("CFP Closed")
         setIsDisabled(true)

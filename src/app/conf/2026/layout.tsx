@@ -13,12 +13,12 @@ import { GALLERY_LINK } from "./links"
 
 export const metadata = {
   description:
-    "Join the official GraphQL Conference by the GraphQL Foundation in Menlo Park, California, from May 06-07, 2026. Discover the future of GraphQL with leading experts, workshops, and networking opportunities.",
+    "Join the official GraphQL Conference by the GraphQL Foundation in Fremont, California, from May 19-20, 2026. Discover the future of GraphQL with leading experts, workshops, and networking opportunities.",
   openGraph: {
     images: [
       {
         url: "/img/og-graphql-conf-2025.jpeg",
-        alt: "GraphQLConf 2026 hosted by the GraphQL Foundation. May 06-07. Menlo Park, California",
+        alt: "GraphQLConf 2026 hosted by the GraphQL Foundation. May 19-20. Fremont, California",
       },
     ],
   },
@@ -40,8 +40,15 @@ export default function Layout({
       <Navbar
         year={2026}
         links={[
-          { children: "CFP", href: "https://sessionize.com/graphqlconf-2026/" },
+          // { children: "CFP", href: "https://sessionize.com/graphqlconf-2026/" },
+          {
+            children: "Register",
+            href: "https://register.linuxfoundation.org/graphql-conf-2026",
+          },
+          { children: "Schedule", href: "/conf/2026/schedule" },
+          { children: "Speakers", href: "/conf/2026/speakers" },
           { children: "Sponsors", href: "/conf/2026/#sponsors" },
+          { children: "WG Day", href: "/conf/2026/wg-day" },
           { children: "Resources", href: "/conf/2026/resources" },
           {
             children: "2025 Event Photos",

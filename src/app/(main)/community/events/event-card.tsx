@@ -4,7 +4,7 @@ import { clsx } from "clsx"
 import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
 import { Tag } from "@/app/conf/_design-system/tag"
-import { eventTagColors } from "./event-filter-tag"
+import { EventKind, eventTagColors } from "./event-filter-tag"
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",
@@ -55,9 +55,17 @@ export interface EventCardProps {
   city: ReactNode
   name: ReactNode
   meta?: ReactNode
-  kind: "meetup" | "conference" | "working-group"
+  kind: "meetup" | "conference" | "working-group" | "foundation-meeting"
   className?: string
 }
+
+const classNameFromKind = {
+  conference:
+    "bg-[hsl(var(--color-pri-base)/var(--bg-opacity))] dark:bg-white/5",
+  meetup: "bg-[hsl(var(--color-sec-base)/var(--bg-opacity))]",
+  "working-group": "bg-[hsl(229deg_100%_70.4%_/_var(--bg-opacity))]",
+  "foundation-meeting": "bg-[hsl(35deg_100%_63%_/_var(--bg-opacity))]",
+} satisfies { [kind in EventKind]: string }
 
 export function EventCard({
   href,
@@ -77,12 +85,7 @@ export function EventCard({
         "gql-focus-visible group flex min-h-[214px] min-w-[260px] flex-col overflow-hidden border border-neu-200 text-left text-current no-underline ring-neu-400 hover:ring-1 hover:ring-offset-1 hover:ring-offset-neu-0 dark:border-neu-50 dark:ring-neu-100 xs:min-w-[352px] lg:w-[408px]",
         "[--bg-opacity:0.05] hover:[--bg-opacity:0.07] dark:[--bg-opacity:0.03] hover:dark:[--bg-opacity:0.06]",
         "z-[4]",
-        kind === "meetup" &&
-          "bg-[hsl(var(--color-sec-base)/var(--bg-opacity))]",
-        kind === "conference" &&
-          "bg-[hsl(var(--color-pri-base)/var(--bg-opacity))] dark:bg-white/5",
-        kind === "working-group" &&
-          "bg-[hsl(229deg_100%_70.4%_/_var(--bg-opacity))]",
+        classNameFromKind[kind],
         className,
       )}
       target="_blank"

@@ -36,12 +36,25 @@ export function RegisterToday({ className }: RegisterTodayProps) {
             shape the next decade of APIs!
           </p>
         </div>
-        <div className="mt-10 flex gap-x-6 gap-y-4 max-sm:flex-col">
-          <Button disabled className="opacity-55" href={GET_TICKETS_LINK}>
-            Registration Coming Soon
+        <div className="mt-4 flex gap-x-6 gap-y-4 max-sm:flex-col">
+          <Button href={GET_TICKETS_LINK}>Register</Button>
+          <Button variant="secondary" href="#sponsors">
+            Explore sponsorship
           </Button>
-          <Button className="opacity-55" variant="secondary" href="#sponsors">
-            Explore Sponsorship
+        </div>
+        <div className="mt-10">
+          <p className="typography-h4 mt-4 text-neu-800">
+            Following the conference,{" "}
+            <a className="typography-link" href="/conf/2026/wg-day">
+              WG Day
+            </a>{" "}
+            brings working group members and maintainers together to continue
+            the momentum at Meta's Fremont Campus.
+          </p>
+        </div>
+        <div className="mt-2 flex gap-x-6 gap-y-4 max-sm:flex-col">
+          <Button variant="secondary" href="/conf/2026/wg-day/">
+            WG Day
           </Button>
         </div>
       </div>

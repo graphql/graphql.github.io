@@ -33,9 +33,9 @@ export default async function SpeakerOGImage({
     (
       <SpeakerOpengraphImage
         speaker={speaker}
-        date="May 6-7"
+        date="May 19-20"
         year="2026"
-        location="Menlo Park, California"
+        location="Fremont, California"
       />
     ),
     {

@@ -36,20 +36,20 @@ export function Venue(props: VenueProps) {
             <>
               <h2 className="typography-h2">Venue</h2>
               <p className="typography-body-lg">
-                We're heading back to where it all began: GraphQLConf 2026 will
-                be hosted at Meta's Menlo Park campus, where GraphQL was first
-                conceptualized by Facebook engineers in 2012.
+                GraphQLConf 2026 will be hosted at the DoubleTree by Hilton
+                Hotel Newark-Fremont, conveniently located in the heart of the
+                Bay Area.
               </p>
               <div className="flex-1" />
             </>
           }
           <p className="typography-body-lg">
-            Meta MPK 22 Bayfront Campus <br />
-            305 Constitution Dr <br />
-            Menlo Park, CA 94025
+            DoubleTree by Hilton Hotel Newark-Fremont <br />
+            39900 Balentine Drive <br />
+            Newark, CA 94560
           </p>
           {
-            <Button href="https://maps.app.goo.gl/W7nX1NejhWw9PqxF7">
+            <Button href="https://maps.app.goo.gl/BnPq9yu4EhMFdkY87">
               Google Maps
             </Button>
           }
@@ -64,34 +64,10 @@ export function Venue(props: VenueProps) {
                   title: "Public Transportation",
                   description: (
                     <>
-                      The city is served by multiple public transportation
-                      providers: <br />
-                      <ul>
-                        <li>
-                          <a href="https://www.caltrain.com/">Caltrain</a>
-                        </li>
-                        <li>
-                          <a href="https://www.samtrans.com/">SamTrans</a>
-                        </li>
-                        <li>
-                          <a href="https://dumbartonexpress.com/">
-                            Dumbarton Express
-                          </a>{" "}
-                          (connects{" "}
-                          <a href="https://www.bart.gov/stations/ucty">
-                            Union City BART
-                          </a>{" "}
-                          to Menlo Park)
-                        </li>
-                        <li>
-                          <a href="https://www.menlopark.gov/Government/Departments/Public-Works/Transportation-Division/City-Shuttle-services">
-                            City Shuttles
-                          </a>
-                        </li>
-                        <br />
-                        Review local and regional transportation options for
-                        getting around Menlo Park.
-                      </ul>
+                      Review local and regional transportation options for
+                      getting around Fremont:
+                      https://www.fremont.gov/residents/public-transportation
+                      <br />
                     </>
                   ),
                 },
@@ -100,7 +76,7 @@ export function Venue(props: VenueProps) {
                   description: (
                     <>
                       There are multiple airports within a reasonable driving
-                      distance to Menlo Park: <br />
+                      distance to the venue: <br />
                       <ul>
                         <li>
                           <a href="https://www.flysfo.com/">
@@ -132,24 +108,20 @@ export function Venue(props: VenueProps) {
               className="[&_svg]:fill-neu-900"
               items={[
                 {
-                  title: "The Cottages Hotel",
-                  link: "https://cottageshotel.com/?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+                  title:
+                    "DoubleTree by Hilton Hotel Newark-Fremont (Conference Venue)",
+                  link: "https://www.hilton.com/en/hotels/nwkbddt-doubletree-newark-fremont/",
                   description: (
                     <>
-                      1704 El Camino Real
+                      39900 Balentine Drive
                       <br />
-                      Menlo Park, CA 94027
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 326 9010">
-                        650-326-9010
-                      </a>
+                      Newark, CA 94560
                     </>
                   ),
                 },
                 {
                   title: "Aloft Silicon Valley",
-                  link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+                  link: "https://www.marriott.com/en-us/hotels/sjcal-aloft-silicon-valley/overview/",
                   description: (
                     <>
                       8200 Gateway Blvd
@@ -157,53 +129,39 @@ export function Venue(props: VenueProps) {
                       Newark, CA 94560
                       <br />
                       Phone:{" "}
-                      <a className="typography-link" href="tel:510 494 8800">
+                      <a className="typography-link" href="tel:650 326 9010">
                         510-494-8800
                       </a>
                     </>
                   ),
                 },
                 {
-                  title: "CitizenM Menlo Park Hotel",
-                  link: "https://www.marriott.com/en-us/hotels/sfopk-citizenm-menlo-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+                  title: "Courtyard by Marriott Fremont Silicon Valley",
+                  link: "https://www.marriott.com/en-us/hotels/sjcfe-courtyard-fremont-silicon-valley/overview/",
                   description: (
                     <>
-                      2 Meta Way <br />
-                      Menlo Park, CA 94025
+                      47000 Lakeview Blvd
+                      <br />
+                      Fremont, CA 94538
+                      <br />
+                      Phone:{" "}
+                      <a className="typography-link" href="tel:510 494 8800">
+                        510-656-1800
+                      </a>
+                    </>
+                  ),
+                },
+                {
+                  title: "Residence Inn by Marriott Newark Silicon Valley",
+                  link: "https://www.marriott.com/en-us/hotels/sjcnw-residence-inn-newark-silicon-valley/overview/",
+                  description: (
+                    <>
+                      35466 Dumbarton Court <br />
+                      Newark, CA 94560
                       <br />
                       Phone:{" "}
                       <a className="typography-link" href="tel:650 278 4448">
-                        650-278-4448
-                      </a>
-                    </>
-                  ),
-                },
-                {
-                  title: "Courtyard by Marriott Redwood City",
-                  link: "https://www.marriott.com/en-us/hotels/sford-courtyard-redwood-city/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
-                  description: (
-                    <>
-                      600 Bair Island Rd <br />
-                      Redwood City, CA 94063
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 216 9435">
-                        650-216-9435
-                      </a>
-                    </>
-                  ),
-                },
-                {
-                  title: "Hotel Nia",
-                  link: "https://www.hotelnia.com/",
-                  description: (
-                    <>
-                      200 Independence Dr <br />
-                      Menlo Park, CA 94025
-                      <br />
-                      Phone:{" "}
-                      <a className="typography-link" href="tel:650 900 3434">
-                        650-900-3434
+                        510-739-6000
                       </a>
                     </>
                   ),
