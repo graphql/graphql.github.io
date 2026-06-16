@@ -2,7 +2,7 @@
 
 <p className="learn-subtitle">Build applications that gracefully handle schema evolution</p>
 
-GraphQL schemas grow over time — new types, new enum values, new union members — and a well-written application expects this and handles it gracefully. How much of this is handled for you depends on your environment. In languages with compile-time schema awareness — such as TypeScript with a codegen tool, Swift with Apollo iOS, or Kotlin with Apollo Kotlin — a typed client can generate catch-all variants for enums, surface nullable fields as optional types, and warn at build time when new cases are unhandled. In dynamic languages or environments without a schema-aware client, these are application-level concerns that need to be addressed explicitly in your code.
+GraphQL schemas grow over time — new types, new enum values, new union and interface subtypes — and a well-written application expects this and handles it gracefully. How much of this is handled for you depends on your environment. In languages with compile-time schema awareness — such as TypeScript with a codegen tool, Swift with Apollo iOS, or Kotlin with Apollo Kotlin — a typed client can generate catch-all variants for enums, surface nullable fields as optional types, and warn at build time when new cases are unhandled. In dynamic languages or environments without a schema-aware client, these are application-level concerns that need to be addressed explicitly in your code.
 
 The three areas below are where applications most commonly fail to account for schema evolution.
 
@@ -39,11 +39,11 @@ switch (status) {
 
 In typed languages, if your codegen tool marks enums as exhaustive, configure it to generate a catch-all variant (often called `UNKNOWN` or `%future added value`) so the compiler enforces that you handle it.
 
-## Plan for unknown union members
+## Plan for unknown union and interface subtypes
 
-Unions in GraphQL schemas can gain new member types over time. A `SearchResult` union that starts as `Article | User` might later gain `Product`. Clients that only match known types and ignore unrecognized ones are robust; clients that crash on unexpected `__typename` values are not.
+Unions and interfaces in GraphQL schemas can gain new member types over time. A `SearchResult` union that starts as `Article | User` might later gain `Product`. Likewise, a `Node` interface implemented by `User` and `Post` might later be implemented by `Comment`. Applications that only match known types and ignore unrecognized ones are robust; applications that crash on unexpected `__typename` values are not.
 
-**Query `__typename` on union fields and handle unrecognized types:**
+**Query `__typename` on union and interface fields and handle unrecognized types:**
 
 ```graphql
 query Search($query: String!) {
@@ -117,5 +117,5 @@ If you find yourself force-unwrapping fields that you believe will always be pre
 ## Recap
 
 - **Unknown enum values**: Always include a default/fallback branch when switching on enum values. Configure codegen tools to generate a catch-all variant.
-- **Unknown union members**: Always query `__typename` on union and interface fields and handle unrecognized types gracefully instead of crashing.
+- **Unknown union and interface subtypes**: Always query `__typename` on union and interface fields and handle unrecognized types gracefully instead of crashing.
 - **Nullable fields**: Use safe access patterns (optional chaining, `guard let`, null-coalescing) rather than force-unwrapping. If a field must always be present, encode that in the schema.
