@@ -4,6 +4,9 @@ description: A plugin based schema builder for creating code-first GraphQL schem
 url: https://giraphql.com/
 github: hayes/giraphql
 npm: "@giraphql/core"
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 GiraphQL makes writing type-safe schemas simple, and works without a code generator,

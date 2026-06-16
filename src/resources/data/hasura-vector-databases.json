@@ -1,0 +1,6 @@
+{
+  "title": "Hasura + Vector Databases",
+  "url": "https://hasura.io/docs/2.0/databases/vector-databases/",
+  "description": "Connect vector databases like Qdrant and Weaviate to Hasura for building production-ready GenAI RAG applications with GraphQL",
+  "tags": ["ai", "tools-and-libraries", "backend"]
+}

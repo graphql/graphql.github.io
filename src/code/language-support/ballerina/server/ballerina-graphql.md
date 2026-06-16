@@ -3,6 +3,10 @@ name: ballerina-graphql
 description: The Ballerina Standard Library Package for write GraphQL services.
 url: https://lib.ballerina.io/ballerina/graphql/latest
 github: ballerina-platform/module-ballerina-graphql
+tags:
+  - tools-and-libraries
+  - backend
+  - frontend
 ---
 
 To run a `ballerina-graphql` hello world server:

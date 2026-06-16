@@ -198,7 +198,9 @@ a new version of the AST with the changes applied will be returned from the
 visit function.
 
 ```js
-var editedAST = visit(ast, {
+import { visit } from "graphql";
+
+const editedAST = visit(ast, {
   enter(node, key, parent, path, ancestors) {
     // @return
     //   undefined: no action
@@ -215,7 +217,7 @@ var editedAST = visit(ast, {
     //   null: delete this node
     //   any value: replace this node with the returned value
   },
-})
+});
 ```
 
 Alternatively to providing enter() and leave() functions, a visitor can
@@ -227,10 +229,10 @@ visitor API:
 
 ```js
 visit(ast, {
-  Kind(node) {
-    // enter the "Kind" node
+  Field(node) {
+    console.log("Visiting a Field node:", node.name.value);
   },
-})
+});
 ```
 
 2. Named visitors that trigger upon entering and leaving a node of
@@ -238,15 +240,15 @@ visit(ast, {
 
 ```js
 visit(ast, {
-  Kind: {
+  Field: {
     enter(node) {
-      // enter the "Kind" node
+      console.log("Entering Field:", node.name.value);
     },
     leave(node) {
-      // leave the "Kind" node
-    }
-  }
-})
+      console.log("Leaving Field:", node.name.value);
+    },
+  },
+});
 ```
 
 3. Generic visitors that trigger upon entering and leaving any node.
@@ -254,12 +256,12 @@ visit(ast, {
 ```js
 visit(ast, {
   enter(node) {
-    // enter any node
+    console.log("Entering", node.kind);
   },
   leave(node) {
-    // leave any node
+    console.log("Leaving", node.kind);
   },
-})
+});
 ```
 
 4. Parallel visitors for entering and leaving nodes of a specific kind.
@@ -267,16 +269,16 @@ visit(ast, {
 ```js
 visit(ast, {
   enter: {
-    Kind(node) {
-      // enter the "Kind" node
+    Name(node) {
+      console.log("Entering a Name node:", node.value);
     },
   },
   leave: {
-    Kind(node) {
-      // leave the "Kind" node
+    Name(node) {
+      console.log("Leaving a Name node:", node.value);
     },
   },
-})
+});
 ```
 
 ### `BREAK`

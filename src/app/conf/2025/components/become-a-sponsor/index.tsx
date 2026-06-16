@@ -7,13 +7,13 @@ import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
 export function BecomeASponsor() {
   return (
-    <section id="sponsors" className="relative overflow-hidden">
+    <section className="relative overflow-hidden">
       <Stripes />
-      <div className="gql-conf-container gql-conf-section xl:py-16">
+      <div className="gql-container gql-section xl:py-16">
         <header className="flex flex-col gap-x-48 gap-y-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="typography-h2">Become a Sponsor</h2>
-            <p className="mt-6 text-pretty typography-body-lg">
+            <p className="typography-body-lg mt-6 text-pretty">
               Connect with the global GraphQL community and showcase your brand
               to industry leaders and decision-makers.
             </p>
@@ -23,9 +23,10 @@ export function BecomeASponsor() {
             href="https://events.linuxfoundation.org/sponsor-GraphQLConf-25?utm_source=graphql_conf_2025&utm_medium=website&utm_campaign=sponsor_section"
             target="_blank"
             rel="noreferrer"
-            className="shrink-0"
+            className="shrink-0 opacity-55"
+            disabled
           >
-            Download the Prospectus
+            Sponsor Sales Closed
           </Button>
         </header>
         <dl className="relative z-10 mt-10 border border-neu-300 md:backdrop-blur-[6.4px] xl:mt-16">
@@ -75,10 +76,10 @@ function DefinitionListItem({
         "flex border-b border-neu-300 last:border-b-0 max-sm:flex-col",
       )}
     >
-      <dt className="flex min-w-[320px] shrink-0 items-center whitespace-pre border-b border-neu-300 p-4 typography-body-lg max-sm:w-full sm:border-b-0 sm:border-r">
+      <dt className="typography-body-lg flex min-w-[320px] shrink-0 items-center whitespace-pre border-b border-neu-300 p-4 max-sm:w-full sm:border-b-0 sm:border-r">
         {term}
       </dt>
-      <dd className="flex items-center p-4 typography-body-md">{definition}</dd>
+      <dd className="typography-body-md flex items-center p-4">{definition}</dd>
     </div>
   )
 }
@@ -100,7 +101,7 @@ function Stripes() {
         [--end-2:hsl(var(--color-neu-0))]
         dark:[--start-2:rgba(255,204,239,.1)]
         dark:[--end-2:hsl(var(--color-pri-lighter)/.4)]
-        
+
         translate-y-12
 
         [mask-size:120%]

@@ -1,0 +1,96 @@
+.wires {
+  & rect,
+  & path {
+    transition:
+      fill 1s linear,
+      stroke 1s linear,
+      opacity 1s linear,
+      stroke-width 1s linear;
+  }
+}
+
+.highlightsQuery,
+.highlightsResponse {
+  overflow: hidden;
+
+  & pre > code:global(.nextra-code) > span {
+    position: relative;
+
+    &::before {
+      transition: opacity 1s ease-out;
+    }
+  }
+}
+
+.highlightsQuery {
+  & pre > code:global(.nextra-code) > span::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    transition: opacity 1s ease-out;
+    transition-delay: 1s;
+    opacity: var(--highlight-opacity, 0);
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      @apply bg-pri-lighter/20 dark:bg-pri-light/5;
+    }
+    &:nth-child(4) {
+      @apply bg-gradient-to-b from-pri-lighter/20 to-sec-light/20 dark:from-pri-light/5 dark:to-sec-light/5;
+      background-image: linear-gradient(
+        to bottom in oklch,
+        var(--tw-gradient-stops)
+      );
+    }
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+      @apply bg-sec-light/20 dark:bg-sec-light/5;
+    }
+  }
+}
+
+.highlightsResponse {
+  & pre > code:global(.nextra-code) > span::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    transition-delay: 1s;
+
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      @apply bg-pri-lighter/20 dark:bg-pri-light/5;
+    }
+    &:nth-child(6) {
+      @apply bg-gradient-to-b from-pri-lighter/20 to-sec-light/20 dark:from-pri-light/5 dark:to-sec-light/5;
+      background-image: linear-gradient(
+        to bottom in oklch,
+        var(--tw-gradient-stops)
+      );
+    }
+    &:nth-child(7),
+    &:nth-child(8),
+    &:nth-child(9) {
+      @apply bg-sec-light/20 dark:bg-sec-light/5;
+    }
+  }
+}
+
+@keyframes query-exit {
+  from {
+    transform: rotateX(0deg) translateY(0px) translateZ(150px);
+  }
+  to {
+    transform: rotateX(-90deg) translateY(60px) translateZ(150px);
+  }
+}
+
+@keyframes query-exit-sm {
+  from {
+    transform: rotateY(0deg) translateX(0px) translateZ(150px);
+  }
+  to {
+    transform: rotateY(90deg) translateX(60px) translateZ(150px);
+  }
+}

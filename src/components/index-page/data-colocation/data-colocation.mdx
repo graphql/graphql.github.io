@@ -1,0 +1,25 @@
+```graphql
+query GetFriendList {
+  ...FriendList
+}
+
+fragment FriendList on Query {
+  friends {
+    ...FriendListItem
+  }
+}
+
+fragment FriendListItem on Friend {
+  name
+  profilePic
+  mutualFriendsCount
+  isSubscribed
+  ...FriendInfo
+}
+
+fragment FriendInfo on Friend {
+  username
+  email
+  location
+}
+```

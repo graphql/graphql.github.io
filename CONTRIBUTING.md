@@ -20,6 +20,7 @@ There are many ways to get involved. Follow this guide and feel free to [reach o
   - [Add a resource to the Community page](#add-a-resource-to-the-community-page)
   - [Add a question to the FAQ](#add-a-question-to-the-faq)
   - [Write a new section or guide](#write-a-new-section-or-guide)
+  - [Add a blog post](#add-a-blog-post)
 - [Making changes to the code](#making-changes-to-the-code)
   - [Browser support](#browser-support)
 - [Contributing something else](#contributing-something-else)
@@ -149,6 +150,12 @@ Then, use our [development guide](#development-guide) to determine where your ne
 
 Once it's ready for review, please [open a pull request](https://github.com/graphql/graphql.github.io/pulls).
 
+### Add a blog post
+
+This repository holds the [graphql.org blog](https://graphql.org/blog/) at [source/src/pages/blog](https://github.com/graphql/graphql.github.io/tree/source/src/pages/blog). Blog posts may contain announcements, news, best practices and more.
+
+Contributions are very welcome! Please see the [BLOG_STYLE_GUIDE](BLOG_STYLE_GUIDE.md) for more information.
+
 ## Making changes to the code
 
 Before diving into any code updates, please [open an issue](https://github.com/graphql/graphql.github.io/issues/new) describing the change(s) you'd like to make.
@@ -178,3 +185,13 @@ To initiate the signature process please open a PR against this repo. The EasyCL
 You can find [detailed information here](https://github.com/graphql/graphql-wg/tree/main/membership). If you have issues, please email operations@graphql.org.
 
 If your company benefits from GraphQL and you would like to provide essential financial support for the systems and people that power our community, please also consider membership in the [GraphQL Foundation](https://foundation.graphql.org/join).
+
+## Linting
+
+To lint your code, run:
+
+```
+pnpm run format
+```
+
+And then check, commit and push the changes to your pull request.

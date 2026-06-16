@@ -1,17 +1,27 @@
-import { TwitterIcon, FacebookIcon, LinkedInIcon, InstagramIcon } from "@/icons"
+import {
+  TwitterIcon,
+  FacebookIcon,
+  LinkedInIcon,
+  InstagramIcon,
+  GlobeIcon,
+} from "@/icons"
+import clsx from "clsx"
 
 export type SocialMediaIconServiceType =
   | "twitter"
   | "linkedin"
   | "facebook"
   | "instagram"
+  | "website"
 
 export const SocialMediaIcon = ({
   service,
+  className,
 }: {
   service: SocialMediaIconServiceType
+  className?: string
 }) => {
-  const classes = "h-7 hover:text-primary transition-colors"
+  const classes = clsx("h-7 hover:text-primary transition-colors", className)
 
   switch (service) {
     case "twitter":
@@ -22,6 +32,8 @@ export const SocialMediaIcon = ({
       return <FacebookIcon className={classes} />
     case "instagram":
       return <InstagramIcon className={classes} />
+    case "website":
+      return <GlobeIcon className={classes} />
     default:
       throw new Error(`Can't found social icon for "${service}" service.`)
   }

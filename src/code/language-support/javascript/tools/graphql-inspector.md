@@ -4,4 +4,7 @@ description: Compare schemas, validate documents, find breaking changes, find si
 url: https://graphql-inspector.com/
 github: kamilkisiela/graphql-inspector
 npm: "@graphql-inspector/cli"
+tags:
+  - tools-and-libraries
+  - tools
 ---

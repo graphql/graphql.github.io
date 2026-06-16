@@ -2,6 +2,9 @@
 name: graphql-go-tools
 description: A collection of tools for building GraphQL Servers, Gateways, Proxy Servers and Middleware in Go.
 github: wundergraph/graphql-go-tools
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 graphql-go-tools implements all basic blocks for building GraphQL Servers, Gateways and Proxy Servers.

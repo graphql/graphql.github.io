@@ -42,9 +42,10 @@ The website is deployed via [Vercel](https://vercel.com) on merges to the `sourc
    `git clone https://github.com/graphql/graphql.github.io.git`  
    `cd graphql.github.io`
 2. Install dependencies:  
-   `npm install`
+   `pnpm i`
 3. Run the site locally:  
-   `npm run dev`
+   `pnpm dev`
+4. Open http://localhost:3000 to view it in the browser.
 
 ## How to Contribute
 

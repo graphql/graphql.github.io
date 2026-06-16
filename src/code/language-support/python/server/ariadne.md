@@ -3,6 +3,9 @@ name: Ariadne
 description: Ariadne is a Python library for implementing GraphQL servers using schema-first approach. It supports both synchronous and asynchronous query execution, ships with batteries included for common GraphQL server problems like query cost validation or performance tracing and has simple API that is easy to extend or replace.
 url: https://ariadnegraphql.org
 github: mirumee/ariadne
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 Ariadne can be installed with pip:

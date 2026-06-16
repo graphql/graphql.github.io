@@ -2,6 +2,9 @@
 name: graphql-kotlin
 description: A set of libraries for running GraphQL client and server in Kotlin.
 github: ExpediaGroup/graphql-kotlin
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 GraphQL Kotlin provides a set of lightweight type-safe GraphQL HTTP clients. The library provides Ktor HTTP client and Spring WebClient based reference implementations as well as allows for custom implementations using other engines. Jackson and kotlinx-serialization type-safe data models are generated at build time by the provided Gradle and Maven plugins.

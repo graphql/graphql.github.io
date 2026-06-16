@@ -61,3 +61,9 @@ src/__generated__/
 .next/
 public/sitemap.xml
 out/
+
+tsconfig.tsbuildinfo
+
+playwright-report/
+
+.pnpm-store/

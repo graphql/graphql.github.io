@@ -3,6 +3,9 @@ name: Tartiflette
 description: A Python 3.6+ _(asyncio)_ library for building GraphQL APIs.
 url: https://tartiflette.io
 github: tartiflette/tartiflette
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 To run a tartiflette hello world script:

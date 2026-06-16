@@ -3,6 +3,10 @@ name: Hive Gateway
 description: Hive Gateway can act as a GraphQL federation gateway or a proxy for any GraphQL service.
 url: https://the-guild.dev/graphql/hive
 github: graphql-hive/gateway
+tags:
+  - tools-and-libraries
+  - tools
+  - federation
 ---
 
 [Hive Gateway](https://the-guild.dev/graphql/hive/docs/gateway) is a fully open-source, MIT-licensed GraphQL router that can act as a [GraphQL Federation](https://the-guild.dev/graphql/hive/federation) gateway, a subgraph or a proxy gateway for any GraphQL API service.

@@ -3,6 +3,9 @@ name: graphql-ruby
 description: A Ruby library for building GraphQL APIs.
 github: rmosolgo/graphql-ruby
 gem: graphql
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 To run a hello world script with `graphql-ruby`:

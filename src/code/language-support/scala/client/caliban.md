@@ -3,6 +3,9 @@ name: Caliban
 description: Caliban is a functional library for building GraphQL servers and clients in Scala. It offers with client code generation and type-safe queries.
 url: https://ghostdogpr.github.io/caliban/
 github: ghostdogpr/caliban
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 An example of defining a GraphQL query and running it with `caliban`:

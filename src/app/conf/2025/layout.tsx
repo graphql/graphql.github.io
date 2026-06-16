@@ -7,9 +7,9 @@ import "../../colors.css"
 import { Navbar } from "./components/navbar"
 import { Footer } from "./components/footer"
 
-// @ts-expect-error: we want to import the same version as Nextra for the main page
 import { ThemeProvider } from "next-themes"
 import { GraphQLConfLogoLink } from "./components/graphql-conf-logo-link"
+import { GALLERY_LINK } from "./links"
 
 export const metadata = {
   description:
@@ -40,11 +40,14 @@ export default function Layout({
       <Navbar
         year={2025}
         links={[
-          { children: "Sponsor", href: "/conf/2025/#sponsors" },
-          { children: "Submit to Speak", href: "/conf/2025/#speakers" },
-          { children: "Register", href: "/conf/2025/#register" },
-          { children: "Recap", href: "/conf/2024" },
+          { children: "Schedule", href: "/conf/2025/schedule" },
+          { children: "Speakers", href: "/conf/2025/speakers" },
+          { children: "Sponsors", href: "/conf/2025/#sponsors" },
           { children: "Resources", href: "/conf/2025/resources" },
+          {
+            children: "Event Photos",
+            href: GALLERY_LINK,
+          },
           { children: "FAQ", href: "/conf/2025/#faq" },
         ]}
       />
@@ -58,13 +61,13 @@ export default function Layout({
           { children: "Speakers", href: "/#speakers" },
           { children: "GraphQLConf 2024", href: "/conf/2024" },
           { children: "FAQ", href: "#faq" },
-          { children: "Contact Us", href: "/conf/2025/faq/#contact" },
+          { children: "Contact Us", href: "/conf/2025/resources/#contact" },
           { children: "GraphQL", href: "/" },
           { children: "GraphQL Foundation", href: "/foundation" },
           [
             {
               children: "Code of Conduct",
-              href: "/conf/2025/resources/#code-of-conduct",
+              href: "/conf/2025/code-of-conduct",
             },
             {
               children: "Inclusion & Accessibility",

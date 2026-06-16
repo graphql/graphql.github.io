@@ -1,6 +1,6 @@
 ---
 title: "Welcoming Yaacov Rydzinski to the GraphQL.js Maintainer Team"
-tags: ["blog"]
+tags: ["announcements"]
 date: 2024-10-14
 byline: Jory Burson and Benjie Gillam
 ---

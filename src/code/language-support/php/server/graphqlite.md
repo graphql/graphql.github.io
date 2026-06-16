@@ -3,6 +3,9 @@ name: GraphQLite
 description: GraphQLite is a library that offers an annotations-based syntax for GraphQL schema definition.
 url: https://graphqlite.thecodingmachine.io
 github: thecodingmachine/graphqlite
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 It is framework agnostic with bindings available for Symfony and Laravel.

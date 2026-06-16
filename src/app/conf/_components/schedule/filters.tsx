@@ -27,6 +27,7 @@ export function Filters({
       )}
       <Menu as="div" className="relative inline-block text-left">
         <Transition
+          as="div"
           enter="transition ease-out duration-100"
           enterFrom="transform opacity-0 scale-95"
           enterTo="transform opacity-100 scale-100"

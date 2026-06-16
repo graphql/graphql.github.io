@@ -2,6 +2,9 @@
 name: graphql-kotlin
 description: A set of libraries for running GraphQL client and server in Kotlin.
 github: ExpediaGroup/graphql-kotlin
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 GraphQL Kotlin follows a code first approach for generating your GraphQL schemas. Given the similarities between Kotlin and GraphQL, such as the ability to define nullable/non-nullable types, a schema can be generated from Kotlin code without any separate schema specification. To create a reactive GraphQL web server add following dependency to your Gradle build file:

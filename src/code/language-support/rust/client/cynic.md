@@ -3,6 +3,9 @@ name: cynic
 description: A bring your own types GraphQL client for Rust
 url: https://cynic-rs.dev
 github: obmarg/cynic
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 A client library for rust that generates queries from types you provide,

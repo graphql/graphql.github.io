@@ -2,6 +2,9 @@
 name: Schemathesis
 description: A modern API testing tool for web applications built with Open API and GraphQL specifications.
 github: schemathesis/schemathesis
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 Run Schemathesis via Docker against your GraphQL endpoint:

@@ -1,0 +1,32 @@
+.pre {
+  & :global(._h-12) {
+    height: unset;
+  }
+}
+
+:global(.nextra-codeblocks) div.pre:not(:last-child) > div:first-child {
+  border-right: none;
+}
+
+:global(.nextra-codeblocks) {
+  & .pre pre {
+    height: 100%;
+  }
+
+  & .pre:not(:last-child) pre {
+    border-right: none;
+    border-bottom-right-radius: 0;
+  }
+
+  & :not(:last-child) .label {
+    border-top-right-radius: 0;
+  }
+
+  & :not(:first-child) .label {
+    border-top-left-radius: 0;
+  }
+
+  & .pre:not(:first-child) pre {
+    border-bottom-left-radius: 0;
+  }
+}

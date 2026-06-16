@@ -47,9 +47,15 @@ export default function SpeakerPage({ params }: SpeakerProps) {
     .filter(s => s.speakers && s.speakers.some(s => s.username === params.id))
     .map(s => ({
       ...s,
-      speakers: s.speakers!.map(
-        s => speakers.find(speaker => speaker.username === s.username)!,
-      ),
+      speakers: s.speakers!.map(other => {
+        const s = speakers.find(s => s.username === other.username)
+        if (!s) {
+          throw new Error(
+            `Speaker "${other.username}" not found for ${speaker.username} details page`,
+          )
+        }
+        return s
+      }),
     }))
 
   return (

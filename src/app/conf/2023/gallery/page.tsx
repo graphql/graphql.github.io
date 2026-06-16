@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { images } from "./_conf-images"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 import { Zoom } from "../../_components/zoom"
 
 export const metadata: Metadata = {
@@ -30,6 +30,7 @@ export default function GalleryPage() {
               c[index] && (
                 <Zoom>
                   <NextImage
+                    placeholder="blur"
                     alt="Gallery"
                     className="aspect-video w-full rounded-md object-cover hover:opacity-75"
                     src={c[index]}

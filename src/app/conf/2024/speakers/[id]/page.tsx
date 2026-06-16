@@ -18,7 +18,11 @@ type SpeakerProps = { params: { id: string } }
 
 export function generateMetadata({ params }: SpeakerProps): Metadata {
   const decodedId = decodeURIComponent(params.id)
-  const speaker = speakers.find(s => s.username === decodedId)!
+  const speaker = speakers.find(s => s.username === decodedId)
+
+  if (!speaker) {
+    throw new Error(`Speaker "${decodedId}" not found for details page`)
+  }
 
   const keywords = [speaker.name, speaker.company, speaker.position].filter(
     Boolean,
@@ -40,15 +44,27 @@ export function generateStaticParams() {
 
 export default function SpeakerPage({ params }: SpeakerProps) {
   const decodedId = decodeURIComponent(params.id)
-  const speaker = speakers.find(s => s.username === decodedId)!
+  const speaker = speakers.find(s => s.username === decodedId)
+
+  if (!speaker) {
+    throw new Error(`Speaker "${decodedId}" not found for details page`)
+  }
 
   const s = schedule
-    .filter(s => s.speakers && s.speakers.some(s => s.username === decodedId))
+    .filter((s): s is typeof s & Required<Pick<typeof s, "speakers">> =>
+      Boolean(s.speakers && s.speakers.some(s => s.username === decodedId)),
+    )
     .map(s => ({
       ...s,
-      speakers: s.speakers!.map(
-        s => speakers.find(speaker => speaker.username === s.username)!,
-      ),
+      speakers: s.speakers.map(other => {
+        const s = speakers.find(s => other.username === s.username)
+        if (!s) {
+          throw new Error(
+            `Speaker "${other.username}" not found for ${speaker.username} details page`,
+          )
+        }
+        return s
+      }),
     }))
 
   return (
