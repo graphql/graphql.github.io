@@ -37,6 +37,7 @@ export default {
   performance: "",
   security: "",
   federation: "",
+  "debug-errors": "Common GraphQL over HTTP Errors",
   "-- 3": {
     type: "separator",
     title: "Schema Governance",
