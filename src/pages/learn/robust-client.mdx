@@ -1,0 +1,119 @@
+# Robust Clients
+
+<p className="learn-subtitle">Write clients that gracefully handle schema evolution</p>
+
+One of GraphQL's key design goals is enabling APIs to evolve without breaking existing clients. Schemas grow over time — new types, new enum values, new union members — and a well-written client expects this and handles it gracefully. This page covers three common areas where clients fail to account for schema evolution and how to write code that stays resilient.
+
+## Plan for unknown enum values
+
+GraphQL schemas can add new enum values at any time. A `Status` enum that starts with `ACTIVE` and `INACTIVE` might later gain `PENDING` or `ARCHIVED`. If your client treats every enum value as exhaustively known, a new value from the server can cause crashes or silent data loss.
+
+**Avoid exhaustive switches without a fallback:**
+
+```ts
+// Fragile: crashes or falls through if a new value is added
+switch (status) {
+  case "ACTIVE":
+    return showActive()
+  case "INACTIVE":
+    return showInactive()
+  // No default — new values are silently ignored or throw
+}
+```
+
+**Always include a default branch:**
+
+```ts
+// Robust: handles any future value the server might return
+switch (status) {
+  case "ACTIVE":
+    return showActive()
+  case "INACTIVE":
+    return showInactive()
+  default:
+    return showUnknown(status)
+}
+```
+
+In typed languages, if your codegen tool marks enums as exhaustive, configure it to generate a catch-all variant (often called `UNKNOWN` or `%future added value`) so the compiler enforces that you handle it.
+
+## Plan for unknown union members
+
+Unions in GraphQL schemas can gain new member types over time. A `SearchResult` union that starts as `Article | User` might later gain `Product`. Clients that only match known types and ignore unrecognized ones are robust; clients that crash on unexpected `__typename` values are not.
+
+**Query `__typename` on union fields and handle unrecognized types:**
+
+```graphql
+query Search($query: String!) {
+  search(query: $query) {
+    __typename
+    ... on Article {
+      title
+      url
+    }
+    ... on User {
+      name
+      avatarUrl
+    }
+  }
+}
+```
+
+In your client code, handle the case where `__typename` is something you don't recognize:
+
+```ts
+for (const result of data.search) {
+  if (result.__typename === "Article") {
+    renderArticle(result)
+  } else if (result.__typename === "User") {
+    renderUser(result)
+  } else {
+    // A new type was added — degrade gracefully instead of crashing
+    renderUnknownResult(result)
+  }
+}
+```
+
+This is especially important in long-lived native mobile apps, where a user may be running an old version of the app against a schema that has since been extended.
+
+## Do not force-unwrap nullable fields
+
+GraphQL fields are nullable by default. When a field is nullable, the schema is explicitly communicating that it may not always return a value — either because the data is genuinely optional, or because the server may omit it when an error occurs on that field without failing the entire response.
+
+Force-unwrapping a nullable field (using `!` in Swift, `!!` in Kotlin, or a non-null assertion in TypeScript) bypasses this contract and turns a graceful partial response into a crash.
+
+**Avoid non-null assertions on nullable fields:**
+
+```ts
+// Dangerous: crashes if `user` or `profile` is null
+const email = data.user!.profile!.email!
+```
+
+**Use safe access patterns instead:**
+
+```ts
+// Safe: degrades gracefully when any field is absent
+const email = data.user?.profile?.email ?? "No email provided"
+```
+
+In Swift, prefer `guard let` or optional chaining over force-unwrapping:
+
+```swift
+// Dangerous
+let email = data.user!.profile!.email!
+
+// Safe
+guard let email = data.user?.profile?.email else {
+  showPlaceholder()
+  return
+}
+showEmail(email)
+```
+
+If you find yourself force-unwrapping fields that you believe will always be present, consider working with the schema maintainer to mark those fields as non-null — that way the guarantee is encoded in the schema itself, and the server is responsible for upholding it.
+
+## Recap
+
+- **Unknown enum values**: Always include a default/fallback branch when switching on enum values. Configure codegen tools to generate a catch-all variant.
+- **Unknown union members**: Always query `__typename` on union and interface fields and handle unrecognized types gracefully instead of crashing.
+- **Nullable fields**: Use safe access patterns (optional chaining, `guard let`, null-coalescing) rather than force-unwrapping. If a field must always be present, encode that in the schema.

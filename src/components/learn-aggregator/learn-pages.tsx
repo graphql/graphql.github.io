@@ -141,6 +141,12 @@ const _items: Record<
     icon: new URL("./assets/circuit.svg", import.meta.url).href,
     section: "best-practices",
   },
+  "robust-client": {
+    description:
+      "Write clients that gracefully handle schema evolution — unknown enum values, new union members, and nullable fields.",
+    icon: new URL("./assets/care.svg", import.meta.url).href,
+    section: "best-practices",
+  },
   "debug-errors": {
     description:
       "Learn about common 'graphql-http' errors and how to debug them.",
