@@ -2,6 +2,9 @@
 name: Brangr
 description: Browse Any Graph - A user-friendly viewer for any GraphQL service
 github: networkimprov/brangr
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 **Brangr - *Br*owse *An*y *Gr*aph**

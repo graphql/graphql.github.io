@@ -8,7 +8,7 @@ import Graphweaver from "public/img/conf/Sponsors/Graphweaver.svg"
 import Intuit from "public/img/conf/Sponsors/Intuit.svg"
 
 import { clsx } from "clsx"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 
 interface Image {
   icon: string
@@ -78,6 +78,7 @@ function List({
             alt={`${name} logo`}
             src={icon}
             className="max-h-full lg:w-auto lg:max-w-60"
+            placeholder="empty"
           />
           <span className="absolute right-5 top-5 font-sans leading-none text-white lg:text-2xl">
             ↗
@@ -96,10 +97,10 @@ const classes = {
 
 export function Sponsors() {
   return (
-    <div id="sponsors" className="bg-conf-black">
+    <div id="sponsors" className="bg-neu-0 text-neu-900">
       <div className="conf-block container">
         <h1 className={classes.title}>Thanks to our 2024 sponsors!</h1>
-        {sponsorDiamond.length && (
+        {sponsorDiamond.length > 0 && (
           <>
             <h3 className={classes.heading}>Diamond</h3>
             <List
@@ -109,7 +110,7 @@ export function Sponsors() {
             />
           </>
         )}
-        {sponsorPlatinum.length && (
+        {sponsorPlatinum.length > 0 && (
           <>
             <h3 className={classes.heading}>Platinum</h3>
             <List
@@ -119,7 +120,7 @@ export function Sponsors() {
             />{" "}
           </>
         )}
-        {sponsorGold.length && (
+        {sponsorGold.length > 0 && (
           <>
             <h3 className={classes.heading}>Gold</h3>
             <List
@@ -129,7 +130,7 @@ export function Sponsors() {
             />
           </>
         )}
-        {sponsorSilver.length && (
+        {sponsorSilver.length > 0 && (
           <>
             <h3 className={classes.heading}>Silver</h3>
             <List
@@ -139,7 +140,7 @@ export function Sponsors() {
             />
           </>
         )}
-        {workshopDaySponsors.length && (
+        {workshopDaySponsors.length > 0 && (
           <>
             <h3 className={classes.heading}>Workshop Day Sponsor</h3>
             <List

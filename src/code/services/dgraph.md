@@ -3,6 +3,9 @@ name: Dgraph
 description: Dgraph is a native GraphQL database with a graph backend. This means Dgraph is not an interface on top of an existing database like Postgres but is actually designed from the ground-up for GraphQL. It is optimized for speed and performance, depending on multiple computer science breakthroughs to get the best result. Dgraph Cloud is a fully managed GraphQL backend service that lets you iterate faster, without worrying about your infrastructure.
 url: https://dgraph.io/graphql
 github: dgraph-io/dgraph
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 Install Steps if running locally on linux not on Dgraph Cloud:

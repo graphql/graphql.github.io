@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { clsx } from "clsx"
-import Image from "next-image-export-optimizer"
+import Image from "next/image"
 import type { StaticImageData } from "next/image"
 
 import { Marquee } from "@/app/conf/_design-system/marquee"
@@ -29,7 +29,7 @@ export function GalleryStrip({ className, ...rest }: GalleryStripProps) {
             key={year}
             onClick={() => setSelectedYear(year)}
             className={clsx(
-              "gql-focus-visible p-1 typography-menu",
+              "gql-focus-visible typography-menu p-1",
               selectedYear === year
                 ? "bg-sec-light text-neu-900 dark:text-neu-0"
                 : "text-neu-800",
@@ -71,6 +71,7 @@ function GalleryStripImage({
       <Image
         data-index={index}
         src={image}
+        placeholder="blur"
         alt=""
         role="presentation"
         // intrinsic 799x533

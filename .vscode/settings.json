@@ -9,5 +9,15 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "tailwindCSS.classFunctions": ["clsx"]
+  "tailwindCSS.classFunctions": ["clsx"],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "**/node_modules/lucide-react"
+  ],
+  "tailwindCSS.experimental.configFile": "tailwind.config.ts"
 }

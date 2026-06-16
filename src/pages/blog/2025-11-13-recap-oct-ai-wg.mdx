@@ -1,0 +1,51 @@
+---
+title: "Recap First GraphQL AI Working Group Meeting"
+tags: ["blog"]
+date: 2025-11-13
+byline: Kewei Qu
+featured: true
+---
+
+The GraphQL AI Working Group brings together community members who are exploring how GraphQL and AI can work together to shape the next generation of developer tools, APIs, and intelligent systems. We have contributors from many backgrounds, including long-term maintainers of GraphQL projects, technical leaders integrating GraphQL with AI systems, and newcomers eager to learn about open source collaboration. This combination of experience and curiosity made our first meeting both dynamic and inspiring.
+
+## GraphQL for Server to Server Communication
+
+The meeting began with a discussion on GraphQL for server to server communication, especially in the context of the Model Context Protocol (MCP). Participants examined how GraphQL, traditionally used for client to server interactions, is increasingly being adopted for backend systems where one service calls another through GraphQL.
+
+A number of important points surfaced. Some participants reflected on how earlier community guidance advised against this pattern, favoring federation for multi-service communication. Others described how in many systems, GraphQL resolvers have historically been thin wrappers around underlying endpoints that handle authentication close to the data source. When GraphQL is used between services, authentication becomes a more complex concern that may require new design patterns, such as identifying caller types or introducing middleware to handle access control and logging.
+
+The group also discussed how GraphQL is not tied to any specific transport protocol, which makes it flexible compared to gRPC or REST. Several participants suggested that this versatility should be highlighted more clearly through educational content. As an action item, the group proposed a blog series on GraphQL for server to server communication to share practical examples and best practices.
+
+## LLMs Authoring GraphQL Operations
+
+The second major topic focused on how large language models author GraphQL operations. This includes both AI-assisted code generation, where models create queries to be committed to a codebase, and dynamic use cases where an LLM calls a GraphQL API through MCP.
+
+Participants shared a wide range of experiences. Several observed that LLMs struggle with schema discovery and query construction, especially when schemas are large or deeply nested. Others noted that error feedback in GraphQL is written for human developers and could be made more structured to help models recover from mistakes automatically.
+
+There was also discussion on schema size and token limits. In production environments, schemas can easily exceed the model context window, leading to experiments with schema reduction and incremental schema loading. Some participants mentioned using semantic search to bridge the gap, allowing models to reason over documentation rather than raw schema definitions.
+
+Another recurring theme was the lack of machine-readable hints in existing schemas. Adding descriptors or annotations could help LLMs better understand relationships between fields and choose the correct path when multiple options exist. The group recognized this as a promising direction for future exploration.
+
+## Next Steps and Deliverables
+
+To carry this work forward, the working group outlined several concrete goals:
+
+* A GraphQL writer agent reference implementation that demonstrates how an AI system can construct, validate, and refine operations.
+
+* An MCP reference implementation or specification to illustrate GraphQL as a structured protocol for AI-driven systems.
+
+* A benchmark study comparing how different models perform at generating valid GraphQL operations.
+
+* A public benchmark schema and test suite for the community to experiment with. This will provide a shared playground and a foundation for developing a reference agent proficient in GraphQL.
+
+These discussions mark an exciting beginning for the GraphQL AI Working Group. The intersection of structured data and intelligent systems offers many opportunities for collaboration and innovation.
+
+You can read the full meeting [notes](https://docs.google.com/document/d/1tJqUC9UI4EzY7U0sSqfsOuUDF6Q8LBcsSBwbgsE33sM/edit?tab=t.0) and follow future updates on the [GraphQL AI Working Group Github page](https://github.com/graphql/ai-wg)
+
+## Get Involved 
+
+**Our next meeting is on November 27** - grab the calendar invite at [calendar.graphql.org](https://calendar.graphql.org)!
+To join, open [PR against the agenda](https://github.com/graphql/ai-wg/tree/main/agendas) and add yourself, then follow the prompts to sign the EasyCLA. 
+
+Like all GraphQL working groups, this one is **open to everyone**. Whether you’re building AI APIs, researching integrations, or just curious about the possibilities, you’re welcome to join. If you can't make it, you can always catch up via the [GraphQL Foundation Working Groups YouTube channel](https://www.youtube.com/@GraphQLFoundation).
+

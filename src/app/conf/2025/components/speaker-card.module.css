@@ -1,0 +1,84 @@
+.stripes {
+  mask-image: radial-gradient(
+    ellipse at top left,
+    hsl(var(--color-pri-base)) 0%,
+    hsl(var(--color-pri-base)) 5%,
+    transparent 40%,
+    transparent,
+    transparent 85%,
+    black 100%
+  );
+}
+
+.speakerCard:nth-child(7n + 1) .stripes {
+  mask-image: linear-gradient(
+    120deg,
+    hsl(var(--color-pri-base)) 0%,
+    hsl(var(--color-pri-base)) 8%,
+    transparent 35%,
+    transparent
+  );
+}
+
+.speakerCard:nth-child(7n + 2) .stripes {
+  mask-image: linear-gradient(
+    80deg,
+    hsl(var(--color-pri-base)) 0%,
+    hsl(var(--color-pri-base)) 5%,
+    transparent 40%,
+    transparent
+  );
+}
+
+.speakerCard:nth-child(7n + 3) .stripes {
+  mask-image: radial-gradient(
+    circle at bottom right,
+    hsl(var(--color-pri-base)) 0%,
+    hsl(var(--color-pri-base)) 10%,
+    transparent 40%,
+    transparent
+  );
+}
+
+.speakerCard:nth-child(7n + 4) .stripes {
+  mask-image: linear-gradient(
+    -40deg,
+    hsl(var(--color-pri-base)) 0%,
+    hsl(var(--color-pri-base)) 5%,
+    transparent 40%,
+    transparent
+  );
+}
+
+.speakerCard:nth-child(7n + 5) .stripes {
+  mask-image: radial-gradient(
+    circle at top left,
+    transparent 0%,
+    transparent 65%,
+    black 90%
+  );
+}
+
+.speakerCard:nth-child(7n + 6) .stripes {
+  mask-image: radial-gradient(
+    ellipse at bottom left,
+    hsl(var(--color-pri-base)) 0%,
+    hsl(var(--color-pri-base)) 6%,
+    transparent 45%,
+    transparent,
+    transparent 90%,
+    black 100%
+  );
+}
+
+.stripes {
+  --end-color: hsl(var(--color-sec-light));
+}
+
+.speakerCard:nth-child(3n + 1) .stripes {
+  --end-color: hsl(var(--color-sec-base));
+}
+
+.speakerCard:nth-child(3n + 2) .stripes {
+  --end-color: hsl(var(--color-sec-darker));
+}

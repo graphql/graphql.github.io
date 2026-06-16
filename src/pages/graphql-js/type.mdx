@@ -125,9 +125,11 @@ validator and executor.
 #### Example
 
 ```js
-var MyAppSchema = new GraphQLSchema({
+import { GraphQLSchema } from "graphql";
+
+const MyAppSchema = new GraphQLSchema({
   query: MyAppQueryRootType,
-  mutation: MyAppMutationRootType
+  mutation: MyAppMutationRootType,
 });
 ```
 
@@ -156,21 +158,23 @@ functions used to ensure validity.
 #### Example
 
 ```js
-var OddType = new GraphQLScalarType({
+import { GraphQLScalarType, Kind } from "graphql";
+
+function oddValue(value) {
+  return value % 2 === 1 ? value : null;
+}
+
+const OddType = new GraphQLScalarType({
   name: "Odd",
   serialize: oddValue,
   parseValue: oddValue,
   parseLiteral(ast) {
     if (ast.kind === Kind.INT) {
-      return oddValue(parseInt(ast.value, 10))
+      return oddValue(parseInt(ast.value, 10));
     }
-    return null
-  }
-})
-
-function oddValue(value) {
-  return value % 2 === 1 ? value : null
-}
+    return null;
+  },
+});
 ```
 
 ### GraphQLObjectType
@@ -251,7 +255,9 @@ that value can always be referenced with `this`.
 #### Examples
 
 ```js
-var AddressType = new GraphQLObjectType({
+import { GraphQLObjectType, GraphQLString, GraphQLInt } from "graphql";
+
+const AddressType = new GraphQLObjectType({
   name: "Address",
   fields: {
     street: { type: GraphQLString },
@@ -259,19 +265,19 @@ var AddressType = new GraphQLObjectType({
     formatted: {
       type: GraphQLString,
       resolve(obj) {
-        return obj.number + " " + obj.street
-      }
-    }
-  }
-})
+        return `${obj.number} ${obj.street}`;
+      },
+    },
+  },
+});
 
-var PersonType = new GraphQLObjectType({
+const PersonType = new GraphQLObjectType({
   name: "Person",
   fields: () => ({
     name: { type: GraphQLString },
-    bestFriend: { type: PersonType }
-  })
-})
+    bestFriend: { type: PersonType },
+  }),
+});
 ```
 
 ### GraphQLInterfaceType
@@ -297,12 +303,14 @@ when the field is resolved.
 #### Example
 
 ```js
-var EntityType = new GraphQLInterfaceType({
+import { GraphQLInterfaceType, GraphQLString } from "graphql";
+
+const EntityType = new GraphQLInterfaceType({
   name: "Entity",
   fields: {
-    name: { type: GraphQLString }
-  }
-})
+    name: { type: GraphQLString },
+  },
+});
 ```
 
 ### GraphQLUnionType
@@ -329,18 +337,21 @@ to determine which type is actually used when the field is resolved.
 ### Example
 
 ```js
-var PetType = new GraphQLUnionType({
+import { GraphQLUnionType } from "graphql";
+
+const PetType = new GraphQLUnionType({
   name: "Pet",
   types: [DogType, CatType],
   resolveType(value) {
     if (value instanceof Dog) {
-      return DogType
+      return DogType;
     }
     if (value instanceof Cat) {
-      return CatType
+      return CatType;
     }
+    return null;
   },
-})
+});
 ```
 
 ### GraphQLEnumType
@@ -384,14 +395,16 @@ will be used as its internal value.
 #### Example
 
 ```js
-var RGBType = new GraphQLEnumType({
+import { GraphQLEnumType } from "graphql";
+
+const RGBType = new GraphQLEnumType({
   name: "RGB",
   values: {
     RED: { value: 0 },
     GREEN: { value: 1 },
     BLUE: { value: 2 },
   },
-})
+});
 ```
 
 ### GraphQLInputObjectType
@@ -439,14 +452,20 @@ Using `NonNull` will ensure that a value must be provided by the query
 #### Example
 
 ```js
-var GeoPoint = new GraphQLInputObjectType({
+import {
+  GraphQLInputObjectType,
+  GraphQLNonNull,
+  GraphQLFloat,
+} from "graphql";
+
+const GeoPoint = new GraphQLInputObjectType({
   name: "GeoPoint",
   fields: {
     lat: { type: new GraphQLNonNull(GraphQLFloat) },
     lon: { type: new GraphQLNonNull(GraphQLFloat) },
     alt: { type: GraphQLFloat, defaultValue: 0 },
   },
-})
+});
 ```
 
 ### GraphQLList
@@ -464,13 +483,15 @@ an object type.
 #### Example
 
 ```js
-var PersonType = new GraphQLObjectType({
+import { GraphQLObjectType, GraphQLList } from "graphql";
+
+const PersonType = new GraphQLObjectType({
   name: "Person",
   fields: () => ({
     parents: { type: new GraphQLList(PersonType) },
     children: { type: new GraphQLList(PersonType) },
   }),
-})
+});
 ```
 
 ### GraphQLNonNull
@@ -490,12 +511,18 @@ usually the id field of a database row will never be null.
 #### Example
 
 ```js
-var RowType = new GraphQLObjectType({
+import {
+  GraphQLObjectType,
+  GraphQLNonNull,
+  GraphQLString,
+} from "graphql";
+
+const RowType = new GraphQLObjectType({
   name: "Row",
   fields: () => ({
-    id: { type: new GraphQLNonNull(String) },
+    id: { type: new GraphQLNonNull(GraphQLString) },
   }),
-})
+});
 ```
 
 ## Predicates

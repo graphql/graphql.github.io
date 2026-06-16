@@ -3,6 +3,9 @@ name: Jimmer
 description: A revolutionary ORM framework for both java and kotlin, it also provides specialized API for rapid development of Spring GraphQL-based applications.
 url: https://babyfish-ct.github.io/jimmer/
 github: babyfish-ct/jimmer
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 ## Introduce

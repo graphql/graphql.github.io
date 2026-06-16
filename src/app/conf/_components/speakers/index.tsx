@@ -4,7 +4,7 @@ import marcImage from "public/img/conf/speakers/marcandre.jpg"
 import iditImage from "public/img/conf/speakers/idit.jpg"
 import uriImage from "public/img/conf/speakers/uri.jpg"
 import { LinkedInIcon, TwitterIcon } from "@/icons"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 import type { StaticImageData } from "next/image"
 import NextLink from "next/link"
 
@@ -55,7 +55,7 @@ const speakers: Speaker[] = [
 export function Speakers() {
   return (
     // Invisible padding so anchor links align to the header menu
-    <div id="speakers" className="conf-block bg-conf-black text-white">
+    <div id="speakers" className="conf-block bg-neu-0 text-neu-900">
       <div className="container">
         <h1 className="conf-heading text-white md:text-center">Speakers</h1>
         <div className="my-10 flex flex-wrap items-start justify-around gap-10 max-md:flex-col md:my-20 lg:px-24">
@@ -69,6 +69,7 @@ export function Speakers() {
                 className="shrink-0 [&:hover+div>a>span]:text-primary"
               >
                 <NextImage
+                  placeholder="blur"
                   alt={speaker.name}
                   src={speaker.image}
                   className="size-36 shrink-0 rounded-full border-2 border-transparent object-cover object-center transition-colors hover:border-primary"

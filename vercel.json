@@ -71,6 +71,16 @@
       "permanent": true
     },
     {
+      "source": "/conf/2025/gallery",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/sets/72177720328905487/",
+      "permanent": true
+    },
+    {
+      "source": "/conf/2025/gallery/",
+      "destination": "https://www.flickr.com/photos/linuxfoundation/sets/72177720328905487/",
+      "permanent": true
+    },
+    {
       "source": "/conf/gallery",
       "destination": "https://www.graphql.org/conf/2024/gallery",
       "permanent": false
@@ -472,7 +482,12 @@
     },
     {
       "source": "/community",
-      "destination": "/community/resources/official-channels",
+      "destination": "/community/official-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/",
+      "destination": "/community/official-channels/",
       "permanent": true
     },
     {
@@ -486,9 +501,59 @@
       "permanent": true
     },
     {
+      "source": "/community/resources",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/official-channels",
+      "destination": "/community/official-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/training-courses",
+      "destination": "/community/training-courses",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/community-channels",
+      "destination": "/community/community-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/vendor-channels",
+      "destination": "/community/vendor-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/more-resources",
+      "destination": "/community/more-resources",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/blogs-and-newsletters",
+      "destination": "/resources/reading/blogs-and-newsletters",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/video",
+      "destination": "/resources/video",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/books",
+      "destination": "/resources/reading/books",
+      "permanent": true
+    },
+    {
       "source": "/conf/",
-      "destination": "/conf/2025/",
+      "destination": "/conf/2026/",
       "permanent": false
+    },
+    {
+      "source": "/conf/2024/sessions",
+      "destination": "/conf/2024/schedule",
+      "permanent": true
     },
     {
       "source": "/conf/2024/sessions/:path/",
@@ -542,12 +607,12 @@
     },
     {
       "source": "/community",
-      "destination": "/community/resources/official-channels/",
+      "destination": "/community/official-channels/",
       "permanent": true
     },
     {
       "source": "/community/",
-      "destination": "/community/resources/official-channels/",
+      "destination": "/community/official-channels/",
       "permanent": true
     },
     {
@@ -572,8 +637,33 @@
     },
     {
       "source": "/schedule/",
-      "destination": "/conf/2024/schedule/",
+      "destination": "/conf/2025/schedule/",
       "permanent": false
+    },
+    {
+      "source": "/spec",
+      "destination": "https://spec.graphql.org",
+      "permanent": true
+    },
+    {
+      "source": "/landscape",
+      "destination": "https://landscape.graphql.org",
+      "permanent": true
+    },
+    {
+      "source": "/docs",
+      "destination": "/learn/introduction/",
+      "permanent": true
+    },
+    {
+      "source": "/conf/2025/event-resources",
+      "destination": "https://sites.google.com/linuxfoundation.org/graphqlconf2025event-resources/event-resources",
+      "permanent": false
+    },
+    {
+      "source": "/day/2025",
+      "destination": "https://graphql.day/2025",
+      "permanent": true
     }
   ]
 }

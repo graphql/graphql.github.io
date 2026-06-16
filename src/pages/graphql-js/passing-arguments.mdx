@@ -53,38 +53,40 @@ If you're familiar with destructuring, this is a bit nicer because the line of c
 The entire code for a server that hosts this `rollDice` API is:
 
 ```js
-var express = require("express")
-var { createHandler } = require("graphql-http/lib/use/express")
-var { buildSchema } = require("graphql")
+import express from "express";
+import { createHandler } from "graphql-http/lib/use/express";
+import { buildSchema } from "graphql";
 
-// Construct a schema, using GraphQL schema language
-var schema = buildSchema(/* GraphQL */`
+// Construct a schema using GraphQL schema language
+const schema = buildSchema(/* GraphQL */ `
   type Query {
     rollDice(numDice: Int!, numSides: Int): [Int]
   }
-`)
+`);
 
 // The root provides a resolver function for each API endpoint
-var root = {
+const root = {
   rollDice({ numDice, numSides }) {
-    var output = []
-    for (var i = 0; i < numDice; i++) {
-      output.push(1 + Math.floor(Math.random() * (numSides || 6)))
+    const output = [];
+    const sides = numSides || 6;
+    for (let i = 0; i < numDice; i++) {
+      output.push(1 + Math.floor(Math.random() * sides));
     }
-    return output
+    return output;
   },
-}
+};
 
-var app = express()
+const app = express();
 app.all(
   "/graphql",
   createHandler({
-    schema: schema,
+    schema,
     rootValue: root,
   })
-)
-app.listen(4000)
-console.log("Running a GraphQL API server at localhost:4000/graphql")
+);
+app.listen(4000, () => {
+  console.log("Running a GraphQL API server at localhost:4000/graphql");
+});
 ```
 
 When you call this API, you have to pass each argument by name. So for the server above, you could issue this GraphQL query to roll three six-sided dice:
@@ -102,11 +104,14 @@ When you're passing arguments in code, it's generally better to avoid constructi
 For example, some JavaScript code that calls our server above is:
 
 ```js
-var dice = 3
-var sides = 6
-var query = /* GraphQL */`query RollDice($dice: Int!, $sides: Int) {
-  rollDice(numDice: $dice, numSides: $sides)
-}`
+const dice = 3;
+const sides = 6;
+
+const query = /* GraphQL */ `
+  query RollDice($dice: Int!, $sides: Int) {
+    rollDice(numDice: $dice, numSides: $sides)
+  }
+`;
 
 fetch("/graphql", {
   method: "POST",
@@ -119,8 +124,13 @@ fetch("/graphql", {
     variables: { dice, sides },
   }),
 })
-  .then(r => r.json())
-  .then(data => console.log("data returned:", data))
+  .then(response => response.json())
+  .then(data => {
+    console.log("Data returned:", data);
+  })
+  .catch(error => {
+    console.error("Request failed:", error);
+  });
 ```
 
 Using `$dice` and `$sides` as variables in GraphQL means we don't have to worry about escaping on the client side.

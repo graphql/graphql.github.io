@@ -4,6 +4,9 @@ description: The No-GraphQL client for TypeScript.
 url: http://gqty.dev/
 github: gqty-dev/gqty
 npm: "gqty"
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 GQty is a query builder, a query fetcher and a cache manager solution all-in-one.

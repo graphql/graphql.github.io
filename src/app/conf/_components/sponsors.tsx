@@ -17,7 +17,7 @@ import AmsterdamGraphQL from "public/img/conf/Partners/AmsterdamGraphQL.svg"
 import BangkokGraphQL from "public/img/conf/Partners/BangkokGraphQL.svg"
 import TypeGraphQL from "public/img/conf/Partners/TypeGraphQL.svg"
 import { clsx } from "clsx"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 
 interface Image {
   icon: string
@@ -112,6 +112,7 @@ function List({
             alt={`${name} logo`}
             src={icon}
             className="h-auto shrink lg:max-w-60"
+            placeholder="empty"
           />
           <span className="absolute right-5 top-5 font-sans leading-none text-white lg:text-2xl">
             ↗
@@ -130,7 +131,7 @@ const classes = {
 
 export function Sponsors() {
   return (
-    <div id="sponsors" className="bg-conf-black">
+    <div id="sponsors" className="bg-neu-0 text-neu-900">
       <div className="conf-block container">
         <h1 className={classes.title}>Sponsors</h1>
         <h3 className={classes.heading}>Diamond</h3>

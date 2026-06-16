@@ -3,6 +3,9 @@ name: Sangria
 description: A Scala GraphQL library that supports [Relay](https://facebook.github.io/relay/).
 url: https://sangria-graphql.github.io/
 github: sangria-graphql/sangria
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 An example of a hello world GraphQL schema and query with `sangria`:

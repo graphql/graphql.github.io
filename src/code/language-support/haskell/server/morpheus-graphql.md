@@ -2,6 +2,9 @@
 name: Morpheus GraphQL
 description: A Haskell library for building GraphQL APIs.
 github: morpheusgraphql/morpheus-graphql
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 Hello world example with `morpheus-graphql`:

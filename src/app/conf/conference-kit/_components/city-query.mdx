@@ -1,0 +1,11 @@
+```graphql word-wrap=false
+query getCity($city: String) {
+  cities(name: $city) {
+    population
+    weather {
+      temperature
+      precipitation
+    }
+  }
+}
+```

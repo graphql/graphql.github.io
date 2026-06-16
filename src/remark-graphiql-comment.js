@@ -1,14 +1,19 @@
 import { visit } from "unist-util-visit"
 
+const MINI_GRAPHIQL_COMPONENT = "InteractiveCodeBlock"
+const MINI_GRAPHIQL_PATH = "@/components/interactive-code-block"
+
 export const remarkGraphiQLComment = () => ast => {
   const nodes = []
 
-  const MINI_GRAPHIQL_COMPONENT = "Marked"
-
   visit(ast, { type: "code", lang: "graphql" }, node => {
+    if ((node.meta || "").split(" ").includes("graphiql")) {
+      nodes.push(node)
+      return
+    }
+
     const [firstLine] = node.value.split("\n")
-    const isGraphiQLComment = /graphiql["']?: ?true/.test(firstLine)
-    if (isGraphiQLComment) {
+    if (/graphiql["']?: ?true/.test(firstLine)) {
       nodes.push(node)
     }
   })
@@ -21,7 +26,7 @@ export const remarkGraphiQLComment = () => ast => {
           body: [
             {
               type: "ImportDeclaration",
-              source: { type: "Literal", value: "@/components/marked" },
+              source: { type: "Literal", value: MINI_GRAPHIQL_PATH },
               specifiers: [
                 {
                   type: "ImportSpecifier",

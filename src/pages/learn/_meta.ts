@@ -3,7 +3,16 @@ export default {
     type: "separator",
     title: "Learn",
   },
-  index: "Introduction",
+  index: {
+    /**
+     * The Learn aggregator is hidden from the Sidebar.
+     */
+    type: "hidden",
+    theme: {
+      layout: "raw",
+    },
+  },
+  introduction: "Introduction",
   schema: "Schemas and Types",
   queries: "",
   mutations: "",
@@ -16,9 +25,10 @@ export default {
     type: "separator",
     title: "Best Practices",
   },
-  "best-practices": "",
+  "best-practices": "Introduction",
   "thinking-in-graphs": "",
   "serving-over-http": "",
+  "file-uploads": "",
   authorization: "",
   pagination: "",
   "schema-design": "Schema Design",
@@ -27,6 +37,7 @@ export default {
   performance: "",
   security: "",
   federation: "",
+  "debug-errors": "Common GraphQL over HTTP Errors",
   "-- 3": {
     type: "separator",
     title: "Schema Governance",

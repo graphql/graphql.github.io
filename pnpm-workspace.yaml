@@ -1,0 +1,4 @@
+packages:
+  - "."
+  - "scripts/sync-landing-schema"
+  - "scripts/sync-working-groups"

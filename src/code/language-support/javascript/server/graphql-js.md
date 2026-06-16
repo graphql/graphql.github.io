@@ -4,6 +4,9 @@ description: The reference implementation of the GraphQL specification, designed
 url: /graphql-js/
 github: graphql/graphql-js
 npm: "graphql"
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 To run a `GraphQL.js` hello world script from the command line:

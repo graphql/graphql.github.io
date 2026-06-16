@@ -7,7 +7,7 @@ import { NextAdapter } from "next-query-params"
 import { QueryParamProvider } from "use-query-params"
 import { CodePage } from "../../components/tools-and-libraries"
 import { getGitHubStats } from "../../../scripts/sort-libraries/get-github-stats"
-import githubInfo from "@/github-stats.json"
+import githubInfo from "../../../scripts/get-github-info/github-stats.json"
 
 {<QueryParamProvider adapter={NextAdapter}><CodePage {...props} /></QueryParamProvider>}
 
