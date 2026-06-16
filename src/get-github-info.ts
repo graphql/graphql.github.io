@@ -3,12 +3,12 @@ import fs from "fs/promises"
 import grayMatter from "gray-matter"
 import { getGitHubStats } from "../scripts/sort-libraries/get-github-stats"
 
+// todo: aggregate errors, merge results instead of overwriting
 async function main() {
   const filePaths = await fg("./src/code/**/*.md")
 
   const githubStats: Record<string, unknown> = {}
 
-  // @ts-expect-error
   for (const [index, filePath] of filePaths.entries()) {
     const content = await fs.readFile(filePath, "utf8")
     const { data } = grayMatter(content)

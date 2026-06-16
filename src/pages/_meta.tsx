@@ -10,34 +10,59 @@ export default {
     type: "page",
     title: "Learn",
   },
+  resources: {
+    type: "menu",
+    title: "Resource Hub",
+    route: "/resources",
+    items: {
+      index: "Resource Hub",
+      frontend: "",
+      backend: "",
+      federation: "",
+      ai: "AI",
+      security: "",
+      monitoring: "",
+      "tools-and-libraries": {
+        type: "page",
+        title: "Tools & Libraries",
+        // for now, until we have bandwidth to migrate it to App Router
+        href: "/community/tools-and-libraries",
+      },
+      spec: {
+        type: "page",
+        title: "Specification",
+        href: "https://spec.graphql.org",
+        newWindow: true,
+      },
+      video: "Video Resources Library",
+      reading: "Reading Resources Library",
+    },
+  },
   community: {
     type: "menu",
     title: "Community",
     items: {
-      "tools-and-libraries": {
-        title: "Tools and Libraries",
+      events: {
+        title: "Events",
+        type: "page",
+        href: "/community/events",
       },
-      resources: {
-        title: "Resources",
-        href: "/community/resources/official-channels",
-      },
-      events: { title: "Events & Meetups" },
+      "official-channels": { title: "Official Channels" },
+      "training-courses": { title: "Training Courses" },
+      "community-channels": { title: "Community Channels" },
+      "vendor-channels": { title: "Vendor Channels" },
+      "more-resources": { title: "Community Resources" },
+      ambassadors: { title: "Ambassador Program" },
       contribute: {
         title: "Contribute to GraphQL",
-        href: "/community/contribute/essential-links",
+        href: "/community/contribute/governance",
       },
       foundation: { title: "Foundation" },
     },
   },
   faq: {
-    type: "page",
+    type: "hidden",
     title: "FAQ",
-  },
-  spec: {
-    type: "page",
-    title: <span className="after:font-sans after:content-['_↗']">Spec</span>,
-    href: "https://spec.graphql.org",
-    newWindow: true,
   },
   blog: {
     type: "page",
@@ -80,11 +105,24 @@ export default {
   },
   conf: {
     type: "page",
-    title: "GraphQLConf",
-    route: "/conf/2025",
+    title: (
+      <Emphasis>
+        GraphQLConf
+        <span className="max-xl:hidden"> 2026</span>
+      </Emphasis>
+    ),
+    route: "/conf/2026",
   },
   "graphql-js": {
     type: "page",
     title: "GraphQL.JS Tutorial",
   },
+}
+
+function Emphasis({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="relative block before:absolute before:-inset-x-3 before:-inset-y-1 before:border before:border-current [a:has(>&)]:text-pri-base dark:[a:has(>&)]:text-pri-light [a:hover:has(>&)]:no-underline [a:hover_&]:before:border-transparent">
+      {children}
+    </span>
+  )
 }

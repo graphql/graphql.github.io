@@ -3,6 +3,9 @@ name: Microcks
 description: Open source Kubernetes-native tool for API Mocking and Testing
 url: https://microcks.io
 github: microcks/microcks
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 Microcks is a platform for turning your API and microservices assets - _GraphQL schemas_, _OpenAPI specs_, _AsyncAPI specs_, _gRPC protobuf_, _Postman collections_, _SoapUI projects_\_ - into live simulations in seconds.

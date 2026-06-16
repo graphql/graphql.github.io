@@ -1,55 +1,61 @@
 #!/usr/bin/env node
+// @ts-check
 
 import fs from "node:fs"
 import path from "node:path"
-import glob from "glob"
+import glob from "fast-glob"
 import { parse } from "graphql"
-import chalk from "chalk"
 import { fileURLToPath } from "node:url"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const projectRoot = path.resolve(__dirname, "../")
 
+/** @type {string} Glob pattern for MDX files to validate */
 const MDX_GLOB = "./src/pages/learn/**/*.mdx"
+/** @type {RegExp} Regex to match code blocks in markdown */
 const CODE_BLOCK_REGEX = /^(`{3,})(\w+)\s*\n([\s\S]*?)\r?\n\1$/gm
+/** @type {string} Comment to ignore code snippets */
 const IGNORE_COMMENT = "snippet-ignore"
 
+/** @type {number} */
 let totalFiles = 0
+/** @type {number} */
 let totalSnippets = 0
+/** @type {number} */
 let totalErrors = 0
 
-// TODO: Add JS linting after JS code snippet modernization
-// async function lintJavaScript(code, filePath) {
-//   const eslint = new ESLint({
-//     useEslintrc: true,
-//     baseConfig: {
-//       parserOptions: {
-//         ecmaVersion: "latest",
-//         sourceType: "module",
-//       },
-//     },
-//   })
+/**
+ * @typedef {{ message: string }} ParseError
+ */
 
-//   let preparedCode = code.trim()
-
-//   if (preparedCode.startsWith("function")) {
-//     preparedCode = "/* eslint-disable no-unused-vars */\n" + preparedCode
-//   }
-
-//   const results = await eslint.lintText(preparedCode, { filePath })
-//   return results.flatMap(result => result.messages)
-// }
-
+/**
+ * @param {string} code
+ * @returns {ParseError[]}
+ */
 function validateGraphQL(code) {
   try {
     parse(code)
     return []
   } catch (error) {
-    return [{ message: error.message }]
+    return [{ message: error instanceof Error ? error.message : String(error) }]
   }
 }
 
+/**
+ * @typedef {{
+ *   lang: string,
+ *   code: string,
+ *   lineNumber: number,
+ *   filePath: string
+ * }} Snippet
+
+/**
+ * Extracts code snippets from MDX content
+ * @param {string} content - The MDX file content
+ * @param {string} filePath - The path to the file being processed
+ * @returns {Snippet[]} Array of extracted code snippets
+ */
 function extractSnippets(content, filePath) {
   const snippets = []
   let match
@@ -69,28 +75,30 @@ function extractSnippets(content, filePath) {
   return snippets
 }
 
+/**
+ * @typedef {{
+ *   type: string,
+ *   file: string,
+ *   line: number,
+ *   message: string
+ * }} ValidationError
+ */
+
+/**
+ * @param {Snippet} snippet - The code snippet to validate
+ * @returns {Promise<ValidationError[]>} Array of validation errors
+ */
 async function validateSnippet(snippet) {
   const { lang, code, lineNumber, filePath } = snippet
 
   if (!code.trim()) return []
-
-  // TODO: Add section after JS code snippet modernization
-  // if (["js", "javascript", "ts", "typescript"].includes(lang)) {
-  //   const messages = await lintJavaScript(code, filePath)
-  //   return messages.map(msg => ({
-  //     type: "JS/TS",
-  //     file: filePath,
-  //     line: lineNumber + (msg.line || 1),
-  //     message: msg.message,
-  //   }))
-  // }
 
   if (lang === "graphql") {
     const messages = validateGraphQL(code)
     return messages.map(msg => ({
       type: "GraphQL",
       file: filePath,
-      line: lineNumber + (msg.line || 1),
+      line: lineNumber,
       message: msg.message,
     }))
   }
@@ -98,14 +106,17 @@ async function validateSnippet(snippet) {
   return []
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function main() {
-  console.log(`Validating code snippets in: ${projectRoot}/${MDX_GLOB}`)
+  console.log(`Validating code snippets in: ${MDX_GLOB}`)
 
   const files = glob.sync(MDX_GLOB, { cwd: projectRoot })
   totalFiles = files.length
 
   if (totalFiles === 0) {
-    console.log(chalk.green("No MDX files found to validate."))
+    console.log("No MDX files found to validate.")
     return
   }
 
@@ -127,25 +138,21 @@ async function main() {
   if (totalErrors > 0) {
     errors.forEach(err => {
       const errorMessage = `${err.type} Error in ${err.file} at line ${err.line}: ${err.message}`
-      console.error(chalk.red(errorMessage))
+      console.error(errorMessage)
 
       if (process.env.GITHUB_ACTIONS) {
         console.log(`::error file=${err.file},line=${err.line}::${err.message}`)
       }
     })
 
-    console.error(
-      chalk.red("\nCode snippet validation failed. Check error logs."),
-    )
+    console.error("\nCode snippet validation failed. Check error logs.")
     console.error(`Files checked: ${totalFiles}`)
     console.error(`Snippets checked: ${totalSnippets}`)
     console.error(`Errors found: ${totalErrors}`)
     process.exit(1)
   } else {
     console.log(
-      chalk.green(
-        "\nCode snippet validation passed. All code snippets are valid.",
-      ),
+      "\n✅ Code snippet validation passed. All code snippets are valid.",
     )
     console.log(`Files checked: ${totalFiles}`)
     console.log(`Snippets checked: ${totalSnippets}`)

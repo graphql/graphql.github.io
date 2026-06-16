@@ -1,4 +1,4 @@
-import { ScheduleSession } from "../../../_components/schedule/session-list"
+import { ScheduleSession } from "@/app/conf/_api/sched-types"
 
 export function getEventTitle(
   event: ScheduleSession,

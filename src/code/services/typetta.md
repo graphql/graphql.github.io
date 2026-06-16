@@ -4,4 +4,7 @@ description: Typetta is an open-source ORM written in TypeScript that aims to al
 url: https://twinlogix.github.io/typetta/
 github: twinlogix/typetta
 npm: "@twinlogix/typetta"
+tags:
+  - tools-and-libraries
+  - tools
 ---

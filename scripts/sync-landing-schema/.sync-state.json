@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "repositories": {
+    "graphql/graphiql": {
+      "lastCursor": "b3c42a65160ba4878b5ea87d9e72385889856464 4096",
+      "lastProcessed": "2025-10-27T20:18:16.061Z"
+    },
+    "graphql/graphql-spec": {
+      "lastCursor": "43ae7baced54e37c68676b1ac5902e6223dcb078 650",
+      "lastProcessed": "2025-10-27T20:18:14.496Z"
+    },
+    "graphql/graphql-wg": {
+      "lastCursor": "139d0b9cbe74756974c7e637d85e0283beb36297 2077",
+      "lastProcessed": "2025-10-27T20:18:15.063Z"
+    },
+    "graphql/graphql-js": {
+      "lastCursor": "60ae6c48b9c78332bf3d6036e7d931a3617d0674 3244",
+      "lastProcessed": "2025-10-27T20:18:15.684Z"
+    }
+  }
+}

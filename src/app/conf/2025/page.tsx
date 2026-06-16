@@ -4,7 +4,7 @@ import { Venue } from "./components/venue"
 import { FAQ } from "./faq"
 import { CallForProposals } from "./components/call-for-proposals"
 import { RegisterToday } from "./components/register-today"
-import { Hero } from "./components/hero"
+import { Hero, HeroDateAndLocation } from "./components/hero"
 import WhatToExpectSection from "./components/what-to-expect"
 import TopMindsSection from "./components/top-minds"
 import { GetYourTicket } from "./components/get-your-ticket"
@@ -14,24 +14,26 @@ import { GraphQLFoundationCard } from "./components/graphql-foundation-card"
 import { MarqueeRows } from "./components/marquee-rows"
 import { CtaCardSection } from "./components/cta-card-section"
 import { Button } from "../_design-system/button"
-import { GET_TICKETS_LINK } from "./links"
+import { GALLERY_LINK, GET_TICKETS_LINK } from "./links"
 import { GalleryStrip } from "./components/gallery-strip"
+import { Testimonials } from "./components/testimonials"
+import { HeroImage } from "./components/hero/hero-image"
+import { HERO_MARQUEE_ITEMS } from "./utils"
 
 export const metadata: Metadata = {
   title: "GraphQLConf 2025 — Sept 08-10",
 }
 
-const HERO_MARQUEE_ITEMS = [
-  ["COMMUNITY", "DEVELOPER EXPERIENCE", "APIs", "TOOLS & LIBRARIES"],
-  ["OPEN SOURCE", "FEDERATION", "ECOSYSTEMS", "TRACING & OBSERVABILITY"],
-  ["BEST PRACTICES", "WORKSHOPS", "SCHEMAS", "SECURITY"],
-]
-
 export default function Page() {
   return (
     <main className="gql-all-anchors-focusable">
-      <Hero />
-      <div className="gql-conf-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
+      <Hero year="2025" bottom={<HeroImage />}>
+        <HeroDateAndLocation />
+        <Button className="md:w-fit" href={GALLERY_LINK}>
+          Event Photos
+        </Button>
+      </Hero>
+      <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
         <MarqueeRows
           variant="primary"
           className="pt-4 max-sm:pb-1 sm:pt-6 md:space-y-2 md:pt-12 xl:pt-16"
@@ -45,12 +47,12 @@ export default function Page() {
         <GetYourTicket />
       </div>
       <div className="gql-conf-navbar-strip text-neu-900 before:bg-white/50 before:dark:bg-blk/30">
-        <div className="gql-conf-container">
+        <div className="gql-container">
           <RegisterSection />
           <Sponsors heading="Sponsors" />
         </div>
         <BecomeASponsor />
-        <div className="gql-conf-container">
+        <div className="gql-container">
           <CallForProposals />
           <MarqueeRows
             variant="secondary"
@@ -78,14 +80,20 @@ export default function Page() {
           />
           <Venue />
           <GalleryStrip />
+          <Testimonials />
           <GraphQLFoundationCard />
           <FAQ />
           <CtaCardSection
             title="Get your ticket"
             description="Join three transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
-            <Button variant="primary" href={GET_TICKETS_LINK}>
-              Get tickets
+            <Button
+              disabled
+              className="opacity-55"
+              variant="primary"
+              href={GET_TICKETS_LINK}
+            >
+              Sold out
             </Button>
           </CtaCardSection>
           <MarqueeRows

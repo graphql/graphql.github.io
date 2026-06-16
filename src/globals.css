@@ -1,11 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./nextra-theme-docs.css";
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --nextra-navbar-height: 64px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +20,8 @@
 }
 
 .conf-hero {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       360deg,
       #0e031c 10.63%,
       #0e031c 10.65%,
@@ -62,18 +66,6 @@ footer {
   }
 }
 
-div[role="menu"][data-headlessui-state] {
-  @apply left-0 right-auto;
-}
-
-div[id^="headlessui-menu-items"] {
-  @apply rounded-none;
-
-  > a {
-    @apply py-3.5;
-  }
-}
-
 /* should be fixed in Nextra 4 */
 ._max-w-\[90rem\] {
   @apply container;
@@ -101,14 +93,6 @@ div[id^="headlessui-menu-items"] {
     @apply first:mr-0 hover:!text-primary;
   }
 
-  button[id^="headlessui-menu-button"] {
-    @apply hover:text-primary;
-
-    + div > a {
-      @apply hover:text-primary;
-    }
-  }
-
   .nextra-search {
     @apply ml-auto;
 
@@ -118,67 +102,8 @@ div[id^="headlessui-menu-items"] {
   }
 }
 
-/*._max-w-\[90rem\] {*/
-/*  !* TODO: maybe add to nextra as option to configure width? *!*/
-/*  @apply container;*/
-/*}*/
-
-.miniGraphiQL {
-  @apply !rounded-md border-2 !shadow-none dark:border-neutral-900 dark:!bg-neutral-900/10 dark:brightness-200;
-}
-
-.result-window {
-  @apply !rounded-none border-l-2 !shadow-none dark:border-neutral-900;
-}
-
-.variable-editor {
-  @apply border-t-2 before:!bg-transparent dark:border-neutral-900;
-}
-
-.CodeMirror-selected {
-  @apply !bg-primary/50 dark:bg-primary/40;
-}
-
-.CodeMirror-cursor {
-  @apply dark:border-white;
-}
-
-.CodeMirror {
-  @apply p-2;
-}
-
 ::selection {
-  @apply bg-primary/50 dark:bg-primary/50;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    /*background: linear-gradient(*/
-    /*    125deg,*/
-    /*    rgba(234, 117, 195, 0.3) -10%,*/
-    /*    rgba(234, 117, 195, 0) 8%*/
-    /*  ),*/
-    /*  linear-gradient(*/
-    /*    -125deg,*/
-    /*    rgba(234, 117, 195, 0.3) -10%,*/
-    /*    rgba(234, 117, 195, 0) 8%*/
-    /*  ),*/
-    /*  linear-gradient(0deg, #05031c, #05031c);*/
-    /*@apply bg-gradient-to-b from-primary/10 to-[#05031c]*/
-
-    /*background:*/
-    /*        !*linear-gradient(0deg, #05031c, #05031c),*!*/
-    /*  linear-gradient(*/
-    /*    125.93deg,*/
-    /*    rgba(234, 117, 195, 0.7) -10.45%,*/
-    /*    rgba(234, 117, 195, 0) 28.49%*/
-    /*  ),*/
-    /*  linear-gradient(*/
-    /*    -125.93deg,*/
-    /*    rgba(234, 117, 195, 0.7) -33.25%,*/
-    /*    rgba(234, 117, 195, 0) 26.45%*/
-    /*  );*/
-  }
+  @apply bg-pri-base/25 dark:bg-pri-light/50;
 }
 
 .donts-images ul {
@@ -228,7 +153,8 @@ div[id^="headlessui-menu-items"] {
 }
 
 .code-page {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       303.75deg,
       rgba(124, 124, 124, 0.2) 0.8%,
       rgba(124, 124, 124, 0) 74.17%
@@ -237,7 +163,8 @@ div[id^="headlessui-menu-items"] {
 }
 
 .dark .code-page {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       303.75deg,
       rgba(124, 124, 124, 0.2) 0.8%,
       rgba(124, 124, 124, 0) 74.17%
@@ -246,7 +173,8 @@ div[id^="headlessui-menu-items"] {
 }
 
 .dark .blog-page {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       250.93deg,
       rgba(115, 119, 125, 0.1),
       rgba(115, 119, 125, 0)
@@ -255,7 +183,8 @@ div[id^="headlessui-menu-items"] {
 }
 
 .blog-page {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       231.79deg,
       rgba(225, 0, 152, 0.4) -23.67%,
       rgba(225, 0, 152, 0) 25.9%
@@ -281,20 +210,6 @@ div[id^="headlessui-menu-items"] {
   @apply rounded border border-current px-2.5 py-1 text-sm font-bold transition-colors;
 }
 
-.index {
-  p {
-    @apply mb-5 max-w-2xl text-lg lg:text-xl/9;
-  }
-
-  h2 {
-    @apply mb-10 text-balance text-3xl font-bold lg:text-5xl;
-  }
-
-  pre {
-    @apply bg-white;
-  }
-}
-
 .add,
 .remove {
   @apply shadow-[2px_0_currentColor_inset];
@@ -313,38 +228,6 @@ div[id^="headlessui-menu-items"] {
 
   &::before {
     @apply absolute start-1.5 content-['-'];
-  }
-}
-
-.step0,
-.step6 {
-  .v2 {
-    @apply opacity-0;
-  }
-}
-
-.step1 .v2 code > span:nth-child(5) {
-  @apply add;
-}
-
-.step2 .v3 code > span:nth-child(6) {
-  @apply add;
-}
-
-.step3 .v4 code > {
-  span:nth-child(7),
-  span:nth-last-child(-n + 5) {
-    @apply add;
-  }
-}
-
-.step4 {
-  .v4 code > span:nth-child(6) {
-    @apply remove;
-  }
-
-  .v5 code > span:nth-child(6) {
-    @apply add;
   }
 }
 
@@ -388,7 +271,8 @@ div[id^="headlessui-menu-items"] {
 }
 
 .index-bg {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       303.75deg,
       rgba(124, 124, 124, 0.2) 0.8%,
       rgba(124, 124, 124, 0) 74.17%
@@ -396,7 +280,8 @@ div[id^="headlessui-menu-items"] {
     linear-gradient(0deg, #f8f8f8, #f8f8f8);
 
   .dark & {
-    background: linear-gradient(0deg, #111, #111),
+    background:
+      linear-gradient(0deg, #111, #111),
       linear-gradient(
         303.75deg,
         rgba(124, 124, 124, 0.2) 0.8%,
@@ -407,60 +292,6 @@ div[id^="headlessui-menu-items"] {
 
 .index-gradient {
   @apply bg-gradient-to-b from-transparent to-primary/5 dark:to-primary/10;
-}
-
-.type-evolution {
-  @apply w-full overflow-hidden;
-
-  #typeEvolveView {
-    @apply relative left-0 flex h-full select-none;
-
-    .v1,
-    .v2,
-    .v3,
-    .v4 {
-      @apply w-1/2 shrink-0 border-r dark:border-neutral-800;
-    }
-
-    .v5 {
-      @apply w-full shrink-0;
-    }
-
-    &.step1 {
-      .v2 {
-        opacity: 1;
-        transition: opacity 0.5s ease-in-out;
-      }
-    }
-
-    &.step2 {
-      left: calc(-1 * 50%);
-      transition: left 0.5s ease-in-out;
-    }
-
-    &.step3 {
-      left: calc(-2 * 50%);
-      transition: left 0.5s ease-in-out;
-    }
-
-    &.step4 {
-      left: calc(-3 * 50%);
-      transition: left 0.5s ease-in-out;
-    }
-
-    &.step5 {
-      left: calc(-4 * 50%);
-      transition: left 0.5s ease-in-out;
-    }
-
-    &.step6 {
-      .v5 {
-        left: calc(-4 * 50%);
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-    }
-  }
 }
 
 .apiIndex {
@@ -506,21 +337,74 @@ div[id^="headlessui-menu-items"] {
 
 .gql-focus-visible,
 .gql-all-anchors-focusable a {
-  @apply focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[5px] focus-visible:outline-neu-900;
+  @apply focus-visible:gql-focus-outline;
 }
 
-.gql-conf-container {
+.gql-container {
   @apply mx-auto w-full max-w-[120rem];
 }
 
-.gql-conf-section {
+.gql-section {
   @apply px-4 py-8 lg:px-12 xl:gap-x-24 xl:px-24 3xl:px-[240px];
 }
 
+.gql-navbar-strip,
 .gql-conf-navbar-strip {
   @apply relative [contain:paint] before:sticky before:top-0 before:z-[9] before:-mt-[var(--navbar-h)] before:block before:h-[var(--navbar-h)] before:w-full before:content-[''];
 }
 
-:root {
-  --navbar-h: 70px;
+.gql-navbar-strip {
+  --navbar-h: var(--nextra-navbar-height);
+}
+
+.gql-radial-gradient {
+  background-image: radial-gradient(
+    ellipse at 50% 50%,
+    hsl(var(--color-neu-600)) 0%,
+    transparent 75%
+  );
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* without this Headless UI breaks sticky navbar */
+html:has([role="listbox"][data-open]),
+html:has([role="menu"][data-open]) {
+  overflow: visible !important;
+}
+
+@supports (background: -webkit-named-image(i)) {
+  html {
+    /* Safari moves the fixed Navbar when overscrolling and it looks bad */
+    overscroll-behavior-y: none;
+  }
+}
+
+.flowchart {
+  --mermaid-node-fill: hsl(var(--color-neu-100));
+  --mermaid-node-stroke: hsl(var(--color-neu-200));
+  --mermaid-arrow: hsl(var(--color-neu-500));
+
+  margin: 1.5rem auto 0 auto;
+
+  & .label text,
+  span {
+    font-size: 14px !important;
+  }
+
+  & div:has(> .nodeLabel) {
+    display: unset !important;
+  }
+}
+
+.dark .flowchart {
+  --mermaid-node-fill: hsl(var(--color-neu-50) / 0.5);
+  --mermaid-node-stroke: hsl(var(--color-neu-100));
+  --mermaid-arrow: hsl(var(--color-neu-300));
+}
+
+.nextra-focus.subheading-anchor:focus-visible {
+  @apply gql-focus-outline after:text-neu-700 focus-visible:outline-offset-1;
+  box-shadow: none;
 }

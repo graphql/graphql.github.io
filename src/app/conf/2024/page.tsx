@@ -10,7 +10,7 @@ import { schedule, speakers } from "./_data"
 import { SessionList } from "../_components/schedule/session-list"
 import { filterCategories2024 } from "../_components/schedule/filter-categories"
 import { eventsColors } from "./utils"
-import NextImage from "next-image-export-optimizer"
+import NextImage from "next/image"
 import leeImage from "./gallery/images/lee.png"
 
 function shuffle<T extends any[]>(array: T): T {
@@ -54,7 +54,7 @@ export default function Page() {
           </div>
           <div className="flex items-center gap-10">
             <svg
-              className="w-[50%]"
+              className="w-1/2"
               viewBox="0 0 1239 142"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
@@ -102,6 +102,7 @@ export default function Page() {
               alt="Lee Byron"
               className="aspect-video rounded-md object-cover"
               src={leeImage}
+              placeholder="blur"
             />
           </div>
         </div>
@@ -127,7 +128,7 @@ export default function Page() {
                     alt={speaker.name}
                   />
                 </a>
-                <div className="opacity-1 pointer-events-none absolute bottom-0 left-0 flex h-[40px] w-[120px] justify-center bg-[rgba(0,0,0,0.6)] text-sm transition-opacity duration-300 group-hover:opacity-100 md:h-[55px] md:w-[210px] md:text-base md:opacity-0">
+                <div className="pointer-events-none absolute bottom-0 left-0 flex h-[40px] w-[120px] justify-center bg-[rgba(0,0,0,0.6)] text-sm transition-opacity duration-300 group-hover:opacity-100 md:h-[55px] md:w-[210px] md:text-base md:opacity-0">
                   <span className="mt-2.5 font-medium md:mt-3.5">
                     {speaker.name.split(" ")[0]}
                   </span>

@@ -3,6 +3,9 @@ name: GraphQL Java Generator
 description: GraphQL Java Generator is a tool that generates Java code to speed up development for Client and Server of GraphQL APIs
 url: https://github.com/graphql-java-generator
 github: graphql-java-generator/graphql-gradle-plugin-project
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 - GraphQL Java client: it generates the Java classes that call the GraphQL endpoint, and the POJO that will contain the data returned by the server.

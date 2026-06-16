@@ -4,4 +4,7 @@ description: One configuration for all your GraphQL tools (supported by most too
 url: https://graphql-config.com
 github: kamilkisiela/graphql-config
 npm: "graphql-config"
+tags:
+  - tools-and-libraries
+  - tools
 ---

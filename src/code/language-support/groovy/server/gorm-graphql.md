@@ -3,6 +3,9 @@ name: gorm-graphql
 description: An automatic GraphQL schema generator for GORM
 url: https://grails.github.io/gorm-graphql/latest/guide/index.html
 github: grails/gorm-graphql
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 **Core Library** - The GORM GraphQL library provides functionality to generate a GraphQL schema based on your GORM entities. In addition to mapping domain classes to a GraphQL schema, the core library also provides default implementations of "data fetchers" to query, update, and delete data through executions of the schema.

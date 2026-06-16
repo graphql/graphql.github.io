@@ -1,29 +1,31 @@
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import { Radio as BaseRadio } from "@base-ui-components/react/radio"
 
 import { clsx as cn } from "clsx"
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react"
+import { RadioIcon } from "../app/conf/_design-system/pixelarticons/radio-icon"
 
-const RadioGroup = RadioGroupPrimitive.Root
+export { RadioGroup } from "@base-ui-components/react/radio-group"
 
-const RadioGroupItem = forwardRef<
-  ElementRef<typeof RadioGroupPrimitive.Item>,
-  ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
+export const Radio = forwardRef<
+  ElementRef<typeof BaseRadio.Root>,
+  ComponentPropsWithoutRef<typeof BaseRadio.Root>
 >(({ className, ...props }, ref) => {
   return (
-    <RadioGroupPrimitive.Item
+    <BaseRadio.Root
       ref={ref}
       className={cn(
-        "focus-visible:ring-ring aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
-        className,
+        "gql-focus-visible relative aspect-square disabled:cursor-not-allowed disabled:opacity-50",
+        className || "size-5",
       )}
       {...props}
     >
-      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-        <div className="size-2 rounded-full bg-primary" />
-      </RadioGroupPrimitive.Indicator>
-    </RadioGroupPrimitive.Item>
+      <BaseRadio.Indicator
+        className="flex size-full -translate-y-px items-center justify-center"
+        keepMounted
+        render={RadioIcon}
+      />
+    </BaseRadio.Root>
   )
 })
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
-export { RadioGroup, RadioGroupItem }
+Radio.displayName = "Radio"

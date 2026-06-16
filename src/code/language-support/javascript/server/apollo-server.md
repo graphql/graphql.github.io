@@ -4,6 +4,9 @@ description: A GraphQL server from Apollo that works with any Node.js HTTP frame
 url: https://www.apollographql.com/docs/apollo-server/
 github: apollographql/apollo-server
 npm: "@apollo/server"
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 To run a hello world server with Apollo Server:

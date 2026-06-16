@@ -1,0 +1,31 @@
+{
+  "friends": [
+    {
+      "name": "Trudie",
+      "profilePic": "trudie.webp",
+      "mutualFriendsCount": 120,
+      "isSubscribed": true,
+      "username": "funkytrudster89",
+      "email": "trudie@mail.com",
+      "location": "New York, USA"
+    },
+    {
+      "name": "Frances",
+      "profilePic": "frances.webp",
+      "mutualFriendsCount": 42,
+      "isSubscribed": false,
+      "username": "frannyfran12",
+      "email": "frances@mail.com",
+      "location": "Madrid, Spain"
+    },
+    {
+      "name": "Fernando",
+      "profilePic": "fernando.webp",
+      "mutualFriendsCount": 114,
+      "isSubscribed": true,
+      "username": "fern_whirlwind",
+      "email": "fernando@mail.com",
+      "location": "Amsterdam, Netherlands"
+    }
+  ]
+}

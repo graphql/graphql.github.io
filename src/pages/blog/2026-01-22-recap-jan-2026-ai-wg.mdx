@@ -1,0 +1,60 @@
+---
+title: "GraphQL AI Working Group Recap: January 2026"
+date: 2026-01-22
+tags: ["blog"]
+byline: Kewei Qu
+featured: true
+---
+
+## Overview
+
+The GraphQL AI Working Group met in January 2026 to continue advancing the foundational building blocks that enable agentic AI systems to safely and reliably construct GraphQL operations. Building on prior discussions around schema navigation and operation generation, this session focused on improving how agents understand schema intent, develop against GraphQL APIs without live backends, and adopt semantic techniques using accessible open source tooling.
+
+The discussion centered on three related topics: Semantic Introspection, the `@mock` directive for improving agentic development workflows, and an open source GraphQL embedding implementation.
+
+## Building Blocks for Agentic GraphQL Operation Construction
+
+A recurring goal of the working group is to reduce hallucination, invalid field selection, and incorrect assumptions when AI agents generate GraphQL operations. The January meeting explored three complementary building blocks that strengthen agent grounding and developer experience.
+
+### Semantic Introspection
+
+The group reviewed the Semantic Introspection RFC, which proposes extending standard GraphQL introspection with richer, semantics-aware metadata.
+
+Traditional introspection exposes the structural shape of a schema, such as types, fields, and arguments. Semantic introspection builds on this by surfacing machine-readable signals about intent, meaning, and relationships between schema elements. These semantic hints allow agents to reason more effectively about which parts of a schema are relevant for a given task and how fields and types are expected to be used.
+
+By providing higher-level context directly through introspection, this approach helps agents navigate large or complex schemas more intelligently, improves the accuracy of generated operations, and reduces reliance on heuristic or purely text-based schema exploration.
+
+### `@mock` Directive for Agentic Development
+
+The working group also discussed a proposed GraphQL mocking specification centered around a `@mock` directive, designed to improve development and testing workflows for both humans and AI agents.
+
+When an operation is annotated with `@mock`, client tooling intercepts execution and returns predefined mock responses instead of making a network request to a live backend. Mock responses are typically defined in adjacent JSON files and must conform to the expected GraphQL response shape.
+
+This approach enables rapid prototyping, predictable testing, and faster iteration cycles for agentic systems that generate and refine operations. It is particularly valuable when agents need to explore schema behavior, validate operation structure, or develop against APIs that are unavailable, unstable, or still under construction.
+
+By standardizing how mocks are declared and consumed, this proposal lowers friction for agentic development and encourages more consistent tooling support across the GraphQL ecosystem.
+
+### Open Source GraphQL Embedding Implementation
+
+Watson presented an open source embedding prototype that generates semantic embeddings at the GraphQL type and field level using an OLLAMA-based setup.
+
+The implementation demonstrated that even with a lightweight open source model and as little as 8 GB of RAM, it is possible to generate embeddings that meaningfully support schema navigation and dynamic GraphQL operation construction. Despite using inexpensive infrastructure, the system was able to help agents identify relevant schema elements and compose valid operations in real time.
+
+This work is particularly empowering for the broader GraphQL community, as it shows that semantic and agentic techniques are not limited to teams with access to state-of-the-art models or large compute budgets. Instead, open source and resource-efficient approaches can still deliver practical and impactful results.
+
+## Next Steps
+
+The working group identified several areas of continued focus:
+
+1. Refining the Semantic Introspection RFC and exploring reference implementations.
+2. Iterating on the `@mock` directive specification and evaluating client and tooling integration.
+3. Expanding and benchmarking open source embedding approaches to further lower the barrier to entry for agentic GraphQL tooling.
+
+Together, these efforts aim to make GraphQL an increasingly reliable and expressive interface for AI-driven systems, while preserving the strong typing, correctness, and clarity that GraphQL is known for.
+
+## Get Involved
+
+Grab a calendar invite at https://calendar.graphql.org  
+To join, open a PR against the agenda at https://github.com/graphql/ai-wg/tree/main/agendas and add yourself. If you have not already signed the free GraphQL specification membership agreement, the EasyCLA robot will guide you through the process once you open the PR.
+
+Like all GraphQL working groups, this one is **open to everyone**. Whether you are building AI APIs, researching agentic tooling, or simply curious about the intersection of GraphQL and AI, you are welcome to participate. If you cannot attend live, you can always catch up via [the GraphQL Foundation Working Groups YouTube channel](https://www.youtube.com/@GraphQLFoundation).

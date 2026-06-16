@@ -63,10 +63,16 @@ export default function SessionPage({ params }: SessionProps) {
   if (!event) {
     notFound()
   }
-  // @ts-expect-error -- fixme
-  event.speakers = event.speakers!.map(speaker =>
-    speakers.find(s => s.username === speaker.username),
-  )
+
+  event.speakers = (event.speakers || []).map(speaker => {
+    const s = speakers.find(s => s.username === speaker.username)
+    if (!s) {
+      throw new Error(
+        `Speaker not found: "${speaker.username}" in "${event.name}".`,
+      )
+    }
+    return s
+  })
 
   const eventType = event.event_type.endsWith("s")
     ? event.event_type.slice(0, -1)
@@ -86,7 +92,7 @@ export default function SessionPage({ params }: SessionProps) {
     <div className="bg-[#f4f6f8]">
       <div className="container">
         <div className="py-10">
-          <section className="xs:px-0 mx-auto min-h-[80vh] flex-col justify-center px-2 text-[#333333] md:container lg:justify-between">
+          <section className="mx-auto min-h-[80vh] flex-col justify-center px-2 text-[#333333] md:container lg:justify-between">
             <div className="flex flex-col lg:px-0">
               <BackLink year="2023" kind="sessions" />
               {recordingTitle.rating > 0.5 && (

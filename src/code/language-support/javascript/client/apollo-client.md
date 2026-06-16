@@ -4,4 +4,7 @@ description: A powerful JavaScript GraphQL client, designed to work well with Re
 url: http://apollographql.com/client/
 github: apollographql/apollo-client
 npm: "@apollo/client"
+tags:
+  - tools-and-libraries
+  - frontend
 ---

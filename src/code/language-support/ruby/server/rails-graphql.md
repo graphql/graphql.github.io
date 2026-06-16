@@ -4,6 +4,9 @@ description: A Fresh new GraphQL server for Rails applications, with a focus on 
 url: https://www.rails-graphql.dev/
 github: virtualshield/rails-graphql
 gem: rails-graphql
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 ```ruby

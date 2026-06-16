@@ -1,14 +1,23 @@
-import { Cards } from 'nextra/components'
-import metaFile from './_meta'
+---
+title: FAQ
+---
 
-# Frequently Asked Questions (FAQ)
+import { FaqAggregator, faqMdxComponents } from "@/components/faq-aggregator"
 
-<Cards>
-  {Object.entries(metaFile).slice(1).map(([key]) => (
-    <Cards.Card
-      key={key}
-      title={key.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')}
-      href={`/faq/${key}`} arrow
-    />
-  ))}
-</Cards>
+import GettingStarted from "./getting-started.mdx"
+import General from "./general.mdx"
+import BestPractices from "./best-practices.mdx"
+import Specification from "./specification.mdx"
+import Frontend from "./frontend.mdx"
+import Foundation from "./foundation.mdx"
+
+<h1 className="typography-h1 hidden">Frequently Asked Questions</h1>
+
+<FaqAggregator>
+  <GettingStarted components={faqMdxComponents} />
+  <General components={faqMdxComponents} />
+  <BestPractices components={faqMdxComponents} />
+  <Specification components={faqMdxComponents} />
+  <Frontend components={faqMdxComponents} />
+  <Foundation components={faqMdxComponents} />
+</FaqAggregator>

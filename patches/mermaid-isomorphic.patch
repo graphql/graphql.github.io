@@ -1,0 +1,44 @@
+diff --git a/dist/mermaid-isomorphic.js b/dist/mermaid-isomorphic.js
+index aa5dc09a5dfb58a98d3f12cd2fc473caddd97b0d..d0fa3ca8e690233d0b50e4f992ab6ac33c11585b 100644
+--- a/dist/mermaid-isomorphic.js
++++ b/dist/mermaid-isomorphic.js
+@@ -1,4 +1,5 @@
+-import { chromium } from 'playwright';
++import { chromium as playwright } from 'playwright';
++import chromium from '@sparticuz/chromium';
+ const html = import.meta.resolve('../index.html');
+ const mermaidScript = {
+     url: import.meta.resolve('mermaid/dist/mermaid.js')
+@@ -7,6 +8,9 @@ const faStyle = {
+     // We use url, not path. If we use path, the fonts can’t be resolved.
+     url: import.meta.resolve('@fortawesome/fontawesome-free/css/all.css')
+ };
++
++chromium.setGraphicsMode = false;
++
+ /* c8 ignore start */
+ /**
+  * Render mermaid diagrams in the browser.
+@@ -122,7 +126,21 @@ async function getBrowser(browserType, launchOptions) {
+  *   A function that renders Mermaid diagrams in the browser.
+  */
+ export function createMermaidRenderer(options = {}) {
+-    const { browserType = chromium, launchOptions } = options;
++    let { browserType = playwright, launchOptions } = options;
++
++    if (process.env.CI) {
++        if (options.browserType) {
++            throw new Error('options.browserType is not supported because @hasparus patched it to run on Vercel builds, sorry');
++        }
++        browserType = {
++            launch: async () => playwright.launch({
++                ...launchOptions,
++                args: chromium.args,
++                executablePath: await chromium.executablePath(),
++            })
++        }
++    }
++
+     let browserPromise;
+     let count = 0;
+     return async (diagrams, renderOptions) => {

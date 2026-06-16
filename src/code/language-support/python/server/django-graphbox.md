@@ -3,6 +3,9 @@ name: Django Graphbox
 description: Package for easy building a GraphQL API with basic CRUD operations for Django models.
 url: https://90horasporsemana.com/graphbox/
 github: yefeza/django-graphbox
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 A Quickstart for Django Graphbox:

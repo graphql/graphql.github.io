@@ -1,0 +1,157 @@
+---
+title: Safer Multi-option Inputs with `@oneOf`
+tags: [announcements, spec]
+date: 2025-09-04
+byline: Benjie Gillam
+featured: true
+---
+
+We’re excited to announce **[OneOf Input
+Objects](https://spec.graphql.org/September2025/#sec-OneOf-Input-Objects)** has
+landed in the GraphQL specification! This enhancement solves a long-standing
+challenge in API design: how to allow users to provide **exactly one** of
+several possible options as input, in a clean and enforceable way. This feature
+is a [small change](https://github.com/graphql/graphql-spec/pull/825) that packs
+a big return for developers building modern digital products with GraphQL.
+
+## Simplifying entrypoints
+
+Most GraphQL queries start at a single node, and traverse the data graph from
+there. But often, there is more than one way of locating that node; for example
+you might find a user by their ID, email address, or username. Traditionally,
+that meant multiple root-level fields:
+
+```graphql
+type Query {
+  user(id: ID!): User
+  userByEmail(email: String!): User
+  userByUsername(username: String!): User
+}
+```
+
+_(An alternative approach was a less-than-type-safe field presenting all the
+options along with custom runtime validation to enforce the constraints. Either
+way, neither solution was ideal.)_
+
+With `@oneOf`, you can now consolidate those options into a single,
+user-friendly input which ensures users supply _exactly one_ input field, the
+value of which must not be null. The result: a user-friendly schema with fewer
+root-level fields and without sacrificing type safety:
+
+```graphql
+input UserBy @oneOf {
+  id: ID
+  email: String
+  username: String
+}
+
+type Query {
+  user(by: UserBy!): User
+}
+```
+
+## Input polymorphism
+
+Of course, `@oneOf`'s use isn't limited to simple scalars — it can also be used
+to choose between multiple complex input types, allowing for polymorphism in
+GraphQL inputs.
+
+Imagine you were building a user-friendly blogging website, and each post is
+made up of elements — paragraphs, image galleries, block quotes, code blocks,
+and the like. Each of these elements come with their own set of (potentially
+overlapping) attributes, and you want to feed a list of them into your mutation.
+With @oneOf you can do so in a type safe manner:
+
+```graphql
+type Mutation {
+  createPost(elements: [PostElementInput]): Post
+}
+input PostElementInput @oneOf {
+  paragraph: ParagraphInput
+  blockquote: BlockQuoteInput
+  gallery: GalleryInput
+}
+input ParagraphInput {
+  text: String!
+}
+input BlockQuoteInput {
+  text: String!
+  attribution: String
+  attributionUrl: String
+}
+input GalleryInput {
+  imageUrls: [String!]!
+  caption: String
+  attribution: String
+}
+```
+
+## What makes `@oneOf` the right solution?
+
+- **Backward Compatible**: Existing tools, queries and clients still work,
+  meaning no major overhauls are required. Existing clients can even use oneOf
+  inputs without updating; just be careful to always supply exactly one value!
+- **Minimal Complexity**: This feature introduces only a small change to the
+  existing type system, but delivers very significant benefits.
+- **Type-Safe Input Polymorphism**: Offers a safe and scalable way to accept a
+  variety of inputs under a single structure—something previously hard to
+  achieve in GraphQL.
+- **Now part of the GraphQL standard**: Several GraphQL implementations
+  including Ruby, Java, JavaScript and .NET already ship `@oneOf` as a stable
+  feature
+
+You might wonder why this is expressed as a directive in SDL rather than
+explicitly having a new type keyword; Brad Baker, contributor to GraphQL-Java,
+summed it up in
+[this comment back in 2023](https://github.com/graphql/graphql-spec/pull/825#issuecomment-1659900665):
+
+> use of the directive means that:
+>
+> - it's minimally invasive in terms of SDL tooling that might be out there,
+> - it's minimally invasive in terms of Introspection,
+> - it's minimally invasive in terms of engine implementation, it proved quite
+>   easy to implement in graphql-java.
+>
+> Great stuff!
+
+Since then there have been a number of reports of success:
+
+> I'm very happy with where this landed. We'd use it internally at my company. —
+> [Ethan Resnick](https://github.com/graphql/graphql-spec/pull/825#issuecomment-2128262620)
+
+> More positive feedback: We are using it at HubSpot through the graphql-java
+> implementation and look forward to it becoming standardized. —
+> [Henry Q. Dineen](https://github.com/graphql/graphql-spec/pull/825#issuecomment-2128324080)
+
+> I implemented support for OneOf input objects for the Caliban GraphQL library
+> (Scala) [...] it's been fairly straightforward implementing support for it and
+> I couldn't really identify any areas that could have been improved. —
+> [kyri-petrou](https://github.com/kyri-petrou)
+
+> We have been eagerly waiting at Jobber for this to land as well. [...] We have
+> many use cases internally for it and we're very excited to see this land! —
+> [Clinton Pahl](https://github.com/graphql/graphql-spec/pull/825#issuecomment-2135724148)
+
+> Colleagues at work (Atlassian) have been really happy with @oneOf, works
+> exactly as you want it to and I haven't heard any negative feedback. —
+> [Donna Zhou](https://github.com/dondonz)
+
+## Availability
+
+`@oneOf` is already available in at least the following implementations of GraphQL:
+
+- GraphQL.js v16+
+- GraphQL Ruby v2.0.21+
+- GraphQL.NET v8+
+- GraphQL Java v21.2+
+- HotChocolate v16.0.0+
+- Strawberry GraphQL v0.230.0+
+- GraphQL Core (Python) v3.3.0+
+- webonyx/graphql-php (PHP) v15.21.0+
+- Probably others!
+
+## The bottom line
+
+`@oneOf` allows for more expressive, capable, and less overwhelming schemas,
+helping technical teams to move faster with increased safety. It’s simple and
+easy to implement, try it today!
