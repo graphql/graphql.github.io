@@ -20,7 +20,7 @@ export function Cards({
     <ul className="grid grid-cols-1 justify-stretch gap-2 pt-6 sm:grid-cols-2 lg:gap-4">
       {items.map((item, index) => {
         // Try to get section from learn-pages
-        let section: "getting-started" | "best-practices" | undefined
+        let section: "getting-started" | "best-practices" | "schema-governance" | undefined
 
         const path = item.link.replace(/^\/learn\//, "").replace(/\/$/, "")
         const learnPage = learnPages[path as keyof typeof learnPages]

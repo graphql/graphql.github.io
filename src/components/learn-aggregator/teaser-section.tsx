@@ -17,7 +17,7 @@ export interface TeaserSectionProps
     description: string
     href: string
     icon: string
-    section: "getting-started" | "best-practices"
+    section: "getting-started" | "best-practices" | "schema-governance"
   }>
   firstIconsEager?: boolean
 }
