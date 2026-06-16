@@ -147,6 +147,12 @@ const _items: Record<
     icon: new URL("./assets/construction.svg", import.meta.url).href,
     section: "best-practices",
   },
+  "naming-design": {
+    description:
+      "Learn how to establish naming conventions and design standards for your GraphQL schema.",
+    icon: new URL("./assets/pen.svg", import.meta.url).href,
+    section: "best-practices",
+  },
 }
 
 const learnPages = _items as Record<LearnPagePath, LearnPageItem | null>
