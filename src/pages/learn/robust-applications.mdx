@@ -1,12 +1,14 @@
-# Robust Clients
+# Robust Applications
 
-<p className="learn-subtitle">Write clients that gracefully handle schema evolution</p>
+<p className="learn-subtitle">Build applications that gracefully handle schema evolution</p>
 
-One of GraphQL's key design goals is enabling APIs to evolve without breaking existing clients. Schemas grow over time — new types, new enum values, new union members — and a well-written client expects this and handles it gracefully. This page covers three common areas where clients fail to account for schema evolution and how to write code that stays resilient.
+GraphQL schemas grow over time — new types, new enum values, new union members — and a well-written application expects this and handles it gracefully. How much of this is handled for you depends on your environment. In languages with compile-time schema awareness — such as TypeScript with a codegen tool, Swift with Apollo iOS, or Kotlin with Apollo Kotlin — a typed client can generate catch-all variants for enums, surface nullable fields as optional types, and warn at build time when new cases are unhandled. In dynamic languages or environments without a schema-aware client, these are application-level concerns that need to be addressed explicitly in your code.
+
+The three areas below are where applications most commonly fail to account for schema evolution.
 
 ## Plan for unknown enum values
 
-GraphQL schemas can add new enum values at any time. A `Status` enum that starts with `ACTIVE` and `INACTIVE` might later gain `PENDING` or `ARCHIVED`. If your client treats every enum value as exhaustively known, a new value from the server can cause crashes or silent data loss.
+GraphQL schemas can add new enum values at any time. A `Status` enum that starts with `ACTIVE` and `INACTIVE` might later gain `PENDING` or `ARCHIVED`. If your application treats every enum value as exhaustively known, a new value from the server can cause crashes or silent data loss.
 
 **Avoid exhaustive switches without a fallback:**
 
@@ -59,7 +61,7 @@ query Search($query: String!) {
 }
 ```
 
-In your client code, handle the case where `__typename` is something you don't recognize:
+In your application code, handle the case where `__typename` is something you don't recognize:
 
 ```ts
 for (const result of data.search) {

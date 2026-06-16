@@ -37,6 +37,6 @@ export default {
   performance: "",
   security: "",
   federation: "",
-  "robust-client": "Robust Clients",
+  "robust-applications": "Robust Applications",
   "debug-errors": "Common GraphQL over HTTP Errors",
 }
