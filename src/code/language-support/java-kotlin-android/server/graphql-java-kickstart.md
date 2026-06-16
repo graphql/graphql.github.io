@@ -3,6 +3,9 @@ name: GraphQL Spring Boot
 description: GraphQL Spring Boot from GraphQL Java Kickstart
 url: https://www.graphql-java-kickstart.com/
 github: graphql-java-kickstart/graphql-spring-boot
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 The GraphQL Spring Boot turns any Spring Boot application into a GraphQL Server

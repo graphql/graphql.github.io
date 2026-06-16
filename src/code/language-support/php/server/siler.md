@@ -3,6 +3,9 @@ name: Siler
 description: Siler is a PHP library powered with high-level abstractions to work with GraphQL.
 url: https://siler.leocavalcante.com/graphql/
 github: leocavalcante/siler
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 To run a Siler hello world script:

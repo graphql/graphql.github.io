@@ -3,6 +3,9 @@ name: Graphene Django CRUDDALS
 description: Turn your Django-models into a complete GraphQL API with all CRUD operations
 url: https://graphene-django-cruddals.readthedocs.io/en/latest/
 github: juanjcardona13/graphene_django_cruddals
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 You can install the package with pip

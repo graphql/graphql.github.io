@@ -2,6 +2,9 @@
 name: alumbra
 description: A set of reusable GraphQL components for Clojure conforming to the data structures given in [alumbra.spec](https://github.com/alumbra/alumbra.spec).
 github: alumbra/alumbra
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 ```clojure

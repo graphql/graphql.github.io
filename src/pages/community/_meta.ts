@@ -1,5 +1,9 @@
 export default {
-  resources: "Resources",
+  "official-channels": "",
+  "training-courses": "",
+  "community-channels": "",
+  "vendor-channels": "",
+  "more-resources": "Community Resources",
   "tools-and-libraries": {
     theme: {
       layout: "raw",

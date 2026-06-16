@@ -2,6 +2,9 @@
 name: graphql-perl
 description: A Perl port of GraphQL reference implementation
 github: graphql-perl/graphql-perl
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 - [MetaCPAN documentation](https://metacpan.org/pod/GraphQL)

@@ -1,0 +1,65 @@
+---
+title: "Introducing GAPs: GraphQL Auxiliary Proposals"
+tags: [announcements]
+date: 2026-06-01
+byline: Mark Larah
+featured: true
+---
+
+The primary [GraphQL specification](https://spec.graphql.org/draft/) narrowly
+describes the core behavior of GraphQL; the language itself, how the server
+validates and executes operations, how errors propagate etc.
+
+Additionally, the GraphQL Foundation maintains secondary specifications such as
+[GraphQL Over HTTP][over-http] and [Composite Schemas][composite-schemas] which
+standardize how GraphQL should be delivered over networks and how distributed
+execution may occur.
+
+[over-http]: https://github.com/graphql/graphql-over-http/blob/main/spec/GraphQLOverHTTP.md
+[composite-schemas]: https://github.com/graphql/composite-schemas-spec
+
+Beyond these secondary specifications however, GraphQL is intentionally
+un-opinionated about how it may be implemented by users. For example, we do not
+specify naming conventions in the schema or describe how caching should work in
+GraphQL clients. Such concerns are left to developers and library authors to
+decide how they should handle this.
+
+There are, you might say, some "gaps" in the official specification(s)...
+
+Community-written specifications such as Meta's Connections Specification or
+IBM's `@cost` directive have emerged to fill this void and establish convention.
+They're written in the same format as our official specifications
+and are similarly intended to be adopted across different frameworks and
+organizations.
+
+As an industry, we benefit from having existing, well thought-out specifications
+to address common problems - rather than teams having to reinvent the wheel each
+time, and with competing standards.
+
+## GAPs
+
+At this year's GraphQL Conf, we announced the **GraphQL Auxiliary Proposals
+(GAPs)** project, a centralized home for the GraphQL community to discuss, draft, publish,
+browse and discover auxiliary specifications:
+
+👉 [https://gaps.graphql.org/](https://gaps.graphql.org/)
+
+## How it works
+
+1. Head to [github.com/graphql/gaps](https://github.com/graphql/gaps) and follow
+   the contributing guidelines
+2. Submit your specification as a `.md` file, written in
+   [spec-md](https://spec-md.com/) format.
+3. After merging, you own the GAP. You can freely update it without needing
+   working group approval.
+
+Once merged, your GAP gets published on the GAPs homepage with a permanent link
+you can share.
+
+## Submit a GAP!
+
+If you've got a battle-tested solution to a common GraphQL problem, or have
+adopted a convention that you think others would also find useful, consider
+writing it up as a specification and submit it as a GAP.
+
+Help us fill the “gaps” in GraphQL! :)

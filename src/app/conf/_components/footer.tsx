@@ -13,7 +13,7 @@ export function Footer({
   logo: ReactNode
 }) {
   return (
-    <footer className="bg-conf-black py-10 text-white lg:py-20">
+    <footer className="bg-neu-0 py-10 text-neu-900 lg:py-20">
       <div className="container mb-10 flex flex-wrap items-start justify-between gap-10 xl:mb-32">
         {logo}
         {links.map((link, i) => (

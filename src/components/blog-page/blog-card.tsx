@@ -1,3 +1,5 @@
+"use client"
+
 import { clsx } from "clsx"
 import NextLink from "next/link"
 
@@ -24,7 +26,7 @@ export function BlogCard({
   ...rest
 }: BlogCardProps) {
   return (
-    <div className="relative">
+    <div className="relative isolate">
       <BlogTags
         tags={frontMatter.tags}
         opaque
@@ -93,6 +95,7 @@ export function BlogCardFooterContent({
           month: "long",
           day: "numeric",
           year: "numeric",
+          timeZone: "UTC",
         })}
       </time>
     </span>

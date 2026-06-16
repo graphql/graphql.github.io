@@ -3,6 +3,10 @@ name: Wundergraph Cosmo
 description: The open-source solution to building, maintaining, and collaborating on GraphQL Federation at Scale. The alternative to Apollo Studio and GraphOS.
 url: https://wundergraph.com/
 github: wundergraph/cosmo
+tags:
+  - tools-and-libraries
+  - tools
+  - federation
 ---
 
 [WunderGraph](https://wundergraph.com) composes all your APIs into a single unified GraphQL API and

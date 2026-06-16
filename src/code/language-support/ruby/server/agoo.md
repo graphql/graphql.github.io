@@ -3,6 +3,9 @@ name: Agoo
 description: A high performance web server with support for GraphQL. Agoo strives for a simple, easy to use API for GraphQL.
 github: ohler55/agoo
 gem: agoo
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 ```ruby

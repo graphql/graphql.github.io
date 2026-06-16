@@ -4,4 +4,7 @@ description: GraphQL Mesh allows you to use GraphQL query language to access dat
 url: https://graphql-mesh.com
 github: Urigo/graphql-mesh
 npm: "@graphql-mesh/cli"
+tags:
+  - tools-and-libraries
+  - tools
 ---

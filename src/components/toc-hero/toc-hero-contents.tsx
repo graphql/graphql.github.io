@@ -1,6 +1,7 @@
 import { clsx } from "clsx"
 
 import { ChevronRight } from "@/app/conf/_design-system/pixelarticons/chevron-right"
+import { slugify } from "@/app/(main)/resources/[category]/categories-config"
 
 export interface TocHeroContentsProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -25,12 +26,13 @@ export function TocHeroContents({
       </h2>
       <ul
         className={clsx(
-          "grid grid-flow-row-dense grid-rows-2 gap-px border-t border-inherit bg-neu-300 dark:bg-neu-100",
+          "grid grid-flow-row-dense gap-px border-t border-inherit bg-neu-300 dark:bg-neu-100",
           sections.length % 3 === 0
             ? "grid-cols-2 lg:grid-cols-[repeat(3,1fr)]"
-            : sections.length % 2 === 0
+            : sections.length > 2
               ? "grid-cols-2"
               : "grid-cols-1",
+          sections.length > 3 && "grid-rows-2",
         )}
       >
         {sections.map((section, i) => {
@@ -38,12 +40,26 @@ export function TocHeroContents({
             typeof section === "string"
               ? {
                   name: section,
-                  href: `#${section.toLowerCase().replace(/ /g, "-")}`,
+                  href: `#${slugify(section)}`,
                 }
               : section
 
+          const isLastOdd =
+            sections.length > 2 &&
+            sections.length % 2 === 1 &&
+            i === sections.length - 1
+
           return (
-            <li key={i}>
+            <li
+              key={i}
+              className={
+                isLastOdd
+                  ? sections.length % 3 === 0
+                    ? "col-span-2 lg:col-span-1"
+                    : "col-span-2"
+                  : undefined
+              }
+            >
               <a
                 className="flex h-full items-center gap-2 bg-neu-0 p-2 text-left hover:bg-neu-50 max-sm:text-sm sm:gap-2 sm:p-3 lg:py-5"
                 href={href}

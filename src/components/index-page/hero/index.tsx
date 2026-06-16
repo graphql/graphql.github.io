@@ -29,7 +29,7 @@ export function Hero() {
           </ul>
 
           <div className="flex items-center gap-4">
-            <Button href="/#try-it-out">Try it out</Button>
+            <Button href="/#how-it-works">Try it out</Button>
             <Button href="/learn" variant="secondary">
               <span className="sr-only">Read the </span> Docs
             </Button>

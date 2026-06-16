@@ -2,6 +2,9 @@
 name: Ariadne Codegen
 description: Generate fully typed Python GraphQL client from any schema and queries.
 github: mirumee/ariadne-codegen
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 Install Ariadne Codegen:

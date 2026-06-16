@@ -36,7 +36,7 @@ export function ArrowNavLinks({
           title={prev.title}
           className="gql-focus-visible typography-link flex max-w-[50%] items-center gap-2 border border-neu-200 pr-2 text-left text-base no-underline hover:bg-neu-50 hover:ring hover:ring-neu-100 dark:border-neu-100 dark:hover:bg-neu-50/50 dark:hover:ring-neu-50"
         >
-          <span className="border-r p-2">
+          <span className="border-r border-inherit p-2">
             <ArrowDown className="size-8 shrink-0 rotate-90" />
           </span>
           <span className="[word-break:break-word]">{prev.title}</span>
@@ -49,7 +49,7 @@ export function ArrowNavLinks({
           className="gql-focus-visible typography-link ml-auto flex max-w-[50%] items-center gap-2 border border-neu-200 pl-2 text-left text-base no-underline hover:bg-neu-50 hover:ring hover:ring-neu-100 dark:border-neu-100 dark:hover:bg-neu-50/50 dark:hover:ring-neu-50"
         >
           <span className="[word-break:break-word]">{next.title}</span>
-          <span className="border-l border-neu-200 p-2 dark:border-neu-100">
+          <span className="border-l border-inherit p-2">
             <ArrowDown className="size-8 shrink-0 -rotate-90" />
           </span>
         </NextLink>

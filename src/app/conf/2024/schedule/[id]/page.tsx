@@ -207,7 +207,7 @@ export default function SessionPage({ params }: SessionProps) {
                       View Full PDF{" "}
                       <span className="font-sans text-2xl font-light">↗</span>
                     </a>
-                    <iframe src={path} className="aspect-video size-full" />
+                    <iframe src={path} className="aspect-video w-full" />
                   </div>
                 ))}
               </div>

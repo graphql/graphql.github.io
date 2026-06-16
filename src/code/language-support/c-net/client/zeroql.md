@@ -2,6 +2,9 @@
 name: ZeroQL
 description: ZeroQL is a open-source GraphQL client for C#
 github: byme8/ZeroQL
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 The ZeroQL is a high-performance C#-friendly GraphQL client. It supports Linq-like syntax, and doesn't require Reflection.Emit or expressions.

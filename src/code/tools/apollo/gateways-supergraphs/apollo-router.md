@@ -3,6 +3,10 @@ name: Apollo Router
 description: A configurable, high-performance routing runtime for Apollo Federation
 url: https://www.apollographql.com/
 github: apollographql/router
+tags:
+  - tools-and-libraries
+  - tools
+  - federation
 ---
 
 # Apollo Router Core

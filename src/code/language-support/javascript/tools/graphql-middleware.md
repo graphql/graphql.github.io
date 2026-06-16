@@ -3,6 +3,9 @@ name: GraphQL Middleware
 description: Split up your GraphQL resolvers in middleware functions.
 github: maticzav/graphql-middleware
 npm: graphql-middleware
+tags:
+  - tools-and-libraries
+  - tools
 ---
 
 GraphQL Middleware is a schema wrapper which allows you to manage additional functionality across multiple resolvers efficiently.

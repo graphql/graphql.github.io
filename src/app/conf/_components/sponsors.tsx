@@ -131,7 +131,7 @@ const classes = {
 
 export function Sponsors() {
   return (
-    <div id="sponsors" className="bg-conf-black">
+    <div id="sponsors" className="bg-neu-0 text-neu-900">
       <div className="conf-block container">
         <h1 className={classes.title}>Sponsors</h1>
         <h3 className={classes.heading}>Diamond</h3>

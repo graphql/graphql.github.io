@@ -26,9 +26,10 @@ export const Breadcrumbs = ({
 
         const title = extractStringsFromReactNode(item.title)
         const className = clsx(
-          "text-neu-700 dark:text-neu-400 min-w-6 last:text-neu-800 dark:last:text-neu-800 leading-none",
+          "text-neu-700 dark:text-neu-400 min-w-6 last:text-neu-800 dark:last:text-neu-800 leading-none whitespace-pre",
           href &&
             "gql-focus-visible ring-inset hover:text-neu-900 hover:underline underline-offset-2",
+          item.title.length > 8 ? "overflow-hidden truncate" : "shrink-0",
         )
 
         return (

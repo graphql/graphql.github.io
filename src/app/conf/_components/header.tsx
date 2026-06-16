@@ -34,7 +34,7 @@ export function Header({
   }, [pathname])
 
   return (
-    <header className="sticky top-0 z-10 border-b border-[#565060] bg-conf-black">
+    <header className="sticky top-0 z-10 border-b border-[#565060] bg-neu-0 text-neu-900">
       <div
         className={`container flex items-center ${is2025 ? "justify-between" : ""} h-[70px] gap-5`}
       >
@@ -67,7 +67,7 @@ export function Header({
             "items-end gap-7",
             "inset-y-0 right-0 z-20 max-lg:fixed max-lg:min-w-[50%] max-lg:px-4 max-lg:py-6",
             mobileDrawerOpen ? "translate-x-0" : "max-lg:translate-x-full",
-            "flex bg-conf-black max-lg:flex-col",
+            "flex bg-neu-0 max-lg:flex-col",
           )}
         >
           {mobileDrawerOpen && (

@@ -482,7 +482,12 @@
     },
     {
       "source": "/community",
-      "destination": "/community/resources/official-channels",
+      "destination": "/community/official-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/",
+      "destination": "/community/official-channels/",
       "permanent": true
     },
     {
@@ -496,8 +501,53 @@
       "permanent": true
     },
     {
+      "source": "/community/resources",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/official-channels",
+      "destination": "/community/official-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/training-courses",
+      "destination": "/community/training-courses",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/community-channels",
+      "destination": "/community/community-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/vendor-channels",
+      "destination": "/community/vendor-channels",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/more-resources",
+      "destination": "/community/more-resources",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/blogs-and-newsletters",
+      "destination": "/resources/reading/blogs-and-newsletters",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/video",
+      "destination": "/resources/video",
+      "permanent": true
+    },
+    {
+      "source": "/community/resources/books",
+      "destination": "/resources/reading/books",
+      "permanent": true
+    },
+    {
       "source": "/conf/",
-      "destination": "/conf/2025/",
+      "destination": "/conf/2026/",
       "permanent": false
     },
     {
@@ -557,12 +607,12 @@
     },
     {
       "source": "/community",
-      "destination": "/community/resources/official-channels/",
+      "destination": "/community/official-channels/",
       "permanent": true
     },
     {
       "source": "/community/",
-      "destination": "/community/resources/official-channels/",
+      "destination": "/community/official-channels/",
       "permanent": true
     },
     {
@@ -609,6 +659,11 @@
       "source": "/conf/2025/event-resources",
       "destination": "https://sites.google.com/linuxfoundation.org/graphqlconf2025event-resources/event-resources",
       "permanent": false
+    },
+    {
+      "source": "/day/2025",
+      "destination": "https://graphql.day/2025",
+      "permanent": true
     }
   ]
 }

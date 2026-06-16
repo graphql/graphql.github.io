@@ -84,6 +84,7 @@ async function sync(
     2023: "https://graphqlconf23.sched.com/api",
     2024: "https://graphqlconf2024.sched.com/api",
     2025: "https://graphqlconf2025.sched.com/api",
+    2026: "https://graphqlconf2026.sched.com/api",
   }[year]
 
   assert(apiUrl, `API URL for year ${year} not found`)

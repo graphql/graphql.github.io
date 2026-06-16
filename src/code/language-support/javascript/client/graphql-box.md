@@ -3,6 +3,9 @@ name: GraphQLBox client
 description: An extensible GraphQL client with modules for react, caching, request parsing, web workers, websockets and more...
 github: badbatch/graphql-box
 npm: "@graphql-box/client"
+tags:
+  - tools-and-libraries
+  - frontend
 ---
 
 The example below installs and initializes the GraphQLBox client with a persisted cache and debugging enabled.

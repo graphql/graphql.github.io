@@ -11,7 +11,7 @@ import { LearnHeroStripes } from '../../components/learn-aggregator/learn-hero-s
 import { pagesBySection } from '../../components/learn-aggregator/learn-pages'
 import { CommonQuestionsSection } from '../../components/learn-aggregator/common-questions'
 import { TrainingCoursesSection } from '../../components/learn-aggregator/training-courses'
-import { LookingForMore } from "../../components/learn-aggregator/looking-for-more"
+import { LookingForMore } from "../../components/looking-for-more"
 
 <NavbarFixed />
 <TocHero
@@ -68,4 +68,11 @@ import { LookingForMore } from "../../components/learn-aggregator/looking-for-mo
 
 <CommonQuestionsSection id="faq" />
 
-<LookingForMore />
+<LookingForMore
+  description="Learning is just the beginning. Discover tools and other resources — or connect with the GraphQL community around the world."
+  links={[
+    { href: "/resources", label: "Resources" },
+    { href: "/community", label: "Community" },
+  ]}
+/>
+

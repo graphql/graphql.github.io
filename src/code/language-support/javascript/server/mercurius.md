@@ -4,6 +4,9 @@ description: Mercurius is a flexible and extendible GraphQL adapter for Fastify,
 url: https://mercurius.dev/
 github: mercurius-js/mercurius
 npm: "mercurius"
+tags:
+  - tools-and-libraries
+  - backend
 ---
 
 To run an hello world script with `mercurius`:

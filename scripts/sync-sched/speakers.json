@@ -27,9 +27,47 @@
     [
       "saihaj",
       "saihajpreet.singh"
+    ],
+    [
+      "chanc2",
+      "chikit"
+    ],
+    [
+      "michaelwatson93",
+      "watson17"
     ]
   ],
   "speakers": [
+    {
+      "username": "6654cd5ffe035ffb380835a054460703",
+      "company": "Wundergraph",
+      "position": "Senior Founding Software Engineer",
+      "name": "David Stutt",
+      "about": "David is one of the four founding engineers at WunderGraph who collectively built the software foundations of the company. David's career began in the finance sector of software engineering before moving exclusively to API management in 2022. From that point, David started his deep-dive journey into GraphQL and Federation. David was also the creator of the popular \"Will It Compose\" game that was presented by Jens Neuse at GraphQL Conf 2023 at the beginning of his Dataloader 3.0 session, which remains the most-watched video on the GraphQL Working Groups YouTube channel. In addition, David is a member of the composite schema working group committee and tries to provide contributions and input where possible.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/80/24560846/avatar.jpg.320x320px.jpg?4b2",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
+    },
+    {
+      "username": "9b868b5052cc363f49b944ab9f70357e",
+      "company": "Apollo GraphQL",
+      "position": "Staff Solutions Architect",
+      "name": "Erik Bylund",
+      "about": "",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/9/53/24999816/avatar.jpg.320x320px.jpg?a8c",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
+    },
     {
       "username": "abbottry",
       "company": "NASA EED-3 / Element 84",
@@ -44,6 +82,30 @@
         2023
       ],
       "~syncedDetailsAt": 1749568381879
+    },
+    {
+      "username": "acon2",
+      "company": "Meta",
+      "position": "Engineering Manager",
+      "name": "Adam Conrad",
+      "about": "Engineering Manager for integrating GraphQL in our mobile applications at Meta. Previously focused on React at Meta.",
+      "location": "Boston, MA",
+      "url": "https://www.adamconrad.dev",
+      "avatar": "//avatars.sched.co/a/b5/24427754/avatar.jpg.320x320px.jpg?834",
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/acconrad"
+        },
+        {
+          "service": "Instagram",
+          "url": "https://www.instagram.com/heyitsacon/"
+        }
+      ],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "adam_malone.2791s6x2",
@@ -129,6 +191,21 @@
       "~syncedDetailsAt": 1758137788992
     },
     {
+      "username": "adambh",
+      "company": "The Guild Software",
+      "position": "Software Engineer",
+      "name": "Adam Benkhassen",
+      "about": "Adam Benkhassen is a Senior Software Engineer. He works at The Guild Software, where he contributes to GraphQL Hive (incl. Gateway). Previously a Founding Engineer at Inigo GraphQL, he brings 5 years of experience building GraphQL platform tooling. Adam is passionate about building open source tools that make GraphQL adoption seamless at scale. Outside of work, he enjoys reverse engineering and exploring how things work under the hood — from software to silicon.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/2/12/24421505/avatar.jpg.320x320px.jpg?0cc",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
+    },
+    {
       "username": "aditi_rajawat",
       "company": "Intuit",
       "position": "Software Engineering Manager",
@@ -157,6 +234,21 @@
         2025
       ],
       "~syncedDetailsAt": 1758551363975
+    },
+    {
+      "username": "aish6595",
+      "company": "Amazon",
+      "position": "Software Development Engineer",
+      "name": "Aishwarya Tirumala",
+      "about": "Aishwarya is a Software Engineer on Amazon's Retail Pricing Platform team, where she builds the GraphQL based infrastructure that powers pricing data access across Amazon's global marketplace. She's passionate about leveraging GraphQL to simplify complex data access patterns and building event-driven architectures that keep distributed systems in sync at massive scale. She presented on GraphQL at GraceHopperConference 2025 sharing insights from operating production services at enterprise scale.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/e/b4/24421508/avatar.jpg.320x320px.jpg?a9f",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
     },
     {
       "username": "ajhingran",
@@ -191,13 +283,13 @@
     },
     {
       "username": "alec102",
-      "company": "HoudiniLabs",
-      "position": "CEO",
+      "company": "Arista Networks",
+      "position": "Software Engineer",
       "name": "Alec Aivazis",
       "about": "Alec is an open source enthusiast currently focused on Houdini, a GraphQL client. He spends his time away from the keyboard tending to a collection of carnivorous plants. And when he's in the mood for a sunburn, he also enjoys cycling and sailing with his family.",
       "location": "",
       "url": "https://alec.aivazis.com/",
-      "avatar": "//avatars.sched.co/d/b3/18743870/avatar.jpg.320x320px.jpg?03d",
+      "avatar": "//avatars.sched.co/d/b3/18743870/avatar.jpg.320x320px.jpg?5d6",
       "socialurls": [
         {
           "service": "Twitter",
@@ -210,7 +302,8 @@
       ],
       "_years": [
         2023,
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551361502
     },
@@ -348,9 +441,10 @@
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758551361502
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "andrei.bocan",
@@ -382,6 +476,21 @@
         2024
       ],
       "~syncedDetailsAt": 1749505494947
+    },
+    {
+      "username": "angel.svirkov",
+      "company": "trivago",
+      "position": "Software Engineer",
+      "name": "Angel Svirkov",
+      "about": "Angel Svirkov is a Software Engineer at trivago, Germany. Over 10 years, he has bridged product needs and engineering realities—owning problems end-to-end from discovery through architecture, implementation, rollout, and operations. For the past six years, this work has centered on trivago's internal GraphQL Gateway. Outside his main role, he has also volunteered at ReDI School, teaching web fundamentals to learners from underrepresented backgrounds.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/7/e5/24421511/avatar.jpg.320x320px.jpg?7e0",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
     },
     {
       "username": "ankita25",
@@ -495,15 +604,16 @@
       "company": "Meta",
       "position": "Software Engineer",
       "name": "Anirudh Padmarao",
-      "about": "Server Infrastructure at Instagram",
+      "about": "I work on server infrastructure at Instagram.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/7/7a/23098714/avatar.jpg.320x320px.jpg?a19",
+      "avatar": "//avatars.sched.co/7/7a/23098714/avatar.jpg.320x320px.jpg?110",
       "socialurls": [],
       "_years": [
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "ardatanrikulu",
@@ -569,12 +679,12 @@
     {
       "username": "badurinadenis",
       "company": "The Guild",
-      "position": "Software Architect",
+      "position": "Denis from The Guild",
       "name": "Denis Badurina",
-      "about": "I am a self-taught senior software architect, with a distinguishing trait of resiliently finding simple solutions to complex problems using communication through words and code. Starting from my first Lego set, I've been in love with development throughout my whole life. As a creator, having the ability to turn thoughts into reality is a gift I find essential. Forever learning through practical applications, bad decisions and positive thoughts - I, ultimately, turned a hobby into an obsession.",
+      "about": "I am a self-taught senior software architect, with a distinguishing trait of resiliently finding simple solutions to complex problems using communication through words and code.\n \nStarting from my first Lego set, I've been in love with development throughout my whole life. As a creator, having the ability to turn thoughts into reality is a gift I find essential. Forever learning through practical applications, bad decisions and positive thoughts - I, ultimately, turned a hobby into an obsession.",
       "location": "Sarajevo",
       "url": "",
-      "avatar": "//avatars.sched.co/6/a9/18743810/avatar.jpg.320x320px.jpg?ec6",
+      "avatar": "//avatars.sched.co/6/a9/18743810/avatar.jpg.320x320px.jpg?9c2",
       "socialurls": [
         {
           "service": "Twitter",
@@ -588,9 +698,25 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551361502
+    },
+    {
+      "username": "benjamin.golub",
+      "company": "Meta",
+      "position": "Software Engineer",
+      "name": "Benjamin Golub",
+      "about": "Ben has been with Meta (then Facebook) since 2009 and has worked on the Graph API, GraphQL, Hack, HHVM, and more.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/f/f1/24427748/avatar.jpg.320x320px.jpg?75b",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "benjamin154",
@@ -610,12 +736,12 @@
     {
       "username": "benjie3",
       "company": "Graphile",
-      "position": "GraphQL TSC Member",
+      "position": "Maintainer",
       "name": "Benjie Gillam",
       "about": "A self-described \"community-funded open source maintainer,\" Benjie dedicates much of his time to open source, made possible by the support of appreciative and forward-thinking individuals and organizations. He can often be found helping contributors advance their proposals, and has been instrumental in many key GraphQL advancements and initiatives. As a member of the GraphQL Technical Steering Committee (TSC), Benjie is proud to help guide GraphQL into the future.",
       "location": "Chandler's Ford, UK",
       "url": "https://graphile.org/",
-      "avatar": "//avatars.sched.co/b/99/18743846/avatar.jpg.320x320px.jpg?a19",
+      "avatar": "//avatars.sched.co/b/99/18743846/avatar.jpg.320x320px.jpg?48c",
       "socialurls": [
         {
           "service": "Twitter",
@@ -629,9 +755,10 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758551363975
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "BoD",
@@ -664,6 +791,21 @@
       "~syncedDetailsAt": 1758137781378
     },
     {
+      "username": "bpallempati",
+      "company": "Wayfair",
+      "position": "Software Engineer @ Wayfair",
+      "name": "Bhavana Sree Pallempati",
+      "about": "Bhavana Sree Pallempati is a Software Engineer on Wayfair's GraphQL Platform team, where she builds and scales infrastructure and tooling that powers the company's federated GraphQL ecosystem.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/c/b5/24421514/avatar.jpg.320x320px.jpg?c03",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
+    },
+    {
       "username": "brandon.r.minnick",
       "company": "AWS",
       "position": ".NET Developer Advocate",
@@ -682,6 +824,36 @@
         2023
       ],
       "~syncedDetailsAt": 1749502266902
+    },
+    {
+      "username": "braxtonbragg1",
+      "company": "Meta",
+      "position": "Senior Product Manager",
+      "name": "Braxton Bragg",
+      "about": "Product manager with 13 years experience on a variety of consumer-facing products. I currently support the Mobile GraphQL platform at Meta.",
+      "location": "New York",
+      "url": "https://www.braxtonbragg.co/",
+      "avatar": "//avatars.sched.co/8/f4/24421517/avatar.jpg.320x320px.jpg?ac4",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
+    },
+    {
+      "username": "brennendavis",
+      "company": "Lease End",
+      "position": "Principal Software Engineer",
+      "name": "Brennen Davis",
+      "about": "Husband to a beautiful wife and a dad to 2 boys. Video games and programming",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/c/e9/24421520/avatar.jpg.320x320px.jpg?f3d",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
     },
     {
       "username": "bryan.robinson2",
@@ -763,6 +935,36 @@
       "~syncedDetailsAt": 1749501873331
     },
     {
+      "username": "cabreu",
+      "company": "Brex",
+      "position": "Senior Software Engineer",
+      "name": "Clarice Abreu",
+      "about": "Clarice Abreu leads the roadmap and strategy for the Brex's GraphQL platform. She drives initiatives to improve schema quality, schema validation and observability, helping teams build and evolve a large-scale federated GraphQL architecture.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/b/43/24421535/avatar.jpg.320x320px.jpg?1bb",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
+    },
+    {
+      "username": "cam78",
+      "company": "Stax.ai",
+      "position": "Head of Engineering",
+      "name": "Cameron Sechrist",
+      "about": "Cameron Sechrist is a dynamic software engineer, seasoned entrepreneur, and compliance expert with over a decade of experience driving technological innovation and ensuring robust data security across diverse industries. His entrepreneurial journey began remarkably early, with his first company founded at the age of 15, a path that has since led to three successful company exits. Outside of work, Cam enjoys hanging with his puppy, Hope.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/8/da/24421523/avatar.jpg.320x320px.jpg?6ce",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
+    },
+    {
       "username": "chanc2",
       "company": "Meta",
       "position": "Software Engineer",
@@ -781,6 +983,21 @@
         2025
       ],
       "~syncedDetailsAt": 1758551363975
+    },
+    {
+      "username": "chikit",
+      "company": "Meta",
+      "position": "Software Engineer",
+      "name": "Chi Chan",
+      "about": "GraphQL server side framework at Meta.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/6/47/24421529/avatar.jpg.320x320px.jpg?68d",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772616262244
     },
     {
       "username": "christian.ernst",
@@ -851,6 +1068,21 @@
         2025
       ],
       "~syncedDetailsAt": 1758137781378
+    },
+    {
+      "username": "dale.seo",
+      "company": "Apollo GraphQL",
+      "position": "Software Engineer",
+      "name": "Dale Seo",
+      "about": "Helping developers help the world 🧑‍🚀🚀",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/e/98/24421538/avatar.jpg.320x320px.jpg?26c",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
     },
     {
       "username": "danadajian",
@@ -985,7 +1217,7 @@
       "about": "CTO @ The Guild, creator and maintainer of many open-source libraries in the GraphQL ecosystem, including GraphQL-Codegen.",
       "location": "",
       "url": "https://the-guild.dev",
-      "avatar": "//avatars.sched.co/3/1e/23098735/avatar.jpg.320x320px.jpg?7a3",
+      "avatar": "//avatars.sched.co/3/1e/23098735/avatar.jpg.320x320px.jpg?03d",
       "socialurls": [
         {
           "service": "Twitter",
@@ -997,7 +1229,8 @@
         }
       ],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551363975
     },
@@ -1023,13 +1256,13 @@
     },
     {
       "username": "eddynguyen",
-      "company": "SEEK & The Guild",
-      "position": "Lead Engineer",
+      "company": "The Guild",
+      "position": "Software Developer",
       "name": "Eddy Nguyen",
-      "about": "By day, Eddy builds products at SEEK. By night, he maintains GraphQL Code Generator at The Guild.",
+      "about": "Eddy is a Lead Engineer at SEEK, where he builds GraphQL-driven applications by day. By night, he moonlights at The Guild as a GraphQL Code Generator maintainer—with the unrelenting support of his two cats.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/c/de/23565738/avatar.jpg.320x320px.jpg?063",
+      "avatar": "//avatars.sched.co/c/de/23565738/avatar.jpg.320x320px.jpg?a24",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1041,7 +1274,8 @@
         }
       ],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551363975
     },
@@ -1059,6 +1293,21 @@
         2023
       ],
       "~syncedDetailsAt": 1749503782817
+    },
+    {
+      "username": "elenabukareva",
+      "company": "Meta",
+      "position": "Software Engineering Manager",
+      "name": "Elena Bukareva",
+      "about": "Software Engineering Manager at Meta, leading the Mobile GraphQL Platform. Focused on building scalable, intuitive GraphQL infrastructure and tooling that powers mobile experiences at global scale. Passionate about platform engineering, API design, and enabling product teams to move faster with confidence.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/d/1e/19320426/avatar.jpg.320x320px.jpg?73a",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
     },
     {
       "username": "emily.li2",
@@ -1248,6 +1497,36 @@
       "~syncedDetailsAt": 1749505494947
     },
     {
+      "username": "garyxzeng",
+      "company": "Meta",
+      "position": "Software Engineer, GraphQL Platform",
+      "name": "Gary Zeng",
+      "about": "Gary is a Software Engineer working on Meta's GraphQL engine powering one of the worlds largest schemas. He focuses the balance between language design and system reliability. In the physical world, Gary has hosted over 1000 hours of Dungeons and Dragons.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/b/3b/24421541/avatar.jpg.320x320px.jpg?eb4",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
+    },
+    {
+      "username": "gaurav.singh3",
+      "company": "Capital One",
+      "position": "Distinguished Engineer",
+      "name": "Gaurav Singh",
+      "about": "Gaurav Singh serves as a Distinguished Engineer and Cybersecurity Architect at Capital One. His contributions were pivotal in the enablement of GraphQL Federation throughout the enterprise, which involved the introduction of open-source GraphQL federation products , a dedicated GraphQL APIs marketplace, and automated governance. He is currently focused on the Cybersecurity space, where his core responsibilities involve creating secure and compliant, intelligent data-driven software solutions.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/7/f9/24421544/avatar.jpg.320x320px.jpg?278",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
+    },
+    {
       "username": "gerard.klijs",
       "company": "AxonIQ",
       "position": "Software Engineer",
@@ -1355,14 +1634,29 @@
       "~syncedDetailsAt": 1758137784031
     },
     {
+      "username": "greg.macwilliam",
+      "company": "Shopify",
+      "position": "Staff Software Engineer",
+      "name": "Greg MacWilliam",
+      "about": "Greg is an API Foundations engineer at Shopify focused on GraphQL scalability and performance. He’s an open-source contributor on several GraphQL projects, and author of The Schema Stitching Handbook. Coder. Dad. Likes dogs, juggles fire.",
+      "location": "Rochester, NY",
+      "url": "",
+      "avatar": "//avatars.sched.co/9/75/24421547/avatar.jpg.320x320px.jpg?82f",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
+    },
+    {
       "username": "hello2358",
       "company": "IBM",
-      "position": "Technical Product Manager",
+      "position": "Developer Experience",
       "name": "Roy Derks",
-      "about": "Roy is an entrepreneur, speaker and author from The Netherlands and, in his own words, 'wants to make the world a better place through tech'. He has been giving talks and trainings to developers worldwide on technologies like GraphQL, React and TypeScript. Most recently he wrote the book Fullstack GraphQL.",
+      "about": "Roy Derks is a lifelong software developer, author and public speaker from the Netherlands. Currently chasing his dreams in Silicon Valley, California. Roy's mission is to make the world a better place through technology by inspiring developers all over the world, more specifically AI and Web Development technologies. Before jumping into Developer Advocacy and joining IBM in Product Management, he founded and worked at multiple startups.",
       "location": "Santa Clara, CA",
-      "url": "https://x.com/gethackteam",
-      "avatar": "//avatars.sched.co/a/20/16832291/avatar.jpg.320x320px.jpg?60d",
+      "url": "",
+      "avatar": "//avatars.sched.co/a/20/16832291/avatar.jpg.320x320px.jpg?2e3",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1375,9 +1669,40 @@
       ],
       "_years": [
         2023,
-        2024
+        2024,
+        2026
       ],
-      "~syncedDetailsAt": 1749497439360
+      "~syncedDetailsAt": 1777561604519
+    },
+    {
+      "username": "hpsiddhu",
+      "company": "AWS Community Builder",
+      "position": "Lead Software Engineer",
+      "name": "Harpreet Siddhu",
+      "about": "Harpreet Siddhu is a Lead Software Engineer and AWS Certified Solution Architect, Developer, and CloudOps engineer, AWS community Builder, and AWS road to re:Invent hackathon Champion and with over a decade of experience designing and modernizing cloud-native systems. He specializes in serverless architectures, distributed systems, and cloud cost optimization. Harry focuses on building production-ready platforms that balance performance, scalability, and economic efficiency.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/d/22/24421550/avatar.jpg.320x320px.jpg?f28",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
+    },
+    {
+      "username": "htnguyen203",
+      "company": "Meta",
+      "position": "Software Engineer",
+      "name": "Hugh Nguyen",
+      "about": "Hugh Nguyen is a Software Engineer working on Metamate team at Meta, which builds AI powered products and platforms. Hugh is working on enabling AI agents to access all internal knowledge through GraphQL, a novel approach to rapidly expand AI agent's capabilities.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/d/03/24427739/avatar.jpg.320x320px.jpg?4bf",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "idit_levine.25krdj4u",
@@ -1393,6 +1718,21 @@
         2023
       ],
       "~syncedDetailsAt": 1749505650884
+    },
+    {
+      "username": "igor116",
+      "company": "Yelp",
+      "position": "Senior Developer",
+      "name": "Igor Kusakov",
+      "about": "Seasoned full-stack sorcerer with 20+ years crafting scalable web empires, from Montreal's tech trenches to global gigs at spots like Yelp and beyond.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/b/c7/24421553/avatar.jpg.320x320px.jpg?950",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
     },
     {
       "username": "itamark",
@@ -1421,13 +1761,13 @@
     },
     {
       "username": "ivan.goncharov.ua",
-      "company": "KeenEthics",
-      "position": "Head of R&D",
+      "company": "APIs.guru",
+      "position": "GraphQL expectert, APIs.guru",
       "name": "Ivan Goncharov",
-      "about": "Ivan has been active in the GraphQL community since its early days and is currently a member of the GraphQL Technical Steering Committee.",
+      "about": "Ivan is very active in GraphQL community and one of the core contributors to graphql-js. He is co-founder of APIs.guru which specializes in API consulting. During last few years they released a bunch of popular GraphQL tools including GraphQL Voyager.",
       "location": "Lviv",
       "url": "https://apis.guru",
-      "avatar": "//avatars.sched.co/d/6f/23096422/avatar.jpg.320x320px.jpg?958",
+      "avatar": "//avatars.sched.co/d/6f/23096422/avatar.jpg.320x320px.jpg?157",
       "socialurls": [
         {
           "service": "LinkedIn",
@@ -1435,7 +1775,8 @@
         }
       ],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758137788992
     },
@@ -1486,10 +1827,11 @@
       "about": "Working on the GraphQL client and build infrastructure for mobile apps at Meta",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/5/f9/23098753/avatar.jpg.320x320px.jpg?9a8",
+      "avatar": "//avatars.sched.co/5/f9/23098753/avatar.jpg.320x320px.jpg?c05",
       "socialurls": [],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758137784031
     },
@@ -1534,14 +1876,44 @@
       "~syncedDetailsAt": 1758551366618
     },
     {
+      "username": "jbellenger",
+      "company": "Airbnb",
+      "position": "Engineer",
+      "name": "James Bellenger",
+      "about": "Running and baking enthusiast.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/ff/24421556/avatar.jpg.320x320px.jpg?51d",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
+    },
+    {
+      "username": "jeanleonino",
+      "company": "ConfrariaTech",
+      "position": "Founder",
+      "name": "Jean Lucas Lima",
+      "about": "Jean Lucas is a Developer Advocate focused on distributed systems and GraphQL runtime architecture. He works on making complex graph platforms like Viaduct approachable through clear abstractions and open-source examples. Based in Brazil, he also founded ConfrariaTech, a community of over 1,000 technology leaders, where he facilitates discussions on architecture and emerging technologies.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/b/c9/24421559/avatar.jpg.320x320px.jpg?031",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
+    },
+    {
       "username": "jeff.auriemma",
-      "company": "Apollo GraphQL",
-      "position": "Senior Engineering Manager",
+      "company": "Apollo",
+      "position": "Senior Software Engineer",
       "name": "Jeff Auriemma",
       "about": "Hi, I'm Jeff! I support the Apollo Client, Apollo iOS, Apollo Kotlin, and Apollo Server engineers at Apollo as a manager. Before going into software I was a trombonist and public school music teacher. In my free time I like to bake Chicago-style deep dish pizzas and French macarons.",
       "location": "Connecticut, USA",
       "url": "https://apollographql.com",
-      "avatar": "//avatars.sched.co/3/77/18743876/avatar.jpg.320x320px.jpg?d3d",
+      "avatar": "//avatars.sched.co/3/77/18743876/avatar.jpg.320x320px.jpg?10a",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1555,7 +1927,8 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551366618
     },
@@ -1595,19 +1968,20 @@
         }
       ],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551366618
     },
     {
       "username": "jens63",
       "company": "WunderGraph",
-      "position": "CEO & Founder",
+      "position": "Jens Neuse (CEO WunderGraph)",
       "name": "Jens Neuse",
-      "about": "CEO and Founder of WunderGraph,\nbuilding an open-source alternative to Apollo Federation and GraphOS.\nCreator of Open Federation, an open specification for federated GraphQL.\nCreator of graphql-go-tools, an open-source implementation of GraphQL in Go.",
+      "about": "Jens is a father to 3 kids, tries to be a good husband, is the author and a maintainer of graphql-go-tools for more than 6 years, and the CEO and Co-Founder of WunderGraph, a company that offers Cosmo, an open source GraphQL Federation platform.",
       "location": "",
       "url": "https://wundergraph.com",
-      "avatar": "//avatars.sched.co/3/68/19226202/avatar.jpg.320x320px.jpg?aea",
+      "avatar": "//avatars.sched.co/3/68/19226202/avatar.jpg.320x320px.jpg?a5c",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1619,9 +1993,25 @@
         }
       ],
       "_years": [
-        2023
+        2023,
+        2026
       ],
-      "~syncedDetailsAt": 1749505650884
+      "~syncedDetailsAt": 1777563142402
+    },
+    {
+      "username": "jerel.miller",
+      "company": "Apollo GraphQL",
+      "position": "Sr. Staff Software Engineer",
+      "name": "Jerel Miller",
+      "about": "Jerel is a Colorado native with a brief stint in Portland Oregon. He loves to code and learn about all sorts of programming patterns. He is an avid Denver Broncos fan and loves to play the bass.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/6/6e/23098762/avatar.jpg.320x320px.jpg?86a",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772651522172
     },
     {
       "username": "jim.barton",
@@ -1689,17 +2079,18 @@
     {
       "username": "jordaneldredge1",
       "company": "Meta",
-      "position": "Software Engineer at Meta",
+      "position": "Software Engieer",
       "name": "Jordan Eldredge",
-      "about": "Jordan has spent the last eight years working at Meta. He currently works on Relay, a sophisticated GraphQL client for JavaScript that powers most of Meta's JavaScript applications.",
+      "about": "Jordan has spent the last nine years working at Meta. He currently works on Relay, a sophisticated GraphQL client for JavaScript that powers most of Meta's JavaScript applications.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/5/f6/21508644/avatar.jpg.320x320px.jpg?ad2",
+      "avatar": "//avatars.sched.co/5/f6/21508644/avatar.jpg.320x320px.jpg?c9f",
       "socialurls": [],
       "_years": [
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758137784031
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "juancarlosjr97",
@@ -1869,6 +2260,21 @@
       "~syncedDetailsAt": 1749505650884
     },
     {
+      "username": "ksrinivasan4",
+      "company": "Netflix Inc.",
+      "position": "Staff Software Engineer",
+      "name": "Kavitha Srinivasan",
+      "about": "Kavitha Srinivasan is a member of the GraphQL platform team at Netflix that operates one of the largest federated graphs and provides developer tools. She has also been a core contributor and maintainer of the Domain Graph Services framework, an open source framework for building Spring Boot based GraphQL services. She is passionate about great developer experience and has been involved in driving the education and adoption of federated GraphQL at Netflix.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/9/cd/24421562/avatar.jpg.320x320px.jpg?df2",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
+    },
+    {
       "username": "laurent57",
       "company": "Postman",
       "position": "Microcks co-founder, Director of Engineering at Postman Open Technologies",
@@ -1895,12 +2301,12 @@
     {
       "username": "laurinquast",
       "company": "The Guild",
-      "position": "Software Engineer",
+      "position": "Developer",
       "name": "Laurin Quast",
-      "about": "Laurin Quast is a developer that started exploring GraphQL, by leading API development at a start-up. Realizing that there are still many unsolved problems and challenges within the space, he started contributing to famous JavaScript libraries, such as GraphQL Code Generator and Tools. Diving deeper, the transition into becoming a full-time open-source developer at The Guild was inevitable. Currently, he is working on Hive helping teams scale GraphQL across teams and organizations.",
+      "about": "Laurin Quast is a developer that started exploring GraphQL, by leading API development at a start-up. Realizing that there are still many unsolved problems and challenges within the space, he started contributing to famous JavaScript libraries, such as GraphQL Code Generator. Diving deeper, the transition into becoming a full-time role at The Guild was inevitable. Currently, he is leading the Hive Console team helping teams scale GraphQL across teams and organizations.",
       "location": "",
       "url": "https://the-guild.dev/",
-      "avatar": "//avatars.sched.co/2/a6/18743819/avatar.jpg.320x320px.jpg?ebc",
+      "avatar": "//avatars.sched.co/2/a6/18743819/avatar.jpg.320x320px.jpg?cef",
       "socialurls": [
         {
           "service": "Twitter",
@@ -1914,9 +2320,10 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "ldebruijn",
@@ -1950,9 +2357,10 @@
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "lee_byron.25krdom6",
@@ -2004,7 +2412,8 @@
       "avatar": "//avatars.sched.co/7/15/23098774/avatar.jpg.320x320px.jpg?49f",
       "socialurls": [],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758137784031
     },
@@ -2040,7 +2449,7 @@
       "about": "I work on Meta's Mobile GraphQL team.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/c/1d/19314398/avatar.jpg.320x320px.jpg?b71",
+      "avatar": "//avatars.sched.co/c/1d/19314398/avatar.jpg.320x320px.jpg?6e0",
       "socialurls": [
         {
           "service": "Facebook",
@@ -2053,9 +2462,10 @@
       ],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "mail1232",
@@ -2071,6 +2481,21 @@
         2025
       ],
       "~syncedDetailsAt": 1758137784031
+    },
+    {
+      "username": "mails.sreekanth",
+      "company": "Netflix",
+      "position": "Senior Software Engineer",
+      "name": "Sreekanth Ramakrishnan",
+      "about": "Sreekanth Ramakrishnan is a Senior Software Engineer on the Member API team at Netflix, where he works on systems that power dynamic, real-time experiences in Netflix pages across devices worldwide. He focuses on GraphQL, distributed systems, and server-driven UI architecture. Prior to Netflix, he worked on large-scale personalization and distributed platforms at Yahoo and Oracle. Outside of work, he enjoys building AI-powered side projects, traveling, and playing and watching soccer.",
+      "location": "San Francisco",
+      "url": "",
+      "avatar": "//avatars.sched.co/0/00/24421595/avatar.jpg.320x320px.jpg?c3b",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "mansi.mittal",
@@ -2139,12 +2564,12 @@
     {
       "username": "mark1437",
       "company": "Yelp",
-      "position": "Software Engineer",
+      "position": "Group Tech Lead",
       "name": "Mark Larah",
-      "about": "Mark leads GraphQL infrastructure and tooling at Yelp.",
+      "about": "",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/e/b9/23416744/avatar.jpg.320x320px.jpg?fb2",
+      "avatar": "//avatars.sched.co/e/b9/23416744/avatar.jpg.320x320px.jpg?60a",
       "socialurls": [
         {
           "service": "Twitter",
@@ -2152,25 +2577,27 @@
         }
       ],
       "_years": [
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "martijn.walraven",
       "company": "Apollo",
       "position": "Software Engineer",
       "name": "Martijn Walraven",
-      "about": "Martijn Walraven lives in Amsterdam and has been with Apollo since the early days of our GraphQL journey. He is one of the co-creators of Apollo Federation. Outside of work, he enjoys volunteering at a primary school and is working towards a degree in education.",
+      "about": "Martijn Walraven lives in Amsterdam and has been with Apollo since the early days of our GraphQL journey. He is one of the co-creators of Apollo Federation.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/6/33/21066825/avatar.jpg.320x320px.jpg?ac7",
+      "avatar": "//avatars.sched.co/6/33/21066825/avatar.jpg.320x320px.jpg?1ba",
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "martinbonnin42",
@@ -2183,9 +2610,10 @@
       "avatar": "//avatars.sched.co/c/ef/23098783/avatar.jpg.320x320px.jpg?7ff",
       "socialurls": [],
       "_years": [
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758137788992
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "marybriskin",
@@ -2229,18 +2657,19 @@
     {
       "username": "matt1575",
       "company": "Apollo GraphQL",
-      "position": "CEO & Co-Founder",
+      "position": "CEO and co-founder",
       "name": "Matt DeBergalis",
-      "about": "Matt DeBergalis is the Chief Executive Officer and Co-Founder of Apollo GraphQL, where he is responsible for pioneering the next frontier of the company’s cutting-edge technology. Prior to Apollo, Matt was the co-founder of Meteor Development Group and co-creator of Meteor.js, which grew to become one of the most popular open-source projects in the world for developing full-stack web apps with JavaScript. He attended MIT and resides in the San Francisco Bay Area with his family.",
+      "about": "",
       "location": "",
       "url": "",
       "avatar": "//avatars.sched.co/c/59/7503056/avatar.jpg.320x320px.jpg?f15",
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758137781378
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "matteo.collina1",
@@ -2330,12 +2759,12 @@
     {
       "username": "michael_staib.23xujj9p",
       "company": "ChilliCream",
-      "position": "Michael Staib",
+      "position": "CEO",
       "name": "Michael Staib",
-      "about": "Michael is a member of the GraphQL technical steering committee, a Microsoft MVP, and the author of the Hot Chocolate project (https://github.com/ChilliCream/hotchocolate), a platform for building GraphQL servers and clients in .NET. This open-source project has been his main focus for the last couple of years.",
+      "about": "Michael is a member of the GraphQL Technical Steering Committee, a Microsoft MVP, and Co-Founder and CEO of ChilliCream. He is the creator of Hot Chocolate, a widely used GraphQL server and client platform for .NET, and one of the authors of the Composite Schema specification. Michael works closely with companies to design scalable GraphQL architectures and is actively shaping the future of GraphQL through open source and standards work.",
       "location": "Zurich",
       "url": "http://chillicream.com",
-      "avatar": "//avatars.sched.co/a/85/14900031/avatar.jpg.320x320px.jpg?0a9",
+      "avatar": "//avatars.sched.co/a/85/14900031/avatar.jpg.320x320px.jpg?bfa",
       "socialurls": [
         {
           "service": "Twitter",
@@ -2349,9 +2778,10 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114079985
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "michael.astle",
@@ -2393,6 +2823,21 @@
       "~syncedDetailsAt": 1749501892530
     },
     {
+      "username": "michaelwatson93",
+      "company": "Expedia Group",
+      "position": "Principal Developer Relations Engineer",
+      "name": "Michael Watson",
+      "about": "Michael Watson was Head of Developer Relations at Apollo GraphQL, where he's spent ~8 years helping enterprises adopt GraphQL at scale. He founded the MCP Server Builder Series, a 3,000+ developer community with events in SF, NYC, London, and Amsterdam. Michael has delivered keynotes on agentic MCP workflows and worked with engineering teams at Netflix, Walmart, Wayfair, and more.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/6/36/24421571/avatar.jpg.320x320px.jpg?bc0",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
+    },
+    {
       "username": "minghe.huang",
       "company": "Booking.com",
       "position": "Senior Software Engineer",
@@ -2406,6 +2851,36 @@
         2025
       ],
       "~syncedDetailsAt": 1758137788992
+    },
+    {
+      "username": "nabouelazm",
+      "company": "Bloomberg",
+      "position": "Senior Software Engineer",
+      "name": "Nasser Abouelazm",
+      "about": "A middle school teacher turned web developer, Nasser Abouelazm has always embraced the art of building epic and engaging experiences that delight, educate, and enchant a broad audience of users. As a senior full-stack engineer working to support Bloomberg Media, he is focused on developing solutions and features that support the Bloomberg.com subscriber experience. His first heavy production use of GraphQL was at his previous company, Voice - a startup building an NFT marketplace for creators.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/8/00/24421574/avatar.jpg.320x320px.jpg?354",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
+    },
+    {
+      "username": "oleksandr_bidiuk",
+      "company": "Intuit",
+      "position": "How To Make Developers Faster by Automating Governance",
+      "name": "Oleks Bidiuk",
+      "about": "Senior Software Engineer at Intuit with 10+ years of evolution from JavaScript roots to complex systems. Outside the IDE, I bridge the gap between digital and tactile as a craftsman. I’m currently restoring the last \"analog\" Porsche 911—a hands-on project spanning everything from sewing the interior to 3D printing custom components and chassis updates. A former inline skating instructor and current dad to two dogs, I’m obsessed with anything that can be optimized, printed, or driven.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/db/24421577/avatar.jpg.320x320px.jpg?507",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "omribruchim",
@@ -2427,16 +2902,17 @@
       "company": "ChilliCream",
       "position": "COO",
       "name": "Pascal Senn",
-      "about": "I'm co-founder of ChilliCream, where we're passionate about advancing the GraphQL ecosystem. We develop and maintain open-source software, actively help and participate in the community, and create tools that help developers to get the most out of their GraphQL APIs.",
+      "about": "I'm co-founder of ChilliCream, where we're passionate about advancing the GraphQL ecosystem. We develop and maintain open-source software, actively help and participate in the community, and create tools that help developers to get the most out of their GraphQL APIs. Since 2025, I’ve also been a member of the GraphQL Technical Steering Committee.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/f/4e/21066839/avatar.jpg.320x320px.jpg?efc",
+      "avatar": "//avatars.sched.co/f/4e/21066839/avatar.jpg.320x320px.jpg?977",
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "patrick.arminio",
@@ -2531,20 +3007,21 @@
     },
     {
       "username": "qkw1221",
-      "company": "Meta",
-      "position": "Senior Staff Software Engineer at Meta",
+      "company": "Meta Platforms",
+      "position": "Software Engineer",
       "name": "Kewei Qu",
       "about": "TBD",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/9/1a/18743864/avatar.jpg.320x320px.jpg?7fa",
+      "avatar": "//avatars.sched.co/9/1a/18743864/avatar.jpg.320x320px.jpg?18e",
       "socialurls": [],
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758137781378
+      "~syncedDetailsAt": 1772121815460
     },
     {
       "username": "rachit_sengupta",
@@ -2565,6 +3042,21 @@
         2024
       ],
       "~syncedDetailsAt": 1749502056389
+    },
+    {
+      "username": "rajeshwarisahg",
+      "company": "Apple Inc",
+      "position": "Machine Learning Engineer",
+      "name": "Rajeshwari Sah",
+      "about": "Rajeshwari Sah is a Machine Learning Engineer at Apple, where she works on production-scale Agentic AI and Retrieval-Augmented Generation systems powering next-generation intelligent experiences. She has led the development of multilingual, voice-enabled LLM frameworks and advanced agentic orchestration pipelines that significantly improved enterprise efficiency and system reliability.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/4/ec/24421580/avatar.jpg.320x320px.jpg?31b",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "rama_palaniappan",
@@ -2606,6 +3098,26 @@
       "~syncedDetailsAt": 1749502056389
     },
     {
+      "username": "ravisastryk",
+      "company": "Open Source Contributor",
+      "position": "Go Ecosystem Contributor & Security Engineer",
+      "name": "Ravi Sastry Kadali",
+      "about": "Ravi Sastry Kadali is a security and systems engineer with over 20 years of experience building production infrastructure across defense, enterprise, and hyperscale consumer platforms — with Go as his tool of choice. He is a contributor to the Go project itself (golang/go), with accepted patches touching the toolchain and standard library. His open-source contributions span the broader Go ecosystem — including Kubernetes, etcd, gosec, semgrep, and Aqua Security's Trivy — and he is the creator and maintainer of go-safeinput, a unified injection defense library addressing the MITRE CWE Top 25, SecurePrompt, a pre-flight AI prompt security scanner, and cryptoguard-go. His work sits at the intersection of Go static analysis, performance, and security — the same intersection that drew him to exploring LLM-assisted analyzer authoring for go fix. Ravi has built high-throughput, security-critical Go systems across some of the world's largest platforms. At Meta, he built platform integrity systems protecting 3B+ users. At Microsoft, he delivered Windows releases impacting 400M+ users. At Neustar Security Services, he developed GraphQL-based Go microservices powering DDoS mitigation for thousands of enterprise brands backed by 15+ Tbps scrubbing capacity. At X Corp, he strengthened platform security and trust infrastructure. At India's Defense R&D Organization (DRDO), he developed intrusion detection systems for national defense. Across every role, the common thread has been Go and systems-level performance in security-critical infrastructure.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/3/ce/10492261/avatar.jpg.320x320px.jpg?e74",
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/ravisastryk"
+        }
+      ],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
+    },
+    {
       "username": "raymie2",
       "company": "Airbnb",
       "position": "Viaduct Tech Lead",
@@ -2626,6 +3138,21 @@
       "~syncedDetailsAt": 1758551361502
     },
     {
+      "username": "rebello95",
+      "company": "Airbnb",
+      "position": "Staff Engineer",
+      "name": "Michael Rebello",
+      "about": "Michael is a Staff Engineer at Airbnb focusing on GraphQL clients, with >10 years of tech experience. Previously, he spent 6 years at Lyft as Staff Engineer leading mobile networking, building the rider app, and contributing to their engineering blog. He's spoken at conferences globally and made significant open-source contributions as a founding member of Envoy Mobile and author/maintainer of Connect-Swift. Both of these projects are now part of the Cloud Native Computing Foundation.",
+      "location": "",
+      "url": "www.michaelrebello.com",
+      "avatar": "//avatars.sched.co/e/3a/24421568/avatar.jpg.320x320px.jpg?145",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
+    },
+    {
       "username": "rickbijkerk54",
       "company": "Bol",
       "position": "Software Engineer",
@@ -2643,12 +3170,12 @@
     {
       "username": "robert.balicki",
       "company": "Pinterest",
-      "position": "Staff Engineer",
+      "position": "Staff engineer",
       "name": "Robert Balicki",
-      "about": "Robert is an engineer at Pinterest, where he helps the company adopt Relay and GraphQL. He was previously on the Relay team at Meta. Check out Isograph! <a href=\"https://isograph.dev\" rel=\"noopener noreferrer\" target=\"_blank\">https://isograph.dev</a>",
+      "about": "Robert Balicki works as a software engineer at Pinterest. He used to have hair down to his shoulders and play in a rock band. He works on Isograph, which you should check out!",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/5/8b/18743858/avatar.jpg.320x320px.jpg?b95",
+      "avatar": "//avatars.sched.co/5/8b/18743858/avatar.jpg.320x320px.jpg?d32",
       "socialurls": [
         {
           "service": "Twitter",
@@ -2662,9 +3189,10 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "robrichard87",
@@ -2674,13 +3202,29 @@
       "about": "Rob is a front-end engineer at 1stDibs, an online marketplace for extraordinary design. He is also a member of the GraphQL Technical Steering committee, where he has been championing the @defer & @stream spec proposal.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/b/cb/21066852/avatar.jpg.320x320px.jpg?6f4",
+      "avatar": "//avatars.sched.co/b/cb/21066852/avatar.jpg.320x320px.jpg?c26",
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
+    },
+    {
+      "username": "rribeirodejesus",
+      "company": "Brex",
+      "position": "Senior Software Engineer",
+      "name": "Rodrigo Jesus",
+      "about": "Rodrigo Jesus is a Senior Software Engineer at Brex's Application Infrastructure team focused on taming complexity in large distributed systems. He currently leads service smashing and domain consolidation efforts that reduce fragmentation, lower operational overhead, and improve reliability.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/f/99/24421583/avatar.jpg.320x320px.jpg?c44",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
     },
     {
       "username": "ruben.cagnie",
@@ -2699,19 +3243,20 @@
     },
     {
       "username": "sabrina.wasserman",
-      "company": "Meta",
+      "company": "Meta Platforms Inc.",
       "position": "Software Engineer",
       "name": "Sabrina Wasserman",
       "about": "GraphQL client-side frameworks software engineer at Meta.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/d/94/21066857/avatar.jpg.320x320px.jpg?4fd",
+      "avatar": "//avatars.sched.co/d/94/21066857/avatar.jpg.320x320px.jpg?32d",
       "socialurls": [],
       "_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "saihaj",
@@ -2766,6 +3311,21 @@
         2025
       ],
       "~syncedDetailsAt": 1758137788992
+    },
+    {
+      "username": "samd6",
+      "company": "Zillow Group",
+      "position": "Senior Principal Engineer",
+      "name": "Sam Deng",
+      "about": "Senior Principal SDE at Zillow Group by day, avid user by night. Sam Deng is catalyst for foundational platforms that power the Zillow Super App. He is a purveyor of dad jokes, software architect, former runner, and occasional AI-empowered code slinger.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/b2/24450482/avatar.jpg.320x320px.jpg?f7c",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "sanvertarmur",
@@ -2873,6 +3433,21 @@
       "~syncedDetailsAt": 1749502079623
     },
     {
+      "username": "semiprofessionally",
+      "company": "Meta",
+      "position": "Software Engineer",
+      "name": "Kevin Gorham",
+      "about": "Shepherding client-side GraphQL at WhatsApp.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/5/3c/24421565/avatar.jpg.320x320px.jpg?e3e",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1772752087196
+    },
+    {
       "username": "serhii.korin",
       "company": "Booking.com",
       "position": "Staff Software Engineer",
@@ -2917,19 +3492,55 @@
       "~syncedDetailsAt": 1749568381878
     },
     {
-      "username": "shashank.gugnani",
-      "company": "Oracle",
-      "position": "Software Development Manager",
-      "name": "Shashank Gugnani",
-      "about": "I am an engineering manager in the Database Transactions team at Oracle, working on the design and implementation of next-generation Oracle database products. I hold a PhD in Computer Science from The Ohio State University and an undergraduate degree in Computer Science from BITS-Pilani. My research interests are related to storage systems and problems of scale in distributed systems. I have published several papers in top conferences and journals including VLDB, HPDC, SC, IPDPS, and BigData.",
+      "username": "sharon.gorla",
+      "company": "Starbucks",
+      "position": "Engineer Lead",
+      "name": "Sharon Gorla",
+      "about": "I’m an engineering leader with 16+ years of experience driving digital transformation, modernizing systems, and building high-performing teams. At Starbucks, I'm lead engineer for Next‑Gen POS modernization, earned a U.S. patent, and founded the GraphQL Community of Practice. I’m passionate about scalable architecture, inclusive culture, and developing future engineering leaders.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/3/e1/21458022/avatar.jpg.320x320px.jpg?bde",
+      "avatar": "//avatars.sched.co/5/bf/24421592/avatar.jpg.320x320px.jpg?0bf",
       "socialurls": [],
       "_years": [
-        2024
+        2026
       ],
-      "~syncedDetailsAt": 1749502079623
+      "~syncedDetailsAt": 1772752087196
+    },
+    {
+      "username": "shashank.gugnani",
+      "company": "Oracle",
+      "position": "Senior Software Development Manager",
+      "name": "Shashank Gugnani",
+      "about": "I am an engineering manager in the Database Transactions team at Oracle, working on the design and implementation of next-generation Oracle database products. I hold a PhD in Computer Science from Ohio State and an undergraduate degree in Computer Science from BITS-Pilani. My research interests are related to storage systems and problems of scale in distributed systems. I have published extensively in top conferences and journals including SIGMOD, VLDB, HPDC, SC, IPDPS, and BigData.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/3/e1/21458022/avatar.jpg.320x320px.jpg?95c",
+      "socialurls": [],
+      "_years": [
+        2024,
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
+    },
+    {
+      "username": "shravanth",
+      "company": "Independent Researcher",
+      "position": "AWS Solutions Architect",
+      "name": "Shravanth Venkatesh",
+      "about": "Shravanth is a AWS Certified Solutions Architect and Principal Software Engineer with 8+ years designing and scaling production systems on AWS. Leading teams shipping serverless healthcare platforms across AWS, he saw firsthand how GraphQL's flexibility quietly reshapes cost and performance in ways teams don't anticipate until production traffic hits.",
+      "location": "San Mateo, CA",
+      "url": "https://www.shravanthv.com/",
+      "avatar": "//avatars.sched.co/4/8b/24876191/avatar.jpg.320x320px.jpg?80d",
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/shravanth-v/"
+        }
+      ],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "siva27",
@@ -2986,10 +3597,10 @@
       "company": "Netflix",
       "position": "Engineer",
       "name": "Stephen Spalding",
-      "about": "Stephen is a member of the Edge API team at Netflix and a GraphQL TSC emeritus. His team develops and operates the Netflix API platform. This is the nexus point where hundreds of microservices are aggregated into a single API that delivers the Netflix experience for the hundreds of millions of Netflix devices worldwide.",
+      "about": "Stephen is a member of the Edge API team at Netflix and a member of the GraphQL TSC. His team develops and operates the Netflix API platform. This is the nexus point where hundreds of microservices are aggregated into a single API that delivers the Netflix experience for the hundreds of millions of Netflix devices worldwide.",
       "location": "",
       "url": "http://stephenspalding.com",
-      "avatar": "//avatars.sched.co/8/08/18743825/avatar.jpg.320x320px.jpg?af4",
+      "avatar": "//avatars.sched.co/8/08/18743825/avatar.jpg.320x320px.jpg?4bd",
       "socialurls": [
         {
           "service": "Twitter",
@@ -2999,9 +3610,10 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1777563142402
     },
     {
       "username": "stefan239",
@@ -3034,6 +3646,26 @@
       "~syncedDetailsAt": 1749568381878
     },
     {
+      "username": "stephen.haberman",
+      "company": "Homebound",
+      "position": "Software Engineer",
+      "name": "Stephen Haberman",
+      "about": "With two decades of experience, Stephen is a seasoned software engineer known for delivering robust systems that drive business value, while also being a passionate builder at heart, crafting codebases that developers (hopefully!) enjoy working in.",
+      "location": "Omaha, NE",
+      "url": "https://www.draconianoverlord.com/",
+      "avatar": "//avatars.sched.co/b/98/24561062/avatar.jpg.320x320px.jpg?466",
+      "socialurls": [
+        {
+          "service": "LinkedIn",
+          "url": "https://www.linkedin.com/in/stephenhaberman/"
+        }
+      ],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
+    },
+    {
       "username": "stephenchambers",
       "company": "Netflix",
       "position": "N/A",
@@ -3047,6 +3679,21 @@
         2025
       ],
       "~syncedDetailsAt": 1758551361502
+    },
+    {
+      "username": "sulbigar.shanawaz",
+      "company": "Capital One",
+      "position": "Distinguished Engineer",
+      "name": "Sulbigar Shanawaz",
+      "about": "<b>Sulbigar Shanawaz</b> is a Distinguished Engineer at Capital One, where he leads architectural strategy for the Enterprise Entitlements platform. He specializes in centralizing customer data security by engineering robust validation frameworks for regulatory, compliance, and audit requirements across high-scale data exchange channels, including REST and GraphQL APIs.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/1/02/24460403/avatar.jpg.320x320px.jpg?fc8",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
     },
     {
       "username": "suresh_muthu",
@@ -3117,6 +3764,21 @@
       "~syncedDetailsAt": 1749568381878
     },
     {
+      "username": "thisisguptarohit",
+      "company": "Wayfair",
+      "position": "Product Lead",
+      "name": "Rohit Gupta",
+      "about": "Rohit Gupta leads the product strategy for Wayfair’s GraphQL platform, powering over 200 subgraphs across customer, supplier, and supply chain domains. With 15 years of experience across engineering and product management, he brings deep expertise in platform products, APIs, and eCommerce. At Wayfair, Rohit is driving key initiatives to harness AI for accelerating developer productivity and building an AI-first Supergraph that positions the company for the AI-powered era.",
+      "location": "Mountain View, CA",
+      "url": "",
+      "avatar": "//avatars.sched.co/b/25/24421586/avatar.jpg.320x320px.jpg?6ff",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
+    },
+    {
       "username": "thomas.heyenbrock",
       "company": "Stellate",
       "position": "Software Engineer",
@@ -3142,16 +3804,17 @@
     },
     {
       "username": "thorekoritzius",
-      "company": "Independent",
-      "position": "Machine Learning Software Engineer",
+      "company": "MWAY",
+      "position": "Software Engineer",
       "name": "Thore Koritzius",
-      "about": "Thore is an ML Engineer with a passion for building and deploying multimodal LLMs. He enjoys working on the full stack of AI systems—from training embedding models and optimizing RAG pipelines to deploying on-premises LLM infrastructure. Thore is also a GraphQL and Rust enthusiast who loves exploring modern developer tools and building high-performance systems. His journey into AI started with research on Physics-Informed Neural Networks during his Master’s thesis, and he's been excited about pushing the boundaries of applied machine learning ever since.",
+      "about": "Thore is an ML Engineer focused on multimodal LLM systems, with experience across the AI stack—from training embedding models and optimizing RAG pipelines to deploying on-prem LLM infrastructure. A GraphQL and Rust enthusiast, he enjoys building high-performance systems and exploring modern developer tools. His journey into AI began with research on Physics-Informed Neural Networks during his Master’s thesis, sparking a lasting passion for applied machine learning.",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/c/bd/23218043/avatar.jpg.320x320px.jpg?02e",
+      "avatar": "//avatars.sched.co/c/bd/23218043/avatar.jpg.320x320px.jpg?21c",
       "socialurls": [],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551361502
     },
@@ -3178,6 +3841,21 @@
         2023
       ],
       "~syncedDetailsAt": 1749568381879
+    },
+    {
+      "username": "tobbe3",
+      "company": "Cedar Software AB",
+      "position": "-",
+      "name": "Tobbe Lundberg",
+      "about": "Tech Lead at Aerafarms. Maintainer of CedarJS. Lives out in the middle-of-nowhere in Sweden. Likes everything on two wheels and loves to travel.",
+      "location": "Sweden",
+      "url": "https://tobbe.dev",
+      "avatar": "//avatars.sched.co/9/f6/24421598/avatar.jpg.320x320px.jpg?a56",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "tom817",
@@ -3244,6 +3922,21 @@
       "~syncedDetailsAt": 1749502251756
     },
     {
+      "username": "tuval",
+      "company": "The Guild",
+      "position": "Developer",
+      "name": "Tuval Simha",
+      "about": "Tuval Simha is a Software Developer at The Guild, where he focuses on building and maintaining high-performance GraphQL infrastructure. Currently, he is a core contributor to Stellate, the leading GraphQL edge caching solution. With a background in product operations and full-stack development, Tuval specializes in bridging the gap between complex architectural challenges and seamless developer experiences, helping teams scale their APIs with precision and speed.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/c/cf/24421601/avatar.jpg.320x320px.jpg?bfb",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
+    },
+    {
       "username": "twitter7",
       "company": "Apollo",
       "position": "Staff Software Engineer",
@@ -3273,7 +3966,7 @@
       "company": "The Guild",
       "position": "CEO",
       "name": "Uri Goldshtein",
-      "about": "The Guild, the largest open source group in the GraphQL ecosystem",
+      "about": "",
       "location": "",
       "url": "http://the-guild.dev",
       "avatar": "//avatars.sched.co/8/2b/14900013/avatar.jpg.320x320px.jpg?06d",
@@ -3290,9 +3983,25 @@
       "_years": [
         2023,
         2024,
-        2025
+        2025,
+        2026
       ],
-      "~syncedDetailsAt": 1758114083720
+      "~syncedDetailsAt": 1772121815460
+    },
+    {
+      "username": "vickey.yeh",
+      "company": "Airbnb",
+      "position": "Senior Software Engineer",
+      "name": "Vickey Yeh",
+      "about": "I work on Viaduct, Airbnb's GraphQL-based data-oriented service mesh.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/9/94/24421604/avatar.jpg.320x320px.jpg?a23",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "vincent.desmares",
@@ -3308,6 +4017,21 @@
         2024
       ],
       "~syncedDetailsAt": 1749502251756
+    },
+    {
+      "username": "vjeuxx",
+      "company": "Meta",
+      "position": "Front-end Engineer",
+      "name": "Christopher Chedeau",
+      "about": "Co-creator of React Native and Prettier. Creator of Excalidraw, \"CSS-in-JS\", Yoga and React Conf.",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/e/d9/24421532/avatar.jpg.320x320px.jpg?14f",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1776345623093
     },
     {
       "username": "vmjohnson999",
@@ -3347,16 +4071,17 @@
     },
     {
       "username": "x65han",
-      "company": "Meta Inc.",
+      "company": "Meta Platform Inc.",
       "position": "Software Engineer",
       "name": "Xiao Han",
       "about": "Software Engineer on Instagram Product Foundations",
       "location": "",
       "url": "",
-      "avatar": "//avatars.sched.co/5/90/23098816/avatar.jpg.320x320px.jpg?d30",
+      "avatar": "//avatars.sched.co/5/90/23098816/avatar.jpg.320x320px.jpg?98f",
       "socialurls": [],
       "_years": [
-        2025
+        2025,
+        2026
       ],
       "~syncedDetailsAt": 1758551361502
     },
@@ -3443,6 +4168,21 @@
         2025
       ],
       "~syncedDetailsAt": 1758137784031
+    },
+    {
+      "username": "zack.warnimont",
+      "company": "Apollo",
+      "position": "Software Engineer",
+      "name": "Zack Warnimont",
+      "about": "Zack is a Software Engineer currently working at Apollo. He has worked for companies small and large over the last 10 years, with an emphasis on deployment safety and development efficiency.\n\nIn his free time, Zack enjoys playing piano and spending time with his family. Ask him anything about music!",
+      "location": "",
+      "url": "",
+      "avatar": "//avatars.sched.co/a/76/24421607/avatar.jpg.320x320px.jpg?084",
+      "socialurls": [],
+      "_years": [
+        2026
+      ],
+      "~syncedDetailsAt": 1777561604519
     }
   ]
 }

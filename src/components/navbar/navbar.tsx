@@ -18,6 +18,8 @@ import { Flexsearch } from "../flexsearch"
 import { NavLink, navLinkClasses } from "./nav-link"
 import { useMenu } from "../use-menu"
 
+import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+
 type Item = normalizePages.PageItem | normalizePages.MenuItem
 export interface NavBarProps {
   items: Item[]
@@ -33,6 +35,7 @@ function NavbarMenu({
   const routes = Object.fromEntries(
     (menu.children || []).map(route => [route.name, route]),
   )
+
   return (
     <NavigationMenu.Item className="max-md:hidden">
       <NavigationMenu.Trigger
@@ -44,30 +47,66 @@ function NavbarMenu({
         {children}
       </NavigationMenu.Trigger>
       <NavigationMenu.Content className="flex flex-col py-1 text-sm">
-        {Object.entries(menu.items || {}).map(([key, item]) => (
-          <NavigationMenu.Link
-            key={key}
-            href={item.href || routes[key]?.route}
-            target={item.newWindow ? "_blank" : undefined}
-            className="block py-3.5 pl-2 pr-9"
-            closeOnClick
-            render={(
-              props: React.ComponentPropsWithoutRef<"a">,
-              state: NavigationMenu.Link.State,
-            ) => (
-              <Anchor {...props} href={props.href!}>
-                <span
-                  className={clsx(
-                    "typography-menu px-3 py-1 underline-offset-2 hover:underline focus-visible:underline",
-                    state.active && "underline",
-                  )}
-                >
-                  {item.title}
-                </span>
-              </Anchor>
-            )}
-          />
-        ))}
+        {Object.entries(menu.items || {}).map(([key, item]) => {
+          if (typeof item === "string") item = { title: item }
+          if (!item.title) item.title = key
+          const href =
+            item.href ||
+            routes[key]?.route ||
+            (key === "index" ? menu.route : `${menu.route}/${key}`)
+
+          if (key === "index") {
+            return (
+              <NavigationMenu.Link
+                key={key}
+                href={menu.route}
+                className="mb-1 ml-2 flex w-full cursor-pointer items-center justify-between border-b border-neu-500/50 py-3.5 pr-3 hover:bg-neu-500/10 focus-visible:underline dark:border-neu-50 dark:hover:bg-neu-50/25"
+                closeOnClick
+                render={(
+                  props: React.ComponentPropsWithoutRef<"a">,
+                  state: NavigationMenu.Link.State,
+                ) => (
+                  <Anchor {...props} href={props.href!}>
+                    <span
+                      className={clsx(
+                        "typography-menu px-3 py-1",
+                        state.active && "underline",
+                      )}
+                    >
+                      Explore {menu.title}
+                    </span>
+                    <ArrowDownIcon className="size-4 -rotate-90" />
+                  </Anchor>
+                )}
+              />
+            )
+          }
+
+          return (
+            <NavigationMenu.Link
+              key={key}
+              href={href}
+              target={item.newWindow ? "_blank" : undefined}
+              className="block py-3.5 pl-2 pr-9 underline-offset-2 hover:underline focus-visible:underline"
+              closeOnClick
+              render={(
+                props: React.ComponentPropsWithoutRef<"a">,
+                state: NavigationMenu.Link.State,
+              ) => (
+                <Anchor {...props} href={props.href!}>
+                  <span
+                    className={clsx(
+                      "typography-menu px-3 py-1",
+                      state.active && "underline",
+                    )}
+                  >
+                    {item.title}
+                  </span>
+                </Anchor>
+              )}
+            />
+          )
+        })}
       </NavigationMenu.Content>
     </NavigationMenu.Item>
   )

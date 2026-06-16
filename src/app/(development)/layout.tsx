@@ -11,7 +11,12 @@ export default function DevelopmentLayout({
 }: {
   children: React.ReactNode
 }) {
-  if (process.env.NODE_ENV !== "development") notFound()
+  if (
+    process.env.NODE_ENV !== "development" &&
+    process.env.VERCEL_ENV !== "preview"
+  ) {
+    notFound()
+  }
 
   return (
     <>

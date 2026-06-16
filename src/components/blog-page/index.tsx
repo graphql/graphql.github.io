@@ -5,11 +5,13 @@ import { Tag } from "@/app/conf/_design-system/tag"
 import { arrowsMoveSideways } from "@/app/conf/_design-system/utils/arrows-move-sideways"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 
-import { blogTagColors } from "./blog-tag-colors"
+import { LookingForMore } from "@/components/looking-for-more"
+
 import { BlogCard } from "./blog-card"
-import { LookingForMore } from "./looking-for-more"
 import { BlogMdxContent } from "./mdx-types"
 import { FeaturedBlogPosts } from "./featured-blog-posts"
+import { tagColors } from "@/app/conf/_design-system/tag-colors"
+import { blogCategories } from "./blog-categories"
 
 const mask = `url(${new URL("./blur-bean.webp", import.meta.url).href})`
 
@@ -51,15 +53,20 @@ export function BlogPage({
       </div>
 
       <div className="gql-container">
-        <div className="gql-section max-sm:pt-0">
+        <div className="gql-section max-sm:px-2 max-sm:pt-0">
           <section className="flex justify-between gap-2 max-sm:flex-col sm:items-end">
             <h2 className="typography-h2 capitalize">
               {currentTag || "All Posts"}
             </h2>
             <section>
               <h3 className="typography-menu">Categories</h3>
-              <ul className="mt-4 flex gap-2 max-sm:overflow-auto sm:flex-wrap">
+              <ul className="mt-4 flex gap-2 pb-2 max-sm:overflow-auto sm:flex-wrap">
                 {Object.entries(tags)
+                  .filter(([tag]) =>
+                    // we generate pages for all tags, but link only to a selected subset
+                    // to avoid category pages with 1 post
+                    (blogCategories as readonly string[]).includes(tag),
+                  )
                   .sort((a, b) => b[1] - a[1])
                   .map(([tag, count], i) => (
                     <NextLink
@@ -70,7 +77,7 @@ export function BlogPage({
                       className="-m-1 flex p-1 ring-inset ring-neu-400 transition-opacity duration-75 hover:ring focus:!outline-offset-0 dark:ring-neu-50 [:has(>:hover)>&:not(:hover)]:opacity-70"
                       onKeyDown={arrowsMoveSideways}
                     >
-                      <Tag color={blogTagColors[tag]}>
+                      <Tag color={tagColors[tag as keyof typeof tagColors]}>
                         {tag.replaceAll("-", " ")} ({count})
                       </Tag>
                     </NextLink>
@@ -78,7 +85,7 @@ export function BlogPage({
               </ul>
             </section>
           </section>
-          <section className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(368px,1fr))] gap-4 md:mt-8 lg:mt-16 lg:gap-6">
+          <section className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(368px,1fr))] gap-4 sm:mt-4 md:mt-8 lg:mt-16 lg:gap-6">
             {blogs.map(
               page =>
                 (!currentTag || page.frontMatter.tags.includes(currentTag)) && (
@@ -87,7 +94,13 @@ export function BlogPage({
             )}
           </section>
         </div>
-        <LookingForMore />
+        <LookingForMore
+          description="Explore learning guides and best practices — or browse for tools, libraries and other resources."
+          links={[
+            { href: "/learn", label: "Learn" },
+            { href: "/resources", label: "Resources" },
+          ]}
+        />
       </div>
     </main>
   )

@@ -2,7 +2,7 @@ import NextLink from "next/link"
 
 import { Tag } from "@/app/conf/_design-system/tag"
 
-import { blogTagColors } from "./blog-tag-colors"
+import { tagColors } from "@/app/conf/_design-system/tag-colors"
 import clsx from "clsx"
 
 export function BlogTags({
@@ -11,7 +11,7 @@ export function BlogTags({
   className,
   links,
 }: {
-  tags: string[]
+  tags: readonly string[]
   opaque?: boolean
   className?: string
   links?: boolean
@@ -19,7 +19,7 @@ export function BlogTags({
   return (
     <span className={clsx("flex gap-2", className)}>
       {tags.map(tag => {
-        const color = blogTagColors[tag]
+        const color = tagColors[tag as keyof typeof tagColors]
         if (!color && process.env.NODE_ENV !== "production") {
           throw new Error(`No color found for tag: ${tag}`)
         }
@@ -35,7 +35,7 @@ export function BlogTags({
             key={tag}
             // yes, the page lives under /tags, not /blog/tags
             href={`/tags/${tag}`}
-            className="-m-1 flex p-1 ring-inset ring-neu-400 transition-opacity duration-75 hover:ring focus:!outline-offset-0 dark:ring-neu-50 [:has(>:hover)>&:not(:hover)]:opacity-70"
+            className="gql-focus-visible -m-1 flex p-1 ring-inset ring-neu-400 transition-opacity duration-75 hover:ring focus:!outline-offset-0 dark:ring-neu-50 [:has(>:hover)>&:not(:hover)]:opacity-70"
           >
             {tagElement}
           </NextLink>

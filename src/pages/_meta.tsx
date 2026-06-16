@@ -10,22 +10,48 @@ export default {
     type: "page",
     title: "Learn",
   },
+  resources: {
+    type: "menu",
+    title: "Resource Hub",
+    route: "/resources",
+    items: {
+      index: "Resource Hub",
+      frontend: "",
+      backend: "",
+      federation: "",
+      ai: "AI",
+      security: "",
+      monitoring: "",
+      "tools-and-libraries": {
+        type: "page",
+        title: "Tools & Libraries",
+        // for now, until we have bandwidth to migrate it to App Router
+        href: "/community/tools-and-libraries",
+      },
+      spec: {
+        type: "page",
+        title: "Specification",
+        href: "https://spec.graphql.org",
+        newWindow: true,
+      },
+      video: "Video Resources Library",
+      reading: "Reading Resources Library",
+    },
+  },
   community: {
     type: "menu",
     title: "Community",
     items: {
-      "tools-and-libraries": {
-        title: "Tools and Libraries",
-      },
-      resources: {
-        title: "Resources",
-        href: "/community/resources/official-channels",
-      },
       events: {
         title: "Events",
         type: "page",
         href: "/community/events",
       },
+      "official-channels": { title: "Official Channels" },
+      "training-courses": { title: "Training Courses" },
+      "community-channels": { title: "Community Channels" },
+      "vendor-channels": { title: "Vendor Channels" },
+      "more-resources": { title: "Community Resources" },
       ambassadors: { title: "Ambassador Program" },
       contribute: {
         title: "Contribute to GraphQL",
@@ -35,14 +61,8 @@ export default {
     },
   },
   faq: {
-    type: "page",
+    type: "hidden",
     title: "FAQ",
-  },
-  spec: {
-    type: "page",
-    title: "Spec",
-    href: "https://spec.graphql.org",
-    newWindow: true,
   },
   blog: {
     type: "page",
@@ -88,10 +108,10 @@ export default {
     title: (
       <Emphasis>
         GraphQLConf
-        <span className="max-xl:hidden"> 2025</span>
+        <span className="max-xl:hidden"> 2026</span>
       </Emphasis>
     ),
-    route: "/conf/2025",
+    route: "/conf/2026",
   },
   "graphql-js": {
     type: "page",

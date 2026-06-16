@@ -55,7 +55,7 @@ const speakers: Speaker[] = [
 export function Speakers() {
   return (
     // Invisible padding so anchor links align to the header menu
-    <div id="speakers" className="conf-block bg-conf-black text-white">
+    <div id="speakers" className="conf-block bg-neu-0 text-neu-900">
       <div className="container">
         <h1 className="conf-heading text-white md:text-center">Speakers</h1>
         <div className="my-10 flex flex-wrap items-start justify-around gap-10 max-md:flex-col md:my-20 lg:px-24">

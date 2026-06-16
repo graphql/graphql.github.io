@@ -1,0 +1,6 @@
+{
+  "title": "Getting Started with the Model Context Protocol and GraphQL",
+  "url": "https://www.apollographql.com/tutorials/intro-mcp-graphql/01-what-is-mcp",
+  "description": "Tutorial on building MCP servers that enable AI assistants to query your data using GraphQL",
+  "tags": ["ai", "guide"]
+}

@@ -37,7 +37,7 @@ const ALLOWED_SVG_REGEX = new RegExp(`${sep}icons${sep}.+\\.svg$`)
 const config = {
   output: undefined,
   // reactStrictMode: true, provoke duplicated codemirror editors
-  webpack(config) {
+  webpack(config, { isServer, dev }) {
     // #region MDX
     const mdxRule = config.module.rules.find(rule => rule.test?.test?.(".mdx"))
     if (mdxRule) {
@@ -62,6 +62,19 @@ const config = {
     fileLoaderRule.exclude = /\.svg$/i
 
     config.module.rules.push(
+      {
+        test: /\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg|txt)$/i,
+        resourceQuery: /resource/,
+        type: "asset/resource",
+        generator: {
+          filename: "static/media/[name].[hash][ext]",
+          publicPath: "/_next/",
+          // Server build outputs to .next/server/, so go up to reach .next/static/
+          outputPath: [isServer && "../", !dev && "../"]
+            .filter(Boolean)
+            .join(""),
+        },
+      },
       // All .svg from /icons/ and with ?svgr are going to be processed by @svgr/webpack
       {
         test: ALLOWED_SVG_REGEX,
@@ -103,7 +116,7 @@ const config = {
         test: /\.svg$/i,
         exclude: ALLOWED_SVG_REGEX,
         resourceQuery: {
-          not: [...fileLoaderRule.resourceQuery.not, /svgr/],
+          not: [...fileLoaderRule.resourceQuery.not, /svgr|resource/],
         },
       },
     )

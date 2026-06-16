@@ -1,0 +1,6 @@
+{
+  "title": "LangChain GraphQL Tool",
+  "url": "https://python.langchain.com/docs/integrations/tools/graphql/",
+  "description": "GraphQL integration for LangChain that enables AI agents to interact with GraphQL APIs",
+  "tags": ["ai", "tools-and-libraries"]
+}
