@@ -49,20 +49,20 @@ Taking the cue from [Brad Frost’s atomic design methodology](https://atomicdes
 
 *An atomic component is a UI component that cannot be broken down into smaller parts and reassembled in another way.*
 
-Here are a few examples from the Amazonia system:  
+Here are a few examples from the Expedia Group system:  
 ![][image1]
 
 However, in contrast to Brad Frost’s hierarchy of atoms, molecules, organisms, templates, and pages, we propose to introduce only one more type of component besides the atomic one, that is, the pattern component. Let’s define it as follows:
 
 *A pattern component is composed of atomic components and built to enable a user to complete a task or solve a problem.* 
 
-Consider the following examples of Amazonia pattern components:
+Consider the following examples of Expedia Group pattern components:
 
 ![][image2]
 
 Atomic components enable site-wide consistency of UI across business domains and client platforms (both internal *and* customer facing.) By combining these atomic components into pattern components, we unlock user *experiences*.
 
-Note: The user doesn’t go to Amazonia to “click a button” (an interaction with an atomic component); instead the user goes to Amazonia to “book a trip to Las Vegas” (an interaction with a pattern component).
+Note: The user doesn’t go to Expedia Group to “click a button” (an interaction with an atomic component); instead the user goes to Expedia Group to “book a trip to Las Vegas” (an interaction with a pattern component).
 
 Thus, atomic components are mechanical realities, while pattern components represent product realities that carry meaning to the user. The differences between these libraries—the atomic component library and the pattern component library—helps us determine who needs to be at the relevant schema design workshops.
 
@@ -96,14 +96,14 @@ Without a system like this, many very similar queries often emerge, and sometime
 
 ## Mock Case Study
 
-We’ve been fascinated with the evolution of both design systems and unified GraphQL APIs. Let's now explore a mock case study where we look at some divergence in Amazonia’s user interface across product domains, and see what happens when we marry design systems with GraphQL via collaborative cross-functional workshops. 
+We’ve been fascinated with the evolution of both design systems and unified GraphQL APIs. Let's now explore a mock case study where we look at some divergence in Expedia Group’s user interface across product domains, and see what happens when we marry design systems with GraphQL via collaborative cross-functional workshops. 
 
-## UI Divergence at Amazonia
+## UI Divergence at Expedia Group
 
-Below, you can see two variants of a product page at Amazonia.com; one for a Property and one for an Activity.  
+Below, you can see two variants of a product page at Expedia Group.com; one for a Property and one for an Activity.  
 ![][image3]
 
-It’s worth noting that, although these pages are continuously evolving, they were originally created before Amazonia began adopting its design system and the supergraph. Currently, the teams at Amazonia are working to consolidate experiences to streamline user interactions, reduce operational complexities, and leverage efficiencies.
+It’s worth noting that, although these pages are continuously evolving, they were originally created before Expedia Group began adopting its design system and the supergraph. Currently, the teams at Expedia Group are working to consolidate experiences to streamline user interactions, reduce operational complexities, and leverage efficiencies.
 
 Such a brownfield scenario means that:
 
@@ -202,7 +202,7 @@ Let’s unpack what they could eventually arrive at:
 4. To support visually impaired user experiences, an **ariaString** is provided for screen readers.  
 5. To support persistence of specific variants in a content management system, an **id** is provided.
 
-Note that the data requirements concern both the visible elements and the non-visible ones, such as accessibility. At Amazonia, designers are responsible not only for the visible design but also for the audible design, making them crucial for this atomic component schema storm session.
+Note that the data requirements concern both the visible elements and the non-visible ones, such as accessibility. At Expedia Group, designers are responsible not only for the visible design but also for the audible design, making them crucial for this atomic component schema storm session.
 
 Apart from listing the requirements as sticky notes, this is the time to zero in on the naming of these elements. This is a key element of this exercise. The idea is that if all stakeholders are on the same page about what’s called what early on, it will protect the teams from inconsistencies and bloat.
 
