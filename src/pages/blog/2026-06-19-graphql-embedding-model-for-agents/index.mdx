@@ -21,9 +21,9 @@ This owner-type disambiguation is what general embedders are weakest at, and it'
 
 ## A small, focused fine-tune
 
-To address this, I trained [`Qwen3-Embedding-0.6B-GraphQL`](https://huggingface.co/xthor/Qwen3-Embedding-0.6B-GraphQL), a fine-tune of [`Qwen3-Embedding-0.6B`](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B) focused on a single task: mapping a natural-language question to the `Type.field` coordinate that answers it, with an emphasis on disambiguating between same-named fields on different owner types. It's still an early prototype, but as far as I can tell it's the first open-source embedding model aimed specifically at this job, and I plan to keep training it on broader schemas and more queries over time.
+A natural experiment is to fine-tune a general embedder on this specific task: mapping a natural-language question to the `Type.field` coordinate that answers it, with an emphasis on disambiguating between same-named fields on different owner types. The artifact discussed in this post is [`Qwen3-Embedding-0.6B-GraphQL`](https://huggingface.co/xthor/Qwen3-Embedding-0.6B-GraphQL), an open-source ([Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)) fine-tune of [`Qwen3-Embedding-0.6B`](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B). It's an early prototype shared here as a reference point for schema-aware retrieval, and the methodology generalizes to any base embedder.
 
-It's a 0.6B parameter model. It runs on CPU, or comfortably alongside an agent's own model on the same GPU. The weights are published as SentenceTransformers and as GGUF builds for `llama.cpp` and Ollama, under Apache 2.0.
+At 0.6B parameters, the model runs on CPU, or comfortably alongside an agent's own model on the same GPU. The weights are published as SentenceTransformers and as GGUF builds for `llama.cpp` and Ollama.
 
 The most realistic evaluation is against a schema the model has never seen before. Running it on the full [GitHub GraphQL schema](https://github.com/octokit/graphql-schema), with 6,342 coordinates and 52 natural-language queries that were not part of training:
 
