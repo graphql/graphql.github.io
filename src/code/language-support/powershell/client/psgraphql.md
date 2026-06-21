@@ -1,13 +1,10 @@
 ---
-
 name: PSGraphQL
 description: A PowerShell module for querying and mutating GraphQL endpoints.
 github: anthonyg-1/PSGraphQL
 tags:
-
-* tools-and-libraries
-* frontend
-
+  - tools-and-libraries
+  - frontend
 ---
 
 PSGraphQL is a PowerShell module for working with GraphQL endpoints from scripts, shells, and automation workflows. It provides commands for sending GraphQL queries and mutations, passing variables, setting headers, and returning either PowerShell objects or raw JSON.
