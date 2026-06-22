@@ -34,8 +34,8 @@ export default function Page() {
       <Hero year="2026" bottom={<HeroImage />}>
         <HeroDateAndLocation />
         <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
-          <Button variant="tertiary" href={GET_TICKETS_LINK}>
-            Register
+          <Button variant="tertiary" href={GALLERY_LINK}>
+            Community-sourced Event Photos
           </Button>
         </div>
       </Hero>
@@ -71,8 +71,13 @@ export default function Page() {
             title="Get your ticket"
             description="Join two transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
-            <Button variant="primary" href={GET_TICKETS_LINK}>
-              Register
+            <Button
+              variant="primary"
+              href={GET_TICKETS_LINK}
+              disabled
+              className="opacity-55"
+            >
+              Sold Out
             </Button>
           </CtaCardSection>
           <MarqueeRows

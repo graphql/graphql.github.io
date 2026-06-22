@@ -23,7 +23,8 @@ export function BecomeASponsor() {
             href="https://events.linuxfoundation.org/sponsor-graphqlconf26"
             target="_blank"
             rel="noreferrer"
-            className="md:w-fit"
+            className="opacity-55 md:w-fit"
+            disabled
           >
             Sponsor
           </Button>
