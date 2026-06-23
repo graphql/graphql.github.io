@@ -4,10 +4,6 @@ import { format, parseISO, compareAsc } from "date-fns"
 import { ReactElement, useMemo, useState } from "react"
 
 import { ScheduleSession } from "@/app/conf/_api/sched-types"
-import {
-  ConcurrentSessions,
-  ScheduleSessionsByDay,
-} from "@/app/conf/_components/schedule/session-list"
 
 import { ScheduleSessionCard } from "./schedule-session-card"
 import {
@@ -25,6 +21,17 @@ export interface FiltersConfig
     Record<keyof ScheduleSession /* key */, string /* label */>
   > {}
 
+interface ScheduleBlock {
+  start: string
+  end: Date
+  sessions: ScheduleSession[]
+  isMergeable: boolean
+}
+
+interface ScheduleBlocksByDay {
+  [date: string]: ScheduleBlock[]
+}
+
 function getSessionsByDay(
   scheduleData: ScheduleSession[],
   filterStates: FilterStates,
@@ -34,7 +41,7 @@ function getSessionsByDay(
   )
 
   const states = Object.entries<FilterStates[keyof FilterStates]>(filterStates)
-  const concurrentSessions: ConcurrentSessions = {}
+  const filteredSessions: ScheduleSession[] = []
 
   filteredSortedSchedule.forEach(session => {
     for (const [property, filterState] of states) {
@@ -49,21 +56,52 @@ function getSessionsByDay(
       }
     }
 
+    filteredSessions.push(session)
+  })
+
+  const concurrentSessions: Record<string, ScheduleSession[]> = {}
+  filteredSessions.forEach(session => {
     ;(concurrentSessions[session.event_start] ||= []).push(session)
   })
 
-  const sessionsByDay: ScheduleSessionsByDay = {}
+  const sessionsByDay: ScheduleBlocksByDay = {}
   Object.entries(concurrentSessions).forEach(([date, sessions]) => {
     const day = date.split(" ")[0]
-    if (!sessionsByDay[day]) {
-      sessionsByDay[day] = {}
-    }
-    sessionsByDay[day] = {
-      ...sessionsByDay[day],
-      [date]: sessions.sort((a, b) =>
-        (a?.venue ?? "").localeCompare(b?.venue ?? ""),
+    const dayBlocks = (sessionsByDay[day] ||= [])
+    const sortedSessions = sessions.sort((a, b) =>
+      (a?.venue ?? "").localeCompare(b?.venue ?? ""),
+    )
+    const blockEnd = new Date(
+      Math.max(
+        ...sortedSessions.map(session => new Date(session.event_end).getTime()),
       ),
+    )
+    const isMergeable = sortedSessions.every(session => {
+      const durationMs =
+        new Date(session.event_end).getTime() -
+        new Date(session.event_start).getTime()
+      return durationMs < 55 * 60 * 1000
+    })
+    const previousBlock = dayBlocks.at(-1)
+
+    if (
+      isMergeable &&
+      previousBlock?.isMergeable &&
+      new Date(date).getTime() < previousBlock.end.getTime()
+    ) {
+      previousBlock.sessions.push(...sortedSessions)
+      if (blockEnd.getTime() > previousBlock.end.getTime()) {
+        previousBlock.end = blockEnd
+      }
+      return
     }
+
+    dayBlocks.push({
+      start: date,
+      end: blockEnd,
+      sessions: sortedSessions,
+      isMergeable,
+    })
   })
 
   return {
@@ -149,7 +187,8 @@ export function ScheduleList({
     )
   }
   // if the first day has less than 3 sessions, it's probably a "day zero" with extra events or workshops
-  const firstDayIsDayZero = Object.keys(firstDay).length < 3
+  const firstDayIsDayZero = firstDay.length < 3
+  const sortedDays = Object.entries(filteredSessions)
   const startIndex = firstDayIsDayZero ? 0 : 1
 
   return (
@@ -197,7 +236,7 @@ export function ScheduleList({
       ) : (
         <>
           <div className="mb-4 flex space-x-4">
-            {Object.keys(filteredSessions).map((date, index) => (
+            {sortedDays.map(([date], index) => (
               <a
                 href={`#day-${index + startIndex}`}
                 key={date}
@@ -207,126 +246,146 @@ export function ScheduleList({
               </a>
             ))}
           </div>
-          {Object.entries(filteredSessions).map(
-            ([date, concurrentSessionsGroup], index) => (
-              <div
-                key={date}
-                className="typography-body-sm bg-neu-200 pb-px dark:bg-neu-50"
+          {sortedDays.map(([date, scheduleBlocks], index) => (
+            <div
+              key={date}
+              className="typography-body-sm bg-neu-200 pb-px dark:bg-neu-50"
+            >
+              <h3
+                className="bg-neu-50 py-4 dark:bg-neu-0"
+                id={`day-${index + startIndex}`}
               >
-                <h3
-                  className="bg-neu-50 py-4 dark:bg-neu-0"
-                  id={`day-${index + startIndex}`}
-                >
-                  {format(parseISO(date), "EEEE, MMMM d")}
-                </h3>
-                {Object.entries(concurrentSessionsGroup).map(
-                  ([sessionDate, sessions], i, blocks) => {
-                    const blockEnd = new Date(
-                      Math.max(
-                        ...sessions.map(session =>
-                          new Date(session.event_end).getTime(),
+                {format(parseISO(date), "EEEE, MMMM d")}
+              </h3>
+              {scheduleBlocks.map((block, i, blocks) => {
+                const sessionsByVenue = Object.entries(
+                  block.sessions.reduce<Record<string, ScheduleSession[]>>(
+                    (groupedSessions, session) => {
+                      const venue = session.venue || ""
+                      ;(groupedSessions[venue] ||= []).push(session)
+                      return groupedSessions
+                    },
+                    {},
+                  ),
+                )
+                  .sort(([venueA], [venueB]) => venueA.localeCompare(venueB))
+                  .map(([venue, venueSessions]) => [
+                    venue,
+                    venueSessions.sort(
+                      (a, b) =>
+                        compareAsc(
+                          new Date(a.event_start),
+                          new Date(b.event_start),
+                        ) ||
+                        compareAsc(
+                          new Date(a.event_end),
+                          new Date(b.event_end),
                         ),
-                      ),
-                    )
+                    ),
+                  ] as const)
 
-                    const nextBlock = blocks[i + 1]
-                    const nextBlockStart = nextBlock?.[0]
-                      ? new Date(nextBlock[0])
-                      : undefined
+                const nextBlockStart = blocks[i + 1]
+                  ? new Date(blocks[i + 1].start)
+                  : undefined
 
-                    const isBreak =
-                      sessions[0]?.event_type
-                        ?.toLowerCase()
-                        .includes("break") ||
-                      blocks[i + 1]?.[1]?.[0]?.event_type
-                        ?.toLowerCase()
-                        .includes("break")
-                    const hasDashedBorder =
-                      blockEnd &&
-                      blockEnd.getTime() === nextBlockStart?.getTime() &&
-                      !isBreak
+                const isBreak =
+                  block.sessions.some(session =>
+                    session.event_type?.toLowerCase().includes("break"),
+                  ) ||
+                  blocks[i + 1]?.sessions.some(session =>
+                    session.event_type?.toLowerCase().includes("break"),
+                  )
+                const hasDashedBorder =
+                  block.end.getTime() === nextBlockStart?.getTime() &&
+                  !isBreak
 
-                    const endTimesDiffer = sessions.some(
-                      session =>
-                        new Date(session.event_end).getTime() !==
-                        blockEnd.getTime(),
-                    )
+                const endTimesDiffer = block.sessions.some(
+                  session =>
+                    new Date(session.event_end).getTime() !==
+                      block.end.getTime(),
+                )
 
-                    let timeMarker = getTimeMarker(sessionDate, blockEnd)
-                    // if end times differ and blockEnd is far from start, we treat this as a long event, like "solutions showcase"
-                    if (
-                      endTimesDiffer &&
-                      blockEnd.getTime() - new Date(sessionDate).getTime() >
-                        1000 * 60 * 60 * 2
-                    ) {
-                      timeMarker = null
-                    }
+                let timeMarker = getTimeMarker(block.start, block.end)
+                // if end times differ and blockEnd is far from start, we treat this as a long event, like "solutions showcase"
+                if (
+                  endTimesDiffer &&
+                  block.end.getTime() - new Date(block.start).getTime() >
+                    1000 * 60 * 60 * 2
+                ) {
+                  timeMarker = null
+                }
 
-                    return (
-                      <div
-                        key={`concurrent sessions on ${sessionDate}`}
-                        className="relative lg:mt-px [&_div:has(a:hover)]:z-[1]"
-                      >
-                        <div className="mr-px flex flex-col max-lg:ml-px lg:flex-row">
-                          <div className="relative border-neu-50 bg-neu-50 dark:bg-neu-0 max-lg:-mx-px max-lg:my-px max-lg:border-x lg:mr-px">
-                            <span className="typography-body-sm mt-3 inline-block w-28 whitespace-nowrap pb-0.5 pl-4 lg:mr-6 lg:pb-4 lg:pl-0">
-                              {formatBlockTime(
-                                sessionDate,
-                                endTimesDiffer ? undefined : blockEnd,
-                              )}
-                            </span>
-                          </div>
-                          <div className="relative flex w-full flex-col items-end gap-px lg:flex-row lg:items-start">
-                            {sessions.map(session => (
-                              <ScheduleSessionCard
-                                key={session.id}
-                                session={session}
-                                year={year}
-                                eventsColors={eventsColors}
-                                blockEnd={blockEnd}
-                                durationVisible={endTimesDiffer}
-                              />
+                return (
+                  <div
+                    key={`schedule block on ${block.start}`}
+                    className="relative lg:mt-px [&_div:has(a:hover)]:z-[1]"
+                  >
+                    <div className="mr-px flex flex-col max-lg:ml-px lg:flex-row">
+                      <div className="relative border-neu-50 bg-neu-50 dark:bg-neu-0 max-lg:-mx-px max-lg:my-px max-lg:border-x lg:mr-px">
+                        <span className="typography-body-sm mt-3 inline-block w-28 whitespace-nowrap pb-0.5 pl-4 lg:mr-6 lg:pb-4 lg:pl-0">
+                          {formatBlockTime(
+                            block.start,
+                            endTimesDiffer ? undefined : block.end,
+                          )}
+                        </span>
+                      </div>
+                      <div className="relative flex w-full flex-col items-end gap-px lg:flex-row lg:items-stretch">
+                        {sessionsByVenue.map(([venue, venueSessions]) => (
+                          <div
+                            key={venue || venueSessions[0]?.id}
+                            className="flex w-full flex-col gap-px lg:w-0 lg:flex-1 lg:self-stretch"
+                          >
+                            {venueSessions.map(session => (
+                              <div key={session.id} className="min-h-0 flex-1">
+                                <ScheduleSessionCard
+                                  session={session}
+                                  year={year}
+                                  eventsColors={eventsColors}
+                                  blockEnd={block.end}
+                                  durationVisible={endTimesDiffer}
+                                />
+                              </div>
                             ))}
                           </div>
-                        </div>
-                        {timeMarker && (
-                          <div
-                            id="current-time-marker"
-                            className="typography-body-xs pointer-events-none absolute -right-1 z-10 -translate-y-full font-mono tabular-nums text-pri-base before:absolute before:inset-x-0 before:bottom-0 before:border-b before:border-pri-base before:opacity-80 after:absolute after:bottom-0 after:left-[-100vw] after:w-screen after:border-t after:border-pri-base after:opacity-20 dark:text-pri-light dark:before:border-pri-light dark:after:border-pri-light max-xl:bg-neu-0 xl:translate-x-full"
-                            style={{
-                              top: `${timeMarker.positionPercentage}%`,
-                            }}
-                          >
-                            <span className="max-2xl:hidden">now: </span>
-                            {timeMarker.currentTime}
-                          </div>
-                        )}
-                        {hasDashedBorder && (
-                          <svg
-                            className="absolute -bottom-px left-0 h-px w-full text-neu-50"
-                            viewBox="0 0 100 1"
-                            preserveAspectRatio="none"
-                          >
-                            <line
-                              x1="0"
-                              y1="0.5"
-                              x2="100"
-                              y2="0.5"
-                              stroke="currentColor"
-                              strokeWidth="1"
-                              strokeDasharray="4,4"
-                              strokeDashoffset="4"
-                              vectorEffect="non-scaling-stroke"
-                            />
-                          </svg>
-                        )}
+                        ))}
                       </div>
-                    )
-                  },
-                )}
-              </div>
-            ),
-          )}
+                    </div>
+                    {timeMarker && (
+                      <div
+                        id="current-time-marker"
+                        className="typography-body-xs pointer-events-none absolute -right-1 z-10 -translate-y-full font-mono tabular-nums text-pri-base before:absolute before:inset-x-0 before:bottom-0 before:border-b before:border-pri-base before:opacity-80 after:absolute after:bottom-0 after:left-[-100vw] after:w-screen after:border-t after:border-pri-base after:opacity-20 dark:text-pri-light dark:before:border-pri-light dark:after:border-pri-light max-xl:bg-neu-0 xl:translate-x-full"
+                        style={{
+                          top: `${timeMarker.positionPercentage}%`,
+                        }}
+                      >
+                        <span className="max-2xl:hidden">now: </span>
+                        {timeMarker.currentTime}
+                      </div>
+                    )}
+                    {hasDashedBorder && (
+                      <svg
+                        className="absolute -bottom-px left-0 h-px w-full text-neu-50"
+                        viewBox="0 0 100 1"
+                        preserveAspectRatio="none"
+                      >
+                        <line
+                          x1="0"
+                          y1="0.5"
+                          x2="100"
+                          y2="0.5"
+                          stroke="currentColor"
+                          strokeWidth="1"
+                          strokeDasharray="4,4"
+                          strokeDashoffset="4"
+                          vectorEffect="non-scaling-stroke"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+          ))}
         </>
       )}
     </>
