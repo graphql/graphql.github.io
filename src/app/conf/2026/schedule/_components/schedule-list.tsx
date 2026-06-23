@@ -269,20 +269,23 @@ export function ScheduleList({
                   ),
                 )
                   .sort(([venueA], [venueB]) => venueA.localeCompare(venueB))
-                  .map(([venue, venueSessions]) => [
-                    venue,
-                    venueSessions.sort(
-                      (a, b) =>
-                        compareAsc(
-                          new Date(a.event_start),
-                          new Date(b.event_start),
-                        ) ||
-                        compareAsc(
-                          new Date(a.event_end),
-                          new Date(b.event_end),
+                  .map(
+                    ([venue, venueSessions]) =>
+                      [
+                        venue,
+                        venueSessions.sort(
+                          (a, b) =>
+                            compareAsc(
+                              new Date(a.event_start),
+                              new Date(b.event_start),
+                            ) ||
+                            compareAsc(
+                              new Date(a.event_end),
+                              new Date(b.event_end),
+                            ),
                         ),
-                    ),
-                  ] as const)
+                      ] as const,
+                  )
 
                 const nextBlockStart = blocks[i + 1]
                   ? new Date(blocks[i + 1].start)
@@ -296,13 +299,12 @@ export function ScheduleList({
                     session.event_type?.toLowerCase().includes("break"),
                   )
                 const hasDashedBorder =
-                  block.end.getTime() === nextBlockStart?.getTime() &&
-                  !isBreak
+                  block.end.getTime() === nextBlockStart?.getTime() && !isBreak
 
                 const endTimesDiffer = block.sessions.some(
                   session =>
                     new Date(session.event_end).getTime() !==
-                      block.end.getTime(),
+                    block.end.getTime(),
                 )
 
                 let timeMarker = getTimeMarker(block.start, block.end)
