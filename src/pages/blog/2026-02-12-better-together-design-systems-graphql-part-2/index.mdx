@@ -23,7 +23,7 @@ Previously, we stated that one of our goals is to consolidate the divergent over
 Let’s now explore what this could look like by applying the schema storming workshop format at the pattern component level.
 
 First, we need to collect all the overview component variants that we want to consolidate. This process will vary, but it generally focuses on finding similar experiences across different business domains and client platforms, such as web, Android, iOS, etc.:  
-![][image17]
+![Three overview component variants — Property, Packages, and Activity — shown across web and mobile (Android and iOS) platforms, illustrating the divergent experiences to be consolidated][image17]
 
 At the same time, we have to select and invite the relevant workshop attendees. In this case, it’s going to be:
 
@@ -50,7 +50,7 @@ The first two questions that the attendees of the pattern component schema storm
 
 Collective agreement on these two aspects should allow the attendees to arrive at the foundation for the consolidated Product overview pattern component in the form of a wireframe:
 
-![][image18]
+![Wireframe analysis showing three overview component variants converging into a single Product Overview Component, with annotations identifying five variation discussion points][image18]
 
 The resulting wireframe of a Product Overview pattern component is made up of boxes that represent atomic components. This simple diagram captures the agreed-upon consistency as a semi-formal output of the variation discussion.
 
@@ -64,10 +64,10 @@ Once a name that accurately expresses the function of the atomic component withi
 
 Early on in the discussion, it's also helpful to agree on a good name for the component itself, keeping reusability in mind. Let’s add the component name, accompanying input field, as well as the visible atomic component field names:   
 
-![][image19]  
+![Schema storming wireframe for the Product Overview Component showing atomic component placeholders with yellow sticky notes naming each visible data field, including title, summary, avgRating, price, overviewList, map, feature, and location][image19]  
 As the diagram takes shape you can see a data graph forming. And because the various styles and colors of visual annotation map to GraphQL concepts 1:1, it's very easy to convert this diagram to GraphQL Schema Definition Language for the backend server systems, as well as GraphQL Operations (in this case a query) for the front end.  
 
-![][image20]
+![Early schema storming diagram showing the Product Overview component's initial GraphQL query and SDL taking shape, with sticky notes connected to the Map atomic component's server SDL and client operation][image20]
 
 Combining atomic components to make pattern components sometimes means that the same atomic component will be used multiple times in different contexts within the same pattern component.
 
@@ -77,7 +77,7 @@ For example, in our mock Product Overview pattern component, the designers plan 
 
 The pattern component schema storm enables all relevant stakeholders to agree on exactly what the various aspects of the component are called. In this case, the top “Heading” should be called the “title” whereas the second Heading would be for the “summary”. You can surely imagine how many synonyms there are for “title” or “summary.” By deciding early on this [ubiquitous language](https://martinfowler.com/bliki/UbiquitousLanguage.html), time is saved, and consistency within teams is created. 
 
-![][image21]
+![Close-up of the Product Overview schema storming wireframe showing naming decisions for two Heading atomic component instances: "title" for the product name and "summary" for the description][image21]
 
 It’s worth noting that GraphQL thinks of schema as a [shared language](https://graphql.org/learn/thinking-in-graphs/#shared-language), or “ubiquitous language” as Eric Evans says in the link above. Without schema storming, in which the different disciplines are brought together, how does a technical organization produce this shared language? **We believe the schema storming effort, at both the atomic and pattern levels, allows us to realize one of greatest potential benefits of GraphQL**: “a common product language that engineers, designers and all stakeholders can use to discuss and iterate on complex concepts” ([source](https://javascript.plainenglish.io/how-to-design-a-kick-ass-graphql-schema-79d573e85147)).	
 
@@ -88,13 +88,13 @@ Sometimes certain atomic components are used in conjunction with one another to 
 These groupings help define the function of entire sections of a component, and by taking the time to define them carefully, the engineers in the room get to keep track of the product and design teams’ intent by designing an expressive schema.
 
 We will represent the groupings with gray boxes around atomic components, and we will give these groupings a descriptive name with a gray sticky:  
-![][image22]
+![Schema storming wireframe showing groupings for the lower sections of the Product Overview component — Rating Badge, Link with Icon, List, Product Features, and Similar Locations — with a legend mapping diagram symbols to GraphQL concepts][image22]
 
 These groupings map 1:1 to GraphQL Type Definitions. Being able to link an on-screen component to its underlying data type visually is a powerful tool. When assembling atomic components into pattern components, designing the schema is quite easy, because so much work has already been done by the atomic component schema storm.  
 
 Let’s update our SDL and our client query to see how the groupings apply.  Note the use of square brackets “\[ \]” to denote lists:
 
-![][image23]
+![Schema storming diagram showing Product Overview component groupings mapped to GraphQL type definitions, alongside a client query demonstrating how groupings translate to nested types and lists][image23]
 
 ## Optionality, Nullability, and Error State Discussion
 
@@ -112,7 +112,7 @@ Deciding on the acceptable variation between two similar user experiences before
 
 Let’s see how optionality is represented in our diagram:
 
-![][image24]
+![Product Overview Component wireframe with optional sections highlighted in yellow borders — the Price field, the overview List, and the Similar Locations group — labeled as "OPTIONAL"][image24]
 
 #### Requiredness, Nullability, and Error State Discussion
 
@@ -132,7 +132,7 @@ When error shapes are known early on in the process, an ergonomic and future pro
 
 Let’s see how the discussion on requiredness and error state preferences affects our diagram and the resultant SDL \+ client operation: 
 
-![][image25]
+![Product Overview Component wireframe with title and summary Heading fields marked required (red border), showing corresponding SDL with non-nullable fields and a union return type for error handling, with callouts for "REQUIRED = NON-NULLABLE" and "ERROR STATE DISCUSSED & CODIFIED"][image25]
 
 ### Hidden Fields, Accessibility and Analytics
 
@@ -148,7 +148,7 @@ Design may ask for an ARIA string which represents the entire component. This is
 
 Let's check out how our hidden data requirements show up on our diagram: 
 
-![][image26]
+![Schema storming diagram for the Product Overview component adding hidden fields as black sticky notes — ariaHeading and analytics (eventType, componentName) — linked to both the SDL type definitions and the client operation][image26]
 
 ### From Sticky Notes to GraphQL Schema Definition Language
 
@@ -158,11 +158,11 @@ Armed with all of the details collaboratively figured out with design and produc
 
 Now this is where the magic happens. By using arrows to denote type membership, we can easily make a graph out of the stickies of requirements in our diagram: 
 
-![][image27]
+![Graph diagram showing all Product Overview component field relationships as a data graph, with sticky notes for heading, avgRating, summary, reviewCount, price, overviewList, productFeatures, map, ariaHeading, analytics, similarLocations, and productId connected by arrows][image27]
 
 This graph easily maps to backend service SDL and frontend GraphQL operations: 
 
-![][image28]  
+![Complete schema output diagram for the Product Overview component, showing the full SDL with union ProductOverviewResult, type Query, and type ProductOverview, alongside the corresponding GetProductOverview client query with sticky notes connected to their schema representations][image28]  
 Now we can start to see the real power of a UI annotation system that maps to GraphQL schema concepts. The sticky notes used to get alignment of key non-technical stakeholders on correct naming can now be used to directly create schema that represents the data requirements.
 
 The yellow and black stickies give us our field names. Red boxes indicate nullability. The green sticky is the query entry point itself. Now, we also start to see some of the compounding benefits from having Atomic Components schema requirements previously discussed and codified.
@@ -173,13 +173,13 @@ The schema design process for a pattern component is actually quite straightforw
 
 Now that we’ve gone step by step through each stage of the pattern component schema storm, let's zoom out and see the finished diagram:
 
-![][image29]
+![Completed Product Overview Component schema storming wireframe with all annotations — atomic components, field name stickies, groupings, optional sections, required fields, hidden data, and analytics — plus a legend mapping each symbol to its GraphQL concept][image29]
 
 Using the strategies discussed in previous sections we can easily transform the diagram annotations into schema shapes. The diagram supports the following schema concept mappings:   
-![][image30]
+![Reference table mapping diagram symbols to GraphQL concepts: white sticky = component name (ObjectTypeDefinition/EnumTypeDefinition), yellow sticky = visible field (FieldDefinition), black sticky = hidden field (FieldDefinition), teal sticky = enum value (EnumValueDefinition), with SDL examples and a non-technical legend][image30]
 
 Let's now take a look at the entire schema output from our pattern component schema storm. The following image breaks out the details of each UI annotation and how it maps to schema:  
-![][image31]
+![Full SDL schema output for the Product Overview component showing all type definitions — Analytics, ProductFeatures, ReviewSummary, ProductOverview, ProductOverviewError, and Query — with inline annotations connecting fields back to the wireframe diagram][image31]
 
 Thanks to our diligence in thoroughly discussing a number of concerns across product, design, and engineering teams, the schema now practically writes itself.
 
@@ -198,7 +198,7 @@ Thanks to extensive cross-functional collaboration using the visual medium of a 
 
 The wins of schema storming with design system components don’t end at the schema language definition. Let’s take a look at the query that’s going to power the consolidated Product overview pattern component with data:
 
-![][image32]
+![GetProductOverview query diagram showing how the client operation maps to atomic component fragments (green boxes), pattern-level hidden fields (black box), a union error return type (red box), and the productId input variable (red circle)][image32]
 
 The green boxes indicate the atomic component schema shapes. Just like with the SDL, it turns out that a large chunk of work has already been done in the design system at the atomic component level, ensuring reusability and correct implementation.
 
@@ -210,7 +210,7 @@ And finally the red circle at the top is the piece of data that allows our one q
 
 But the biggest win of all is that we now have one, universal query that can power all of the pattern component variations, eliminating schema bloat, query duplication, and component bloat:
 
-![][image33]
+![Summary diagram showing three wins: co-locating GraphQL fragments with atomic components leads to a composable pattern component with best practices built in, turning many duplicated queries into a single elegant experience query that enables fast iteration on future UIs][image33]
 
 Essentially, **what we’re proposing here as a best practice is a many-to-one relationship between the UI and the schema**. In our experience, too often this relationship is in practice one-to-one, which creates bloat and inconsistency in both the schema and the UI.
 

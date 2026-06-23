@@ -50,7 +50,7 @@ Taking the cue from [Brad Frost’s atomic design methodology](https://atomicdes
 *An atomic component is a UI component that cannot be broken down into smaller parts and reassembled in another way.*
 
 Here are a few examples from the Expedia Group system:  
-![][image1]
+![Five Expedia Group atomic components — Link with Icon, Map, Rating, Icon with Text, and Heading — each showing a design system preview with editable source code][image1]
 
 However, in contrast to Brad Frost’s hierarchy of atoms, molecules, organisms, templates, and pages, we propose to introduce only one more type of component besides the atomic one, that is, the pattern component. Let’s define it as follows:
 
@@ -58,7 +58,7 @@ However, in contrast to Brad Frost’s hierarchy of atoms, molecules, organisms,
 
 Consider the following examples of Expedia Group pattern components:
 
-![][image2]
+![Three Expedia Group pattern components: a Global Header navigation bar, a Featured Locations map, and a Loyalty Rewards Activity list][image2]
 
 Atomic components enable site-wide consistency of UI across business domains and client platforms (both internal *and* customer facing.) By combining these atomic components into pattern components, we unlock user *experiences*.
 
@@ -101,7 +101,7 @@ We’ve been fascinated with the evolution of both design systems and unified Gr
 ## UI Divergence at Expedia Group
 
 Below, you can see two variants of a product page at expedia.com; one for a Property and one for an Activity.  
-![][image3]
+![Side-by-side comparison of a Property Product Overview page (Hyatt Regency La Jolla) and an Activity Product Overview page (La Jolla 2-Hour Kayak Tour) on expedia.com][image3]
 
 It’s worth noting that, although these pages are continuously evolving, they were originally created before Expedia Group began adopting its design system and the supergraph. Currently, the teams at Expedia Group are working to consolidate experiences to streamline user interactions, reduce operational complexities, and leverage efficiencies.
 
@@ -117,7 +117,7 @@ But how do we pull this off without getting overwhelmed by analysis paralysis so
 Too much variation in similar user experiences across product domains can negatively affect sales as well as diminish productivity for engineers and designers, who may be building duplicative elements due to lack of governance.  
 
 With the above in mind, let’s examine the variation in these product overview components and how they’re being fetched.  
-![][image4]
+![The Property Overview and Activity Overview components highlighted and compared side by side on Expedia Group product pages][image4]
 
 ## Current State
 
@@ -125,7 +125,7 @@ The starting point for unifying the overview component variations should definit
 
 Regardless of the particulars, let's assume that the result of this discussion is an overall preference for the Property variation. From this perspective, we can observe that:
 
-*![][image5]*
+*![Annotated comparison of the Property Overview and Activity Overview components with numbered callouts identifying atomic components to reuse or consolidate][image5]*
 
 1. The ‘ratings’ atomic component should be reused for consistency.  
 2. The ‘features’ component should follow the ‘Popular amenities’ layout.  
@@ -136,7 +136,7 @@ In this scenario, product and design agree with each other that promoting more c
 
 But what about the GraphQL schema? Unsurprisingly, there’s inconsistency and a lack of reusability here, too. Let’s compare the queries powering the different overview variations side by side:
 
-![][image6]
+![Three GraphQL queries for the Property, Packages, and Activity overview components shown side by side, color-coded to indicate overlapping fields (green), naming inconsistencies (orange), and problematic schema design (red)][image6]
 
 First, the elements marked green indicate an overlap between the queries which presents an opportunity for either reuse or abstraction. It appears that consolidating these queries into one could be especially low lift in the case of the Property and Packages overview components, since the only issue there is inconsistent naming that causes bloat in the schema (marked orange):
 
@@ -146,7 +146,7 @@ First, the elements marked green indicate an overlap between the queries which p
 * amenities \{ vs. includedAmenities \{
 
 In the case of the Activity overview, things become messier. Here, too, we can notice naming inconsistencies causing bloat (orange), but there’s also a bigger problem (marked red):  
-![][image7]
+![GraphQL code snippet showing the Activity overview features field with overly constrained sub-fields — policy, timeLength, supportsMobileVoucher, and providesInstantConfirmation — highlighted in red as an example of problematic schema design][image7]
 
 It seems that fields have been named for each feature. Such a constrained approach doesn’t support reusability and calls for a redesign in the schema.
 
@@ -158,7 +158,7 @@ Let’s assume that, at the design level, the Property overview component will s
 
 As we know, every pattern component needs to be powered by atomic components to ensure experience consistency:
 
-![][image8]
+![Diagram showing the Property Overview pattern component composed of atomic components — Heading, Rating, Icon with Text, Link with Icon, and Map — with a legend distinguishing pattern components from atomic components][image8]
 
 The atomic components are the reusable building blocks designed to form any kind of pattern component or UI recipe that product stakeholders may require. So what if we co-located GraphQL fragments with these atomic components to promote not just frontend code reuse but also query and schema consistency and reuse?
 
@@ -188,11 +188,11 @@ Let’s now try to imagine what the schema storming workshop would look like for
 
 ### Icon Component
 
-![][image9]
+![The Icon with Text atomic component from the Expedia Group design system, showing a bus icon with the label "The hotel is 1 hour from the airport by bus" and its editable JSX source code][image9]
 
 **The basic premise of the workshop is really simple.** Using a whiteboard tool like Miro, the relevant stakeholders need to to discuss the data expectations of the icon component and record them as sticky notes placed on the design system screen cap:
 
-![][image10]
+![Schema storming annotation of the Icon with Text atomic component, with sticky notes labeling the data fields: iconName, text, size, ariaString, and id][image10]
 
 Let’s unpack what they could eventually arrive at:
 
@@ -209,22 +209,22 @@ Apart from listing the requirements as sticky notes, this is the time to zero in
 Let’s assume now that everyone agrees that there are no more stickies to be added here. Having contributed to the UI annotation, the designers can then leave the meeting, because, in the second part of the session, the frontend and backend/platform engineers are going to get particular about the type definitions.
 
 Essentially, they need to discuss the return types and nullability of the various fields. In this case, the "Icon with Text" UI component only requires fields with scalar return types, and all types are required, so the work of creating the schema (in SDL form) is easy. A graph relationship naturally forms and is easy to express as a reusable type definition in GraphQL's Schema Definition Language (SDL).  
-*![][image11]*
+*![Diagram mapping the Icon with Text component's sticky note annotations to a GraphQL SDL type definition: type IconWithText with fields id, iconName, text, size, and ariaString][image11]*
 
 ### Link with Icon Component
 
 Let’s now explore another atomic component schema storm example, this time for the link with an icon component.  
-![][image12]  
+![The Link with Icon atomic component from the Expedia Group design system, showing two example links with arrow icons and the component description][image12]  
 Again, we start by gathering the right people to discuss the data requirements and record them as sticky notes.
 
 With links, there’s much more than meets the eye:  
-![][image13]
+![Schema storming annotation of the Link with Icon atomic component, with sticky notes labeling data fields: icon, text, uri, iconPosition (with LEADING/TRAILING options), and analytics fields including referrerId, linkName, eventType, CLICK, and IMPRESSION][image13]
 
 Note that this time, in addition to design and engineering stakeholders, we likely need someone from product to align on the analytics part.
 
 Similar to the previous example, the engineering stakeholders should eventually arrive at an SDL expression of reusable type and enum definitions.
 
-![][image14]
+![Diagram mapping the Link with Icon component's annotations to GraphQL SDL type definitions for enums IconPosition and AnalyticEventType, and types Analytics and LinkWithIcon, with arrows connecting sticky notes to their corresponding schema fields][image14]
 
 Ultimately, the GraphQL types defined in these atomic component schema storming sessions should be incorporated into a shared schema library for consumption by backend experience teams. Diligence in defining visible content, accessibility, analytics, and configuration requirements at the atomic component level ensures that all of these aspects are integrated into the shared schema library. As a result, there’s no need to reinvent these requirements each time the teams build something.  
 
@@ -236,9 +236,9 @@ Type definitions feeding the shared schema library are just one part of the equa
 
 Here’s what this could look like for the “Icon with Text” and “Link with Icon” atomic components:
 
-![][image15]
+![Diagram showing the Icon with Text atomic component mapped to a co-located GraphQL client fragment with fields id, iconName, text, size, and ariaString][image15]
 
-![][image16]
+![Diagram showing the Link with Icon atomic component mapped to a co-located GraphQL client fragment with fields text, icon, iconPosition, uri, and analytics including referrerId, linkName, and eventType][image16]
 
 While this may seem like a lot of work to do for each atomic component, it’s fairly easy to plan and iterate on, one component at a time.
 
