@@ -31,12 +31,14 @@ export function ScheduleSessionCard({
   eventsColors,
   blockEnd,
   durationVisible,
+  startTimeVisible = false,
 }: {
   session: ScheduleSession
   year: `202${number}`
   eventsColors: Record<string, string>
   blockEnd: Date
   durationVisible: boolean
+  startTimeVisible?: boolean
 }) {
   let eventType = session.event_type
 
@@ -114,7 +116,14 @@ export function ScheduleSessionCard({
           </Tag>
         )}
         <span className="flex h-full flex-col justify-between gap-y-2">
-          <span className="typography-body-md">{eventTitle}</span>
+          <span>
+            {startTimeVisible && (
+              <span className="typography-body-sm mb-0.5 block">
+                {formatBlockTime(session.event_start)}
+              </span>
+            )}
+            <span className="typography-body-md">{eventTitle}</span>
+          </span>
           <span className="flex flex-col">
             {(speakers?.length || 0) > 0 && (
               <span className="typography-body-sm">

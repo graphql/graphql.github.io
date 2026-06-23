@@ -323,10 +323,7 @@ export function ScheduleList({
                     <div className="mr-px flex flex-col max-lg:ml-px lg:flex-row">
                       <div className="relative border-neu-50 bg-neu-50 dark:bg-neu-0 max-lg:-mx-px max-lg:my-px max-lg:border-x lg:mr-px">
                         <span className="typography-body-sm mt-3 inline-block w-28 whitespace-nowrap pb-0.5 pl-4 lg:mr-6 lg:pb-4 lg:pl-0">
-                          {formatBlockTime(
-                            block.start,
-                            endTimesDiffer ? undefined : block.end,
-                          )}
+                          {formatBlockTime(block.start, block.end)}
                         </span>
                       </div>
                       <div className="relative flex w-full flex-col items-end gap-px lg:flex-row lg:items-stretch">
@@ -335,7 +332,7 @@ export function ScheduleList({
                             key={venue || venueSessions[0]?.id}
                             className="flex w-full flex-col gap-px lg:w-0 lg:flex-1 lg:self-stretch"
                           >
-                            {venueSessions.map(session => (
+                            {venueSessions.map((session, sessionIndex) => (
                               <div key={session.id} className="min-h-0 flex-1">
                                 <ScheduleSessionCard
                                   session={session}
@@ -343,6 +340,7 @@ export function ScheduleList({
                                   eventsColors={eventsColors}
                                   blockEnd={block.end}
                                   durationVisible={endTimesDiffer}
+                                  startTimeVisible={sessionIndex > 0}
                                 />
                               </div>
                             ))}
