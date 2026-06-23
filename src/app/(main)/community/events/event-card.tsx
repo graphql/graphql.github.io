@@ -55,7 +55,7 @@ export interface EventCardProps {
   city: ReactNode
   name: ReactNode
   meta?: ReactNode
-  kind: "meetup" | "conference" | "working-group" | "foundation-meeting"
+  kind: EventKind
   className?: string
 }
 
@@ -65,6 +65,7 @@ const classNameFromKind = {
   meetup: "bg-[hsl(var(--color-sec-base)/var(--bg-opacity))]",
   "working-group": "bg-[hsl(229deg_100%_70.4%_/_var(--bg-opacity))]",
   "foundation-meeting": "bg-[hsl(35deg_100%_63%_/_var(--bg-opacity))]",
+  workshop: "bg-[hsl(152deg_53%_48%_/_var(--bg-opacity))]",
 } satisfies { [kind in EventKind]: string }
 
 export function EventCard({

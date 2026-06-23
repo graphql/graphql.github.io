@@ -1,6 +1,7 @@
 import type { EventKind } from "./event-filter-tag"
 
 export * from "./event-card"
+import type { EventKind } from "./event-filter-tag"
 
 export interface Event {
   name: string
@@ -32,6 +33,16 @@ const allEvents: Event[] = [
     eventLink: "https://guild.host/events/graphql-virtual-meetup-zywc3q",
     host: "GraphQL Foundation",
     kind: "meetup",
+  },
+  {
+    name: "From Zero to Agentic Query in One Afternoon",
+    slug: "jonthebeach-workshop-2026",
+    location: "Málaga, Spain",
+    date: "2026-10-29T09:00:00+02:00",
+    eventLink: "https://jonthebeach.com/workshops/from-zero-to-agentic/",
+    host: "J On The Beach",
+    hostLink: "https://jonthebeach.com",
+    kind: "workshop" as const,
   },
   {
     name: "GraphQL Day at FOST London",
