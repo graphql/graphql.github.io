@@ -26,7 +26,7 @@ Our radically new approach comes out of a particular context and is therefore be
 
 * We are powering multiple client platforms across multiple business domains.  
 * We leverage the [server-driven UI (SDUI)](https://www.apollographql.com/docs/technotes/TN0032-sdui-basics/) architectural pattern to minimize client-side logic and facilitate consistency between client platforms.  
-* We use [GraphQL federation](https://www.apollographql.com/docs/federation/) to hydrate clients with data via a unified GraphQL API that aggregates numerous microservices.  
+* We use [GraphQL federation](https://graphql.org/resources/federation/) to hydrate clients with data via a unified GraphQL API that aggregates numerous microservices.  
 * We operate in a large organization with many distributed teams. 
 
 ## What about Design Systems?
@@ -70,7 +70,7 @@ Thus, atomic components are mechanical realities, while pattern components repre
 
 Before we answer this question, let’s first delineate the larger context.
 
-More and more organizations are adopting a [GraphQL-native approach](https://www.apollographql.com/docs/technotes/TN0037-api-gateways/#graphql-native). This unlocks the ability to *codify* the contract between data consumers and data providers. What used to be a polyglot system of BFFs, with unpredictability and a lack of standards between systems, has been modernized and replatformed into massive unified APIs all feeding into a single supergraph endpoint.
+More and more organizations are adopting a [GraphQL-native approach](https://konghq.com/solutions/api-management-graphql). This unlocks the ability to *codify* the contract between data consumers and data providers. What used to be a polyglot system of BFFs, with unpredictability and a lack of standards between systems, has been modernized and replatformed into massive unified APIs all feeding into a single supergraph endpoint.
 
 Unified data APIs have unlocked a more intelligent architecture that allows a [demand-oriented](https://www.apollographql.com/docs/technotes/TN0027-demand-oriented-schema-design/) approach. This means that product teams, as well as specific client consumers, can ask for just the data they need. 
 
