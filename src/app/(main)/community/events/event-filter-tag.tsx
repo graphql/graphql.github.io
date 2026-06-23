@@ -7,12 +7,14 @@ export type EventKind =
   | "conference"
   | "working-group"
   | "foundation-meeting"
+  | "workshop"
 
 export const eventTagColors = {
   conference: "hsl(var(--color-pri-base))",
   meetup: "hsl(var(--color-sec-dark))",
   "working-group": "#6883FF",
   "foundation-meeting": "#FFB140",
+  workshop: "#3DBE7E",
 } satisfies { [kind in EventKind]: string }
 
 export interface EventFilterTagProps

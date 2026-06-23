@@ -61,6 +61,7 @@ type AnyEvent = Event | CalendarEvent
 const DEFAULT_VISIBILITY = {
   conference: true,
   meetup: true,
+  workshop: true,
   "working-group": true,
   "foundation-meeting": true,
 } satisfies Record<EventKind, boolean>
@@ -100,7 +101,7 @@ function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
       return "working-group"
     }
   } else if ("slug" in event) {
-    return "conference"
+    return event.kind ?? "conference"
   } else {
     // Uncategorized!
     if (process.env.NODE_ENV !== "production") {
@@ -181,6 +182,7 @@ export function EventsList({
     const target = {
       conference: majorEvents,
       meetup: majorEvents,
+      workshop: majorEvents,
       "working-group": minorEvents,
       "foundation-meeting": minorEvents,
     } satisfies { [kind in EventKind]: AnyEvent[] }
