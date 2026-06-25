@@ -19,7 +19,7 @@ patchedDependencies:
     hash: fccadc7038719bcf9dc12a573655719edaf7ea8246bd144c660191d05b38c637
     path: patches/mermaid-isomorphic.patch
   nextra:
-    hash: 524e6c4e6625267c90a966476e4cc3748ed2e49fa68d15936df7b6870e91a2a6
+    hash: a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb
     path: patches/nextra.patch
   nextra-theme-docs:
     hash: 2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5
@@ -148,10 +148,10 @@ importers:
         version: 3.0.1(less-loader@12.3.0(less@4.4.1))(less@4.4.1)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       nextra:
         specifier: 3.3.1
-        version: 3.3.1(patch_hash=524e6c4e6625267c90a966476e4cc3748ed2e49fa68d15936df7b6870e91a2a6)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+        version: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       nextra-theme-docs:
         specifier: 3.3.1
-        version: 3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=524e6c4e6625267c90a966476e4cc3748ed2e49fa68d15936df7b6870e91a2a6)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       numbro:
         specifier: 2.5.0
         version: 2.5.0
@@ -12503,7 +12503,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextra-theme-docs@3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=524e6c4e6625267c90a966476e4cc3748ed2e49fa68d15936df7b6870e91a2a6)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nextra-theme-docs@3.3.1(patch_hash=2cafbb261163557a490b97bea35ce78a55af9ec0ae200e2545ad15543b1443e5)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@headlessui/react': 2.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
@@ -12511,13 +12511,13 @@ snapshots:
       flexsearch: 0.7.43
       next: 14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes: 0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra: 3.3.1(patch_hash=524e6c4e6625267c90a966476e4cc3748ed2e49fa68d15936df7b6870e91a2a6)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      nextra: 3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
       zod: 3.25.76
 
-  nextra@3.3.1(patch_hash=524e6c4e6625267c90a966476e4cc3748ed2e49fa68d15936df7b6870e91a2a6)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
+  nextra@3.3.1(patch_hash=a4cb9ca39251906b7635817067482091dda31729230807c156358a0561ce2bcb)(@types/react@18.3.27)(acorn@8.15.0)(next@14.2.35(@babel/core@7.28.3)(@playwright/test@1.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
     dependencies:
       '@formatjs/intl-localematcher': 0.5.10
       '@headlessui/react': 2.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
