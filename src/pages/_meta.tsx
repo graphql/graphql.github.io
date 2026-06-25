@@ -116,7 +116,7 @@ export default {
   day: {
     type: "page",
     title: <DayEmphasis>GraphQL Days</DayEmphasis>,
-    route: "/day",
+    href: "/day",
   },
   "graphql-js": {
     type: "page",
