@@ -19,9 +19,6 @@ import {
 
 const SCHEDULE_ANCHOR = "#schedule"
 
-const TICKET_LINK =
-  "https://ticket.apidays.global/event/future-of-software-technology-new-york-2026/82677ac7-3989-456b-93a7-b1c215bd51d6/apidays-new-york/cart"
-
 const MARQUEE_ITEMS = [
   ["NEW YORK", "MAY 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
   [
@@ -50,9 +47,6 @@ export default function NYCPage() {
             location="Convene 360 Madison, New York"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
-              Get your ticket
-            </Button>
             <Button
               href={SCHEDULE_ANCHOR}
               className="whitespace-nowrap md:w-fit"
