@@ -106,7 +106,7 @@ export function ScheduleSessionCard({
           .map(s => s.name)
           .join(", ")}`}
       />
-      <span className="flex h-full flex-col justify-start">
+      <span className="flex h-full flex-col">
         {eventType && (
           <Tag
             className="mb-3"
@@ -115,52 +115,54 @@ export function ScheduleSessionCard({
             {eventType}
           </Tag>
         )}
-        <span className="flex h-full flex-col justify-between gap-y-2">
-          <span>
-            {startTimeVisible && (
-              <span className="typography-body-sm mb-0.5 block">
-                {formatBlockTime(session.event_start)}
-              </span>
-            )}
-            <span className="typography-body-md">{eventTitle}</span>
-          </span>
-          <span className="flex flex-col">
-            {(speakers?.length || 0) > 0 && (
-              <span className="typography-body-sm">
-                {speakers.map((s, i) => (
-                  <React.Fragment key={s.username || s.name}>
-                    {s.username ? (
-                      <Anchor
-                        href={`/conf/${year}/speakers/${s.username}`}
-                        className="relative z-[2] decoration-neu-600 hover:underline dark:decoration-neu-200"
-                      >
-                        {s.name}
-                      </Anchor>
-                    ) : (
-                      s.name
-                    )}
-                    {i !== speakers.length - 1 && <span>, </span>}
-                  </React.Fragment>
-                ))}
-              </span>
-            )}
-            <span className="mt-4 flex items-center gap-2 xl:mt-6">
-              {session.venue && (
-                <span className="typography-body-xs flex items-center gap-0.5">
-                  <PinIcon className="size-4 text-pri-base [@container(width<240px)]:hidden" />
-                  {session.venue}
-                </span>
-              )}
-              {durationVisible && <SessionDuration session={session} />}
-              <AddToCalendarLink
-                eventTitle={eventTitle}
-                session={session}
-                speakers={session.speakers || []}
-                className="ml-auto [&_[data-text]]:hidden @[300px]:[&_[data-text]]:inline"
-              />
+
+        <span>
+          {startTimeVisible && (
+            <span className="typography-body-sm mb-0.5 block">
+              {formatBlockTime(session.event_start)}
             </span>
+          )}
+          <span className="typography-body-md block min-h-[3lh]">
+            {eventTitle}
           </span>
         </span>
+        <span className="mt-6 flex flex-col">
+          {(speakers?.length || 0) > 0 && (
+            <span className="typography-body-sm">
+              {speakers.map((s, i) => (
+                <React.Fragment key={s.username || s.name}>
+                  {s.username ? (
+                    <Anchor
+                      href={`/conf/${year}/speakers/${s.username}`}
+                      className="relative z-[2] decoration-neu-600 hover:underline dark:decoration-neu-200"
+                    >
+                      {s.name}
+                    </Anchor>
+                  ) : (
+                    s.name
+                  )}
+                  {i !== speakers.length - 1 && <span>, </span>}
+                </React.Fragment>
+              ))}
+            </span>
+          )}
+          <span className="mt-4 flex items-center gap-2 xl:mt-6">
+            {session.venue && (
+              <span className="typography-body-xs flex items-center gap-0.5">
+                <PinIcon className="size-4 text-pri-base [@container(width<240px)]:hidden" />
+                {session.venue}
+              </span>
+            )}
+            {durationVisible && <SessionDuration session={session} />}
+            <AddToCalendarLink
+              eventTitle={eventTitle}
+              session={session}
+              speakers={session.speakers || []}
+              className="ml-auto [&_[data-text]]:hidden @[300px]:[&_[data-text]]:inline"
+            />
+          </span>
+        </span>
+        <span aria-hidden className="min-h-0 flex-1" />
       </span>
     </div>
   )
