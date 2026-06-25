@@ -48,10 +48,7 @@ export default function BengaluruPage() {
             location="Conrad Bengaluru, India"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button
-              href={TICKETS_LINK}
-              className="whitespace-nowrap md:w-fit"
-            >
+            <Button href={TICKETS_LINK} className="whitespace-nowrap md:w-fit">
               Get Tickets
             </Button>
             <CfpButton
