@@ -47,7 +47,7 @@ index 15afee0c1de26f47d781f423e5ec32e33ad925d3..fefd01736bd2b778df275bf50ac48384
 -      const isValid = metaItem.type === "separator" || metaItem.type === "menu" || metaItem.href;
 +      const isValid = metaItem.type === "separator" || metaItem.type === "menu" || metaItem.href
 +      // workaround
-+      || metaKey === 'conf';
++      || metaKey === 'conf' || metaKey === 'day';
        if (!isValid) {
          throw new Error(
            `Validation of "_meta" file has failed.
