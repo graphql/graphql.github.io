@@ -113,6 +113,11 @@ export default {
     ),
     route: "/conf/2026",
   },
+  day: {
+    type: "page",
+    title: <DayEmphasis>GraphQL Days</DayEmphasis>,
+    route: "/day",
+  },
   "graphql-js": {
     type: "page",
     title: "GraphQL.JS Tutorial",
@@ -122,6 +127,14 @@ export default {
 function Emphasis({ children }: { children: React.ReactNode }) {
   return (
     <span className="relative block before:absolute before:-inset-x-3 before:-inset-y-1 before:border before:border-current [a:has(>&)]:text-pri-base dark:[a:has(>&)]:text-pri-light [a:hover:has(>&)]:no-underline [a:hover_&]:before:border-transparent">
+      {children}
+    </span>
+  )
+}
+
+function DayEmphasis({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="relative block before:absolute before:-inset-x-3 before:-inset-y-1 before:border before:border-current [a:has(>&)]:text-emerald-600 dark:[a:has(>&)]:text-emerald-400 [a:hover:has(>&)]:no-underline [a:hover_&]:before:border-transparent">
       {children}
     </span>
   )
