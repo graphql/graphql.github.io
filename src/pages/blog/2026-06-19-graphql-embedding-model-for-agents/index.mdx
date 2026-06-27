@@ -41,6 +41,8 @@ The most realistic evaluation is across multiple production schemas the model ha
 
 The fine-tune leads at every cutoff and edges out `text-embedding-3-large` while running locally at a third of its embedding dimension. The un-tuned base model already sits between OpenAI's two tiers, so the architecture is competitive on its own, and the fine-tune adds another ~5 percentage points of field recall on top.
 
+Type-level recall is a parallel metric: instead of matching the full `Type.field`, it asks whether the right *owner type* shows up in the top results. There `text-embedding-3-large` leads at 87.8% recall@50, with the fine-tune close behind at 85.6%, ahead of the base (78.6%) and `text-embedding-3-small` (80.8%).
+
 ## A concrete example
 
 > *"I need to understand what commitments we have regarding support response times. Where can I find that info?"*
