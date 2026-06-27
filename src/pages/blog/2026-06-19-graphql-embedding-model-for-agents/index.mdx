@@ -30,15 +30,16 @@ A natural experiment is to fine-tune a general embedder on this specific task: m
 
 At 0.6B parameters, the model runs on CPU, or comfortably alongside an agent's own model on the same GPU. The weights are published as SentenceTransformers and as GGUF builds for `llama.cpp` and Ollama.
 
-The most realistic evaluation is against a schema the model has never seen before. Running it on the full [GitHub GraphQL schema](https://github.com/octokit/graphql-schema), with 6,342 coordinates and 52 natural-language queries that were not part of training:
+The most realistic evaluation is across multiple production schemas the model has never seen during training, with a hosted baseline alongside it. The GraphQL AI Working Group benchmark covers five schemas — GitHub, GitLab, Linear, Shopify, and the Singapore Open Data API — and 816 natural-language queries, each labelled with the `Type.field` that answers it. Headline field recall@K, against the ground-truth coordinate:
 
-| metric    | base  | tuned     | lift   |
-|-----------|-------|-----------|--------|
-| MRR       | 0.511 | **0.723** | +41%   |
-| Recall@1  | 0.385 | **0.615** | +60%   |
-| Recall@5  | 0.654 | **0.865** | +32%   |
+| model                                            | dim   | recall@20 | recall@50 |
+|--------------------------------------------------|------:|----------:|----------:|
+| **Qwen3-Embedding-0.6B-GraphQL** *(fine-tune)*   | 1024  | **50.6%** | **63.6%** |
+| OpenAI `text-embedding-3-large`                  | 3072  |     47.3% |     59.8% |
+| Qwen3-Embedding-0.6B *(base, un-tuned)*          | 1024  |     46.7% |     58.5% |
+| OpenAI `text-embedding-3-small`                  | 1536  |     42.3% |     54.3% |
 
-The lift is most pronounced on indirect questions that name a concept rather than a field, and that require the model to pick the right owner.
+The fine-tune leads at every cutoff and edges out `text-embedding-3-large` while running locally at a third of its embedding dimension. The un-tuned base model already sits between OpenAI's two tiers, so the architecture is competitive on its own, and the fine-tune adds another ~5 percentage points of field recall on top.
 
 ## A concrete example
 
