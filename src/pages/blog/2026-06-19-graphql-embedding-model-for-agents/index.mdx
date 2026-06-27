@@ -11,13 +11,18 @@ This is a classic retrieval problem, and the usual answer is RAG: embed every co
 
 ## Why general-purpose embedders struggle with schemas
 
-Schemas reuse field names everywhere. Dozens of types carry a `description`. Many carry an `author`, a `state`, a `createdAt`, a `priceCents`. Knowing the field name is rarely enough. You have to know *whose* field it is.
+Schemas reuse field names everywhere. The same `author`, `state`, `createdAt`, `priceCents`, or `title` tends to appear on many different types, so knowing the field name is rarely enough on its own — you have to know *whose* field it is.
 
-Take a question like *"What's the nightly rate for this room?"*. The right answer is `Room.priceCents`. But the schema may also carry `RoomUpgradeOffer.priceCents`, `RoomExtension.priceCents`, `Ticket.priceCents`, and more. A general-purpose embedder doesn't always resolve that ambiguity well, and often ranks the wrong owner first.
+Consider a question like *"What's the nightly rate for this room?"* against a schema like this:
 
-The same pattern shows up on bigger schemas. The public GitHub GraphQL schema has **262 distinct `.description` fields** across types like `Issue`, `Incident`, `Resolution`, `SatisfactionSurvey`, `SlaPolicy`, and many more. Retrieval here isn't really about picking the right field name. It's about picking the right *owner type* for a name that appears hundreds of times.
+```graphql
+type Room              { priceCents: Int! }
+type RoomUpgradeOffer  { priceCents: Int! }
+type RoomExtension     { priceCents: Int! }
+type Ticket            { priceCents: Int! }
+```
 
-This owner-type disambiguation is what general embedders are weakest at, and it's exactly what an agent needs to be reliable.
+The right answer is `Room.priceCents`, but every candidate exposes the same field. A general-purpose embedder, trained mostly on prose, doesn't always resolve that ambiguity well and often ranks the wrong owner first. At scale it gets worse: in a production schema, hundreds of types can share a single common field name, and retrieval stops being about picking the right field name and starts being about picking the right *owner type*. That owner-type disambiguation is what general embedders are weakest at, and what an agent needs to be reliable.
 
 ## A small, focused fine-tune
 
@@ -39,7 +44,7 @@ The lift is most pronounced on indirect questions that name a concept rather tha
 
 > *"I need to understand what commitments we have regarding support response times. Where can I find that info?"*
 
-The correct answer in this schema is `SlaPolicy.description`. Among the 262 candidate `.description` fields:
+The correct answer in this schema is `SlaPolicy.description`. The public GitHub GraphQL schema has 262 distinct types that declare a field named `description` (a regular field, not the SDL documentation string). Among those 262 candidates:
 
 - The base model ranks `SatisfactionSurvey.description` and `Incident.description` above the target. `SlaPolicy.description` lands at rank **101** in the full corpus.
 - The fine-tuned model ranks `SlaPolicy.description` at rank **1**, with the wrong owners demoted from a cosine of about 0.45 down to 0.15 to 0.22.
