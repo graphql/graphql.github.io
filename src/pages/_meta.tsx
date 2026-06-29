@@ -28,6 +28,7 @@ export default {
         // for now, until we have bandwidth to migrate it to App Router
         href: "/community/tools-and-libraries",
       },
+      vendors: "Vendors",
       spec: {
         type: "page",
         title: "Specification",
