@@ -152,22 +152,22 @@ The [Vendors page](https://graphql.org/resources/vendors) lists GraphQL companie
 
 To add or remove a vendor, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls).
 
-1. Add a logo using one of these patterns:
-   - **Icon component**: If an SVG icon already exists in [`src/icons/`](../../icons/), register it in [`vendor-logo.tsx`](./src/app/(main)/resources/vendors/vendor-logo.tsx) (see Apollo, ChilliCream, Graphile, Stellate).
-   - **Sponsor wordmark**: Add an SVG to [`public/img/vendors/`](../../public/img/vendors/) and register the slug in `wordmarkSlugs` or `coloredWordmarkSlugs` in [`vendor-logo.tsx`](./src/app/(main)/resources/vendors/vendor-logo.tsx). White wordmarks from conference sponsors work best; they are displayed with a CSS filter for contrast on light backgrounds.
-2. Add a JSON file to [`src/resources/vendors/`](./src/resources/vendors/) with the same slug (e.g. `apollo.json`):
+1. Add a logo using one of these patterns in [`vendor-logo.tsx`](./src/app/(main)/resources/vendors/vendor-logo.tsx):
+   - **Icon component**: If an SVG icon already exists in [`src/icons/`](../../icons/), register the slug in the `iconLogos` map (see Apollo, ChilliCream, Graphile, Stellate).
+   - **SVG file**: Add an SVG to [`public/img/vendors/`](../../public/img/vendors/), import it with the `?svgr` suffix, and register the slug in the `iconLogos` map (square brand marks) or `wordmarkLogos` map (wide wordmarks). SVGs should use `fill="currentColor"` so the mark inherits the surrounding text color and stays legible in both light and dark mode (see the WunderGraph mark and the Hasura/The Guild/Hygraph/Tyk wordmarks).
+2. Add an entry to the `vendors` array in [`src/resources/vendors/data.ts`](./src/resources/vendors/data.ts):
 
-```json
+```ts
 {
-  "name": "Example Co",
-  "slug": "example-co",
-  "description": "One to three sentences describing what the company builds.",
-  "url": "https://example.com/",
-  "github": "example-org"
-}
+  name: "Example Co",
+  slug: "example-co",
+  description: "One to three sentences describing what the company builds.",
+  url: "https://example.com/",
+  github: "example-org",
+},
 ```
 
-The `slug` field must match the JSON filename (without `.json`) and the logo filename in `public/img/vendors/` when using a wordmark. The `github` field is optional.
+The `slug` links the entry to its logo registered in `vendor-logo.tsx`. The `github` field is optional. Descriptions support light Markdown (links, bold, inline code). Entries are sorted alphabetically by `name` automatically.
 
 ### Add a resource to the Community page
 
