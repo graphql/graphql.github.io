@@ -1,8 +1,8 @@
-import GrafbaseWordmark from "public/img/vendors/grafbase.svg?svgr"
 import HasuraWordmark from "public/img/vendors/hasura.svg?svgr"
 import HygraphWordmark from "public/img/vendors/hygraph.svg?svgr"
 import TheGuildWordmark from "public/img/vendors/the-guild.svg?svgr"
 import TykWordmark from "public/img/vendors/tyk.svg?svgr"
+import WundergraphMark from "public/img/vendors/wundergraph.svg?svgr"
 
 import {
   ApolloIcon,
@@ -18,29 +18,20 @@ const iconLogos: Record<string, LogoComponent> = {
   chillicream: ChillicreamIcon,
   graphile: GraphileIcon,
   stellate: StellateIcon,
+  wundergraph: WundergraphMark,
 }
 
 const wordmarkLogos: Record<string, LogoComponent> = {
   hasura: HasuraWordmark,
   "the-guild": TheGuildWordmark,
   hygraph: HygraphWordmark,
-  grafbase: GrafbaseWordmark,
   tyk: TykWordmark,
-}
-
-/** Brand marks with native color — no filter. */
-const coloredWordmarkSlugs: Record<string, string> = {
-  wundergraph: "/img/vendors/wundergraph-graded.svg",
 }
 
 const logoClassName = "shrink-0"
 
 export function hasVendorLogo(slug: string) {
-  return (
-    slug in iconLogos ||
-    slug in wordmarkLogos ||
-    slug in coloredWordmarkSlugs
-  )
+  return slug in iconLogos || slug in wordmarkLogos
 }
 
 export function VendorLogo({ slug }: { slug: string }) {
@@ -56,18 +47,6 @@ export function VendorLogo({ slug }: { slug: string }) {
       <Wordmark
         className={`h-6 w-auto max-w-[80px] text-neu-900 ${logoClassName}`}
         aria-hidden
-      />
-    )
-  }
-
-  const coloredSrc = coloredWordmarkSlugs[slug]
-  if (coloredSrc) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={coloredSrc}
-        alt=""
-        className="h-7 w-auto max-w-[80px] shrink-0 object-contain object-left"
       />
     )
   }

@@ -53,14 +53,6 @@ const vendors: VendorMetadata[] = [
     url: "https://escape.tech/",
   },
   {
-    name: "Grafbase",
-    slug: "grafbase",
-    description:
-      "Grafbase is a platform for GraphQL Federation with secure self-hosted deployment, fast query performance, governance, and unified access to your data sources.",
-    url: "https://grafbase.com/",
-    github: "grafbase",
-  },
-  {
     name: "Graphile",
     slug: "graphile",
     description:
