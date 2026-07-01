@@ -18,13 +18,7 @@ import blurBean from "./events-blur-bean.webp"
 const ISSUE_TEMPLATE_LINK =
   "https://github.com/graphql/community-wg/issues/new?assignees=&labels=event&template=event-submission.yml"
 
-const GalleryStrip = dynamic(
-  () =>
-    import("@/app/conf/2025/components/gallery-strip").then(
-      mod => mod.GalleryStrip,
-    ),
-  { ssr: false },
-)
+import { GalleryStrip } from "./gallery-strip"
 
 export default async function EventsPage() {
   const { upcomingEvents, pastEvents } = await getAllEvents()
