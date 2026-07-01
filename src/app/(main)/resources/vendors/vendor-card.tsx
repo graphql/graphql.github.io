@@ -27,14 +27,14 @@ export function VendorCard({ vendor }: { vendor: VendorMetadata }) {
               <VendorLogo slug={vendor.slug} />
             </span>
           ) : null}
-          <h3 className="typography-h4 md:typography-h3 min-w-0 text-pretty break-words text-neu-900">
+          <h3 className="typography-h4 min-w-0 text-pretty break-words text-neu-900 md:typography-h3">
             {vendor.name}
           </h3>
         </a>
 
         <MicroMarkdown
           text={vendor.description}
-          className="typography-body-md text-pretty flex-1 p-4 text-neu-800 md:p-6"
+          className="typography-body-md flex-1 text-pretty p-4 text-neu-800 md:p-6"
         />
 
         <div className="grid grid-cols-[1fr_auto] items-center divide-x divide-neu-200 border-t border-inherit dark:divide-neu-100">
@@ -67,7 +67,10 @@ export function VendorCard({ vendor }: { vendor: VendorMetadata }) {
             tabIndex={-1}
             className="flex size-[53px] items-center justify-center text-neu-900 md:size-[72px]"
           >
-            <ArrowDownIcon className="size-8 -rotate-90 md:size-10" aria-hidden />
+            <ArrowDownIcon
+              className="size-8 -rotate-90 md:size-10"
+              aria-hidden
+            />
           </a>
         </div>
       </div>

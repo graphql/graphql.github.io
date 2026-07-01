@@ -5,15 +5,25 @@ import { VendorMetadata } from "./types"
 /**
  * Single source of truth for the GraphQL vendors directory.
  *
- * Entries are vendor (company) level with free-form descriptions. This is
- * intentionally decoupled from the `/code` Tools & Libraries catalog, which is
- * product/service level — a company (e.g. Apollo) and one of its products
- * (e.g. Apollo Router) are different things and can carry different copy.
+ * Entries are a mix of companies (e.g. Apollo, The Guild) and product/platform
+ * brands (e.g. Azure API Management, Kong Gateway, WSO2 API Manager) with
+ * free-form descriptions. This is intentionally decoupled from the `/code`
+ * Tools & Libraries catalog, which catalogs individual products/services — a
+ * company (e.g. Apollo) and one of its products (e.g. Apollo Router) are
+ * different things and can carry different copy.
  *
  * Descriptions support light Markdown (links, bold, inline code) and should
  * stay within a sentence or two. The `slug` maps to a logo in `vendor-logo.tsx`.
  */
 const vendors: VendorMetadata[] = [
+  {
+    name: "Apigee",
+    slug: "apigee",
+    description:
+      "Apigee is Google Cloud's API management platform, letting teams proxy, secure, and observe GraphQL APIs with policies for validation, threat protection, and analytics.",
+    url: "https://cloud.google.com/apigee",
+    github: "apigee",
+  },
   {
     name: "Apollo",
     slug: "apollo",
@@ -28,6 +38,14 @@ const vendors: VendorMetadata[] = [
     description:
       "AWS offers AWS AppSync, a fully managed service for building GraphQL APIs with real-time subscriptions, offline data synchronization, and fine-grained security controls.",
     url: "https://aws.amazon.com/appsync/",
+  },
+  {
+    name: "Azure API Management",
+    slug: "azure-api-management",
+    description:
+      "Azure API Management is Microsoft's fully managed API gateway, with support for pass-through and synthetic GraphQL APIs and policies for security, caching, rate limiting, and GraphQL request validation.",
+    url: "https://azure.microsoft.com/en-us/products/api-management",
+    github: "Azure",
   },
   {
     name: "ChilliCream",
@@ -79,21 +97,30 @@ const vendors: VendorMetadata[] = [
     name: "Hygraph",
     slug: "hygraph",
     description:
-      "Hygraph is a federated content platform that composes content from multiple sources and serves it through a single, flexible GraphQL API.",
+      "Hygraph is a federated content platform that unifies content and data from multiple sources and exposes it through a single GraphQL API.",
     url: "https://hygraph.com/",
   },
   {
-    name: "Stellate",
-    slug: "stellate",
+    name: "IBM StepZen",
+    slug: "stepzen",
     description:
-      "Stellate provides GraphQL edge caching, analytics, and rate limiting to improve the performance and observability of your APIs.",
-    url: "https://stellate.co/",
+      "IBM API Connect for GraphQL, formerly StepZen, lets teams declaratively build and deploy GraphQL APIs that compose data from REST services, databases, and other GraphQL endpoints.",
+    url: "https://www.ibm.com/products/api-connect/graphql",
+    github: "stepzen-dev",
+  },
+  {
+    name: "Kong Gateway",
+    slug: "kong",
+    description:
+      "Kong Gateway is a cloud-native API gateway that fronts GraphQL APIs with plugins for proxy caching, rate limiting, authentication, and observability.",
+    url: "https://konghq.com/products/kong-gateway",
+    github: "Kong",
   },
   {
     name: "The Guild",
     slug: "the-guild",
     description:
-      "The Guild maintains a broad suite of open-source GraphQL tooling, including GraphQL Code Generator, GraphQL Yoga, GraphQL Mesh, and Hive for schema registry and federation.",
+      "The Guild maintains a broad suite of GraphQL tooling and services, including GraphQL Code Generator, GraphQL Yoga, GraphQL Mesh, Hive for schema registry and federation, and the Stellate GraphQL CDN for edge caching.",
     url: "https://the-guild.dev/",
     github: "the-guild-org",
   },
@@ -101,9 +128,17 @@ const vendors: VendorMetadata[] = [
     name: "Tyk",
     slug: "tyk",
     description:
-      "Tyk is an open-source API management platform with full GraphQL support, including schema stitching, federation, subscriptions, and its Universal Data Graph.",
+      "Tyk is an open-source API management platform with GraphQL support for proxying, federation, subscriptions, and its Universal Data Graph.",
     url: "https://tyk.io/",
     github: "TykTechnologies",
+  },
+  {
+    name: "WSO2 API Manager",
+    slug: "wso2-api-manager",
+    description:
+      "WSO2 API Manager is an open-source platform for designing, securing, and managing APIs, with support for GraphQL queries, mutations, and subscriptions alongside REST.",
+    url: "https://wso2.com/api-manager/",
+    github: "wso2",
   },
   {
     name: "WunderGraph",

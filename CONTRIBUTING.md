@@ -152,7 +152,7 @@ The [Vendors page](https://graphql.org/resources/vendors) lists GraphQL companie
 
 To add or remove a vendor, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls).
 
-1. Add a logo using one of these patterns in [`vendor-logo.tsx`](./src/app/(main)/resources/vendors/vendor-logo.tsx):
+1. Add a logo using one of these patterns in [`vendor-logo.tsx`](<./src/app/(main)/resources/vendors/vendor-logo.tsx>):
    - **Icon component**: If an SVG icon already exists in [`src/icons/`](../../icons/), register the slug in the `iconLogos` map (see Apollo, ChilliCream, Graphile, Stellate).
    - **SVG file**: Add an SVG to [`public/img/vendors/`](../../public/img/vendors/), import it with the `?svgr` suffix, and register the slug in the `iconLogos` map (square brand marks) or `wordmarkLogos` map (wide wordmarks). SVGs should use `fill="currentColor"` so the mark inherits the surrounding text color and stays legible in both light and dark mode (see the WunderGraph mark and the Hasura/The Guild/Hygraph/Tyk wordmarks).
 2. Add an entry to the `vendors` array in [`src/resources/vendors/data.ts`](./src/resources/vendors/data.ts):

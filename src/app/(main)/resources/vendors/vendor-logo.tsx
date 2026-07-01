@@ -1,15 +1,11 @@
 import HasuraWordmark from "public/img/vendors/hasura.svg?svgr"
 import HygraphWordmark from "public/img/vendors/hygraph.svg?svgr"
+import KongMark from "public/img/vendors/kong.svg?svgr"
 import TheGuildWordmark from "public/img/vendors/the-guild.svg?svgr"
 import TykWordmark from "public/img/vendors/tyk.svg?svgr"
 import WundergraphMark from "public/img/vendors/wundergraph.svg?svgr"
 
-import {
-  ApolloIcon,
-  ChillicreamIcon,
-  GraphileIcon,
-  StellateIcon,
-} from "@/icons"
+import { ApolloIcon, ChillicreamIcon, GraphileIcon } from "@/icons"
 
 type LogoComponent = ({ className }: { className?: string }) => React.ReactNode
 
@@ -17,7 +13,7 @@ const iconLogos: Record<string, LogoComponent> = {
   apollo: ApolloIcon,
   chillicream: ChillicreamIcon,
   graphile: GraphileIcon,
-  stellate: StellateIcon,
+  kong: KongMark,
   wundergraph: WundergraphMark,
 }
 
