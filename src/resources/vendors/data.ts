@@ -18,7 +18,7 @@ const vendors: VendorMetadata[] = [
     name: "Apollo",
     slug: "apollo",
     description:
-      "Apollo builds an end-to-end GraphQL platform — Apollo Server, Apollo Client, the Apollo Router, and the GraphOS schema management and observability suite — for building and scaling federated GraphQL APIs.",
+      "Apollo builds an end-to-end GraphQL platform — Apollo Server, Apollo Client, the Apollo Router, and the GraphOS schema management and observability suite — for building and scaling federated GraphQL APIs, with over 1 billion open-source downloads.",
     url: "https://www.apollographql.com/",
     github: "apollographql",
   },
