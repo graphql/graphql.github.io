@@ -42,7 +42,6 @@ import image2025_15 from "./2025/15.webp"
 import image2025_16 from "./2025/14.webp"
 import image2025_17 from "./2025/17.webp"
 
-
 import image2026_1 from "./2026/1.jpg"
 import image2026_2 from "./2026/2.jpg"
 import image2026_3 from "./2026/3.jpg"
