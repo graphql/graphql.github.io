@@ -37,7 +37,45 @@ switch (status) {
 }
 ```
 
-In typed languages, if your codegen tool marks enums as exhaustive, configure it to generate a catch-all variant (often called `UNKNOWN` or `%future added value`) so the compiler enforces that you handle it.
+In typed languages, some tools can generate a catch-all enum value. Those tools parse the value at runtime and map it to that catch-all value:
+
+```kotlin
+enum class Status {
+  ACTIVE,
+  INACTIVE,
+  __UNKNOWN
+}
+
+// Kotlin: exhaustive switch with catch-all value
+when (status) {
+  ACTIVE -> showActive()
+  INACTIVE -> showInactive()
+  __UNKNOWN -> showUnknown(status)
+}
+```
+
+Some languages use the language builtin parser (JavaScript's `JSON.parse`) and mapping to a catch-all value is not an option.
+
+In those cases, some tools generate a specific `%future added value` value to force the developer to handle unkonwn values. That special value is a hint that a `default:` branch is required but should not be used. Relay has a [linter rule](https://relay.dev/docs/getting-started/lint-rules/#relayno-future-added-value) to check for this.
+
+```ts
+enum Status {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+  '%future added value' = "%future added value"
+}
+
+switch (status) {
+  case Status.ACTIVE:
+    return showActive();
+  case Status.Active:
+    return showInactive();
+  // unknown value
+  default:
+    return showUnknown(status);
+  // note there is no need to handle '%future added value'
+}
+```
 
 ## Plan for unknown union and interface subtypes
 
