@@ -37,7 +37,46 @@ switch (status) {
 }
 ```
 
-In typed languages, if your codegen tool marks enums as exhaustive, configure it to generate a catch-all variant (often called `UNKNOWN` or `%future added value`) so the compiler enforces that you handle it.
+In typed languages, some tools can generate a catch-all enum value, often called `__UNKNOWN`. Those tools parse the value at runtime and map it to that catch-all value:
+
+```kotlin
+enum class Status {
+  ACTIVE,
+  INACTIVE,
+  __UNKNOWN
+}
+
+// Kotlin: exhaustive switch with catch-all value
+when (status) {
+  ACTIVE -> showActive()
+  INACTIVE -> showInactive()
+  // other values, such as "PENDING", are mapped to __UNKNOWN
+  __UNKNOWN -> showUnknown(status)
+}
+```
+
+In other languages, the builtin parser is used and mapping to a catch-all value is not an option (for example, when using JavaScript's `JSON.parse`).
+
+In those cases, codegen can generate a specific `%do not use this value, add a default case instead` value to force the developer to add a `default:` branch. That special value must be handled in a `default:` branch and not by its name, because it's a synthetic name. Relay has a [linter rule](https://relay.dev/docs/getting-started/lint-rules/#relayno-future-added-value) to check for this.
+
+```ts
+enum Status {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+  '%do not use this value, add a default case instead' = "%do not use this value, add a default case instead"
+}
+
+switch (status) {
+  case Status.ACTIVE:
+    return showActive();
+  case Status.Active:
+    return showInactive();
+  // unknown value
+  default:
+    return showUnknown(status);
+  // note '%do not use this value, add a default case instead' must not be used here
+}
+```
 
 ## Plan for unknown union and interface subtypes
 
