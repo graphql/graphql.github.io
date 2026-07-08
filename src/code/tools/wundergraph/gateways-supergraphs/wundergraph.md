@@ -1,7 +1,7 @@
 ---
-name: Wundergraph Cosmo
-description: The open-source solution to building, maintaining, and collaborating on GraphQL Federation at Scale. The alternative to Apollo Studio and GraphOS.
-url: https://wundergraph.com/
+name: WunderGraph Cosmo
+description: Open-source, full lifecycle GraphQL federation and API management platform with schema registry, composition checks, routing, analytics, and distributed tracing
+url: https://wundergraph.com/cosmo
 github: wundergraph/cosmo
 tags:
   - tools-and-libraries
@@ -9,83 +9,10 @@ tags:
   - federation
 ---
 
-[WunderGraph](https://wundergraph.com) composes all your APIs into a single unified GraphQL API and
-allows you to expose your Graph as a [secure and type-safe JSON-RPC API](https://docs.wundergraph.com/docs/features/graphql-to-json-rpc-compiler).
+[WunderGraph Cosmo](https://wundergraph.com/cosmo) is an open-source GraphQL federation platform for managing and operating federated graphs at scale. It provides a schema registry, composition and breaking-change checks, a high-performance router, analytics, tracing, access control, and support for GraphQL Federation v1 and v2.
 
-To get started with WunderGraph, you can use `create-wundergraph-app` to bootstrap a new project:
+Cosmo supports both federated and monolithic GraphQL APIs and can run locally, fully on‑premises, or in the cloud as a managed service. The platform includes a CLI, control plane, router, and Studio to handle composition, routing, analytics, and governance for GraphQL architectures.
 
-```bash
-npx create-wundergraph-app my-project -E nextjs-swr
-```
+Cosmo also supports integrating non‑GraphQL backends through Cosmo Connect, which lets teams use GraphQL Federation without requiring backend teams to run GraphQL servers. Connect offers Router Plugins (local processes managed by the router) and independently deployed gRPC Services in any supported language to bring external APIs and services into a federated graph.
 
-On the client side, WunderGraph's JSON-RPC API integrates very well with frameworks like [Next.js, SWR](https://github.com/wundergraph/wundergraph/tree/main/examples/nextjs-swr) and React Query,
-while one the backend, we're able to leverage the power of "Server-Side-Only GraphQL".
-Handle authentication, authorization, validation, joins and more right in the Query Layer.
-
-```graphql
-mutation (
-  $name: String! @fromClaim(name: NAME)
-  $email: String! @fromClaim(name: EMAIL)
-  $message: String! @jsonSchema(pattern: "^[a-zA-Z 0-9]+$")
-) {
-  createOnepost(
-    data: {
-      message: $message
-      user: {
-        connectOrCreate: {
-          where: { email: $email }
-          create: { email: $email, name: $name }
-        }
-      }
-    }
-  ) {
-    id
-    message
-    user {
-      id
-      name
-    }
-  }
-}
-```
-
-The Query above requires the user to be authenticated,
-injects the user's name and email from the JWT token and validates the message against a JSON Schema.
-
-Here's another example showcasing how we can use Server-Side GraphQL with WunderGraph's unique [join capabilities](https://docs.wundergraph.com/docs/features/cross-api-joins-to-compose-apis),
-composing data from two different APIs into a single GraphQL response.
-
-```graphql
-query (
-  $continent: String!
-  # the @internal directive removes the $capital variable from the public API
-  # this means, the user can't set it manually
-  # this variable is our JOIN key
-  $capital: String! @internal
-) {
-  countries_countries(filter: { continent: { eq: $continent } }) {
-    code
-    name
-    # using the @export directive, we can export the value of the field `capital` into the JOIN key ($capital)
-    capital @export(as: "capital")
-    # the _join field returns the type Query!
-    # it exists on every object type so you can everywhere in your Query documents
-    _join {
-      # once we're inside the _join field, we can use the $capital variable to join the weather API
-      weather_getCityByName(name: $capital) {
-        weather {
-          temperature {
-            max
-          }
-          summary {
-            title
-            description
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-The full [example can be found on GitHub](https://github.com/wundergraph/wundergraph/tree/main/examples/cross-api-joins).
+To get started, see the [Cosmo overview](https://cosmo-docs.wundergraph.com/overview) and the [GitHub repository](https://github.com/wundergraph/cosmo).
