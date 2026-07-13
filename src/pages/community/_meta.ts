@@ -1,4 +1,8 @@
 export default {
+  team: {
+    type: "page",
+    href: "/community/team",
+  },
   "official-channels": "",
   "training-courses": "",
   "community-channels": "",
