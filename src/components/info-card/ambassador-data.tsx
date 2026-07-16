@@ -177,7 +177,7 @@ export const ambassadors202509: Ambassador[] = [
       },
       {
         label: "Website",
-        url: "https://notrab.dev/blog",
+        url: "https://notrab.dev",
         icon: <GlobeIcon className="size-5" />,
       },
     ],
@@ -401,11 +401,6 @@ export const ambassadors202509: Ambassador[] = [
         label: "LinkedIn",
         url: "https://www.linkedin.com/in/sarah-s-42913121a/",
         icon: <LinkedInIcon className="size-5" />,
-      },
-      {
-        label: "Website",
-        url: "https://www.sarahsanders.dev/",
-        icon: <GlobeIcon className="size-5" />,
       },
     ],
   },
@@ -794,8 +789,43 @@ export const ambassadors202603: Ambassador[] = [
   },
 ]
 
+export const ambassadors202606: Ambassador[] = [
+  {
+    label: "Christian Ernst",
+    imageUrl: "/img/ambassadors/christian-ernst.jpg",
+    alt: "Christian Ernst",
+    organization: "Booking.com",
+    tags: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/christian-ernst11/ ",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Željko Kozina",
+    imageUrl: "/img/ambassadors/zeljko-kozina.jpg",
+    alt: "Željko Kozina",
+    organization: "Chronomill",
+    tags: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/zkozina/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Website",
+        url: "https://graphqlguy.com/blog/",
+        icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+]
+
 export const ambassadors = [
   ...ambassadors202509,
   ...ambassadors202512,
   ...ambassadors202603,
+  ...ambassadors202606,
 ].sort((a, z) => a.label.localeCompare(z.label, "en-US"))

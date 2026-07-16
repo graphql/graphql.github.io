@@ -43,8 +43,11 @@ export default function LondonPage() {
             location="Convene Sancroft, London"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
-              Tickets coming soon
+            <Button
+              href="https://portal.joinfost.io/event/future-of-software-technologies-london-2026/f3ad7d08-6cc8-4e07-9342-9cca27c47ce4"
+              className="whitespace-nowrap md:w-fit"
+            >
+              Get tickets
             </Button>
             <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
@@ -66,11 +69,11 @@ export default function LondonPage() {
             description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST London."
           >
             <Button
-              disabled
+              href="https://portal.joinfost.io/event/future-of-software-technologies-london-2026/f3ad7d08-6cc8-4e07-9342-9cca27c47ce4"
               variant="primary"
-              className="whitespace-nowrap opacity-55"
+              className="whitespace-nowrap"
             >
-              Tickets coming soon
+              Get tickets
             </Button>
           </CtaCardSection>
           <MarqueeRows

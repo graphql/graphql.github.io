@@ -4,9 +4,7 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
-import { CfpButton } from "../components/become-a-speaker"
 import { EventPartnersSection } from "../components/event-partners"
-import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
@@ -17,6 +15,8 @@ import {
   AMSTERDAM_TIMEZONE_LABEL,
   tagColors,
 } from "./schedule-data"
+
+const SCHEDULE_ANCHOR = "#schedule"
 
 const MARQUEE_ITEMS = [
   ["AMSTERDAM", "JUNE 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
@@ -29,9 +29,6 @@ const MARQUEE_ITEMS = [
     "AMSTERDAM",
   ],
 ]
-
-const TICKET_LINK =
-  "https://portal.joinfost.io/event/future-of-software-technologies-amsterdam-2026/cf522e15-399f-4c1f-8365-3a72346f16f0/graphql-day-amsterdam-2026"
 
 export const metadata: Metadata = {
   title: "GraphQL Day @ FOST AMSTERDAM — June 9-10",
@@ -49,10 +46,12 @@ export default function AmsterdamPage() {
             location="Tolhuistuin, Amsterdam"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
-              Get your ticket
+            <Button
+              href={SCHEDULE_ANCHOR}
+              className="whitespace-nowrap md:w-fit"
+            >
+              View the schedule
             </Button>
-            <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
         </Hero>
         <AboutSection />
@@ -71,14 +70,6 @@ export default function AmsterdamPage() {
           />
           <EventPartnersSection />
           <GallerySection moving />
-          <CtaCardSection
-            title="Stay tuned"
-            description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST Amsterdam."
-          >
-            <Button href={TICKET_LINK} className="whitespace-nowrap md:w-fit">
-              Get your ticket
-            </Button>
-          </CtaCardSection>
           <MarqueeRows
             variant="secondary"
             className="my-8 xl:mb-16 xl:mt-10"
