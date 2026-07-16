@@ -11,18 +11,17 @@ This is a classic retrieval problem, and the usual answer is RAG: embed every co
 
 ## Why general-purpose embedders struggle with schemas
 
-Schemas reuse field names everywhere. The same `author`, `state`, `createdAt`, `priceCents`, or `title` tends to appear on many different types, so knowing the field name is rarely enough on its own — you have to know *whose* field it is.
+Schemas reuse field names everywhere. The same `author`, `state`, `createdAt`, `body`, or `title` tends to appear on many different types, so knowing the field name is rarely enough on its own — you have to know *whose* field it is.
 
-Consider a question like *"What's the nightly rate for this room?"* against a schema like this:
+Consider a question like *"What is the bug report called?"* against a schema like this:
 
 ```graphql
-type Room              { priceCents: Int! }
-type RoomUpgradeOffer  { priceCents: Int! }
-type RoomExtension     { priceCents: Int! }
-type Ticket            { priceCents: Int! }
+type Issue       { title: String! }
+type PullRequest { title: String! }
+type Repository  { title: String! }
 ```
 
-The right answer is `Room.priceCents`, but every candidate exposes the same field. A general-purpose embedder, trained mostly on prose, doesn't always resolve that ambiguity well and often ranks the wrong owner first. At scale it gets worse: in a production schema, hundreds of types can share a single common field name, and retrieval stops being about picking the right field name and starts being about picking the right *owner type*. That owner-type disambiguation is what general embedders are weakest at, and what an agent needs to be reliable.
+The right answer is `Issue.title`, but every candidate exposes the same field. A general-purpose embedder, trained mostly on prose, doesn't always resolve that ambiguity well and can rank the wrong owner first. At scale it gets worse: in a production schema, hundreds of types can share a single common field name, and retrieval stops being about picking the right field name and starts being about picking the right *owner type*. That owner-type disambiguation is what general embedders are weakest at, and what an agent needs to be reliable.
 
 ## A small, focused fine-tune
 
@@ -45,35 +44,42 @@ Type-level recall is a parallel metric: instead of matching the full `Type.field
 
 ## A concrete example
 
-> *"I need to understand what commitments we have regarding support response times. Where can I find that info?"*
+> *"What is the bug report called?"*
 
-The correct answer in this schema is `SlaPolicy.description`. The public GitHub GraphQL schema has 262 distinct types that declare a field named `description` (a regular field, not the SDL documentation string). Among those 262 candidates:
+Against the three bare coordinates `Issue.title`, `PullRequest.title`, and `Repository.title`, the un-tuned base model narrowly ranks `PullRequest.title` first. The fine-tuned model ranks the correct coordinate, `Issue.title`, first and opens a clearer margin over the other owners:
 
-- The base model ranks `SatisfactionSurvey.description` and `Incident.description` above the target. `SlaPolicy.description` lands at rank **101** in the full corpus.
-- The fine-tuned model ranks `SlaPolicy.description` at rank **1**, with the wrong owners demoted from a cosine of about 0.45 down to 0.15 to 0.22.
+| model      | `Issue.title` | strongest incorrect candidate | target margin |
+|------------|--------------:|------------------------------:|--------------:|
+| base       |         0.407 |         0.414 (`PullRequest`) |        -0.007 |
+| fine-tuned |         0.589 |         0.498 (`PullRequest`) |        +0.091 |
 
-The field name carries no signal here, since every candidate is `.description`. The owner type is what carries the signal, and that is what the fine-tune learned to weight.
+The field name carries no signal here, since every candidate is `.title`. The owner type is what carries the signal, and that is what the fine-tune learned to weight. This three-candidate comparison is only an illustrative sanity check; the aggregate benchmark above is the evidence for broader retrieval quality.
 
 ## Using it
 
-The model is a drop-in for any GraphQL-aware retrieval, query builder, or schema search. The snippet below loads the model and runs it entirely on the local machine, with no API calls and no network round trip:
+The model is a drop-in for any GraphQL-aware retrieval, query builder, or schema search. The snippet below is a minimal sanity check using bare `Type.field` coordinates. It runs entirely on the local machine, with no API calls and no network round trip:
 
 ```python
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("xthor/Qwen3-Embedding-0.6B-GraphQL")
 
-query = "What's the nightly rate for this room?"
+query = "What is the bug report called?"
 coords = [
-    "Room.priceCents",
-    "RoomUpgradeOffer.priceCents",
-    "Ticket.priceCents",
+    "Issue.title",
+    "PullRequest.title",
+    "Repository.title",
 ]
 
 q = model.encode(query, prompt_name="query")
 c = model.encode(coords, prompt_name="document")
 scores = (q @ c.T).tolist()
+
+for score, coord in sorted(zip(scores, coords), reverse=True):
+    print(f"{score:.3f}  {coord}")
 ```
+
+The fine-tuned model ranks `Issue.title` first in this three-candidate example; the un-tuned base model narrowly ranks `PullRequest.title` first. For a production index, use the richer SDL or one-line-gloss representations described below rather than bare coordinates alone.
 
 No hosted API is involved. The Q8 GGUF weights are about 650 MB on disk and use roughly 1 to 1.5 GB of RAM at runtime. The Q4 quantization fits in about 400 MB.
 
