@@ -11,17 +11,17 @@ This is a classic retrieval problem, and the usual answer is RAG: embed every co
 
 ## Why general-purpose embedders struggle with schemas
 
-Schemas reuse field names everywhere. The same `author`, `state`, `createdAt`, `body`, or `title` tends to appear on many different types, so knowing the field name is rarely enough on its own — you have to know *whose* field it is.
+Schemas reuse field names everywhere. The same `author`, `state`, `assignee`, `createdAt`, or `title` tends to appear on many different types, so knowing the field name is rarely enough on its own — you have to know *whose* field it is.
 
-Consider a question like *"What is the bug report called?"* against a schema like this:
+Consider a question like *"Who is assigned to my support ticket?"* against a schema like this:
 
 ```graphql
-type Issue       { title: String! }
-type PullRequest { title: String! }
-type Repository  { title: String! }
+type Ticket   { assignee: User }
+type Incident { assignee: User }
+type Task     { assignee: User }
 ```
 
-The right answer is `Issue.title`, but every candidate exposes the same field. A general-purpose embedder, trained mostly on prose, doesn't always resolve that ambiguity well and can rank the wrong owner first. At scale it gets worse: in a production schema, hundreds of types can share a single common field name, and retrieval stops being about picking the right field name and starts being about picking the right *owner type*. That owner-type disambiguation is what general embedders are weakest at, and what an agent needs to be reliable.
+The right answer is `Ticket.assignee`, but every candidate exposes the same field. The retriever has to match both parts of the request: the user wants an `assignee`, specifically on a `Ticket`. At scale, hundreds of types can share a common field name, so choosing the right *owner type* becomes a core part of schema retrieval. That is the task this fine-tune targets.
 
 ## A small, focused fine-tune
 
@@ -44,16 +44,11 @@ Type-level recall is a parallel metric: instead of matching the full `Type.field
 
 ## A concrete example
 
-> *"What is the bug report called?"*
+> *"When did I place this order?"*
 
-Against the three bare coordinates `Issue.title`, `PullRequest.title`, and `Repository.title`, the un-tuned base model narrowly ranks `PullRequest.title` first. The fine-tuned model ranks the correct coordinate, `Issue.title`, first and opens a clearer margin over the other owners:
+Against the three bare coordinates `Order.createdAt`, `Order.completedAt`, and `Order.updatedAt`, the un-tuned base model ranks `Order.completedAt` first, while the fine-tuned model ranks the correct coordinate, `Order.createdAt`, first.
 
-| model      | `Issue.title` | strongest incorrect candidate | target margin |
-|------------|--------------:|------------------------------:|--------------:|
-| base       |         0.407 |         0.414 (`PullRequest`) |        -0.007 |
-| fine-tuned |         0.589 |         0.498 (`PullRequest`) |        +0.091 |
-
-The field name carries no signal here, since every candidate is `.title`. The owner type is what carries the signal, and that is what the fine-tune learned to weight. This three-candidate comparison is only an illustrative sanity check; the aggregate benchmark above is the evidence for broader retrieval quality.
+Every candidate is a plausible timestamp on the same order, but "placed" refers to when the order was created, not when it was completed or last updated. The fine-tune makes that distinction and returns `Order.createdAt` first. This is a small illustration; the aggregate benchmark above is the broader evaluation.
 
 ## Using it
 
@@ -64,11 +59,11 @@ from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer("xthor/Qwen3-Embedding-0.6B-GraphQL")
 
-query = "What is the bug report called?"
+query = "When did I place this order?"
 coords = [
-    "Issue.title",
-    "PullRequest.title",
-    "Repository.title",
+    "Order.createdAt",
+    "Order.completedAt",
+    "Order.updatedAt",
 ]
 
 q = model.encode(query, prompt_name="query")
@@ -79,7 +74,7 @@ for score, coord in sorted(zip(scores, coords), reverse=True):
     print(f"{score:.3f}  {coord}")
 ```
 
-The fine-tuned model ranks `Issue.title` first in this three-candidate example; the un-tuned base model narrowly ranks `PullRequest.title` first. For a production index, use the richer SDL or one-line-gloss representations described below rather than bare coordinates alone.
+The fine-tuned model ranks `Order.createdAt` first in this three-candidate example; the un-tuned base model ranks `Order.completedAt` first. For a production index, use the richer SDL or one-line-gloss representations described below rather than bare coordinates alone.
 
 No hosted API is involved. The Q8 GGUF weights are about 650 MB on disk and use roughly 1 to 1.5 GB of RAM at runtime. The Q4 quantization fits in about 400 MB.
 
