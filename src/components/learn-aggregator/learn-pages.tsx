@@ -111,6 +111,12 @@ const _items: Record<
     icon: new URL("./assets/solve.svg", import.meta.url).href,
     section: "best-practices",
   },
+  "error-handling": {
+    description:
+      "Compare top-level errors and errors-as-data, and learn when to use each approach for exceptional versus expected failures.",
+    icon: new URL("./assets/construction.svg", import.meta.url).href,
+    section: "best-practices",
+  },
   "global-object-identification": {
     description:
       "Use globally unique IDs and the Node interface to enable caching, refetching, and efficient schema traversal.",

@@ -19,6 +19,7 @@ The following recommendations are based on patterns commonly used in production 
 | Enum values | SCREAMING_SNAKE_CASE | `IN_PROGRESS`, `COMPLETED` | Distinguishes constants from types |
 | Interfaces | PascalCase | `Node`, `Timestamped` | Same as types |
 | Unions | PascalCase | `SearchResult`, `MediaItem` | Same as types |
+| Directives | camelCase | `@include`, `@semanticNonNull` | Matches field and argument casing |
 
 ### Name boolean fields with prefixes
 
@@ -161,33 +162,7 @@ Payload types let you add validation errors and related entities without breakin
 
 ## Design nullability patterns thoughtfully
 
-GraphQL fields are nullable by default. Thoughtful nullability design helps schemas evolve gracefully and handle partial failures.
-
-### Be deliberate about non-null fields
-
-Reserve non-null (`!`) for fields that genuinely cannot fail. Start with nullable fields unless you have strong evidence they will always return values:
-
-```graphql
-# Overly strict, a single field failure breaks entire response
-type Product {
-  id: ID!
-  name: String!
-  description: String!
-  price: Int!
-  category: Category!
-}
-
-# Resilient, failures affect only unavailable fields
-type Product {
-  id: ID!
-  name: String!
-  description: String
-  price: Int
-  category: Category
-}
-```
-
-Core identity fields like `id` and required business attributes should be non-null. Everything else should remain nullable to handle edge cases gracefully.
+GraphQL fields are nullable by default. Thoughtful nullability design helps schemas evolve gracefully and handle partial failures. The trade-offs between non-null guarantees and resilience are nuanced, and the ecosystem is still evolving here with features like `@semanticNonNull` and client-side `onError` handling. This guide focuses on the mechanics of nullability rather than prescribing a default.
 
 ### Understand null bubbling behavior
 
@@ -204,8 +179,6 @@ type User {
   email: String!
 }
 ```
-
-When in doubt, prefer nullable fields for resilience.
 
 ### Use consistent list nullability
 
@@ -250,11 +223,12 @@ Whichever pattern you choose, document the behavior clearly in field description
 
 ## Document schemas comprehensively
 
-### Write clear field descriptions
+### Write clear descriptions
 
-Every non-obvious field should have a description:
+Describe every type, and every non-obvious field. Descriptions surface in tools like GraphiQL and in generated reference docs, so treat them as user-facing documentation rather than internal notes:
 
 ```graphql
+"A product available for purchase in the catalog."
 type Product {
   id: ID!
   
@@ -321,7 +295,7 @@ type User {
 }
 ```
 
-Custom scalars shift validation to the GraphQL layer, so invalid values fail before reaching resolvers. Many GraphQL implementations provide libraries with common scalars, such as [graphql-scalars](https://the-guild.dev/graphql/scalars) for JavaScript.
+Custom scalars shift validation to the GraphQL layer, so invalid values fail before reaching resolvers. Many GraphQL implementations provide libraries with common scalars, such as [graphql-scalars](https://the-guild.dev/graphql/scalars) for JavaScript. See also [scalars.graphql.org](https://scalars.graphql.org/) for community-maintained custom scalar specifications.
 
 ### Trade-offs to consider
 
@@ -333,63 +307,11 @@ Custom scalars have costs: they require implementation in every client and serve
 
 Avoid creating custom scalars for types that are really just strings with business rules, like `Username` or `ProductCode`. These are better enforced in resolver logic.
 
-## Choose an error handling approach
+## Handle errors
 
-### Use top-level errors for exceptional failures
+GraphQL supports two complementary approaches to errors: the top-level `errors` array for exceptional infrastructure and system failures, and errors-as-data (typed error fields modeled directly in your schema) for expected business-rule failures. Deciding which to use, and how to structure typed errors, is a design concern in its own right.
 
-The standard GraphQL `errors` array handles infrastructure and system failures:
-
-```json
-{
-  "data": null,
-  "errors": [{
-    "message": "Database connection failed",
-    "extensions": {
-      "code": "INTERNAL_SERVER_ERROR"
-    }
-  }]
-}
-```
-
-### Use errors-as-data for domain errors
-
-Business logic errors belong in the schema as structured types:
-
-```graphql
-type Mutation {
-  createUser(input: CreateUserInput!): CreateUserPayload!
-}
-
-type CreateUserPayload {
-  user: User
-  userErrors: [UserError!]!
-}
-
-type UserError {
-  message: String!
-  field: [String!]
-  code: UserErrorCode!
-}
-
-enum UserErrorCode {
-  USERNAME_TAKEN
-  INVALID_EMAIL
-  PASSWORD_TOO_SHORT
-}
-```
-
-This pattern makes errors discoverable through introspection and provides type safety.
-
-### Choose based on whether errors are exceptional
-
-| Error type | Pattern | Example |
-|-----------|---------|---------|
-| Infrastructure failure | Top-level error | Database timeout, network error |
-| Invalid GraphQL | Top-level error | Syntax error, unknown field |
-| Authentication required | Top-level error | Missing auth token |
-| Business rule violation | errors-as-data | Username taken, invalid email |
-| Validation failure | errors-as-data | Required field missing |
-| Domain constraint | errors-as-data | Insufficient inventory |
+For guidance on choosing between these patterns, see [Error Handling](/learn/error-handling/).
 
 ## Implement pagination with connections
 
@@ -562,29 +484,3 @@ type User {
   profile: UserProfile
 }
 ```
-
-### Don't overuse non-null fields
-
-```graphql
-# Fragile
-type User {
-  id: ID!
-  name: String!
-  email: String!
-  phone: String!
-  address: String!
-  preferences: UserPreferences!
-}
-
-# Resilient
-type User {
-  id: ID!
-  name: String!
-  email: String
-  phone: String
-  address: String
-  preferences: UserPreferences
-}
-```
-
-Start with nullable fields and tighten constraints only after understanding real-world failure patterns.

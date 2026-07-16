@@ -32,6 +32,7 @@ export default {
   authorization: "",
   pagination: "",
   "schema-design": "Schema Design",
+  "error-handling": "Error Handling",
   "global-object-identification": "",
   caching: "",
   performance: "",
