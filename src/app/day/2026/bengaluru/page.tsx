@@ -17,6 +17,9 @@ import { GallerySection } from "../../gallery-section"
 
 const CFP_LINK = "https://confengine.com/conferences/apidays-india-2026"
 
+const TICKETS_LINK =
+  "https://confengine.com/conferences/apidays-india-2026/register/selection"
+
 const MARQUEE_ITEMS = [
   ["BENGALURU", "AUGUST 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
   [
@@ -45,8 +48,8 @@ export default function BengaluruPage() {
             location="Conrad Bengaluru, India"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
-              Tickets coming soon
+            <Button href={TICKETS_LINK} className="whitespace-nowrap md:w-fit">
+              Get Tickets
             </Button>
             <CfpButton
               cfpLink={CFP_LINK}
@@ -54,30 +57,39 @@ export default function BengaluruPage() {
             />
           </div>
         </Hero>
+
         <AboutSection />
+
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
           items={MARQUEE_ITEMS}
         />
+
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
+
           <BecomeASpeakerSection cfpLink={CFP_LINK} />
+
           <PastSpeakersSection />
+
           <EventPartnersSection />
+
           <GallerySection moving />
+
           <CtaCardSection
             title="Stay tuned"
             description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST Bengaluru."
           >
             <Button
-              disabled
+              href={TICKETS_LINK}
               variant="primary"
-              className="whitespace-nowrap opacity-55"
+              className="whitespace-nowrap"
             >
-              Tickets coming soon
+              Get Tickets
             </Button>
           </CtaCardSection>
+
           <MarqueeRows
             variant="secondary"
             className="my-8 xl:mb-16 xl:mt-10"

@@ -7,6 +7,24 @@ import { videos } from "../../_videos"
 import { speakers, schedule } from "../../_data"
 import { getEventTitle } from "../../utils"
 
+// Reuse the exact Gold-tier logos and links from the sponsors section so the
+// recording credit stays in sync with components/sponsors.tsx.
+import TheGuild from "public/img/conf/Sponsors/TheGuild.svg?svgr"
+import Wundergraph from "public/img/conf/Sponsors/WunderGraph-graded.svg?svgr"
+
+const videoSponsors = [
+  {
+    name: "The Guild",
+    link: "https://the-guild.dev/graphql/hive",
+    icon: TheGuild,
+  },
+  {
+    name: "Wundergraph",
+    link: "https://wundergraph.com/",
+    icon: Wundergraph,
+  },
+]
+
 const sessionIdByTitle = Object.create(null)
 for (const session of schedule) {
   const speakerNames = (session.speakers || []).map(speaker => {
@@ -49,13 +67,40 @@ export interface SessionVideoProps {
 
 export function SessionVideo({ video, className }: SessionVideoProps) {
   return (
-    <iframe
-      className={clsx("mx-auto aspect-video w-full", className)}
-      src={`https://youtube.com/embed/${video.id}`}
-      title={video.title}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowFullScreen
-    />
+    <div className={clsx("mx-auto w-full", className)}>
+      <VideoSponsors />
+      <iframe
+        className="aspect-video w-full"
+        src={`https://youtube.com/embed/${video.id}`}
+        title={video.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    </div>
+  )
+}
+
+function VideoSponsors() {
+  return (
+    <div className="mb-6 flex flex-col items-center gap-3 text-center">
+      <span className="typography-body-sm text-neu-700 dark:text-neu-800">
+        Session recordings brought to you by our Gold Sponsors
+      </span>
+      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+        {videoSponsors.map(({ name, link, icon: Icon }) => (
+          <a
+            key={name}
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            title={name}
+            className="flex items-center justify-center hover:opacity-80 dark:opacity-90 dark:hover:opacity-100"
+          >
+            <Icon className="size-auto max-h-8 shrink-0 object-contain [&_path]:fill-[#15252D] dark:[&_path]:fill-white" />
+          </a>
+        ))}
+      </div>
+    </div>
   )
 }
 
