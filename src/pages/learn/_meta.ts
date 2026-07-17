@@ -32,6 +32,7 @@ export default {
   authorization: "",
   pagination: "",
   "schema-design": "Schema Design",
+  "error-handling": "Error Handling",
   "global-object-identification": "",
   caching: "",
   performance: "",
@@ -39,6 +40,7 @@ export default {
   federation: "",
   "robust-applications": "Robust Applications",
   "debug-errors": "Common GraphQL over HTTP Errors",
+  "naming-design": "Naming Conventions and Design Standards",
   "-- 3": {
     type: "separator",
     title: "Schema Governance",
