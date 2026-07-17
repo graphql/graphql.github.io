@@ -1,0 +1,537 @@
+# Review and validate schema changes
+
+Schema reviews ensure your GraphQL API remains consistent, maintainable, and safe to evolve. Without a deliberate review process, teams face conflicting design patterns, breaking changes that escape to production, and schema bloat from deprecated fields that accumulate over time.
+
+Different teams need different review processes based on their architecture and coordination needs:
+
+| Architecture | Coordination needs | Review strategy |
+|--------------|-------------------|-----------------|
+| Monolithic schema, single team | Consistency within team | Lightweight workflows in standard code review |
+| Monolithic schema, multiple teams | Shared ownership, prevent conflicts | Code review with automated checks and basic approval |
+| Federated subgraphs, clear boundaries | Independent teams, minimal overlap | Automated validation per subgraph, light cross-team review |
+| Federated subgraphs, shared entities | Cross-team dependencies | Formal approval for shared types, automated composition checks |
+| Any architecture at scale | Governance across organization | Schema stewardship team, automated gates, periodic audits |
+
+Match process weight to actual coordination needs.
+
+## Define review criteria
+
+Establish what makes a schema change acceptable before engineers submit their first pull request. Review criteria typically include:
+
+- **API design consistency**: Naming conventions, nullability patterns, error handling approaches
+- **Backwards compatibility**: No breaking changes without approval, deprecated fields properly marked
+- **Documentation completeness**: All types and fields described, examples provided for complex patterns
+- **Performance implications**: Resolver complexity considered, pagination patterns followed
+
+Create a review checklist that captures your specific standards. This checklist evolves as your team learns what problems recur in reviews.
+
+```javascript
+export const reviewRules = {
+  namingConventions: {
+    fields: 'camelCase',
+    types: 'PascalCase',
+    enums: 'SCREAMING_SNAKE_CASE'
+  },
+  requiredDocumentation: {
+    types: true,
+    fields: true,
+    arguments: true,
+    enumValues: false
+  },
+  breakingChanges: {
+    fieldRemoval: 'requires-approval',
+    typeRemoval: 'requires-approval',
+    argumentAddition: 'requires-approval',
+    enumValueRemoval: 'requires-approval'
+  },
+  deprecationPolicy: {
+    requiresReason: true,
+    requiresReplacement: true,
+    minimumNoticeMonths: 3
+  }
+};
+```
+
+This example defines standards as configuration that both humans and tools can reference. The specific rules matter less than having them documented and consistently applied.
+
+To implement these criteria, encode them in linting tools that run automatically, document them in your schema contribution guide, and reference them in pull request templates. When reviewers and contributors share the same criteria, reviews become faster and less contentious.
+
+## Automate validation
+
+Automated validation catches most schema issues before human review begins. A typical validation pipeline checks:
+
+- **Syntax**: Ensuring valid GraphQL SDL
+- **Composition**: Verifying federated subgraphs combine successfully
+- **Breaking changes**: Comparing against the current production schema
+- **Field usage**: Confirming deprecated fields aren't actively used
+- **Linting rules**: Enforcing naming conventions and documentation standards
+
+### Run syntax validation
+
+Parse your schema with the GraphQL.js parser to catch syntax errors immediately.
+
+```javascript
+import { buildSchema } from 'graphql';
+import { readFileSync } from 'fs';
+
+export function validateSchemaSyntax(schemaPath) {
+  const schemaSDL = readFileSync(schemaPath, 'utf-8');
+  
+  try {
+    buildSchema(schemaSDL);
+    return { valid: true };
+  } catch (error) {
+    return {
+      valid: false,
+      errors: [{
+        message: error.message,
+        location: error.locations
+      }]
+    };
+  }
+}
+```
+
+This example attempts to build a schema from SDL and captures parsing errors. GraphQL.js provides detailed error messages including line numbers where syntax problems occur.
+
+To integrate this validation, run it as a pre-commit hook or as the first step in your CI pipeline. Fast feedback on syntax errors prevents broken schemas from entering code review.
+
+### Detect breaking changes
+
+Compare schema versions to identify changes that break existing clients.
+
+```javascript
+import { buildSchema } from 'graphql';
+import { diff } from '@graphql-inspector/core';
+
+export async function detectBreakingChanges(currentSchema, proposedSchema) {
+  const current = buildSchema(currentSchema);
+  const proposed = buildSchema(proposedSchema);
+  
+  const changes = await diff(current, proposed);
+  
+  const breaking = changes.filter(change => 
+    change.criticality.level === 'BREAKING'
+  );
+  
+  const dangerous = changes.filter(change =>
+    change.criticality.level === 'DANGEROUS'
+  );
+  
+  return {
+    hasBreaking: breaking.length > 0,
+    breaking,
+    dangerous,
+    safe: changes.filter(c => 
+      c.criticality.level === 'NON_BREAKING'
+    )
+  };
+}
+```
+
+This example uses [GraphQL Inspector](https://graphql-inspector.com/) to categorize every schema change by its impact on existing clients. Breaking changes include field removals and type deletions, while dangerous changes include adding values to enums or making nullable fields required.
+
+To use this validation effectively, fail CI builds when breaking changes appear unless the pull request is explicitly marked for breaking change approval. Document your breaking change policy so engineers know when exceptions are permitted and what approval process they follow.
+
+### Validate schema composition
+
+For federated architectures, verify that subgraphs compose into a valid supergraph.
+
+```javascript
+export function validateComposition(subgraphs) {
+  const errors = [];
+  const typeRegistry = new Map();
+  
+  for (const subgraph of subgraphs) {
+    for (const type of subgraph.types) {
+      const existing = typeRegistry.get(type.name);
+      
+      if (existing && existing.subgraph !== subgraph.name) {
+        if (!areTypesCompatible(existing.definition, type.definition)) {
+          errors.push({
+            message: `Type ${type.name} has conflicting definitions`,
+            subgraphs: [existing.subgraph, subgraph.name],
+            code: 'TYPE_CONFLICT'
+          });
+        }
+      }
+      
+      typeRegistry.set(type.name, {
+        definition: type.definition,
+        subgraph: subgraph.name
+      });
+    }
+  }
+  
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  
+  return { valid: true };
+}
+
+function areTypesCompatible(type1, type2) {
+  return type1.kind === type2.kind &&
+         JSON.stringify(type1.fields) === JSON.stringify(type2.fields);
+}
+```
+
+This example validates that types defined across multiple subgraphs don't conflict. Common failures include conflicting field types across subgraphs and incompatible type definitions. Adapt this pattern to your federation implementation's specific composition rules. For an open-source composition library, see [federation-composition](https://github.com/graphql-hive/federation-composition).
+
+To integrate composition validation, run it whenever a subgraph schema changes. Catch composition failures in CI rather than discovering them when deploying to production. For teams working across multiple repositories, establish a shared schema registry that validates composition when subgraphs are published. See [Federation resources](/resources/federation/) for additional tools.
+
+## Integrate with CI/CD
+
+Schema validation belongs in continuous integration alongside other code quality checks. Structure your pipeline to provide fast feedback on common issues while deferring expensive checks until necessary.
+
+### Structure a validation pipeline
+
+Create a [GitHub Actions workflow](https://docs.github.com/en/actions) that runs validation checks in order of speed and importance.
+
+```yaml
+name: GraphQL Schema Review
+on:
+  pull_request:
+    paths:
+      - 'schema/**/*.graphql'
+      - 'src/**/*.graphql'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Validate syntax
+        run: npm run schema:validate
+      
+      - name: Run linter
+        run: npm run schema:lint
+      
+      - name: Check for breaking changes
+        run: npm run schema:breaking-changes
+      
+      - name: Validate composition
+        if: env.FEDERATED == 'true'
+        run: npm run schema:compose
+      
+      - name: Post review comment
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const report = JSON.parse(
+              require('fs').readFileSync('schema-report.json', 'utf8')
+            );
+            const { breaking, dangerous } = report;
+            
+            let comment = '## Schema Review Results\n\n';
+            
+            if (breaking.length > 0) {
+              comment += '### Breaking Changes Detected\n\n';
+              breaking.forEach(change => {
+                comment += `- ${change.message}\n`;
+              });
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+```
+
+This example runs validation steps sequentially, failing fast when early checks detect problems. The workflow posts results directly to pull requests so contributors see issues without leaving GitHub.
+
+When customizing this workflow, add or remove validation steps based on your schema complexity. Single-schema projects skip composition checks, while heavily federated systems may add usage validation against production traffic. Store validation scripts in your repository so the CI configuration stays simple.
+
+## Set ownership and approvals
+
+Clear ownership prevents review bottlenecks and reduces confusion about who makes final decisions on schema changes.
+
+### Assign schema ownership
+
+Determine who owns different parts of your schema based on your organizational structure. Small teams often assign ownership to the entire backend team. Federated organizations assign each subgraph to the team that owns the underlying service. Large monolithic schemas may divide ownership by GraphQL type or domain area.
+
+Document ownership in your repository using a CODEOWNERS file.
+
+```
+# GraphQL Schema Ownership
+
+# Default owners for all schema files
+schema/ @backend-team
+
+# Product catalog domain
+schema/product/ @catalog-team
+schema/inventory/ @catalog-team
+
+# User and authentication
+schema/user/ @identity-team
+schema/auth/ @identity-team
+
+# Orders and payments
+schema/order/ @orders-team
+schema/payment/ @payments-team
+
+# Shared types require approval from API platform team
+schema/shared/ @api-platform-team
+```
+
+This example uses [GitHub's CODEOWNERS format](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) to automatically request reviews from the appropriate teams. When a pull request modifies files in specific directories, GitHub notifies the designated owners.
+
+To make ownership effective, ensure the designated owners have the context to review changes. Provide documentation about your schema design principles, share examples of well-designed additions, and create guidelines specific to each domain area. Ownership without context leads to rubber-stamp approvals that miss real issues.
+
+### Create approval workflows
+
+Define when additional approval is required beyond standard code review. Most schema changes proceed through normal pull request review by the owning team. Breaking changes require explicit approval from API leadership or an architecture review board. Changes to shared types or critical paths need review from multiple teams. Major schema restructures benefit from design review before implementation begins.
+
+Implement approval requirements using branch protection rules and pull request labels.
+
+```json
+{
+  "branchProtection": {
+    "requiredReviews": 1,
+    "dismissStaleReviews": true,
+    "requireCodeOwnerReviews": true
+  },
+  "labelRules": {
+    "breaking-change": {
+      "requiredReviews": 2,
+      "requiredApprovers": ["@api-leadership"]
+    },
+    "shared-type": {
+      "requiredApprovers": ["@api-platform-team"]
+    }
+  }
+}
+```
+
+This example shows configuration for automated approval enforcement. The specific rules matter less than making them explicit and consistently applied.
+
+To reduce approval burden, make most changes non-breaking. Add new fields instead of modifying existing ones, use deprecation instead of removal, and introduce new types rather than changing established ones. Reserve the heavyweight approval process for changes that genuinely require broad consensus.
+
+## Manage breaking changes
+
+Breaking changes sometimes become necessary despite best efforts to avoid them. When you must make breaking changes, follow a deliberate process that minimizes client impact.
+
+### Identify what constitutes a breaking change
+
+A breaking change is any change that breaks the server/client contract. This happens when previously valid operations become invalid or when the shape of the returned data changes.
+
+Breaking changes include:
+
+- **Removing fields or types**: Existing operations requesting removed fields become invalid
+- **Removing or renaming arguments**: Existing operations using old argument names become invalid
+- **Adding required arguments**: Existing operations missing new required arguments become invalid
+- **Removing enum values**: Existing operations using removed values in input positions become invalid
+- **Changing a field type**: Existing clients may crash on the unexpected type
+- **Making non-nullable fields nullable**: Existing clients may crash on unexpected nulls
+
+Note that some of these changes, such as a type rename or a conversion from an object to an interface, may be compatible with existing clients at runtime. But it is impossible to tell for sure and are therefore considered breaking.
+Dangerous changes that may break some clients include:
+
+- **Adding enum values**: If clients exhaustively match enum values
+- **Adding new types to a union/interface**: If clients exhaustively match the cases
+- **Adding fields to input types**: If clients use spread operators to construct input objects
+
+Modern clients should handle those cases (see [./robust-applications]) but some older clients may break and caution is encouraged for those changes. 
+
+### Plan breaking change rollouts
+
+When a breaking change becomes necessary, plan a multi-phase rollout:
+
+1. **Add the replacement**: Introduce the new field or type alongside the old one
+2. **Deprecate the old version**: Mark it deprecated with a clear migration path
+3. **Monitor usage**: Track the deprecated field to confirm clients have migrated
+4. **Remove safely**: Delete the deprecated field only after usage drops to zero
+
+Track this process in your schema with deprecation annotations.
+
+```graphql
+type Product {
+  id: ID!
+  name: String!
+  
+  # Deprecated: Use 'priceAmount' and 'priceCurrency' instead
+  # This field will be removed on 2025-06-01
+  price: String @deprecated(reason: "Use priceAmount and priceCurrency for proper currency handling. This field returns prices as strings like '19.99 USD' which is difficult to parse reliably.")
+  
+  priceAmount: Float!
+  priceCurrency: Currency!
+}
+
+enum Currency {
+  USD
+  EUR
+  GBP
+}
+```
+
+This example shows how to deprecate a field while providing a clear migration path. The deprecation message explains both what to use instead and why the change improves the API.
+
+To communicate breaking changes to clients, announce deprecations through your API changelog, email client teams directly for high-impact changes, and provide migration guides with code examples. Set clear timelines for when deprecated fields will be removed and stick to them.
+
+### Measure field usage before removal
+
+Confirm that deprecated fields are no longer used before removing them. Track field usage through server-side instrumentation.
+
+```javascript
+import { graphql } from 'graphql';
+
+export function trackFieldUsage(schema, document, contextValue) {
+  const usageTracker = {
+    fields: new Map()
+  };
+  
+  const execute = async () => {
+    return await graphql({
+      schema,
+      source: document,
+      contextValue: {
+        ...contextValue,
+        fieldUsage: usageTracker
+      }
+    });
+  };
+  
+  return { execute, usageTracker };
+}
+
+function createResolverWithTracking(resolver, typeName, fieldName) {
+  return function trackedResolver(parent, args, context, info) {
+    const key = `${typeName}.${fieldName}`;
+    
+    if (context.fieldUsage) {
+      const count = context.fieldUsage.fields.get(key) || 0;
+      context.fieldUsage.fields.set(key, count + 1);
+    }
+    
+    return resolver(parent, args, context, info);
+  };
+}
+```
+
+This example wraps resolver execution to track which fields are accessed. The usage data flows to your metrics system where you aggregate it across all requests.
+
+To use field usage data effectively, set a threshold for safe removal, such as zero requests in the past 30 days. Account for seasonal patterns in your application where certain fields may only be used during specific times of year. Communicate usage data back to client teams so they can identify queries that still reference deprecated fields. For monitoring tools that can help with field-level tracking, see [Monitoring resources](/resources/monitoring/).
+
+## Schedule periodic reviews
+
+Regular schema reviews create opportunities to address accumulated issues and align on standards.
+
+### Schedule periodic schema health reviews
+
+Beyond reviewing individual changes, examine your entire schema quarterly. Look for:
+
+- **Unused types and fields**: Candidates for deprecation
+- **Inconsistent patterns**: Areas needing standardization
+- **Missing documentation**: Types and fields that need descriptions
+- **Performance bottlenecks**: Overly complex resolvers
+- **Consolidation opportunities**: Similar types that could merge
+
+Create a schema health scorecard that tracks these metrics over time.
+
+```javascript
+export async function generateSchemaHealthReport(schema, usageData) {
+  const types = Object.keys(schema.getTypeMap())
+    .filter(name => !name.startsWith('__'));
+  
+  const fields = types.flatMap(typeName => {
+    const type = schema.getType(typeName);
+    if ('getFields' in type) {
+      return Object.keys(type.getFields()).map(f => `${typeName}.${f}`);
+    }
+    return [];
+  });
+  
+  const unusedFields = fields.filter(fieldKey => {
+    const usage = usageData.get(fieldKey);
+    return !usage || usage.requestCount === 0;
+  });
+  
+  const undocumentedTypes = types.filter(typeName => {
+    const type = schema.getType(typeName);
+    return !type.description || type.description.trim() === '';
+  });
+  
+  return {
+    totalTypes: types.length,
+    totalFields: fields.length,
+    unusedFields: unusedFields.length,
+    unusedFieldPercentage: (unusedFields.length / fields.length) * 100,
+    undocumentedTypes: undocumentedTypes.length,
+    documentationCoverage: ((types.length - undocumentedTypes.length) / types.length) * 100
+  };
+}
+```
+
+This example generates metrics about schema health by examining the schema structure and comparing it against usage data. The metrics reveal opportunities for cleanup and improvement.
+
+To act on schema health reviews, create tickets for deprecating unused fields, assign ownership of undocumented types to teams for documentation, and establish targets for improving metrics over the next quarter. Track progress in your regular team meetings to maintain momentum. For tools that support schema health analysis, see [Monitoring resources](/resources/monitoring/).
+
+## Scale across teams
+
+As more teams contribute to your schema, lightweight processes become bottlenecks. Choose an organizational model that fits your structure:
+
+| Model | How it works | Pros | Cons |
+|-------|--------------|------|------|
+| **Centralized** | Dedicated API team reviews all changes | Consistent standards | Bottleneck at scale |
+| **Federated** | Each team owns their subgraph | Scales well, teams move independently | Requires strong initial alignment |
+| **Guild** | Schema experts coordinate, don't gate changes | Balances consistency with autonomy | Depends on individual champions |
+
+Match your review process to your organizational structure. Companies with strong microservice boundaries benefit from federated ownership. Organizations with shared domain models need more centralized coordination.
+
+### Enable self-service with guardrails
+
+Reduce review burden by enabling teams to make standard changes without approval:
+
+- **Automated validation**: Catches most issues without human intervention
+- **Clear documentation**: Shows approved patterns through examples
+- **Linting rules**: Enforces consistency automatically
+- **Single-team approval**: Changes passing checks merge with one approval
+
+Reserve detailed review for genuinely novel cases:
+
+- **New root query fields**: Benefit from API design review
+- **Shared type changes**: Need cross-team coordination
+- **Breaking changes**: Require leadership approval
+- **Everything else**: Flows through automated validation and standard code review
+
+## Avoid common pitfalls
+
+Teams encounter predictable problems when establishing schema review processes:
+
+| Problem | Symptom | Solution |
+|---------|---------|----------|
+| Vague criteria | Reviews are inconsistent, subjective debates | Define explicit, measurable standards |
+| Missing automation | Manual checks miss subtle issues, reviews are slow | Automate syntax, breaking changes, and linting |
+| Unclear ownership | Nobody knows who approves what, delays pile up | Use CODEOWNERS, document approval paths |
+| Approval bottleneck | Central team can't keep up, changes stall | Push decisions to owning teams, automate gates |
+| Checkbox compliance | Reviews don't catch real issues, rubber stamping | Focus on design quality, not process completion |
+
+Successful review processes share common traits:
+
+- **Explicit standards**: Make criteria verifiable through automation
+- **Distributed decisions**: Push most decision-making to code owners
+- **Human judgment reserved**: Use manual review only for ambiguous cases
+- **Continuous improvement**: Adjust based on what escapes to production
+
+Start lightweight and add structure only when coordination breaks down. Match process weight to actual needs.
+
+## Next steps
+
+This guide establishes the workflow for reviewing schema changes. The schema review series continues with guides on naming conventions and standards, ownership and governance models, versioning and evolution strategies, and tooling and automation. Each guide builds on the process foundations established here.
+
+For teams just starting schema reviews, begin with automated syntax validation and breaking change detection. Add linting rules as you identify consistency issues in reviews. Introduce formal approval workflows only after informal coordination breaks down. Build your review process incrementally based on problems you actually encounter.
+
+For a list of tools that support schema governance workflows, see [Tools and Libraries](/community/tools-and-libraries/) and [Federation resources](/resources/federation/).

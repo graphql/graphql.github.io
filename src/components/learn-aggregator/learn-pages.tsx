@@ -6,7 +6,7 @@ export interface LearnPageItem {
   title: string
   description: string
   icon: string
-  section: "getting-started" | "best-practices"
+  section: "getting-started" | "best-practices" | "schema-governance"
   href: string
 }
 
@@ -153,6 +153,13 @@ const _items: Record<
     icon: new URL("./assets/construction.svg", import.meta.url).href,
     section: "best-practices",
   },
+  // ---
+  "schema-review": {
+    description:
+      "Establish review processes and automated validation to keep your GraphQL schema consistent, safe, and easy to evolve.",
+    icon: new URL("./assets/checkbox.svg", import.meta.url).href,
+    section: "schema-governance",
+  },
 }
 
 const learnPages = _items as Record<LearnPagePath, LearnPageItem | null>
@@ -160,6 +167,7 @@ const learnPages = _items as Record<LearnPagePath, LearnPageItem | null>
 const pagesBySection: Record<LearnPageItem["section"], LearnPageItem[]> = {
   "getting-started": [],
   "best-practices": [],
+  "schema-governance": [],
 }
 
 for (const path in learnPages) {

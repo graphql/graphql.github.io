@@ -39,4 +39,9 @@ export default {
   federation: "",
   "robust-applications": "Robust Applications",
   "debug-errors": "Common GraphQL over HTTP Errors",
+  "-- 3": {
+    type: "separator",
+    title: "Schema Governance",
+  },
+  "schema-review": "",
 }
