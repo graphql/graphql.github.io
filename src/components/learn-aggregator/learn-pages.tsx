@@ -165,6 +165,12 @@ const _items: Record<
     icon: new URL("./assets/pen.svg", import.meta.url).href,
     section: "best-practices",
   },
+  "governance-ownership": {
+    description:
+      "Explore different models for schema ownership and governance, including centralized, federated and hybrid approaches.",
+    icon: new URL("./assets/handshake.svg", import.meta.url).href,
+    section: "schema-governance",
+  },
   "schema-review": {
     description:
       "Establish review processes and automated validation to keep your GraphQL schema consistent, safe, and easy to evolve.",

@@ -45,5 +45,6 @@ export default {
     type: "separator",
     title: "Schema Governance",
   },
+  "governance-ownership": "Schema Ownership and Governance Models",
   "schema-review": "",
 }
