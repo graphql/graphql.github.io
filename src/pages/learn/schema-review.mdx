@@ -338,6 +338,7 @@ Breaking changes include:
 - **Making non-nullable fields nullable**: Existing clients may crash on unexpected nulls
 
 Note that some of these changes, such as a type rename or a conversion from an object to an interface, may be compatible with existing clients at runtime. But it is impossible to tell for sure and are therefore considered breaking.
+
 Dangerous changes that may break some clients include:
 
 - **Adding enum values**: If clients exhaustively match enum values
