@@ -13,6 +13,15 @@ export interface Event {
 
 export const events: Event[] = [
   {
+    name: "GraphQL Day at FOST London",
+    slug: "graphql-day-fost-london-2026",
+    location: "London",
+    date: "2026-10-01T09:00:00+01:00",
+    eventLink: "/day/2026/london",
+    host: "FOST & GraphQL Community",
+    hostLink: "https://www.joinfost.io",
+  },
+  {
     name: "GraphQL Day at FOST Paris",
     slug: "graphql-day-fost-paris-2026",
     location: "Paris",

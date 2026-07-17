@@ -116,16 +116,10 @@ export default function WGDayPage() {
             <div className="mt-4 flex gap-x-6 gap-y-4 max-sm:flex-col">
               <Button
                 href="https://forms.gle/jV5seEm8VHhsNLUs6"
-                className="w-fit"
+                className="w-fit opacity-55"
+                disabled
               >
-                Attend
-              </Button>
-              <Button
-                href="mailto:operations@graphql.org?subject=GraphQLConf%202026%20WG%20Day"
-                className="w-fit"
-                variant="secondary"
-              >
-                Email the event team
+                Event has passed
               </Button>
             </div>
           </article>
