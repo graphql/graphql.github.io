@@ -49,11 +49,11 @@ This pattern makes errors discoverable through introspection and provides type s
 
 ## Choose based on whether errors are exceptional
 
-| Error type | Pattern | Example |
-|-----------|---------|---------|
-| Infrastructure failure | Top-level error | Database timeout, network error |
-| Invalid GraphQL | Top-level error | Syntax error, unknown field |
-| Authentication required | Top-level error | Missing auth token |
-| Business rule violation | errors-as-data | Username taken, invalid email |
-| Validation failure | errors-as-data | Required field missing |
-| Domain constraint | errors-as-data | Insufficient inventory |
+| Error type              | Pattern         | Example                         |
+|-------------------------|-----------------|---------------------------------|
+| Infrastructure failure  | Top-level error | Database timeout, network error |
+| Invalid GraphQL         | Top-level error | Syntax error, unknown field     |
+| Authentication required | Top-level error | Missing auth token              |
+| Business rule violation | errors-as-data  | Username taken, invalid email   |
+| Validation failure      | errors-as-data  | Required field missing          |
+| Domain constraint       | errors-as-data  | Insufficient inventory          |

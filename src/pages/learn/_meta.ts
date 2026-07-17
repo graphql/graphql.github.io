@@ -40,9 +40,10 @@ export default {
   federation: "",
   "robust-applications": "Robust Applications",
   "debug-errors": "Common GraphQL over HTTP Errors",
+  "naming-design": "Naming Conventions and Design Standards",
   "-- 3": {
     type: "separator",
     title: "Schema Governance",
   },
-  "naming-design": "Naming Conventions and Design Standards",
+  "schema-review": "",
 }
