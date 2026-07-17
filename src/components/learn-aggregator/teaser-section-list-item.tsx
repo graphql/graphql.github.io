@@ -8,7 +8,7 @@ export interface TeaserSectionListItemProps
   title: string
   description: string
   icon: React.ReactNode
-  section: "getting-started" | "best-practices"
+  section: "getting-started" | "best-practices" | "schema-governance"
   href: string
 }
 export function TeaserSectionListItem({

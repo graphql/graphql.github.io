@@ -73,7 +73,7 @@ export const nycSessions: EventSession[] = [
     id: 2,
     uuid: "teach-yourself-graphql-2026",
     title: "Teach yourself GraphQL in 2026: an anti-blueprint",
-    start: "2026-05-14T14:50:00-04:00",
+    start: "2026-05-14T14:40:00-04:00",
     end: "2026-05-14T15:05:00-04:00",
     tags: ["Learning", "Schema Design", "Best Practices"],
     description:

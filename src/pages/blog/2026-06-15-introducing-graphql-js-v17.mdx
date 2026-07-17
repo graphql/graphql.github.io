@@ -1,0 +1,236 @@
+---
+title: Introducing GraphQL.js v17
+tags: [announcements]
+date: 2026-06-15
+byline: Yaacov Rydzinski
+featured: true
+---
+
+On behalf of the open-source maintainers and contributors of GraphQL.js, we are
+excited to announce the availability of GraphQL.js v17!
+
+We encourage users to upgrade to v17. To make that practical,
+[graphql-js.org](https://www.graphql-js.org/) now includes detailed upgrade
+guides from [v14 to v15](https://www.graphql-js.org/upgrade-guides/v14-v15/),
+[v15 to v16](https://www.graphql-js.org/upgrade-guides/v15-v16/), and
+[v16 to v17](https://www.graphql-js.org/upgrade-guides/v16-v17/). The site also
+has new content, including full API references for
+[v17](https://www.graphql-js.org/api-v17/graphql/) and
+[v16](https://www.graphql-js.org/api-v16/graphql/).
+
+If you have migration questions, please reach out in the `#graphql-js` channel
+on the [GraphQL Discord server](https://discord.graphql.org), or
+[open an issue](https://github.com/graphql/graphql-js/issues) if a migration
+problem needs tracking. If you have corrections or suggestions for the guides,
+[open a pull request](https://github.com/graphql/graphql-js/pulls).
+
+## Why upgrade?
+
+GraphQL.js v17 delivers stronger runtime integration APIs, improved schema
+correctness and spec alignment, and polish to runtime and tooling APIs. It also
+includes exciting experimental features, including fragment arguments, an
+experimental error mode related to future `onError` behavior, and incremental
+delivery, for teams that want to help test proposal-backed GraphQL features in
+production-shaped systems.
+
+### Runtime integration APIs
+
+For framework and server authors, v17 introduces a cleaner lower-level execution
+boundary. `validateExecutionArgs()` validates and normalizes execution arguments
+once, and the execute helpers run the matching root selection set:
+`executeRootSelectionSet()` for stable single-result execution and
+`experimentalExecuteRootSelectionSet()` for incremental delivery. Subscriptions
+now have their own boundary: `validateSubscriptionArgs()` validates the
+subscription-specific shape, `createSourceEventStream()` creates the source
+event stream, `mapSourceToResponseEvent()` maps source events to GraphQL
+responses, and `executeSubscriptionEvent()` executes one event. These helpers
+let hosts customize execution without copying GraphQL.js internals.
+
+For teams operating GraphQL.js servers, v17 adds first-class
+[`AbortSignal`](https://www.graphql-js.org/docs/abort-signals/) support and
+resolver access to cancellation through `info.getAbortSignal()`. Request
+timeouts, client disconnects, and downstream APIs that accept `AbortSignal` can
+now share one GraphQL.js-supported cancellation path. When execution aborts
+after producing partial data, `AbortedGraphQLExecutionError` exposes the abort
+cause and partial result.
+
+The companion `asyncWorkFinished` execution hook lets hosts observe when tracked
+async execution work has settled. That matters for cleanup, tests, tracing, and
+transports as
+[GraphQL.js sometimes stops producing a response before every async iterator or resolver cleanup task has finished](https://github.com/graphql/graphql-js/issues/3792).
+
+v17 also adds the
+[`GraphQLHarness`](https://www.graphql-js.org/docs/graphql-harness/) shape for
+customizing the parse, validate, execute, and subscribe phases used by
+`graphql()` and `graphqlSync()`. This intentionally follows the phase model
+proven by [Envelop](https://the-guild.dev/graphql/envelop), bringing the
+resulting function types into the reference implementation. In particular,
+`GraphQLParseFn` and `GraphQLValidateFn` may return promises even though the
+built-in `parse()` and `validate()` functions remain synchronous. The new
+standard shape acknowledges that user-supplied parse and validate phases
+[may sometimes be async](https://github.com/graphql/graphql-js/issues/3421). You
+can use a raw `GraphQLHarness` directly, but we expect and encourage most
+servers working with this pattern to continue using Envelop or a framework
+modeled after Envelop.
+
+For observability tooling, v17 publishes lifecycle events through Node.js
+[`diagnostics_channel`](https://nodejs.org/api/diagnostics_channel.html), with
+channels for parsing, validation, execution, subscription setup, root selection
+set execution, variable coercion, and field resolution.
+
+### Schema correctness and spec alignment
+
+For schema and tooling authors, v17 fixes important default-value modeling bugs.
+Programmatic defaults are now expected in uncoerced input form, either as raw
+JavaScript input values with `default: { value }` or GraphQL literal ASTs with
+`default: { literal }`. The older default-value forms still work in v17, but are
+deprecated. Together with the new `valueToLiteral()` helper, this means
+GraphQL.js can make the correct default value available through introspection.
+
+v17 clarifies custom scalar APIs. Some methods are new and some are renamed from
+the v16 names: `coerceOutputValue`, `coerceInputValue`, `coerceInputLiteral`,
+and `valueToLiteral` now describe the actual GraphQL value boundary. The older
+`serialize`, `parseValue`, and `parseLiteral` names continue to work in v17 as
+deprecated compatibility aliases.
+
+Directives on directive definitions have graduated from experimental status.
+Directives can now be applied to directive definitions without a parser flag,
+directive extensions are part of the normal SDL grammar, and directive
+deprecation metadata is available through `GraphQLDirective`, introspection, and
+schema printing.
+
+Validation coverage is broader: schema validation reports more invalid defaults
+and duplicate operation roots, and `KnownOperationTypesRule` validates
+operations whose root type is missing.
+
+### Runtime and tooling polish
+
+The `hideSuggestions` option is available for hiding "Did you mean ..." text
+from validation errors. Use it alongside `NoSchemaIntrospectionCustomRule` to
+reduce schema-shape leakage through both suggestion text and introspection.
+Resolvers may now return async iterables for list fields, which is especially
+helpful for streamed lists.
+
+For SDL tooling, `printDirective()` can now print one directive definition
+without printing an entire schema. Built-in scalar coercers now accept
+representable JavaScript `bigint` values. `GraphQLSchema.getField()` can resolve
+meta fields, schema element extensions can use symbol keys, and
+`findSchemaChanges()` reports breaking, dangerous, and safe schema changes in
+one call.
+
+Beyond those stable highlights, v17 also includes experimental specification
+work.
+
+## Experimental specification work
+
+Fragment arguments let a fragment define local variables and let each fragment
+spread pass values to that fragment. The goal is better colocation: a fragment
+can declare the inputs required by the selection it owns, and each spread can
+supply those inputs without forcing every operation that uses the fragment to
+carry the same variable plumbing. This work was formerly championed by
+[Jovi De Croock](https://github.com/JoviDeCroock), whose
+[spec PR](https://github.com/graphql/graphql-spec/pull/1081) and GraphQL.js
+implementation moved the proposal forward. The
+[current PR](https://github.com/graphql/graphql-spec/pull/1224) needs a new
+champion to help carry the work through the specification process.
+
+v17 also includes an experimental preview of more flexible GraphQL error
+handling.
+[Today's error propagation can blur meaningful business `null` values with resolver failures, discard useful partial data, and create normalized-cache issues when a field error bubbles into an ancestor `null`.](https://github.com/graphql/graphql-wg/blob/main/rfcs/SemanticNullability.md)
+Future work is centered on
+[client-selected error modes](https://github.com/graphql/graphql-spec/pull/1163)
+through `onError`, including `PROPAGATE`, `NULL`, and `HALT`, plus
+[service discovery](https://github.com/graphql/graphql-spec/pull/1208) for
+supported modes and defaults.
+
+GraphQL.js v17 does not yet support the full `onError` request shape or every
+proposed mode. It supports traditional error propagation, equivalent to
+`PROPAGATE`, and one additional experimental mode, equivalent to `NULL`, via
+[`@experimental_disableErrorPropagation`](https://www.graphql-js.org/docs/disabling-error-propagation/).
+Operations using that directive keep field execution errors in `errors` with
+their normal path and set only the errored response position to `null`. Follow
+along as we continue this work in v17 through the
+[`onError` implementation](https://github.com/graphql/graphql-js/pull/4364) and
+[service capabilities](https://github.com/graphql/graphql-js/pull/4523) PRs.
+
+Last but certainly not least, v17 includes long-awaited experimental support for
+incremental delivery with `@defer` and `@stream`. GraphQL.js v17 keeps ordinary
+`execute()` as a single-result executor and exposes
+`experimentalExecuteIncrementally()` for the current incremental response shape.
+The GraphQL Working Group has revised that response shape extensively, including
+the
+[new response format](https://github.com/graphql/defer-stream-wg/discussions/69)
+with `pending`, `incremental`, and `completed` notices. Hosts that still need
+the older incremental payload shape from earlier v17 alpha releases can use
+`legacyExecuteIncrementally()`, so existing integrations have a migration bridge
+while new integrations target the current format. This work is part of a
+multi-year effort, with the tireless spec work led by
+[Rob Richard](https://github.com/robrichard), including the open
+[spec draft](https://github.com/graphql/graphql-spec/pull/1110).
+
+These features remain experimental. We are shipping them in GraphQL.js so
+continued feedback can help refine these proposals.
+
+## Thank you
+
+This is the first major release of GraphQL.js since October 2021,
+[with contributors including](https://github.com/graphql/graphql-js/compare/16.x.x...17.x.x)
+[@IvanGoncharov](https://github.com/IvanGoncharov),
+[@yaacovCR](https://github.com/yaacovCR),
+[@thomasheyenbrock](https://github.com/thomasheyenbrock),
+[@robrichard](https://github.com/robrichard), [@twof](https://github.com/twof),
+[@spawnia](https://github.com/spawnia),
+[@lilianammmatos](https://github.com/lilianammmatos),
+[@glasser](https://github.com/glasser), [@PabloSzx](https://github.com/PabloSzx),
+[@sashashura](https://github.com/sashashura), [@Cito](https://github.com/Cito),
+[@igrlk](https://github.com/igrlk), [@benjie](https://github.com/benjie),
+[@leebyron](https://github.com/leebyron),
+[@dylanowen](https://github.com/dylanowen),
+[@tomgasson](https://github.com/tomgasson),
+[@sakesun](https://github.com/sakesun), [@AaronMoat](https://github.com/AaronMoat),
+[@colinhacks](https://github.com/colinhacks), [@saihaj](https://github.com/saihaj),
+[@JoviDeCroock](https://github.com/JoviDeCroock),
+[@mjmahone](https://github.com/mjmahone),
+[@andimarek](https://github.com/andimarek), [@n1ru4l](https://github.com/n1ru4l),
+[@jasonkuhrt](https://github.com/jasonkuhrt), [@hayes](https://github.com/hayes),
+[@martinbonnin](https://github.com/martinbonnin),
+[@marklarah](https://github.com/marklarah), [@NeoPhi](https://github.com/NeoPhi),
+[@ardatan](https://github.com/ardatan), [@hkmu](https://github.com/hkmu),
+[@xonx4l](https://github.com/xonx4l), [@ryym](https://github.com/ryym),
+[@jerelmiller](https://github.com/jerelmiller),
+[@abishekgiri](https://github.com/abishekgiri),
+[@yuchenshi](https://github.com/yuchenshi),
+[@jbellenger](https://github.com/jbellenger), [@BoD](https://github.com/BoD),
+[@Nols1000](https://github.com/Nols1000), [@Malien](https://github.com/Malien),
+[@logaretm](https://github.com/logaretm),
+[@sarahxsanders](https://github.com/sarahxsanders),
+[@fallintoplace](https://github.com/fallintoplace), and
+[@Urigo](https://github.com/Urigo). We are grateful to them as well as everyone
+who helped move GraphQL.js v17 forward through issues, reviews, testing, design
+discussion, documentation, migration feedback, and user reports.
+
+We particularly want to thank past maintainers
+[Ivan Goncharov](https://github.com/IvanGoncharov) and
+[Jovi De Croock](https://github.com/JoviDeCroock) for their contributions to
+GraphQL, GraphQL.js, and their stewardship of important portions of this
+release.
+
+As always, a huge thanks to [Lee Byron](https://github.com/leebyron) for
+building such a wonderful GraphQL community, and to that community for
+sustaining this work.
+
+## What is next?
+
+To help shape what comes next, follow and contribute in the
+[graphql/graphql-js repository](https://github.com/graphql/graphql-js),
+especially the
+[future work discussion in graphql/graphql-js#4818](https://github.com/graphql/graphql-js/issues/4818).
+You can also join a
+[GraphQL.js Working Group](https://github.com/graphql/graphql-js-wg) meeting or
+reach us in the `#graphql-js` channel on the
+[GraphQL Discord server](https://discord.graphql.org). We would love your help!
+
+Happy coding,
+
+Yaacov Rydzinski
+@yaacovCR
