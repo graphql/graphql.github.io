@@ -326,21 +326,25 @@ Breaking changes sometimes become necessary despite best efforts to avoid them. 
 
 ### Identify what constitutes a breaking change
 
+A breaking change is any change that breaks the server/client contract. This happens when previously valid operations become invalid or when the shape of the returned data changes.
+
 Breaking changes include:
 
-- **Removing fields or types**: Clients requesting removed fields will fail
-- **Removing or renaming arguments**: Queries using old argument names break
-- **Changing field types**: Type mismatches cause client errors
-- **Adding required arguments**: Existing queries missing new required arguments fail
-- **Removing enum values**: Queries requesting removed values break
-- **Making nullable fields non-nullable**: Clients expecting null values may break
+- **Removing fields or types**: Existing operations requesting removed fields become invalid
+- **Removing or renaming arguments**: Existing operations using old argument names become invalid
+- **Adding required arguments**: Existing operations missing new required arguments become invalid
+- **Removing enum values**: Existing operations using removed values in input positions become invalid
+- **Changing a field type**: Existing clients may crash on the unexpected type
+- **Making non-nullable fields nullable**: Existing clients may crash on unexpected nulls
 
+Note that some of these changes, such as a type rename or a conversion from an object to an interface, may be compatible with existing clients at runtime. But it is impossible to tell for sure and are therefore considered breaking.
 Dangerous changes that may break some clients include:
 
 - **Adding enum values**: If clients exhaustively match enum values
+- **Adding new types to a union/interface**: If clients exhaustively match the cases
 - **Adding fields to input types**: If clients use spread operators to construct input objects
 
-Codegen tools can break on schema changes that are technically backwards compatible. Adding a new field to a type may cause TypeScript codegen to fail if existing queries don't request that field, depending on how the codegen tool handles schema evolution.
+Modern clients should handle those cases (see [./robust-applications]) but some older clients may break and caution is encouraged for those changes. 
 
 ### Plan breaking change rollouts
 
