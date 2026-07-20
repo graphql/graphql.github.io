@@ -1,0 +1,59 @@
+# Error Handling
+
+GraphQL gives you two complementary ways to communicate errors to clients: the top-level `errors` array for exceptional failures, and errors-as-data for expected, domain-specific failures. Using the right approach for each situation keeps your API predictable and makes error states discoverable through the schema.
+
+## Use top-level errors for exceptional failures
+
+The standard GraphQL `errors` array handles infrastructure and system failures:
+
+```json
+{
+  "data": null,
+  "errors": [{
+    "message": "Database connection failed",
+    "extensions": {
+      "code": "INTERNAL_SERVER_ERROR"
+    }
+  }]
+}
+```
+
+## Use errors-as-data for domain errors
+
+Business logic errors belong in the schema as structured types:
+
+```graphql
+type Mutation {
+  createUser(input: CreateUserInput!): CreateUserPayload!
+}
+
+type CreateUserPayload {
+  user: User
+  userErrors: [UserError!]!
+}
+
+type UserError {
+  message: String!
+  field: [String!]
+  code: UserErrorCode!
+}
+
+enum UserErrorCode {
+  USERNAME_TAKEN
+  INVALID_EMAIL
+  PASSWORD_TOO_SHORT
+}
+```
+
+This pattern makes errors discoverable through introspection and provides type safety.
+
+## Choose based on whether errors are exceptional
+
+| Error type              | Pattern         | Example                         |
+|-------------------------|-----------------|---------------------------------|
+| Infrastructure failure  | Top-level error | Database timeout, network error |
+| Invalid GraphQL         | Top-level error | Syntax error, unknown field     |
+| Authentication required | Top-level error | Missing auth token              |
+| Business rule violation | errors-as-data  | Username taken, invalid email   |
+| Validation failure      | errors-as-data  | Required field missing          |
+| Domain constraint       | errors-as-data  | Insufficient inventory          |

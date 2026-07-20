@@ -6,7 +6,7 @@ export interface LearnPageItem {
   title: string
   description: string
   icon: string
-  section: "getting-started" | "best-practices"
+  section: "getting-started" | "best-practices" | "schema-governance"
   href: string
 }
 
@@ -111,6 +111,12 @@ const _items: Record<
     icon: new URL("./assets/solve.svg", import.meta.url).href,
     section: "best-practices",
   },
+  "error-handling": {
+    description:
+      "Compare top-level errors and errors-as-data, and learn when to use each approach for exceptional versus expected failures.",
+    icon: new URL("./assets/construction.svg", import.meta.url).href,
+    section: "best-practices",
+  },
   "global-object-identification": {
     description:
       "Use globally unique IDs and the Node interface to enable caching, refetching, and efficient schema traversal.",
@@ -141,11 +147,35 @@ const _items: Record<
     icon: new URL("./assets/circuit.svg", import.meta.url).href,
     section: "best-practices",
   },
+  "robust-applications": {
+    description:
+      "Build applications that gracefully handle schema evolution — unknown enum values, new union members, and nullable fields.",
+    icon: new URL("./assets/product-check.svg", import.meta.url).href,
+    section: "best-practices",
+  },
   "debug-errors": {
     description:
       "Learn about common 'graphql-http' errors and how to debug them.",
     icon: new URL("./assets/construction.svg", import.meta.url).href,
     section: "best-practices",
+  },
+  "naming-design": {
+    description:
+      "Learn how to establish naming conventions and design standards for your GraphQL schema.",
+    icon: new URL("./assets/pen.svg", import.meta.url).href,
+    section: "best-practices",
+  },
+  "governance-ownership": {
+    description:
+      "Explore different models for schema ownership and governance, including centralized, federated and hybrid approaches.",
+    icon: new URL("./assets/handshake.svg", import.meta.url).href,
+    section: "schema-governance",
+  },
+  "schema-review": {
+    description:
+      "Establish review processes and automated validation to keep your GraphQL schema consistent, safe, and easy to evolve.",
+    icon: new URL("./assets/checkbox.svg", import.meta.url).href,
+    section: "schema-governance",
   },
   "governance-versioning": {
     description:
@@ -160,6 +190,7 @@ const learnPages = _items as Record<LearnPagePath, LearnPageItem | null>
 const pagesBySection: Record<LearnPageItem["section"], LearnPageItem[]> = {
   "getting-started": [],
   "best-practices": [],
+  "schema-governance": [],
 }
 
 for (const path in learnPages) {
