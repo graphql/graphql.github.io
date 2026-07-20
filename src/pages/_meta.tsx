@@ -42,6 +42,11 @@ export default {
     type: "menu",
     title: "Community",
     items: {
+      team: {
+        title: "Team",
+        type: "page",
+        href: "/community/team",
+      },
       events: {
         title: "Events",
         type: "page",
