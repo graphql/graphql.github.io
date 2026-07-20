@@ -64,7 +64,9 @@ To implement this safely, your resolver must handle the argument being absent an
 
 ## Identify breaking changes
 
-Breaking changes modify or remove existing schema elements in ways that cause previously valid queries to fail or return different data.
+A breaking change is any change that breaks the server/client contract. This happens when previously valid operations become invalid or when the shape of the returned data changes.
+
+
 
 Common breaking changes include:
 
