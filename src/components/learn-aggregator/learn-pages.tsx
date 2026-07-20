@@ -183,6 +183,12 @@ const _items: Record<
     icon: new URL("./assets/checkbox.svg", import.meta.url).href,
     section: "schema-governance",
   },
+  "governance-versioning": {
+    description:
+      "Learn how to manage schema changes and versioning in GraphQL, ensuring smooth evolution of your API.",
+    icon: new URL("./assets/mountain.svg", import.meta.url).href,
+    section: "schema-governance",
+  },
 }
 
 const learnPages = _items as Record<LearnPagePath, LearnPageItem | null>
