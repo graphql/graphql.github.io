@@ -47,4 +47,5 @@ export default {
   },
   "governance-ownership": "Schema Ownership and Governance Models",
   "schema-review": "",
+  "governance-versioning": "Schema Change Management",
 }
