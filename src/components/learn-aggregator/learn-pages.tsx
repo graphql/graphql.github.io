@@ -171,6 +171,12 @@ const _items: Record<
     icon: new URL("./assets/handshake.svg", import.meta.url).href,
     section: "schema-governance",
   },
+  "governance-tooling": {
+    description:
+      "Learn about schema governance and best practices for managing your GraphQL schema.",
+    icon: new URL("./assets/wrench.svg", import.meta.url).href,
+    section: "schema-governance",
+  },
   "schema-review": {
     description:
       "Establish review processes and automated validation to keep your GraphQL schema consistent, safe, and easy to evolve.",

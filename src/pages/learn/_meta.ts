@@ -46,6 +46,7 @@ export default {
     title: "Schema Governance",
   },
   "governance-ownership": "Schema Ownership and Governance Models",
+  "governance-tooling": "",
   "schema-review": "",
   "governance-versioning": "Schema Change Management",
 }
