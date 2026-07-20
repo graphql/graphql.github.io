@@ -127,7 +127,7 @@ type Order {
 }
 ```
 
-These examples show schema changes that break existing queries. Clients requesting the removed `email` field receive errors. Clients expecting a `Float` for `price` get a `Money` object instead. Queries relying on `null` discounts fail validation.
+These examples show schema changes that break existing queries. Clients requesting the removed `email` field receive validation errors. Clients expecting a `Float` for `price` get a `Money` object instead. Queries relying on `non-null` discounts may crash.
 
 Avoid these changes when possible. When unavoidable, use the [deprecation process](#deprecate-fields-before-removal) to give clients time to migrate.
 
