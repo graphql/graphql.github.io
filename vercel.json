@@ -664,6 +664,16 @@
       "source": "/day/2025",
       "destination": "https://graphql.day/2025",
       "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-19-graphql-embedding-model-for-agents",
+      "destination": "/blog/2026-07-17-graphql-embedding-model-for-agents",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-19-graphql-embedding-model-for-agents/",
+      "destination": "/blog/2026-07-17-graphql-embedding-model-for-agents",
+      "permanent": true
     }
   ]
 }
