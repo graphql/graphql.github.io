@@ -1,7 +1,7 @@
 ---
-title: "Exploring 'True' Nullability in GraphQL"
+title: "'True' Nullability is coming to GraphQL"
 tags: ["spec"]
-date: 2024-08-14
+date: 2026-09-10
 byline: Benjie Gillam
 ---
 
@@ -14,42 +14,51 @@ wanted to serve the user a page with as much working data as they could.
 
 To accomplish this, if an error occured within a resolver, the resolver's value
 would be replaced with a `null`, and an error would be added to the `errors`
-array in the response. However, what if that field was marked as non-null? To
-solve that apparent contradiction, GraphQL introduced the "error propagation"
-behavior (also known colloquially as "null bubbling") - when a `null` (from an
-error or otherwise) occurs in a non-nullable position, the parent position
-(either a field or a list item) is made `null` instead. This behavior would
-repeat if the parent position was also non-nullable, and this could cascade (or
-"bubble") all the way up to the root of the query if everything in the path is
-non-nullable.
+array in the response.
+
+But what if that field was marked as non-null?
+
+To solve that apparent contradiction, GraphQL introduced "error propagation"
+(aka "null bubbling"): when a `null` occurs in a non-nullable position, the
+parent position is made `null` instead. If that position is also non-nullable,
+it's parent will be made `null` instead, and so on up the tree until a nullable
+position is made `null`.
 
 This solved the issue, and meant that GraphQL's nullability promises were still
-honoured; but it wasn't without complications.
+honoured; but it wasn't without complications...
 
 ### Complication 1: partial success
 
 We want to be resilient to systems failing; but errors that occur in
 non-nullable positions cascade to surrounding parts of the query, making less
-and less data available to be rendered. This seems contrary to our "partial
-success" aim, but it's easy to solve - we just make sure that the positions
-where we expect errors to occur are nullable so that errors don't propagate
-further. Clients now needed to ensure they handle any nulls that occur in these
-positions; but that seemed like a fair trade.
+and less data available to be rendered.
+
+This seems contrary to our "partial success" aim, but it's easy to solve - we
+just make sure that the positions where we expect errors to occur are nullable
+so that errors don't propagate further.
+
+Unfortunately this means clients now need `null`-handling code in a few more
+places, but what is engineering if not choosing trade-offs...
 
 ### Complication 2: nullable epidemic
+
+So... where are errors likely to occur?
 
 Almost any field in your GraphQL schema could raise an error - errors might not
 only be caused by backend services becoming unavailable or responding in
 unexpected ways; they can also be caused by simple programming errors in your
 business logic, data consistency errors (e.g. expecting a boolean but receiving
-a float), or any other cause.
+a float), access controls, or any other cause.
 
 Since we don't want to "blow up" the entire response if any such issue occurred,
 we've moved to strongly encourage nullable usage throughout a schema, only
 adding the non-nullable `!` marker to positions where we're truly sure that
-field is extremely unlikely to error. This has the effect of meaning that
-developers consuming the GraphQL API have to handle potential nulls in more
-positions than they would expect, making for additional work.
+field is extremely unlikely to error.
+
+This "nullable by default" has the effect of meaning that developers consuming
+the GraphQL API have to handle potential nulls in more positions than they would
+expect, an explosion of null checks leading people to even call into question
+the value of GraphQL's "type safety".
 
 ### Complication 3: normalized caching
 
@@ -65,9 +74,10 @@ the data to the normalized cache.
 ## The Nullability Working Group
 
 At first, we thought the solution to this was to give clients control over the
-nullability of a response, so we set up the Client-Controlled Nullability (CCN)
-Working Group. Later, we renamed the working group to the Nullability WG to show
-that it encompassed all potential solutions to this problem.
+nullability of each field in  response, so we set up the Client-Controlled
+Nullability (CCN) Working Group. Later, we renamed the working group to the
+Nullability WG to show that it encompassed all potential solutions to this
+problem.
 
 ### Client-controlled nullability
 
@@ -153,7 +163,53 @@ long and detailed highly technical discussion inspired
 [a new proposal](https://github.com/graphql/nullability-wg/discussions/58),
 which has been iterated further, and we aim to describe below.
 
-## Our latest proposal
+## Introducing the `onError` request property
+
+The new `onError` request property allows a client to indicate its preference as
+to how errors are handled by the GraphQL service (each option detailed below).
+For example:
+
+```diff
+ POST /graphql HTTP/1.1
+ Host: example.com
+ Content-Type: application/json
+ Accept: application/graphql-response+json
+ 
+ {
+   "query": "query UserProfile($id: ID!) { user(id: $id) { id name avatarUrl bestFriend { name } } }",
++  "onError": "NULL",
+   "variables": { "id": "27" }
+ }
+```
+
+Services that support `onError` must honor the specified behavior. If a service
+does not support `onError` then the request property will be ignored, resulting
+in behavior equivalent to `onError: PROPAGATE`. Services will soon be able to
+indicate their support for the `onError` request property through [service
+capabilities](https://github.com/graphql/graphql-spec/pull/1208)), allowing
+clients to auto-discover and depend upon the capability.
+
+### `onError: PROPAGATE`
+
+This is the traditional error propagation behavior that we all know and... love?
+
+Setting `onError: PROPAGATE` will be equivalent to the error behavior in the
+initial 2015 GraphQL Specification release: error propagation/null bubbling.
+
+### `onError: ABORT`
+
+Ad-hoc scripts and similar clients throw away entire responses if any error
+occurs, but currently the server still computes the "partial success" response
+anyway. This mode allows clients to indicate that if any error occurs, they
+won't be reading the data - any error should result in a
+`{ data: null, errors: [...] }` response - and thus the service can abort
+execution when the first error occurs.
+
+### `onError: NULL`
+
+This is what we're excited about!
+
+...
 
 We're now proposing a new opt-in execution mode to solve the nullability
 problem. It's important to note that both the client and the server must opt-in
