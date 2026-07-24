@@ -108,6 +108,15 @@ export default {
       layout: "raw",
     },
   },
+  ai: {
+    type: "page",
+    title: (
+      <Emphasis>
+        GraphQL & AI
+      </Emphasis>
+    ),
+    href: "/ai",
+  },
   conf: {
     type: "page",
     title: (
