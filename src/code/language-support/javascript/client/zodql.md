@@ -33,7 +33,7 @@ const userSchema = z.object({
         id: z.string(),
         name: z.string(),
         email: z.string(),
-      })
+      }),
     ),
 })
 
@@ -64,7 +64,7 @@ The compiled GraphQL query:
 
 ```graphql
 query ($userId: ID!) {
-  user (id: $userId) {
+  user(id: $userId) {
     id
     name
     email
