@@ -17,10 +17,7 @@
 /* ── Shared helpers ── */
 
 function escapeHTML(text: string): string {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
 }
 
 /* ── GraphQL query / SDL highlighting ── */
@@ -39,16 +36,10 @@ export function highlightGraphQL(source: string): string {
   )
 
   // Block strings (triple-quoted)
-  html = html.replace(
-    /("""[\s\S]*?""")/g,
-    '<span class="sh-string">$1</span>',
-  )
+  html = html.replace(/("""[\s\S]*?""")/g, '<span class="sh-string">$1</span>')
 
   // Comments
-  html = html.replace(
-    /(#[^\n]*)/g,
-    '<span class="sh-comment">$1</span>',
-  )
+  html = html.replace(/(#[^\n]*)/g, '<span class="sh-comment">$1</span>')
 
   // Directives (@skip, @include, @deprecated)
   html = html.replace(
@@ -82,7 +73,7 @@ export function highlightGraphQL(source: string): string {
       const before = html.substring(Math.max(0, offset - 60), offset)
       const alreadyWrapped =
         before.lastIndexOf('<span class="sh-type">') >
-        before.lastIndexOf('</span>')
+        before.lastIndexOf("</span>")
       if (alreadyWrapped) return match
       return `<span class="sh-type">${typeName}</span>`
     },
@@ -101,7 +92,7 @@ export function highlightGraphQL(source: string): string {
     ) => {
       // Don't highlight if already inside a span
       if (
-        _full.includes('<span') ||
+        _full.includes("<span") ||
         /^(query|mutation|subscription|fragment|type|input|interface|union|enum|scalar|schema|extend|implements|directive)$/.test(
           name,
         )
@@ -122,7 +113,10 @@ export function highlightGraphQL(source: string): string {
       name: string,
       brace: string,
     ) => {
-      if (_full.includes('<span') || /^(query|mutation|subscription|fragment|on)$/.test(name)) {
+      if (
+        _full.includes("<span") ||
+        /^(query|mutation|subscription|fragment|on)$/.test(name)
+      ) {
         return _full
       }
       return `${nl}${indent}<span class="sh-field">${name}</span>${brace}`
@@ -132,13 +126,8 @@ export function highlightGraphQL(source: string): string {
   // Arguments: parens and colons
   html = html.replace(
     /([a-zA-Z_][a-zA-Z0-9_]*)(\s*:)(\s*)/g,
-    (
-      _full: string,
-      name: string,
-      colon: string,
-      space: string,
-    ) => {
-      if (_full.includes('<span')) return _full
+    (_full: string, name: string, colon: string, space: string) => {
+      if (_full.includes("<span")) return _full
       return `<span class="sh-arg">${name}</span>${colon}${space}`
     },
   )
@@ -158,10 +147,7 @@ export function highlightGraphQLSchema(source: string): string {
   )
 
   // Comments
-  html = html.replace(
-    /(#[^\n]*)/g,
-    '<span class="sh-comment">$1</span>',
-  )
+  html = html.replace(/(#[^\n]*)/g, '<span class="sh-comment">$1</span>')
 
   // Directives
   html = html.replace(
@@ -194,7 +180,7 @@ export function highlightGraphQLSchema(source: string): string {
       const before = html.substring(Math.max(0, offset - 60), offset)
       const alreadyWrapped =
         before.lastIndexOf('<span class="sh-type">') >
-        before.lastIndexOf('</span>')
+        before.lastIndexOf("</span>")
       if (alreadyWrapped) return match
       return `<span class="sh-type">${typeName}</span>`
     },
@@ -210,7 +196,7 @@ export function highlightGraphQLSchema(source: string): string {
       name: string,
       colon: string,
     ) => {
-      if (_full.includes('<span')) return _full
+      if (_full.includes("<span")) return _full
       return `${nl}${indent}<span class="sh-field">${name}</span>${colon}`
     },
   )
@@ -273,25 +259,22 @@ export function highlightJSON(source: string): string {
 export function highlightPrompt(source: string): string {
   const html = escapeHTML(source)
   // Highlight the > prompt marker
-  return html.replace(
-    /^(>[^\n]*)/gm,
-    '<span class="sh-comment">$1</span>',
-  )
+  return html.replace(/^(>[^\n]*)/gm, '<span class="sh-comment">$1</span>')
 }
 
 /* ── CSS utility classes for the highlight spans ──
    Include these once in any parent that uses highlighted code.  ── */
 
 export const syntaxColors = {
-  comment:  "#6c7086",
-  keyword:  "#cba6f7",
-  type:     "#f9e2af",
-  field:    "#89b4fa",
-  string:   "#a6e3a1",
-  number:   "#fab387",
-  directive:"#f38ba8",
+  comment: "#6c7086",
+  keyword: "#cba6f7",
+  type: "#f9e2af",
+  field: "#89b4fa",
+  string: "#a6e3a1",
+  number: "#fab387",
+  directive: "#f38ba8",
   operator: "#94e2d5",
-  arg:      "#89dceb",
+  arg: "#89dceb",
 } as const
 
 /**

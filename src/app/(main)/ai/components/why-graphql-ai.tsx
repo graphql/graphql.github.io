@@ -5,7 +5,11 @@ import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import ZapIcon from "@/app/conf/_design-system/pixelarticons/zap.svg?svgr"
 import SlidersIcon from "@/app/conf/_design-system/pixelarticons/sliders.svg?svgr"
-import { highlightGraphQL, highlightGraphQLSchema, SYNTAX_CSS } from "./syntax-highlight"
+import {
+  highlightGraphQL,
+  highlightGraphQLSchema,
+  SYNTAX_CSS,
+} from "./syntax-highlight"
 
 const benefits = [
   {

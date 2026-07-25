@@ -110,11 +110,7 @@ export default {
   },
   ai: {
     type: "page",
-    title: (
-      <Emphasis>
-        GraphQL & AI
-      </Emphasis>
-    ),
+    title: <Emphasis>GraphQL & AI</Emphasis>,
     href: "/ai",
   },
   conf: {

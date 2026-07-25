@@ -47,9 +47,9 @@ export function Hero() {
 
           <p className="typography-body-lg mt-6 max-w-2xl text-pretty text-white/80">
             When AI agents need to interact with APIs, GraphQL&apos;s
-            self-describing schemas, strong typing, and composable queries
-            make it the natural choice. No hand-written tool definitions.
-            No token-wasting REST payloads. Just structured, predictable data.
+            self-describing schemas, strong typing, and composable queries make
+            it the natural choice. No hand-written tool definitions. No
+            token-wasting REST payloads. Just structured, predictable data.
           </p>
 
           <ul className="mt-8 flex max-w-2xl flex-wrap justify-center gap-x-8 gap-y-2">
@@ -72,10 +72,7 @@ export function Hero() {
             >
               Read the blog post
             </Button>
-            <Button
-              href="/resources/ai"
-              variant="tertiary"
-            >
+            <Button href="/resources/ai" variant="tertiary">
               Explore AI resources
             </Button>
           </div>
@@ -100,7 +97,8 @@ function SchemaGrid() {
 
     let animId: number
     let time = 0
-    const nodes: { x: number; y: number; r: number; vx: number; vy: number }[] = []
+    const nodes: { x: number; y: number; r: number; vx: number; vy: number }[] =
+      []
 
     function resize() {
       if (!canvas) return

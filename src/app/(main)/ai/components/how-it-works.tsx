@@ -5,7 +5,13 @@ import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
 import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
-import { highlightGraphQL, highlightGraphQLSchema, highlightJSON, highlightPrompt, SYNTAX_CSS } from "./syntax-highlight"
+import {
+  highlightGraphQL,
+  highlightGraphQLSchema,
+  highlightJSON,
+  highlightPrompt,
+  SYNTAX_CSS,
+} from "./syntax-highlight"
 
 const steps = [
   {
@@ -24,7 +30,7 @@ const steps = [
     title: "Agent introspects the API",
     icon: SearchIcon,
     description:
-      'Using GraphQL introspection, the agent queries `__schema` and discovers the available types: `Product`, `Order`, `Region`, `RevenueMetrics`. It learns field names, arguments, and relationships automatically.',
+      "Using GraphQL introspection, the agent queries `__schema` and discovers the available types: `Product`, `Order`, `Region`, `RevenueMetrics`. It learns field names, arguments, and relationships automatically.",
     codeLabel: "Introspection result → discovered types",
     code: `type Product {
   name: String!
@@ -106,8 +112,8 @@ export function HowItWorks() {
           to structured data
         </h2>
         <p className="typography-body-lg mb-8 max-w-2xl text-pretty text-neu-800 lg:mb-16">
-          Here&apos;s what happens when an AI agent uses a GraphQL API to
-          answer a real business question — from initial request to typed response.
+          Here&apos;s what happens when an AI agent uses a GraphQL API to answer
+          a real business question — from initial request to typed response.
         </p>
 
         <style dangerouslySetInnerHTML={{ __html: SYNTAX_CSS }} />
@@ -151,7 +157,7 @@ export function HowItWorks() {
               {i < steps.length - 1 && (
                 <>
                   {/* Horizontal arrow for lg+ */}
-                  <div className="absolute right-0 top-10 z-10 hidden lg:flex size-6 items-center justify-center rounded-full border-2 border-neu-100 bg-neu-0 dark:border-neu-50">
+                  <div className="absolute right-0 top-10 z-10 hidden size-6 items-center justify-center rounded-full border-2 border-neu-100 bg-neu-0 dark:border-neu-50 lg:flex">
                     <svg
                       width="10"
                       height="10"

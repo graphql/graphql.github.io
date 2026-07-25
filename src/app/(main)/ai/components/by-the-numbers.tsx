@@ -47,12 +47,10 @@ export function ByTheNumbers() {
   return (
     <section className="gql-container gql-section lg:py-16 xl:py-24">
       <SectionLabel className="mb-6">By the numbers</SectionLabel>
-      <h2 className="typography-h2 mb-2 lg:mb-4">
-        GraphQL vs REST for AI
-      </h2>
+      <h2 className="typography-h2 mb-2 lg:mb-4">GraphQL vs REST for AI</h2>
       <p className="typography-body-lg mb-8 max-w-2xl text-pretty text-neu-800 lg:mb-16">
-        When AI agents interact with APIs, the protocol matters. Here&apos;s
-        how GraphQL compares to traditional REST APIs across the metrics that
+        When AI agents interact with APIs, the protocol matters. Here&apos;s how
+        GraphQL compares to traditional REST APIs across the metrics that
         directly impact LLM efficiency and accuracy.
       </p>
 
@@ -65,11 +63,7 @@ export function ByTheNumbers() {
   )
 }
 
-function StatCard({
-  stat,
-}: {
-  stat: (typeof stats)[number]
-}) {
+function StatCard({ stat }: { stat: (typeof stats)[number] }) {
   const [animated, setAnimated] = useState(false)
   const [gqlCount, setGqlCount] = useState(0)
   const [restCount, setRestCount] = useState(0)
@@ -97,9 +91,23 @@ function StatCard({
     if (!animated) return
 
     const gqlTarget =
-      stat.graphQL === "90%" ? 90 : stat.graphQL === "0" ? 0 : stat.graphQL === "100%" ? 100 : parseInt(stat.graphQL) || 1
+      stat.graphQL === "90%"
+        ? 90
+        : stat.graphQL === "0"
+          ? 0
+          : stat.graphQL === "100%"
+            ? 100
+            : parseInt(stat.graphQL) || 1
     const restTarget =
-      stat.rest === "10× more" ? 10 : stat.rest === "3–7" ? 5 : stat.rest === "manual" ? 1 : stat.rest === "ad-hoc" ? 0 : parseInt(stat.rest) || 0
+      stat.rest === "10× more"
+        ? 10
+        : stat.rest === "3–7"
+          ? 5
+          : stat.rest === "manual"
+            ? 1
+            : stat.rest === "ad-hoc"
+              ? 0
+              : parseInt(stat.rest) || 0
 
     const gqlMax = Math.max(gqlTarget, 1)
     const restMax = Math.max(restTarget, 1)
@@ -136,7 +144,11 @@ function StatCard({
           </p>
           <p className="typography-d1 mt-1 font-bold leading-none text-sec-dark">
             {animated ? gqlCount : 0}
-            {stat.graphQL === "90%" || stat.graphQL === "100%" ? "%" : stat.graphQL === "0" ? "" : ""}
+            {stat.graphQL === "90%" || stat.graphQL === "100%"
+              ? "%"
+              : stat.graphQL === "0"
+                ? ""
+                : ""}
           </p>
           <p className="typography-body-xs mt-1 text-neu-600">
             {stat.graphQLDesc}
@@ -150,7 +162,15 @@ function StatCard({
           </p>
           <p className="typography-d1 mt-1 font-bold leading-none text-neu-400">
             {animated ? restCount : 0}
-            {stat.rest === "10× more" ? "×" : stat.rest === "manual" ? "" : stat.rest === "3–7" ? "" : stat.rest === "ad-hoc" ? "" : ""}
+            {stat.rest === "10× more"
+              ? "×"
+              : stat.rest === "manual"
+                ? ""
+                : stat.rest === "3–7"
+                  ? ""
+                  : stat.rest === "ad-hoc"
+                    ? ""
+                    : ""}
           </p>
           <p className="typography-body-xs mt-1 text-neu-500">
             {stat.restDesc}
@@ -184,7 +204,14 @@ function StatCard({
       <div className="mt-4 flex items-center gap-1.5 rounded-lg bg-sec-light/20 px-3 py-2 dark:bg-sec-darker/20">
         <ArrowUpIcon className="size-3.5 shrink-0 rotate-180 text-sec-dark" />
         <span className="typography-body-xs font-medium text-sec-dark">
-          GraphQL advantage: {stat.graphQL === "90%" ? "~10× token savings" : stat.graphQL === "1" ? "single round-trip" : stat.graphQL === "0" ? "zero-config" : "guaranteed types"}
+          GraphQL advantage:{" "}
+          {stat.graphQL === "90%"
+            ? "~10× token savings"
+            : stat.graphQL === "1"
+              ? "single round-trip"
+              : stat.graphQL === "0"
+                ? "zero-config"
+                : "guaranteed types"}
         </span>
       </div>
     </div>

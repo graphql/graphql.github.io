@@ -180,67 +180,84 @@ export function InteractiveDemo() {
     }
   }, [])
 
-  const activePrompt =
-    step.kind !== "idle" ? step.prompt : null
+  const activePrompt = step.kind !== "idle" ? step.prompt : null
 
-  const runDemo = useCallback(async (prompt: DemoPrompt) => {
-    if (isRunning) return
-    const update = (next: Step) => {
-      if (mountedRef.current) setStep(next)
-    }
-    setIsRunning(true)
+  const runDemo = useCallback(
+    async (prompt: DemoPrompt) => {
+      if (isRunning) return
+      const update = (next: Step) => {
+        if (mountedRef.current) setStep(next)
+      }
+      setIsRunning(true)
 
-    // Step 1: Introspection (show types being discovered)
-    update({ kind: "introspecting", prompt })
-    await delay(600)
-    update({ kind: "types-discovered", prompt })
-    await delay(1000)
+      // Step 1: Introspection (show types being discovered)
+      update({ kind: "introspecting", prompt })
+      await delay(600)
+      update({ kind: "types-discovered", prompt })
+      await delay(1000)
 
-    // Step 2: Composing (type out the query with a cursor)
-    update({ kind: "composing", prompt, chars: 0 })
-    for (let i = 1; i <= prompt.query.length; i++) {
-      await delay(Math.random() * 12 + 5)
-      update({ kind: "composing", prompt, chars: i })
-    }
-    await delay(250)
+      // Step 2: Composing (type out the query with a cursor)
+      update({ kind: "composing", prompt, chars: 0 })
+      for (let i = 1; i <= prompt.query.length; i++) {
+        await delay(Math.random() * 12 + 5)
+        update({ kind: "composing", prompt, chars: i })
+      }
+      await delay(250)
 
-    // Step 3: Executing
-    update({ kind: "executing", prompt, query: prompt.query })
-    await delay(400)
+      // Step 3: Executing
+      update({ kind: "executing", prompt, query: prompt.query })
+      await delay(400)
 
-    // Step 4: Result
-    try {
-      const execResult = await graphql({
-        schema: StarWarsSchema,
-        source: prompt.query,
-      })
-      update({
-        kind: "result",
-        prompt,
-        query: prompt.query,
-        result: JSON.stringify(execResult, null, 2),
-      })
-    } catch (error) {
-      update({
-        kind: "result",
-        prompt,
-        query: prompt.query,
-        result: JSON.stringify({ error: String(error) }, null, 2),
-      })
-    }
-    if (mountedRef.current) setIsRunning(false)
-
-  }, [isRunning])
+      // Step 4: Result
+      try {
+        const execResult = await graphql({
+          schema: StarWarsSchema,
+          source: prompt.query,
+        })
+        update({
+          kind: "result",
+          prompt,
+          query: prompt.query,
+          result: JSON.stringify(execResult, null, 2),
+        })
+      } catch (error) {
+        update({
+          kind: "result",
+          prompt,
+          query: prompt.query,
+          result: JSON.stringify({ error: String(error) }, null, 2),
+        })
+      }
+      if (mountedRef.current) setIsRunning(false)
+    },
+    [isRunning],
+  )
 
   function runCustom() {
     if (isRunning || !customPrompt.trim()) return
     const lower = customPrompt.toLowerCase()
     let matched: DemoPrompt
-    if (lower.includes("friend") || lower.includes("luke")) matched = demoPrompts[1]
-    else if (lower.includes("movie") || lower.includes("r2") || lower.includes("c3po") || lower.includes("appear")) matched = demoPrompts[2]
-    else if (lower.includes("tallest") || lower.includes("height")) matched = demoPrompts[3]
-    else if (lower.includes("starship") || lower.includes("spaceship") || lower.includes("length") || lower.includes("feet") || lower.includes("meter")) matched = demoPrompts[4]
-    else if (lower.includes("hero") || lower.includes("episode")) matched = demoPrompts[5]
+    if (lower.includes("friend") || lower.includes("luke"))
+      matched = demoPrompts[1]
+    else if (
+      lower.includes("movie") ||
+      lower.includes("r2") ||
+      lower.includes("c3po") ||
+      lower.includes("appear")
+    )
+      matched = demoPrompts[2]
+    else if (lower.includes("tallest") || lower.includes("height"))
+      matched = demoPrompts[3]
+    else if (
+      lower.includes("starship") ||
+      lower.includes("spaceship") ||
+      lower.includes("length") ||
+      lower.includes("feet") ||
+      lower.includes("meter")
+    )
+      matched = demoPrompts[4]
+    else if (lower.includes("hero") || lower.includes("episode"))
+      matched = demoPrompts[5]
     else matched = demoPrompts[0]
     runDemo(matched)
   }
@@ -257,8 +274,9 @@ export function InteractiveDemo() {
           See GraphQL + AI in action
         </h2>
         <p className="typography-body-lg mb-8 max-w-2xl text-pretty text-neu-800 lg:mb-12">
-          Pick a prompt below and watch an AI agent introspect the schema, compose
-          a precise GraphQL query, and fetch structured results — all in real time.
+          Pick a prompt below and watch an AI agent introspect the schema,
+          compose a precise GraphQL query, and fetch structured results — all in
+          real time.
         </p>
 
         <div ref={containerRef} className="gap-8 lg:flex">
@@ -283,13 +301,16 @@ export function InteractiveDemo() {
                       {p.icon}
                     </span>
                     <div className="min-w-0">
-                      <p className={`typography-body-sm font-medium truncate ${
-                        isActive ? "text-pri-dark" : "text-neu-900"
-                      }`}>
+                      <p
+                        className={`typography-body-sm truncate font-medium ${
+                          isActive ? "text-pri-dark" : "text-neu-900"
+                        }`}
+                      >
                         {p.prompt}
                       </p>
                       <p className="typography-body-xs mt-0.5 text-neu-500">
-                        {p.discoveredTypes.length} type{p.discoveredTypes.length > 1 ? "s" : ""} discovered
+                        {p.discoveredTypes.length} type
+                        {p.discoveredTypes.length > 1 ? "s" : ""} discovered
                         {isActive && " · running…"}
                       </p>
                     </div>
@@ -312,7 +333,9 @@ export function InteractiveDemo() {
                 type="text"
                 value={customPrompt}
                 onChange={e => setCustomPrompt(e.target.value)}
-                onKeyDown={e => { if (e.key === "Enter") runCustom() }}
+                onKeyDown={e => {
+                  if (e.key === "Enter") runCustom()
+                }}
                 placeholder="Or type your own prompt…"
                 disabled={isRunning}
                 className="typography-body-sm flex-1 rounded-lg border border-neu-200 bg-neu-0 px-4 py-3 text-neu-900 placeholder:text-neu-400 focus:border-pri-base focus:outline-none focus:ring-2 focus:ring-pri-base/15 disabled:cursor-not-allowed dark:border-neu-100 dark:bg-neu-0 dark:placeholder:text-neu-500"
@@ -399,9 +422,12 @@ function IdleState() {
 function Introspecting({ prompt }: { prompt: DemoPrompt }) {
   return (
     <div className="overflow-hidden rounded-xl border border-neu-200 bg-neu-0 shadow-sm dark:border-neu-100">
-      <PanelHeader icon={<SearchIcon className="size-4 text-pri-base" />} label="Introspection">
+      <PanelHeader
+        icon={<SearchIcon className="size-4 text-pri-base" />}
+        label="Introspection"
+      >
         <span className="typography-body-xs flex items-center gap-1.5 text-pri-base">
-          <span className="flex size-1.5 rounded-full bg-pri-base animate-pulse" />
+          <span className="flex size-1.5 animate-pulse rounded-full bg-pri-base" />
           Querying __schema…
         </span>
       </PanelHeader>
@@ -431,7 +457,8 @@ function Introspecting({ prompt }: { prompt: DemoPrompt }) {
                 />
               ))}
             </span>
-            Discovering schema for: <span className="text-[#f9e2af]">{prompt.prompt}</span>
+            Discovering schema for:{" "}
+            <span className="text-[#f9e2af]">{prompt.prompt}</span>
           </span>
           <div className="h-px flex-1 bg-neu-100/10" />
         </div>
@@ -445,14 +472,19 @@ function Introspecting({ prompt }: { prompt: DemoPrompt }) {
 function TypesDiscovered({ prompt }: { prompt: DemoPrompt }) {
   return (
     <div className="overflow-hidden rounded-xl border border-pri-base/30 bg-neu-0 shadow-sm shadow-pri-base/5 dark:border-pri-base/40">
-      <PanelHeader icon={<SearchIcon className="size-4 text-pri-base" />} label="Introspection" highlight>
+      <PanelHeader
+        icon={<SearchIcon className="size-4 text-pri-base" />}
+        label="Introspection"
+        highlight
+      >
         <span className="typography-body-xs flex items-center gap-1.5 text-sec-dark">
           <CheckIcon className="size-3" />
-          Found {prompt.discoveredTypes.length} relevant type{prompt.discoveredTypes.length > 1 ? "s" : ""}
+          Found {prompt.discoveredTypes.length} relevant type
+          {prompt.discoveredTypes.length > 1 ? "s" : ""}
         </span>
       </PanelHeader>
       <div className="bg-[#1e1e2e] p-5">
-        <p className="font-mono text-xs text-[#6c7086] mb-3">
+        <p className="mb-3 font-mono text-xs text-[#6c7086]">
           <span className="text-[#cba6f7]">__schema</span> → types discovered:
         </p>
         <div className="flex flex-wrap gap-2">
@@ -465,9 +497,7 @@ function TypesDiscovered({ prompt }: { prompt: DemoPrompt }) {
                 animation: "fadeInUp 0.4s ease-out both",
               }}
             >
-              <span className="text-[#6c7086] text-xs">
-                "type"
-              </span>
+              <span className="text-xs text-[#6c7086]">"type"</span>
               {type}
             </span>
           ))}
@@ -488,9 +518,13 @@ function Composing({ prompt, chars }: { prompt: DemoPrompt; chars: number }) {
 
   return (
     <div className="overflow-hidden rounded-xl border border-pri-base/20 bg-neu-0 shadow-sm dark:border-pri-base/30">
-      <PanelHeader icon={<CodeIcon className="size-4 text-pri-base" />} label="AI-generated GraphQL query" highlight>
+      <PanelHeader
+        icon={<CodeIcon className="size-4 text-pri-base" />}
+        label="AI-generated GraphQL query"
+        highlight
+      >
         <span className="typography-body-xs flex items-center gap-1.5 text-pri-base">
-          <span className="flex size-1.5 rounded-full bg-pri-base animate-pulse" />
+          <span className="flex size-1.5 animate-pulse rounded-full bg-pri-base" />
           Composing…
         </span>
       </PanelHeader>
@@ -498,7 +532,8 @@ function Composing({ prompt, chars }: { prompt: DemoPrompt; chars: number }) {
         <pre className="font-mono text-sm leading-relaxed">
           <code
             dangerouslySetInnerHTML={{
-              __html: highlightGraphQL(visible) +
+              __html:
+                highlightGraphQL(visible) +
                 (cursor
                   ? '<span class="inline-block w-2 h-[1.1em] bg-[#f5c2e7] ml-0.5 align-text-bottom animate-pulse" />'
                   : ""),
@@ -506,11 +541,15 @@ function Composing({ prompt, chars }: { prompt: DemoPrompt; chars: number }) {
           />
         </pre>
         <div className="mt-3 flex items-center gap-2 text-xs text-[#6c7086]">
-          <span>{chars} / {prompt.query.length} chars</span>
+          <span>
+            {chars} / {prompt.query.length} chars
+          </span>
           <div className="h-1 flex-1 overflow-hidden rounded-full bg-neu-100/10">
             <div
               className="h-full rounded-full bg-pri-base/60 transition-all duration-100"
-              style={{ width: `${((chars / prompt.query.length) * 100).toFixed(1)}%` }}
+              style={{
+                width: `${((chars / prompt.query.length) * 100).toFixed(1)}%`,
+              }}
             />
           </div>
         </div>
@@ -524,7 +563,11 @@ function Composing({ prompt, chars }: { prompt: DemoPrompt; chars: number }) {
 function Executing({ prompt, query }: { prompt: DemoPrompt; query: string }) {
   return (
     <div className="overflow-hidden rounded-xl border border-pri-base/20 bg-neu-0 shadow-sm dark:border-pri-base/30">
-      <PanelHeader icon={<CodeIcon className="size-4 text-pri-base" />} label="AI-generated GraphQL query" highlight>
+      <PanelHeader
+        icon={<CodeIcon className="size-4 text-pri-base" />}
+        label="AI-generated GraphQL query"
+        highlight
+      >
         <span className="typography-body-xs flex items-center gap-1.5 text-sec-dark">
           <CheckIcon className="size-3" />
           Query complete
@@ -570,7 +613,10 @@ function ResultView({
     <div className="space-y-4">
       {/* Query */}
       <div className="overflow-hidden rounded-xl border border-neu-200 bg-neu-0 shadow-sm dark:border-neu-100">
-        <PanelHeader icon={<SparklesIcon className="size-4 text-pri-base" />} label="AI-generated GraphQL query">
+        <PanelHeader
+          icon={<SparklesIcon className="size-4 text-pri-base" />}
+          label="AI-generated GraphQL query"
+        >
           <span className="typography-body-xs flex items-center gap-1.5 text-sec-dark">
             <CheckIcon className="size-3" />
             Executed
@@ -602,16 +648,20 @@ function ResultView({
 
       {/* JSON Result */}
       <div className="overflow-hidden rounded-xl border border-neu-200 bg-neu-0 shadow-sm dark:border-neu-100">
-        <PanelHeader icon={<CheckIcon className="size-4 text-sec-dark" />} label="Structured response (JSON)">
+        <PanelHeader
+          icon={<CheckIcon className="size-4 text-sec-dark" />}
+          label="Structured response (JSON)"
+        >
           <span className="typography-body-xs text-neu-500">
             {result.length.toLocaleString()} bytes
           </span>
         </PanelHeader>
-        <div ref={containerRef} className="max-h-[400px] overflow-auto bg-[#1e1e2e] p-5">
+        <div
+          ref={containerRef}
+          className="max-h-[400px] overflow-auto bg-[#1e1e2e] p-5"
+        >
           <pre className="font-mono text-sm leading-relaxed">
-            <code
-              dangerouslySetInnerHTML={{ __html: highlightJSON(result) }}
-            />
+            <code dangerouslySetInnerHTML={{ __html: highlightJSON(result) }} />
           </pre>
         </div>
       </div>
@@ -643,7 +693,7 @@ function PanelHeader({
       }`}
     >
       {icon}
-      <span className="typography-body-sm font-mono font-medium text-neu-700 flex-1">
+      <span className="typography-body-sm flex-1 font-mono font-medium text-neu-700">
         {label}
       </span>
       {children}
