@@ -158,10 +158,24 @@ evolution.
 Lee and Benjie had a call where they discussed the history of GraphQL
 nullability and all the relevant proposals in depth, including their two
 respective solutions. It was clear that though no solution was quite there, the
-solutions converging hinted we were getting closer and closer to an answer. This
-long and detailed highly technical discussion inspired
-[a new proposal](https://github.com/graphql/nullability-wg/discussions/58),
-which has been iterated further, and we aim to describe below.
+solutions converging hinted we were getting closer and closer to an answer.
+
+This long and detailed highly technical discussion ultimately led to the
+realisation that error propagation itself was the issue. Rather than
+working around error propagation with new "null only on error" types, what we
+really needed was a way for "smart clients" to turn off error propagation
+entirely.
+
+### `@experimental_disableErrorPropagation`
+
+Our first punt at this was the `@experimental_disableErrorPropagation` directive
+that could be added to operations to disable error propagation. However, we
+quickly realised that this was cumbersome, inconsistent, and also became the
+responsibility of the developer rather than the client. A smart client that
+understands the schema should be able to fully re-implement traditional error
+propagation locally: `data` and `errors` contains all the information it would
+need to do so. And if a client supports this, it would want to disable error
+propagation for every request...
 
 ## Introducing the `onError` request property
 
@@ -184,19 +198,21 @@ For example:
 
 Services that support `onError` must honor the specified behavior. If a service
 does not support `onError` then the request property will be ignored, resulting
-in behavior equivalent to `onError: PROPAGATE`. Services will soon be able to
-indicate their support for the `onError` request property through [service
+in the traditional behavior - equivalent to `onError: PROPAGATE`.
+
+Services will soon be able to indicate their support for the `onError` request
+property through [service
 capabilities](https://github.com/graphql/graphql-spec/pull/1208)), allowing
 clients to auto-discover and depend upon the capability.
 
-### `onError: PROPAGATE`
+### `onError: "PROPAGATE"`
 
-This is the traditional error propagation behavior that we all know and... love?
+This is the traditional error propagation behavior that we all know and... "love"?
 
 Setting `onError: PROPAGATE` will be equivalent to the error behavior in the
-initial 2015 GraphQL Specification release: error propagation/null bubbling.
+initial 2015 GraphQL Specification: error propagation/null bubbling.
 
-### `onError: ABORT`
+### `onError: "ABORT"`
 
 Ad-hoc scripts and similar clients throw away entire responses if any error
 occurs, but currently the server still computes the "partial success" response
@@ -205,29 +221,31 @@ won't be reading the data - any error should result in a
 `{ data: null, errors: [...] }` response - and thus the service can abort
 execution when the first error occurs.
 
-### `onError: NULL`
+### `onError: "NULL"`
+
+> **Clients take responsibility for interpreting the response as a whole...
+> ensuring application code can never read an "error null"**
 
 This is what we're excited about!
 
-...
-
-We're now proposing a new opt-in execution mode to solve the nullability
-problem. It's important to note that both the client and the server must opt-in
-to this new mode for it to take effect, otherwise the traditional execution mode
-will be used.
-
-### No-error-propagation mode
-
-The new proposal centers around the premise of allowing clients to disable the
-"error propagation" behavior discussed above.
+`onError: "NULL"` completely disables error propagation within the GraphQL
+service. From an error perspective, every position in the response (fields and
+lists alike) is an error boundary - as if they are all nullable. This
+effectively changes the "non-nullable" type modifier to mean "null only on
+error".
 
 Clients that opt-in to this behavior take responsibility for interpretting the
 response as a whole, correlating the `data` and `errors` properties of the
-response. With error propagation disabled and the previously discussed fact that
-any field could potentially throw an error, all positions in `data` can
-potentially contain a `null` value. Clients in this mode must cross-check any
-`null` values against `errors` to determine if it represents a true `null`, or
-an error.
+response. They must cross-check any `null` values against `errors` to ensure the
+application can never read an "error null"[^1] as if it were a "semantic
+null"[^2].
+
+[^1]: A `null` that has an associated error in the "errors" list in the response.
+
+[^2]: A "true" `null` that represents that the data itself doesn't exist - e.g.
+Alice doesn't have a favourite band: `favoriteBand: null`.[^3]
+
+[^3]: About the "u"... Yes, us brits write prose in English but code in american.
 
 ### "Smart" clients
 
