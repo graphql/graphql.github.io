@@ -15,11 +15,11 @@ they wanted to serve the user a page with as much working data as they could.
 
 ## Null propagation
 
-To accomplish this, if an error occurred within a resolver, the resolver's value
-would be replaced with a `null`, and an error would be added to the `errors`
-array in the response.
+To accomplish this, if an error occurred within a resolver, that field's
+response position would be replaced with a `null`, and an error would be added
+to the `errors` array in the response.
 
-But what if that field was marked as non-null?
+But what if that position was marked as non-null?
 
 To solve that apparent contradiction, GraphQL introduced "error propagation"
 (aka "null bubbling"): when a `null` occurs in a non-nullable position, the
