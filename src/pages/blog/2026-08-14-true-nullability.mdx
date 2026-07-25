@@ -9,14 +9,14 @@ _Want to skip the history lesson and get to the good stuff? Jump to [Introducing
 the `onError` request property](#introducing-the-onerror-request-property)._
 
 One of GraphQL's early decisions was to allow "partial success"; this was a
-critical feature for Facebook - if one part of their backend infrastructure
+critical feature for Facebook: if one part of their backend infrastructure
 became degraded, they wouldn't want to just render an error page; instead,
 they wanted to serve the user a page with as much working data as they could.
 
 ## Null propagation
 
 To accomplish this, if an error occurred within a resolver, that field's
-response position would be replaced with a `null`, and an error would be added
+response position would be replaced with `null`, and an error would be added
 to the `errors` array in the response.
 
 But what if that position was marked as non-null?
@@ -27,7 +27,7 @@ parent position is made `null` instead. If that position is also non-nullable,
 its parent will be made `null` instead, and so on up the tree until a nullable
 position is made `null`.
 
-This solved the issue, and meant that GraphQL's nullability promises were still
+This solved the issue and meant that GraphQL's nullability promises were still
 honoured, but it wasn't without complications...
 
 ### Complication 1: partial success
@@ -36,59 +36,59 @@ We want to be resilient to systems failing, but errors that occur in
 non-nullable positions cascade to surrounding parts of the query, making less
 and less data available to be rendered.
 
-This seems contrary to our "partial success" aim, but it's easy to solve - we
+This seems contrary to our "partial success" aim, but it's easy to solve: we
 just make sure that the positions where we expect errors to occur are nullable
 so that errors don't propagate further.
 
-Unfortunately this means clients now need `null`-handling code in a few more
-places, but what is engineering if not choosing trade-offs...
+Unfortunately, this means clients now need `null`-handling code in a few more
+places, but what is engineering if not choosing trade-offs?
 
 ### Complication 2: nullable epidemic
 
 So... where are errors likely to occur?
 
-Almost any field in your GraphQL schema could raise an error - errors might not
+Almost any field in your GraphQL schema could raise an error. Errors might not
 only be caused by backend services becoming unavailable or responding in
 unexpected ways; they can also be caused by simple programming errors in your
-business logic, data consistency errors (e.g. expecting a boolean but receiving
+business logic, data consistency errors (e.g., expecting a boolean but receiving
 a float), access controls, or any other cause.
 
 Since we don't want to "blow up" the entire response if any such issue occurs,
-we've moved to strongly encourage nullable usage throughout a schema, only
-adding the non-nullable `!` marker to positions where we're truly sure that
+we've come to strongly encourage nullable usage throughout a schema, only
+adding the non-nullable `!` marker to positions where we're truly sure that the
 field is extremely unlikely to error.
 
-This "nullable by default" has the effect of meaning that developers consuming
-the GraphQL API have to handle potential nulls in more positions than they would
-expect, with an explosion of null checks leading people to even call into
-question the value of GraphQL's "type safety".
+This "nullable by default" approach means that developers consuming the GraphQL
+API have to handle potential nulls in more positions than they would expect,
+with an explosion of null checks leading people to even call into question the
+value of GraphQL's "type safety".
 
-### Complication 3: normalized caching
+### Complication 3: normalised caching
 
-Many modern GraphQL clients use a "normalized" cache, such that updates pulled
+Many modern GraphQL clients use a "normalised" cache, such that updates pulled
 down from the API in one query can automatically update all the previously
 rendered data across the application. This helps ensure consistency for users
 and is a powerful feature.
 
 However, if an error occurs in a non-nullable position, it's
 [no longer safe](https://github.com/graphql/nullability-wg/issues/20) to store
-the data in the normalized cache.
+the data in the normalised cache.
 
 ## The Nullability Working Group
 
-At first, we thought the solution to this was to give clients control over the
-nullability of each field in the response, so we set up the Client-Controlled
-Nullability (CCN) Working Group. Later, we renamed the working group to the
-Nullability WG to show that it encompassed all potential solutions to this
-problem.
+At first, we thought the solution to these complications was to give clients
+control over the nullability of each field in the response, so we set up the
+Client-Controlled Nullability (CCN) Working Group. Later, we renamed the working
+group to the Nullability WG to show that it encompassed all potential solutions
+to this problem.
 
 ### Client-controlled nullability
 
 The first Nullability WG proposal came from a collaboration between Yelp and
 Netflix, with contributions from GraphQL WG regulars Alex Reilly, Mark Larah,
-and Stephen Spalding, among others. They proposed we could adorn the queries we
-issue to the server with sigils indicating our desired nullability overrides for
-the given fields - client-controlled nullability.
+and Stephen Spalding, among others. They proposed that we could adorn the queries
+we issue to the server with sigils indicating our desired nullability overrides
+for the given fields: client-controlled nullability.
 
 A `?` would be added to fields where we don't mind if they're null but we
 definitely want errors to stop there, and a `!` would be added to fields
@@ -114,19 +114,19 @@ Relay desired was to disable null propagation entirely.
 
 ### A new type
 
-Getting the relevant experts together at GraphQLConf 2023 re-energized the
+Getting the relevant experts together at GraphQLConf 2023 re-energised the
 discussions and sparked new ideas. After seeing Stephen's "Nullability Sandwich"
-talk and chatting with Jordan, Stephen and others in the corridor, Benjie Gillam
+talk and chatting with Jordan, Stephen, and others in the corridor, Benjie Gillam
 was inspired to [propose](https://github.com/graphql/graphql-spec/pull/1046) a
 "null only on error" type. This type would allow us to express the "true"
-nullability of a field whilst also indicating that errors may happen that should
-be handled, but would not "blow up" the response.
+nullability of a field whilst also indicating that errors may occur and should
+be handled without "blowing up" the response.
 
 To maintain backwards compatibility, clients would need to opt in to seeing this
 new type (otherwise it would masquerade as nullable). It would be up to the
-client how to handle the nullability of this position, knowing that a "null only
-on error" position would only contain a `null` if a matching error existed in
-the `errors` list.
+client to decide how to handle the nullability of this position, knowing that a
+"null only on error" position would only contain a `null` if a matching error
+existed in the `errors` list.
 
 A
 [number of alternative syntaxes](https://gist.github.com/benjie/19d784721d1658b89fd8954e7ee07034)
@@ -137,21 +137,21 @@ were suggested for this new type, but none were well-liked.
 Also around the time of GraphQLConf 2023, the Relay team shared
 [a presentation](https://docs.google.com/presentation/u/2/d/1rfWeBcyJkiNqyxPxUIKxgbExmfdjA70t/edit?pli=1#slide=id.p8)
 on some of the things they were thinking around errors. In particular, they
-discussed the `@catch` directive which would give users control over how errors
+discussed the `@catch` directive, which would give users control over how errors
 were represented in the data being rendered, allowing the client to
 differentiate an error from a legitimate null. Over the coming months, many
-behaviors were discussed at the Nullability WG; one particularly compelling one
-was that clients could throw the error when an errored field was read, and rely
+behaviours were discussed at the Nullability WG; one particularly compelling one
+was that clients could throw the error when an errored field was read and rely
 on framework mechanics (such as React's
 [error boundaries](https://legacy.reactjs.org/docs/error-boundaries.html)) to
-handle them.
+handle those errors.
 
 ### Strict semantic nullability
 
 GraphQL Foundation director Lee Byron
 [proposed](https://github.com/graphql/graphql-wg/discussions/1410) that we
 introduce a schema directive, `@strictNullability`, whereby we would change what
-the syntax meant - `Int?` for nullable, `Int` for null-only-on-error, and `Int!`
+the syntax meant: `Int?` for nullable, `Int` for null-only-on-error, and `Int!`
 for never-null. This proposal was well-liked, but wasn't a clear win; it
 introduced many complexities, including migration costs and concerns over schema
 evolution.
@@ -160,8 +160,9 @@ evolution.
 
 Lee and Benjie had a call where they discussed the history of GraphQL
 nullability and all the relevant proposals in depth, including their two
-respective solutions. It was clear that though no solution was quite there, the
-solutions converging hinted we were getting closer and closer to an answer.
+respective solutions. It was clear that, though no solution was quite there,
+the solutions were converging, hinting that we were getting closer and closer to
+an answer.
 
 This long, detailed, highly technical discussion ultimately led to the
 realisation that error propagation itself was the issue. Rather than
@@ -174,17 +175,17 @@ entirely.
 Our first punt at this was the `@experimental_disableErrorPropagation` directive
 that could be added to operations to disable error propagation. However, we
 quickly realised that this was cumbersome and inconsistent, and that disabling
-error propagation also became the responsibility of the developer rather than
-the client. A smart client that understands the schema should be able to fully
-re-implement traditional error propagation locally: `data` and `errors` contain
-all the information it would need to do so. And if a client supports this, it
-would want to disable error propagation for every request...
+error propagation would also become the responsibility of the developer rather
+than the client. A smart client that understands the schema should be able to
+fully re-implement traditional error propagation locally: `data` and `errors`
+contain all the information it would need to do so. And if a client supports
+this, it would want to disable error propagation for every request...
 
 ## Introducing the `onError` request property
 
-The new `onError` request property allows a client to indicate its preference as
-to how errors are handled by the GraphQL service (each option is detailed below).
-For example:
+The new `onError` request property allows a client to indicate its preference
+for how errors are handled by the GraphQL service (each option is detailed
+below). For example:
 
 ```diff
  POST /graphql HTTP/1.1
@@ -199,20 +200,21 @@ For example:
  }
 ```
 
-Services that support `onError` must honor the specified behavior. If a service
-does not support `onError`, then the request property will be ignored, resulting
-in the traditional behavior - equivalent to `onError: "PROPAGATE"`.
+Services that support `onError` must honour the specified behaviour. If a
+service does not support `onError`, the request property will be ignored,
+resulting in the traditional behaviour, equivalent to `onError: "PROPAGATE"`.
 
 Services will soon be able to indicate their support for the `onError` request
 property through [service
 capabilities](https://github.com/graphql/graphql-spec/pull/1208)), allowing
-clients to auto-discover and depend upon the capability.
+clients to auto-discover and depend upon this capability.
 
 ### `onError: "PROPAGATE"`
 
-This is the traditional error propagation behavior that we all know and... "love"?
+This is the traditional error propagation behaviour that we all know and...
+"love"?
 
-Setting `onError: "PROPAGATE"` will be equivalent to the error behavior in the
+Setting `onError: "PROPAGATE"` will be equivalent to the error behaviour in the
 initial 2015 GraphQL Specification: error propagation/null bubbling.
 
 ### `onError: "ABORT"`
@@ -220,8 +222,8 @@ initial 2015 GraphQL Specification: error propagation/null bubbling.
 Ad-hoc scripts and similar clients throw away entire responses if any error
 occurs, but currently the server still computes the "partial success" response
 anyway. This mode allows clients to indicate that if any error occurs, they
-won't be reading the data: any error should result in a
-`{ data: null, errors: [...] }` response - and thus the service can abort
+won't read the data: any error should result in a
+`{ data: null, errors: [...] }` response, allowing the service to abort
 execution when the first error occurs.
 
 ### `onError: "NULL"`
@@ -233,11 +235,10 @@ This is what we're excited about!
 
 `onError: "NULL"` completely disables error propagation within the GraphQL
 service. From an error perspective, every position in the response (fields and
-lists alike) is an error boundary - as if they are all nullable. This
-effectively changes the "non-nullable" type modifier to mean "null only on
-error".
+lists alike) is an error boundary, as though it were nullable. This effectively
+changes the "non-nullable" type modifier to mean "null only on error".
 
-Clients that opt in to this behavior take responsibility for interpreting the
+Clients that opt in to this behaviour take responsibility for interpreting the
 response as a whole, correlating the `data` and `errors` properties of the
 response. They must cross-check any `null` values against `errors` to ensure the
 application can never read an "error null"[^1] as if it were a "semantic
@@ -245,65 +246,64 @@ null"[^2].
 
 [^1]: A `null` that has an associated error in the "errors" list in the response.
 
-[^2]: A "true" `null` that represents that the data itself doesn't exist - e.g.
-Alice doesn't have a favourite band: `favoriteBand: null`.[^3]
+[^2]: A "true" `null` representing that the data itself doesn't exist: e.g.,
+    Alice doesn't have a favourite band: `favoriteBand: null`.[^3]
 
 [^3]: About the "u"... Yes, we Brits write prose in English but code in American.
 
 ### "Smart" clients
 
 `onError: "NULL"` is intended for use by "smart" clients such as Relay, Apollo
-Client, URQL and others that understand GraphQL deeply and are responsible for
+Client, URQL, and others that understand GraphQL deeply and are responsible for
 the storage and retrieval of fetched GraphQL data. These clients are well
 positioned to handle the responsibilities outlined above.
 
 By disabling error propagation, these clients will be able to safely update
-their stores (including normalized stores) even when errors occur. They can also
+their stores (including normalised stores) even when errors occur. They can also
 re-implement traditional GraphQL error propagation on top of these new
 foundations, shielding application developers from needing to learn this new
-behavior (whilst still allowing them to reap the benefits!). They can even take
-on advanced behaviors, such as throwing the error when the application developer
-attempts to read from an errored field, allowing the developer to handle errors
-with their system's native error boundaries: `try/catch` or `raise/except` or
-`<ErrorBoundary />`.
+behaviour (whilst still allowing them to reap the benefits!). They can even take
+on advanced behaviours, such as throwing the error when the application
+developer attempts to read from an errored field, allowing the developer to
+handle errors with their system's native error boundaries: `try/catch`,
+`raise/except`, or `<ErrorBoundary />`.
 
 ### "Error-handling clients"
 
 An error-handling client is a client that ensures that an "error null" can never
-be read by application code. A client that throws if `errors` exists on a
-response is an error-handling client - the `data` can never be read, and so no
-"error nulls" can be read. Clients that implement error-handling behaviors such
+be read by application code. A client that throws if an `errors` property exists
+in a response is an error-handling client; the `data` can never be read, so no
+"error nulls" can be read. Clients that implement error-handling behaviours such
 as throw-on-error at the field or fragment level also prevent application code
-from reading "error nulls", and so are also error-handling clients.
+from reading "error nulls" and are therefore also error-handling clients.
 
-Many clients, including `window.fetch()`, Apollo Client, URQL and graffle, can be
-made into error-handling clients by integrating something like
-[`graphql-toe`](https://www.npmjs.com/package/graphql-toe) (Throw On Error) - a
-0.5kB library that can be added to JavaScript projects and uses accessors such
-that when application code attempts to read from an errored field, that error is
-thrown so that traditional error handling (`try/catch` or `<ErrorBoundary />`)
-can process it.
+Many clients, including `window.fetch()`, Apollo Client, URQL, and graffle, can
+be made into error-handling clients by integrating something like
+[`graphql-toe`](https://www.npmjs.com/package/graphql-toe) (Throw On Error): a
+0.5kB library that can be added to JavaScript projects and uses accessors so
+that, when application code attempts to read from an errored field, that error
+is thrown and can be processed by traditional error handling (`try/catch` or
+`<ErrorBoundary />`).
 
 ## True nullability
 
-Just like with traditional error propagation, for clients using `onError:
-"NULL"`, fields are either nullable or non-nullable. However, unlike with
-traditional propagation, with `onError: "NULL"`, errors can be represented in
-any position:
+For clients using `onError: "NULL"`, fields are either nullable or non-nullable,
+just as with traditional error propagation. However, unlike with traditional
+propagation, errors can be represented in any position:
 
-- nullable (e.g. `Int`): a value, an error, or a true `null`;
-- non-nullable (e.g. `Int!`): a value, **or an error**.
+* nullable (e.g., `Int`): a value, an error, or a true `null`;
+* non-nullable (e.g., `Int!`): a value, **or an error**.
 
-_(With traditional error propagation, non-nullable fields cannot represent an
+*(With traditional error propagation, non-nullable fields cannot represent an
 error because the error propagates to the nearest nullable position. Not so with
-`onError: "NULL"`!)_
+`onError: "NULL"`!)*
 
 ### Greenfield services
 
 If a GraphQL service can guarantee it will never need to perform error
-propagation (for example by requiring that all clients must include `onError:
-"NULL"` or `onError: "ABORT"` in requests), then the schema can safely indicate
-to clients the true intended nullability of a field in the traditional way -
+propagation (for example, by requiring all clients to include `onError: "NULL"`
+or `onError: "ABORT"` in requests), then the schema can safely indicate to
+clients the true intended nullability of a field in the traditional way:
 with a `!`:
 
 ```graphql
@@ -327,15 +327,15 @@ type User {
 For GraphQL services that cannot guarantee that all clients will have error
 propagation disabled, there's a little more work to do.
 
-Traditional clients still need their nullable error boundaries, but for modern
-clients that support `onError: "NULL"` this would still treat these fields as
-truly nullable, requiring null checks in application code that should never
-fire.
+Traditional clients still need their nullable error boundaries, but modern
+clients that support `onError: "NULL"` would still treat these fields as truly
+nullable, requiring null checks in application code that should never fire.
 
-We need a way of indicating fields which are "null only on error" whether you're
-using traditional error propagation clients or modern error-handling clients.
+We need a way of indicating fields that are "null only on error", whether you're
+using traditional clients with error propagation or modern error-handling
+clients.
 
-For this, we've standardized on the use of the transitional `@semanticNonNull`
+For this, we've standardised on the use of the transitional `@semanticNonNull`
 directive until such time as all your clients can be error-handling clients:
 
 ```graphql
@@ -350,7 +350,8 @@ type User {
 
 `@semanticNonNull` states that a field will only ever be `null` within the
 `data` of the response if there is a matching error in the `errors` list. The
-`levels` argument allows applying this directive to different list positions.
+`levels` argument allows this directive to be applied to different list
+positions.
 
 Here's how error-handling clients can interpret various combinations of
 `@semanticNonNull`:
@@ -363,7 +364,7 @@ Here's how error-handling clients can interpret various combinations of
 | `[[Int]] @semanticNonNull(levels: [0, 1, 2])` | `[[Int!]!]!`   |
 | `[[Int]!] @semanticNonNull(levels: [2])`      | `[[Int!]!]`    |
 
-Of course, each client doesn't need to do this themselves;
+Of course, clients don't need to do this themselves;
 [`graphql-sock`](https://www.npmjs.com/package/graphql-sock) (Semantic Output
 Conversion Kit, a great pairing for `graphql-toe`) can be used to read an SDL
 marked up with `@semanticNonNull` and output the equivalent SDL for either
@@ -375,36 +376,36 @@ error-handling clients (`semantic-to-strict`) or traditional clients
 As clients and servers all adopt `onError: "NULL"`, traditional error
 propagation should become a relic of the past. Application developers will not
 need to look through the `errors` list in a response manually; instead,
-error-handling clients will raise errors through ergonomic and familiar patterns
-(for example `Result<...>` types for fragment reads, or simply throwing errors
+error-handling clients will raise errors using ergonomic and familiar patterns
+(for example, `Result<...>` types for fragment reads or simply throwing errors
 when related data is read), fulfilling the promise of "partial success" that
-GraphQL launched with all those years ago.
+came with GraphQL's launch all those years ago.
 
 Once all the clients a service serves are error-handling clients, schema
 designers no longer need to factor "errorability" into their schema design. They
-can indicate the true nullability of each field directly through the schema with a
-`!`; clients will need fewer null checks, and the `@semanticNonNull` directive
-can join error propagation as a relic of the past.
+can indicate the true nullability of each field directly through the schema
+with a `!`; clients will need fewer null checks, and the `@semanticNonNull`
+directive can join error propagation as a relic of the past.
 
 Start integrating `onError: "NULL"` into your clients and services today, and
 let's make this future of type safety and solid error handling a reality.
 
 ## Help us get this merged!
 
-Whether you work on a GraphQL client or server library or framework, or are just
-a GraphQL user with thoughts on nullability, we want to hear from you. Have you
-tried `onError: "NULL"`, `@semanticNonNull`, `graphql-toe`, or [other error
-handling
+Whether you work on a GraphQL client library, server library, or framework, or
+are just a GraphQL user with thoughts on nullability, we want to hear from you.
+Have you tried `onError: "NULL"`, `@semanticNonNull`, `graphql-toe`, or [other
+error handling
 mechanisms](https://relay.dev/docs/guides/throw-on-field-error-directive/)? Like
 all GraphQL Working Groups, the GraphQL Specification Working Group is open to
-all: add yourself to an [upcoming working
-group](https://github.com/graphql/graphql-wg/) or chat with us in the
+all: add yourself to an [upcoming working group
+meeting](https://github.com/graphql/graphql-wg/) or chat with us in the
 #nullability-wg channel in [the GraphQL Discord](https://discord.graphql.org).
 
-**The solution is formed and ready to go - we just need your adoption and feedback
-to get it merged into the spec!**
+**The solution is fully formed and ready to go; we just need your adoption and
+feedback to get it merged into the spec!**
 
 ---
 
 <p><small><a
-href="https://spag.inputfrom.ai/">spag.inputfrom.ai</a></small></p>
+href="https://clarity.inputfrom.ai/">clarity.inputfrom.ai</a></small></p>
