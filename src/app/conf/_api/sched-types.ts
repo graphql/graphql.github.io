@@ -18,6 +18,7 @@ export type ScheduleSession = {
   company: string
   speakers?: SchedSpeaker[]
   files?: { name: string; path: string }[]
+  hasSlides?: "Yes" | "No"
 }
 
 export type SchedSpeaker = {
@@ -36,6 +37,7 @@ export type SchedSpeaker = {
   ["~syncedDetailsAt"]?: number
   /* added on export, merged on conflict */
   _years: ConferenceYear[]
+  
 }
 
 export type ConferenceYear = 2026 | 2025 | 2024 | 2023

@@ -16,6 +16,7 @@ const FILTERS: FiltersConfig = {
   event_type: "Session Format",
   event_subtype: "Talk Category",
   audience: "Audience",
+  hasSlides: "Slides",
 }
 
 export const metadata: Metadata = {
