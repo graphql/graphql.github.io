@@ -37,7 +37,6 @@ export type SchedSpeaker = {
   ["~syncedDetailsAt"]?: number
   /* added on export, merged on conflict */
   _years: ConferenceYear[]
-  
 }
 
 export type ConferenceYear = 2026 | 2025 | 2024 | 2023
