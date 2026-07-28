@@ -27,19 +27,19 @@ const stats = [
     label: "Tool definitions",
     graphQL: "0",
     graphQLDesc: "auto-discovered",
-    rest: "manual",
-    restDesc: "per endpoint",
+    rest: "3",
+    restDesc: "files to wire",
     explanation:
-      "Every GraphQL API includes built-in introspection. Agents can discover available types, fields, and arguments automatically. REST tool calling requires hand-crafted JSON Schema definitions for every endpoint.",
+      "REST frameworks can auto-generate OpenAPI, so this isn't about hand-writing schemas. The edge is plug-and-play: GraphQL's introspection and per-field, per-type, and per-query documentation are built into the spec and discoverable from one endpoint. With REST, an agent needs the API, its schema, and an instruction file (AGENT.md) — and you must point it to each. One GraphQL schema replaces all three.",
   },
   {
     label: "Type safety",
     graphQL: "100%",
     graphQLDesc: "typed responses",
-    rest: "ad-hoc",
-    restDesc: "no guarantees",
+    rest: "100%",
+    restDesc: "via OpenAPI",
     explanation:
-      "GraphQL responses match the query shape exactly — validated against the schema at runtime. REST responses offer no structural guarantees, forcing LLMs to handle arbitrary JSON shapes.",
+      "Both are typed — OpenAPI gives REST schemas too. The real difference for agents is traversal: one GraphQL query follows relationships across types, so an agent never needs to hold the entire type graph in context at once. REST splits data across endpoints, forcing agents to remember deep, nested relationships to compose what one field resolves.",
   },
 ]
 
@@ -103,10 +103,10 @@ function StatCard({ stat }: { stat: (typeof stats)[number] }) {
         ? 10
         : stat.rest === "3–7"
           ? 5
-          : stat.rest === "manual"
-            ? 1
-            : stat.rest === "ad-hoc"
-              ? 0
+          : stat.rest === "3"
+            ? 3
+            : stat.rest === "100%"
+              ? 100
               : parseInt(stat.rest) || 0
 
     const gqlMax = Math.max(gqlTarget, 1)
@@ -164,12 +164,12 @@ function StatCard({ stat }: { stat: (typeof stats)[number] }) {
             {animated ? restCount : 0}
             {stat.rest === "10× more"
               ? "×"
-              : stat.rest === "manual"
+              : stat.rest === "3"
                 ? ""
                 : stat.rest === "3–7"
                   ? ""
-                  : stat.rest === "ad-hoc"
-                    ? ""
+                  : stat.rest === "100%"
+                    ? "%"
                     : ""}
           </p>
           <p className="typography-body-xs mt-1 text-neu-500">
@@ -211,7 +211,7 @@ function StatCard({ stat }: { stat: (typeof stats)[number] }) {
               ? "single round-trip"
               : stat.graphQL === "0"
                 ? "zero-config"
-                : "guaranteed types"}
+                : "graph traversal"}
         </span>
       </div>
     </div>
