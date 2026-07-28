@@ -186,8 +186,6 @@ type Character {
 
 Here, we're using a `String` type and marking it as a Non-Null type by adding an exclamation mark (`!`) after the type name. This means that our server always expects to return a non-null value for this field, and if the resolver produces a null value, then that will trigger a GraphQL execution error, letting the client know that something has gone wrong.
 
-As we saw in an example above, the Non-Null type modifier can also be used when defining arguments for a field, which will cause the GraphQL server to return a validation error if a null value is passed as that argument:
-
 ```graphql
 # { "graphiql": true }
 {
@@ -196,6 +194,7 @@ As we saw in an example above, the Non-Null type modifier can also be used when 
   }
 }
 ```
+As we saw in an example above, the Non-Null type modifier can also be used when defining arguments for a field, which will cause the GraphQL server to return a validation error if a null value is passed as that argument:
 
 ### List
 
