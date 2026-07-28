@@ -50,7 +50,7 @@
     "calendar-link": "^2.10.0",
     "clsx": "^2.1.1",
     "cm6-graphql": "^0.2.1",
-    "date-fns": "^2.30.0",
+    "date-fns": "^4.0.0",
     "escape-string-regexp": "^5.0.0",
     "fast-glob": "^3.3.3",
     "flexsearch": "0.7.43",
