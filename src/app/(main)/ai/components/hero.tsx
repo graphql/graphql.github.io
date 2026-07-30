@@ -6,6 +6,7 @@ import { Button } from "@/app/conf/_design-system/button"
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
+import blurBean from "@/components/blog-page/blur-bean.webp"
 
 const highlights = [
   "Self-describing schemas let agents discover your API",
@@ -16,11 +17,26 @@ const highlights = [
 export function Hero() {
   return (
     <div className="relative overflow-hidden bg-pri-dark text-white dark:bg-pri-darker">
-      <StripesDecoration
-        stripeWidth="8px"
-        evenClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-darker)/0.6)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/0.25)_0%,transparent_100%)]"
-        oddClassName="bg-[linear-gradient(180deg,hsl(var(--color-neu-900)/0.2)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-neu-0)/0.12)_0%,transparent_100%)]"
-      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          maskImage: `url(${blurBean.src})`,
+          WebkitMaskImage: `url(${blurBean.src})`,
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+          maskPosition: "center top",
+          WebkitMaskPosition: "center top",
+          maskSize: "cover",
+          WebkitMaskSize: "cover",
+        }}
+      >
+        <StripesDecoration
+          stripeWidth="8px"
+          evenClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-darker)/0.6)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/0.25)_0%,transparent_100%)]"
+          oddClassName="bg-[linear-gradient(180deg,hsl(var(--color-neu-900)/0.2)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-neu-0)/0.12)_0%,transparent_100%)]"
+        />
+      </div>
       <SchemaGrid />
       <div className="gql-container relative">
         <div className="flex flex-col items-center px-4 pb-16 pt-24 text-center lg:min-h-[640px] lg:justify-center lg:pb-24 lg:pt-32 xl:min-h-[720px] xl:px-24 xl:pt-40">
