@@ -18,8 +18,8 @@ export function Hero() {
     <div className="relative overflow-hidden bg-pri-dark text-white dark:bg-pri-darker">
       <StripesDecoration
         stripeWidth="8px"
-        evenClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/0.15)_20%,hsl(var(--color-pri-base))_150%)]"
-        oddClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/0.3)_20%,hsl(var(--color-pri-lighter)/0.6)_150%)]"
+        evenClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-darker)/0.6)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/0.25)_0%,transparent_100%)]"
+        oddClassName="bg-[linear-gradient(180deg,hsl(var(--color-neu-900)/0.2)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-neu-0)/0.12)_0%,transparent_100%)]"
       />
       <SchemaGrid />
       <div className="gql-container relative">
