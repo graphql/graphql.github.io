@@ -4,9 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react"
 import { graphql } from "graphql"
 import { StarWarsSchema } from "@/components/interactive-code-block/swapi-schema"
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
-import { Button } from "@/app/conf/_design-system/button"
 import SparklesIcon from "@/app/conf/_design-system/pixelarticons/zap.svg?svgr"
-import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
@@ -169,7 +167,6 @@ type Step =
 
 export function InteractiveDemo() {
   const [step, setStep] = useState<Step>({ kind: "idle" })
-  const [customPrompt, setCustomPrompt] = useState("")
   const [isRunning, setIsRunning] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null!)
   const mountedRef = useRef(true)
@@ -232,35 +229,6 @@ export function InteractiveDemo() {
     },
     [isRunning],
   )
-
-  function runCustom() {
-    if (isRunning || !customPrompt.trim()) return
-    const lower = customPrompt.toLowerCase()
-    let matched: DemoPrompt
-    if (lower.includes("friend") || lower.includes("luke"))
-      matched = demoPrompts[1]
-    else if (
-      lower.includes("movie") ||
-      lower.includes("r2") ||
-      lower.includes("c3po") ||
-      lower.includes("appear")
-    )
-      matched = demoPrompts[2]
-    else if (lower.includes("tallest") || lower.includes("height"))
-      matched = demoPrompts[3]
-    else if (
-      lower.includes("starship") ||
-      lower.includes("spaceship") ||
-      lower.includes("length") ||
-      lower.includes("feet") ||
-      lower.includes("meter")
-    )
-      matched = demoPrompts[4]
-    else if (lower.includes("hero") || lower.includes("episode"))
-      matched = demoPrompts[5]
-    else matched = demoPrompts[0]
-    runDemo(matched)
-  }
 
   return (
     <section
@@ -326,31 +294,6 @@ export function InteractiveDemo() {
                 )
               })}
             </div>
-
-            {/* Custom prompt */}
-            <div className="mt-4 flex gap-2">
-              <input
-                type="text"
-                value={customPrompt}
-                onChange={e => setCustomPrompt(e.target.value)}
-                onKeyDown={e => {
-                  if (e.key === "Enter") runCustom()
-                }}
-                placeholder="Or type your own prompt…"
-                disabled={isRunning}
-                className="typography-body-sm flex-1 rounded-lg border border-neu-200 bg-neu-0 px-4 py-3 text-neu-900 placeholder:text-neu-400 focus:border-pri-base focus:outline-none focus:ring-2 focus:ring-pri-base/15 disabled:cursor-not-allowed dark:border-neu-100 dark:bg-neu-0 dark:placeholder:text-neu-500"
-              />
-              <Button
-                variant="primary"
-                size="md"
-                disabled={isRunning || !customPrompt.trim()}
-                onClick={runCustom}
-                isIconButton
-                aria-label="Run custom prompt"
-              >
-                <PlayIcon className="size-5" />
-              </Button>
-            </div>
           </div>
 
           {/* ── Right: Visualization ── */}
@@ -407,7 +350,7 @@ function IdleState() {
           <SparklesIcon className="size-8 text-pri-base/60" />
         </div>
         <p className="typography-body-md mt-5 text-neu-600">
-          Select an example prompt or type your own
+          Select an example prompt to begin
         </p>
         <p className="typography-body-sm mt-2 text-neu-400">
           Watch the AI → GraphQL translation step by step
