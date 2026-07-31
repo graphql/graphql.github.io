@@ -7,7 +7,9 @@ export function PdfPreview({ path }: { path: string }) {
 
   useEffect(() => {
     const isFirefox = navigator.userAgent.toLowerCase().includes("firefox")
-    setCanRender(!isFirefox && !!navigator?.mimeTypes?.["application/pdf" as any])
+    setCanRender(
+      !isFirefox && !!navigator?.mimeTypes?.["application/pdf" as any],
+    )
   }, [])
 
   if (!canRender) return null
