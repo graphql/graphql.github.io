@@ -235,8 +235,10 @@ This is what we're excited about!
 
 `onError: "NULL"` completely disables error propagation within the GraphQL
 service. From an error perspective, every position in the response (fields and
-lists alike) is an error boundary, as though it were nullable. This effectively
-changes the "non-nullable" type modifier to mean "null only on error".
+lists alike) is an error boundary, as though it were nullable (for
+error-handling only). This effectively changes the "non-nullable" type modifier
+to mean "null only on error" or, equivalently, "not null unless an error
+occurred".
 
 Clients that opt in to this behaviour take responsibility for interpreting the
 response as a whole, correlating the `data` and `errors` properties of the
@@ -259,31 +261,47 @@ the storage and retrieval of fetched GraphQL data. These clients are well
 positioned to handle the responsibilities outlined above.
 
 By disabling error propagation, these clients will be able to safely update
-their stores (including normalised stores) even when errors occur. They can also
-re-implement traditional GraphQL error propagation on top of these new
-foundations, shielding application developers from needing to learn this new
-behaviour (whilst still allowing them to reap the benefits!). They can even take
-on advanced behaviours, such as throwing the error when the application
-developer attempts to read from an errored field, allowing the developer to
-handle errors with their system's native error boundaries: `try/catch`,
-`raise/except`, or `<ErrorBoundary />`.
+their stores (including normalised stores) even when errors occur. Having fixed
+that underlying issue, they can then expose the data to the application either
+by reproducing the traditional error-propagation behavior locally (in which
+application code will not know that anything has changed), or by giving the
+application a more ergonomic error-handling infrastructure, by becoming an
+"error-handling client".
 
 ### "Error-handling clients"
 
-An error-handling client is a client that ensures that an "error null" can never
-be read by application code. A client that throws if an `errors` property exists
-in a response is an error-handling client; the `data` can never be read, so no
-"error nulls" can be read. Clients that implement error-handling behaviours such
-as throw-on-error at the field or fragment level also prevent application code
-from reading "error nulls" and are therefore also error-handling clients.
+**An error-handling client is a client that ensures that an "error null" can never
+be read by application code.**
 
-Many clients, including `window.fetch()`, Apollo Client, URQL, and graffle, can
-be made into error-handling clients by integrating something like
-[`graphql-toe`](https://www.npmjs.com/package/graphql-toe) (Throw On Error): a
-0.5kB library that can be added to JavaScript projects and uses accessors so
-that, when application code attempts to read from an errored field, that error
-is thrown and can be processed by traditional error handling (`try/catch` or
-`<ErrorBoundary />`).
+The simplest form of an error-handling client already exists: it's a client that
+throws (or otherwise prevents reading `data`) when the `errors` property exists
+in the response. Since `data` can never be read, no "error nulls" can be read.
+
+For serious applications, more robust error handling would be desired which
+allows the application to make the most use of GraphQL's "partial success" aim.
+So long as the client does not allow an "error null" to be read, it's an error
+handling client. There's a number of techniques to achieve this, and you could
+even use a combination:
+
+- throw on error: when an "error null" is to be accessed, throw an error
+  instead so that it can be handled with traditional exception handling
+  behaviors such as `raise/except`, `try/catch`, or `<ErrorBoundary />`. A
+  simple implementation of this can be found in
+  [graphql-toe](https://github.com/graphile/graphql-toe/blob/main/src/index.ts)
+  which can add this behavior to Apollo Client, URQL, graffle and even
+  `window.fetch()` in just 512 bytes of gzipped code.
+- `@throwOnFieldError`: add this to a fragment in Relay, and when you attempt to
+  read the fragment if any of the fields errored then the fragment will throw
+- result types: when reading a fragment, return an `Result<Data, Error>` type so
+  if an error occured in the fragment you cannot read the data
+- `@catch` to coerce errors into other values or behaviors
+- maybe your new innovative idea?
+
+By disabling error propagation and performing these behaviors at the field or
+fragment level, sibling fields no longer cause errors to impact unrelated areas
+of the application. By exposing errors ergonomically, we can ensure it's easy
+for developers to handle errors, rather than ignoring them and hoping for the
+best.
 
 ## True nullability
 
