@@ -217,13 +217,13 @@ This is the traditional error propagation behaviour that we all know and...
 Setting `onError: "PROPAGATE"` will be equivalent to the error behaviour in the
 initial 2015 GraphQL Specification: error propagation/null bubbling.
 
-### `onError: "ABORT"`
+### `onError: "HALT"`
 
 Ad-hoc scripts and similar clients throw away entire responses if any error
 occurs, but currently the server still computes the "partial success" response
 anyway. This mode allows clients to indicate that if any error occurs, they
 won't read the data: any error should result in a
-`{ data: null, errors: [...] }` response, allowing the service to abort
+`{ data: null, errors: [...] }` response, allowing the service to halt
 execution when the first error occurs.
 
 ### `onError: "NULL"`
@@ -302,7 +302,7 @@ error because the error propagates to the nearest nullable position. Not so with
 
 If a GraphQL service can guarantee it will never need to perform error
 propagation (for example, by requiring all clients to include `onError: "NULL"`
-or `onError: "ABORT"` in requests), then the schema can safely indicate to
+or `onError: "HALT"` in requests), then the schema can safely indicate to
 clients the true intended nullability of a field in the traditional way:
 with a `!`:
 
