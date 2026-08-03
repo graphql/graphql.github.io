@@ -2,7 +2,7 @@
 
 /**
  * Zero-dependency syntax highlighting for GraphQL and JSON.
- * Uses Catppuccin Mocha palette — matches the [##1e1e2e] dark background.
+ * Uses Catppuccin Mocha palette — matches the [#1e1e2e] dark background.
  *
  * Colors:
  *   #cba6f7 – mauve  (keywords: query, mutation, fragment, on, true, false, null)
@@ -12,6 +12,13 @@
  *   #fab387 – peach  (numbers)
  *   #6c7086 – overlay0 (comments, punctuation)
  *   #f38ba8 – red    (directives)
+ *
+ * Implementation note: each highlighter runs a single tokenizer pass over the
+ * escaped source and builds the HTML output as it goes, rather than running a
+ * sequence of string replacements on an already-built HTML string. This prevents
+ * later passes from matching keywords/types inside span attributes — the bug
+ * that previously turned `<span class="sh-type">` into `<span class="sh-
+ * <span class="sh-keyword">type</span>">`, leaking `type">` into the output.
  */
 
 /* ── Shared helpers ── */
@@ -20,246 +27,153 @@ function escapeHTML(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
 }
 
+const wrap = (cls: string, text: string): string =>
+  `<span class="sh-${cls}">${text}</span>`
+
 /* ── GraphQL query / SDL highlighting ── */
 
 export function highlightGraphQL(source: string): string {
-  let html = escapeHTML(source)
+  const esc = escapeHTML(source)
 
-  // Strings (single and double quoted)
-  html = html.replace(
-    /("(?:\\.|[^"\\])*")/g,
-    '<span class="sh-string">$1</span>',
-  )
-  html = html.replace(
-    /('(?:\\.|[^'\\])*')/g,
-    '<span class="sh-string">$1</span>',
-  )
+  // Master tokenizer, processed left-to-right. Alternative groups are tried in
+  // order, so the first match wins (e.g. a scalar `Int` is consumed as a type
+  // before the general capitalized-type alternative can grab it).
+  const re =
+    /("""[\s\S]*?""")|("(?:\\.|[^"\\])*")|('(?:\\.|[^'\\])*')|(#[^\n]*)|(@[a-zA-Z_][a-zA-Z0-9_]*)|\b(String|Int|Float|Boolean|ID)\b|\b(query|mutation|subscription|fragment|on|true|false|null|type|input|interface|union|enum|scalar|schema|extend|implements|directive|repeatable)\b|(\.\.\.\s*on\b)|\b([A-Z][a-zA-Z0-9_]+)\b/g
 
-  // Block strings (triple-quoted)
-  html = html.replace(/("""[\s\S]*?""")/g, '<span class="sh-string">$1</span>')
+  let out = ""
+  let last = 0
+  let m: RegExpExecArray | null
+  while ((m = re.exec(esc)) !== null) {
+    out += esc.slice(last, m.index)
+    const [
+      full,
+      blockStr,
+      str,
+      sq,
+      comment,
+      directive,
+      scalar,
+      keyword,
+      spreadOn,
+      capType,
+    ] = m
+    if (blockStr) out += wrap("string", blockStr)
+    else if (str) out += wrap("string", str)
+    else if (sq) out += wrap("string", sq)
+    else if (comment) out += wrap("comment", comment)
+    else if (directive) out += wrap("directive", directive)
+    else if (scalar) out += wrap("type", scalar)
+    else if (keyword) out += wrap("keyword", keyword)
+    else if (spreadOn) out += wrap("operator", spreadOn)
+    else if (capType) out += wrap("type", capType)
+    last = m.index + full.length
+  }
+  out += esc.slice(last)
 
-  // Comments
-  html = html.replace(/(#[^\n]*)/g, '<span class="sh-comment">$1</span>')
-
-  // Directives (@skip, @include, @deprecated)
-  html = html.replace(
-    /(@[a-zA-Z_][a-zA-Z0-9_]*)/g,
-    '<span class="sh-directive">$1</span>',
-  )
-
-  // Scalar types & built-ins (must come before general type names)
-  html = html.replace(
-    /\b(String|Int|Float|Boolean|ID)\b/g,
-    '<span class="sh-type">$1</span>',
-  )
-
-  // GraphQL keywords
-  html = html.replace(
-    /\b(query|mutation|subscription|fragment|on|true|false|null|type|input|interface|union|enum|scalar|schema|extend|implements|directive|repeatable)\b/g,
-    '<span class="sh-keyword">$1</span>',
-  )
-
-  // ... on Type (inline fragment)
-  html = html.replace(
-    /(\.\.\.\s+on\s+)([A-Z][a-zA-Z0-9_]*)/g,
-    '<span class="sh-operator">$1</span><span class="sh-type">$2</span>',
-  )
-
-  // Standalone type names (Capitalized words that follow whitespace + are standalone)
-  html = html.replace(
-    /\b([A-Z][a-zA-Z0-9_]+)\b/g,
-    (match, typeName, offset) => {
-      // Check if this is already wrapped in a span
-      const before = html.substring(Math.max(0, offset - 60), offset)
-      const alreadyWrapped =
-        before.lastIndexOf('<span class="sh-type">') >
-        before.lastIndexOf("</span>")
-      if (alreadyWrapped) return match
-      return `<span class="sh-type">${typeName}</span>`
-    },
-  )
-
-  // Field names at line start (unquoted identifiers followed by : or ()
-  html = html.replace(
-    /(^|\n)(\s*)([a-zA-Z_][a-zA-Z0-9_]*)(\s*)([:(])/gm,
+  // Field names: a lowercase identifier at the start of a line, or just after a
+  // `{` / `(`, followed by `:` or `(`. Skip identifiers already wrapped.
+  out = out.replace(
+    /(^|[\n{(])(\s*)([a-z_][a-zA-Z0-9_]*)(\s*)([:()])/gm,
     (
-      _full: string,
-      nl: string,
-      indent: string,
+      _full,
+      pre: string,
+      space: string,
       name: string,
       gap: string,
       paren: string,
-    ) => {
-      // Don't highlight if already inside a span
-      if (
-        _full.includes("<span") ||
-        /^(query|mutation|subscription|fragment|type|input|interface|union|enum|scalar|schema|extend|implements|directive)$/.test(
-          name,
-        )
-      ) {
-        return _full
-      }
-      return `${nl}${indent}<span class="sh-field">${name}</span>${gap}${paren}`
-    },
+    ) =>
+      _full.includes("sh-")
+        ? _full
+        : `${pre}${space}${wrap("field", name)}${gap}${paren}`,
   )
 
-  // Nested field names (indented identifiers followed by space + {)
-  html = html.replace(
-    /(^|\n)(\s+)([a-zA-Z_][a-zA-Z0-9_]*)(\s*\{)/gm,
-    (
-      _full: string,
-      nl: string,
-      indent: string,
-      name: string,
-      brace: string,
-    ) => {
-      if (
-        _full.includes("<span") ||
-        /^(query|mutation|subscription|fragment|on)$/.test(name)
-      ) {
-        return _full
-      }
-      return `${nl}${indent}<span class="sh-field">${name}</span>${brace}`
-    },
-  )
+  // Non-null `!` and list `[` `]` markers
+  out = out.replace(/(!)/g, wrap("operator", "$1"))
+  out = out.replace(/([[\]])/g, wrap("operator", "$1"))
 
-  // Arguments: parens and colons
-  html = html.replace(
-    /([a-zA-Z_][a-zA-Z0-9_]*)(\s*:)(\s*)/g,
-    (_full: string, name: string, colon: string, space: string) => {
-      if (_full.includes("<span")) return _full
-      return `<span class="sh-arg">${name}</span>${colon}${space}`
-    },
-  )
-
-  return html
+  return out
 }
 
-/* ── GraphQL SDL (schema definition language) highlighting ── */
+/* ── GraphQL Schema (SDL) highlighting ── */
 
 export function highlightGraphQLSchema(source: string): string {
-  let html = escapeHTML(source)
+  const esc = escapeHTML(source)
 
-  // Strings
-  html = html.replace(
-    /("(?:\\.|[^"\\])*")/g,
-    '<span class="sh-string">$1</span>',
+  const re =
+    /("""[\s\S]*?""")|("(?:\\.|[^"\\])*")|(#[^\n]*)|(@[a-zA-Z_][a-zA-Z0-9_]*)|\b(String|Int|Float|Boolean|ID)\b|\b(type|input|interface|union|enum|scalar|schema|extend|implements|directive|repeatable|query|mutation|subscription|fragment|on|true|false|null)\b|\b([A-Z][a-zA-Z0-9_]+)\b/g
+
+  let out = ""
+  let last = 0
+  let m: RegExpExecArray | null
+  while ((m = re.exec(esc)) !== null) {
+    out += esc.slice(last, m.index)
+    const [full, blockStr, str, comment, directive, scalar, keyword, capType] =
+      m
+    if (blockStr) out += wrap("string", blockStr)
+    else if (str) out += wrap("string", str)
+    else if (comment) out += wrap("comment", comment)
+    else if (directive) out += wrap("directive", directive)
+    else if (scalar) out += wrap("type", scalar)
+    else if (keyword) out += wrap("keyword", keyword)
+    else if (capType) out += wrap("type", capType)
+    last = m.index + full.length
+  }
+  out += esc.slice(last)
+
+  // Field names: lowercase identifier at the start of a line followed by `:`.
+  out = out.replace(
+    /(^|\n)(\s+)([a-z_][a-zA-Z0-9_]*)(\s*:\s*)/gm,
+    (_full, nl: string, indent: string, name: string, colon: string) =>
+      _full.includes("sh-")
+        ? _full
+        : `${nl}${indent}${wrap("field", name)}${colon}`,
   )
 
-  // Comments
-  html = html.replace(/(#[^\n]*)/g, '<span class="sh-comment">$1</span>')
+  // Non-null `!` and list `[` `]` markers
+  out = out.replace(/(!)/g, wrap("operator", "$1"))
+  out = out.replace(/([[\]])/g, wrap("operator", "$1"))
 
-  // Directives
-  html = html.replace(
-    /(@[a-zA-Z_][a-zA-Z0-9_]*)/g,
-    '<span class="sh-directive">$1</span>',
-  )
-
-  // Scalar types
-  html = html.replace(
-    /\b(String|Int|Float|Boolean|ID)\b/g,
-    '<span class="sh-type">$1</span>',
-  )
-
-  // SDL keywords
-  html = html.replace(
-    /\b(type|input|interface|union|enum|scalar|schema|extend|implements|directive|repeatable|query|mutation|subscription|fragment|on|true|false|null)\b/g,
-    '<span class="sh-keyword">$1</span>',
-  )
-
-  // Type names (CapitalizedWords after type/extends/implements)
-  html = html.replace(
-    /(\btype\s+)([A-Z][a-zA-Z0-9_]*)/g,
-    '$1<span class="sh-type">$2</span>',
-  )
-
-  // General capitalized type references (field types)
-  html = html.replace(
-    /\b([A-Z][a-zA-Z0-9_]*)\b/g,
-    (match, typeName, offset) => {
-      const before = html.substring(Math.max(0, offset - 60), offset)
-      const alreadyWrapped =
-        before.lastIndexOf('<span class="sh-type">') >
-        before.lastIndexOf("</span>")
-      if (alreadyWrapped) return match
-      return `<span class="sh-type">${typeName}</span>`
-    },
-  )
-
-  // Field names (identifier colon pattern)
-  html = html.replace(
-    /(^|\n)(\s+)([a-zA-Z_][a-zA-Z0-9_]*)(\s*:\s*)/gm,
-    (
-      _full: string,
-      nl: string,
-      indent: string,
-      name: string,
-      colon: string,
-    ) => {
-      if (_full.includes("<span")) return _full
-      return `${nl}${indent}<span class="sh-field">${name}</span>${colon}`
-    },
-  )
-
-  // Required/non-null markers (!)
-  html = html.replace(
-    /(\s)(!)(\s|[,\n)])/g,
-    '$1<span class="sh-operator">$2</span>$3',
-  )
-
-  // List brackets
-  html = html.replace(
-    /\[([A-Za-z!]+)\]/g,
-    '<span class="sh-operator">[</span>$1<span class="sh-operator">]</span>',
-  )
-
-  return html
+  return out
 }
 
 /* ── JSON highlighting ── */
 
 export function highlightJSON(source: string): string {
-  let html = escapeHTML(source)
+  const esc = escapeHTML(source)
 
-  // Keys (property names before colon)
-  html = html.replace(
-    /("(?:\\.|[^"\\])*")(\s*:)/g,
-    '<span class="sh-field">$1</span>$2',
-  )
+  const re =
+    /("(?:\\.|[^"\\])*")(\s*:)?|(-?\d+\.?\d*(?:[eE][+-]?\d+)?)|\b(true|false|null)\b/g
 
-  // Numbers
-  html = html.replace(
-    /(:\s*)(-?\d+\.?\d*(?:[eE][+-]?\d+)?)/g,
-    '$1<span class="sh-number">$2</span>',
-  )
+  let out = ""
+  let last = 0
+  let m: RegExpExecArray | null
+  while ((m = re.exec(esc)) !== null) {
+    out += esc.slice(last, m.index)
+    const [full, str, colon, num, kw] = m
+    if (str && colon) out += wrap("field", str) + colon
+    else if (str) out += wrap("string", str)
+    else if (num) out += wrap("number", num)
+    else if (kw) out += wrap("keyword", kw)
+    last = m.index + full.length
+  }
+  out += esc.slice(last)
 
-  // String values
-  html = html.replace(
-    /(:\s*)("(?:\\.|[^"\\])*")/g,
-    '$1<span class="sh-string">$2</span>',
-  )
-
-  // Any remaining strings (e.g., in arrays)
-  html = html.replace(
-    /(^|[,[\s])("(?:\\.|[^"\\])*")/gm,
-    '$1<span class="sh-string">$2</span>',
-  )
-
-  // Booleans and null
-  html = html.replace(
-    /\b(true|false|null)\b/g,
-    '<span class="sh-keyword">$1</span>',
-  )
-
-  return html
+  return out
 }
 
 /* ── Bare text prompt highlighting (command style) ── */
 
 export function highlightPrompt(source: string): string {
-  const html = escapeHTML(source)
-  // Highlight the > prompt marker
-  return html.replace(/^(>[^\n]*)/gm, '<span class="sh-comment">$1</span>')
+  // Highlight `>`-prefixed prompt lines. Escape per-line so the `>` marker and
+  // any following text are both safe, then wrap the whole escaped line.
+  return source
+    .split("\n")
+    .map(line => {
+      if (!line.startsWith(">")) return escapeHTML(line)
+      return wrap("comment", escapeHTML(line))
+    })
+    .join("\n")
 }
 
 /* ── CSS utility classes for the highlight spans ──
