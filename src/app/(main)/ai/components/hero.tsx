@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration"
 import { Button } from "@/app/conf/_design-system/button"
-import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 import blurBean from "@/components/blog-page/blur-bean.webp"
@@ -50,10 +49,6 @@ export function Hero() {
               New: GraphQL AI Working Group
             </span>
           </div>
-
-          <SectionLabel className="mb-6 !text-sec-light">
-            GraphQL + AI
-          </SectionLabel>
 
           <h1 className="typography-h1 max-w-4xl text-balance">
             The API protocol
