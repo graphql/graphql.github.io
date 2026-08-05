@@ -51,9 +51,9 @@ export function Hero() {
           </div>
 
           <h1 className="typography-h1 max-w-4xl text-balance">
-            The API protocol
+            The API language
             <br />
-            <span className="text-sec-light">for intelligent systems</span>
+            <span className="text-sec-light">for humans and agents</span>
           </h1>
 
           <p className="typography-body-lg mt-6 max-w-2xl text-pretty text-white/80">

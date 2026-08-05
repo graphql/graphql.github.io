@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Discover how GraphQL's self-describing schemas, strong typing, and composability make it the ideal API protocol for AI systems, MCP servers, and LLM-powered applications.",
   openGraph: {
-    title: "GraphQL & AI — The API protocol for intelligent systems",
+    title: "GraphQL & AI — The API language for humans and agents",
     description:
       "When AI agents need to interact with APIs, GraphQL's self-describing schemas, strong typing, and composable queries make it the natural choice.",
   },
