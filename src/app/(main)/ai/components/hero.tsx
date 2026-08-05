@@ -40,7 +40,10 @@ export function Hero() {
       <div className="gql-container relative">
         <div className="flex flex-col items-center px-4 pb-16 pt-24 text-center lg:min-h-[640px] lg:justify-center lg:pb-24 lg:pt-32 xl:min-h-[720px] xl:px-24 xl:pt-40">
           {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-sec-light/30 bg-sec-light/10 px-4 py-1.5 backdrop-blur-sm">
+          <a
+            href="https://github.com/graphql/ai-wg/"
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-sec-light/30 bg-sec-light/10 px-4 py-1.5 backdrop-blur-sm transition-colors hover:bg-sec-light/20"
+          >
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-2 animate-ping rounded-full bg-sec-base opacity-75" />
               <span className="relative inline-flex size-2 rounded-full bg-sec-base" />
@@ -48,7 +51,7 @@ export function Hero() {
             <span className="typography-body-sm font-medium text-sec-light">
               New: GraphQL AI Working Group
             </span>
-          </div>
+          </a>
 
           <h1 className="typography-h1 max-w-4xl text-balance">
             The API language
