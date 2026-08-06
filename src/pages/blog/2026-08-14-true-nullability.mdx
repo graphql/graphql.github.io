@@ -208,7 +208,9 @@ solve this, there is an open proposal called [service
 capabilities](https://github.com/graphql/graphql-spec/pull/1208) that enables
 services to indicate which features they support. Service capabilities should
 enable clients to auto-discover `onError` support and enable it without user
-intervention; the days of needing watercooler-based knowledge transfer between
+intervention (emulating error propagation behavior locally to maintain backwards
+compatibility until the application is ready to adopt more modern error-handling
+practices); the days of needing watercooler-based knowledge transfer between
 backend and frontend engineers are numbered.
 
 ### `onError: "PROPAGATE"`
