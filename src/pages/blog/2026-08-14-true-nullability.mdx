@@ -228,6 +228,15 @@ won't read the data: any execution error should result in a
 `{ data: null, errors: [...] }` response, allowing the service to halt
 execution when the first error occurs.
 
+But serious applications shouldn't use this. Using `onError: "HALT"` disables
+one of the big innovations of GraphQL: partial success. Partial success is the
+ability to render as much useful content to the user as possible even when some
+of your backend systems might be unavailable or running in a degraded state;
+it's an under-appreciated feature of GraphQL that's really powerful for helping
+your applications to scale rapidly as your userbase grows.
+
+For serious applications, we need something better...
+
 ### `onError: "NULL"`
 
 > **Clients take responsibility for interpreting the response as a whole...
