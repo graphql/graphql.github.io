@@ -200,16 +200,16 @@ below). For example:
  }
 ```
 
-Services that support `onError` must honour the specified behaviour. If a
-service does not support `onError`, the request property should be ignored,
-resulting in the traditional behaviour equivalent to `onError: "PROPAGATE"`,
-however some legacy servers reject requests with unknown properties. To solve
-this, there is an open proposal called [service
+Services that support `onError` must honour the specified behaviour.
+
+If a service does not support `onError` then the request property should be
+ignored, but some legacy servers reject requests with unknown properties. To
+solve this, there is an open proposal called [service
 capabilities](https://github.com/graphql/graphql-spec/pull/1208) that enables
-services to indicate which features, including `onError`, they support. This
-enables clients to auto-discover and depend upon these capabilities without
-requiring watercooler-based knowledge transfer between backend and
-frontend engineers.
+services to indicate which features they support. Service capabilities should
+enable clients to auto-discover `onError` support and enable it without user
+intervention; the days of needing watercooler-based knowledge transfer between
+backend and frontend engineers are numbered.
 
 ### `onError: "PROPAGATE"`
 
@@ -228,14 +228,14 @@ won't read the data: any execution error should result in a
 `{ data: null, errors: [...] }` response, allowing the service to halt
 execution when the first error occurs.
 
-But serious applications shouldn't use this. Using `onError: "HALT"` disables
-one of the big innovations of GraphQL: partial success. Partial success is the
-ability to render as much useful content to the user as possible even when some
-of your backend systems might be unavailable or running in a degraded state;
-it's an under-appreciated feature of GraphQL that's really powerful for helping
-your applications to scale rapidly as your userbase grows.
+But most user-facing applications shouldn't use this. Using `onError: "HALT"`
+disables one of the big innovations of GraphQL: partial success. Partial success
+is the ability to render as much useful content to the user as possible even
+when some of your backend systems might be unavailable or running in a degraded
+state; it's an under-appreciated feature of GraphQL that's really powerful for
+helping your applications to scale rapidly as your userbase grows.
 
-For serious applications, we need something better...
+For user-facing applications, we need something better...
 
 ### `onError: "NULL"`
 
@@ -330,10 +330,10 @@ error because the error propagates to the nearest nullable position. Not so with
 ### Greenfield services
 
 If a GraphQL service can guarantee it will never need to perform error
-propagation (for example, by requiring all clients to include `onError: "NULL"`
-or `onError: "HALT"` in requests), then the schema can safely indicate to
-clients the true intended nullability of a field in the traditional way:
-with a `!`:
+propagation (for example, by requiring `onError` be included in requests and
+forbidding `onError: "PROPAGATE"`), then the schema can safely indicate to
+clients the true intended nullability of a field in the traditional way: with a
+`!`:
 
 ```graphql
 type User {
