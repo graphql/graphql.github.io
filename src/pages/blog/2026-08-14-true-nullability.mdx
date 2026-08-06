@@ -201,13 +201,15 @@ below). For example:
 ```
 
 Services that support `onError` must honour the specified behaviour. If a
-service does not support `onError`, the request property will be ignored,
-resulting in the traditional behaviour, equivalent to `onError: "PROPAGATE"`.
-
-Services will soon be able to indicate their support for the `onError` request
-property through [service
-capabilities](https://github.com/graphql/graphql-spec/pull/1208)), allowing
-clients to auto-discover and depend upon this capability.
+service does not support `onError`, the request property should be ignored,
+resulting in the traditional behaviour equivalent to `onError: "PROPAGATE"`,
+however some legacy servers reject requests with unknown properties. To solve
+this, there is an open proposal called [service
+capabilities](https://github.com/graphql/graphql-spec/pull/1208) that enables
+services to indicate which features, including `onError`, they support. This
+enables clients to auto-discover and depend upon these capabilities without
+requiring watercooler-based knowledge transfer between backend and
+frontend engineers.
 
 ### `onError: "PROPAGATE"`
 
@@ -222,7 +224,7 @@ initial 2015 GraphQL Specification: error propagation/null bubbling.
 Ad-hoc scripts and similar clients throw away entire responses if any error
 occurs, but currently the server still computes the "partial success" response
 anyway. This mode allows clients to indicate that if any error occurs, they
-won't read the data: any error should result in a
+won't read the data: any execution error should result in a
 `{ data: null, errors: [...] }` response, allowing the service to halt
 execution when the first error occurs.
 
@@ -280,7 +282,7 @@ in the response. Since `data` can never be read, no "error nulls" can be read.
 For serious applications, more robust error handling would be desired which
 allows the application to make the most use of GraphQL's "partial success" aim.
 So long as the client does not allow an "error null" to be read, it's an error
-handling client. There's a number of techniques to achieve this, and you could
+handling client. There are a number of techniques to achieve this, and you could
 even use a combination:
 
 - throw on error: when an "error null" is to be accessed, throw an error
@@ -293,7 +295,7 @@ even use a combination:
 - `@throwOnFieldError`: add this to a fragment in Relay, and when you attempt to
   read the fragment if any of the fields errored then the fragment will throw
 - result types: when reading a fragment, return an `Result<Data, Error>` type so
-  if an error occured in the fragment you cannot read the data
+  if an error occurred in the fragment you cannot read the data
 - `@catch` to coerce errors into other values or behaviors
 - maybe your new innovative idea?
 
@@ -353,7 +355,7 @@ We need a way of indicating fields that are "null only on error", whether you're
 using traditional clients with error propagation or modern error-handling
 clients.
 
-For this, we've standardised on the use of the transitional `@semanticNonNull`
+For this, we've mostly aligned on the use of the transitional `@semanticNonNull`
 directive until such time as all your clients can be error-handling clients:
 
 ```graphql
@@ -420,8 +422,8 @@ all: add yourself to an [upcoming working group
 meeting](https://github.com/graphql/graphql-wg/) or chat with us in the
 #nullability-wg channel in [the GraphQL Discord](https://discord.graphql.org).
 
-**The solution is fully formed and ready to go; we just need your adoption and
-feedback to get it merged into the spec!**
+**The solution is fully formed; we just need your adoption and feedback to prove
+it's ready to go and get it merged into the spec!**
 
 ---
 
