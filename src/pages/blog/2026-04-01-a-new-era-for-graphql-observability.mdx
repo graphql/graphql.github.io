@@ -1,0 +1,86 @@
+---
+title: A new era for GraphQL observability
+tags: [announcements]
+date: 2026-04-01
+byline: Martin Bonnin and Mark Larah
+featured: true
+---
+
+GraphQL is ten years old. During those ten years, teams small and large have adopted the typesafe, concise query language. It powers everything from tiny side projects to some of the most demanding APIs on the planet. The type system, the developer tooling, the ecosystem — all of it has matured tremendously.
+
+And yet, one thing has remained a persistent point of criticism: the [HTTP 200 status code](https://x.com/iamdevloper/status/1384074981840097289). By returning 200 even when errors occur, GraphQL makes it harder for existing monitoring tools, proxies, and CDNs to detect failures. Teams building on GraphQL have had to work around this limitation from day one, and it remains one of the most common pain points raised by newcomers and experienced users alike.
+
+Today, we're fixing that once and for all: **GraphQL is switching to HTTP 500**.
+
+## Why GraphQL returned 200
+
+To understand why this change matters, let's look at why 200 made sense in the first place. Unlike REST APIs, where an HTTP 404 or 500 immediately tells you something went wrong, GraphQL works differently. A GraphQL response can contain **both** `data` and `errors` at the same time. A single query might fetch five fields successfully and fail on a sixth — and the client still needs the five good fields.
+
+Because partial data is a valid and expected outcome, the HTTP status code alone can't summarize what happened. The real error information lives inside the response body:
+
+```json
+{
+  "data": {
+    "user": {
+      "name": "Ada Lovelace",
+      "email": null
+    }
+  },
+  "errors": [
+    {
+      "message": "Not authorized to access field 'email'",
+      "locations": [{ "line": 3, "column": 5 }],
+      "path": ["user", "email"],
+      "extensions": {
+        "code": "UNAUTHORIZED"
+      }
+    }
+  ]
+}
+```
+
+The request itself succeeded — the server understood the query, executed it, and returned what it could. That's a 200 in HTTP terms. The `errors` array tells the client exactly which fields failed and why, while `data` still carries everything that resolved correctly.
+
+This was a reasonable trade-off at the time, but it made traditional monitoring much harder. Your dashboards see a wall of `200 OK` while users may be experiencing real failures. Alerting on HTTP status codes alone won't catch a broken resolver that's silently nulling out a critical field. After ten years, the community has spoken loud and clear: this has to change.
+
+## The fix: HTTP 500 by default
+
+After years of debate and confusion, the GraphQL Working Group has reached a historic decision: **starting with the October 2026 spec release, all GraphQL responses will return HTTP 500**.
+
+That's right. Every single one.
+
+The reasoning is simple. If returning 200 for errors was confusing, the solution is to return an error status code for everything. 500 Internal Server Error is the most honest status code available — after all, something *could* be wrong, and you won't know until you check the response body. Which is exactly what you should have been doing all along.
+
+This brings several advantages:
+
+- **Observability is solved.** Your dashboards will light up like a Christmas tree. You'll never miss an issue again because *every* request looks like an issue.
+- **Job security for SREs.** With a 100% error rate, the on-call rotation has never been more exciting. The incident response platform industry is expected to boom.
+- **No more misleading metrics.** Your 99.9% success rate was a lie anyway. Now your 0% success rate is at least consistent.
+- **Developers will finally read the response body.** We've tried documentation, conference talks, and blog posts. Nothing worked. Fear works.
+
+The `errors` array will remain unchanged, but a new `everything_is_fine` boolean will be added to the response for clients that want to know if the data is actually usable:
+
+```json
+{
+  "data": {
+    "user": {
+      "name": "Ada Lovelace",
+      "email": "ada@example.com"
+    }
+  },
+  "everything_is_fine": true
+}
+```
+
+We look forward to a new era of GraphQL observability!  
+
+---- 
+
+PS: _If you've read this far, congrats and happy first of April!_
+
+_You can now use the status code of your liking together with the [`application/graphql-response+json` content type](https://graphql.github.io/graphql-over-http/draft/#sec-application-graphql-response-json)._
+
+_We also recommend that servers implement tracing with OpenTelemetry (or similar); resolvers that throw errors can be observed via [errors recorded on spans](https://opentelemetry.io/docs/specs/semconv/general/recording-errors/#recording-errors-on-spans)._
+
+_Join us at [GraphQLConf](https://graphql.org/conf/2026/) in a few of weeks to learn more!_  
+

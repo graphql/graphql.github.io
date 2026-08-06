@@ -11,7 +11,7 @@ import WGImage from "./attendees.jpg"
 export const metadata: Metadata = {
   title: "WG Day | GraphQLConf 2026",
   description:
-    "Working Group Day at GraphQLConf 2026 on May 21 in Fremont for GraphQL working group members and maintainers of key GraphQL OSS, with intentionally unstructured time for technical discussion and social connection.",
+    "Working Group Day at GraphQLConf 2026 on May 21 at Meta's Fremont Campus for GraphQL working group members and maintainers of key GraphQL OSS, with intentionally unstructured time for technical discussion and social connection.",
 }
 
 export default function WGDayPage() {
@@ -78,21 +78,20 @@ export default function WGDayPage() {
           <article className="space-y-4">
             <h2 className="typography-h2">Attendance</h2>
             <p className="typography-body-lg max-w-4xl">
-              Capacity is limited, so invitations will go to regular working
-              group participants first. Additional attendees can join via a
-              waitlist, with priority for maintainers of GraphQL-related open
-              source software (clients, servers, libraries, frameworks, tooling,
-              and documentation), plus Foundation board members and GraphQL
-              Ambassadors. Room capacity is 48.
+              Request a place using the form linked below. Attendance is open to
+              all, however if the event becomes oversubscribed priority will be
+              given to working group and TSC members, maintainers of
+              GraphQL-related open source software (clients, servers, libraries,
+              frameworks, tooling, and documentation), Foundation board members
+              and GraphQL Ambassadors. Places will be released in batches in a
+              timely manner to facilitate your planning around the conference.
             </p>
           </article>
 
           <article className="space-y-4">
             <h2 className="typography-h2">Logistics</h2>
             <ul className="typography-body-lg list-disc space-y-2 pl-5">
-              <li>
-                Location: Meta MPK 21 (adjacent to the main conference building)
-              </li>
+              <li>Location: Meta Fremont Campus (Building TBC)</li>
               <li>
                 Time: Drop-in between 9:30 AM-4:30 PM PT (last entry 2:00 PM)
               </li>
@@ -110,24 +109,17 @@ export default function WGDayPage() {
           <article className="space-y-4">
             <h2 className="typography-h2">Join us</h2>
             <p className="typography-body-lg max-w-4xl">
-              Attendance is managed by an invite system and waitlist. You can
-              request to attend by filling out the form linked below. For
-              questions about attendance, waitlist priority, or logistics, you
-              can email the event team:
+              You can request to attend by filling out the form linked below.
+              For questions about attendance, waitlist priority, or logistics,
+              you can email the event team:
             </p>
             <div className="mt-4 flex gap-x-6 gap-y-4 max-sm:flex-col">
               <Button
                 href="https://forms.gle/jV5seEm8VHhsNLUs6"
-                className="w-fit"
+                className="w-fit opacity-55"
+                disabled
               >
-                Attend
-              </Button>
-              <Button
-                href="mailto:operations@graphql.org?subject=GraphQLConf%202026%20WG%20Day"
-                className="w-fit"
-                variant="secondary"
-              >
-                Email the event team
+                Event has passed
               </Button>
             </div>
           </article>

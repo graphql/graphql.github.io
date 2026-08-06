@@ -4,6 +4,7 @@ import {
   LinkedInFilledIcon,
   InstagramIcon,
   GlobeIcon,
+  GitHubIcon,
 } from "@/icons"
 
 export type SocialIconType =
@@ -11,6 +12,7 @@ export type SocialIconType =
   | "linkedin"
   | "facebook"
   | "instagram"
+  | "github"
   | "website"
 
 export const SocialIconType = {
@@ -22,6 +24,7 @@ export const SocialIconType = {
   all: [
     "linkedin",
     "twitter",
+    "github",
     "instagram",
     "facebook",
     "website",
@@ -42,6 +45,8 @@ export const SocialIcon = ({ type, ...rest }: SocialIconProps) => {
       return <FacebookIcon {...rest} />
     case "instagram":
       return <InstagramIcon {...rest} />
+    case "github":
+      return <GitHubIcon {...rest} />
     case "website":
       return <GlobeIcon {...rest} />
     default:
@@ -59,6 +64,8 @@ export function urlForUser(type: SocialIconType, handleOrWebsite: string) {
       return `https://www.instagram.com/${handleOrWebsite}`
     case "facebook":
       return `https://www.facebook.com/${handleOrWebsite}`
+    case "github":
+      return `https://github.com/${handleOrWebsite}`
     case "website":
       return handleOrWebsite
     default:

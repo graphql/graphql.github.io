@@ -6,7 +6,13 @@ import { readSpeakers } from "../_api/sched-data"
 const speakersData = require("../../../../scripts/sync-sched/speakers.json")
 const equalitySets: string[][] = speakersData.equal || []
 
-export const schedule: ScheduleSession[] = require("../../../../scripts/sync-sched/schedule-2026.json")
+export const schedule: ScheduleSession[] =
+  require("../../../../scripts/sync-sched/schedule-2026.json").map(
+    (session: ScheduleSession) => ({
+      ...session,
+      hasSlides: session.files?.length ? "Yes" : "No",
+    }),
+  )
 
 type SpeakerUsername = SchedSpeaker["username"]
 

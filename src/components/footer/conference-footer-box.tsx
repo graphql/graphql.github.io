@@ -28,9 +28,9 @@ export function ConferenceFooterBox({
 
       <div className="typography-body-sm flex font-sans">
         <div className="flex-1 justify-center border-r border-pri-lighter p-4 dark:border-pri-light/50">
-          May <span className="whitespace-nowrap">06–07</span>
+          May <span className="whitespace-nowrap">19–20</span>
           <br />
-          Menlo Park, California
+          Fremont, California
         </div>
 
         <div className="flex w-[min(calc(25%-.5px),73.5px)] items-center justify-center">

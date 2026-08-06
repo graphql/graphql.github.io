@@ -95,6 +95,7 @@ export function BlogCardFooterContent({
           month: "long",
           day: "numeric",
           year: "numeric",
+          timeZone: "UTC",
         })}
       </time>
     </span>

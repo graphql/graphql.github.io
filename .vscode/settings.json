@@ -18,5 +18,6 @@
   },
   "typescript.preferences.autoImportFileExcludePatterns": [
     "**/node_modules/lucide-react"
-  ]
+  ],
+  "tailwindCSS.experimental.configFile": "tailwind.config.ts"
 }

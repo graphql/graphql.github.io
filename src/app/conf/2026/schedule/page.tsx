@@ -16,6 +16,7 @@ const FILTERS: FiltersConfig = {
   event_type: "Session Format",
   event_subtype: "Talk Category",
   audience: "Audience",
+  hasSlides: "Slides",
 }
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function SchedulePage() {
     <main className="gql-all-anchors-focusable bg-neu-50 dark:bg-neu-0">
       <Hero pageName="Schedule" year={year}>
         <div className="mt-[18px] flex gap-4">
-          <Button disabled className="opacity-55" href={GET_TICKETS_LINK}>
+          <Button className="opacity-55" href={GET_TICKETS_LINK} disabled>
             Get Tickets
           </Button>
           <Button variant="tertiary" href={`/conf/${year}/speakers`}>

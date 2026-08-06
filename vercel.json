@@ -659,6 +659,21 @@
       "source": "/conf/2025/event-resources",
       "destination": "https://sites.google.com/linuxfoundation.org/graphqlconf2025event-resources/event-resources",
       "permanent": false
+    },
+    {
+      "source": "/day/2025",
+      "destination": "https://graphql.day/2025",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-19-graphql-embedding-model-for-agents",
+      "destination": "/blog/2026-07-17-graphql-embedding-model-for-agents",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-06-19-graphql-embedding-model-for-agents/",
+      "destination": "/blog/2026-07-17-graphql-embedding-model-for-agents",
+      "permanent": true
     }
   ]
 }

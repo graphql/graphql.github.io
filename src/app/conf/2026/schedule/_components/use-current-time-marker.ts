@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { format } from "date-fns"
 
-const CONFERENCE_START = new Date("2026-05-06T00:00:00")
-const CONFERENCE_END = new Date("2026-05-07T23:59:59")
+const CONFERENCE_START = new Date("2026-05-19T00:00:00")
+const CONFERENCE_END = new Date("2026-05-20T23:59:59")
 
 export function useCurrentTimeMarker() {
   const [now, setNow] = useState<Date>(new Date())

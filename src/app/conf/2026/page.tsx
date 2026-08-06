@@ -27,11 +27,15 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="gql-all-anchors-focusable">
+      <div className="bg-amber-100 px-4 py-3 text-center text-sm font-semibold text-amber-900">
+        Important Update: GraphQLConf is changing venues from Meta&#39;s Fremont
+        Campus to the nearby DoubleTree Hotel.
+      </div>
       <Hero year="2026" bottom={<HeroImage />}>
         <HeroDateAndLocation />
         <div className="flex flex-wrap gap-x-4 gap-y-2 max-xs:*:w-full sm:gap-x-6">
-          <Button variant="tertiary" href={GET_TICKETS_LINK}>
-            Get a ticket
+          <Button variant="tertiary" href={GALLERY_LINK}>
+            Community-sourced Event Photos
           </Button>
         </div>
       </Hero>
@@ -53,8 +57,8 @@ export default function Page() {
           <MarqueeRows
             variant="secondary"
             items={[
-              ["FREMONT", "MAY 2026", "TWO DAYS", "META CAMPUS"],
-              ["TWO DAYS", "META CAMPUS", "CALIFORNIA", "GRAPHQL COMMUNITY"],
+              ["FREMONT", "MAY 2026", "TWO DAYS"],
+              ["TWO DAYS", "CALIFORNIA", "GRAPHQL COMMUNITY"],
               ["CALIFORNIA", "10 YEARS OF GRAPHQL", "19-20 MAY", "FREMONT"],
             ]}
             className="my-8 xl:mb-16 xl:mt-10 2xl:mb-24"
@@ -67,8 +71,13 @@ export default function Page() {
             title="Get your ticket"
             description="Join two transformative days of expert insights and innovation to shape the next decade of APIs!"
           >
-            <Button variant="primary" href={GET_TICKETS_LINK}>
-              Register now
+            <Button
+              variant="primary"
+              href={GET_TICKETS_LINK}
+              disabled
+              className="opacity-55"
+            >
+              Sold Out
             </Button>
           </CtaCardSection>
           <MarqueeRows

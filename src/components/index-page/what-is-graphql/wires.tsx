@@ -1,3 +1,5 @@
+"use client"
+
 import clsx from "clsx"
 import {
   ComponentPropsWithoutRef,
@@ -821,7 +823,13 @@ function MobileSVGDefinitions() {
   )
 }
 
-function MobileDiagram({ step }: { step: number }) {
+export function MobileDiagram({
+  step,
+  className = "mx-auto sm:hidden",
+}: {
+  step: number
+  className?: string
+}) {
   return (
     <svg
       width="310"
@@ -830,7 +838,7 @@ function MobileDiagram({ step }: { step: number }) {
       fill="none"
       preserveAspectRatio="xMidYMid"
       xmlns="http://www.w3.org/2000/svg"
-      className="mx-auto sm:hidden"
+      className={className}
       aria-label="GraphQL allows you to build API Gateways to bring data from multiple sources to your clients in a single query"
     >
       <ClientEdges

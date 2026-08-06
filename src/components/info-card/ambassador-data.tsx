@@ -5,6 +5,7 @@ import {
   GitHubIcon,
   GlobeIcon,
   LinkedInIcon,
+  MediumIcon,
   ThreadsIcon,
   TwitterIcon,
   YouTube2Icon,
@@ -176,7 +177,7 @@ export const ambassadors202509: Ambassador[] = [
       },
       {
         label: "Website",
-        url: "https://notrab.dev/blog",
+        url: "https://notrab.dev",
         icon: <GlobeIcon className="size-5" />,
       },
     ],
@@ -320,7 +321,7 @@ export const ambassadors202509: Ambassador[] = [
     label: "Michael Watson",
     imageUrl: "https://github.com/michael-watson.png",
     alt: "Michael Watson",
-    organization: "Apollo",
+    organization: "Independent",
     tags: [
       {
         label: "BlueSky",
@@ -400,11 +401,6 @@ export const ambassadors202509: Ambassador[] = [
         label: "LinkedIn",
         url: "https://www.linkedin.com/in/sarah-s-42913121a/",
         icon: <LinkedInIcon className="size-5" />,
-      },
-      {
-        label: "Website",
-        url: "https://www.sarahsanders.dev/",
-        icon: <GlobeIcon className="size-5" />,
       },
     ],
   },
@@ -697,7 +693,7 @@ export const ambassadors202512: Ambassador[] = [
     label: "Valentin Cocaud",
     imageUrl: "https://github.com/EmrysMyrddin.png",
     alt: "Valentin Cocaud",
-    organization: "The Guild",
+    organization: "Independent",
     tags: [
       {
         label: "GitHub",
@@ -713,6 +709,123 @@ export const ambassadors202512: Ambassador[] = [
   },
 ]
 
-export const ambassadors = [...ambassadors202509, ...ambassadors202512].sort(
-  (a, z) => a.label.localeCompare(z.label, "en-US"),
-)
+export const ambassadors202603: Ambassador[] = [
+  {
+    label: "Akshat Sharma",
+    imageUrl: "/img/ambassadors/akshat-sharma.jpg",
+    alt: "Akshat Sharma",
+    organization: "Deskree",
+    tags: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/akshat-sharma11/ ",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Medium",
+        url: "https://medium.com/@akshat111111",
+        icon: <MediumIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Ayush More",
+    imageUrl: "/img/ambassadors/ayush-more.jpg",
+    alt: "Ayush More",
+    organization: "Independent",
+    tags: [
+      {
+        label: "GitHub",
+        url: "https://github.com/Ayushmore1214",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/ayush-more-3b4154341/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Website",
+        url: "https://heyyayush.hashnode.dev/",
+        icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Emily Goodwin",
+    imageUrl: "/img/ambassadors/emily-goodwin.jpg",
+    alt: "Emily Goodwin",
+    organization: "Independent",
+    tags: [
+      {
+        label: "GitHub",
+        url: "https://github.com/egoodwinx",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/emily-y-goodwin/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Ivan Goncharov",
+    imageUrl: "https://github.com/IvanGoncharov.png",
+    alt: "Ivan Goncharov",
+    organization: "APIs.guru",
+    tags: [
+      {
+        label: "GitHub",
+        url: "https://github.com/IvanGoncharov",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/igoncharov/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+    ],
+  },
+]
+
+export const ambassadors202606: Ambassador[] = [
+  {
+    label: "Christian Ernst",
+    imageUrl: "/img/ambassadors/christian-ernst.jpg",
+    alt: "Christian Ernst",
+    organization: "Booking.com",
+    tags: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/christian-ernst11/ ",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Željko Kozina",
+    imageUrl: "/img/ambassadors/zeljko-kozina.jpg",
+    alt: "Željko Kozina",
+    organization: "Chronomill",
+    tags: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/zkozina/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Website",
+        url: "https://graphqlguy.com/blog/",
+        icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+]
+
+export const ambassadors = [
+  ...ambassadors202509,
+  ...ambassadors202512,
+  ...ambassadors202603,
+  ...ambassadors202606,
+].sort((a, z) => a.label.localeCompare(z.label, "en-US"))

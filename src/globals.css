@@ -368,6 +368,13 @@ footer {
   background-repeat: no-repeat;
 }
 
+/* Reserve the scrollbar gutter so opening a navbar dropdown (which locks
+   body scroll via `overflow: hidden`) doesn't remove the scrollbar and shift
+   the whole page sideways by the scrollbar width. */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* without this Headless UI breaks sticky navbar */
 html:has([role="listbox"][data-open]),
 html:has([role="menu"][data-open]) {

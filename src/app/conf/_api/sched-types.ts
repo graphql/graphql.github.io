@@ -18,6 +18,7 @@ export type ScheduleSession = {
   company: string
   speakers?: SchedSpeaker[]
   files?: { name: string; path: string }[]
+  hasSlides?: "Yes" | "No"
 }
 
 export type SchedSpeaker = {
