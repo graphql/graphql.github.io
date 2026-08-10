@@ -108,6 +108,11 @@ export default {
       layout: "raw",
     },
   },
+  ai: {
+    type: "page",
+    title: <AIEmphasis>AI</AIEmphasis>,
+    href: "/ai",
+  },
   conf: {
     type: "page",
     title: (
@@ -140,6 +145,13 @@ function Emphasis({ children }: { children: React.ReactNode }) {
 function DayEmphasis({ children }: { children: React.ReactNode }) {
   return (
     <span className="relative block before:absolute before:-inset-x-3 before:-inset-y-1 before:border before:border-current [a:has(>&)]:text-emerald-600 dark:[a:has(>&)]:text-emerald-400 [a:hover:has(>&)]:no-underline [a:hover_&]:before:border-transparent">
+      {children}
+    </span>
+  )
+}
+function AIEmphasis({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="relative block rounded-full bg-pri-base/15 px-2 py-0.5 text-[0.7rem] font-bold uppercase tracking-wide text-pri-dark dark:bg-pri-light/20 dark:text-pri-light [a:has(>&)]:no-underline">
       {children}
     </span>
   )
