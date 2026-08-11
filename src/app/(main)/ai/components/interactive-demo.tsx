@@ -1,13 +1,29 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, type ComponentType, type SVGProps } from "react"
 import { useInView } from "motion/react"
 import dynamic from "next/dynamic"
 
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import { Button } from "@/app/conf/_design-system/button"
 
+import UsersIcon from "@/app/conf/_design-system/pixelarticons/users.svg?svgr"
+import HumanIcon from "@/app/conf/_design-system/pixelarticons/human.svg?svgr"
+import RobotIcon from "@/app/conf/_design-system/pixelarticons/robot.svg?svgr"
+import ScaleIcon from "@/app/conf/_design-system/pixelarticons/scale.svg?svgr"
+import ShipIcon from "@/app/conf/_design-system/pixelarticons/ship.svg?svgr"
+import SwordIcon from "@/app/conf/_design-system/pixelarticons/sword.svg?svgr"
+
 import { demoPrompts, type DemoPrompt } from "./demo-prompts"
+
+const icons: Record<string, ComponentType<SVGProps<SVGElement>>> = {
+  users: UsersIcon,
+  human: HumanIcon,
+  robot: RobotIcon,
+  scale: ScaleIcon,
+  ship: ShipIcon,
+  sword: SwordIcon,
+}
 
 const DemoEditor = dynamic(
   () => import("./demo-editor").then(m => m.DemoEditor),
@@ -44,6 +60,7 @@ export function InteractiveDemo() {
             <ul className="flex list-none flex-col gap-2 p-0">
               {demoPrompts.map(p => {
                 const isSelected = selected.id === p.id
+                const Icon = icons[p.icon]
                 return (
                   <li key={p.id}>
                     <button
@@ -60,12 +77,12 @@ export function InteractiveDemo() {
                           : "border-neu-200 bg-neu-0 hover:border-pri-base/40 hover:bg-pri-lightest/20 dark:border-neu-100 dark:hover:bg-pri-darker/15"
                       }`}
                     >
-                      <span
+                      <Icon
                         aria-hidden
-                        className="mt-0.5 shrink-0 text-base leading-none"
-                      >
-                        {p.icon}
-                      </span>
+                        className={`mt-0.5 size-5 shrink-0 ${
+                          isSelected ? "text-pri-base" : "text-neu-500"
+                        }`}
+                      />
                       <span className="min-w-0">
                         <span
                           className={`typography-body-sm block font-medium ${

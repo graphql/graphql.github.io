@@ -1,8 +1,8 @@
 export const demoPrompts = [
   {
     id: "all-characters",
+    icon: "users",
     prompt: "Find all Star Wars characters",
-    icon: "👥",
     types: ["Human", "Droid", "Starship"],
     query: `{
   search(text: "") {
@@ -26,8 +26,8 @@ export const demoPrompts = [
   },
   {
     id: "luke-friends",
+    icon: "human",
     prompt: "Show me Luke's friends and their starships",
-    icon: "🚀",
     types: ["Human", "Character", "Starship"],
     query: `{
   human(id: "1000") {
@@ -47,8 +47,8 @@ export const demoPrompts = [
   },
   {
     id: "r2-c3po",
+    icon: "robot",
     prompt: "What movies did R2-D2 and C-3PO appear in?",
-    icon: "🤖",
     types: ["Droid", "Episode"],
     query: `{
   r2d2: droid(id: "2001") {
@@ -65,8 +65,8 @@ export const demoPrompts = [
   },
   {
     id: "tallest",
+    icon: "scale",
     prompt: "Find the tallest Star Wars character",
-    icon: "\u{1F4CF}",
     types: ["Human", "Droid", "Starship"],
     query: `{
   search(text: "") {
@@ -82,8 +82,8 @@ export const demoPrompts = [
   },
   {
     id: "starships-feet",
+    icon: "ship",
     prompt: "Compare starship lengths in meters and feet",
-    icon: "📐",
     types: ["Starship", "SearchResult"],
     query: `{
   search(text: "x") {
@@ -101,8 +101,8 @@ fragment dimensions on Starship {
   },
   {
     id: "heroes",
+    icon: "sword",
     prompt: "Show me the hero of each episode and their friends",
-    icon: "⚔️",
     types: ["Character", "Episode"],
     query: `{
   newHope: hero(episode: NEWHOPE) {
