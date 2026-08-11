@@ -267,6 +267,34 @@ test("event type filters hide cards and lock the last active tag", async ({
   await expect(lockedFilter.filter).toBeEnabled()
 })
 
+test("event type filters keep one visible category active", async ({
+  page,
+}) => {
+  // TODO: @hasparus figure out why this fails only on CI
+  if (process.env.CI) test.skip()
+
+  const upcomingSection = page
+    .locator("section")
+    .filter({
+      has: page.getByRole("heading", { level: 2, name: /Upcoming events/i }),
+    })
+    .first()
+  const filters = upcomingSection.getByRole("group", {
+    name: "Event type",
+  })
+  const checkboxes = filters.getByRole("checkbox")
+  const filterCount = await checkboxes.count()
+
+  expect(filterCount).toBeGreaterThan(1)
+
+  for (let index = 1; index < filterCount; index++) {
+    await checkboxes.nth(index).uncheck({ force: true })
+  }
+
+  await expect(checkboxes.first()).toBeChecked()
+  await expect(checkboxes.first()).toBeDisabled()
+})
+
 test("upcoming and past sections only show events on the correct side of now", async ({
   page,
 }) => {

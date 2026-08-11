@@ -78,7 +78,9 @@ function isSoon(date: Date) {
   return date.getTime() <= maxTimestamp
 }
 
-function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
+export function categorizeEvent(
+  event: AnyEvent,
+): EventKind | "duplicate" | null {
   if ("start" in event) {
     // From https://calendar.graphql.org
     const summary = event.summary ?? ""
@@ -88,6 +90,8 @@ function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
       return "foundation-meeting"
     } else if (/\bGoverning\b/i.test(summary)) {
       return "foundation-meeting"
+    } else if (/\bConference\s+Planning\b/i.test(summary)) {
+      return "working-group"
     } else if (/\bLocal\b/i.test(summary)) {
       return "meetup"
     } else if (/\bGraphQLConf[0-9]*\b/i.test(summary)) {
@@ -229,7 +233,7 @@ export function EventsList({
                 kind={tag}
                 checked={kindFilters[tag]}
                 disabled={
-                  Object.values(kindFilters).filter(Boolean).length === 1 &&
+                  tags.filter(kind => kindFilters[kind]).length === 1 &&
                   kindFilters[tag]
                 }
                 onChange={event => {
