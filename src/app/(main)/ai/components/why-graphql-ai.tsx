@@ -5,11 +5,10 @@ import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import ZapIcon from "@/app/conf/_design-system/pixelarticons/zap.svg?svgr"
 import SlidersIcon from "@/app/conf/_design-system/pixelarticons/sliders.svg?svgr"
-import {
-  highlightGraphQL,
-  highlightGraphQLSchema,
-  SYNTAX_CSS,
-} from "./syntax-highlight"
+import { snippetComponents } from "./snippets"
+import SelfDescribingSnippet from "./snippets/why-self-describing.mdx"
+import StronglyTypedSnippet from "./snippets/why-strongly-typed.mdx"
+import ComposableSnippet from "./snippets/why-composable.mdx"
 
 const benefits = [
   {
@@ -18,23 +17,12 @@ const benefits = [
     icon: SearchIcon,
     description:
       "Every GraphQL API ships with a built-in type system. AI agents query `__schema` and immediately understand what data is available, what arguments each field accepts, and how types relate — no hand-written tool descriptions needed.",
+    Snippet: SelfDescribingSnippet,
     bullets: [
       "Auto-generated tool definitions for LLMs",
       "Agents discover capabilities at runtime",
       "Zero-config MCP server from any GraphQL endpoint",
     ],
-    code: `# Agent introspects your API
-query {
-  __schema {
-    types {
-      name
-      fields {
-        name
-      }
-    }
-  }
-}`,
-    highlight: highlightGraphQL as (s: string) => string,
   },
   {
     title: "Strongly typed",
@@ -42,20 +30,12 @@ query {
     icon: ZapIcon,
     description:
       "Every field has a known, validated type. LLMs can reason about inputs and outputs with confidence. Structured, predictable responses eliminate parsing errors and prevent hallucinated API calls that plague unstructured REST endpoints.",
+    Snippet: StronglyTypedSnippet,
     bullets: [
       "LLMs understand data shapes natively",
       "Validated responses prevent parsing errors",
       "Type system reduces hallucinated API interactions",
     ],
-    code: `# Every field has a known type
-type Query {
-  human(id: ID!): Human
-}
-type Human {
-  name: String!
-  height(unit: Unit): Float
-}`,
-    highlight: highlightGraphQLSchema as (s: string) => string,
   },
   {
     title: "Composable",
@@ -63,24 +43,12 @@ type Human {
     icon: SlidersIcon,
     description:
       "Request exactly what you need, nothing more. GraphQL lets AI agents compose precise queries on the fly — requesting nested data, using aliases, and applying filters. One endpoint serves any data access pattern without client-side stitching.",
+    Snippet: ComposableSnippet,
     bullets: [
       "Up to 90% less token usage vs equivalent REST",
       "Dynamic query composition by AI agents",
       "Single endpoint replaces dozens of REST routes",
     ],
-    code: `# Agent fetches related data in 1 call
-{
-  human(id: "1000") {
-    name
-    friends {
-      name
-      starships {
-        name
-      }
-    }
-  }
-}`,
-    highlight: highlightGraphQL as (s: string) => string,
   },
 ]
 
@@ -100,7 +68,6 @@ export function WhyGraphQLAI() {
         communication.
       </p>
 
-      <style dangerouslySetInnerHTML={{ __html: SYNTAX_CSS }} />
       <div className="grid gap-px bg-neu-200 dark:bg-neu-100 lg:grid-cols-3">
         {benefits.map(benefit => (
           <div
@@ -119,14 +86,8 @@ export function WhyGraphQLAI() {
             </p>
 
             {/* Code preview */}
-            <div className="mt-5 overflow-hidden rounded-lg border border-neu-200 bg-[#1e1e2e] dark:border-neu-100">
-              <pre className="overflow-x-auto p-3 font-mono text-xs leading-relaxed">
-                <code
-                  dangerouslySetInnerHTML={{
-                    __html: benefit.highlight(benefit.code),
-                  }}
-                />
-              </pre>
+            <div className="mt-5">
+              <benefit.Snippet components={snippetComponents} />
             </div>
 
             <ul className="typography-body-sm mt-5 flex flex-col gap-2">

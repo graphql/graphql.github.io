@@ -1,50 +1,10 @@
 "use client"
 
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
-import {
-  highlightGraphQLSchema,
-  highlightGraphQL,
-  highlightJSON,
-  SYNTAX_CSS,
-} from "./syntax-highlight"
-
-const schemaWithDocs = `"""A product in the catalog."""
-type Product {
-  """Human-readable display name."""
-  name: String!
-
-  """Price in minor units (cents)."""
-  price: Int!
-
-  """Units in stock. 0 means unavailable."""
-  stock: Int!
-}
-
-type Query {
-  """Full-text search across the catalog."""
-  products(query: String!): [Product!]!
-}`
-
-const introspectionQuery = `{
-  __type(name: "Product") {
-    description
-    fields {
-      name
-      description
-    }
-  }
-}`
-
-const introspectionResponse = `{
-  "__type": {
-    "description": "A product in the catalog.",
-    "fields": [
-      { "name": "name",  "description": "Human-readable display name." },
-      { "name": "price", "description": "Price in minor units (cents)." },
-      { "name": "stock", "description": "Units in stock. 0 means unavailable." }
-    ]
-  }
-}`
+import { snippetComponents } from "./snippets"
+import SchemaSnippet from "./snippets/numbers-schema.mdx"
+import IntrospectionSnippet from "./snippets/numbers-introspection.mdx"
+import ResponseSnippet from "./snippets/numbers-response.mdx"
 
 const stats = [
   {
@@ -198,49 +158,12 @@ export function ByTheNumbers() {
           introspection query — no separate docs file or AGENT.md to point it
           to.
         </p>
-        <style dangerouslySetInnerHTML={{ __html: SYNTAX_CSS }} />
-        <div className="grid gap-px overflow-hidden rounded-xl border border-neu-200 bg-neu-200 dark:border-neu-100 dark:bg-neu-100 lg:grid-cols-3">
-          <CodePane
-            label="Schema (with embedded docs)"
-            code={schemaWithDocs}
-            highlight={highlightGraphQLSchema}
-          />
-          <CodePane
-            label="Introspection query"
-            code={introspectionQuery}
-            highlight={highlightGraphQL}
-          />
-          <CodePane
-            label="Response (docs returned)"
-            code={introspectionResponse}
-            highlight={highlightJSON}
-          />
+        <div className="grid gap-4 lg:grid-cols-3">
+          <SchemaSnippet components={snippetComponents} />
+          <IntrospectionSnippet components={snippetComponents} />
+          <ResponseSnippet components={snippetComponents} />
         </div>
       </div>
     </section>
-  )
-}
-
-function CodePane({
-  label,
-  code,
-  highlight,
-}: {
-  label: string
-  code: string
-  highlight: (source: string) => string
-}) {
-  return (
-    <div className="bg-[#1e1e2e]">
-      <div className="border-b border-neu-100/10 px-3 py-1.5">
-        <span className="font-mono text-[11px] text-[#6c7086]">{label}</span>
-      </div>
-      <pre className="overflow-x-auto p-3 font-mono text-[11px] leading-relaxed">
-        <code
-          className="whitespace-pre-wrap"
-          dangerouslySetInnerHTML={{ __html: highlight(code) }}
-        />
-      </pre>
-    </div>
   )
 }

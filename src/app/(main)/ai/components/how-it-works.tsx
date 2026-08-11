@@ -5,13 +5,11 @@ import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
 import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
-import {
-  highlightGraphQL,
-  highlightGraphQLSchema,
-  highlightJSON,
-  highlightPrompt,
-  SYNTAX_CSS,
-} from "./syntax-highlight"
+import { snippetComponents } from "./snippets"
+import PromptSnippet from "./snippets/step-prompt.mdx"
+import IntrospectionSnippet from "./snippets/step-introspection.mdx"
+import QuerySnippet from "./snippets/step-query.mdx"
+import ResponseSnippet from "./snippets/step-response.mdx"
 
 const steps = [
   {
@@ -20,10 +18,7 @@ const steps = [
     icon: PlayIcon,
     description:
       'A user gives an AI agent a natural language instruction — "Show me Q4 revenue by region." The agent needs to access business data through an API to fulfill this request.',
-    codeLabel: "User prompt",
-    code: `> Show me Q4 revenue broken down by region
-  for the top 5 performing product categories`,
-    highlight: highlightPrompt,
+    Snippet: PromptSnippet,
   },
   {
     number: "02",
@@ -31,23 +26,7 @@ const steps = [
     icon: SearchIcon,
     description:
       "Using GraphQL introspection, the agent queries `__schema` and discovers the available types: `Product`, `Order`, `Region`, `RevenueMetrics`. It learns field names, arguments, and relationships automatically.",
-    codeLabel: "Introspection result → discovered types",
-    code: `type Product {
-  name: String!
-  category: Category!
-}
-type RevenueMetrics {
-  amount: Float!
-  region: Region!
-}
-type Order {
-  product: Product!
-  revenue: RevenueMetrics!
-}
-type Query {
-  orders(from: Date!, to: Date!): [Order!]!
-}`,
-    highlight: highlightGraphQLSchema,
+    Snippet: IntrospectionSnippet,
   },
   {
     number: "03",
@@ -55,24 +34,7 @@ type Query {
     icon: CodeIcon,
     description:
       "The LLM maps the user's intent to the discovered schema. It constructs a precise GraphQL query that fetches exactly the right data — revenue by region, top 5 categories, all in a single request — with no over-fetching.",
-    codeLabel: "AI-generated GraphQL query",
-    code: `{
-  orders(from: "2024-10-01", to: "2024-12-31") {
-    product {
-      name
-      category {
-        name
-      }
-    }
-    revenue {
-      region {
-        name
-      }
-      amount
-    }
-  }
-}`,
-    highlight: highlightGraphQL,
+    Snippet: QuerySnippet,
   },
   {
     number: "04",
@@ -80,24 +42,7 @@ type Query {
     icon: CheckIcon,
     description:
       "The API returns typed, predictable JSON that exactly matches the query shape. The agent processes the results with confidence — every field is validated, every type is known. No parsing ambiguity, no hallucinated or missing fields.",
-    codeLabel: "Structured response (JSON)",
-    code: `{
-  "orders": [{
-    "product": {
-      "name": "Widget Pro",
-      "category": {
-        "name": "Electronics"
-      }
-    },
-    "revenue": {
-      "region": {
-        "name": "North America"
-      },
-      "amount": 45230.50
-    }
-  }]
-}`,
-    highlight: highlightJSON,
+    Snippet: ResponseSnippet,
   },
 ]
 
@@ -116,7 +61,6 @@ export function HowItWorks() {
           a real business question — from initial request to typed response.
         </p>
 
-        <style dangerouslySetInnerHTML={{ __html: SYNTAX_CSS }} />
         <div className="grid gap-px bg-neu-200 dark:bg-neu-100 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <div
@@ -137,20 +81,8 @@ export function HowItWorks() {
               </p>
 
               {/* Code snippet */}
-              <div className="mt-4 overflow-hidden rounded-lg border border-neu-200 bg-[#1e1e2e] dark:border-neu-100">
-                <div className="border-b border-neu-100/10 px-3 py-1.5">
-                  <span className="font-mono text-[11px] text-[#6c7086]">
-                    {step.codeLabel}
-                  </span>
-                </div>
-                <pre className="overflow-x-auto p-3 font-mono text-[11px] leading-relaxed">
-                  <code
-                    className="whitespace-pre-wrap"
-                    dangerouslySetInnerHTML={{
-                      __html: step.highlight(step.code),
-                    }}
-                  />
-                </pre>
+              <div className="mt-4">
+                <step.Snippet components={snippetComponents} />
               </div>
 
               {/* Connector arrows between steps */}

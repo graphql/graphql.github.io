@@ -1,0 +1,9 @@
+```graphql filename="Every field has a known type" copy
+type Query {
+  human(id: ID!): Human
+}
+type Human {
+  name: String!
+  height(unit: Unit): Float
+}
+```

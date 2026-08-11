@@ -205,7 +205,4 @@ export const SYNTAX_CSS = `
 .sh-directive{ color: ${syntaxColors.directive};}
 .sh-operator { color: ${syntaxColors.operator}; }
 .sh-arg      { color: ${syntaxColors.arg};      }
-/* Code blocks use a fixed dark background (Catppuccin Mocha #1e1e2e) in both
-   light and dark mode, so base text must be light regardless of theme. */
-pre { color: #cdd6f4; }
 `

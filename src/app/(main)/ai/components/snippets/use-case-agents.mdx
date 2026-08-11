@@ -1,0 +1,17 @@
+```graphql filename="Example query" copy
+{
+  orders(status: PENDING) {
+    customer {
+      name
+      email
+    }
+    items {
+      product {
+        name
+        stock
+      }
+    }
+    total
+  }
+}
+```

@@ -1,0 +1,12 @@
+```graphql filename="Agent introspects your API" copy
+query {
+  __schema {
+    types {
+      name
+      fields {
+        name
+      }
+    }
+  }
+}
+```

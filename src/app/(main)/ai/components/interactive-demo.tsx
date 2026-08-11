@@ -375,7 +375,7 @@ function Introspecting({ prompt }: { prompt: DemoPrompt }) {
         </span>
       </PanelHeader>
       <div className="bg-[#1e1e2e] p-5">
-        <pre className="font-mono text-sm leading-relaxed">
+        <pre className="font-mono text-sm leading-relaxed text-[#cdd6f4]">
           <code className="text-[#6c7086]">{`# AI sends introspection query
 {
   __schema {
@@ -472,7 +472,7 @@ function Composing({ prompt, chars }: { prompt: DemoPrompt; chars: number }) {
         </span>
       </PanelHeader>
       <div className="bg-[#1e1e2e] p-5">
-        <pre className="font-mono text-sm leading-relaxed">
+        <pre className="font-mono text-sm leading-relaxed text-[#cdd6f4]">
           <code
             dangerouslySetInnerHTML={{
               __html:
@@ -517,7 +517,7 @@ function Executing({ prompt, query }: { prompt: DemoPrompt; query: string }) {
         </span>
       </PanelHeader>
       <div className="bg-[#1e1e2e] p-5">
-        <pre className="font-mono text-sm leading-relaxed">
+        <pre className="font-mono text-sm leading-relaxed text-[#cdd6f4]">
           <code dangerouslySetInnerHTML={{ __html: highlightGraphQL(query) }} />
         </pre>
         <div className="mt-4 flex items-center gap-3">
@@ -566,7 +566,7 @@ function ResultView({
           </span>
         </PanelHeader>
         <div className="bg-[#1e1e2e] p-5">
-          <pre className="font-mono text-sm leading-relaxed">
+          <pre className="font-mono text-sm leading-relaxed text-[#cdd6f4]">
             <code
               dangerouslySetInnerHTML={{ __html: highlightGraphQL(query) }}
             />
@@ -603,7 +603,7 @@ function ResultView({
           ref={containerRef}
           className="max-h-[400px] overflow-auto bg-[#1e1e2e] p-5"
         >
-          <pre className="font-mono text-sm leading-relaxed">
+          <pre className="font-mono text-sm leading-relaxed text-[#cdd6f4]">
             <code dangerouslySetInnerHTML={{ __html: highlightJSON(result) }} />
           </pre>
         </div>

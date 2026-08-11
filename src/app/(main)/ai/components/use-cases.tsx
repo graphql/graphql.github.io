@@ -6,7 +6,10 @@ import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.sv
 import MCPIcon from "@/app/conf/_design-system/pixelarticons/modem.svg?svgr"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
-import { highlightGraphQL, SYNTAX_CSS } from "./syntax-highlight"
+import { snippetComponents } from "./snippets"
+import McpSnippet from "./snippets/use-case-mcp.mdx"
+import RagSnippet from "./snippets/use-case-rag.mdx"
+import AgentsSnippet from "./snippets/use-case-agents.mdx"
 
 const useCases = [
   {
@@ -19,24 +22,7 @@ const useCases = [
       "Type-safe inputs and structured outputs",
       "One MCP server exposes your entire API surface",
     ],
-    code: `# AI agent discovers and calls tools
-query {
-  tools {
-    name
-    description
-    parameters {
-      name
-      type
-    }
-  }
-}
-mutation {
-  callTool(
-    name: "searchProducts"
-    params: { query: "laptop" }
-  )
-}`,
-    highlight: highlightGraphQL,
+    Snippet: McpSnippet,
     href: "/blog/2025-10-14-announcing-ai-wg/",
     cta: "Join the AI Working Group",
   },
@@ -50,22 +36,7 @@ mutation {
       "Join data across collections and sources",
       "Minimize context window waste with field selection",
     ],
-    code: `{
-  search(term: "MCP protocol") {
-    documents {
-      title
-      excerpt
-      embeddings {
-        vector
-        similarity
-      }
-    }
-    relatedTopics {
-      name
-    }
-  }
-}`,
-    highlight: highlightGraphQL,
+    Snippet: RagSnippet,
     href: "/resources/ai",
     cta: "Explore AI resources",
   },
@@ -79,22 +50,7 @@ mutation {
       "Real-time subscriptions for streaming agents",
       "Single endpoint for all data operations",
     ],
-    code: `{
-  orders(status: PENDING) {
-    customer {
-      name
-      email
-    }
-    items {
-      product {
-        name
-        stock
-      }
-    }
-    total
-  }
-}`,
-    highlight: highlightGraphQL,
+    Snippet: AgentsSnippet,
     href: "/blog/2025-07-03-graphql-supercharging-ai/",
     cta: "Read the blog post",
   },
@@ -104,7 +60,6 @@ export function UseCases() {
   return (
     <section className="gql-container gql-section lg:py-16 xl:py-24">
       <SectionLabel className="mb-6">Use cases</SectionLabel>
-      <style dangerouslySetInnerHTML={{ __html: SYNTAX_CSS }} />
       <h2 className="typography-h2 mb-2 lg:mb-4">
         GraphQL powers
         <br />
@@ -130,20 +85,8 @@ export function UseCases() {
             </p>
 
             {/* Code example */}
-            <div className="mt-5 overflow-hidden rounded-lg border border-neu-200 bg-[#1e1e2e] dark:border-neu-100">
-              <div className="border-b border-neu-100/10 px-3 py-1.5">
-                <span className="font-mono text-[11px] text-[#6c7086]">
-                  Example query
-                </span>
-              </div>
-              <pre className="overflow-x-auto p-3 font-mono text-[11px] leading-relaxed">
-                <code
-                  className="whitespace-pre-wrap"
-                  dangerouslySetInnerHTML={{
-                    __html: useCase.highlight(useCase.code),
-                  }}
-                />
-              </pre>
+            <div className="mt-5">
+              <useCase.Snippet components={snippetComponents} />
             </div>
 
             <ul className="typography-body-sm mt-5 flex flex-col gap-1.5">

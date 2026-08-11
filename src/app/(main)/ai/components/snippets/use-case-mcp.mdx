@@ -1,0 +1,19 @@
+```graphql filename="Example query" copy
+# AI agent discovers and calls tools
+query {
+  tools {
+    name
+    description
+    parameters {
+      name
+      type
+    }
+  }
+}
+mutation {
+  callTool(
+    name: "searchProducts"
+    params: { query: "laptop" }
+  )
+}
+```
