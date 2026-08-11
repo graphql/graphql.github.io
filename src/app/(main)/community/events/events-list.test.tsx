@@ -6,7 +6,7 @@ import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-
 import { categorizeEvent } from "./events-list"
 
 describe(categorizeEvent.name, () => {
-  it("categorizes conference planning events as foundation meetings", () => {
+  it("categorizes conference planning events as working group meetings", () => {
     const event = {
       id: "conference-planning",
       summary: "Conference planning",
@@ -16,6 +16,6 @@ describe(categorizeEvent.name, () => {
       updated: "2026-07-26T08:35:09.000Z",
     } satisfies WorkingGroupMeeting
 
-    assert.equal(categorizeEvent(event), "foundation-meeting")
+    assert.equal(categorizeEvent(event), "working-group")
   })
 })
