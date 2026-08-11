@@ -58,10 +58,7 @@ export async function CategoryWorkingGroups({
         </Button>
       </header>
       <EventsScrollview
-        className={clsx(
-          "mt-4 !max-w-[unset] lg:mt-10",
-          events.length < 4 && "!grid-rows-1",
-        )}
+        className={clsx("mt-4 lg:mt-10", events.length < 4 && "!grid-rows-1")}
       >
         {events.map(event => (
           <EventCard
