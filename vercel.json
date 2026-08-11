@@ -496,6 +496,16 @@
       "permanent": true
     },
     {
+      "source": "/events",
+      "destination": "/community/events",
+      "permanent": true
+    },
+    {
+      "source": "/events/",
+      "destination": "/community/events/",
+      "permanent": true
+    },
+    {
       "source": "/community/contribute",
       "destination": "/community/contribute/essential-links",
       "permanent": true

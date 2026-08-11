@@ -78,7 +78,9 @@ function isSoon(date: Date) {
   return date.getTime() <= maxTimestamp
 }
 
-function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
+export function categorizeEvent(
+  event: AnyEvent,
+): EventKind | "duplicate" | null {
   if ("start" in event) {
     // From https://calendar.graphql.org
     const summary = event.summary ?? ""
@@ -87,6 +89,8 @@ function categorizeEvent(event: AnyEvent): EventKind | "duplicate" | null {
     } else if (/\bWorking\s*Session\b/i.test(summary)) {
       return "foundation-meeting"
     } else if (/\bGoverning\b/i.test(summary)) {
+      return "foundation-meeting"
+    } else if (/\bConference\s+Planning\b/i.test(summary)) {
       return "foundation-meeting"
     } else if (/\bLocal\b/i.test(summary)) {
       return "meetup"
