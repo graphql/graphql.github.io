@@ -57,41 +57,9 @@ export function ByTheNumbers() {
         Both can be typed and both can be documented. The difference is where
         that description lives, and how much of it an agent has to carry.
       </p>
-      {/* Mobile: compact stacked panels */}
-      <div className="md:hidden">
-        {stats.map(stat => (
-          <div
-            key={stat.label}
-            className="border-b border-neu-200 py-3 last:border-b-0 dark:border-neu-100"
-          >
-            <p className="typography-body-sm font-medium text-neu-900">
-              {stat.label}
-            </p>
-            <div className="mt-1 flex items-baseline gap-3">
-              <span className="typography-body-sm font-medium text-sec-dark">
-                {stat.graphQL}{" "}
-                <span className="typography-body-xs text-neu-600">
-                  {stat.graphQLDesc}
-                </span>
-              </span>
-              <span className="typography-body-xs text-neu-400">vs</span>
-              <span className="typography-body-sm text-neu-500">
-                {stat.rest}{" "}
-                <span className="typography-body-xs text-neu-400">
-                  {stat.restDesc}
-                </span>
-              </span>
-            </div>
-            <p className="typography-body-xs mt-1 text-pretty text-neu-600">
-              {stat.explanation}
-            </p>
-          </div>
-        ))}
-      </div>
-      {/* Desktop: table */}
-      <div className="hidden overflow-x-auto md:block">
+      <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
-          <thead>
+          <thead className="max-md:sr-only">
             <tr className="border-b border-neu-200 dark:border-neu-100">
               <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-500">
                 Property
@@ -107,31 +75,37 @@ export function ByTheNumbers() {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="max-md:block">
             {stats.map(stat => (
               <tr
                 key={stat.label}
-                className="border-b border-neu-200 align-top dark:border-neu-100"
+                className="border-b border-neu-200 align-top dark:border-neu-100 max-md:block max-md:py-3"
               >
                 <th
                   scope="row"
-                  className="typography-body-sm whitespace-nowrap px-4 py-3 font-medium text-neu-900"
+                  className="typography-body-sm px-4 py-3 text-left font-medium text-neu-900 max-md:block max-md:py-0 md:whitespace-nowrap"
                 >
                   {stat.label}
                 </th>
-                <td className="typography-body-sm whitespace-nowrap px-4 py-3 font-medium text-sec-dark">
+                <td className="typography-body-sm px-4 py-3 font-medium text-sec-dark max-md:block max-md:py-0 md:whitespace-nowrap">
+                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-500 md:hidden">
+                    GraphQL
+                  </span>
                   {stat.graphQL}
-                  <span className="typography-body-xs mt-0.5 block text-neu-600">
+                  <span className="typography-body-xs text-neu-600 max-md:ml-1 md:mt-0.5 md:block">
                     {stat.graphQLDesc}
                   </span>
                 </td>
-                <td className="typography-body-sm whitespace-nowrap px-4 py-3 text-neu-500">
+                <td className="typography-body-sm px-4 py-3 text-neu-500 max-md:block max-md:py-0 md:whitespace-nowrap">
+                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-500 md:hidden">
+                    REST
+                  </span>
                   {stat.rest}
-                  <span className="typography-body-xs mt-0.5 block text-neu-400">
+                  <span className="typography-body-xs text-neu-400 max-md:ml-1 md:mt-0.5 md:block">
                     {stat.restDesc}
                   </span>
                 </td>
-                <td className="typography-body-sm text-pretty px-4 py-3 text-neu-700">
+                <td className="typography-body-sm text-pretty px-4 py-3 text-neu-700 max-md:block max-md:pt-1">
                   {stat.explanation}
                 </td>
               </tr>
