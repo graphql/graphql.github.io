@@ -21,7 +21,7 @@ const benefits = [
     bullets: [
       "Auto-generated tool definitions for LLMs",
       "Agents discover capabilities at runtime",
-      "Zero-config MCP server from any GraphQL endpoint",
+      "Generate an MCP server from the schema, not beside it",
     ],
   },
   {
@@ -29,7 +29,7 @@ const benefits = [
     eyebrow: "Type Safety",
     icon: ZapIcon,
     description:
-      "Every field has a known, validated type. LLMs can reason about inputs and outputs with confidence. Structured, predictable responses eliminate parsing errors and prevent hallucinated API calls that plague unstructured REST endpoints.",
+      "Every field has a known, validated type. LLMs can reason about inputs and outputs with confidence. A wrong guess comes back as a named validation error the agent can correct, rather than a 200 with the wrong data in it.",
     Snippet: StronglyTypedSnippet,
     bullets: [
       "LLMs understand data shapes natively",
@@ -45,9 +45,9 @@ const benefits = [
       "Request exactly what you need, nothing more. GraphQL lets AI agents compose precise queries on the fly — requesting nested data, using aliases, and applying filters. One endpoint serves any data access pattern without client-side stitching.",
     Snippet: ComposableSnippet,
     bullets: [
-      "Up to 90% less token usage vs equivalent REST",
+      "Response size tracks the query, not the endpoint",
       "Dynamic query composition by AI agents",
-      "Single endpoint replaces dozens of REST routes",
+      "One endpoint serves any access pattern the schema allows",
     ],
   },
 ]
@@ -63,9 +63,9 @@ export function WhyGraphQLAI() {
       </h2>
       <p className="typography-body-lg mb-8 max-w-2xl text-pretty text-neu-800 lg:mb-16">
         GraphQL was designed from day one to be machine-readable. Its
-        introspection system, type safety, and composability are the same
-        properties that make it the ideal protocol for AI-agent-to-API
-        communication.
+        introspection system, type safety and composability were built for
+        tooling and clients, and they turn out to be what an agent needs to work
+        out what an API offers and ask for part of it.
       </p>
 
       <div className="grid gap-px bg-neu-200 dark:bg-neu-100 lg:grid-cols-3">

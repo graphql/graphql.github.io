@@ -41,7 +41,7 @@ const steps = [
     title: "Structured response returned",
     icon: CheckIcon,
     description:
-      "The API returns typed, predictable JSON that exactly matches the query shape. The agent processes the results with confidence — every field is validated, every type is known. No parsing ambiguity, no hallucinated or missing fields.",
+      "The API returns typed JSON matching the shape of the query. The server validates every field before it responds. A nullable field can still resolve to null with an entry in `errors`, but the agent knows the shape in advance, so it handles a partial result rather than having to detect one.",
     Snippet: ResponseSnippet,
   },
 ]

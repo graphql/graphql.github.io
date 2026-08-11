@@ -8,14 +8,19 @@ import { HowItWorks } from "./components/how-it-works"
 import { UseCases } from "./components/use-cases"
 import { CTACommunity } from "./components/cta-community"
 
+const description =
+  "How AI agents use GraphQL: schema introspection for tool discovery, typed inputs and outputs, and field selection that keeps responses to what was asked for."
+
 export const metadata: Metadata = {
-  title: "GraphQL & AI",
-  description:
-    "Discover how GraphQL's self-describing schemas, strong typing, and composability make it the ideal API protocol for AI systems, MCP servers, and LLM-powered applications.",
+  title: "GraphQL for AI Agents, MCP, and LLM Tools",
+  description,
+  alternates: { canonical: "/ai" },
   openGraph: {
-    title: "GraphQL & AI — The API language for humans and agents",
-    description:
-      "When AI agents need to interact with APIs, GraphQL's self-describing schemas, strong typing, and composable queries make it the natural choice.",
+    title: "GraphQL for AI Agents, MCP, and LLM Tools",
+    description,
+    url: "/ai",
+    type: "article",
+    images: ["/img/og-image.png"],
   },
 }
 

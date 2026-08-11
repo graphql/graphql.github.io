@@ -9,8 +9,8 @@ import blurBean from "@/components/blog-page/blur-bean.webp"
 
 const highlights = [
   "Self-describing schemas let agents discover your API",
-  "Strong typing eliminates hallucinated API calls",
-  "Composable queries minimize token usage by up to 90%",
+  "Invalid queries fail validation before they execute",
+  "Field selection keeps responses to what the query asked for",
 ]
 
 export function Hero() {
@@ -49,7 +49,7 @@ export function Hero() {
               <span className="relative inline-flex size-2 rounded-full bg-sec-base" />
             </span>
             <span className="typography-body-sm font-medium text-sec-light">
-              New: GraphQL AI Working Group
+              GraphQL AI Working Group · open to all
             </span>
           </a>
 
@@ -60,10 +60,10 @@ export function Hero() {
           </h1>
 
           <p className="typography-body-lg mt-6 max-w-2xl text-pretty text-white/80">
-            When AI agents need to interact with APIs, GraphQL&apos;s
-            self-describing schemas, strong typing, and composable queries make
-            it the natural choice. No hand-written tool definitions. No
-            token-wasting REST payloads. Just structured, predictable data.
+            An agent that can reach a GraphQL endpoint can read its types, its
+            field arguments and its documentation from that same endpoint, then
+            ask for exactly the fields it needs. Nothing to publish alongside
+            it, nothing to keep in sync.
           </p>
 
           <ul className="mt-8 flex max-w-2xl flex-wrap justify-center gap-x-8 gap-y-2">
@@ -77,7 +77,7 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button href="#interactive-demo" variant="primary">
-              Try the live demo
+              See a query run
               <ArrowDownIcon className="size-5 shrink-0 text-neu-0" />
             </Button>
             <Button

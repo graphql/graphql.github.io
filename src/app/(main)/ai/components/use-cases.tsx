@@ -16,7 +16,7 @@ const useCases = [
     icon: MCPIcon,
     title: "MCP Servers",
     description:
-      "Build Model Context Protocol servers powered by GraphQL. Every query, mutation, and subscription becomes an auto-discoverable tool. Zero hand-written tool definitions — the schema is the contract.",
+      "Build Model Context Protocol servers powered by GraphQL. Every query, mutation, and subscription becomes an auto-discoverable tool. The schema is the contract, so tool definitions are generated from it rather than maintained beside it.",
     bullets: [
       "Auto-generate tool definitions from schema",
       "Type-safe inputs and structured outputs",
@@ -66,8 +66,9 @@ export function UseCases() {
         the AI stack
       </h2>
       <p className="typography-body-lg mb-8 max-w-2xl text-pretty text-neu-800 lg:mb-16">
-        From MCP servers to RAG pipelines to autonomous agents, GraphQL is
-        already the protocol of choice for connecting AI systems to real data.
+        MCP servers, RAG pipelines and tool-calling agents all need the same two
+        things: a machine-readable description of what data exists, and a way to
+        ask for part of it. A GraphQL schema already provides both.
       </p>
 
       <div className="grid gap-6 lg:grid-cols-3">
