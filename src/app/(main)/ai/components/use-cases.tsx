@@ -75,7 +75,7 @@ export function UseCases() {
         {useCases.map(useCase => (
           <div
             key={useCase.title}
-            className="flex flex-col rounded-xl border border-neu-200 bg-neu-0 p-6 transition-shadow hover:shadow-lg dark:border-neu-100 lg:p-7"
+            className="flex flex-col border border-neu-200 bg-neu-0 p-6 transition-colors hover:border-pri-base/40 dark:border-neu-100 lg:p-7"
           >
             <div className="flex items-center gap-3">
               <useCase.icon className="size-7 text-pri-base" />
