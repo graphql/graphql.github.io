@@ -45,7 +45,7 @@ export function Hero() {
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-sec-light/30 bg-sec-light/10 px-4 py-1.5 backdrop-blur-sm transition-colors hover:bg-sec-light/20"
           >
             <span className="relative flex size-2">
-              <span className="absolute inline-flex size-2 animate-ping rounded-full bg-sec-base opacity-75" />
+              <span className="absolute inline-flex size-2 animate-ping rounded-full bg-sec-base opacity-75 motion-reduce:animate-none" />
               <span className="relative inline-flex size-2 rounded-full bg-sec-base" />
             </span>
             <span className="typography-body-sm font-medium text-sec-light">
@@ -181,17 +181,56 @@ function SchemaGrid() {
         ctx.fillStyle = "rgba(255,204,239,0.15)"
         ctx.fill()
       }
-
-      animId = requestAnimationFrame(draw)
     }
+
+    function frame() {
+      draw()
+      animId = requestAnimationFrame(frame)
+    }
+
+    const stillness = window.matchMedia("(prefers-reduced-motion: reduce)")
+
+    let running = false
+    let onScreen = false
+
+    function sync() {
+      const shouldRun = onScreen && !document.hidden && !stillness.matches
+      if (shouldRun === running) return
+      running = shouldRun
+      if (shouldRun) frame()
+      else cancelAnimationFrame(animId)
+    }
+
+    function onResize() {
+      resize()
+      const w = canvas!.offsetWidth
+      const h = canvas!.offsetHeight
+      for (const n of nodes) {
+        n.x = Math.min(n.x, w)
+        n.y = Math.min(n.y, h)
+      }
+      if (!running) draw()
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting
+      sync()
+    })
 
     init()
     draw()
-    window.addEventListener("resize", init)
+    observer.observe(canvas)
+    stillness.addEventListener("change", sync)
+    document.addEventListener("visibilitychange", sync)
+    window.addEventListener("resize", onResize)
 
     return () => {
+      running = false
       cancelAnimationFrame(animId)
-      window.removeEventListener("resize", init)
+      observer.disconnect()
+      stillness.removeEventListener("change", sync)
+      document.removeEventListener("visibilitychange", sync)
+      window.removeEventListener("resize", onResize)
     }
   }, [])
 

@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="scroll-smooth"
+      className="scroll-smooth motion-reduce:scroll-auto"
       // ThemeProvider adds a `light`/`dark` class
       suppressHydrationWarning
     >
