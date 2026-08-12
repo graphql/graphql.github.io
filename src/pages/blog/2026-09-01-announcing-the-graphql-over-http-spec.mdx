@@ -1,0 +1,113 @@
+---
+title: "Announcing the GraphQL over HTTP specification"
+tags: ["announcements"]
+date: 2026-09-01
+byline: GraphQL TSC
+---
+
+Since the [initial release of GraphQL in 2015](https://github.com/graphql/graphql-spec/releases/tag/July2015), the GraphQL specification has always been transport agnostic.
+
+If you read the GraphQL specification closely, you won't see any mention of a "server" or a "client", only of "services", taking "requests" in, executing them, and producing "responses".
+
+This is generally useful. You can use GraphQL on your local machine, over raw TCP, [avian carriers](https://en.wikipedia.org/wiki/IP_over_Avian_Carriers), or anywhere else. For the large crowd using GraphQL over HTTP, though, the lack of a specification made interoperability more difficult than it should have been.
+
+This is changing today with the first release of the [GraphQL over HTTP specification]()!
+
+The GraphQL specification stays transport agnostic. That doesn't change. The GraphQL over HTTP specification is a new document, supplementary to the main GraphQL specification.
+
+If you're using GraphQL over HTTP, follow the guidance from the specification and ensure your servers, clients, proxies, and other services play well together.
+
+## Better observability
+
+The GraphQL over HTTP specification includes a new `application/graphql-response+json` media type. 
+
+Previously, a lot of GraphQL servers were using `application/json` for their responses. This made it hard for clients to differentiate between a well-formed GraphQL response from the origin server and an error response from a proxy, cache, or other network intermediary.
+
+Most implementations set the status code to 200. If a client received a 200 status code, it knew the response wasn't tampered with and was safe to parse as a GraphQL response.
+
+This is not ideal from an observability point of view and led to [some jokes about `200 Not OK`](https://graphql.org/blog/2026-04-01-a-new-era-for-graphql-observability/). It's hard to get the status of your service if everything is a 200...
+
+This is now fixed! 
+
+When a client receives an `application/graphql-response+json` body, it knows it can parse it as a well-formed GraphQL over HTTP response, regardless of the status code.
+
+The only rules are:
+* If the request returned some data (even if null), return a 2xx status code.
+* If the request did not return any data, return a 4xx or 5xx status code.
+
+This is it. Implementers are free to use any status code they like as long as it's consistent with the rules above. 
+
+A successful response would look like this:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/graphql-response+json
+...
+
+{
+  "data": {
+    "hello": "world"
+  }
+}
+```
+
+A request error would look like this:
+
+```
+HTTP/1.1 422 Unprocessable Content
+Content-Type: application/graphql-response+json
+...
+
+{
+  "errors": [{
+    "message": "Cannot query field 'foo' on type 'Query'."
+  }]
+}
+```
+
+The specification also includes recommendations for the status codes:
+
+* 294 for a partial response
+* 405 for a mutation over get
+* 406 for a non-supported media type
+* 431 for a request too large
+* 500 for a server error
+* [etc](insert link)
+
+Those are only recommendations and not rules. In general, you should use the status codes that are most appropriate for your use case and your infrastructure.
+
+## Documenting the fundamentals
+
+"200 Not OK" issues aside, a lot of things have been working really well for GraphQL over HTTP over the past decade.
+
+This specification documents all those things::
+
+* URL
+* GET requests
+* POST requests
+* JSON encoding
+* [etc](insert link)
+
+It also includes non-normative notes about [security](insert link), [partial success](insert link), and [future compatibility](insert link)
+
+## What's next?
+
+This is just the beginning! 
+
+The IETF just moved the [QUERY HTTP verb](https://www.rfc-editor.org/info/rfc10008/) to a proposed standard.
+
+`QUERY` is the perfect fit for GraphQL, and we already have [plans to support it](https://github.com/graphql/graphql-over-http/pull/411). We didn't want to postpone this initial release or rush the implementation, but it'll be in the next revision of the GraphQL over HTTP specification.
+
+Another thing that will benefit from standardization is [Persisted documents](https://github.com/graphql/graphql-over-http/pull/264). Persisted documents help solve many security, observability, and performance issues. We are eager to propose a standard for this.
+
+Finally, [request batching](https://github.com/graphql/graphql-over-http/pull/307) will be a big win, especially in the context of composite schemas.
+
+## Adopt it now!
+
+If you are a GraphQL user, chances are you are already using the new specification without being aware of it. Most GraphQL frameworks and libraries out there already support the new specification.
+
+If you are a library author, give the new specification a try!
+
+In all cases, [let us know what you think](https://github.com/graphql/graphql-over-http/issues/new)!
+
+
