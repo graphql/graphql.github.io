@@ -6,6 +6,7 @@ import dynamic from "next/dynamic"
 
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import { Button } from "@/app/conf/_design-system/button"
+import { useCodeAnimation } from "@/components/code-animation/use-code-animation"
 
 import UsersIcon from "@/app/conf/_design-system/pixelarticons/users.svg?svgr"
 import HumanIcon from "@/app/conf/_design-system/pixelarticons/human.svg?svgr"
@@ -34,8 +35,16 @@ export function InteractiveDemo() {
   const sectionRef = useRef<HTMLElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
   const inView = useInView(sectionRef)
+  const hasEntered = useInView(sectionRef, { once: true })
   const [selected, setSelected] = useState<DemoPrompt>(demoPrompts[0])
-  const [query, setQuery] = useState(demoPrompts[0].query)
+  const [editedQuery, setEditedQuery] = useState<string | null>(null)
+  const [animationKey, setAnimationKey] = useState(0)
+  const animation = useCodeAnimation(selected.query, {
+    active: inView && editedQuery === null,
+    restartKey: animationKey,
+    initialDelay: 400,
+  })
+  const query = editedQuery ?? animation.code
 
   return (
     <section
@@ -68,7 +77,8 @@ export function InteractiveDemo() {
                       aria-pressed={isSelected}
                       onClick={() => {
                         setSelected(p)
-                        setQuery(p.query)
+                        setEditedQuery(null)
+                        setAnimationKey(key => key + 1)
                         panelRef.current?.scrollIntoView({ block: "nearest" })
                       }}
                       className={`gql-focus-visible flex w-full items-start gap-3 border p-3.5 text-left transition-colors ${
@@ -86,12 +96,14 @@ export function InteractiveDemo() {
                       <span className="min-w-0">
                         <span
                           className={`typography-body-sm block font-medium ${
-                            isSelected ? "text-pri-dark" : "text-neu-900"
+                            isSelected
+                              ? "text-pri-dark dark:text-pri-light"
+                              : "text-neu-900"
                           }`}
                         >
                           {p.prompt}
                         </span>
-                        <span className="typography-body-xs mt-0.5 block text-neu-600">
+                        <span className="typography-body-xs mt-0.5 block text-neu-700">
                           {p.types.join(" · ")}
                         </span>
                       </span>
@@ -111,7 +123,13 @@ export function InteractiveDemo() {
           </div>
 
           <div ref={panelRef} className="mt-8 min-h-[440px] flex-1 lg:mt-0">
-            {inView && <DemoEditor query={query} onEdit={setQuery} />}
+            {hasEntered && (
+              <DemoEditor
+                query={query}
+                onEdit={setEditedQuery}
+                queryComplete={editedQuery !== null || animation.isComplete}
+              />
+            )}
             <p className="typography-body-sm mt-4 text-pretty text-neu-700">
               {selected.explanation}
             </p>

@@ -92,7 +92,7 @@ export function ByTheNumbers() {
                     GraphQL
                   </span>
                   {stat.graphQL}
-                  <span className="typography-body-xs text-neu-600 max-md:ml-1 md:mt-0.5 md:block">
+                  <span className="typography-body-xs text-neu-700 max-md:ml-1 md:mt-0.5 md:block">
                     {stat.graphQLDesc}
                   </span>
                 </td>

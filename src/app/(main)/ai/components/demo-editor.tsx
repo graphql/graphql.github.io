@@ -11,13 +11,20 @@ import { CodeBlockLabel } from "@/components/pre/code-block-label"
 export function DemoEditor({
   query,
   onEdit,
+  queryComplete,
 }: {
   query: string
   onEdit: (value: string) => void
+  queryComplete: boolean
 }) {
   const [result, setResult] = useState("")
 
   useEffect(() => {
+    if (!queryComplete) {
+      setResult("")
+      return
+    }
+
     let cancelled = false
     graphql({ schema: StarWarsSchema, source: query })
       .then(execution => {
@@ -41,20 +48,20 @@ export function DemoEditor({
     return () => {
       cancelled = true
     }
-  }, [query])
+  }, [query, queryComplete])
 
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <div className="flex flex-col border border-neu-200 dark:border-neu-50">
         <CodeBlockLabel
-          text="Query (runs as you type)"
+          text={queryComplete ? "Query (runs as you type)" : "Composing query…"}
           className="border-b border-neu-200 dark:border-neu-50"
         />
         <QueryEditor value={query} schema={StarWarsSchema} onEdit={onEdit} />
       </div>
       <div className="flex flex-col border border-neu-200 dark:border-neu-50">
         <CodeBlockLabel
-          text="Response"
+          text={queryComplete ? "Response" : "Response waits for the query"}
           className="border-b border-neu-200 dark:border-neu-50"
         />
         <ResultViewer value={result} vainlyExtractData />
