@@ -7,7 +7,7 @@ byline: GraphQL TSC
 
 Since the [initial release of GraphQL in 2015](https://github.com/graphql/graphql-spec/releases/tag/July2015), the GraphQL specification has always been transport agnostic.
 
-If you read the GraphQL specification closely, you won't see any mention of a "server" or a "client", only of "services", taking "requests" in, executing them, and producing "responses".
+Most of the GraphQL specification is about "services", taking "requests" in, executing them, and producing "responses". How those requests and responses are sent and received is up to the implementer.
 
 This is generally useful. You can use GraphQL on your local machine, over raw TCP, [avian carriers](https://en.wikipedia.org/wiki/IP_over_Avian_Carriers), or anywhere else. For the large crowd using GraphQL over HTTP, though, the lack of a specification made interoperability more difficult than it should have been.
 
