@@ -1,9 +1,10 @@
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import { Anchor } from "@/app/conf/_design-system/anchor"
-import { snippetComponents } from "./snippets"
-import SchemaSnippet from "./snippets/numbers-schema.mdx"
-import IntrospectionSnippet from "./snippets/numbers-introspection.mdx"
-import ResponseSnippet from "./snippets/numbers-response.mdx"
+import {
+  NumbersIntrospectionSnippet,
+  NumbersResponseSnippet,
+  NumbersSchemaSnippet,
+} from "./snippets"
 
 const stats = [
   {
@@ -159,9 +160,9 @@ export function ByTheNumbers() {
           to.
         </p>
         <div className="grid gap-4 lg:grid-cols-3">
-          <SchemaSnippet components={snippetComponents} />
-          <IntrospectionSnippet components={snippetComponents} />
-          <ResponseSnippet components={snippetComponents} />
+          <NumbersSchemaSnippet />
+          <NumbersIntrospectionSnippet />
+          <NumbersResponseSnippet />
         </div>
       </div>
     </section>

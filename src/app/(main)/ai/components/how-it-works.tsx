@@ -5,11 +5,12 @@ import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
 import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
-import { snippetComponents } from "./snippets"
-import PromptSnippet from "./snippets/step-prompt.mdx"
-import IntrospectionSnippet from "./snippets/step-introspection.mdx"
-import QuerySnippet from "./snippets/step-query.mdx"
-import ResponseSnippet from "./snippets/step-response.mdx"
+import {
+  StepIntrospectionSnippet,
+  StepPromptSnippet,
+  StepQuerySnippet,
+  StepResponseSnippet,
+} from "./snippets"
 
 const steps = [
   {
@@ -18,7 +19,7 @@ const steps = [
     icon: PlayIcon,
     description:
       'A user gives an AI agent a natural language instruction — "Show me Q4 revenue by region." The agent needs to access business data through an API to fulfill this request.',
-    Snippet: PromptSnippet,
+    Snippet: StepPromptSnippet,
   },
   {
     number: "02",
@@ -26,7 +27,7 @@ const steps = [
     icon: SearchIcon,
     description:
       "Using GraphQL introspection, the agent queries `__schema` and discovers the available types: `Product`, `Order`, `Region`, `RevenueMetrics`. It learns field names, arguments, and relationships automatically.",
-    Snippet: IntrospectionSnippet,
+    Snippet: StepIntrospectionSnippet,
   },
   {
     number: "03",
@@ -34,7 +35,7 @@ const steps = [
     icon: CodeIcon,
     description:
       "The LLM maps the user's intent to the discovered schema. It constructs a precise GraphQL query that fetches exactly the right data — revenue by region, top 5 categories, all in a single request — with no over-fetching.",
-    Snippet: QuerySnippet,
+    Snippet: StepQuerySnippet,
   },
   {
     number: "04",
@@ -42,7 +43,7 @@ const steps = [
     icon: CheckIcon,
     description:
       "The response is JSON in the query's shape. A nullable field can still come back null with an `errors` entry, but the agent already knows the shape, so it can use a partial result as-is.",
-    Snippet: ResponseSnippet,
+    Snippet: StepResponseSnippet,
   },
 ]
 
@@ -99,7 +100,7 @@ export function HowItWorks() {
                     "lg:flex lg:h-full lg:flex-col lg:[&>div]:flex lg:[&>div]:min-h-0 lg:[&>div]:flex-1 lg:[&>div]:flex-col lg:[&_pre]:min-h-0 lg:[&_pre]:flex-1",
                   )}
                 >
-                  <step.Snippet components={snippetComponents} />
+                  <step.Snippet />
                 </div>
               </div>
             ))}

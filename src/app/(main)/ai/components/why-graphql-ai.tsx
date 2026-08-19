@@ -3,10 +3,11 @@ import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import ZapIcon from "@/app/conf/_design-system/pixelarticons/zap.svg?svgr"
 import SlidersIcon from "@/app/conf/_design-system/pixelarticons/sliders.svg?svgr"
-import { snippetComponents } from "./snippets"
-import SelfDescribingSnippet from "./snippets/why-self-describing.mdx"
-import StronglyTypedSnippet from "./snippets/why-strongly-typed.mdx"
-import ComposableSnippet from "./snippets/why-composable.mdx"
+import {
+  WhyComposableSnippet,
+  WhySelfDescribingSnippet,
+  WhyStronglyTypedSnippet,
+} from "./snippets"
 import { Eyebrow } from "@/_design-system/eyebrow"
 
 const benefits = [
@@ -16,7 +17,7 @@ const benefits = [
     icon: SearchIcon,
     description:
       "Every GraphQL API ships with a built-in type system. AI agents query `__schema` and immediately understand what data is available, what arguments each field accepts, and how types relate — no hand-written tool descriptions needed.",
-    Snippet: SelfDescribingSnippet,
+    Snippet: WhySelfDescribingSnippet,
     bullets: [
       "Auto-generated tool definitions for LLMs",
       "Agents discover capabilities at runtime",
@@ -29,7 +30,7 @@ const benefits = [
     icon: ZapIcon,
     description:
       "Every field has a known, validated type. LLMs can reason about inputs and outputs with confidence. A wrong guess comes back as a named validation error the agent can correct, rather than a 200 with the wrong data in it.",
-    Snippet: StronglyTypedSnippet,
+    Snippet: WhyStronglyTypedSnippet,
     bullets: [
       "LLMs understand data shapes natively",
       "Validated responses prevent parsing errors",
@@ -42,7 +43,7 @@ const benefits = [
     icon: SlidersIcon,
     description:
       "Request exactly what you need, nothing more. GraphQL lets AI agents compose precise queries on the fly — requesting nested data, using aliases, and applying filters. One endpoint serves any data access pattern without client-side stitching.",
-    Snippet: ComposableSnippet,
+    Snippet: WhyComposableSnippet,
     bullets: [
       "Response size tracks the query, not the endpoint",
       "Dynamic query composition by AI agents",
@@ -83,7 +84,7 @@ export function WhyGraphQLAI() {
             </p>
 
             <div className="mt-5">
-              <benefit.Snippet components={snippetComponents} />
+              <benefit.Snippet />
             </div>
 
             <ul className="typography-body-sm flex flex-col gap-2 pt-5">

@@ -4,10 +4,11 @@ import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.sv
 import MCPIcon from "@/app/conf/_design-system/pixelarticons/modem.svg?svgr"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
-import { snippetComponents } from "./snippets"
-import McpSnippet from "./snippets/use-case-mcp.mdx"
-import RagSnippet from "./snippets/use-case-rag.mdx"
-import AgentsSnippet from "./snippets/use-case-agents.mdx"
+import {
+  UseCaseAgentsSnippet,
+  UseCaseMcpSnippet,
+  UseCaseRagSnippet,
+} from "./snippets"
 
 const useCases = [
   {
@@ -20,7 +21,7 @@ const useCases = [
       "Type-safe inputs and structured outputs",
       "One MCP server exposes your entire API surface",
     ],
-    Snippet: McpSnippet,
+    Snippet: UseCaseMcpSnippet,
     href: "/blog/2025-10-14-announcing-ai-wg/",
     cta: "Join the AI Working Group",
   },
@@ -34,7 +35,7 @@ const useCases = [
       "Join data across collections and sources",
       "Minimize context window waste with field selection",
     ],
-    Snippet: RagSnippet,
+    Snippet: UseCaseRagSnippet,
     href: "/resources/ai",
     cta: "Explore AI resources",
   },
@@ -48,7 +49,7 @@ const useCases = [
       "Real-time subscriptions for streaming agents",
       "Single endpoint for all data operations",
     ],
-    Snippet: AgentsSnippet,
+    Snippet: UseCaseAgentsSnippet,
     href: "/blog/2025-07-03-graphql-supercharging-ai/",
     cta: "Read the blog post",
   },
@@ -84,7 +85,7 @@ export function UseCases() {
             </p>
 
             <div className="mt-5">
-              <useCase.Snippet components={snippetComponents} />
+              <useCase.Snippet />
             </div>
 
             <ul className="typography-body-sm mt-5 flex flex-col gap-1.5">
