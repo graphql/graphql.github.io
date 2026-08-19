@@ -41,7 +41,7 @@ export function Hero() {
         <div className="flex flex-col items-center px-4 pb-16 pt-24 text-center lg:min-h-[640px] lg:justify-center lg:pb-24 lg:pt-32 xl:min-h-[720px] xl:px-24 xl:pt-40">
           <a
             href="https://github.com/graphql/ai-wg/"
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-sec-light/30 bg-sec-light/10 px-4 py-1.5 backdrop-blur-sm transition-colors hover:bg-sec-light/20"
+            className="mb-8 inline-flex items-center gap-2 border border-sec-light/30 bg-sec-light/10 px-3 py-1 backdrop-blur-sm transition-colors hover:bg-sec-light/20"
           >
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-2 animate-ping rounded-full bg-sec-base opacity-75 motion-reduce:animate-none" />
@@ -52,7 +52,7 @@ export function Hero() {
             </span>
           </a>
 
-          <h1 className="typography-h1 max-w-4xl text-balance">
+          <h1 className="typography-h1 max-w-4xl text-balance leading-[1.05]">
             The API language
             <br />
             <span className="text-sec-light">for humans and agents</span>
@@ -60,9 +60,8 @@ export function Hero() {
 
           <p className="typography-body-lg mt-6 max-w-2xl text-pretty text-white/80">
             An agent that can reach a GraphQL endpoint can read its types, its
-            field arguments and its documentation from that same endpoint, then
-            ask for exactly the fields it needs. Nothing to publish alongside
-            it, nothing to keep in sync.
+            field arguments and its documentation, then ask for exactly the
+            fields it needs. Nothing to publish alongside it and keep in sync.
           </p>
 
           <ul className="mt-8 flex max-w-2xl flex-wrap justify-center gap-x-8 gap-y-2">
@@ -94,7 +93,6 @@ export function Hero() {
     </div>
   )
 }
-
 
 function SchemaGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
