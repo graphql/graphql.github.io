@@ -75,10 +75,10 @@ export function UseCases() {
         {useCases.map(useCase => (
           <div
             key={useCase.title}
-            className="flex flex-col border border-neu-200 bg-neu-0 p-6 dark:border-neu-100 lg:p-7"
+            className="flex flex-col border border-neu-200 bg-neu-0 p-6 dark:border-neu-50 lg:p-7"
           >
             <div className="flex items-center gap-3">
-              <useCase.icon className="size-7 text-pri-base" />
+              <useCase.icon className="size-7 text-pri-base dark:text-pri-light" />
               <h3 className="typography-h4">{useCase.title}</h3>
             </div>
             <p className="typography-body-md mt-3 flex-1 text-pretty text-neu-800">

@@ -1,5 +1,7 @@
 "use client"
 
+import { clsx } from "clsx"
+
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
 import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
@@ -48,7 +50,10 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="overflow-hidden bg-neu-50 dark:bg-neu-50/25">
+    <section
+      id="how-it-works"
+      className="overflow-hidden bg-neu-50 dark:bg-neu-50/25"
+    >
       <div className="gql-container gql-section lg:py-16 xl:py-24">
         <SectionLabel className="mb-6">How it works</SectionLabel>
         <h2 className="typography-h2 mb-2 lg:mb-4">
@@ -61,25 +66,38 @@ export function HowItWorks() {
           a real business question — from initial request to typed response.
         </p>
 
-        <div className="grid gap-px bg-neu-200 dark:bg-neu-50 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-px bg-neu-200 dark:bg-neu-50 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className="relative flex flex-col bg-neu-50 p-5 dark:bg-[#181914] lg:px-6 lg:py-0 lg:first:pl-0 lg:last:pr-0 xl:px-8"
+              className={clsx(
+                "row-span-4 grid min-w-0 grid-cols-1 grid-rows-subgrid overflow-hidden bg-neu-50 dark:bg-[#181914]",
+                "border-b border-neu-200 dark:border-neu-50 lg:border-b-0",
+                i === steps.length - 1 && "max-sm:border-b-0",
+                i >= 2 && "sm:max-lg:border-b-0",
+              )}
             >
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center justify-between gap-3 px-4 pt-5 sm:px-5">
                 <span className="typography-d1 font-bold leading-none text-pri-base/15">
                   {step.number}
                 </span>
                 <step.icon className="size-6 shrink-0 text-pri-base dark:text-pri-light" />
               </div>
 
-              <h3 className="typography-h4 mt-3">{step.title}</h3>
-              <p className="typography-body-sm mt-2 flex-1 text-pretty text-neu-700">
+              <h3 className="typography-h4 px-4 pt-3 text-balance sm:px-5">
+                {step.title}
+              </h3>
+
+              <p className="typography-body-sm px-4 pb-4 pt-2 text-pretty text-neu-700 sm:px-5">
                 {step.description}
               </p>
 
-              <div className="mt-4 *:bg-neu-0">
+              <div
+                className={clsx(
+                  "min-w-0 *:bg-neu-0 [&_.pre]:rounded-none [&_code]:text-xs [&_pre]:rounded-none [&_pre]:border-x-0 [&_pre]:text-xs [&>div>div:first-child]:rounded-none [&>div>div:first-child]:border-x-0",
+                  "lg:flex lg:h-full lg:flex-col lg:[&>div]:flex lg:[&>div]:min-h-0 lg:[&>div]:flex-1 lg:[&>div]:flex-col lg:[&_pre]:min-h-0 lg:[&_pre]:flex-1",
+                )}
+              >
                 <step.Snippet components={snippetComponents} />
               </div>
             </div>
