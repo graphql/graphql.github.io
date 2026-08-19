@@ -120,7 +120,7 @@ const vendors: VendorMetadata[] = [
     name: "The Guild",
     slug: "the-guild",
     description:
-      "The Guild maintains a broad suite of GraphQL tooling and services, including GraphQL Code Generator, GraphQL Yoga, GraphQL Mesh, Hive for schema registry and federation, and the Stellate GraphQL CDN for edge caching.",
+      "Builds [[Hive](https://the-guild.dev/graphql/hive)](https://the-guild.dev/graphql/hive), the fully open-source (MIT) GraphQL federation platform — schema registry, gateway, router, and observability — run self-hosted and in the cloud at some of the world's largest enterprises, exposing GraphQL APIs as governed MCP tools for AI agents. Maintains many of the ecosystem's most-used libraries, including [[GraphQL Code Generator](https://the-guild.dev/graphql/codegen)](https://the-guild.dev/graphql/codegen), [[Yoga](https://the-guild.dev/graphql/yoga-server)](https://the-guild.dev/graphql/yoga-server), [[Mesh](https://the-guild.dev/graphql/mesh)](https://the-guild.dev/graphql/mesh), and [[GraphQL Tools](https://the-guild.dev/graphql/tools)](https://the-guild.dev/graphql/tools), with tens of millions of downloads every month. Also runs [[Stellate](https://stellate.co/)](https://stellate.co), the CDN for GraphQL.",
     url: "https://the-guild.dev/",
     github: "the-guild-org",
   },
