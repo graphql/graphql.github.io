@@ -39,7 +39,6 @@ export function Hero() {
       <SchemaGrid />
       <div className="gql-container relative">
         <div className="flex flex-col items-center px-4 pb-16 pt-24 text-center lg:min-h-[640px] lg:justify-center lg:pb-24 lg:pt-32 xl:min-h-[720px] xl:px-24 xl:pt-40">
-          {/* Badge */}
           <a
             href="https://github.com/graphql/ai-wg/"
             className="mb-8 inline-flex items-center gap-2 rounded-full border border-sec-light/30 bg-sec-light/10 px-4 py-1.5 backdrop-blur-sm transition-colors hover:bg-sec-light/20"
@@ -77,7 +76,7 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button href="#interactive-demo" variant="primary">
-              See a query run
+              Try the live demo
               <ArrowDownIcon className="size-5 shrink-0 text-neu-0" />
             </Button>
             <Button
@@ -96,9 +95,6 @@ export function Hero() {
   )
 }
 
-/* ─────────────────────────────────────────────
-   Subtle animated schema grid in background
-   ───────────────────────────────────────────── */
 
 function SchemaGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -146,7 +142,6 @@ function SchemaGrid() {
       ctx.clearRect(0, 0, w, h)
       time += 0.005
 
-      // Update & draw nodes
       for (const n of nodes) {
         n.x += n.vx
         n.y += n.vy + Math.sin(time + n.x * 0.02) * 0.1
@@ -156,7 +151,6 @@ function SchemaGrid() {
         if (n.y > h) n.y = 0
       }
 
-      // Draw connections
       const maxDist = 150
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
@@ -174,7 +168,6 @@ function SchemaGrid() {
         }
       }
 
-      // Draw nodes
       for (const n of nodes) {
         ctx.beginPath()
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
