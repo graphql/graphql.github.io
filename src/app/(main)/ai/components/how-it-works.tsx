@@ -61,17 +61,17 @@ export function HowItWorks() {
           a real business question — from initial request to typed response.
         </p>
 
-        <div className="grid gap-px bg-neu-200 dark:bg-neu-100 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px bg-neu-200 dark:bg-neu-50 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className="relative flex flex-col bg-neu-50 p-5 lg:px-6 lg:py-0 lg:first:pl-0 lg:last:pr-0 xl:px-8"
+              className="relative flex flex-col bg-neu-50 p-5 dark:bg-[#181914] lg:px-6 lg:py-0 lg:first:pl-0 lg:last:pr-0 xl:px-8"
             >
               <div className="flex items-center justify-between gap-3">
                 <span className="typography-d1 font-bold leading-none text-pri-base/15">
                   {step.number}
                 </span>
-                <step.icon className="size-6 shrink-0 text-pri-base" />
+                <step.icon className="size-6 shrink-0 text-pri-base dark:text-pri-light" />
               </div>
 
               <h3 className="typography-h4 mt-3">{step.title}</h3>

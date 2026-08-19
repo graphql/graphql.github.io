@@ -9,6 +9,7 @@ import { snippetComponents } from "./snippets"
 import SelfDescribingSnippet from "./snippets/why-self-describing.mdx"
 import StronglyTypedSnippet from "./snippets/why-strongly-typed.mdx"
 import ComposableSnippet from "./snippets/why-composable.mdx"
+import { Eyebrow } from "@/_design-system/eyebrow"
 
 const benefits = [
   {
@@ -74,13 +75,11 @@ export function WhyGraphQLAI() {
             key={benefit.eyebrow}
             className="flex flex-col bg-neu-0 p-6 lg:px-8 lg:py-0 lg:first:pl-0 lg:last:pr-0 xl:px-10"
           >
-            <div className="flex items-center gap-3">
+            <Eyebrow>{benefit.eyebrow}</Eyebrow>
+            <div className="mt-4 flex items-center gap-3">
               <benefit.icon className="size-6 text-pri-base" />
-              <span className="typography-body-sm w-fit bg-sec-light px-2 py-0.5 font-medium dark:bg-sec-darker">
-                {benefit.eyebrow}
-              </span>
+              <h3 className="typography-h3">{benefit.title}</h3>
             </div>
-            <h3 className="typography-h3 mt-4">{benefit.title}</h3>
             <p className="typography-body-md mt-4 text-pretty text-neu-800">
               {benefit.description}
             </p>
@@ -89,7 +88,7 @@ export function WhyGraphQLAI() {
               <benefit.Snippet components={snippetComponents} />
             </div>
 
-            <ul className="typography-body-sm mt-auto flex flex-col gap-2 pt-5">
+            <ul className="typography-body-sm flex flex-col gap-2 pt-5">
               {benefit.bullets.map(bullet => (
                 <li key={bullet} className="flex items-start gap-1.5">
                   <CheckIcon className="mt-0.5 size-3.5 shrink-0 text-pri-base dark:text-pri-lighter" />
