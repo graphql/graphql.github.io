@@ -1,5 +1,3 @@
-"use client"
-
 import { clsx } from "clsx"
 
 import { SectionLabel } from "@/app/conf/_design-system/section-label"

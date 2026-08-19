@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, type ComponentType, type SVGProps } from "react"
+import { useRef, useState } from "react"
 import { useInView } from "motion/react"
 import dynamic from "next/dynamic"
 
@@ -17,14 +17,14 @@ import SwordIcon from "@/app/conf/_design-system/pixelarticons/sword.svg?svgr"
 
 import { demoPrompts, type DemoPrompt } from "./demo-prompts"
 
-const icons: Record<string, ComponentType<SVGProps<SVGElement>>> = {
+const icons = {
   users: UsersIcon,
   human: HumanIcon,
   robot: RobotIcon,
   scale: ScaleIcon,
   ship: ShipIcon,
   sword: SwordIcon,
-}
+} satisfies Record<DemoPrompt["icon"], typeof UsersIcon>
 
 const DemoEditor = dynamic(
   () => import("./demo-editor").then(m => m.DemoEditor),

@@ -1,5 +1,3 @@
-"use client"
-
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import { Button } from "@/app/conf/_design-system/button"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"

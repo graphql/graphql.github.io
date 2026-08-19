@@ -1,5 +1,3 @@
-"use client"
-
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import { Anchor } from "@/app/conf/_design-system/anchor"
 import { snippetComponents } from "./snippets"

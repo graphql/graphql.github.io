@@ -9,11 +9,7 @@ import { StarWarsSchema } from "@/components/interactive-code-block/swapi-schema
 import { CodeBlockLabel } from "@/components/pre/code-block-label"
 import { PlayButton } from "@/components/index-page/how-it-works/play-button"
 
-async function executeQuery(source: string) {
-  const execution = await graphql({
-    schema: StarWarsSchema,
-    source,
-  })
+function serializeResult(execution: Awaited<ReturnType<typeof graphql>>) {
   const serializable = execution.errors
     ? {
         ...execution,
@@ -39,7 +35,10 @@ export function DemoEditor({
   const [result, setResult] = useState("")
   const queryId = useRef(0)
 
-  async function runQuery(source: string = query) {
+  async function runQuery(
+    options: { manual: boolean },
+    source: string = query,
+  ) {
     if (!queryComplete) {
       setResult("")
       return
@@ -48,8 +47,13 @@ export function DemoEditor({
     queryId.current++
     const id = queryId.current
     try {
-      const next = await executeQuery(source)
-      if (id === queryId.current) setResult(next)
+      const execution = await graphql({
+        schema: StarWarsSchema,
+        source,
+      })
+      if (id !== queryId.current) return
+      if (execution.errors && !options.manual) return
+      setResult(serializeResult(execution))
     } catch (error) {
       if (id === queryId.current)
         setResult(JSON.stringify({ error: String(error) }, null, 2))
@@ -63,14 +67,17 @@ export function DemoEditor({
     }
 
     let cancelled = false
-    executeQuery(query)
-      .then(next => {
-        if (!cancelled) setResult(next)
-      })
-      .catch(error => {
+    void graphql({ schema: StarWarsSchema, source: query }).then(
+      execution => {
+        if (cancelled) return
+        if (execution.errors) return
+        setResult(serializeResult(execution))
+      },
+      error => {
         if (!cancelled)
           setResult(JSON.stringify({ error: String(error) }, null, 2))
-      })
+      },
+    )
     return () => {
       cancelled = true
     }
@@ -86,7 +93,7 @@ export function DemoEditor({
             <PlayButton
               disabled={!queryComplete}
               onClick={() => {
-                void runQuery()
+                void runQuery({ manual: true })
               }}
             />
           }
@@ -97,7 +104,7 @@ export function DemoEditor({
             schema={StarWarsSchema}
             onEdit={onEdit}
             runQuery={() => {
-              void runQuery()
+              void runQuery({ manual: true })
             }}
           />
         </div>

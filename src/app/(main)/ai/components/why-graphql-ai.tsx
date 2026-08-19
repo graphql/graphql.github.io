@@ -1,5 +1,3 @@
-"use client"
-
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"

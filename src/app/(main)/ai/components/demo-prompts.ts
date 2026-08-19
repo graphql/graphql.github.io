@@ -121,6 +121,13 @@ fragment dimensions on Starship {
     explanation:
       "Three aliased calls to `hero`, each with a different `episode` argument, in a single round trip.",
   },
-]
+] as const satisfies readonly {
+  id: string
+  icon: "users" | "human" | "robot" | "scale" | "ship" | "sword"
+  prompt: string
+  types: readonly string[]
+  query: string
+  explanation: string
+}[]
 
 export type DemoPrompt = (typeof demoPrompts)[number]
