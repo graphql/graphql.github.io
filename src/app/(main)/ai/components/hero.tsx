@@ -32,8 +32,8 @@ export function Hero() {
       >
         <StripesDecoration
           stripeWidth="8px"
-          evenClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-darker)/0.6)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/0.25)_0%,transparent_100%)]"
-          oddClassName="bg-[linear-gradient(180deg,hsl(var(--color-neu-900)/0.2)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-neu-0)/0.12)_0%,transparent_100%)]"
+          evenClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/.5)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-pri-light)/0.25)_0%,transparent_100%)]"
+          oddClassName="bg-[linear-gradient(180deg,hsl(var(--color-pri-dark)/0.15)_0%,transparent_100%)] dark:bg-[linear-gradient(180deg,hsl(var(--color-neu-0)/0.12)_0%,transparent_100%)]"
         />
       </div>
       <SchemaGrid />

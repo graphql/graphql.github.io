@@ -65,14 +65,13 @@ export function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className="relative flex flex-col bg-neu-0 p-5 lg:p-6 xl:p-8"
+              className="relative flex flex-col bg-neu-50 p-5 lg:px-6 lg:py-0 lg:first:pl-0 lg:last:pr-0 xl:px-8"
             >
-              {/* Step number + icon */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between gap-3">
                 <span className="typography-d1 font-bold leading-none text-pri-base/15">
                   {step.number}
                 </span>
-                <step.icon className="size-5 shrink-0 text-pri-base" />
+                <step.icon className="size-6 shrink-0 text-pri-base" />
               </div>
 
               <h3 className="typography-h4 mt-3">{step.title}</h3>
@@ -80,36 +79,9 @@ export function HowItWorks() {
                 {step.description}
               </p>
 
-              {/* Code snippet */}
-              <div className="mt-4">
+              <div className="mt-4 *:bg-neu-0">
                 <step.Snippet components={snippetComponents} />
               </div>
-
-              {/* Connector arrows between steps */}
-              {i < steps.length - 1 && (
-                <>
-                  {/* Horizontal arrow for lg+ */}
-                  <div className="absolute right-0 top-10 z-10 hidden size-6 items-center justify-center rounded-full border-2 border-neu-100 bg-neu-0 dark:border-neu-50 lg:flex">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      className="text-neu-400"
-                    >
-                      <path
-                        d="M2 2 L8 5 L2 8"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  {/* Dot connector for sm (2-col) */}
-                  <div className="absolute right-0 top-1/2 z-10 hidden size-2 -translate-y-1/2 translate-x-1/2 rounded-full border border-neu-200 bg-neu-0 sm:block lg:hidden" />
-                </>
-              )}
             </div>
           ))}
         </div>

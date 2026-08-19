@@ -72,7 +72,7 @@ export function WhyGraphQLAI() {
         {benefits.map(benefit => (
           <div
             key={benefit.eyebrow}
-            className="flex flex-col bg-neu-0 p-6 lg:p-8 xl:p-10"
+            className="flex flex-col bg-neu-0 p-6 lg:px-8 lg:py-0 lg:first:pl-0 lg:last:pr-0 xl:px-10"
           >
             <div className="flex items-center gap-3">
               <benefit.icon className="size-6 text-pri-base" />
@@ -81,19 +81,18 @@ export function WhyGraphQLAI() {
               </span>
             </div>
             <h3 className="typography-h3 mt-4">{benefit.title}</h3>
-            <p className="typography-body-md mt-4 flex-1 text-pretty text-neu-800">
+            <p className="typography-body-md mt-4 text-pretty text-neu-800">
               {benefit.description}
             </p>
 
-            {/* Code preview */}
             <div className="mt-5">
               <benefit.Snippet components={snippetComponents} />
             </div>
 
-            <ul className="typography-body-sm mt-5 flex flex-col gap-2">
+            <ul className="typography-body-sm mt-auto flex flex-col gap-2 pt-5">
               {benefit.bullets.map(bullet => (
                 <li key={bullet} className="flex items-start gap-1.5">
-                  <CheckIcon className="mt-0.5 size-3.5 shrink-0 text-pri-base" />
+                  <CheckIcon className="mt-0.5 size-3.5 shrink-0 text-pri-base dark:text-pri-lighter" />
                   <span className="text-neu-700">{bullet}</span>
                 </li>
               ))}

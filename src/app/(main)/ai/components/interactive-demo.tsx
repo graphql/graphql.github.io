@@ -122,7 +122,7 @@ export function InteractiveDemo() {
             </Button>
           </div>
 
-          <div ref={panelRef} className="mt-8 min-h-[440px] flex-1 lg:mt-0">
+          <div ref={panelRef} className="mt-8 flex-1 lg:mt-0">
             {hasEntered && (
               <DemoEditor
                 query={query}

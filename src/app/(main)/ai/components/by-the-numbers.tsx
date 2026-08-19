@@ -61,16 +61,16 @@ export function ByTheNumbers() {
         <table className="w-full border-collapse text-left">
           <thead className="max-md:sr-only">
             <tr className="border-b border-neu-200 dark:border-neu-100">
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-500">
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-700">
                 Property
               </th>
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-sec-dark">
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-sec-darker dark:text-sec-light">
                 GraphQL
               </th>
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-500">
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-700">
                 REST + OpenAPI
               </th>
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-500">
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-700">
                 Why
               </th>
             </tr>
@@ -87,8 +87,8 @@ export function ByTheNumbers() {
                 >
                   {stat.label}
                 </th>
-                <td className="typography-body-sm px-4 py-3 font-medium text-sec-dark max-md:block max-md:py-0 md:whitespace-nowrap">
-                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-500 md:hidden">
+                <td className="typography-body-sm px-4 py-3 font-medium text-sec-darker dark:text-sec-light max-md:block max-md:py-0 md:whitespace-nowrap">
+                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-700 md:hidden">
                     GraphQL
                   </span>
                   {stat.graphQL}
@@ -96,16 +96,16 @@ export function ByTheNumbers() {
                     {stat.graphQLDesc}
                   </span>
                 </td>
-                <td className="typography-body-sm px-4 py-3 text-neu-500 max-md:block max-md:py-0 md:whitespace-nowrap">
-                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-500 md:hidden">
+                <td className="typography-body-sm px-4 py-3 text-neu-800 max-md:block max-md:py-0 md:whitespace-nowrap">
+                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-700 md:hidden">
                     REST
                   </span>
                   {stat.rest}
-                  <span className="typography-body-xs text-neu-400 max-md:ml-1 md:mt-0.5 md:block">
+                  <span className="typography-body-xs text-neu-700 max-md:ml-1 md:mt-0.5 md:block">
                     {stat.restDesc}
                   </span>
                 </td>
-                <td className="typography-body-sm text-pretty px-4 py-3 text-neu-700 max-md:block max-md:pt-1">
+                <td className="typography-body-sm text-pretty px-4 py-3 text-neu-800 max-md:block max-md:pt-1">
                   {stat.explanation}
                 </td>
               </tr>
@@ -113,7 +113,7 @@ export function ByTheNumbers() {
           </tbody>
         </table>
       </div>
-      <p className="typography-body-xs mt-3 text-neu-500">
+      <p className="typography-body-xs mt-3 text-neu-700">
         Both protocols are typed, and both can describe themselves. The gap is
         in traversal and discoverability, not in whether types exist. Where a
         task maps cleanly onto one purpose-built endpoint, REST is the simpler
@@ -143,7 +143,6 @@ export function ByTheNumbers() {
         </p>
       </div>
 
-      {/* Documentation is part of the schema, queryable via introspection */}
       <div className="mt-10">
         <h3 className="typography-h3 mb-2">
           Docs live in the schema — and agents can query them
