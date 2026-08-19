@@ -77,8 +77,8 @@ export function DemoEditor({
   }, [query, queryComplete])
 
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
-      <div className="flex h-[280px] flex-col overflow-hidden border border-neu-200 text-xs dark:border-neu-50 [&_.cm-editor]:h-full [&_.cm-editor]:max-h-none">
+    <div className="grid h-full min-h-[280px] gap-4 lg:min-h-0 lg:grid-cols-2 lg:grid-rows-1">
+      <div className="flex min-h-[280px] flex-col overflow-hidden border border-neu-200 text-xs dark:border-neu-50 lg:min-h-0 [&_.cm-editor]:h-full [&_.cm-editor]:max-h-none">
         <CodeBlockLabel
           text={queryComplete ? "Query (runs as you type)" : "Composing query…"}
           className="shrink-0 border-b border-neu-200 dark:border-neu-50"
@@ -91,7 +91,7 @@ export function DemoEditor({
             />
           }
         />
-        <div className="min-h-0 flex-1">
+        <div className="min-h-0 flex-1 overflow-hidden">
           <QueryEditor
             value={query}
             schema={StarWarsSchema}
@@ -102,12 +102,12 @@ export function DemoEditor({
           />
         </div>
       </div>
-      <div className="flex h-[280px] flex-col overflow-hidden border border-neu-200 text-xs dark:border-neu-50 [&_.cm-editor]:h-full [&_.cm-editor]:max-h-none">
+      <div className="flex min-h-[280px] flex-col overflow-hidden border border-neu-200 text-xs dark:border-neu-50 lg:min-h-0 [&_.cm-editor]:h-full [&_.cm-editor]:max-h-none">
         <CodeBlockLabel
           text={queryComplete ? "Response" : "Response waits for the query"}
           className="shrink-0 border-b border-neu-200 dark:border-neu-50"
         />
-        <div className="min-h-0 flex-1">
+        <div className="min-h-0 flex-1 overflow-hidden">
           <ResultViewer value={result} vainlyExtractData />
         </div>
       </div>

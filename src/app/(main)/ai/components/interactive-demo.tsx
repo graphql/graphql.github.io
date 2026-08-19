@@ -58,13 +58,13 @@ export function InteractiveDemo() {
         <h2 className="typography-h2 mb-2 lg:mb-4">
           See GraphQL + AI in action
         </h2>
-        <p className="typography-body-lg mb-8 max-w-2xl text-pretty text-neu-800 lg:mb-12">
+        <p className="typography-body-lg mb-8 max-w-3xl text-pretty text-neu-800 lg:mb-12">
           Pick a question an agent might get, and see the query it composes
           against the Star Wars schema. The editor is live: change the query and
           the response updates.
         </p>
 
-        <div className="gap-8 lg:flex">
+        <div className="gap-8 lg:flex lg:items-stretch">
           <div className="lg:w-[380px] lg:shrink-0 xl:w-[440px]">
             <ul className="flex list-none flex-col gap-2 p-0">
               {demoPrompts.map(p => {
@@ -122,19 +122,24 @@ export function InteractiveDemo() {
             </Button>
           </div>
 
-          <div ref={panelRef} className="mt-8 flex-1 lg:mt-0">
+          <div
+            ref={panelRef}
+            className="relative mt-8 min-h-[280px] flex-1 lg:mt-0 lg:min-h-0"
+          >
             {hasEntered && (
-              <DemoEditor
-                query={query}
-                onEdit={setEditedQuery}
-                queryComplete={editedQuery !== null || animation.isComplete}
-              />
+              <div className="lg:absolute lg:inset-0">
+                <DemoEditor
+                  query={query}
+                  onEdit={setEditedQuery}
+                  queryComplete={editedQuery !== null || animation.isComplete}
+                />
+              </div>
             )}
-            <p className="typography-body-sm mt-4 text-pretty text-neu-700">
-              {selected.explanation}
-            </p>
           </div>
         </div>
+        <p className="typography-body-sm mt-4 text-pretty text-neu-700 lg:ml-[calc(380px+2rem)] xl:ml-[calc(440px+2rem)]">
+          {selected.explanation}
+        </p>
       </div>
     </section>
   )

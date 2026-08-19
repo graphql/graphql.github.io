@@ -43,7 +43,7 @@ const steps = [
     title: "Structured response returned",
     icon: CheckIcon,
     description:
-      "The API returns typed JSON matching the shape of the query. The server validates every field before it responds. A nullable field can still resolve to null with an entry in `errors`, but the agent knows the shape in advance, so it handles a partial result rather than having to detect one.",
+      "The response is JSON in the query's shape. A nullable field can still come back null with an `errors` entry, but the agent already knows the shape, so it can use a partial result as-is.",
     Snippet: ResponseSnippet,
   },
 ]
@@ -54,7 +54,7 @@ export function HowItWorks() {
       id="how-it-works"
       className="overflow-hidden bg-neu-50 dark:bg-neu-50/25"
     >
-      <div className="gql-container gql-section lg:py-16 xl:py-24">
+      <div className="gql-container gql-section pb-0 lg:pb-0 lg:pt-16 xl:pb-0 xl:pt-24">
         <SectionLabel className="mb-6">How it works</SectionLabel>
         <h2 className="typography-h2 mb-2 lg:mb-4">
           From natural language
@@ -65,43 +65,47 @@ export function HowItWorks() {
           Here&apos;s what happens when an AI agent uses a GraphQL API to answer
           a real business question — from initial request to typed response.
         </p>
+      </div>
 
-        <div className="grid grid-cols-1 gap-x-px bg-neu-200 dark:bg-neu-50 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <div
-              key={step.number}
-              className={clsx(
-                "row-span-4 grid min-w-0 grid-cols-1 grid-rows-subgrid overflow-hidden bg-neu-50 dark:bg-[#181914]",
-                "border-b border-neu-200 dark:border-neu-50 lg:border-b-0",
-                i === steps.length - 1 && "max-sm:border-b-0",
-                i >= 2 && "sm:max-lg:border-b-0",
-              )}
-            >
-              <div className="flex items-center justify-between gap-3 px-4 pt-5 sm:px-5">
-                <span className="typography-d1 font-bold leading-none text-pri-base/15">
-                  {step.number}
-                </span>
-                <step.icon className="size-6 shrink-0 text-pri-base dark:text-pri-light" />
-              </div>
-
-              <h3 className="typography-h4 px-4 pt-3 text-balance sm:px-5">
-                {step.title}
-              </h3>
-
-              <p className="typography-body-sm px-4 pb-4 pt-2 text-pretty text-neu-700 sm:px-5">
-                {step.description}
-              </p>
-
+      <div className="border-y border-neu-200 dark:border-neu-50">
+        <div className="gql-container px-4 lg:px-12 xl:px-24 3xl:px-[240px]">
+          <div className="grid grid-cols-1 gap-x-px border-x border-neu-200 bg-neu-200 dark:border-neu-50 dark:bg-neu-50 sm:grid-cols-2 xl:grid-cols-4">
+            {steps.map((step, i) => (
               <div
+                key={step.number}
                 className={clsx(
-                  "min-w-0 *:bg-neu-0 [&_.pre]:rounded-none [&_code]:text-xs [&_pre]:rounded-none [&_pre]:border-x-0 [&_pre]:text-xs [&>div>div:first-child]:rounded-none [&>div>div:first-child]:border-x-0",
-                  "lg:flex lg:h-full lg:flex-col lg:[&>div]:flex lg:[&>div]:min-h-0 lg:[&>div]:flex-1 lg:[&>div]:flex-col lg:[&_pre]:min-h-0 lg:[&_pre]:flex-1",
+                  "row-span-4 grid min-w-0 grid-cols-1 grid-rows-subgrid overflow-hidden bg-neu-50 dark:bg-[#181914]",
+                  "border-b border-neu-200 dark:border-neu-50 lg:border-b-0",
+                  i === steps.length - 1 && "max-sm:border-b-0",
+                  i >= 2 && "sm:max-lg:border-b-0",
                 )}
               >
-                <step.Snippet components={snippetComponents} />
+                <div className="flex items-center justify-between gap-3 px-4 pt-5 sm:px-5">
+                  <span className="typography-d1 font-bold leading-none text-pri-base/15 dark:text-pri-base/20">
+                    {step.number}
+                  </span>
+                  <step.icon className="size-6 shrink-0 text-pri-base dark:text-pri-light" />
+                </div>
+
+                <h3 className="typography-h4 text-balance px-4 pt-3 sm:px-5">
+                  {step.title}
+                </h3>
+
+                <p className="typography-body-sm text-pretty px-4 pb-4 pt-2 text-neu-700 sm:px-5">
+                  {step.description}
+                </p>
+
+                <div
+                  className={clsx(
+                    "min-w-0 *:bg-neu-0 [&>div>div:first-child]:rounded-none [&>div>div:first-child]:border-x-0 [&_.pre]:rounded-none [&_code]:text-xs [&_pre]:rounded-none [&_pre]:border-x-0 [&_pre]:text-xs",
+                    "lg:flex lg:h-full lg:flex-col lg:[&>div]:flex lg:[&>div]:min-h-0 lg:[&>div]:flex-1 lg:[&>div]:flex-col lg:[&_pre]:min-h-0 lg:[&_pre]:flex-1",
+                  )}
+                >
+                  <step.Snippet components={snippetComponents} />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
