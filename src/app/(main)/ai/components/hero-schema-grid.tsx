@@ -18,8 +18,7 @@ export function SchemaGrid() {
       []
 
     function resize() {
-      gfx.canvas.width =
-        gfx.canvas.offsetWidth * (window.devicePixelRatio || 1)
+      gfx.canvas.width = gfx.canvas.offsetWidth * (window.devicePixelRatio || 1)
       gfx.canvas.height =
         gfx.canvas.offsetHeight * (window.devicePixelRatio || 1)
       gfx.ctx.setTransform(1, 0, 0, 1, 0, 0)
