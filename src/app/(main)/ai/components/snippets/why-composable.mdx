@@ -1,0 +1,13 @@
+```graphql filename="Agent fetches related data in one call"
+{
+  human(id: "1000") {
+    name
+    friends {
+      name
+      starships {
+        name
+      }
+    }
+  }
+}
+```

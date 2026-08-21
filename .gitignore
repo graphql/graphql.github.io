@@ -67,3 +67,6 @@ tsconfig.tsbuildinfo
 playwright-report/
 
 .pnpm-store/
+
+# Personal, per-developer agent instructions
+CLAUDE.local.md

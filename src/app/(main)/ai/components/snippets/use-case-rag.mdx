@@ -1,0 +1,17 @@
+```graphql filename="Example query"
+{
+  search(term: "MCP protocol") {
+    documents {
+      title
+      excerpt
+      embeddings {
+        vector
+        similarity
+      }
+    }
+    relatedTopics {
+      name
+    }
+  }
+}
+```

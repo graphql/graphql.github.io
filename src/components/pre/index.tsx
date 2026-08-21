@@ -32,7 +32,10 @@ export function Pre({
   const copyButton = copy === "" && (
     <CopyToClipboard
       tabIndex={props.tabIndex}
-      className={filename ? "_ml-auto" : ""}
+      className={cn(
+        "-mr-1.5 !border-0 hover:bg-neu-100 hover:duration-0 dark:hover:bg-neu-50",
+        filename && "_ml-auto",
+      )}
       getValue={() => preRef.current?.querySelector("code")?.textContent || ""}
     />
   )

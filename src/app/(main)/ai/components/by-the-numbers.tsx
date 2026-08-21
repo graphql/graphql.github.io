@@ -1,173 +1,110 @@
-"use client"
-
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
+import { Anchor } from "@/app/conf/_design-system/anchor"
 import {
-  highlightGraphQLSchema,
-  highlightGraphQL,
-  highlightJSON,
-  SYNTAX_CSS,
-} from "./syntax-highlight"
-
-const schemaWithDocs = `"""A product in the catalog."""
-type Product {
-  """Human-readable display name."""
-  name: String!
-
-  """Price in minor units (cents)."""
-  price: Int!
-
-  """Units in stock. 0 means unavailable."""
-  stock: Int!
-}
-
-type Query {
-  """Full-text search across the catalog."""
-  products(query: String!): [Product!]!
-}`
-
-const introspectionQuery = `{
-  __type(name: "Product") {
-    description
-    fields {
-      name
-      description
-    }
-  }
-}`
-
-const introspectionResponse = `{
-  "__type": {
-    "description": "A product in the catalog.",
-    "fields": [
-      { "name": "name",  "description": "Human-readable display name." },
-      { "name": "price", "description": "Price in minor units (cents)." },
-      { "name": "stock", "description": "Units in stock. 0 means unavailable." }
-    ]
-  }
-}`
+  NumbersIntrospectionSnippet,
+  NumbersResponseSnippet,
+  NumbersSchemaSnippet,
+} from "./snippets"
 
 const stats = [
   {
-    label: "Token reduction",
-    graphQL: "90%",
-    graphQLDesc: "fewer tokens",
-    rest: "10× more",
-    restDesc: "token waste",
+    label: "Discovery",
+    graphQL: "Introspection",
+    graphQLDesc: "from the endpoint itself",
+    rest: "OpenAPI document",
+    restDesc: "published alongside",
     explanation:
-      "GraphQL lets AI agents request only the fields they need. REST endpoints return fixed payloads — often 10x the data an LLM actually needs to process. Every extra token costs money and context window space.",
+      "Most REST frameworks generate an OpenAPI document from the code, so this is not about hand-writing a schema. The difference is that introspection is part of the GraphQL spec and answers on the same endpoint the agent already calls, with no second artifact to locate or keep in sync.",
   },
   {
-    label: "API calls per task",
-    graphQL: "1",
-    graphQLDesc: "single request",
-    rest: "3–7",
-    restDesc: "sequential calls",
+    label: "Response shape",
+    graphQL: "The query names the fields",
+    graphQLDesc: "caller decides",
+    rest: "The endpoint decides",
+    restDesc: "sparse fieldsets optional",
     explanation:
-      "GraphQL's composability means agents can fetch nested, related data in one query. REST requires multiple endpoints, forcing agents to make sequential calls and stitch responses client-side.",
+      "A GraphQL response contains the fields the query asked for. A REST endpoint returns its payload, and narrowing it means a sparse-fieldset convention or another endpoint. An agent pays for the difference in context window.",
   },
   {
-    label: "Tool definitions",
-    graphQL: "0",
-    graphQLDesc: "auto-discovered",
-    rest: "3",
-    restDesc: "files to wire",
+    label: "Traversal",
+    graphQL: "One query, many types",
+    graphQLDesc: "follows relationships",
+    rest: "One endpoint per resource",
+    restDesc: "client stitches",
     explanation:
-      "REST frameworks can auto-generate OpenAPI, so this isn't about hand-writing schemas. The edge is plug-and-play: GraphQL's introspection and per-field, per-type, and per-query documentation are built into the spec and discoverable from one endpoint. With REST, an agent needs the API, its schema, and an instruction file (AGENT.md) — and you must point it to each. One GraphQL schema replaces all three.",
+      "A GraphQL query walks relationships across types, so the agent never has to hold the whole type graph in context at once. With REST the relationships live in the agent's head, and it composes the result itself.",
   },
   {
-    label: "Type safety",
-    graphQL: "100%",
-    graphQLDesc: "typed responses",
-    rest: "100%",
-    restDesc: "if used with correct tooling",
+    label: "Documentation",
+    graphQL: "On types and fields",
+    graphQLDesc: "returned by introspection",
+    rest: "In the spec document",
+    restDesc: "plus an instructions file",
     explanation:
-      "Both are typed — OpenAPI gives REST schemas too. The real difference for agents is traversal: one GraphQL query follows relationships across types, so an agent never needs to hold the entire type graph in context at once. REST splits data across endpoints, forcing agents to remember deep, nested relationships to compose what one field resolves.",
+      "Descriptions attach to the type, every field and every argument, and come back through the same introspection call. There is no separate docs file to point the agent at.",
   },
 ]
 
 export function ByTheNumbers() {
   return (
     <section className="gql-container gql-section lg:py-12 xl:py-16">
-      <SectionLabel className="mb-6">By the numbers</SectionLabel>
-      <h2 className="typography-h2 mb-2 lg:mb-4">GraphQL vs REST for AI</h2>
+      <SectionLabel className="mb-6">GraphQL and REST</SectionLabel>
+      <h2 className="typography-h2 mb-2 lg:mb-4">
+        What changes when the API describes itself
+      </h2>
       <p className="typography-body-lg mb-6 max-w-2xl text-pretty text-neu-800">
-        Where GraphQL pays off when AI agents talk to your API.
+        Both can be typed and both can be documented. The difference is where
+        that description lives, and how much of it an agent has to carry.
       </p>
-      {/* Mobile: compact stacked panels */}
-      <div className="md:hidden">
-        {stats.map(stat => (
-          <div
-            key={stat.label}
-            className="border-b border-neu-200 py-3 last:border-b-0 dark:border-neu-100"
-          >
-            <p className="typography-body-sm font-medium text-neu-900">
-              {stat.label}
-            </p>
-            <div className="mt-1 flex items-baseline gap-3">
-              <span className="typography-body-sm font-medium text-sec-dark">
-                {stat.graphQL}{" "}
-                <span className="typography-body-xs text-neu-600">
-                  {stat.graphQLDesc}
-                </span>
-              </span>
-              <span className="typography-body-xs text-neu-400">vs</span>
-              <span className="typography-body-sm text-neu-500">
-                {stat.rest}{" "}
-                <span className="typography-body-xs text-neu-400">
-                  {stat.restDesc}
-                </span>
-              </span>
-            </div>
-            <p className="typography-body-xs mt-1 text-pretty text-neu-600">
-              {stat.explanation}
-            </p>
-          </div>
-        ))}
-      </div>
-      {/* Desktop: table */}
-      <div className="hidden overflow-x-auto md:block">
+      <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
-          <thead>
+          <thead className="max-md:sr-only">
             <tr className="border-b border-neu-200 dark:border-neu-100">
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-500">
-                Metric
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-700">
+                Property
               </th>
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-sec-dark">
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-sec-darker dark:text-sec-light">
                 GraphQL
               </th>
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-500">
-                REST
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-700">
+                REST + OpenAPI
               </th>
-              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-500">
+              <th className="typography-body-xs px-4 py-3 font-medium uppercase tracking-wider text-neu-700">
                 Why
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="max-md:block">
             {stats.map(stat => (
               <tr
                 key={stat.label}
-                className="border-b border-neu-200 align-top dark:border-neu-100"
+                className="border-b border-neu-200 align-top dark:border-neu-100 max-md:block max-md:py-3"
               >
                 <th
                   scope="row"
-                  className="typography-body-sm whitespace-nowrap px-4 py-3 font-medium text-neu-900"
+                  className="typography-body-sm px-4 py-3 text-left font-medium text-neu-900 max-md:block max-md:py-0 md:whitespace-nowrap"
                 >
                   {stat.label}
                 </th>
-                <td className="typography-body-sm whitespace-nowrap px-4 py-3 font-medium text-sec-dark">
+                <td className="typography-body-sm px-4 py-3 font-medium text-sec-darker dark:text-sec-light max-md:block max-md:py-0 md:whitespace-nowrap">
+                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-700 md:hidden">
+                    GraphQL
+                  </span>
                   {stat.graphQL}
-                  <span className="typography-body-xs mt-0.5 block text-neu-600">
+                  <span className="typography-body-xs text-neu-700 max-md:ml-1 md:mt-0.5 md:block">
                     {stat.graphQLDesc}
                   </span>
                 </td>
-                <td className="typography-body-sm whitespace-nowrap px-4 py-3 text-neu-500">
+                <td className="typography-body-sm px-4 py-3 text-neu-800 max-md:block max-md:py-0 md:whitespace-nowrap">
+                  <span className="typography-body-xs mr-1 uppercase tracking-wider text-neu-700 md:hidden">
+                    REST
+                  </span>
                   {stat.rest}
-                  <span className="typography-body-xs mt-0.5 block text-neu-400">
+                  <span className="typography-body-xs text-neu-700 max-md:ml-1 md:mt-0.5 md:block">
                     {stat.restDesc}
                   </span>
                 </td>
-                <td className="typography-body-sm text-pretty px-4 py-3 text-neu-700">
+                <td className="typography-body-sm text-pretty px-4 py-3 text-neu-800 max-md:block max-md:pt-1">
                   {stat.explanation}
                 </td>
               </tr>
@@ -175,12 +112,36 @@ export function ByTheNumbers() {
           </tbody>
         </table>
       </div>
-      <p className="typography-body-xs mt-3 text-neu-500">
-        Both protocols are typed; the gap is in traversal and discoverability,
-        not in whether types exist.
+      <p className="typography-body-xs mt-3 text-neu-700">
+        Both protocols are typed, and both can describe themselves. The gap is
+        in traversal and discoverability, not in whether types exist. Where a
+        task maps cleanly onto one purpose-built endpoint, REST is the simpler
+        thing for an agent to call.
       </p>
 
-      {/* Documentation is part of the schema, queryable via introspection */}
+      <div className="mt-6 border-l-2 border-neu-200 pl-4 dark:border-neu-100">
+        <p className="typography-body-sm max-w-3xl text-pretty text-neu-700">
+          The public numbers we can point at come from Apollo, who report{" "}
+          <Anchor
+            href="https://www.apollographql.com/blog/smart-schema-discovery-how-apollo-mcp-server-maximizes-ai-context-efficiency"
+            className="underline"
+          >
+            around 40% less schema context and 40–75% fewer tool calls
+          </Anchor>{" "}
+          when an MCP server exposes a curated set of operations instead of a
+          whole schema. Those are Apollo&apos;s own measurements of their own
+          server, not an independent benchmark, and they describe tool selection
+          rather than GraphQL against REST.
+        </p>
+        <p className="typography-body-sm mt-2 max-w-3xl text-pretty text-neu-700">
+          If you have reproducible figures for agents against a GraphQL API, the{" "}
+          <Anchor href="https://github.com/graphql/ai-wg" className="underline">
+            AI Working Group
+          </Anchor>{" "}
+          would like to see them, and this page will cite them.
+        </p>
+      </div>
+
       <div className="mt-10">
         <h3 className="typography-h3 mb-2">
           Docs live in the schema — and agents can query them
@@ -198,49 +159,12 @@ export function ByTheNumbers() {
           introspection query — no separate docs file or AGENT.md to point it
           to.
         </p>
-        <style dangerouslySetInnerHTML={{ __html: SYNTAX_CSS }} />
-        <div className="grid gap-px overflow-hidden rounded-xl border border-neu-200 bg-neu-200 dark:border-neu-100 dark:bg-neu-100 lg:grid-cols-3">
-          <CodePane
-            label="Schema (with embedded docs)"
-            code={schemaWithDocs}
-            highlight={highlightGraphQLSchema}
-          />
-          <CodePane
-            label="Introspection query"
-            code={introspectionQuery}
-            highlight={highlightGraphQL}
-          />
-          <CodePane
-            label="Response (docs returned)"
-            code={introspectionResponse}
-            highlight={highlightJSON}
-          />
+        <div className="grid gap-4 lg:grid-cols-3">
+          <NumbersSchemaSnippet />
+          <NumbersIntrospectionSnippet />
+          <NumbersResponseSnippet />
         </div>
       </div>
     </section>
-  )
-}
-
-function CodePane({
-  label,
-  code,
-  highlight,
-}: {
-  label: string
-  code: string
-  highlight: (source: string) => string
-}) {
-  return (
-    <div className="bg-[#1e1e2e]">
-      <div className="border-b border-neu-100/10 px-3 py-1.5">
-        <span className="font-mono text-[11px] text-[#6c7086]">{label}</span>
-      </div>
-      <pre className="overflow-x-auto p-3 font-mono text-[11px] leading-relaxed">
-        <code
-          className="whitespace-pre-wrap"
-          dangerouslySetInnerHTML={{ __html: highlight(code) }}
-        />
-      </pre>
-    </div>
   )
 }

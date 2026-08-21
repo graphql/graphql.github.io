@@ -1,4 +1,4 @@
-"use client"
+import { clsx } from "clsx"
 
 import { SectionLabel } from "@/app/conf/_design-system/section-label"
 import SearchIcon from "@/app/conf/_design-system/pixelarticons/search.svg?svgr"
@@ -6,12 +6,11 @@ import CodeIcon from "@/app/conf/_design-system/pixelarticons/code.svg?svgr"
 import PlayIcon from "@/app/conf/_design-system/pixelarticons/play.svg?svgr"
 import CheckIcon from "@/app/conf/_design-system/pixelarticons/check.svg?svgr"
 import {
-  highlightGraphQL,
-  highlightGraphQLSchema,
-  highlightJSON,
-  highlightPrompt,
-  SYNTAX_CSS,
-} from "./syntax-highlight"
+  StepIntrospectionSnippet,
+  StepPromptSnippet,
+  StepQuerySnippet,
+  StepResponseSnippet,
+} from "./snippets"
 
 const steps = [
   {
@@ -20,10 +19,7 @@ const steps = [
     icon: PlayIcon,
     description:
       'A user gives an AI agent a natural language instruction — "Show me Q4 revenue by region." The agent needs to access business data through an API to fulfill this request.',
-    codeLabel: "User prompt",
-    code: `> Show me Q4 revenue broken down by region
-  for the top 5 performing product categories`,
-    highlight: highlightPrompt,
+    Snippet: StepPromptSnippet,
   },
   {
     number: "02",
@@ -31,23 +27,7 @@ const steps = [
     icon: SearchIcon,
     description:
       "Using GraphQL introspection, the agent queries `__schema` and discovers the available types: `Product`, `Order`, `Region`, `RevenueMetrics`. It learns field names, arguments, and relationships automatically.",
-    codeLabel: "Introspection result → discovered types",
-    code: `type Product {
-  name: String!
-  category: Category!
-}
-type RevenueMetrics {
-  amount: Float!
-  region: Region!
-}
-type Order {
-  product: Product!
-  revenue: RevenueMetrics!
-}
-type Query {
-  orders(from: Date!, to: Date!): [Order!]!
-}`,
-    highlight: highlightGraphQLSchema,
+    Snippet: StepIntrospectionSnippet,
   },
   {
     number: "03",
@@ -55,56 +35,25 @@ type Query {
     icon: CodeIcon,
     description:
       "The LLM maps the user's intent to the discovered schema. It constructs a precise GraphQL query that fetches exactly the right data — revenue by region, top 5 categories, all in a single request — with no over-fetching.",
-    codeLabel: "AI-generated GraphQL query",
-    code: `{
-  orders(from: "2024-10-01", to: "2024-12-31") {
-    product {
-      name
-      category {
-        name
-      }
-    }
-    revenue {
-      region {
-        name
-      }
-      amount
-    }
-  }
-}`,
-    highlight: highlightGraphQL,
+    Snippet: StepQuerySnippet,
   },
   {
     number: "04",
     title: "Structured response returned",
     icon: CheckIcon,
     description:
-      "The API returns typed, predictable JSON that exactly matches the query shape. The agent processes the results with confidence — every field is validated, every type is known. No parsing ambiguity, no hallucinated or missing fields.",
-    codeLabel: "Structured response (JSON)",
-    code: `{
-  "orders": [{
-    "product": {
-      "name": "Widget Pro",
-      "category": {
-        "name": "Electronics"
-      }
-    },
-    "revenue": {
-      "region": {
-        "name": "North America"
-      },
-      "amount": 45230.50
-    }
-  }]
-}`,
-    highlight: highlightJSON,
+      "The response is JSON in the query's shape. A nullable field can still come back null with an `errors` entry, but the agent already knows the shape, so it can use a partial result as-is.",
+    Snippet: StepResponseSnippet,
   },
 ]
 
 export function HowItWorks() {
   return (
-    <section className="overflow-hidden bg-neu-50 dark:bg-neu-50/25">
-      <div className="gql-container gql-section lg:py-16 xl:py-24">
+    <section
+      id="how-it-works"
+      className="overflow-hidden bg-neu-50 dark:bg-neu-50/25"
+    >
+      <div className="gql-container gql-section pb-0 lg:pb-0 lg:pt-16 xl:pb-0 xl:pt-24">
         <SectionLabel className="mb-6">How it works</SectionLabel>
         <h2 className="typography-h2 mb-2 lg:mb-4">
           From natural language
@@ -115,71 +64,47 @@ export function HowItWorks() {
           Here&apos;s what happens when an AI agent uses a GraphQL API to answer
           a real business question — from initial request to typed response.
         </p>
+      </div>
 
-        <style dangerouslySetInnerHTML={{ __html: SYNTAX_CSS }} />
-        <div className="grid gap-px bg-neu-200 dark:bg-neu-100 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <div
-              key={step.number}
-              className="relative flex flex-col bg-neu-0 p-5 lg:p-6 xl:p-8"
-            >
-              {/* Step number + icon */}
-              <div className="flex items-center gap-3">
-                <span className="typography-d1 font-bold leading-none text-pri-base/15">
-                  {step.number}
-                </span>
-                <step.icon className="size-5 shrink-0 text-pri-base" />
-              </div>
-
-              <h3 className="typography-h4 mt-3">{step.title}</h3>
-              <p className="typography-body-sm mt-2 flex-1 text-pretty text-neu-700">
-                {step.description}
-              </p>
-
-              {/* Code snippet */}
-              <div className="mt-4 overflow-hidden rounded-lg border border-neu-200 bg-[#1e1e2e] dark:border-neu-100">
-                <div className="border-b border-neu-100/10 px-3 py-1.5">
-                  <span className="font-mono text-[11px] text-[#6c7086]">
-                    {step.codeLabel}
+      <div className="border-y border-neu-200 dark:border-neu-50">
+        <div className="gql-container px-4 lg:px-12 xl:px-24 3xl:px-[240px]">
+          <div className="grid grid-cols-1 gap-x-px border-x border-neu-200 bg-neu-200 dark:border-neu-50 dark:bg-neu-50 sm:grid-cols-2 xl:grid-cols-4">
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                className={clsx(
+                  "row-span-4 grid min-w-0 grid-cols-1 grid-rows-subgrid overflow-hidden bg-neu-50 dark:bg-[#181914]",
+                  "border-b border-neu-200 dark:border-neu-50 lg:border-b-0",
+                  i === steps.length - 1 && "max-sm:border-b-0",
+                  i >= 2 && "sm:max-lg:border-b-0",
+                )}
+              >
+                <div className="flex items-center justify-between gap-3 px-4 pt-5 sm:px-5">
+                  <span className="typography-d1 font-bold leading-none text-pri-base/15 dark:text-pri-base/20">
+                    {step.number}
                   </span>
+                  <step.icon className="size-6 shrink-0 text-pri-base dark:text-pri-light" />
                 </div>
-                <pre className="overflow-x-auto p-3 font-mono text-[11px] leading-relaxed">
-                  <code
-                    className="whitespace-pre-wrap"
-                    dangerouslySetInnerHTML={{
-                      __html: step.highlight(step.code),
-                    }}
-                  />
-                </pre>
-              </div>
 
-              {/* Connector arrows between steps */}
-              {i < steps.length - 1 && (
-                <>
-                  {/* Horizontal arrow for lg+ */}
-                  <div className="absolute right-0 top-10 z-10 hidden size-6 items-center justify-center rounded-full border-2 border-neu-100 bg-neu-0 dark:border-neu-50 lg:flex">
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 10 10"
-                      className="text-neu-400"
-                    >
-                      <path
-                        d="M2 2 L8 5 L2 8"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  {/* Dot connector for sm (2-col) */}
-                  <div className="absolute right-0 top-1/2 z-10 hidden size-2 -translate-y-1/2 translate-x-1/2 rounded-full border border-neu-200 bg-neu-0 sm:block lg:hidden" />
-                </>
-              )}
-            </div>
-          ))}
+                <h3 className="typography-h4 text-balance px-4 pt-3 sm:px-5">
+                  {step.title}
+                </h3>
+
+                <p className="typography-body-sm text-pretty px-4 pb-4 pt-2 text-neu-700 sm:px-5">
+                  {step.description}
+                </p>
+
+                <div
+                  className={clsx(
+                    "min-w-0 *:bg-neu-0 [&>div>div:first-child]:rounded-none [&>div>div:first-child]:border-x-0 [&_.pre]:rounded-none [&_code]:text-xs [&_pre]:rounded-none [&_pre]:border-x-0 [&_pre]:text-xs",
+                    "lg:flex lg:h-full lg:flex-col lg:[&>div]:flex lg:[&>div]:min-h-0 lg:[&>div]:flex-1 lg:[&>div]:flex-col lg:[&_pre]:min-h-0 lg:[&_pre]:flex-1",
+                  )}
+                >
+                  <step.Snippet />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

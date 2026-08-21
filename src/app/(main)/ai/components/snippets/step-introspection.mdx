@@ -1,0 +1,17 @@
+```graphql filename="Introspection result → discovered types"
+type Product {
+  name: String!
+  category: Category!
+}
+type RevenueMetrics {
+  amount: Float!
+  region: Region!
+}
+type Order {
+  product: Product!
+  revenue: RevenueMetrics!
+}
+type Query {
+  orders(from: Date!, to: Date!): [Order!]!
+}
+```
