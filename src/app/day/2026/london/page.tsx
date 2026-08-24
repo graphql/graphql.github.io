@@ -4,16 +4,20 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
-import {
-  BecomeASpeakerSection,
-  CfpButton,
-} from "../components/become-a-speaker"
 import { EventPartnersSection } from "../components/event-partners"
-import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
+import { EventScheduleSection } from "../components/event-schedule-section"
+import {
+  londonSessions,
+  LONDON_TIMEZONE,
+  LONDON_TIMEZONE_LABEL,
+  tagColors,
+} from "./schedule-data"
+
+const SCHEDULE_ANCHOR = "#schedule"
 
 const MARQUEE_ITEMS = [
   ["LONDON", "SEPTEMBER 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
@@ -49,10 +53,22 @@ export default function LondonPage() {
             >
               Get tickets
             </Button>
-            <CfpButton className="whitespace-nowrap md:w-fit" />
+            <Button
+              href={SCHEDULE_ANCHOR}
+              variant="secondary"
+              className="whitespace-nowrap md:w-fit"
+            >
+              View the schedule
+            </Button>
           </div>
         </Hero>
         <AboutSection />
+        <EventScheduleSection
+          sessions={londonSessions}
+          timezone={LONDON_TIMEZONE}
+          timezoneLabel={LONDON_TIMEZONE_LABEL}
+          tagColors={tagColors}
+        />
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
@@ -60,22 +76,9 @@ export default function LondonPage() {
         />
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
-          <BecomeASpeakerSection />
           <PastSpeakersSection />
           <EventPartnersSection />
           <GallerySection moving />
-          <CtaCardSection
-            title="Stay tuned"
-            description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST London."
-          >
-            <Button
-              href="https://portal.joinfost.io/event/future-of-software-technologies-london-2026/f3ad7d08-6cc8-4e07-9342-9cca27c47ce4"
-              variant="primary"
-              className="whitespace-nowrap"
-            >
-              Get tickets
-            </Button>
-          </CtaCardSection>
           <MarqueeRows
             variant="secondary"
             className="my-8 xl:mb-16 xl:mt-10"

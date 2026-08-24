@@ -114,7 +114,9 @@ function SessionBlock({
         </>
       )}
       {session.speakers.length > 0 && (
-        <div className={sideSpeaker ? "xl:hidden" : undefined}>
+        <div
+          className={sideSpeaker && session.description ? "xl:hidden" : undefined}
+        >
           <Hr />
           <SessionSpeakers
             speakers={session.speakers}
@@ -228,7 +230,7 @@ function SessionHeader({
             <time dateTime={session.start}>
               {dateFormat.format(start)}
               {", "}
-              {timeRange.formatRange(start, end)}
+              {timeRange.format(start)} – {timeRange.format(end)}
             </time>
           </div>
           {session.venue && (
