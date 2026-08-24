@@ -61,7 +61,10 @@ export const londonSessions: EventSession[] = [
         jobtitle: "Senior Founding Software Engineer",
         avatar: davidStuttAvatar,
         socialurls: [
-          { service: "linkedin", url: "https://www.linkedin.com/in/davidstutt" },
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/davidstutt",
+          },
         ],
       },
     ],

@@ -115,7 +115,9 @@ function SessionBlock({
       )}
       {session.speakers.length > 0 && (
         <div
-          className={sideSpeaker && session.description ? "xl:hidden" : undefined}
+          className={
+            sideSpeaker && session.description ? "xl:hidden" : undefined
+          }
         >
           <Hr />
           <SessionSpeakers
