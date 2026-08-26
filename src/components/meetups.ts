@@ -80,19 +80,6 @@ export const meetups = [
   },
   {
     node: {
-      id: "bialystock",
-      name: "GraphQL Białystok",
-      latitude: 53.13,
-      longitude: 23.16,
-      city: "Białystok",
-      state: "",
-      country: "Poland",
-      link: "https://guild.host/graphql-bialystok/",
-      official: true,
-    },
-  },
-  {
-    node: {
       id: "hyderabad",
       name: "GraphQL Hyderabad",
       latitude: 17.41,
@@ -193,6 +180,19 @@ export const meetups = [
       country: "Australia",
       link: "https://luma.com/graphql-sydney",
       official: false,
+    },
+  },
+  {
+    node: {
+      id: "toronto",
+      name: "GraphQL Toronto",
+      latitude: 43.65,
+      longitude: -79.35,
+      city: "Toronto",
+      state: "",
+      country: "Canada",
+      link: "https://guild.host/graphql-toronto",
+      official: true,
     },
   },
 ].sort((a, z) =>
