@@ -86,7 +86,9 @@ export const londonSessions: EventSession[] = [
         company: "Apollo GraphQL",
         jobtitle: "Software Engineer",
         avatar: daleSeoAvatar,
-        socialurls: [],
+        socialurls: [
+          { service: "linkedin", url: "https://www.linkedin.com/in/daleseo" },
+        ],
       },
     ],
   },
