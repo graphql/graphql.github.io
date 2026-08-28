@@ -62,7 +62,7 @@ export function InfoCard({ rows, concise, className }: InfoCardProps) {
   return (
     <div
       className={clsx(
-        "gql-focus-visible group flex w-[240px] flex-col overflow-hidden border border-neu-200 bg-neu-0 text-left text-current no-underline ring-neu-400 dark:border-neu-100 dark:ring-neu-100",
+        "gql-focus-visible group flex w-64 flex-col overflow-hidden border border-neu-200 bg-neu-0 text-left text-current no-underline ring-neu-400 dark:border-neu-100 dark:ring-neu-100",
         className,
       )}
     >

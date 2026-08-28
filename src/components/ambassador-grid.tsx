@@ -13,7 +13,7 @@ function buildRows(ambassador: Ambassador, emeritus: boolean): InfoCardRow[] {
               role="img"
               aria-label={ambassador.location.name}
               title={ambassador.location.name}
-              className="shrink-0 self-center text-xl"
+              className="shrink-0 self-start text-xl"
             >
               {ambassador.location.flag}
             </span>
@@ -41,6 +41,22 @@ function buildRows(ambassador: Ambassador, emeritus: boolean): InfoCardRow[] {
             label: ambassador.organization,
           },
         ]),
+    ...(ambassador.askMeAbout
+      ? [
+          {
+            type: "label" as const,
+            hideInConciseMode: true,
+            label: (
+              <div className="typography-body-md leading-relaxed">
+                <span className="mr-2 bg-sec-light px-1 text-neu-900 dark:bg-sec-darker">
+                  Ask me about
+                </span>
+                {ambassador.askMeAbout.join(", ")}
+              </div>
+            ),
+          },
+        ]
+      : []),
     {
       type: "label",
       hideInConciseMode: true,
@@ -75,7 +91,7 @@ export function AmbassadorGrid({
   emeritus?: boolean
 }) {
   return (
-    <div className="mx-auto mt-10 flex w-full max-w-6xl flex-wrap justify-center gap-8">
+    <div className="mx-auto mt-10 flex w-full max-w-6xl flex-wrap justify-center gap-6">
       {ambassadors.map((ambassador, index) => (
         <InfoCard
           key={`${ambassador.label}-${index}`}
