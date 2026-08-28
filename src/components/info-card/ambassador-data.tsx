@@ -17,6 +17,11 @@ export interface AmbassadorTag {
   icon?: ReactNode
 }
 
+export interface AmbassadorEvent {
+  name: string
+  url: string
+}
+
 export interface Ambassador {
   label: string
   imageUrl: string
@@ -27,6 +32,7 @@ export interface Ambassador {
     name: string
     flag: string
   }
+  organizes?: AmbassadorEvent[]
   askMeAbout?: string[]
 }
 
@@ -256,6 +262,12 @@ export const ambassadors202509: Ambassador[] = [
       name: "United Kingdom",
       flag: "🇬🇧",
     },
+    organizes: [
+      {
+        name: "London GraphQL",
+        url: "https://guild.host/london-graphql",
+      },
+    ],
     askMeAbout: ["GraphQL governance", "Open source sustainability"],
     tags: [
       {

@@ -26,6 +26,30 @@ function buildRows(ambassador: Ambassador): InfoCardRow[] {
       imageUrl: ambassador.imageUrl,
       alt: ambassador.alt,
     },
+    ...(ambassador.organizes
+      ? [
+          {
+            type: "label" as const,
+            hideInConciseMode: true,
+            className: "bg-pri-lightest text-pri-darker dark:text-pri-darker",
+            label: (
+              <div className="typography-body-md flex flex-col leading-relaxed">
+                {ambassador.organizes.map(event => (
+                  <a
+                    key={event.url}
+                    href={event.url}
+                    className="gql-focus-visible underline decoration-pri-dark underline-offset-4 hover:text-pri-base"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {event.name} organizer
+                  </a>
+                ))}
+              </div>
+            ),
+          },
+        ]
+      : []),
     ...(ambassador.askMeAbout
       ? [
           {
