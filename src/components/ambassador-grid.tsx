@@ -5,7 +5,21 @@ function buildRows(ambassador: Ambassador): InfoCardRow[] {
   return [
     {
       type: "label",
-      label: ambassador.label,
+      label: (
+        <>
+          {ambassador.label}
+          {ambassador.location ? (
+            <span
+              role="img"
+              aria-label={ambassador.location.name}
+              title={ambassador.location.name}
+              className="shrink-0 self-center text-xl"
+            >
+              {ambassador.location.flag}
+            </span>
+          ) : null}
+        </>
+      ),
     },
     {
       type: "image",
