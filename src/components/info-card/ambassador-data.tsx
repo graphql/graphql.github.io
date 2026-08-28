@@ -23,6 +23,7 @@ export interface Ambassador {
   alt: string
   organization: string
   tags: AmbassadorTag[]
+  emeritus?: boolean
 }
 
 export const ambassadors202509: Ambassador[] = [
@@ -215,6 +216,7 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/jemgillam.png",
     alt: "Jem Gillam",
     organization: "Graphile",
+    emeritus: true,
     tags: [
       {
         label: "Bluesky",
