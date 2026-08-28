@@ -27,6 +27,7 @@ export interface Ambassador {
     name: string
     flag: string
   }
+  askMeAbout?: string[]
 }
 
 export const ambassadors202509: Ambassador[] = [
@@ -255,6 +256,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United Kingdom",
       flag: "🇬🇧",
     },
+    askMeAbout: ["GraphQL governance", "Open source sustainability"],
     tags: [
       {
         label: "Bluesky",
