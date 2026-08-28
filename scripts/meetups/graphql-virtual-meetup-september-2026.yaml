@@ -1,0 +1,11 @@
+event:
+  name: "GraphQL Virtual Meetup, September 2026"
+  slug: "graphql-virtual-meetup-september-2026"
+  date: "2026-09-22T17:00:00Z"
+  location: "Zoom"
+  eventLink: "https://guild.host/events/graphql-virtual-meetup-zywc3q"
+  host: "GraphQL Foundation"
+
+cfp:
+  deadline: "2026-09-15T23:59:00Z"
+  link: "https://forms.gle/LqQxRV3YB9mrDMwq6"

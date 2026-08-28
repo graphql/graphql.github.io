@@ -12,6 +12,7 @@
     "dev": "next",
     "format": "pnpm format:check --write",
     "format:check": "prettier --cache --check .",
+    "generate:social-banner": "tsx scripts/generate-social-banner.ts",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:docs": "eslint --ignore-path .gitignore src/pages/learn --format stylish",
     "lint:docs:ci": "eslint --ignore-path .gitignore src/pages/learn --format eslint-formatter-github",
@@ -127,7 +128,8 @@
     "remark-lint-first-heading-level": "3.1.2",
     "remark-lint-heading-increment": "3.1.2",
     "tsx": "^4.19.4",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "yaml": "^2.9.0"
   },
   "browserslist": [
     "chrome >0 and last 2.5 years",

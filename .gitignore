@@ -68,5 +68,8 @@ playwright-report/
 
 .pnpm-store/
 
+# Output of scripts/generate-social-banner.ts
+social-banners/
+
 # Personal, per-developer agent instructions
 CLAUDE.local.md
