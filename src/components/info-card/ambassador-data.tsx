@@ -48,6 +48,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "Poland",
       flag: "🇵🇱",
     },
+    askMeAbout: ["GraphQL Editor", "GraphQL Zeus", "schema design"],
     tags: [
       {
         label: "Bluesky",
@@ -77,6 +78,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "Australia",
       flag: "🇦🇺",
     },
+    askMeAbout: ["GraphQL Java", "open source"],
     tags: [
       {
         label: "GitHub",
@@ -99,6 +101,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "Israel",
       flag: "🇮🇱",
     },
+    askMeAbout: ["GraphQL Yoga", "federation"],
     tags: [
       {
         label: "GitHub",
@@ -121,6 +124,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "Australia",
       flag: "🇦🇺",
     },
+    askMeAbout: ["GraphQL Code Generator", "type safety"],
     tags: [
       {
         label: "GitHub",
@@ -153,6 +157,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "Germany",
       flag: "🇩🇪",
     },
+    askMeAbout: ["Python GraphQL", "Strawberry GraphQL", "GraphQL & AI"],
     tags: [
       {
         label: "GitHub",
@@ -175,6 +180,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["error handling", "GraphQL at scale", "nullability"],
     tags: [
       {
         label: "Facebook",
@@ -202,6 +208,11 @@ export const ambassadors202509: Ambassador[] = [
       name: "United Kingdom",
       flag: "🇬🇧",
     },
+    askMeAbout: [
+      "developer tooling",
+      "GraphQL at the edge",
+      "GraphQL education",
+    ],
     tags: [
       {
         label: "GitHub",
@@ -234,6 +245,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["GraphQL clients", "GraphQL governance", "schema design"],
     tags: [
       {
         label: "Bluesky",
@@ -272,7 +284,7 @@ export const ambassadors202509: Ambassador[] = [
         url: "https://guild.host/london-graphql",
       },
     ],
-    askMeAbout: ["GraphQL governance", "Open source sustainability"],
+    askMeAbout: ["GraphQL governance", "open source"],
     tags: [
       {
         label: "Bluesky",
@@ -300,6 +312,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["Grats", "Relay", "nullability"],
     tags: [
       {
         label: "GitHub",
@@ -334,6 +347,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "Belgium",
       flag: "🇧🇪",
     },
+    askMeAbout: ["gql.tada", "urql"],
     tags: [
       {
         label: "GitHub",
@@ -368,6 +382,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "Canada",
       flag: "🇨🇦",
     },
+    askMeAbout: ["API architecture", "GraphQL at scale", "production GraphQL"],
     tags: [
       {
         label: "BlueSky",
@@ -402,6 +417,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["enterprise GraphQL", "GraphQL & AI", "schema design"],
     tags: [
       {
         label: "BlueSky",
@@ -429,6 +445,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United Kingdom",
       flag: "🇬🇧",
     },
+    askMeAbout: ["Strawberry GraphQL", "code-first GraphQL, type safety"],
     tags: [
       {
         label: "BlueSky",
@@ -458,6 +475,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United Kingdom",
       flag: "🇬🇧",
     },
+    askMeAbout: ["gql.tada", "urql"],
     tags: [
       {
         label: "BlueSky",
@@ -490,6 +508,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["developer experience", "GraphQL education"],
     tags: [
       {
         label: "LinkedIn",
@@ -507,6 +526,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["GraphQL & AI", "GraphQL at scale", "nullability"],
     tags: [
       {
         label: "GitHub",
@@ -536,6 +556,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United Kingdom",
       flag: "🇬🇧",
     },
+    askMeAbout: ["community building", "production GraphQL"],
     tags: [
       {
         label: "GitHub",
@@ -558,6 +579,7 @@ export const ambassadors202509: Ambassador[] = [
       name: "United Kingdom",
       flag: "🇬🇧",
     },
+    askMeAbout: ["GraphQL Network Inspector", "debugging", "developer tooling"],
     tags: [
       {
         label: "LinkedIn",
@@ -583,6 +605,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "Netherlands",
       flag: "🇳🇱",
     },
+    askMeAbout: ["enterprise GraphQL", "federation", "GraphQL at scale"],
     tags: [
       {
         label: "GitHub",
@@ -605,6 +628,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "France",
       flag: "🇫🇷",
     },
+    askMeAbout: ["API migration", "GraphQL education", "public APIs"],
     tags: [
       {
         label: "GitHub",
@@ -632,6 +656,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
+    askMeAbout: ["GraphQL & AI", "GraphQL education"],
     tags: [
       {
         label: "LinkedIn",
@@ -649,6 +674,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["Apollo Federation", "GraphQL testing"],
     tags: [
       {
         label: "Bluesky",
@@ -681,6 +707,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "Israel",
       flag: "🇮🇱",
     },
+    askMeAbout: ["GraphQL Mesh", "API integration", "federation"],
     tags: [
       {
         label: "GitHub",
@@ -708,6 +735,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "Denmark",
       flag: "🇩🇰",
     },
+    askMeAbout: ["data modelling", "GraphQL at scale", "schema tooling"],
     tags: [
       {
         label: "LinkedIn",
@@ -725,6 +753,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
+    askMeAbout: ["GraphQL education"],
     tags: [
       {
         label: "GitHub",
@@ -747,6 +776,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "Germany",
       flag: "🇩🇪",
     },
+    askMeAbout: ["GraphQL Hive", "schema evolution"],
     tags: [
       {
         label: "GitHub",
@@ -774,6 +804,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "Germany",
       flag: "🇩🇪",
     },
+    askMeAbout: ["Apollo Client", "GraphQL clients"],
     tags: [
       {
         label: "Bluesky",
@@ -806,6 +837,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
+    askMeAbout: ["API design", "developer experience", "schema evolution"],
     tags: [
       {
         label: "GitHub",
@@ -828,6 +860,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    askMeAbout: ["data consistency", "GraphQL clients", "pagination"],
     tags: [
       {
         label: "GitHub",
@@ -850,6 +883,7 @@ export const ambassadors202512: Ambassador[] = [
       name: "France",
       flag: "🇫🇷",
     },
+    askMeAbout: ["GraphQL Gateway", "GraphQL Mesh", "GraphQL Yoga"],
     tags: [
       {
         label: "GitHub",
@@ -875,6 +909,7 @@ export const ambassadors202603: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
+    askMeAbout: ["developer advocacy", "GraphQL & AI"],
     tags: [
       {
         label: "LinkedIn",
@@ -897,6 +932,7 @@ export const ambassadors202603: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
+    askMeAbout: ["student outreach"],
     tags: [
       {
         label: "GitHub",
@@ -924,6 +960,7 @@ export const ambassadors202603: Ambassador[] = [
       name: "Canada",
       flag: "🇨🇦",
     },
+    askMeAbout: ["caching", "federation", "GraphQL tooling"],
     tags: [
       {
         label: "GitHub",
@@ -946,6 +983,7 @@ export const ambassadors202603: Ambassador[] = [
       name: "Ukraine",
       flag: "🇺🇦",
     },
+    askMeAbout: ["GraphQL Voyager", "GraphQL specification", "GraphQL tooling"],
     tags: [
       {
         label: "GitHub",
@@ -971,6 +1009,7 @@ export const ambassadors202606: Ambassador[] = [
       name: "Netherlands",
       flag: "🇳🇱",
     },
+    askMeAbout: ["enterprise GraphQL", "federation", "schema evolution"],
     tags: [
       {
         label: "LinkedIn",
@@ -988,6 +1027,7 @@ export const ambassadors202606: Ambassador[] = [
       name: "Ireland",
       flag: "🇮🇪",
     },
+    askMeAbout: ["Spring for GraphQL", "API design", "GraphQL & AI"],
     tags: [
       {
         label: "LinkedIn",
