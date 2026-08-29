@@ -1,7 +1,7 @@
 import type { Ambassador } from "./info-card/ambassador-data"
 import { InfoCard, InfoCardRow } from "./info-card"
 
-function buildRows(ambassador: Ambassador): InfoCardRow[] {
+function buildRows(ambassador: Ambassador, emeritus: boolean): InfoCardRow[] {
   return [
     {
       type: "label",
@@ -12,10 +12,21 @@ function buildRows(ambassador: Ambassador): InfoCardRow[] {
       imageUrl: ambassador.imageUrl,
       alt: ambassador.alt,
     },
-    {
-      type: "label",
-      label: ambassador.organization,
-    },
+    ...(emeritus
+      ? ambassador.term
+        ? [
+            {
+              type: "label" as const,
+              label: `Term: ${ambassador.term}`,
+            },
+          ]
+        : []
+      : [
+          {
+            type: "label" as const,
+            label: ambassador.organization,
+          },
+        ]),
     {
       type: "label",
       hideInConciseMode: true,
@@ -43,18 +54,20 @@ function buildRows(ambassador: Ambassador): InfoCardRow[] {
 export function AmbassadorGrid({
   ambassadors,
   concise,
+  emeritus = false,
 }: {
   ambassadors: Ambassador[]
   concise?: boolean
+  emeritus?: boolean
 }) {
   return (
     <div className="mx-auto mt-10 flex w-full max-w-6xl flex-wrap justify-center gap-8">
       {ambassadors.map((ambassador, index) => (
         <InfoCard
           key={`${ambassador.label}-${index}`}
-          rows={buildRows(ambassador)}
+          rows={buildRows(ambassador, emeritus)}
           className="h-full"
-          concise={concise}
+          concise={concise || emeritus}
         />
       ))}
     </div>

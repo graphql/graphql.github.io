@@ -24,6 +24,7 @@ export interface Ambassador {
   organization: string
   tags: AmbassadorTag[]
   emeritus?: boolean
+  term?: string
 }
 
 export const ambassadors202509: Ambassador[] = [
@@ -55,6 +56,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/donna-zhou.jpg",
     alt: "Donna Zhou",
     organization: "GraphQL Java",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "GitHub",
@@ -216,7 +219,6 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/jemgillam.png",
     alt: "Jem Gillam",
     organization: "Graphile",
-    emeritus: true,
     tags: [
       {
         label: "Bluesky",
@@ -268,6 +270,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/jovidecroock.png",
     alt: "Jovi De Croock",
     organization: "GraphQL.js",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "GitHub",
@@ -296,6 +300,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/xuorig.png",
     alt: "Marc-Andre Giroux",
     organization: "Netflix",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "BlueSky",
@@ -324,6 +330,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/michael-watson.png",
     alt: "Michael Watson",
     organization: "Independent",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "BlueSky",
@@ -370,6 +378,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/kitten.png",
     alt: "Phil Pluckthun",
     organization: "urql & gql.tada",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "BlueSky",
@@ -434,6 +444,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/tazsingh.png",
     alt: "Taz Singh",
     organization: "Guild",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "GitHub",
