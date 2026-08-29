@@ -33,7 +33,7 @@ function buildRows(ambassador: Ambassador): InfoCardRow[] {
             hideInConciseMode: true,
             className: "bg-pri-lightest text-pri-darker dark:text-pri-darker",
             label: (
-              <div className="typography-body-md flex flex-col leading-relaxed">
+              <div className="typography-body-sm flex flex-col whitespace-nowrap leading-relaxed">
                 {ambassador.organizes.map(event => (
                   <a
                     key={event.url}

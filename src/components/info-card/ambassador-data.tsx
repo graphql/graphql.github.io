@@ -241,6 +241,12 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    organizes: [
+      {
+        name: "GraphQL Virtual",
+        url: "https://guild.host/graphql-virtual",
+      },
+    ],
     askMeAbout: ["GraphQL clients", "GraphQL governance", "schema design"],
     tags: [
       {
@@ -496,6 +502,12 @@ export const ambassadors202509: Ambassador[] = [
       name: "United States",
       flag: "🇺🇸",
     },
+    organizes: [
+      {
+        name: "Philly GraphQL",
+        url: "https://luma.com/phillygraphql",
+      },
+    ],
     askMeAbout: ["developer experience", "GraphQL education"],
     tags: [
       {
@@ -591,6 +603,12 @@ export const ambassadors202512: Ambassador[] = [
       name: "Netherlands",
       flag: "🇳🇱",
     },
+    organizes: [
+      {
+        name: "GraphQL Amsterdam",
+        url: "https://www.meetup.com/amsterdam-graphql-meetup",
+      },
+    ],
     askMeAbout: ["enterprise GraphQL", "federation", "GraphQL at scale"],
     tags: [
       {
@@ -642,6 +660,12 @@ export const ambassadors202512: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
+    organizes: [
+      {
+        name: "GraphQL Hyderabad",
+        url: "https://guild.host/graphql-hyderabad/",
+      },
+    ],
     askMeAbout: ["GraphQL & AI", "GraphQL education"],
     tags: [
       {
@@ -739,6 +763,12 @@ export const ambassadors202512: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
+    organizes: [
+      {
+        name: "GraphQL Hyderabad",
+        url: "https://guild.host/graphql-hyderabad",
+      },
+    ],
     askMeAbout: ["GraphQL education"],
     tags: [
       {
@@ -946,6 +976,12 @@ export const ambassadors202603: Ambassador[] = [
       name: "Canada",
       flag: "🇨🇦",
     },
+    organizes: [
+      {
+        name: "GraphQL Toronto",
+        url: "https://guild.host/graphql-toronto",
+      },
+    ],
     askMeAbout: ["caching", "federation", "GraphQL tooling"],
     tags: [
       {
@@ -995,6 +1031,12 @@ export const ambassadors202606: Ambassador[] = [
       name: "Netherlands",
       flag: "🇳🇱",
     },
+    organizes: [
+      {
+        name: "GraphQL Amsterdam",
+        url: "https://www.meetup.com/amsterdam-graphql-meetup",
+      },
+    ],
     askMeAbout: ["enterprise GraphQL", "federation", "schema evolution"],
     tags: [
       {
