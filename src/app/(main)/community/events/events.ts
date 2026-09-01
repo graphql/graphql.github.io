@@ -1,3 +1,5 @@
+import type { EventKind } from "./event-filter-tag"
+
 export * from "./event-card"
 
 export interface Event {
@@ -9,9 +11,28 @@ export interface Event {
   eventLink: string
   host: string
   hostLink?: string
+  kind?: EventKind
 }
 
-export const events: Event[] = [
+const allEvents: Event[] = [
+  {
+    name: "Apollo Summit 2026",
+    slug: "apollo-summit-2026",
+    location: "San Francisco",
+    date: "2026-10-06T17:00:00-07:00",
+    eventLink: "https://apollosummit.dev/",
+    host: "Apollo GraphQL",
+    hostLink: "https://www.apollographql.com",
+  },
+  {
+    name: "GraphQL Virtual Meetup, September 2026",
+    slug: "graphql-virtual-meetup-september-2026",
+    location: "Zoom",
+    date: "2026-09-22T17:00:00Z",
+    eventLink: "https://guild.host/events/graphql-virtual-meetup-zywc3q",
+    host: "GraphQL Foundation",
+    kind: "meetup",
+  },
   {
     name: "GraphQL Day at FOST London",
     slug: "graphql-day-fost-london-2026",
@@ -236,4 +257,8 @@ export const events: Event[] = [
     host: "True Digital Park",
     hostLink: "https://www.truedigitalpark.com/",
   },
-].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+]
+
+export const events = allEvents.sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+)
