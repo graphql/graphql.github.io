@@ -12,7 +12,7 @@ export function Hero() {
       <div className="gql-container flex flex-col-reverse lg:grid lg:grid-cols-2">
         <div className="flex max-w-4xl flex-col justify-center gap-4 p-4 lg:min-h-[800px] xl:gap-8 xl:py-24 xl:pl-24 xl:pr-10">
           <h1 className="typography-h1 max-w-3xl text-neu-900">
-            The query language for modern APIs
+            The API language for humans and agents
           </h1>
 
           <ul className="flex flex-col gap-2">
