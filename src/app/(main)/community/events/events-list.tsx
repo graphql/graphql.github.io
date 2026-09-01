@@ -61,6 +61,7 @@ type AnyEvent = Event | CalendarEvent
 const DEFAULT_VISIBILITY = {
   conference: true,
   meetup: true,
+  workshop: true,
   "working-group": true,
   "foundation-meeting": true,
 } satisfies Record<EventKind, boolean>
@@ -185,6 +186,7 @@ export function EventsList({
     const target = {
       conference: majorEvents,
       meetup: majorEvents,
+      workshop: majorEvents,
       "working-group": minorEvents,
       "foundation-meeting": minorEvents,
     } satisfies { [kind in EventKind]: AnyEvent[] }
