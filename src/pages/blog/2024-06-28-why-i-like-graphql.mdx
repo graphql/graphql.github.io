@@ -1,0 +1,92 @@
+---
+title: "Why, after 8 years, I still like GraphQL"
+tags: ["in-production"]
+date: 2024-06-28
+byline: Marc-André Giroux, edited by Jeff Auriemma
+---
+
+_This is a guest post outlining GraphQL TSC emeritus Marc-André Giroux's thoughts on practices and principles engineers should consider when using GraphQL in production. Though the [original publication](https://www.magiroux.com/eight-years-of-graphql/) was intended to respond to a specific article, we at the GraphQL Foundation felt that Marc-André's well-informed opinions would stand well on their own with a little light editing._
+
+## Use Persisted Queries
+
+Let's start with something maybe a little bold: **Persisted Queries are basically essential for building a solid GraphQL API**. If you are not using them, you're doing GraphQL on hard mode. It's not impossible, but it leads to difficult problems that show up in GraphQL debates from time to time. After 8 years of GraphQL, this has only gotten more and more important to me. Persist all queries, as soon as possible in your GraphQL journey. You'll thank yourself later.
+
+Public APIs are a bit different.  To be clear, it's not necessarily true that you can't use Persisted Queries in public APIs; one could ask customers to register queries first. But figuring out the DX for this would be an interesting task. That's why [We Don’t See Many Public GraphQL APIs](https://productionreadygraphql.com/blog/2019-10-21-why-we-dont-see-many-public-graphql-apis) out there, and why I would not pick GraphQL if I were to expose a public API today.
+
+For a public API, a coarser-grained, resource-based API works great, and can be described through OpenAPI. SDKs can be generated through amazing tools like [Kiota](https://learn.microsoft.com/en-us/openapi/kiota/overview). It's hard to beat a well-made SDK for a public API, and in my experience, that's actually what customers expect and want to use.
+
+## Authorization
+
+Authorization is a challenge with GraphQL. The thing is it's almost always challenging no matter what API style you use. I'd go as far as saying it is a challenge with designing software in general. Here's an example from a recent post that highlights this very well:
+
+```graphql
+query {
+  user(id: 321) {
+    handle # ✅ I am allowed to view Users public info
+    email # 🛑 I shouldn't be able to see their PII just because I can view the User
+  }
+  user(id: 123) {
+    blockedUsers {
+      # 🛑 And sometimes I shouldn't even be able to see their public info,
+      # because context matters!
+      handle
+    }
+  }
+}
+```
+
+`handle` and `email` both have different authorization rules. This is actually quite tricky to handle with a `GET /user/:id` endpoint as well. There's really nothing that makes GraphQL harder here. Yes when fine-grained authorization is needed, you'll need fine-grained authorization checks at that level.
+
+```graphql
+user(id: 123) {
+  blockedUsers {
+    # 🛑 And sometimes I shouldn't even be able to see their public info,
+    # because context matters!
+    handle
+  }
+}
+```
+
+This part is interesting as well and another challenge of authorizing code and models in general. The same "object" accessed through different contexts can actually have different authorization rules. Again, this is common in all API styles as well. That's why I actually usually advise designing this through a different model entirely, since it's likely they'll evolve differently. Here this is even possibly an API design mistake instead. If `handle` should never be seen for `blockedUsers`, then it shouldn't even be part of the schema here. This is a super common mistake where folks try to reuse common models/types instead of being specific.
+
+After 8 years of GraphQL, I realize more and more that authorization is much more than a GraphQL problem. The API layer part is easy, but most code-bases are much more complex and must guard against unauthorized access in much better ways. Companies like [oso](https://www.osohq.com/) and [authzed](https://authzed.com/) and two great examples of how to do this well but also how complex this thing can be in general.
+
+## Demand Control
+
+We cannot assume that all requests are equally hard on the server, whether we're using GraphQL or not.  The truth is that no matter what API style you use, whether that's a binary protocol over UDP or GraphQL, it is extremely rare, especially as the API surface grows, that all use-cases and "requests" will be equally expensive for a server to process.
+
+A very easy example to show this is simply a paginated endpoint:
+
+```
+GET /users?first=100
+
+GET /users?first=1
+```
+
+Or super expensive mutations:
+
+```
+POST /expensive-creation
+```
+
+To be 100% fair, of course GraphQL exposes this problem a bit more, earlier on, especially when not using persisted queries (Which should not happen!). And while folks building a small RPC API may not need to implement variable rate limiting or some sort of cost categories, they almost always end up having to.
+
+And again: this focuses on public, unauthenticated public APIs. I think we can agree this is not [GraphQL's Sweet Spot](https://productionreadygraphql.com/blog/2020-05-14-sweetspot).
+
+## Performance
+
+Many GraphQL critics talk about the N+1 problem and DataLoader. It's true that a GraphQL API must be ready for many query shapes and use cases. It is wise to implement efficient data loader for most fields through dataloaders. In fact, that's why I don't recommend using datafetching techniques that are overly coupled to the query shape, things like AST analysis, lookaheads, and things using context from sibling or parent fields.  But an honest observer should acknowledge that this is a problem with REST as well. As the complexity of an endpoint or operation increases, an engineer should expect to have to make more trade-offs in the name of performance.
+
+Overall I think dataloader is a requirement for GraphQL, and I agree with critics that it's part of the slight complexity add for a GraphQL API, even simple ones. Authorization N+1s are also an issue, though, again, REST has these issues as well.
+
+## Breaking Changes vs. Continuous Evolution
+
+One of the biggest "culture shocks" of adopting GraphQL is the concept of continuous evolution.  Because GraphQL has primitives for deprecating and aliasing fields, the notion of backwards compatibility becomes gray instead of black-and-white.  Want to add a field?  Great, do it.  Want to remove a field?  Add `@deprecated` and gradually stop querying them, eventually removing the field altogether.
+
+Arguably one of GraphQL's most powerful tool is around continuous evolution. The fact the client declaratively selects the API surface it is interested in means we can track with very high precision how our API is used. This allows us to actually **avoid** breaking changes, and make removals safely on fine grained parts of the schema.
+
+Breaking changes and deprecations suck. We all try to avoid them, and yes it's annoying for clients. But if anything GraphQL makes this easier, not harder.
+
+## Conclusion
+
+After 8 years of GraphQL, I still enjoy the decoupling a GraphQL schema offers between server-side capabilities and client-side requirements, but am aware of the trade-offs when picking it as a technology.  Definitely persist your queries.  Definitely build a public GraphQL API only if you really know what you're doing.  Many critiques of GraphQL apply to any sufficiently complex API, there are no silver bullets in software engineering.
