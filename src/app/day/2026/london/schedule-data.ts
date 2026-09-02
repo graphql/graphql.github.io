@@ -3,6 +3,7 @@ import ivanJancicAvatar from "./speakers/ivan-jancic.webp"
 import davidStuttAvatar from "./speakers/david-stutt.jpg"
 import daleSeoAvatar from "./speakers/dale-seo.jpg"
 import zeljkoKozinaAvatar from "./speakers/zeljko-kozina.jpg"
+import vanessaJohnsonAvatar from "./speakers/vanessa-johnson.jpg"
 
 import type { EventSession } from "../components/event-schedule-section"
 
@@ -14,6 +15,7 @@ export const tagColors: Record<string, string> = {
   "AI Agents": "#7e66cc",
   Federation: "#FC8251",
   "Error Handling": "#36C1A0",
+  Accessibility: "#E0559B",
 }
 
 export const londonSessions: EventSession[] = [
@@ -95,13 +97,29 @@ export const londonSessions: EventSession[] = [
   {
     id: 4004,
     uuid: "0d452c7b-b0a5-4021-ae49-46f3d75da007",
-    title: "TBA",
+    title:
+      "Server Assisted Accessibility: Embedding UI Semantics Into Your GraphQL Schema + CI",
     start: "2026-10-01T11:30:00+01:00",
     end: "2026-10-01T11:55:00+01:00",
-    tags: [],
-    description: "<p>Full abstract coming soon.</p>",
+    tags: ["GraphQL", "Accessibility"],
+    description:
+      "<p>Accessibility is often an afterthought or is left until the last milestone before a feature ships. What if we shifted that left? This talk showcases a sandbox idea: embedding accessibility metadata directly into GraphQL schemas using custom directives and code generation. This enables clients (Android, iOS, and web) to get accessible defaults from day one.</p>\n<p>We'll cover the directive design, how to expose metadata in generated types, and how frontends like Jetpack Compose or SwiftUI consume it. We'll walk through a practical, low friction approach: adding CI friendly validation that catches common contract regressions before changes ship, such as missing required metadata, invalid values, and template drift.</p>\n<p>You'll leave with schema snippets you can copy & paste, strategies to introduce this in your own APIs, and a blueprint for making accessibility part of your developer experience. A repository with working code examples will be provided.</p>\n",
     venue: "",
-    speakers: [],
+    speakers: [
+      {
+        id: 4104,
+        name: "Vanessa Johnson",
+        company: "The New York Times",
+        jobtitle: "Android Engineer",
+        avatar: vanessaJohnsonAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/vanessa-johnson999/",
+          },
+        ],
+      },
+    ],
   },
   {
     id: 4005,
