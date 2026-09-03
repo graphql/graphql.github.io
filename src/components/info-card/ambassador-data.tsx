@@ -17,12 +17,23 @@ export interface AmbassadorTag {
   icon?: ReactNode
 }
 
+export interface AmbassadorEvent {
+  name: string
+  url: string
+}
+
 export interface Ambassador {
   label: string
   imageUrl: string
   alt: string
   organization: string
   tags: AmbassadorTag[]
+  location?: {
+    name: string
+    flag: string
+  }
+  organizes?: AmbassadorEvent[]
+  askMeAbout?: string[]
 }
 
 export const ambassadors202509: Ambassador[] = [
@@ -31,6 +42,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/aexol.png",
     alt: "Artur Czemiel",
     organization: "GraphQL Editor",
+    location: {
+      name: "Poland",
+      flag: "🇵🇱",
+    },
+    askMeAbout: ["GraphQL Editor", "GraphQL Zeus", "schema design"],
     tags: [
       {
         label: "Bluesky",
@@ -54,6 +70,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/donna-zhou.jpg",
     alt: "Donna Zhou",
     organization: "GraphQL Java",
+    location: {
+      name: "Australia",
+      flag: "🇦🇺",
+    },
+    askMeAbout: ["GraphQL Java", "open source"],
     tags: [
       {
         label: "GitHub",
@@ -72,6 +93,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/dotansimha.png",
     alt: "Dotan Simha",
     organization: "The Guild",
+    location: {
+      name: "Israel",
+      flag: "🇮🇱",
+    },
+    askMeAbout: ["GraphQL Yoga", "federation"],
     tags: [
       {
         label: "GitHub",
@@ -90,6 +116,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/eddeee888.png",
     alt: "Eddy Nguyen",
     organization: "Code Generator",
+    location: {
+      name: "Australia",
+      flag: "🇦🇺",
+    },
+    askMeAbout: ["GraphQL Code Generator", "type safety"],
     tags: [
       {
         label: "GitHub",
@@ -118,6 +149,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/erikwrede.png",
     alt: "Erik Wrede",
     organization: "Strawberry GraphQL",
+    location: {
+      name: "Germany",
+      flag: "🇩🇪",
+    },
+    askMeAbout: ["Python GraphQL", "Strawberry GraphQL", "GraphQL & AI"],
     tags: [
       {
         label: "GitHub",
@@ -136,6 +172,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/itamar-kestenbaum.jpg",
     alt: "Itamar Kestenbaum",
     organization: "Meta Platforms",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    askMeAbout: ["error handling", "GraphQL at scale", "nullability"],
     tags: [
       {
         label: "Facebook",
@@ -159,6 +200,15 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/jamie-barton.jpg",
     alt: "Jamie Barton",
     organization: "CartQL",
+    location: {
+      name: "United Kingdom",
+      flag: "🇬🇧",
+    },
+    askMeAbout: [
+      "developer tooling",
+      "GraphQL at the edge",
+      "GraphQL education",
+    ],
     tags: [
       {
         label: "GitHub",
@@ -187,6 +237,17 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/jeff-auriemma.jpg",
     alt: "Jeff Auriemma",
     organization: "Apollo",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    organizes: [
+      {
+        name: "GraphQL Virtual",
+        url: "https://guild.host/graphql-virtual",
+      },
+    ],
+    askMeAbout: ["GraphQL clients", "GraphQL governance", "schema design"],
     tags: [
       {
         label: "Bluesky",
@@ -215,6 +276,17 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/jemgillam.png",
     alt: "Jem Gillam",
     organization: "Graphile",
+    location: {
+      name: "United Kingdom",
+      flag: "🇬🇧",
+    },
+    organizes: [
+      {
+        name: "London GraphQL",
+        url: "https://guild.host/london-graphql",
+      },
+    ],
+    askMeAbout: ["GraphQL governance", "open source"],
     tags: [
       {
         label: "Bluesky",
@@ -238,6 +310,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/captbaritone.png",
     alt: "Jordan Eldredge",
     organization: "Meta",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    askMeAbout: ["Grats", "Relay", "nullability"],
     tags: [
       {
         label: "GitHub",
@@ -266,6 +343,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/jovidecroock.png",
     alt: "Jovi De Croock",
     organization: "GraphQL.js",
+    location: {
+      name: "Belgium",
+      flag: "🇧🇪",
+    },
+    askMeAbout: ["gql.tada", "urql"],
     tags: [
       {
         label: "GitHub",
@@ -294,6 +376,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/xuorig.png",
     alt: "Marc-Andre Giroux",
     organization: "Netflix",
+    location: {
+      name: "Canada",
+      flag: "🇨🇦",
+    },
+    askMeAbout: ["API architecture", "GraphQL at scale", "production GraphQL"],
     tags: [
       {
         label: "BlueSky",
@@ -322,6 +409,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/michael-watson.png",
     alt: "Michael Watson",
     organization: "Independent",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    askMeAbout: ["enterprise GraphQL", "GraphQL & AI", "schema design"],
     tags: [
       {
         label: "BlueSky",
@@ -345,6 +437,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/patrick91.png",
     alt: "Patrick Arminio",
     organization: "Strawberry GraphQL",
+    location: {
+      name: "United Kingdom",
+      flag: "🇬🇧",
+    },
+    askMeAbout: ["Strawberry GraphQL", "code-first GraphQL, type safety"],
     tags: [
       {
         label: "BlueSky",
@@ -368,6 +465,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/kitten.png",
     alt: "Phil Pluckthun",
     organization: "urql & gql.tada",
+    location: {
+      name: "United Kingdom",
+      flag: "🇬🇧",
+    },
+    askMeAbout: ["gql.tada", "urql"],
     tags: [
       {
         label: "BlueSky",
@@ -396,6 +498,17 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/sarah-sanders.jpg",
     alt: "Sarah Sanders",
     organization: "PostHog",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    organizes: [
+      {
+        name: "Philly GraphQL",
+        url: "https://luma.com/phillygraphql",
+      },
+    ],
+    askMeAbout: ["developer experience", "GraphQL education"],
     tags: [
       {
         label: "LinkedIn",
@@ -409,6 +522,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/fotoetienne.png",
     alt: "Stephen Spalding",
     organization: "Netflix",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    askMeAbout: ["GraphQL & AI", "GraphQL at scale", "nullability"],
     tags: [
       {
         label: "GitHub",
@@ -432,6 +550,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/tazsingh.png",
     alt: "Taz Singh",
     organization: "Guild",
+    location: {
+      name: "United Kingdom",
+      flag: "🇬🇧",
+    },
+    askMeAbout: ["community building", "production GraphQL"],
     tags: [
       {
         label: "GitHub",
@@ -450,6 +573,11 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/warren-day.jpeg",
     alt: "Warren Day",
     organization: "Overstacked",
+    location: {
+      name: "United Kingdom",
+      flag: "🇬🇧",
+    },
+    askMeAbout: ["GraphQL Network Inspector", "debugging", "developer tooling"],
     tags: [
       {
         label: "LinkedIn",
@@ -471,6 +599,17 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "https://github.com/vliegveld5.png",
     alt: "An Ngo",
     organization: "bol",
+    location: {
+      name: "Netherlands",
+      flag: "🇳🇱",
+    },
+    organizes: [
+      {
+        name: "GraphQL Amsterdam",
+        url: "https://www.meetup.com/amsterdam-graphql-meetup",
+      },
+    ],
+    askMeAbout: ["enterprise GraphQL", "federation", "GraphQL at scale"],
     tags: [
       {
         label: "GitHub",
@@ -489,6 +628,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "https://github.com/spyl94.png",
     alt: "Aurélien David",
     organization: "Pennylane",
+    location: {
+      name: "France",
+      flag: "🇫🇷",
+    },
+    askMeAbout: ["API migration", "GraphQL education", "public APIs"],
     tags: [
       {
         label: "GitHub",
@@ -512,6 +656,17 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "/img/ambassadors/chanda-raj-kumar.jpg",
     alt: "Chanda Raj Kumar",
     organization: "KL University Hyderabad",
+    location: {
+      name: "India",
+      flag: "🇮🇳",
+    },
+    organizes: [
+      {
+        name: "GraphQL Hyderabad",
+        url: "https://guild.host/graphql-hyderabad/",
+      },
+    ],
+    askMeAbout: ["GraphQL & AI", "GraphQL education"],
     tags: [
       {
         label: "LinkedIn",
@@ -525,6 +680,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "https://github.com/dariuszkuc.png",
     alt: "Derek Kuc",
     organization: "Apollo",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    askMeAbout: ["Apollo Federation", "GraphQL testing"],
     tags: [
       {
         label: "Bluesky",
@@ -553,6 +713,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "https://github.com/gilgardosh.png",
     alt: "Gil Gardosh",
     organization: "The Guild",
+    location: {
+      name: "Israel",
+      flag: "🇮🇱",
+    },
+    askMeAbout: ["GraphQL Mesh", "API integration", "federation"],
     tags: [
       {
         label: "GitHub",
@@ -576,6 +741,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "/img/ambassadors/giuseppe-abrignani.jpg",
     alt: "Giuseppe Abrignani",
     organization: "Oranj Tech",
+    location: {
+      name: "Denmark",
+      flag: "🇩🇰",
+    },
+    askMeAbout: ["data modelling", "GraphQL at scale", "schema tooling"],
     tags: [
       {
         label: "LinkedIn",
@@ -589,6 +759,17 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "/img/ambassadors/jayant-acharya.jpg",
     alt: "Jayant Acharya",
     organization: "Techsophy",
+    location: {
+      name: "India",
+      flag: "🇮🇳",
+    },
+    organizes: [
+      {
+        name: "GraphQL Hyderabad",
+        url: "https://guild.host/graphql-hyderabad",
+      },
+    ],
+    askMeAbout: ["GraphQL education"],
     tags: [
       {
         label: "GitHub",
@@ -607,6 +788,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: " https://github.com/n1ru4l.png",
     alt: "Laurin Quast",
     organization: "The Guild",
+    location: {
+      name: "Germany",
+      flag: "🇩🇪",
+    },
+    askMeAbout: ["GraphQL Hive", "schema evolution"],
     tags: [
       {
         label: "GitHub",
@@ -630,6 +816,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "https://github.com/phryneas.png",
     alt: "Lenz Weber-Tronic",
     organization: "Apollo",
+    location: {
+      name: "Germany",
+      flag: "🇩🇪",
+    },
+    askMeAbout: ["Apollo Client", "GraphQL clients"],
     tags: [
       {
         label: "Bluesky",
@@ -658,6 +849,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "https://github.com/riginoommen.png",
     alt: "Rigin Oommen",
     organization: "Red Hat",
+    location: {
+      name: "India",
+      flag: "🇮🇳",
+    },
+    askMeAbout: ["API design", "developer experience", "schema evolution"],
     tags: [
       {
         label: "GitHub",
@@ -676,6 +872,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "/img/ambassadors/sabrina-wasserman.jpg",
     alt: "Sabrina Wasserman",
     organization: "Facebook",
+    location: {
+      name: "United States",
+      flag: "🇺🇸",
+    },
+    askMeAbout: ["data consistency", "GraphQL clients", "pagination"],
     tags: [
       {
         label: "GitHub",
@@ -694,6 +895,11 @@ export const ambassadors202512: Ambassador[] = [
     imageUrl: "https://github.com/EmrysMyrddin.png",
     alt: "Valentin Cocaud",
     organization: "Independent",
+    location: {
+      name: "France",
+      flag: "🇫🇷",
+    },
+    askMeAbout: ["GraphQL Gateway", "GraphQL Mesh", "GraphQL Yoga"],
     tags: [
       {
         label: "GitHub",
@@ -715,6 +921,11 @@ export const ambassadors202603: Ambassador[] = [
     imageUrl: "/img/ambassadors/akshat-sharma.jpg",
     alt: "Akshat Sharma",
     organization: "Deskree",
+    location: {
+      name: "India",
+      flag: "🇮🇳",
+    },
+    askMeAbout: ["developer advocacy", "GraphQL & AI"],
     tags: [
       {
         label: "LinkedIn",
@@ -733,6 +944,11 @@ export const ambassadors202603: Ambassador[] = [
     imageUrl: "/img/ambassadors/ayush-more.jpg",
     alt: "Ayush More",
     organization: "Independent",
+    location: {
+      name: "India",
+      flag: "🇮🇳",
+    },
+    askMeAbout: ["student outreach"],
     tags: [
       {
         label: "GitHub",
@@ -756,6 +972,17 @@ export const ambassadors202603: Ambassador[] = [
     imageUrl: "/img/ambassadors/emily-goodwin.jpg",
     alt: "Emily Goodwin",
     organization: "Independent",
+    location: {
+      name: "Canada",
+      flag: "🇨🇦",
+    },
+    organizes: [
+      {
+        name: "GraphQL Toronto",
+        url: "https://guild.host/graphql-toronto",
+      },
+    ],
+    askMeAbout: ["caching", "federation", "GraphQL tooling"],
     tags: [
       {
         label: "GitHub",
@@ -774,6 +1001,11 @@ export const ambassadors202603: Ambassador[] = [
     imageUrl: "https://github.com/IvanGoncharov.png",
     alt: "Ivan Goncharov",
     organization: "APIs.guru",
+    location: {
+      name: "Ukraine",
+      flag: "🇺🇦",
+    },
+    askMeAbout: ["GraphQL Voyager", "GraphQL specification", "GraphQL tooling"],
     tags: [
       {
         label: "GitHub",
@@ -795,6 +1027,17 @@ export const ambassadors202606: Ambassador[] = [
     imageUrl: "/img/ambassadors/christian-ernst.jpg",
     alt: "Christian Ernst",
     organization: "Booking.com",
+    location: {
+      name: "Netherlands",
+      flag: "🇳🇱",
+    },
+    organizes: [
+      {
+        name: "GraphQL Amsterdam",
+        url: "https://www.meetup.com/amsterdam-graphql-meetup",
+      },
+    ],
+    askMeAbout: ["enterprise GraphQL", "federation", "schema evolution"],
     tags: [
       {
         label: "LinkedIn",
@@ -808,6 +1051,11 @@ export const ambassadors202606: Ambassador[] = [
     imageUrl: "/img/ambassadors/zeljko-kozina.jpg",
     alt: "Željko Kozina",
     organization: "Chronomill",
+    location: {
+      name: "Ireland",
+      flag: "🇮🇪",
+    },
+    askMeAbout: ["Spring for GraphQL", "API design", "GraphQL & AI"],
     tags: [
       {
         label: "LinkedIn",
