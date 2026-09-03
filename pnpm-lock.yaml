@@ -226,8 +226,8 @@ importers:
         version: 2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@graphql-eslint/eslint-plugin':
-        specifier: 4.4.0
-        version: 4.4.0(@types/node@22.20.1)(eslint@8.57.1)(graphql@16.10.0)(typescript@5.9.3)
+        specifier: 4.4.1
+        version: 4.4.1(@types/node@22.20.1)(eslint@8.57.1)(graphql@16.10.0)(typescript@5.9.3)
       '@graphql-eslint/parser':
         specifier: ^0.1.0
         version: 0.1.0(eslint@8.57.1)
@@ -1369,8 +1369,8 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-eslint/eslint-plugin@4.4.0':
-    resolution: {integrity: sha512-dhW6fpk3Souuaphhc38uMAGCcgKMgtCJWFygIKODw/Kns43wiQqRPVay0aNFY1JBx3aevn4KPT/BCOdm6HNncA==}
+  '@graphql-eslint/eslint-plugin@4.4.1':
+    resolution: {integrity: sha512-QBDIMQqAXAioHKGti0nJjsklZi4wLMJAUFNv2z8Z41HT3l4HSMaxmw6pdsICkajPzxVGcvRAxp8opplINYacbg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@apollo/subgraph': ^2
@@ -7927,7 +7927,7 @@ snapshots:
     dependencies:
       '@graphql-codegen/plugin-helpers': 6.0.0(graphql@16.10.0)
       '@graphql-codegen/visitor-plugin-common': 6.1.0(graphql@16.10.0)
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       auto-bind: 4.0.0
       graphql: 16.10.0
       tslib: 2.6.3
@@ -8012,11 +8012,11 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@graphql-eslint/eslint-plugin@4.4.0(@types/node@22.20.1)(eslint@8.57.1)(graphql@16.10.0)(typescript@5.9.3)':
+  '@graphql-eslint/eslint-plugin@4.4.1(@types/node@22.20.1)(eslint@8.57.1)(graphql@16.10.0)(typescript@5.9.3)':
     dependencies:
       '@graphql-tools/code-file-loader': 8.1.22(graphql@16.10.0)
-      '@graphql-tools/graphql-tag-pluck': 8.3.21(graphql@16.10.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.10.0)
+      '@graphql-tools/graphql-tag-pluck': 8.3.23(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       debug: 4.4.1
       eslint: 8.57.1
       fast-glob: 3.3.3
@@ -8121,7 +8121,7 @@ snapshots:
     dependencies:
       '@graphql-hive/signal': 1.0.0
       '@graphql-tools/executor-common': 0.0.4(graphql@16.10.0)
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/disposablestack': 0.0.6
       '@whatwg-node/fetch': 0.10.10
@@ -8136,7 +8136,7 @@ snapshots:
     dependencies:
       '@graphql-hive/signal': 1.0.0
       '@graphql-tools/executor-common': 0.0.4(graphql@16.10.0)
-      '@graphql-tools/utils': 10.10.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/disposablestack': 0.0.6
       '@whatwg-node/fetch': 0.10.10
@@ -8213,7 +8213,7 @@ snapshots:
       '@babel/plugin-syntax-import-assertions': 7.27.1(@babel/core@7.28.3)
       '@babel/traverse': 7.28.3
       '@babel/types': 7.28.2
-      '@graphql-tools/utils': 10.9.1(graphql@16.10.0)
+      '@graphql-tools/utils': 10.11.0(graphql@16.10.0)
       graphql: 16.10.0
       tslib: 2.8.1
     transitivePeerDependencies:
