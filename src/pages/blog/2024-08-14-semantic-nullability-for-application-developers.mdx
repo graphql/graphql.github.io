@@ -1,0 +1,93 @@
+---
+title: "Semantic Nullability For Application Developers"
+tags: ["spec"]
+date: 2024-09-12
+byline: Alex Reilly
+---
+
+# Semantic Nullability
+
+> This blog post is directed at application developers using GraphQL. If you are a library author, you should read the more detailed feature spec instead.
+
+Today we're providing a progress update from the Nullablility Working Group on Semantic Nullability which is our new approach to fixing GraphQL's nullability issues.
+
+GraphQL has some fundamental problems, and to talk about them, we first have to talk about GraphQL's type system. GraphQL allows you to define a schema, and to do that many developers write a document in Schema Definition Language, or SDL. A SDL document may look like this
+
+```graphql
+type User { 
+  id: ID! 
+  name: String!
+  age: Int
+  posts: [Post] 
+}
+```
+
+One thing to make clear: this is not like using a type system in a compiled language (TS, Swift, Kotlin) where the type system makes compile-time guarantees about behavior at runtime. Rather you can think of GraphQL's type system as a "runtime" type system. You can trust that `age` will be an `Int`, because at runtime, GraphQL will assert that it is a `Int`, and throw an error if it is not. All types effectively represent a typecast, or a type assertion.
+
+This results in `null` having two different meanings in GraphQL.
+1. No value was provided. The `User` never provided an `age`.
+2. There was an error resolving the field. The `User` provided an age in the form of a `Float` and it couldn't be cast to an `Int`, or our new `BirthdayBoy` provider [microservice](https://www.youtube.com/watch?v=y8OnoxKotPQ) timed out and never returned the `User`'s birthday.
+
+We can differentiate between the two by calling the first `null`, and the second `(Error, null)`. The first type is signaled by a `null` return value and no associated error in the errors array. The second is signaled by a `null` return value and an associated error in the errors array.
+
+Returning to the GraphQL type system, we can see it has two options to indicate the nullability of a field.
+1. `String` which we now know means the field can be a `String`, `null`, or `(Error, null)`
+2. `String!` which we now know means the field can be `String`
+
+When an error occurs resolving a `String` field, it's not much of a problem for clients. They can decide if they can deal with that field missing or not. However when an error occurs resolving a `String!` field, GraphQL responds by destroying part of the result data before it's sent to the client. Given the danger, many developers choose to never use any non-nullable fields.
+
+Every time developers are surveyed about their issues with GraphQL, they talk about nullability. The Nullability Working Group has been hard at work, and we believe we finally have a solution.
+
+The root of the problem is that developers want a way to express that all `User`s are expected to have an `age`, but if there is an error and GraphQL can't resolve `age`, then they'd like to deal with it client-side. In order to do that, they need the type system to allow for a third type of nullability.
+
+3. A field which can be `String` or `(Error, null)`
+
+This is what we're calling "Semantic non-null". The syntax we've chosen is the following
+
+| Syntax  | Meaning           |
+| ------- | ----------------- |
+| String? | Nullable          |
+| String  | Semantic non-null |
+| String! | Strict non-null   |
+
+Types are now semantic non-null by default. Question marks are used to indicate a nullable field similar to many other modern languages. `String!` retains its meaning. This is of course, a breaking change, and GraphQL prides itself in offering a path to non-breaking evolution for existing services. So alongside the new type, we're introducing some mechanics to assist developers in making incremental updates to their applications.
+
+### Server migration
+Once Semantic Nullability has been released, you will be able to start migrating by updating your service to use the most recent version of GraphQL.
+
+This will open up the option to begin evolving your schema document by document. You can place the document directive `@SemanticNullability` at the top of a file to begin using the new nullability features in that file. The directive will not impact the interpretation of any other files in your schema.
+
+After migration, a `User` type would look like this.
+
+```graphql
+@extendedNullability
+
+type User { 
+  id: ID!
+  name: String!
+  age: Int
+  posts: [Post]
+}
+```
+
+We can now trust that `age` and `posts` will never be null unless an error causes their values to fail to resolve.
+
+### Frontend migration
+Client libraries that take advantage of the new features in this release may provide flags to alter their error handling behavior. In this hypothetical example, `ApolloClient` is providing a configuration option that causes the access of a field with an error to throw.
+
+```typescript
+const client = new ApolloClient({
+  ...
+  throwOnError: true
+});
+```
+
+Semantic Nullability gives clients and GraphQL tools more flexibility in how they respond to errors. Some may want to recreate the existing destructive behavior of GraphQL’s null bubbling, others may want to leverage their language’s native error handling mechanics, or even do something specific to their domain like Relay's use of React error boundaries.
+
+Because your client can decide how it handles errors, it will also be responsible for providing a modified version of the schema. For example, if the client raises an exception when an errored field is read, it can mark all "semantically non-null" fields as non-nullable in the schema provided to you as a frontend developer.
+
+![Example code generation](https://i.imgur.com/i3hdCND.png)
+
+The modified version of the schema can also incorporate any client-side schema extensions you may have. You should use the modified version of the schema when doing code generation for your frontend application.
+
+Altering the error handling behavior of your client may be a breaking change if your schema has already adopted semantic nullability, so it's suggested that you select new error handling behavior for your client first. Read the documentation for your specific client for more information.
