@@ -157,6 +157,12 @@ export const ambassadors202509: Ambassador[] = [
       name: "Germany",
       flag: "🇩🇪",
     },
+    organizes: [
+      {
+        name: "GraphQL Amsterdam",
+        url: "https://www.meetup.com/amsterdam-graphql-meetup",
+      },
+    ],
     askMeAbout: ["Python GraphQL", "Strawberry GraphQL", "GraphQL & AI"],
     tags: [
       {
@@ -962,7 +968,7 @@ export const ambassadors202603: Ambassador[] = [
       name: "India",
       flag: "🇮🇳",
     },
-    askMeAbout: ["student outreach"],
+    askMeAbout: ["the CNCF community, getting started with GraphQL"],
     tags: [
       {
         label: "GitHub",
