@@ -837,9 +837,64 @@ export const ambassadors202606: Ambassador[] = [
   },
 ]
 
+export const ambassadors202609: Ambassador[] = [
+  {
+    label: "Eeshaan Sawant",
+    imageUrl: "https://github.com/eeshaanSA.png",
+    alt: "Eeshaan Sawant",
+    organization: "Independent",
+    tags: [
+      {
+        label: "GitHub",
+        url: "https://github.com/eeshaanSA",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/sawanteeshaan/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "X",
+        url: "https://x.com/eeshaantwts",
+        icon: <TwitterIcon className="size-5" />,
+      },
+      {
+        label: "Website",
+        url: "https://eeshaans.substack.com/",
+        icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Jean Lucas Lima",
+    imageUrl: "https://github.com/jeanlucaslima.png",
+    alt: "Jean Lucas Lima",
+    organization: "Independent",
+    tags: [
+      {
+        label: "GitHub",
+        url: "https://github.com/jeanlucaslima",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/jeanlucaslima/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Website",
+        url: "https://www.jeanlucas.me/",
+        icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+]
+
 export const ambassadors = [
   ...ambassadors202509,
   ...ambassadors202512,
   ...ambassadors202603,
   ...ambassadors202606,
+  ...ambassadors202609,
 ].sort((a, z) => a.label.localeCompare(z.label, "en-US"))
