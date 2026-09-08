@@ -3,13 +3,14 @@ title: "One Year of the GraphQL Ambassador Program"
 tags: ["announcements"]
 date: 2026-09-08
 byline: Jem Gillam
+featured: true
 ---
 
 import { AmbassadorGrid } from "../../../components/ambassador-grid"
 import { ambassadors202509 } from "../../../components/info-card/ambassador-data"
 import { ambassadors202609 } from "../../../components/info-card/ambassador-data"
 
-One year ago, the GraphQL Foundation launched the [GraphQL Ambassador Program](https://graphql.org/blog/2025-09-08-announcing-graphql-ambassadors/) to recognize and support the people helping GraphQL communities grow around the
+One year ago, the GraphQL Foundation launched the [GraphQL Ambassador Program] to recognize and support the people helping GraphQL communities grow around the
 world. Since then, our Ambassadors have brought people together, maintained the tools the ecosystem relies on, shared what they know, and helped more developers find a way into the GraphQL community.
 
 As the program begins its second year, we are delighted to welcome two new Ambassadors, celebrate some of the work our Ambassadors have done over the past 12 months, and thank the six members of our first cohort who will become our
@@ -23,7 +24,7 @@ Eeshaan Sawant joins us as an independent open-source advocate with experience a
 for [GraphQL Day Melbourne](https://graphql.org/day/) and recently published [The State of GraphQL in 2026: Is GraphQL Really Dead?](https://x.com/eeshaantwts/status/2087468187365622245),
 his own assessment of how the ecosystem is changing. We are excited to see how his experience in other open-source communities can help GraphQL reach new people and create more opportunities for participation.
 
-Jean Lucas Lima first encountered GraphQL through his work on Viaduct, Airbnb's in-house GraphQL platform. He helped shape GraphQLConf 2026 as a member of the conference committee. At the event, he also organized the [GraphQL Production Roundtable](https://www.linkedin.com/feed/update/urn:li:activity:7462926654991159296/) and presented _Turning San Francisco Into a GraphQL Server_. Jean Lucas also founded ConfrariaTech, a network for technology leaders in Brazil, and has years of experience building and sustaining technical communities. He will be our first Brazilian GraphQL Ambassador, and we look forward to supporting his continued involvement in GraphQL. You can find more of Jean Lucas' talks, podcasts, and writing on his [personal website](https://www.jeanlucas.me/en/appearances).
+Jean Lucas Lima first encountered GraphQL through his work on Viaduct, Airbnb’s multi-tenant GraphQL server. He helped shape GraphQLConf 2026 as a member of its conference committee, and at the event he organized the [GraphQL Production Roundtable](https://www.linkedin.com/feed/update/urn:li:activity:7462926654991159296/) and presented _Turning San Francisco Into a GraphQL Server_. Jean Lucas also founded ConfrariaTech, a network for technology leaders in Brazil, and has years of experience building and sustaining technical communities. He will be our first Brazilian GraphQL Ambassador, and we look forward to supporting his continued involvement in GraphQL. You can find more of Jean Lucas' talks, podcasts, and writing on his [personal website](https://www.jeanlucas.me/en/appearances).
 
 ## A year of bringing people together
 
@@ -33,9 +34,26 @@ can take.
 At [GraphQLConf 2026](https://graphql.org/conf/2026/schedule/), Ambassadors took to the stage to discuss subjects ranging from React Server Components, schema design, and type safety to production systems, developer tools, education, and
 AI. They also helped shape the event behind the scenes, brought production practitioners together for panel discussions, and welcomed attendees into the wider GraphQL community.
 
-Ambassadors have helped organize and support GraphQL Day events in Singapore, Amsterdam, and Bengaluru. At GraphQL Day Singapore, Akshat helped run a GraphQL booth and later [shared what he learned](https://graphql.org/blog/2026-06-02-learning-graphql-to-representing-it-at-api-days-singapore/) from speaking with developers who were evaluating GraphQL or already facing production challenges. In Bengaluru, Raj Kumar spoke about intelligent resolvers while Rigin, Jayant, and Ayush, alongside TSC members, spent time at the booth answering questions and introducing new people to GraphQL.
+<figure className="mx-auto max-w-xl max-w-full">
+  ![Just a small selection of our Ambassadors at GraphQL Conf](./conf.jpg)
+</figure>
 
-GraphQL Locals also brought people together in Amsterdam, London, Hyderabad, and Philadelphia, creating space for practical questions and candid conversations. After becoming one of our first Ambassadors, Sarah teamed up with fellow Philadelphian Graham to launch Philly GraphQL. Their first meetup welcomed 29 people for an introductory talk, Q&A, and a conversation about what the new community wanted from future events. We are also looking forward to the first GraphQL Virtual meetup, which Jeff is organizing for September, and Emily’s launch of GraphQL Toronto with a casual community roundtable in October.
+Ambassadors have helped organize and support GraphQL Day events in Singapore, Amsterdam, and Bengaluru. At GraphQL Day Singapore, Akshat helped run a GraphQL booth and later [shared what he learned](https://graphql.org/blog/2026-06-02-learning-graphql-to-representing-it-at-api-days-singapore/) from speaking with developers who were evaluating GraphQL or already facing production challenges. In Bengaluru, Raj Kumar spoke about intelligent resolvers while Rigin, Jayant, and Ayush, alongside TSC members, spent time at the booth answering questions and introducing new people to GraphQL. We are looking forward to Ambassadors supporting GraphQL Days in London and Paris in the last quarter of this year.
+
+<div className="mx-auto max-w-4xl mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+  <figure className="mx-auto w-64">
+    ![Raj Kumar presenting at GraphQL Day Bengaluru](./Bengaluru2.jpg)
+  </figure>
+  <figure className="mx-auto w-64">
+    ![The booth team at GraphQL Day Bengaluru](./Bengaluru.PNG)
+  </figure>
+  <figure className="mx-auto w-64">
+    ![The booth team at GraphQL Day Amsterdam](./Amsterdam.jpg)
+  </figure>
+</div>
+
+GraphQL Locals also brought people together in Amsterdam, Hyderabad, London, and Philadelphia, creating space for practical questions and candid conversations. After becoming one of our first Ambassadors, Sarah teamed up with fellow Philadelphian Graham to launch [Philly GraphQL](https://luma.com/phillygraphql). Their first meetup welcomed 29 people for an introductory talk, Q&A, and a conversation about what the new community wanted from future events. We are also looking forward to the first [GraphQL Virtual meetup](https://guild.host/events/graphql-virtual-meetup-zywc3q), which Jeff is organizing for September, and Emily’s launch of [GraphQL Toronto](https://guild.host/graphql-toronto) with a casual community roundtable in October.
+
 
 ## Supporting the tools people use
 
@@ -43,14 +61,15 @@ Much of the work that keeps an open-source ecosystem healthy happens away from t
 
 There were some important milestones along the way. Eddy led a [major overhaul of GraphQL Code Generator's client types](https://the-guild.dev/graphql/hive/blog/graphql-codegen-client-v6-202604), producing less generated code, stronger types, and a simpler setup. Warren continued developing [GraphQL Network Inspector](https://chromewebstore.google.com/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln), whose Chrome extension now has more than 100,000 users and supports subscriptions over WebSockets and server-sent events, as well as multipart responses used by `@defer`.
 
-Ambassadors have also contributed to the discussions that shape GraphQL itself, bringing experience from large production systems, open-source libraries, and developer education into working groups and community conversations. That mix of perspectives is one of the program's greatest strengths: people can compare how an idea works at different scales, in different languages, and for different kinds of teams.
-
 ## Taking GraphQL into the wider ecosystem
 
 Ambassadors have also taken GraphQL into open-source and developer communities beyond our own events. Our presence at [Open Source Summit India](https://events.linuxfoundation.org/open-source-summit-india/) came directly from Rigin, Raj Kumar, and Jayant, who spotted the opportunity and made it happen. Together, they helped developers and maintainers from across the open-source ecosystem explore GraphQL and showed new people how they could participate.
 
 Željko has been doing similar outreach in the Java community. At [JConf Dominicana](https://jconfdominicana.org/) in July, he led a hands-on workshop that took participants from an empty project to a production-ready GraphQL API. In October, he will bring GraphQL to the wider data and developer audience at [J On The Beach](https://jonthebeach.com/workshops/), with a workshop combining GraphQL, MCP, and AI agents.
 
+<figure className="mx-auto max-w-xl max-w-full">
+  ![Ambassador team at OSS Summit India](./OSSsummit.jpg)
+</figure>
 
 ## Thank you to our first Ambassador Emeriti
 
