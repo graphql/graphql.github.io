@@ -5,7 +5,21 @@ function buildRows(ambassador: Ambassador, emeritus: boolean): InfoCardRow[] {
   return [
     {
       type: "label",
-      label: ambassador.label,
+      label: (
+        <>
+          {ambassador.label}
+          {ambassador.location ? (
+            <span
+              role="img"
+              aria-label={ambassador.location.name}
+              title={ambassador.location.name}
+              className="shrink-0 self-start text-xl"
+            >
+              {ambassador.location.flag}
+            </span>
+          ) : null}
+        </>
+      ),
     },
     {
       type: "image",
@@ -21,12 +35,47 @@ function buildRows(ambassador: Ambassador, emeritus: boolean): InfoCardRow[] {
             },
           ]
         : []
-      : [
+      : []),
+    ...(ambassador.organizes
+      ? [
           {
             type: "label" as const,
-            label: ambassador.organization,
+            hideInConciseMode: true,
+            className: "bg-pri-lightest text-pri-darker dark:text-pri-darker",
+            label: (
+              <div className="typography-body-sm flex flex-col whitespace-nowrap leading-relaxed">
+                {ambassador.organizes.map(event => (
+                  <a
+                    key={event.url}
+                    href={event.url}
+                    className="gql-focus-visible underline decoration-pri-dark underline-offset-4 hover:text-pri-base"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {event.name} organizer
+                  </a>
+                ))}
+              </div>
+            ),
           },
-        ]),
+        ]
+      : []),
+    ...(ambassador.askMeAbout
+      ? [
+          {
+            type: "label" as const,
+            hideInConciseMode: true,
+            label: (
+              <div className="typography-body-md leading-relaxed">
+                <span className="mr-2 bg-sec-light px-1 text-neu-900 dark:bg-sec-darker">
+                  Ask me about
+                </span>
+                {ambassador.askMeAbout.join(", ")}
+              </div>
+            ),
+          },
+        ]
+      : []),
     {
       type: "label",
       hideInConciseMode: true,
@@ -61,7 +110,7 @@ export function AmbassadorGrid({
   emeritus?: boolean
 }) {
   return (
-    <div className="mx-auto mt-10 flex w-full max-w-6xl flex-wrap justify-center gap-8">
+    <div className="mx-auto mt-10 flex w-full max-w-6xl flex-wrap justify-center gap-6">
       {ambassadors.map((ambassador, index) => (
         <InfoCard
           key={`${ambassador.label}-${index}`}
