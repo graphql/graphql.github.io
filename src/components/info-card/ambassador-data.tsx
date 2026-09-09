@@ -26,7 +26,6 @@ export interface Ambassador {
   label: string
   imageUrl: string
   alt: string
-  organization: string
   tags: AmbassadorTag[]
   emeritus?: boolean
   term?: string
@@ -43,7 +42,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Artur Czemiel",
     imageUrl: "https://github.com/aexol.png",
     alt: "Artur Czemiel",
-    organization: "GraphQL Editor",
     location: {
       name: "Poland",
       flag: "🇵🇱",
@@ -71,7 +69,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Donna Zhou",
     imageUrl: "/img/ambassadors/donna-zhou.jpg",
     alt: "Donna Zhou",
-    organization: "GraphQL Java",
     emeritus: true,
     term: "2025-2026",
     location: {
@@ -96,7 +93,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Dotan Simha",
     imageUrl: "https://github.com/dotansimha.png",
     alt: "Dotan Simha",
-    organization: "The Guild",
     location: {
       name: "Israel",
       flag: "🇮🇱",
@@ -119,7 +115,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Eddy Nguyen",
     imageUrl: "https://github.com/eddeee888.png",
     alt: "Eddy Nguyen",
-    organization: "Code Generator",
     location: {
       name: "Australia",
       flag: "🇦🇺",
@@ -152,7 +147,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Erik Wrede",
     imageUrl: "https://github.com/erikwrede.png",
     alt: "Erik Wrede",
-    organization: "Strawberry GraphQL",
     location: {
       name: "Germany",
       flag: "🇩🇪",
@@ -181,7 +175,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Itamar Kestenbaum",
     imageUrl: "/img/ambassadors/itamar-kestenbaum.jpg",
     alt: "Itamar Kestenbaum",
-    organization: "Meta Platforms",
     location: {
       name: "United States",
       flag: "🇺🇸",
@@ -209,7 +202,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Jamie Barton",
     imageUrl: "/img/ambassadors/jamie-barton.jpg",
     alt: "Jamie Barton",
-    organization: "CartQL",
     location: {
       name: "United Kingdom",
       flag: "🇬🇧",
@@ -246,7 +238,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Jeff Auriemma",
     imageUrl: "/img/ambassadors/jeff-auriemma.jpg",
     alt: "Jeff Auriemma",
-    organization: "Apollo",
     location: {
       name: "United States",
       flag: "🇺🇸",
@@ -285,7 +276,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Jem Gillam",
     imageUrl: "https://github.com/jemgillam.png",
     alt: "Jem Gillam",
-    organization: "Graphile",
     location: {
       name: "United Kingdom",
       flag: "🇬🇧",
@@ -319,7 +309,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Jordan Eldredge",
     imageUrl: "https://github.com/captbaritone.png",
     alt: "Jordan Eldredge",
-    organization: "Meta",
     location: {
       name: "United States",
       flag: "🇺🇸",
@@ -352,7 +341,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Jovi De Croock",
     imageUrl: "https://github.com/jovidecroock.png",
     alt: "Jovi De Croock",
-    organization: "GraphQL.js",
     emeritus: true,
     term: "2025-2026",
     location: {
@@ -387,7 +375,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Marc-Andre Giroux",
     imageUrl: "https://github.com/xuorig.png",
     alt: "Marc-Andre Giroux",
-    organization: "Netflix",
     emeritus: true,
     term: "2025-2026",
     location: {
@@ -422,7 +409,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Michael Watson",
     imageUrl: "https://github.com/michael-watson.png",
     alt: "Michael Watson",
-    organization: "Independent",
     emeritus: true,
     term: "2025-2026",
     location: {
@@ -452,7 +438,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Patrick Arminio",
     imageUrl: "https://github.com/patrick91.png",
     alt: "Patrick Arminio",
-    organization: "Strawberry GraphQL",
     location: {
       name: "United Kingdom",
       flag: "🇬🇧",
@@ -480,7 +465,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Phil Pluckthun",
     imageUrl: "https://github.com/kitten.png",
     alt: "Phil Pluckthun",
-    organization: "urql & gql.tada",
     emeritus: true,
     term: "2025-2026",
     location: {
@@ -515,7 +499,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Sarah Sanders",
     imageUrl: "/img/ambassadors/sarah-sanders.jpg",
     alt: "Sarah Sanders",
-    organization: "PostHog",
     location: {
       name: "United States",
       flag: "🇺🇸",
@@ -539,7 +522,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Stephen Spalding",
     imageUrl: "https://github.com/fotoetienne.png",
     alt: "Stephen Spalding",
-    organization: "Netflix",
     location: {
       name: "United States",
       flag: "🇺🇸",
@@ -567,7 +549,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Taz Singh",
     imageUrl: "https://github.com/tazsingh.png",
     alt: "Taz Singh",
-    organization: "Guild",
     emeritus: true,
     term: "2025-2026",
     location: {
@@ -592,7 +573,6 @@ export const ambassadors202509: Ambassador[] = [
     label: "Warren Day",
     imageUrl: "/img/ambassadors/warren-day.jpeg",
     alt: "Warren Day",
-    organization: "Overstacked",
     location: {
       name: "United Kingdom",
       flag: "🇬🇧",
@@ -618,7 +598,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "An Ngo",
     imageUrl: "https://github.com/vliegveld5.png",
     alt: "An Ngo",
-    organization: "bol",
     location: {
       name: "Netherlands",
       flag: "🇳🇱",
@@ -647,7 +626,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Aurélien David",
     imageUrl: "https://github.com/spyl94.png",
     alt: "Aurélien David",
-    organization: "Pennylane",
     location: {
       name: "France",
       flag: "🇫🇷",
@@ -675,7 +653,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Chanda Raj Kumar",
     imageUrl: "/img/ambassadors/chanda-raj-kumar.jpg",
     alt: "Chanda Raj Kumar",
-    organization: "KL University Hyderabad",
     location: {
       name: "India",
       flag: "🇮🇳",
@@ -699,7 +676,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Derek Kuc",
     imageUrl: "https://github.com/dariuszkuc.png",
     alt: "Derek Kuc",
-    organization: "Apollo",
     location: {
       name: "United States",
       flag: "🇺🇸",
@@ -732,7 +708,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Gil Gardosh",
     imageUrl: "https://github.com/gilgardosh.png",
     alt: "Gil Gardosh",
-    organization: "The Guild",
     location: {
       name: "Israel",
       flag: "🇮🇱",
@@ -760,7 +735,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Giuseppe Abrignani",
     imageUrl: "/img/ambassadors/giuseppe-abrignani.jpg",
     alt: "Giuseppe Abrignani",
-    organization: "Oranj Tech",
     location: {
       name: "Denmark",
       flag: "🇩🇰",
@@ -778,7 +752,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Jayant Acharya",
     imageUrl: "/img/ambassadors/jayant-acharya.jpg",
     alt: "Jayant Acharya",
-    organization: "Techsophy",
     location: {
       name: "India",
       flag: "🇮🇳",
@@ -807,7 +780,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Laurin Quast",
     imageUrl: " https://github.com/n1ru4l.png",
     alt: "Laurin Quast",
-    organization: "The Guild",
     location: {
       name: "Germany",
       flag: "🇩🇪",
@@ -835,7 +807,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Lenz Weber-Tronic",
     imageUrl: "https://github.com/phryneas.png",
     alt: "Lenz Weber-Tronic",
-    organization: "Apollo",
     location: {
       name: "Germany",
       flag: "🇩🇪",
@@ -868,7 +839,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Rigin Oommen",
     imageUrl: "https://github.com/riginoommen.png",
     alt: "Rigin Oommen",
-    organization: "Red Hat",
     location: {
       name: "India",
       flag: "🇮🇳",
@@ -891,7 +861,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Sabrina Wasserman",
     imageUrl: "/img/ambassadors/sabrina-wasserman.jpg",
     alt: "Sabrina Wasserman",
-    organization: "Facebook",
     location: {
       name: "United States",
       flag: "🇺🇸",
@@ -914,7 +883,6 @@ export const ambassadors202512: Ambassador[] = [
     label: "Valentin Cocaud",
     imageUrl: "https://github.com/EmrysMyrddin.png",
     alt: "Valentin Cocaud",
-    organization: "Independent",
     location: {
       name: "France",
       flag: "🇫🇷",
@@ -940,7 +908,6 @@ export const ambassadors202603: Ambassador[] = [
     label: "Akshat Sharma",
     imageUrl: "/img/ambassadors/akshat-sharma.jpg",
     alt: "Akshat Sharma",
-    organization: "Deskree",
     location: {
       name: "India",
       flag: "🇮🇳",
@@ -963,7 +930,6 @@ export const ambassadors202603: Ambassador[] = [
     label: "Ayush More",
     imageUrl: "/img/ambassadors/ayush-more.jpg",
     alt: "Ayush More",
-    organization: "Independent",
     location: {
       name: "India",
       flag: "🇮🇳",
@@ -991,7 +957,6 @@ export const ambassadors202603: Ambassador[] = [
     label: "Emily Goodwin",
     imageUrl: "/img/ambassadors/emily-goodwin.jpg",
     alt: "Emily Goodwin",
-    organization: "Independent",
     location: {
       name: "Canada",
       flag: "🇨🇦",
@@ -1020,7 +985,6 @@ export const ambassadors202603: Ambassador[] = [
     label: "Ivan Goncharov",
     imageUrl: "https://github.com/IvanGoncharov.png",
     alt: "Ivan Goncharov",
-    organization: "APIs.guru",
     location: {
       name: "Ukraine",
       flag: "🇺🇦",
@@ -1046,7 +1010,6 @@ export const ambassadors202606: Ambassador[] = [
     label: "Christian Ernst",
     imageUrl: "/img/ambassadors/christian-ernst.jpg",
     alt: "Christian Ernst",
-    organization: "Booking.com",
     location: {
       name: "Netherlands",
       flag: "🇳🇱",
@@ -1070,7 +1033,6 @@ export const ambassadors202606: Ambassador[] = [
     label: "Željko Kozina",
     imageUrl: "/img/ambassadors/zeljko-kozina.jpg",
     alt: "Željko Kozina",
-    organization: "Chronomill",
     location: {
       name: "Ireland",
       flag: "🇮🇪",
@@ -1096,7 +1058,6 @@ export const ambassadors202609: Ambassador[] = [
     label: "Eeshaan Sawant",
     imageUrl: "https://github.com/eeshaanSA.png",
     alt: "Eeshaan Sawant",
-    organization: "Independent",
     location: {
       name: "India",
       flag: "🇮🇳",
@@ -1133,7 +1094,6 @@ export const ambassadors202609: Ambassador[] = [
     label: "Jean Lucas Lima",
     imageUrl: "https://github.com/jeanlucaslima.png",
     alt: "Jean Lucas Lima",
-    organization: "Independent",
     location: {
       name: "Brazil",
       flag: "🇧🇷",
