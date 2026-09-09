@@ -1,6 +1,6 @@
 ---
 name: graphql-http-rust
-description: A reference implementation of the HTTP-layer behavior defined by the GraphQL-over-HTTP specification for Rust — content negotiation, request parsing, response encoding, and status-code decision logic.
+description: An implementation of the HTTP-layer behavior defined by the GraphQL-over-HTTP specification for Rust — content negotiation, request parsing, response encoding, and status-code decision logic.
 github: miqui/graphql-http-rust
 tags:
   - tools-and-libraries
