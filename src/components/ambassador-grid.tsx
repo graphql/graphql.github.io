@@ -35,12 +35,7 @@ function buildRows(ambassador: Ambassador, emeritus: boolean): InfoCardRow[] {
             },
           ]
         : []
-      : [
-          {
-            type: "label" as const,
-            label: ambassador.organization,
-          },
-        ]),
+      : []),
     ...(ambassador.organizes
       ? [
           {

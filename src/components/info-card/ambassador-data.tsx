@@ -1097,6 +1097,15 @@ export const ambassadors202609: Ambassador[] = [
     imageUrl: "https://github.com/eeshaanSA.png",
     alt: "Eeshaan Sawant",
     organization: "Independent",
+    location: {
+      name: "India",
+      flag: "🇮🇳",
+    },
+    askMeAbout: [
+      "API governance",
+      "continuous delivery",
+      "developer communities",
+    ],
     tags: [
       {
         label: "GitHub",
@@ -1125,6 +1134,15 @@ export const ambassadors202609: Ambassador[] = [
     imageUrl: "https://github.com/jeanlucaslima.png",
     alt: "Jean Lucas Lima",
     organization: "Independent",
+    location: {
+      name: "Brazil",
+      flag: "🇧🇷",
+    },
+    askMeAbout: [
+      "developer communities",
+      "distributed systems",
+      "GraphQL architecture",
+    ],
     tags: [
       {
         label: "GitHub",
