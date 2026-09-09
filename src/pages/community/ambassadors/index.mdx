@@ -4,7 +4,7 @@ description: An introduction to the GraphQL Ambassador Program
 
 import { Button } from "../../../app/conf/_components/button"
 import { AmbassadorGrid } from "../../../components/ambassador-grid"
-import {ambassadors} from "../../../components/info-card/ambassador-data"
+import { ambassadors } from "../../../components/info-card/ambassador-data"
 
 # GraphQL Ambassador Program 
 
@@ -21,4 +21,9 @@ Interested in becoming an Ambassador?
 
 ## Meet your GraphQL Ambassadors!
 
-<AmbassadorGrid ambassadors={ambassadors} />
+<AmbassadorGrid ambassadors={ambassadors.filter(ambassador => !ambassador.emeritus)} />
+
+## Ambassador Emeriti
+
+Our Ambassador Emeriti are former Ambassadors whose active terms have ended. As members of our first Ambassador cohort, they helped establish the program and show what it could become. We celebrate and thank them for the time, experience, and care they have shared with the program and the wider GraphQL community. Their contributions have helped make GraphQL stronger, more welcoming, and more connected.
+<AmbassadorGrid ambassadors={ambassadors.filter(ambassador => ambassador.emeritus)} emeritus />

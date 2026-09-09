@@ -23,6 +23,8 @@ export interface Ambassador {
   alt: string
   organization: string
   tags: AmbassadorTag[]
+  emeritus?: boolean
+  term?: string
 }
 
 export const ambassadors202509: Ambassador[] = [
@@ -54,6 +56,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "/img/ambassadors/donna-zhou.jpg",
     alt: "Donna Zhou",
     organization: "GraphQL Java",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "GitHub",
@@ -266,6 +270,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/jovidecroock.png",
     alt: "Jovi De Croock",
     organization: "GraphQL.js",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "GitHub",
@@ -294,6 +300,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/xuorig.png",
     alt: "Marc-Andre Giroux",
     organization: "Netflix",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "BlueSky",
@@ -322,6 +330,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/michael-watson.png",
     alt: "Michael Watson",
     organization: "Independent",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "BlueSky",
@@ -368,6 +378,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/kitten.png",
     alt: "Phil Pluckthun",
     organization: "urql & gql.tada",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "BlueSky",
@@ -432,6 +444,8 @@ export const ambassadors202509: Ambassador[] = [
     imageUrl: "https://github.com/tazsingh.png",
     alt: "Taz Singh",
     organization: "Guild",
+    emeritus: true,
+    term: "2025-2026",
     tags: [
       {
         label: "GitHub",
@@ -823,9 +837,64 @@ export const ambassadors202606: Ambassador[] = [
   },
 ]
 
+export const ambassadors202609: Ambassador[] = [
+  {
+    label: "Eeshaan Sawant",
+    imageUrl: "https://github.com/eeshaanSA.png",
+    alt: "Eeshaan Sawant",
+    organization: "Independent",
+    tags: [
+      {
+        label: "GitHub",
+        url: "https://github.com/eeshaanSA",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/sawanteeshaan/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "X",
+        url: "https://x.com/eeshaantwts",
+        icon: <TwitterIcon className="size-5" />,
+      },
+      {
+        label: "Website",
+        url: "https://eeshaans.substack.com/",
+        icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+  {
+    label: "Jean Lucas Lima",
+    imageUrl: "https://github.com/jeanlucaslima.png",
+    alt: "Jean Lucas Lima",
+    organization: "Independent",
+    tags: [
+      {
+        label: "GitHub",
+        url: "https://github.com/jeanlucaslima",
+        icon: <GitHubIcon className="size-5" />,
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/jeanlucaslima/",
+        icon: <LinkedInIcon className="size-5" />,
+      },
+      {
+        label: "Website",
+        url: "https://www.jeanlucas.me/",
+        icon: <GlobeIcon className="size-5" />,
+      },
+    ],
+  },
+]
+
 export const ambassadors = [
   ...ambassadors202509,
   ...ambassadors202512,
   ...ambassadors202603,
   ...ambassadors202606,
+  ...ambassadors202609,
 ].sort((a, z) => a.label.localeCompare(z.label, "en-US"))
