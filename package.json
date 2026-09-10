@@ -59,7 +59,7 @@
     "graphql": "16.10.0",
     "gray-matter": "^4.0.3",
     "hast-util-to-string": "3.0.1",
-    "iframe-resizer-react": "^1.1.1",
+    "iframe-resizer-react": "^5.0.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.469.0",
     "motion": "^12.11.0",
