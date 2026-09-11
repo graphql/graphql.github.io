@@ -26,7 +26,7 @@ export interface EventSpeaker {
 
 export interface EventSession {
   id: number
-  uuid: string
+  uuid?: string
   title: string
   /** ISO 8601 in venue local time */
   start: string
