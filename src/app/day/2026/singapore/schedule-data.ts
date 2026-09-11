@@ -41,7 +41,7 @@ export const singaporeSessions: EventSession[] = [
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/akshat-sharma11",
+            url: "https://www.linkedin.com/in/akshat-sharma11/",
           },
         ],
       },
@@ -62,12 +62,12 @@ export const singaporeSessions: EventSession[] = [
         id: 2446,
         name: "Pascal Senn",
         company: "ChilliCream",
-        jobtitle: "Founder",
+        jobtitle: "Chief Operations Officer",
         avatar: pascalSennAvatar,
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/pascal-senn-90899a15a",
+            url: "https://www.linkedin.com/in/pascal-senn-90899a15a/",
           },
           { service: "github", url: "https://github.com/PascalSenn" },
           { service: "website", url: "https://chillicream.com" },
@@ -91,7 +91,7 @@ export const singaporeSessions: EventSession[] = [
         id: 1881,
         name: "Michael Staib",
         company: "ChilliCream",
-        jobtitle: "Founder",
+        jobtitle: "Chief Executive Officer",
         avatar: michaelStaibAvatar,
         socialurls: [
           {

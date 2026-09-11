@@ -6,7 +6,6 @@ import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
 import { EventPartnersSection } from "../components/event-partners"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
-import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
 import { EventScheduleSection } from "../components/event-schedule-section"
@@ -63,21 +62,20 @@ export default function SingaporePage() {
         />
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
-          <PastSpeakersSection />
+          <EventScheduleSection
+            sessions={singaporeSessions}
+            timezone={SINGAPORE_TIMEZONE}
+            timezoneLabel={SINGAPORE_TIMEZONE_LABEL}
+            tagColors={tagColors}
+          />
           <EventPartnersSection />
           <GallerySection moving />
+          <MarqueeRows
+            variant="secondary"
+            className="my-8 xl:mb-16 xl:mt-10"
+            items={MARQUEE_ITEMS}
+          />
         </div>
-        <EventScheduleSection
-          sessions={singaporeSessions}
-          timezone={SINGAPORE_TIMEZONE}
-          timezoneLabel={SINGAPORE_TIMEZONE_LABEL}
-          tagColors={tagColors}
-        />
-        <MarqueeRows
-          variant="secondary"
-          className="my-8 xl:my-16"
-          items={MARQUEE_ITEMS}
-        />
       </main>
     </>
   )
