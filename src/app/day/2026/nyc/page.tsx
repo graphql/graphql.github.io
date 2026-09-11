@@ -3,6 +3,7 @@ import { Metadata } from "next"
 import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
+import { WhyAttendSection } from "../components/why-attend-section"
 import { EventPartnersSection } from "../components/event-partners"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { NavbarPlaceholder } from "../components/navbar"
@@ -53,22 +54,14 @@ export default function NYCPage() {
             </Button>
           </div>
         </Hero>
-        <AboutSection>
-          <p className="typography-body-lg">
-            GraphQL Day NYC took place on May 14, 2026, at Convene 360 Madison
-            in New York as part of FOST (Future of Software Technologies).
-          </p>
-          <p className="typography-body-lg text-pretty">
-            Explore the schedule below for talks on GraphQL, AI agents,
-            federation, and accessibility.
-          </p>
-        </AboutSection>
+        <AboutSection />
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
           items={MARQUEE_ITEMS}
         />
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
+          <WhyAttendSection />
           <EventScheduleSection
             sessions={nycSessions}
             timezone={NYC_TIMEZONE}

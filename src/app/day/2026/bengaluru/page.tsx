@@ -3,6 +3,7 @@ import { Metadata } from "next"
 import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
+import { WhyAttendSection } from "../components/why-attend-section"
 import { EventPartnersSection } from "../components/event-partners"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { NavbarPlaceholder } from "../components/navbar"
@@ -13,6 +14,7 @@ import {
   bengaluruSessions,
   BENGALURU_TIMEZONE,
   BENGALURU_TIMEZONE_LABEL,
+  tagColors,
 } from "./schedule-data"
 
 const SCHEDULE_ANCHOR = "#schedule"
@@ -53,18 +55,7 @@ export default function BengaluruPage() {
             </Button>
           </div>
         </Hero>
-
-        <AboutSection>
-          <p className="typography-body-lg">
-            GraphQL Day Bengaluru took place on August 19, 2026, at Conrad
-            Bengaluru as part of FOST (Future of Software Technologies).
-          </p>
-          <p className="typography-body-lg text-pretty">
-            Explore the schedule below for talks on GraphQL, AI agents,
-            federation, testing, and more.
-          </p>
-        </AboutSection>
-
+        <AboutSection />
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
@@ -72,17 +63,15 @@ export default function BengaluruPage() {
         />
 
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
+          <WhyAttendSection />
           <EventScheduleSection
             sessions={bengaluruSessions}
             timezone={BENGALURU_TIMEZONE}
             timezoneLabel={BENGALURU_TIMEZONE_LABEL}
-            tagColors={{}}
+            tagColors={tagColors}
           />
-
           <EventPartnersSection />
-
           <GallerySection moving />
-
           <MarqueeRows
             variant="secondary"
             className="my-8 xl:mb-16 xl:mt-10"
