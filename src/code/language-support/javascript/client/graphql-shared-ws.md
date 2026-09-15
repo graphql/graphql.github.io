@@ -8,7 +8,8 @@ tags:
   - frontend
 ---
 
-## ⚡ Optimizations 
+## ⚡ Optimizations
+
 <br/>
 <br/>
 
@@ -31,11 +32,11 @@ tags:
 ## 🚀 Initialize and subscribe
 
 ```ts
-import { createSharedClient } from 'graphql-shared-ws'
+import { createSharedClient } from "graphql-shared-ws"
 
 // create a client.
 const sharedClient = createSharedClient({
-  url: 'wss://example.com/api/graphql',
+  url: "wss://example.com/api/graphql",
 })
 
 // make a graphql subscription
@@ -48,13 +49,13 @@ sharedClient.subscribe(
    `,
   },
   {
-    next: (n) => {
+    next: n => {
       console.log(`Last broadcasted message =`, n.data.messageBroadcasted)
     },
     complete: () => {
-      console.log('subscription closed.')
+      console.log("subscription closed.")
     },
     error: console.error,
-  }
+  },
 )
 ```
