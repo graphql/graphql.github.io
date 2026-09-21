@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs"
+import { resolve } from "node:path"
+
 import {
   colors,
   DayOpengraphImageHeader,
@@ -5,7 +8,12 @@ import {
   OG_IMAGE_HEADER_HEIGHT,
 } from "./day-opengraph-image-header"
 
-import graphqlLogoStripes from "./graphql-logo-stripes.png"
+const graphqlLogoStripesDataUri = `data:image/png;base64,${readFileSync(
+  resolve(
+    process.cwd(),
+    "src/app/day/2026/components/og-images/graphql-logo-stripes.png",
+  ),
+).toString("base64")}`
 
 export interface GenericDayOpengraphImageProps
   extends React.HTMLAttributes<HTMLElement> {
@@ -20,10 +28,6 @@ export function GenericDayOpengraphImage({
   location,
   ...rest
 }: GenericDayOpengraphImageProps) {
-  const basePath = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : process.env.__NEXT_PRIVATE_ORIGIN
-
   const height = 630
 
   return (
@@ -89,7 +93,7 @@ export function GenericDayOpengraphImage({
           Register now
         </div>
         <img
-          src={`${basePath}${graphqlLogoStripes.src}`}
+          src={graphqlLogoStripesDataUri}
           style={{ position: "absolute", right: 0, bottom: -5 }}
           height={height - OG_IMAGE_HEADER_HEIGHT}
           width={673}
