@@ -41,7 +41,11 @@ export function GenericDayOpengraphImage({
       }}
       {...rest}
     >
-      <DayOpengraphImageHeader date={date} location={location} />
+      <DayOpengraphImageHeader
+        city={pageTitle}
+        date={date}
+        location={location}
+      />
 
       <div
         style={{

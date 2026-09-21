@@ -32,9 +32,11 @@ export const fonts = {
 }
 
 export function DayOpengraphImageHeader({
+  city,
   date,
   location,
 }: {
+  city: string
   date: string
   location: string
 }) {
@@ -81,7 +83,10 @@ export function DayOpengraphImageHeader({
               marginTop: "-6px",
             }}
           />
-          <span>GraphQL Day</span>
+          <span>
+            GraphQL Day{" "}
+            <span style={{ color: colors.priBase }}>{city}</span>
+          </span>
         </div>
       </div>
 

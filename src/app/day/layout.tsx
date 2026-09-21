@@ -15,6 +15,9 @@ export const metadata = {
     absolute: "GraphQL Day",
     template: "%s | GraphQL Day",
   },
+  openGraph: {
+    siteName: "GraphQL Day",
+  },
 } satisfies Metadata
 
 export default function DayLayout({
