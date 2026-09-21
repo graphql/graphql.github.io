@@ -1,4 +1,4 @@
-import pascalSennAvatar from "./speakers/pascal-senn.webp"
+import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.webp"
 import ivanJancicAvatar from "./speakers/ivan-jancic.webp"
 import davidStuttAvatar from "./speakers/david-stutt.jpg"
 import daleSeoAvatar from "./speakers/dale-seo.jpg"
@@ -31,16 +31,18 @@ export const londonSessions: EventSession[] = [
     venue: "",
     speakers: [
       {
-        id: 1012,
-        name: "Pascal Senn",
+        id: 1881,
+        name: "Michael Staib",
         company: "ChilliCream",
-        jobtitle: "COO",
-        avatar: pascalSennAvatar,
+        jobtitle: "Founder",
+        avatar: michaelStaibAvatar,
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/pascal-senn-90899a15a/",
+            url: "https://www.linkedin.com/in/michael-staib-31519571/",
           },
+          { service: "github", url: "https://github.com/michaelstaib" },
+          { service: "website", url: "https://chillicream.com" },
         ],
       },
     ],
