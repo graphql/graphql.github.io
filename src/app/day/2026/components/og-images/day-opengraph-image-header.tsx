@@ -83,10 +83,10 @@ export function DayOpengraphImageHeader({
               marginTop: "-6px",
             }}
           />
-          <span>
-            GraphQL Day{" "}
-            <span style={{ color: colors.priBase }}>{city}</span>
-          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <span>GraphQL Day</span>
+            <span style={{ color: colors.priBase }}>2026</span>
+          </div>
         </div>
       </div>
 

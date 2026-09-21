@@ -52,22 +52,42 @@ export function GenericDayOpengraphImage({
           display: "flex",
           flex: 1,
           flexDirection: "column",
-          justifyContent: "flex-end",
+          justifyContent: "flex-start",
           padding: "2.5rem",
           position: "relative",
         }}
       >
         <h1
           style={{
+            display: "flex",
+            flexDirection: "column",
             margin: 0,
             fontFamily: fonts.sans,
             lineHeight: "1.25",
-            color: colors.neu900,
-            fontSize: "96px",
+            fontWeight: "bold",
+            fontSize: "72px",
           }}
         >
-          {pageTitle}
+          <span style={{ color: colors.neu900 }}>GraphQL Day</span>
+          <span style={{ color: colors.priBase }}>at FOST {pageTitle}</span>
         </h1>
+        <div
+          style={{
+            display: "flex",
+            alignSelf: "flex-start",
+            marginTop: "2.5rem",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: colors.neu900,
+            color: colors.neu0,
+            fontFamily: fonts.sans,
+            fontSize: "1.75rem",
+            height: "4.5rem",
+            padding: "0 2.5rem",
+          }}
+        >
+          Register now
+        </div>
         <img
           src={`${basePath}${graphqlLogoStripes.src}`}
           style={{ position: "absolute", right: 0, bottom: -5 }}
