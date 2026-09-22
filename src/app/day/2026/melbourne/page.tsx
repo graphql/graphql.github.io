@@ -40,7 +40,7 @@ export default function MelbournePage() {
           <HeroDateAndLocation
             date="October 28-29, 2026"
             dateTime="2026-10-28"
-            location="Melbourne, Australia"
+            location="MCEC, Melbourne, Australia"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
             <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
