@@ -4,21 +4,20 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
-import {
-  BecomeASpeakerSection,
-  CfpButton,
-} from "../components/become-a-speaker"
 import { EventPartnersSection } from "../components/event-partners"
-import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
-import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
 
-const CFP_LINK = "https://confengine.com/conferences/apidays-india-2026"
+import { EventScheduleSection } from "../components/event-schedule-section"
+import {
+  bengaluruSessions,
+  BENGALURU_TIMEZONE,
+  BENGALURU_TIMEZONE_LABEL,
+  tagColors,
+} from "./schedule-data"
 
-const TICKETS_LINK =
-  "https://confengine.com/conferences/apidays-india-2026/register/selection"
+const SCHEDULE_ANCHOR = "#schedule"
 
 const MARQUEE_ITEMS = [
   ["BENGALURU", "AUGUST 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
@@ -48,18 +47,15 @@ export default function BengaluruPage() {
             location="Conrad Bengaluru, India"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button href={TICKETS_LINK} className="whitespace-nowrap md:w-fit">
-              Get Tickets
-            </Button>
-            <CfpButton
-              cfpLink={CFP_LINK}
+            <Button
+              href={SCHEDULE_ANCHOR}
               className="whitespace-nowrap md:w-fit"
-            />
+            >
+              View the schedule
+            </Button>
           </div>
         </Hero>
-
         <AboutSection />
-
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
@@ -68,28 +64,14 @@ export default function BengaluruPage() {
 
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
-
-          <BecomeASpeakerSection cfpLink={CFP_LINK} />
-
-          <PastSpeakersSection />
-
+          <EventScheduleSection
+            sessions={bengaluruSessions}
+            timezone={BENGALURU_TIMEZONE}
+            timezoneLabel={BENGALURU_TIMEZONE_LABEL}
+            tagColors={tagColors}
+          />
           <EventPartnersSection />
-
           <GallerySection moving />
-
-          <CtaCardSection
-            title="Stay tuned"
-            description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST Bengaluru."
-          >
-            <Button
-              href={TICKETS_LINK}
-              variant="primary"
-              className="whitespace-nowrap"
-            >
-              Get Tickets
-            </Button>
-          </CtaCardSection>
-
           <MarqueeRows
             variant="secondary"
             className="my-8 xl:mb-16 xl:mt-10"

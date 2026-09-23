@@ -104,7 +104,7 @@ export function categorizeEvent(
       return "working-group"
     }
   } else if ("slug" in event) {
-    return "conference"
+    return event.kind ?? "conference"
   } else {
     // Uncategorized!
     if (process.env.NODE_ENV !== "production") {

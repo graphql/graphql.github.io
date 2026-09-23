@@ -38,7 +38,7 @@ export const nycSessions: EventSession[] = [
     end: "2026-05-14T14:35:00-04:00",
     tags: ["GraphQL History", "Open Source"],
     description:
-      "<p>In 2015, we promised GraphQL would be “easy to learn and use.” Ten years, and hundreds of billions of daily API calls later, we’ve learned that not all our hopes and promises turned out to be true.</p>\n",
+      '<p>In 2015, we promised GraphQL would be "easy to learn and use." Ten years, and hundreds of billions of daily API calls later, we\'ve learned that not all our hopes and promises turned out to be true.</p>\n',
     venue: "GraphQL Stage",
     speakers: [
       {
@@ -77,7 +77,7 @@ export const nycSessions: EventSession[] = [
     end: "2026-05-14T15:05:00-04:00",
     tags: ["Learning", "Schema Design", "Best Practices"],
     description:
-      "<p>After eleven years as an open source technology, GraphQL has never had a more favorable learning curve. Clearer mental models, better educational materials, and a deeper collective understanding of best practices have transformed the “wild west” of 2015 to a much more manageable landscape today.</p>\n<p>You and your team are unique, so rather than a one-size-fits-all blueprint, this talk presents a practical guide to teaching yourself GraphQL in 2026. We’ll examine how beginners typically build their first mental model of GraphQL, the most common misconceptions, and the key design questions they encounter early.</p>\n<p>Special attention will be paid to different modalities: schema-first vs. code-first, schema design principles, common pitfalls when considering enums, the proper use of fragments, and security and performance by default. Attendees will leave with a conceptual roadmap for self-study, a recipe book for context engineering in their agent, and an understanding of the major decision points along the journey ahead.</p>\n",
+      "<p>After eleven years as an open source technology, GraphQL has never had a more favorable learning curve. Clearer mental models, better educational materials, and a deeper collective understanding of best practices have transformed the “wild west” of 2015 to a much more manageable landscape today.</p>\n<p>You and your team are unique, so rather than a one-size-fits-all blueprint I thought I’d present a practical guide to teaching yourself GraphQL in 2026.  We’ll examine how beginners typically build their first mental model of GraphQL, the most common misconceptions, and the key design questions they encounter early.  Special attention will be paid to different modalities: schema-first vs. code-first, schema design principles, common pitfalls when considering enums, the proper use of fragments, and security and performance by default.</p>\n<p>Attendees will leave with a conceptual roadmap for self-study, a recipe book for context engineering in their agent, and an understanding of the major decision points along the journey ahead.</p>\n",
     venue: "GraphQL Stage",
     speakers: [
       {
@@ -110,12 +110,12 @@ export const nycSessions: EventSession[] = [
         id: 4,
         name: "Pascal Senn",
         company: "ChilliCream",
-        jobtitle: "Founder",
+        jobtitle: "COO",
         avatar: pascalSennAvatar,
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/pascal-senn-90899a15a",
+            url: "https://www.linkedin.com/in/pascal-senn-90899a15a/",
           },
           { service: "github", url: "https://github.com/PascalSenn" },
           { service: "website", url: "https://chillicream.com" },
@@ -139,7 +139,7 @@ export const nycSessions: EventSession[] = [
         id: 5,
         name: "Michael Staib",
         company: "ChilliCream",
-        jobtitle: "Founder",
+        jobtitle: "CEO",
         avatar: michaelStaibAvatar,
         socialurls: [
           {
@@ -183,7 +183,7 @@ export const nycSessions: EventSession[] = [
     end: "2026-05-14T17:25:00-04:00",
     tags: ["Accessibility", "Schema Design", "CI/CD"],
     description:
-      "<p>In my apidays Paris session last year, I introduced a “shift left” pattern for accessibility: attach accessibility metadata to GraphQL fields using lightweight directives, expose it through code generation, and let Android (Jetpack Compose), iOS (SwiftUI), and web clients map it into native accessibility semantics for consistent defaults.</p>\n<p>This follow-up, Part 2, focuses on the next problem teams hit in production: keeping that metadata accurate as the schema changes. We’ll walk through a practical, low-friction approach adding CI-friendly validation that catches common contract regressions before changes ship: missing required metadata, invalid values, and template drift.</p>\n<p>This approach standardizes the repeatable, high-leverage semantics (labels, roles, states, templated summaries) so clients can focus on the platform-specific work that truly belongs in the UI (complex interactions, focus order, and behavior). You’ll leave with schema examples you can adapt, a realistic enforcement blueprint that fits into pull requests and CI, and rollout patterns for introducing rules gradually without breaking existing clients.</p>\n",
+      "<p>In my apidays Paris session last year, I introduced a “shift left” pattern for accessibility: attach accessibility metadata to GraphQL fields using lightweight directives, expose it through code generation, and let Android (Jetpack Compose), iOS (SwiftUI), and web clients map it into native accessibility semantics for consistent defaults.</p>\n<p>This follow-up, Part 2, focuses on the next problem teams hit in production: keeping that metadata accurate as the schema changes. We’ll walk through a practical, low friction approach adding CI friendly validation that catches common contract regressions before changes ship: missing required metadata, invalid values, and template drift.</p>\n<p>This approach standardizes the repeatable, high leverage semantics (labels, roles, states, templated summaries) so clients can focus on the platform specific work that truly belongs in the UI (complex interactions, focus order, and behavior).</p>\n<p>You’ll leave with schema examples you can adapt, a realistic enforcement blueprint that fits into pull requests and CI, and rollout patterns for introducing rules gradually without breaking existing clients. A public repo with working examples will be provided.</p>\n<p>Key takeaways:</p>\n<p>• A practical pattern for shipping accessibility semantics alongside data in GraphQL</p>\n<p>• CI friendly validation to prevent metadata regressions</p>\n<p>• Mapping principles for Compose/SwiftUI consumers</p>\n",
     venue: "GraphQL Stage",
     speakers: [
       {
