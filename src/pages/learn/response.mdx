@@ -102,6 +102,168 @@ The mutation above attempts to delete two starships in a single operation, but n
 
 As with network calls to any type of API, network errors that are not specific to GraphQL may happen at any point during a request. These kinds of errors will block communication between the client and server before the request is complete, such as an SSL error or a connection timeout. Depending on the GraphQL server and client libraries that you choose, there may be features built into them that support special network error handling such as retries for failed operations.
 
+### Modelling Errors as Data
+
+When returning errors to API clients, it’s important that we enable clients to create recoverable scenarios for users. This can be enabled by providing the required context to clients, along with making it easy for clients to consume those errors.
+When modelling API errors for both queries and mutations we can follow two guiding principles:
+
+- **Unrecoverable errors, returned in the errors array**  
+  These are errors that are not the users fault (developer errors), which are generally things that the user can’t recover from. For example, the user not being authenticated or a resource not being found. This will also include scenarios such as   
+  server crashes, unhandled exceptions and exhausted resources (for example, memory or CPU)
+
+- **Recoverable errors (user errors), returned as data (typed errors)**  
+  These are errors that the user can recover from or where we need to communicate something to the user. For example, input validation error or the user having hit a limit on their plan for the requested operation. This approach allows us to     
+  utilise typed errors to provide context to clients, while allowing us to enforce a clear distinction between developer and user-facing errors. This ensures that only useful errors are returned as types and everything else developer facing will be
+  returned in the errors array.
+
+#### Mutations
+##### Modelling Errors
+Every mutation defined in the schema returns a Payload union - this allows mutations to return their success state, along with any user facing errors that may occur. This should follow the format of the mutation name, suffixed with Payload - e.g `{MutationName}Payload`.
+
+```graphql
+union CreateHeroPayload = CreateHeroSuccess | ...
+```
+
+This approach allows clients to query for the specific error types that they want to handle, as well as allow us to build a continuously evolving schema. When adding support for a new error, it should be added to the payload definition.
+
+```graphql
+union CreateHeroPayload = CreateHeroSuccess | HeroLimitReached | HeroValidationFailed
+```
+
+So that we have standardisation and flexibility in place for consuming errors, every typed error can implement the MutationError interface.
+
+```graphql
+interface MutationError {
+  message: String!
+}
+```
+
+Each error that is defined will need to implement this interface. In the example below we can see the message being implemented as part of the `MutationError` contract - alongside this, each error type may also include its own information that is specific to that error. For example, in the case of a `HeroLimitReached` error, we may want to provide the hero limit for that account so that this can be communicated to the user or for a possible error type of `HeroAlreadyExists` it would be helpful to return the `Hero` to the client.
+
+```graphql
+type HeroLimitReached implements MutationError {
+	message: String!
+	limit: Int!
+}
+```
+
+Error types can contain more complex data if they need to - for example, if we were looking to implement a `HeroValidationError` error to be returned when invalid Post data was provided during post creation, we can then model this in a way that allows multiple field errors to be handled within the composer.
+
+```graphql
+type FieldError {
+  validationError: String!
+  field: String!
+}
+
+type HeroValidationError implements MutationError {
+  message: String!
+  errors: [FieldError!]!
+}
+```
+
+When implementing the message field on the API to be returned in the response, this should be a human-readable string that can be displayed on the client. In most cases, clients will use the error type to display messaging themselves, but a default string will allow clients to display messages by default (see Future Proofing Error Responses below)
+
+##### Consuming Errors
+
+When it comes to consuming typed errors, clients can use the ... on pattern to consume specific errors being returned in the response. In some cases, clients will want to know exactly what error has occurred and then use this to communicate some information to the user, as well as possibly show a specific user-path to recover from that error. When this is the case, clients can consume the typed error directly within the mutation.
+Clients only need to consume the specific typed errors that they need to handle. For errors that fall outside of this required, the catch-all `... on MutationError` can be used to consume remaining errors in a generic fashion to communicate the given message to the user.
+
+```graphql
+mutation CreateHero {
+  createHero {
+    ... on CreateHeroSuccess {
+      // handle fields
+    }
+    ... on HeroLimitError {
+      message
+      limit
+    }
+    ... on MutationError {
+      message
+    }
+  }
+}
+```
+
+If a client does not need to consume the specific error types, they can simply rely on the `MutationError` interface:
+
+```graphql
+mutation CreateHero {
+  createHero {
+    ... on CreateHeroSuccess {
+      // handle fields
+    }
+    ... on MutationError {
+      message
+    }
+  }
+}
+```
+
+#####Future proofing error responses
+
+When mutations are first modelled in the schema it might be the case that there is not a need for any specific typed error to be defined. In future, you may add error types to the payload for a mutation, but it means that any existing clients utilising the mutation will need to update their code to consume any new errors. If you need to handle this scenario, a common mutation error type can be provided. For example, this `VoidMutationError` type will be included as a type of every mutation payload that do not include any other error types. This can then be removed in future when any user-facing error types are implemented for the payload.
+
+```graphql
+type VoidMutationError implements MutationError {
+  message: String!
+}
+
+union CreateHeroPayload = CreateHeroSuccess | VoidMutationError
+```
+
+While the API will never (and should never) explicitly return this `VoidMutationError` type, it means that when any type of MutationError is returned in future, clients will automatically receive new errors without needing to ship any changes. 
+
+```graphql
+... on MutationError {
+  message
+}
+```
+
+To benefit from this approach, client queries will need to include the resolution of the `MutationError`.
+
+##### Returning non-recoverable errors
+
+In cases where non-recoverable errors need to be returned in the errors array, our error resolver will utilise the GraphQLError class. This allows us to provide an additional code to provide more context to clients where needed. Unless we need other metadata in future, the extensions should not provide any other data outside of code that needs to be portrayed to the user - if data regarding the error is required to portray information to the user, please use a typed error.
+To enforce standards here, its good practice to define an `ErrorCode` enum which can then be provided to a function which will throw the error. This function allows you to centralise error logic and ensure that the backend is returning the correct error format for clients. Without this enforcement, it can be easy for the backend to become riddled with error codes.
+
+```graphql
+enum ErrorCode {
+  NOT_FOUND = 'NOT_FOUND',
+  FORBIDDEN = 'FORBIDDEN',
+  UNEXPECTED = 'UNEXPECTED',
+  UNAUTHORIZED = 'UNAUTHORIZED'
+}
+```
+
+```graphql
+function throwError(message: string, code: ErrorCode) {
+  throw new GraphQLError(message, { 
+    extensions: {
+      code: code,
+    },
+  });
+}
+```
+
+#### Queries
+
+In 95% of cases, GraphQL queries will only ever return either the information that was queried for, or an unrecoverable exception.
+
+```graphql
+type Query {
+  heros(input: HerosInput!): [Hero!]!
+}
+```
+
+In the above query, a successful result would see a list of Hero types returned. Otherwise, the errors array will contain any errors that were thrown during the request.
+
+However, there will be a small amount of cases where there are user-recoverable errors that may need to be returned from queries. In these cases, we should treat them the same as mutations and provide an union payload so that user-recoverable errors can be returned to the client.
+
+For example, the user could be querying for data that requires them to upgrade their plan, or to update their app. These are user-recoverable errors and utilising errors as data can improve both the Developer and User experience in these scenarios.
+
+While this is a likely to not be common when implementing queries, this approach allows us to return user recoverable errors when required.
+
 ## Extensions
 
 The final top-level key allowed by the GraphQL specification in a response is the `extensions` key. This key is reserved for GraphQL implementations to provide additional information about the response and though it must be an object if present, there are no other restrictions on what it may contain.
