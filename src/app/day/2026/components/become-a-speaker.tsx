@@ -44,6 +44,15 @@ export function BecomeASpeakerSection({
         {cfpDeadline && (
           <p className="typography-body-lg">The CFP closes on {cfpDeadline}.</p>
         )}
+        <p className="typography-body-lg">
+          We aim to reply no later than 1 month before the event. We realize
+          this can be short notice for international travellers — speakers
+          should feel free to reach out to the team on{" "}
+          <a href="https://discord.graphql.org" className="underline">
+            Discord
+          </a>{" "}
+          with any questions.
+        </p>
         <CfpButton cfpLink={cfpLink} className="whitespace-nowrap md:w-fit" />
       </div>
     </section>
