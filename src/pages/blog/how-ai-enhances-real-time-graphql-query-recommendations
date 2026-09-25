@@ -1,0 +1,105 @@
+# **How AI Enhances Real-Time GraphQL Query Recommendations** 
+
+## **Introduction** 
+
+Launched in September 2015, GraphQL is a modern data querying and manipulation language that was developed and open-sourced by Facebook. While traditional REST and SOAP API endpoints are simple, they aren’t best suited when it comes to AI applications. Every endpoint needs a different request and gives different data to the user, which is harder for AI systems to merge together and come up with a better context. 
+
+Moreover, there can be issues with common API standards where they can return more or less data than what is required by the user in a specific request, and both of these scenarios pose a threat to the application’s user experience. But GraphQL aims to overcome all these issues through better querying standards and relationship-based data storage. 
+
+In this article, we will understand how we can make GraphQL queries better by using AI systems. But before that, we should understand the common issues that are faced in Manual Query construction in GraphQL apps. 
+
+## **Common Issues in Manual Query Construction**
+
+**1\. Over-fetching and Under-fetching Data**
+
+Many times, developers often run into [UI/UX design issues](https://www.esparkinfo.com/blog/top-ux-design-challenges-and-solutions) where they end up giving unnecessary data to frontend systems from their APIs, and this is called over-fetching of data. In such scenarios, your APIs become slower as they need to fetch and transfer more data than required, and this also impacts your user experience. 
+
+On the other hand, under-fetching of data happens when a request returns much less data than it should provide so that the frontend can work correctly. In such cases, you will have to make multiple requests to fetch the data, and this increases latency and slows down your APIs significantly. 
+
+**2\. Insufficient Nesting** 
+
+GraphQL stores data in a nested form and also allows deeper nested queries on the data. Due to this, many developers run into insufficient nesting issues where they fetch multiple nested layers of data that are not required to answer the query. 
+
+This can make your APIs slower, increase backend processing for results, and also increase load on your query resolvers. 
+
+   
+**3\. Misunderstanding API Capabilities**
+
+GraphQL APIs have multiple capabilities, and when developers don’t understand them correctly, it causes serious issues. Developers can end up sending the wrong types of arguments, calling deprecated fields, requesting data with incorrect permissions, etc. All these issues can result in validation errors for queries, authorization issues, and even break your production applications if they are not reviewed and fixed before launch. 
+
+Having known about the common issues in manual query generation for GraphQL apps, let’s understand how AI helps in GraphQL queries
+
+## **How AI Helps in GraphQL Queries?**
+
+**1\. Semantic Understanding of Schemas**
+
+GraphQL APIs are composed of various types, fields, and arguments, and as the project grows, it becomes harder to manage everything. Adding AI to your GraphQL queries can help you find the most relevant fields for a query based on the project’s patterns and other details. 
+
+AI tools understand the field names, descriptions, data types, relationships between fields, and their usage patterns, so this understanding can help AI tools in interpreting natural language inputs and transform them into queries without giving much load to developers for query design. 
+
+**2\. Intelligent Field Suggestions**
+
+Regular autocomplete and suggestion tools only give you suggestions based on the current schema, but having AI changes the picture significantly. It can help you find the most optimal fields that will be required based on common querying patterns, historical usage in the project, relationships between different schemas, and many other datapoints. 
+
+Suppose you create a product API, and return details like price, category, etc, AI models will help you suggest the next best field, like product image or product seller, instead of exposing all available fields as suggestions and letting developers decide what they want. 
+
+**3\. Smarter Validations**
+
+While GraphQL provides validations at compile time, they are usually at a very late stage of development of your APIs, and it can derail your teams. With AI, you can provide smarter validations that are proactive rather than reactive. Such validations include flagging incorrect argument types, missing mandatory arguments in queries, incorrect nesting, or any other things that can break your API endpoints. 
+
+AI-based smarter validations provide quicker checks and suggestions to fix issues, and they are based on schema definitions, updates, and historical errors with GraphQL querying. 
+
+**4\. Optimized Query Depth**
+
+Many times, a GraphQL query runs into various depth levels and allows you to store nested data. While this is a good option for nesting related data and keeping it together, querying them can become an issue and result in a bad user experience. 
+
+AI will help you find the optimal query depth you should traverse to answer a query request, suggest flattening and restructuring your GraphQL data, and split queries for optimized performance and reducing query depth. 
+
+By optimizing query depth, you can guarantee predictable performance and reduced backend computation, ultimately leading to faster API responses. 
+
+**5\. Identify Over-fetching and Under-fetching**
+
+Over-fetching and under-fetching are common issues that developers run into when they are working with GraphQL. Overfetching happens when a query pulls way more data from your DB than required, and this makes the query results slower, adds unnecessary load on the query resolver, and becomes a bottleneck as nesting increases. 
+
+On the other hand, underfetching leaves out important data that is required to answer the query correctly, and this results in more queries being sent to the DB to complete the query results. 
+
+With AI, you can eliminate both these issues by understanding which details are required to answer a query and which details are not required. This will also help you decrease your bandwidth requirements, make queries cleaner, and efficient for scaling. 
+
+**6\. Detect Malicious Query Patterns**
+
+GraphQL is a highly flexible technology, and this becomes an issue for many teams. Apps that are not built correctly may end up sending tons of queries to your GraphQL services and freeze the systems. 
+
+Malicious query patterns like extreme nesting, broad queries to understand schema, and overloading query resolvers are common for poor apps, and you can protect yourself from such issues through better AI models. 
+
+These models act as a guardian on your data, and they take actions based on user behavior, historical querying patterns, and traffic patterns. All these data points can be monitored constantly to create anomaly detection alarms that detect and stop malicious query patterns before they cause issues with your data. 
+
+**7\. Schema-based Authorizations**
+
+When working at enterprise scale, GraphQL can quickly become complex as multiple related data points are stored and complex relationships are established between items. AI helps developers navigate these complexities better. 
+
+It can help in verifying which roles should access which field, provide field-level and object-level access controls, and evaluate past access patterns for queries to suggest better role policies and boundaries. 
+
+While AI provides many good benefits for GraphQL queries, it can also face some challenges. So, let’s understand some challenges that AI can face when working with GraphQL.
+
+## **What Challenges can AI face with GraphQL?**
+
+**1\. Ensuring Accuracy of Suggestions**
+
+While AI models improve productivity and help developers work faster on GraphQL apps, they can also become roadblocks if their suggestions are not accurate. Every AI model is as good as the input and training data it uses. If your model is based on incorrect, biased, and old data, it will keep producing substandard suggestions that do more harm than help. 
+
+You should only use AI models that are fine-tuned with the latest training data, have human oversight, and provide overriding functionality to developers when the model does not produce a good suggestion. 
+
+**2\. Keeping up with Changing Schemas**
+
+In enterprises, the GraphQL schema can evolve quickly as new data is added and relationships are formed. But this can leave AI models outdated if they are not interacting with the schema regularly. You need to provide enough training time and retrain your models periodically so they know the latest schema to provide accurate suggestions to your development teams. 
+
+**3\. Privacy and Data Governance**
+
+If you train your AI models from real-world user queries and expose them to sensitive business data, it is a big privacy and data governance concern.  Your models may ingest PII data, business-critical queries, and patterns that can showcase your workflows to anyone under application compromise. 
+
+To overcome such issues, you should always have strict data governance controls, anonymize training data, and give limited capabilities to your AI models to protect your business. 
+
+## **Conclusion**
+
+At this point, you are well-versed with AI and its usage in GraphQL. AI is really helpful in generating excellent real-time query recommendations that protect your GraphQL from deeply nested queries, provide role-based access controls, offer insightful suggestions to improve query performance, include correct fields in query responses, and many other areas. But it can also face issues with data governance, privacy, evolving schemas where the model is not retrained frequently, and even the accuracy of suggestions if the model is based on historical data with old queries and GraphQL practices. If you are looking to make your developer experience better, you should definitely leverage AI and make GraphQL queries better. 
+
