@@ -2,9 +2,11 @@ import { ReactNode } from "react"
 
 export function AboutSection({
   children,
+  date,
   hostNote,
 }: {
   children?: ReactNode
+  date?: ReactNode
   hostNote?: ReactNode
 }) {
   return (
@@ -15,7 +17,8 @@ export function AboutSection({
           {children || (
             <>
               <p className="typography-body-lg">
-                GraphQL Day is a one-day community event hosted at{" "}
+                GraphQL Day is a one-day community event
+                {date && <> on {date}</>} hosted at{" "}
                 <a
                   href="https://www.joinfost.io"
                   className="underline hover:text-neu-900"

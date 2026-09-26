@@ -52,7 +52,10 @@ export default function MelbournePage() {
             <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
         </Hero>
-        <AboutSection hostNote="API Days spans 28-29th October." />
+        <AboutSection
+          date="the 29th of October"
+          hostNote="API Days spans 28th - 29th October."
+        />
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
