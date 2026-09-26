@@ -1,6 +1,12 @@
 import { ReactNode } from "react"
 
-export function AboutSection({ children }: { children?: ReactNode }) {
+export function AboutSection({
+  children,
+  hostNote,
+}: {
+  children?: ReactNode
+  hostNote?: ReactNode
+}) {
   return (
     <div className="bg-neu-100 dark:bg-neu-0/50">
       <section className="gql-section gql-container flex gap-6 max-md:flex-col xl:py-12">
@@ -17,7 +23,7 @@ export function AboutSection({ children }: { children?: ReactNode }) {
                   FOST
                 </a>{" "}
                 (Future of Software Technologies, think federation of
-                conferences!).
+                conferences!).{hostNote && <> {hostNote}</>}
               </p>
               <p className="typography-body-lg text-pretty">
                 It is an opportunity to connect with other API ecosystems, meet
