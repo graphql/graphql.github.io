@@ -7,6 +7,6 @@ export {
 
 export default SimpleOpengraphImage.bind(null, {
   pageTitle: "Melbourne",
-  date: "Oct 28-29, 2026",
+  date: "Oct 29, 2026",
   location: "Melbourne, Australia",
 })
