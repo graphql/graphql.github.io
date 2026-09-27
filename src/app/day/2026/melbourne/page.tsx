@@ -27,8 +27,11 @@ const MARQUEE_ITEMS = [
   ],
 ]
 
+const TICKETS_URL =
+  "https://portal.joinfost.io/event/future-of-software-technologies-australia-2026/f2ece7d0-7781-4c6e-a8de-3b03da1eda85/graphql-day-australia-2026"
+
 export const metadata: Metadata = {
-  title: "GraphQL Day @ FOST Melbourne — Oct 28-29",
+  title: "GraphQL Day @ FOST Melbourne — Oct 29",
 }
 
 export default function MelbournePage() {
@@ -38,18 +41,21 @@ export default function MelbournePage() {
       <main className="gql-all-anchors-focusable">
         <Hero subtitle="@ FOST Melbourne" colorScheme="neutral">
           <HeroDateAndLocation
-            date="October 28-29, 2026"
-            dateTime="2026-10-28"
+            date="October 29, 2026"
+            dateTime="2026-10-29"
             location="MCEC, Melbourne, Australia"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
-              Tickets coming soon
+            <Button href={TICKETS_URL} className="whitespace-nowrap md:w-fit">
+              Get tickets
             </Button>
             <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
         </Hero>
-        <AboutSection />
+        <AboutSection
+          date="the 29th of October"
+          hostNote="API Days spans 28th - 29th October."
+        />
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
@@ -66,11 +72,11 @@ export default function MelbournePage() {
             description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST Melbourne."
           >
             <Button
-              disabled
+              href={TICKETS_URL}
               variant="primary"
-              className="whitespace-nowrap opacity-55"
+              className="whitespace-nowrap"
             >
-              Tickets coming soon
+              Get tickets
             </Button>
           </CtaCardSection>
           <MarqueeRows
