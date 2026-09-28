@@ -1,6 +1,6 @@
-import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.webp"
+import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.jpg"
 import daleSeoAvatar from "../london/speakers/dale-seo.jpg"
-import akshayShajuAvatar from "../bengaluru/speakers/akshayShaju.webp"
+import akshayShajuAvatar from "../bengaluru/speakers/akshayShaju.jpg"
 import andreasMarekAvatar from "./speakers/andreas-marek.jpg"
 import eddyNguyenAvatar from "./speakers/eddy-nguyen.jpg"
 import timHingstonAvatar from "./speakers/tim-hingston.jpg"
@@ -23,6 +23,7 @@ export const tagColors: Record<string, string> = {
 export const melbourneSessions: EventSession[] = [
   {
     id: 5001,
+    uuid: "64a4db37-cbc2-4726-8637-025e7efa4b49",
     title: "Federation for the JVM",
     start: "2026-10-29T11:00:00+11:00",
     end: "2026-10-29T11:25:00+11:00",
@@ -48,6 +49,7 @@ export const melbourneSessions: EventSession[] = [
   },
   {
     id: 5002,
+    uuid: "2362071a-320d-448c-9384-f8dbe2e64a62",
     title:
       "Closing the Loop: How GraphQL Gives Coding Agents Eyes on What Actually Matters",
     start: "2026-10-29T11:30:00+11:00",
@@ -76,6 +78,7 @@ export const melbourneSessions: EventSession[] = [
   },
   {
     id: 5003,
+    uuid: "0dfb8add-40b2-4f26-9c25-2f69616b9318",
     title:
       "Ask, Don't Fetch: Why GraphQL + MCP Is the Native Language of AI Agents",
     start: "2026-10-29T12:00:00+11:00",
@@ -102,6 +105,7 @@ export const melbourneSessions: EventSession[] = [
   },
   {
     id: 5004,
+    uuid: "2ca7fe95-80c2-40d1-a2e9-f1ff3ea25dee",
     title:
       "Telling Your Success Story: Illustrating Graph Impact Through Observability",
     start: "2026-10-29T12:30:00+11:00",
@@ -128,6 +132,7 @@ export const melbourneSessions: EventSession[] = [
   },
   {
     id: 5005,
+    uuid: "e3ff6be8-9b34-49e5-ba50-7deea5de55dd",
     title:
       "GraphQL in the Real World: The Security and Governance Playbook Nobody Gives You",
     start: "2026-10-29T14:00:00+11:00",
@@ -154,6 +159,7 @@ export const melbourneSessions: EventSession[] = [
   },
   {
     id: 5006,
+    uuid: "44ca595b-2b0f-4b59-88e0-3d2d131ccab2",
     title: "Teach Your AI Agent GraphQL",
     start: "2026-10-29T14:30:00+11:00",
     end: "2026-10-29T14:55:00+11:00",
@@ -176,6 +182,7 @@ export const melbourneSessions: EventSession[] = [
   },
   {
     id: 5007,
+    uuid: "05db7eb0-02d4-4348-a72f-deb01da4613a",
     title: "Beyond the Experience Graph: The Data Graph Meets AI",
     start: "2026-10-29T15:00:00+11:00",
     end: "2026-10-29T15:25:00+11:00",

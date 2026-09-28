@@ -1,12 +1,9 @@
 import { SimpleOpengraphImage } from "../components/og-images/simple-opengraph-image"
+import { dayEvents } from "../day-events"
 export {
   generateStaticParams,
   contentType,
   size,
 } from "../components/og-images/simple-opengraph-image"
 
-export default SimpleOpengraphImage.bind(null, {
-  pageTitle: "NYC",
-  date: "May 13-14, 2026",
-  location: "Convene 360 Madison, New York",
-})
+export default SimpleOpengraphImage.bind(null, dayEvents.nyc)

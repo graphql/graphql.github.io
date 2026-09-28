@@ -67,6 +67,7 @@ export default function MelbournePage() {
           hostNote="API Days spans 28th - 29th October."
         />
         <EventScheduleSection
+          city="melbourne"
           sessions={melbourneSessions}
           timezone={MELBOURNE_TIMEZONE}
           timezoneLabel={MELBOURNE_TIMEZONE_LABEL}

@@ -1,9 +1,9 @@
 import braxtonBraggAvatar from "./speakers/braxton-bragg.jpg"
 import elenaBukarevaAvatar from "./speakers/elena-bukareva.jpg"
 import jeffAuriemmaAvatar from "./speakers/jeff-auriemma.jpg"
-import michaelStaibAvatar from "./speakers/michael-staib.webp"
-import pascalSennAvatar from "./speakers/pascal-senn.webp"
-import vanessaJohnsonAvatar from "./speakers/vanessa-johnson.webp"
+import michaelStaibAvatar from "./speakers/michael-staib.jpg"
+import pascalSennAvatar from "./speakers/pascal-senn.jpg"
+import vanessaJohnsonAvatar from "./speakers/vanessa-johnson.jpg"
 import davidSarabiaAvatar from "./speakers/david-sarabia.jpg"
 
 import type { EventSession } from "../components/event-schedule-section"

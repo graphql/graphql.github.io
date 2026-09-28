@@ -15,24 +15,18 @@ export function generateStaticParams() {
 }
 
 export async function SimpleOpengraphImage({
-  pageTitle,
+  city,
   date,
   location,
 }: {
-  pageTitle: string
+  city: string
   date: string
   location: string
 }) {
   const fonts = loadFontsForOG()
 
   return new ImageResponse(
-    (
-      <GenericDayOpengraphImage
-        pageTitle={pageTitle}
-        date={date}
-        location={location}
-      />
-    ),
+    <GenericDayOpengraphImage city={city} date={date} location={location} />,
     {
       ...size,
       fonts: await fonts,
