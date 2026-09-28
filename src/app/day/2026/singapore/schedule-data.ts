@@ -1,6 +1,6 @@
-import akshatSharmaAvatar from "./speakers/akshat-sharma.webp"
-import michaelStaibAvatar from "./speakers/michael-staib.webp"
-import pascalSennAvatar from "./speakers/pascal-senn.webp"
+import akshatSharmaAvatar from "./speakers/akshat-sharma.jpg"
+import michaelStaibAvatar from "./speakers/michael-staib.jpg"
+import pascalSennAvatar from "./speakers/pascal-senn.jpg"
 
 import type { EventSession } from "../components/event-schedule-section"
 

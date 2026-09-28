@@ -17,13 +17,13 @@ const graphqlLogoStripesDataUri = `data:image/png;base64,${readFileSync(
 
 export interface GenericDayOpengraphImageProps
   extends React.HTMLAttributes<HTMLElement> {
-  pageTitle: string
+  city: string
   date: string
   location: string
 }
 
 export function GenericDayOpengraphImage({
-  pageTitle,
+  city,
   date,
   location,
   ...rest
@@ -45,11 +45,7 @@ export function GenericDayOpengraphImage({
       }}
       {...rest}
     >
-      <DayOpengraphImageHeader
-        city={pageTitle}
-        date={date}
-        location={location}
-      />
+      <DayOpengraphImageHeader city={city} date={date} location={location} />
 
       <div
         style={{
@@ -73,7 +69,7 @@ export function GenericDayOpengraphImage({
           }}
         >
           <span style={{ color: colors.neu900 }}>GraphQL Day</span>
-          <span style={{ color: colors.priBase }}>at FOST {pageTitle}</span>
+          <span style={{ color: colors.priBase }}>at FOST {city}</span>
         </h1>
         <div
           style={{

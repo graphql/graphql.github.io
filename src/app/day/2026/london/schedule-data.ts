@@ -1,5 +1,5 @@
-import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.webp"
-import ivanJancicAvatar from "./speakers/ivan-jancic.webp"
+import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.jpg"
+import ivanJancicAvatar from "./speakers/ivan-jancic.jpg"
 import davidStuttAvatar from "./speakers/david-stutt.jpg"
 import daleSeoAvatar from "./speakers/dale-seo.jpg"
 import zeljkoKozinaAvatar from "./speakers/zeljko-kozina.jpg"

@@ -32,7 +32,7 @@ const MARQUEE_ITEMS = [
 ]
 
 export const metadata: Metadata = {
-  title: "GraphQL Day @ FOST London — Sep 30-Oct 1",
+  title: "GraphQL Day @ FOST London — Oct 1",
 }
 
 export default function LondonPage() {
@@ -42,8 +42,8 @@ export default function LondonPage() {
       <main className="gql-all-anchors-focusable">
         <Hero subtitle="@ FOST London" colorScheme="neutral">
           <HeroDateAndLocation
-            date="Sep 30-Oct 1, 2026"
-            dateTime="2026-09-30"
+            date="October 1, 2026"
+            dateTime="2026-10-01"
             location="Convene Sancroft, London"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
@@ -62,8 +62,12 @@ export default function LondonPage() {
             </Button>
           </div>
         </Hero>
-        <AboutSection />
+        <AboutSection
+          date="the 1st of October"
+          hostNote="API Days spans 30th September - 1st October."
+        />
         <EventScheduleSection
+          city="london"
           sessions={londonSessions}
           timezone={LONDON_TIMEZONE}
           timezoneLabel={LONDON_TIMEZONE_LABEL}

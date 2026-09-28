@@ -63,6 +63,7 @@ export default function SingaporePage() {
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
           <EventScheduleSection
+            city="singapore"
             sessions={singaporeSessions}
             timezone={SINGAPORE_TIMEZONE}
             timezoneLabel={SINGAPORE_TIMEZONE_LABEL}

@@ -65,6 +65,7 @@ export default function BengaluruPage() {
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
           <EventScheduleSection
+            city="bengaluru"
             sessions={bengaluruSessions}
             timezone={BENGALURU_TIMEZONE}
             timezoneLabel={BENGALURU_TIMEZONE_LABEL}

@@ -1,10 +1,10 @@
-import ivanJancicAvatar from "./speakers/ivan-jancic.webp"
-import christianErnstAvatar from "./speakers/christian-ernst.webp"
-import jensNeuseAvatar from "./speakers/jens-neuse.webp"
-import martinBonninAvatar from "./speakers/martin-bonnin.webp"
-import michaelStaibAvatar from "./speakers/michael-staib.webp"
-import thoreKoritziusAvatar from "./speakers/thore-koritzius.webp"
-import pascalSennAvatar from "./speakers/pascal-senn.webp"
+import ivanJancicAvatar from "./speakers/ivan-jancic.jpg"
+import christianErnstAvatar from "./speakers/christian-ernst.jpg"
+import jensNeuseAvatar from "./speakers/jens-neuse.jpg"
+import martinBonninAvatar from "./speakers/martin-bonnin.jpg"
+import michaelStaibAvatar from "./speakers/michael-staib.jpg"
+import thoreKoritziusAvatar from "./speakers/thore-koritzius.jpg"
+import pascalSennAvatar from "./speakers/pascal-senn.jpg"
 
 import type { EventSession } from "../components/event-schedule-section"
 

@@ -1,4 +1,4 @@
-import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.webp"
+import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.jpg"
 import santhoshJoseAvatar from "./speakers/santhoshJose.jpg"
 import riginOommenAvatar from "./speakers/riginOommen.jpg"
 import yogeshNikamAvatar from "./speakers/yogeshNikam.jpg"
@@ -6,8 +6,8 @@ import nithinKumarAvatar from "./speakers/nithinKumar.jpg"
 import shriyaChauhanAvatar from "./speakers/shriyaChauhan.jpg"
 import vyshnaviDeviAvatar from "./speakers/vyshnaviDevi.jpg"
 import chandaRajKumarAvatar from "./speakers/chandaRajKumar.jpg"
-import akshayShajuAvatar from "./speakers/akshayShaju.webp"
-import akhilMuralidharanAvatar from "./speakers/akhilMuralidharan.webp"
+import akshayShajuAvatar from "./speakers/akshayShaju.jpg"
+import akhilMuralidharanAvatar from "./speakers/akhilMuralidharan.jpg"
 import dinoyRajAvatar from "./speakers/dinoyRaj.jpg"
 import nachiketZadapAvatar from "./speakers/nachiketZadap.jpg"
 import mahimaMalhotraAvatar from "./speakers/mahimaMalhotra.jpg"
@@ -32,9 +32,10 @@ export const tagColors: Record<string, string> = {
 }
 
 // UUID is omitted for this manually maintained schedule.
-export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
+export const bengaluruSessions: EventSession[] = [
   {
     id: 5001,
+    uuid: "1dcb246e-ccdd-43a3-a06b-8de9ff705d6a",
     title:
       "Closing the Loop: How GraphQL Gives Coding Agents Eyes on What Actually Matters",
     start: "2026-08-19T11:00:00+05:30",
@@ -64,6 +65,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5002,
+    uuid: "e270991e-889d-48ff-9cbd-3bc7662dcff6",
     title: "REST in Peace? GraphQL vs REST in the Age of Agentic AI",
     start: "2026-08-19T11:30:00+05:30",
     end: "2026-08-19T11:55:00+05:30",
@@ -90,6 +92,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5003,
+    uuid: "2c99072b-f5f7-4696-a29b-9be0b4bb92bc",
     title:
       "Zero-to-Federation in 60 Seconds: How a GraphQL Middleware Replaced 500+ Legacy APIs and Saved 3 Years of Migration",
     start: "2026-08-19T12:00:00+05:30",
@@ -117,6 +120,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5004,
+    uuid: "508b7b4f-245a-4163-9948-b3fe3a9521a3",
     title: "A Mock Is a Promise: Making GraphQL Mocks Enforceable",
     start: "2026-08-19T12:30:00+05:30",
     end: "2026-08-19T12:55:00+05:30",
@@ -139,6 +143,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5005,
+    uuid: "68f425cf-bb8d-403e-a269-c793246b83b2",
     title: "Human in the Loop: Governing API Evolution in the Age of Agents",
     start: "2026-08-19T14:00:00+05:30",
     end: "2026-08-19T14:25:00+05:30",
@@ -166,6 +171,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5006,
+    uuid: "3cac57d2-207b-45db-aec7-071ebcb9b23d",
     title:
       "Just Ask: Building a Natural Language GraphQL Agent from the Graph You Already Have (the Easy Way)",
     start: "2026-08-19T14:30:00+05:30",
@@ -192,6 +198,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5007,
+    uuid: "cddc951c-bb4f-49c5-bae6-93f522e931da",
     title:
       "Evolving GraphQL: Designing APIs That Deliver Insights with Intelligent Resolvers",
     start: "2026-08-19T15:00:00+05:30",
@@ -231,6 +238,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5008,
+    uuid: "bc314ed6-bba9-466a-bc8c-058fb819dbd8",
     title:
       "Ask, Don't Fetch: Why GraphQL + MCP Is the Native Language of AI Agents",
     start: "2026-08-19T16:00:00+05:30",
@@ -267,6 +275,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5009,
+    uuid: "b8cb6419-a6f7-4b6f-8acb-e929377d6855",
     title:
       "Streaming the Graph: Architecting Flow-Based Progressive Hydration in Android",
     start: "2026-08-19T16:30:00+05:30",
@@ -295,6 +304,7 @@ export const bengaluruSessions: Omit<EventSession, "uuid">[] = [
   },
   {
     id: 5010,
+    uuid: "5edfd37c-5ba1-4817-9105-e88bf871f83a",
     title:
       "Functional Testing of GraphQL APIs: Simple Checks That Catch Real Bugs",
     start: "2026-08-19T17:00:00+05:30",

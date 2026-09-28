@@ -1,7 +1,6 @@
-"use client"
-
-import { useState } from "react"
+import type { ReactNode } from "react"
 import Image from "next/image"
+import NextLink from "next/link"
 import type { StaticImageData } from "next/image"
 import clsx from "clsx"
 
@@ -13,7 +12,7 @@ import {
   SocialIcon,
   SocialIconType,
 } from "@/app/conf/_design-system/social-icon"
-import { formatDescription } from "@/app/conf/2026/schedule/[id]/format-description"
+import { SessionDescription } from "./session-description"
 
 export interface EventSpeaker {
   id: number
@@ -26,7 +25,7 @@ export interface EventSpeaker {
 
 export interface EventSession {
   id: number
-  uuid?: string
+  uuid: string
   title: string
   /** ISO 8601 in venue local time */
   start: string
@@ -41,11 +40,14 @@ export interface EventSession {
 }
 
 export function EventScheduleSection({
+  city,
   sessions,
   timezone,
   timezoneLabel,
   tagColors,
 }: {
+  /** URL segment under /day/2026/, used to link each talk. */
+  city: string
   sessions: EventSession[]
   timezone: string
   timezoneLabel: string
@@ -68,6 +70,7 @@ export function EventScheduleSection({
               <SessionBlock
                 key={session.id}
                 session={session}
+                href={`/day/2026/${city}/talks/${session.uuid}/`}
                 isFirst={i === 0}
                 timezone={timezone}
                 tagColors={tagColors}
@@ -82,11 +85,13 @@ export function EventScheduleSection({
 
 function SessionBlock({
   session,
+  href,
   isFirst,
   timezone,
   tagColors,
 }: {
   session: EventSession
+  href: string
   isFirst: boolean
   timezone: string
   tagColors: Record<string, string>
@@ -100,6 +105,13 @@ function SessionBlock({
       />
       <SessionHeader
         session={session}
+        heading={
+          <h3 className="typography-h2 mb-6">
+            <NextLink href={href} className="hover:underline">
+              {session.title}
+            </NextLink>
+          </h3>
+        }
         timezone={timezone}
         tagColors={tagColors}
         className="px-2 py-8 sm:px-3 lg:py-12"
@@ -109,7 +121,9 @@ function SessionBlock({
           <Hr className="mt-0 lg:mt-10 xl:mt-0 2xl:mt-16" />
           <SessionDescription
             description={session.description}
-            sideSpeaker={sideSpeaker}
+            aside={
+              sideSpeaker && <SpeakerCard speaker={sideSpeaker} index={0} />
+            }
           />
         </>
       )}
@@ -130,80 +144,15 @@ function SessionBlock({
   )
 }
 
-function SessionDescription({
-  description,
-  sideSpeaker,
-}: {
-  description: string
-  sideSpeaker: EventSpeaker | null
-}) {
-  const [expanded, setExpanded] = useState(false)
-  const paragraphs = parseParagraphs(description)
-  const hasMore = paragraphs.length > 1
-  const visible = expanded ? paragraphs : paragraphs.slice(0, 1)
-  const splitAt = sideSpeaker ? Math.max(0, visible.length - 2) : visible.length
-  const lead = visible.slice(0, splitAt)
-  const tail = visible.slice(splitAt)
-  const lastInLead = tail.length === 0 ? lead.length - 1 : -1
-  const lastInTail = tail.length - 1
-
-  const toggle = hasMore && (
-    <>
-      {" "}
-      <button
-        type="button"
-        onClick={() => setExpanded(e => !e)}
-        aria-expanded={expanded}
-        className="typography-link"
-      >
-        {expanded ? "Show less." : "Read more…"}
-      </button>
-    </>
-  )
-
-  return (
-    <div className="typography-body-lg mt-8 px-2 pb-8 sm:px-3 lg:mt-12 xl:pb-12 [&>p+p]:mt-4 [&_a]:break-words">
-      {lead.map((html, i) => (
-        <p key={`lead-${i}`}>
-          <span dangerouslySetInnerHTML={{ __html: html }} />
-          {i === lastInLead && toggle}
-        </p>
-      ))}
-      {tail.length > 0 && (
-        <div className="mt-4 first:mt-0 xl:flex xl:items-end xl:gap-6">
-          <div className="xl:flex-1 [&>p+p]:mt-4">
-            {tail.map((html, i) => (
-              <p key={`tail-${i}`}>
-                <span dangerouslySetInnerHTML={{ __html: html }} />
-                {i === lastInTail && toggle}
-              </p>
-            ))}
-          </div>
-          {sideSpeaker && (
-            <div className="hidden xl:-mb-12 xl:-mr-3 xl:block xl:w-[580px] xl:shrink-0 xl:[&>article]:border-b-0 xl:[&>article]:border-r-0 xl:[&>article]:border-t">
-              <SpeakerCard speaker={sideSpeaker} index={0} />
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  )
-}
-
-function parseParagraphs(html: string): string[] {
-  const formatted = formatDescription(html)
-  const matches = formatted.match(/<p>[\s\S]*?<\/p>/g)
-  if (!matches) return [formatted]
-  return matches.map(p => p.replace(/^<p>/, "").replace(/<\/p>$/, ""))
-}
-
-function SessionHeader({
+export function SessionHeader({
   session,
+  heading,
   timezone,
   tagColors,
   className,
 }: {
   session: EventSession
+  heading: ReactNode
   timezone: string
   tagColors: Record<string, string>
   className?: string
@@ -224,7 +173,7 @@ function SessionHeader({
 
   return (
     <header className={className}>
-      <h3 className="typography-h2 mb-6">{session.title}</h3>
+      {heading}
       <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
         <div className="typography-body-md flex flex-col gap-2 md:flex-row md:gap-6">
           <div className="flex items-center gap-2">
@@ -259,7 +208,7 @@ function SessionHeader({
   )
 }
 
-function SessionSpeakers({
+export function SessionSpeakers({
   speakers,
   className,
 }: {
@@ -389,7 +338,7 @@ function SpeakerSocialLinks({ links }: { links: EventSpeaker["socialurls"] }) {
   )
 }
 
-function Hr({ className }: { className?: string }) {
+export function Hr({ className }: { className?: string }) {
   return (
     <hr
       className={clsx(
