@@ -4,16 +4,20 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
-import {
-  BecomeASpeakerSection,
-  CfpButton,
-} from "../components/become-a-speaker"
+import { BecomeASpeakerSection } from "../components/become-a-speaker"
 import { EventPartnersSection } from "../components/event-partners"
 import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
+import { EventScheduleSection } from "../components/event-schedule-section"
+import {
+  melbourneSessions,
+  MELBOURNE_TIMEZONE,
+  MELBOURNE_TIMEZONE_LABEL,
+  tagColors,
+} from "./schedule-data"
 
 const MARQUEE_ITEMS = [
   ["MELBOURNE", "OCTOBER 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
@@ -49,12 +53,24 @@ export default function MelbournePage() {
             <Button href={TICKETS_URL} className="whitespace-nowrap md:w-fit">
               Get tickets
             </Button>
-            <CfpButton className="whitespace-nowrap md:w-fit" />
+            <Button
+              href="#schedule"
+              variant="secondary"
+              className="whitespace-nowrap md:w-fit"
+            >
+              View the schedule
+            </Button>
           </div>
         </Hero>
         <AboutSection
           date="the 29th of October"
           hostNote="API Days spans 28th - 29th October."
+        />
+        <EventScheduleSection
+          sessions={melbourneSessions}
+          timezone={MELBOURNE_TIMEZONE}
+          timezoneLabel={MELBOURNE_TIMEZONE_LABEL}
+          tagColors={tagColors}
         />
         <MarqueeRows
           variant="primary"
