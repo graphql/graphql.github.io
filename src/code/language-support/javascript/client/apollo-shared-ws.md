@@ -1,7 +1,7 @@
 ---
 name: Apollo Shared Ws
 description: Share a single WebSocket connection across multiple browser tabs and windows for Apollo Client. Features built-in subscription deduplication via payload indexing to optimize network performance.
-github: sdev-buildz/apollo-shared-ws
+github: sdev-buildz/apollo-state-sync/tree/main/packages/apollo-shared-ws
 npm: apollo-shared-ws
 tags:
   - tools-and-libraries
