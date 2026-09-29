@@ -4,6 +4,7 @@ import davidStuttAvatar from "./speakers/david-stutt.jpg"
 import daleSeoAvatar from "./speakers/dale-seo.jpg"
 import zeljkoKozinaAvatar from "./speakers/zeljko-kozina.jpg"
 import vanessaJohnsonAvatar from "./speakers/vanessa-johnson.jpg"
+import patrickVanDerPlasAvatar from "./speakers/patrick-van-der-plas.jpg"
 
 import type { EventSession } from "../components/event-schedule-section"
 
@@ -167,6 +168,19 @@ export const londonSessions: EventSession[] = [
           {
             service: "linkedin",
             url: "https://www.linkedin.com/in/ivan-jan%C4%8Di%C4%87/",
+          },
+        ],
+      },
+      {
+        id: 4106,
+        name: "Patrick van der Plas",
+        company: "HEMA",
+        jobtitle: "Software Engineer",
+        avatar: patrickVanDerPlasAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/patrick-van-der-plas/",
           },
         ],
       },
