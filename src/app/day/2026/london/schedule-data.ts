@@ -1,4 +1,4 @@
-import michaelStaibAvatar from "../amsterdam/speakers/michael-staib.jpg"
+import benjieGillamAvatar from "./speakers/benjie-gillam.jpg"
 import ivanJancicAvatar from "./speakers/ivan-jancic.jpg"
 import davidStuttAvatar from "./speakers/david-stutt.jpg"
 import daleSeoAvatar from "./speakers/dale-seo.jpg"
@@ -22,28 +22,26 @@ export const tagColors: Record<string, string> = {
 export const londonSessions: EventSession[] = [
   {
     id: 4001,
-    uuid: "5e5d195e-4143-42ce-a4bf-99bcdec2e30e",
-    title: "GraphQL as the Execution Layer for AI Agents",
+    uuid: "38f534b0-79a9-43ff-b2b4-0dbe2761d0ae",
+    title: "Latest news from the GraphQL spec",
     start: "2026-10-01T10:20:00+01:00",
     end: "2026-10-01T10:45:00+01:00",
-    tags: ["GraphQL", "AI Agents"],
-    description:
-      "<p>Your next million API consumers won't be developers. They'll be AI agents. And they don't read documentation, parse hypermedia links, or guess which of your 200 REST endpoints returns the data they need.</p>\n<p>This talk examines what happens when autonomous AI agents become the primary consumers of your API layer. Drawing on real data from Singapore's public government APIs, I'll show how REST responses waste 30–60% of an agent's token budget on structural overhead, and how a typed, self-describing schema changes the equation entirely.</p>\n<p>We'll walk through the three properties that make an API truly agent-native: discoverability, precision, and composability. We'll look at what it would take to unify API estates like Singapore's 3,000+ government APIs across 75+ agencies into a single, self-describing surface. A pattern Gartner expects 30% of enterprises to adopt by 2027.</p>\n<p>You'll leave with a framework for what makes an API truly agent-native, why GraphQL's type system and federation model get you there, and how to start without a rewrite.</p>\n",
+    tags: ["GraphQL"],
+    description: "",
     venue: "",
     speakers: [
       {
-        id: 1881,
-        name: "Michael Staib",
-        company: "ChilliCream",
-        jobtitle: "Founder",
-        avatar: michaelStaibAvatar,
+        id: 4107,
+        name: "Benjie Gillam",
+        company: "GraphQL Foundation",
+        jobtitle: "GraphQL TSC",
+        avatar: benjieGillamAvatar,
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/michael-staib-31519571/",
+            url: "https://www.linkedin.com/in/benjiegillam/",
           },
-          { service: "github", url: "https://github.com/michaelstaib" },
-          { service: "website", url: "https://chillicream.com" },
+          { service: "github", url: "https://github.com/benjie" },
         ],
       },
     ],
