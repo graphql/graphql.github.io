@@ -4,6 +4,7 @@ import akshayShajuAvatar from "../bengaluru/speakers/akshayShaju.jpg"
 import andreasMarekAvatar from "./speakers/andreas-marek.jpg"
 import eddyNguyenAvatar from "./speakers/eddy-nguyen.jpg"
 import timHingstonAvatar from "./speakers/tim-hingston.jpg"
+import eeshaanSawantAvatar from "./speakers/eeshaan-sawant.jpg"
 
 import type { EventSession } from "../components/event-schedule-section"
 
@@ -186,14 +187,15 @@ export const melbourneSessions: EventSession[] = [
     end: "2026-10-29T15:25:00+11:00",
     tags: ["GraphQL", "Federation"],
     description:
-      "<p>G'day Melbourne! Come join us on this tram — it is an all-stops service, a 50-minute ride that starts at the very first stop and doesn't get off until Federation, skipping nothing in between. No prior GraphQL knowledge needed to climb aboard!</p>\n<p>As GraphQL continues to mature as an API for Humans and Agents, we regularly come across developers who have seldom heard of GraphQL, and far fewer know how it actually works, or the problem it solves.</p>\n<p>The tram will set off with the basics — Whats and Whys of GraphQL, and ride stops that make up every GraphQL API: the schemas and the queries, how mutations work, the versatility of resolvers, subscriptions for real-time updates, the infamous N+1 problem, schema-stitching and finally Federation, taking you through the whole GraphQL tram route, end-to-end.</p>\n<p>Tap your Mykis and sit tight: you'll step off with a clear mental model of how GraphQL fits together, why it's the API to watch in the AI era, and a map to explore the rest on your own.</p>\n",
+      "<p>G'day Melbourne! Come join us on this tram — it is an all-stops service, a 25-minute ride that starts at the very first stop and doesn't get off until Federation, skipping nothing in between. No prior GraphQL knowledge needed to climb aboard!</p>\n<p>As GraphQL continues to mature as an API for Humans and Agents, we regularly come across developers who have seldom heard of GraphQL, and far fewer know how it actually works, or the problem it solves.</p>\n<p>The tram will set off with the basics — Whats and Whys of GraphQL, and ride stops that make up every GraphQL API: the schemas and the queries, how mutations work, the versatility of resolvers, subscriptions for real-time updates, the infamous N+1 problem, schema-stitching and finally Federation, taking you through the whole GraphQL tram route, end-to-end.</p>\n<p>Tap your Mykis and sit tight: you'll step off with a clear mental model of how GraphQL fits together, why it's the API to watch in the AI era, and a map to explore the rest on your own.</p>\n",
     venue: "",
     speakers: [
       {
         id: 5109,
         name: "Eeshaan Sawant",
         company: "",
-        jobtitle: "",
+        jobtitle: "Developer Relations",
+        avatar: eeshaanSawantAvatar,
         socialurls: [
           {
             service: "linkedin",
