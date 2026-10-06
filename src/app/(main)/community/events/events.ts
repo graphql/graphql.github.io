@@ -43,7 +43,7 @@ const allEvents: Event[] = [
     hostLink: "https://www.joinfost.io",
   },
   {
-    name: "GraphQL Day at FOST Paris",
+    name: "GraphQL Days at FOST Paris",
     slug: "graphql-day-fost-paris-2026",
     location: "Paris",
     date: "2026-12-01T09:00:00+01:00",

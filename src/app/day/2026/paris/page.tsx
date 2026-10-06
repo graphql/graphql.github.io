@@ -16,19 +16,19 @@ import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
 
 const MARQUEE_ITEMS = [
-  ["PARIS", "DECEMBER 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
+  ["PARIS", "DECEMBER 2026", "GRAPHQL DAYS", "FOST", "COMMUNITY", "APIs"],
   [
     "OPEN SOURCE",
     "WORKSHOPS",
     "FEDERATION",
     "DEVELOPER EXPERIENCE",
-    "GRAPHQL DAY",
+    "GRAPHQL DAYS",
     "PARIS",
   ],
 ]
 
 export const metadata: Metadata = {
-  title: "GraphQL Day @ FOST Paris — Dec 1-3",
+  title: "GraphQL Days @ FOST Paris — Dec 1-3",
 }
 
 export default function ParisPage() {
@@ -36,7 +36,11 @@ export default function ParisPage() {
     <>
       <NavbarPlaceholder className="top-0 bg-neu-100 before:bg-white/30 dark:bg-neu-50/50 dark:before:bg-blk/40" />
       <main className="gql-all-anchors-focusable">
-        <Hero subtitle="@ FOST Paris" colorScheme="neutral">
+        <Hero
+          title="GraphQL Days"
+          subtitle="@ FOST Paris"
+          colorScheme="neutral"
+        >
           <HeroDateAndLocation
             date="December 1-3, 2026"
             dateTime="2026-12-01"
@@ -49,7 +53,28 @@ export default function ParisPage() {
             <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
         </Hero>
-        <AboutSection />
+        <AboutSection>
+          <p className="typography-body-lg">
+            GraphQL Days is a three-day community track hosted at{" "}
+            <a
+              href="https://www.joinfost.io"
+              className="underline hover:text-neu-900"
+            >
+              FOST
+            </a>{" "}
+            (Future of Software Technologies, think federation of conferences!),
+            shared with AsyncAPI, OpenAPI and JSON Schema.
+          </p>
+          <p className="typography-body-lg text-pretty">
+            It is an opportunity to connect with other API ecosystems, meet new
+            and seasoned GraphQL users, educate about GraphQL, share best
+            practices, and have fun!
+          </p>
+          <p className="typography-body-lg text-pretty">
+            The event is open to everyone — whether you run GraphQL in
+            production or are evaluating it for your next project.
+          </p>
+        </AboutSection>
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
@@ -63,7 +88,7 @@ export default function ParisPage() {
           <GallerySection moving />
           <CtaCardSection
             title="Stay tuned"
-            description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST Paris."
+            description="Join us for three days of GraphQL talks, networking, and hands-on learning at FOST Paris."
           >
             <Button
               disabled
