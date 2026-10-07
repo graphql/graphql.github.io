@@ -102,8 +102,8 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
       {sections.map(key => {
         const data = grouped.get(key)
 
-        // "event" section uses working group meetings, not resources
-        if (key !== "event" && !data?.length) {
+        // event and docs use independent data sources, not grouped resources
+        if (key !== "event" && key !== "docs" && !data?.length) {
           return null
         }
 
