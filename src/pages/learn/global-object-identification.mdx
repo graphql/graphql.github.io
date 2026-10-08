@@ -25,7 +25,7 @@ objects "nodes." Here is an example query for a node:
 ```
 
 - The GraphQL schema is formatted to allow fetching any object via the `node` field on the root query object. This
-  returns objects which conform to a "Node" [interface](/learn/schema/#interfaces).
+  returns objects which conform to a "Node" [interface](/learn/schema/#interface-types).
 - The `id` field can be extracted out of the response safely, and can be stored for re-use via caching and refetching.
 - Clients can use interface fragments to extract additional information specific to the type which conform to the node interface. In this case a "User".
 

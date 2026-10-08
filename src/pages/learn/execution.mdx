@@ -122,7 +122,7 @@ This is an example of _scalar coercion_. The type system knows what to expect an
 
 ## List resolvers
 
-We've already seen some of what happens when a field returns a list of things with the `appearsIn` field above. It returned a [List type](/learn/schema/#lists) containing Enum type values, and since that's what the type system expected, each item in the list was coerced to the appropriate value. What happens when the `starships` field is resolved?
+We've already seen some of what happens when a field returns a list of things with the `appearsIn` field above. It returned a [List type](/learn/schema/#list) containing Enum type values, and since that's what the type system expected, each item in the list was coerced to the appropriate value. What happens when the `starships` field is resolved?
 
 ```js
 function resolveHumanStarships(obj, args, context, info) {
