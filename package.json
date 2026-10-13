@@ -125,8 +125,8 @@
     "prettier-plugin-pkg": "^0.21.0",
     "prettier-plugin-tailwindcss": "^0.7.0",
     "remark-frontmatter": "5.0.0",
-    "remark-lint-first-heading-level": "3.1.2",
-    "remark-lint-heading-increment": "3.1.2",
+    "remark-lint-first-heading-level": "4.0.1",
+    "remark-lint-heading-increment": "4.0.1",
     "tsx": "^4.19.4",
     "typescript": "^5.9.2",
     "yaml": "^2.9.0"
