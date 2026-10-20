@@ -47,8 +47,11 @@ export default function ParisPage() {
             location="CNIT Forest, Paris"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
-              Tickets coming soon
+            <Button
+              href="https://portal.joinfost.io/event/future-of-software-technologies-paris-2026/5e27c773-7fa8-4169-b6a7-93494701212a/api-standards-conference"
+              className="whitespace-nowrap md:w-fit"
+            >
+              Get tickets
             </Button>
             <CfpButton className="whitespace-nowrap md:w-fit" />
           </div>
@@ -91,11 +94,11 @@ export default function ParisPage() {
             description="Join us for three days of GraphQL talks, networking, and hands-on learning at FOST Paris."
           >
             <Button
-              disabled
+              href="https://portal.joinfost.io/event/future-of-software-technologies-paris-2026/5e27c773-7fa8-4169-b6a7-93494701212a/api-standards-conference"
               variant="primary"
-              className="whitespace-nowrap opacity-55"
+              className="whitespace-nowrap"
             >
-              Tickets coming soon
+              Get tickets
             </Button>
           </CtaCardSection>
           <MarqueeRows
