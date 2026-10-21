@@ -1,7 +1,6 @@
 import type { EventKind } from "./event-filter-tag"
 
 export * from "./event-card"
-import type { EventKind } from "./event-filter-tag"
 
 export interface Event {
   name: string
