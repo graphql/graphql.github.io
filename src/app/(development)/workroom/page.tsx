@@ -1,7 +1,9 @@
-import { SpeakerOpengraphImage } from "@/app/conf/2025/components/og-images/speaker-opengraph-image"
-import { SessionOpengraphImage } from "@/app/conf/2025/components/og-images/session-opengraph-image"
-import { GenericOpengraphImage } from "@/app/conf/2025/components/og-images/generic-opengraph-image"
+import { SpeakerOpengraphImage } from "@/components/og-image/conference/speaker-opengraph-image"
+import { SessionOpengraphImage } from "@/components/og-image/conference/session-opengraph-image"
+import { GenericOpengraphImage } from "@/components/og-image/conference/generic-opengraph-image"
 import { SchedSpeaker } from "@/app/conf/2023/types"
+import { speakers } from "@/app/conf/2025/_data"
+import { getEventTitle } from "@/app/conf/2025/utils"
 
 /**
  * This is cheaper than maintaining a Storybook config.
@@ -46,6 +48,8 @@ export default function WorkroomPage() {
 
       <p>ScheduleOpengraphImage / no speakers</p>
       <SessionOpengraphImage
+        allSpeakers={speakers}
+        getEventTitle={getEventTitle}
         session={{
           name: "Welcome & Opening Remarks",
           speakers: [],
@@ -57,6 +61,8 @@ export default function WorkroomPage() {
 
       <p>ScheduleOpengraphImage / single speaker</p>
       <SessionOpengraphImage
+        allSpeakers={speakers}
+        getEventTitle={getEventTitle}
         session={{
           name: "The State of Distributed GraphQL",
           speakers: [enisdenjo],
@@ -68,6 +74,8 @@ export default function WorkroomPage() {
 
       <p>ScheduleOpengraphImage / multiple speakers</p>
       <SessionOpengraphImage
+        allSpeakers={speakers}
+        getEventTitle={getEventTitle}
         session={{
           name: "TSC Panel",
           speakers: [enisdenjo, saihaj],
@@ -79,6 +87,8 @@ export default function WorkroomPage() {
 
       <p>SpeakerOpengraphImage / very long title</p>
       <SessionOpengraphImage
+        allSpeakers={speakers}
+        getEventTitle={getEventTitle}
         session={{
           name: "TSC Panel - Lee Byron, GraphQL Foundation; Kewei Qu, Meta; Rob Richard, 1stDibs; Michael Staib, ChilliCream; Moderated by Sasha Solomon, Staff Software Engineer & Tech Lead",
           speakers: [

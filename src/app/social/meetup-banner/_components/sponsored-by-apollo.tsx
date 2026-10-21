@@ -1,8 +1,5 @@
 import ApolloWordmark from "@/icons/apollo-wordmark.svg?svgr"
-import {
-  colors,
-  fonts,
-} from "@/app/conf/2026/components/og-images/speaker-opengraph-image"
+import { colors, fonts } from "@/components/og-image/styles"
 
 export function SponsoredByApollo() {
   return (

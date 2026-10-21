@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === "development") {
 
 export const metadata: Metadata = withSocialImage("/day/", {
   title: "GraphQL Day 2026",
+  openGraph: { siteName: "GraphQL Day" },
   description:
     "Community-organized GraphQL events at FOST conferences worldwide.",
 })

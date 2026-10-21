@@ -7,11 +7,8 @@ import { loadFontsForOG } from "@/app/fonts/og/load-fonts-for-og"
 
 import type { DayEvent } from "../../day-events"
 import type { EventSession } from "../event-schedule-section"
-import {
-  colors,
-  DayOpengraphImageHeader,
-  fonts,
-} from "./day-opengraph-image-header"
+import { colors, fonts } from "@/components/og-image/styles"
+import { DayOpengraphImageHeader } from "./day-opengraph-image-header"
 
 export const contentType = "image/png"
 export const size = {

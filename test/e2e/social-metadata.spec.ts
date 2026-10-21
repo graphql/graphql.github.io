@@ -42,6 +42,14 @@ for (const path of mainPages) {
         ?.getAttribute("content")
     expect(meta("og:title")).toBeTruthy()
     expect(meta("og:description")).toBeTruthy()
+    expect(meta("og:type")).toBe(
+      (path.startsWith("/blog/") && path !== "/blog/") || path === "/ai/"
+        ? "article"
+        : "website",
+    )
+    expect(meta("og:site_name")).toBe(
+      path === "/day/" ? "GraphQL Day" : "GraphQL",
+    )
     expect(meta("twitter:site")).toBe("@graphql")
     expect(meta("twitter:card")).toBe("summary_large_image")
     expect(meta("twitter:title")).toBe(meta("og:title"))
@@ -63,6 +71,9 @@ for (const path of mainPages) {
     const imageResponse = await request.get(imageUrl.pathname + imageUrl.search)
     expect(imageResponse.ok()).toBeTruthy()
     expect(imageResponse.headers()["content-type"]).toContain("image/png")
+    expect(imageResponse.headers()["cache-control"]).toBe(
+      "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400",
+    )
     const body = await imageResponse.body()
     const image = await sharp(body).metadata()
     expect([image.width, image.height]).toEqual([1200, 630])
@@ -244,6 +255,25 @@ test("long authored article titles still produce a valid card", async ({
       }),
   )
   expect(response.ok()).toBeTruthy()
-  const image = await sharp(await response.body()).metadata()
+  const body = await response.body()
+  const image = await sharp(body).metadata()
   expect([image.width, image.height]).toEqual([1200, 630])
+  const { data, info } = await sharp(body)
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true })
+  const cells = getBlogPattern(
+    "Better Together: Cross-Functional Collaboration at the Intersection of Design Systems and GraphQL APIs - Part 1 of 2",
+    336,
+    478,
+  )
+  for (const index of [0, 70, 400]) {
+    const cell = cells[index]
+    const x = 2 + cell.x + Math.floor(cell.width / 2)
+    const y = 98 + cell.y + Math.floor(cell.height / 2)
+    const offset = (y * info.width + x) * info.channels
+    expect([...data.subarray(offset, offset + 3)]).toEqual(
+      cell.color.match(/\d+/g)!.map(Number),
+    )
+  }
 })

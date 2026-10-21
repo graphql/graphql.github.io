@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { ImageResponse } from "next/og"
 
-import { SpeakerOpengraphImage } from "@/app/conf/2026/components/og-images/speaker-opengraph-image"
+import { SpeakerOpengraphImage } from "@/components/og-image/conference/speaker-opengraph-image"
 import { loadFontsForOG } from "@/app/fonts/og/load-fonts-for-og"
 
 import { speakers } from "../../_data"

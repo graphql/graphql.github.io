@@ -1,19 +1,10 @@
-import { readFileSync } from "node:fs"
-import { resolve } from "node:path"
+import { logoStripes } from "@/components/og-image/artwork"
+import { colors, fonts } from "@/components/og-image/styles"
 
 import {
-  colors,
   DayOpengraphImageHeader,
-  fonts,
   OG_IMAGE_HEADER_HEIGHT,
 } from "./day-opengraph-image-header"
-
-const graphqlLogoStripesDataUri = `data:image/png;base64,${readFileSync(
-  resolve(
-    process.cwd(),
-    "src/app/day/2026/components/og-images/graphql-logo-stripes.png",
-  ),
-).toString("base64")}`
 
 export interface GenericDayOpengraphImageProps
   extends React.HTMLAttributes<HTMLElement> {
@@ -89,7 +80,7 @@ export function GenericDayOpengraphImage({
           Register now
         </div>
         <img
-          src={graphqlLogoStripesDataUri}
+          src={logoStripes}
           style={{ position: "absolute", right: 0, bottom: -5 }}
           height={height - OG_IMAGE_HEADER_HEIGHT}
           width={673}

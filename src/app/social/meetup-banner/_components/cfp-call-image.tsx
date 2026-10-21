@@ -1,9 +1,9 @@
-import { OpengraphImageFooter } from "@/app/conf/2026/components/og-images/opengraph-image-footer"
+import { OpengraphImageFooter } from "@/components/og-image/conference/opengraph-image-footer"
 import {
   colors,
   fonts,
   RIGHT_COLUMN_WIDTH_PX,
-} from "@/app/conf/2026/components/og-images/speaker-opengraph-image"
+} from "@/components/og-image/styles"
 import { BannerQrCode } from "./banner-qr-code"
 import { MeetupBannerHeader } from "./meetup-banner-header"
 import { SponsoredByApollo } from "./sponsored-by-apollo"

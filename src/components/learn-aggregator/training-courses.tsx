@@ -1,7 +1,7 @@
 import { clsx } from "clsx"
 
 import { Eyebrow } from "@/_design-system/eyebrow"
-import { GraphQLLogo } from "@/app/conf/2025/components/graphql-conf-logo-link"
+import { GraphQLLogo } from "@/components/og-image/graphql-logo"
 import ArrowDownIcon from "@/app/conf/_design-system/pixelarticons/arrow-down.svg?svgr"
 import ApolloLogo from "@/icons/apollo.svg?svgr"
 
