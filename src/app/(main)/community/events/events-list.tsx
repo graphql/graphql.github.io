@@ -3,7 +3,7 @@
 import { useMemo, useState, type ComponentPropsWithoutRef } from "react"
 import { clsx } from "clsx"
 
-import type { WorkingGroupMeeting as CalendarEvent } from "@/../scripts/sync-working-groups/sync-working-groups"
+import type { CalendarEvent } from "@/../scripts/sync-calendar-events/sync-calendar-events"
 
 import { EventCard } from "./event-card"
 import { EventsScrollview } from "./events-scrollview"

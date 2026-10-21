@@ -1,7 +1,7 @@
 import { describe, it } from "node:test"
 import { strict as assert } from "node:assert"
 
-import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-working-groups"
+import type { CalendarEvent } from "@/../scripts/sync-calendar-events/sync-calendar-events"
 
 import { categorizeEvent } from "./events-list"
 
@@ -14,7 +14,7 @@ describe(categorizeEvent.name, () => {
       end: "2026-07-29T22:00:00+02:00",
       htmlLink: "https://calendar.google.com/event?eid=conference-planning",
       updated: "2026-07-26T08:35:09.000Z",
-    } satisfies WorkingGroupMeeting
+    } satisfies CalendarEvent
 
     assert.equal(categorizeEvent(event), "working-group")
   })

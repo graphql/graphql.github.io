@@ -338,11 +338,14 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(graphql@16.10.0)
 
-  scripts/sync-working-groups:
+  scripts/sync-calendar-events:
     dependencies:
       arktype:
         specifier: 2.1.29
         version: 2.1.29
+      ical.js:
+        specifier: 2.2.1
+        version: 2.2.1
 
 packages:
 
@@ -4098,6 +4101,9 @@ packages:
   human-signals@5.0.0:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
+
+  ical.js@2.2.1:
+    resolution: {integrity: sha512-yK/UlPbEs316igb/tjRgbFA8ZV75rCsBJp/hWOatpyaPNlgw0dGDmU+FoicOcwX4xXkeXOkYiOmCqNPFpNPkQg==}
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -11335,6 +11341,8 @@ snapshots:
       - supports-color
 
   human-signals@5.0.0: {}
+
+  ical.js@2.2.1: {}
 
   iconv-lite@0.6.3:
     dependencies:
