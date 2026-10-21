@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic"
-import { withSocialImage } from "@/social-metadata"
+import type { ReactNode } from "react"
 
+import { withSocialImage } from "@/social-metadata"
 import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { TocHero, TocHeroContents } from "@/components/toc-hero"
@@ -21,10 +22,40 @@ interface Member {
 
 interface TeamSection {
   title: string
-  description: string
-  url?: string
+  description: ReactNode
   members: Member[]
   alumniMembers?: Member[]
+}
+
+function ExtLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-pri-base"
+    >
+      {children}
+    </a>
+  )
+}
+
+const slugify = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+
+function Anchor({ id }: { id: string }) {
+  return (
+    <a
+      href={`#${id}`}
+      aria-label="Link to this section"
+      className="text-neu-500 no-underline opacity-0 transition hover:text-pri-base focus:opacity-100 group-hover:opacity-100"
+    >
+      #
+    </a>
+  )
 }
 
 function MemberCard({ member, small }: { member: Member; small?: boolean }) {
@@ -82,7 +113,13 @@ function ListOfSectionLists({
 }) {
   return Object.entries(sections).map(([group, groupSections]) => (
     <div key={group}>
-      <h2 className="gql-section typography-h2">{group}</h2>
+      <h2
+        className="gql-section group typography-h2 flex scroll-mt-24 items-center gap-3"
+        id={slugify(group)}
+      >
+        {group}
+        <Anchor id={slugify(group)} />
+      </h2>
       <SectionList sections={groupSections} archived={false} />
     </div>
   ))
@@ -98,25 +135,15 @@ function SectionList({
   {
     return sections.map(section => (
       <section
-        className={`gql-section ${archived ? "opacity-50" : ""}`}
-        id={section.title}
+        className={`gql-section scroll-mt-24 ${archived ? "opacity-50" : ""}`}
+        id={slugify(section.title)}
         key={section.title}
       >
         <header className="mb-6 flex w-full gap-4 max-md:flex-col lg:mb-12 lg:gap-6">
           <div className="flex-1">
-            <h3 className="typography-h3 flex flex-wrap items-center gap-3">
-              {section.url ? (
-                <a
-                  href={section.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-pri-base"
-                >
-                  {section.title}
-                </a>
-              ) : (
-                section.title
-              )}
+            <h3 className="group typography-h3 flex flex-wrap items-center gap-3">
+              {section.title}
+              <Anchor id={slugify(section.title)} />
               {archived && <span>(Archived)</span>}
             </h3>
             <p className="typography-body-md col-start-1 mt-4 lg:mt-6">
@@ -138,9 +165,17 @@ const sections: Record<string, TeamSection[]> = {
   Standards: [
     {
       title: "Technical Steering Committee (TSC)",
-      description:
-        "The Technical Steering Committee oversees the development and evolution of the GraphQL specification. It sets the technical direction for the project and makes decisions on behalf of the GraphQL Foundation.",
-      url: "https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md",
+      description: (
+        <>
+          The{" "}
+          <ExtLink href="https://github.com/graphql/graphql-wg/blob/main/GraphQL-TSC.md">
+            Technical Steering Committee
+          </ExtLink>{" "}
+          oversees the development and evolution of the GraphQL specification.
+          It sets the technical direction for the project and makes decisions on
+          behalf of the GraphQL Foundation.
+        </>
+      ),
       members: [
         { name: "Lee Byron", github: "leebyron" },
         { name: "Benjie Gillam", github: "benjie" },
@@ -157,9 +192,14 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "gaps.graphql.org",
-      description:
-        "GraphQL Auxiliary Proposals — filling the GAPs in the GraphQL specification.",
-      url: "https://gaps.graphql.org",
+      description: (
+        <>
+          <ExtLink href="https://gaps.graphql.org">
+            GraphQL Auxiliary Proposals
+          </ExtLink>{" "}
+          — filling in the GAPs in the GraphQL specification.
+        </>
+      ),
       members: [
         { name: "Mark Larah", github: "magicmark" },
         { name: "Martin Bonnin", github: "martinbonnin" },
@@ -167,23 +207,34 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "rfcs.graphql.org",
-      description: "The GraphQL RFC tracker lists all RFCs and their state.",
-      url: "https://rfcs.graphql.org",
+      description: (
+        <>
+          The{" "}
+          <ExtLink href="https://rfcs.graphql.org">GraphQL RFC tracker</ExtLink>{" "}
+          lists all RFCs and their state.
+        </>
+      ),
       members: [{ name: "Benjie Gillam", github: "benjie" }],
     },
     {
       title: "scalars.graphql.org",
-      description:
-        "A collaborative effort to define and standardize custom scalar types for GraphQL, making it easier to share type definitions across implementations.",
-      url: "https://scalars.graphql.org",
+      description: (
+        <>
+          A collaborative effort to define and standardize{" "}
+          <ExtLink href="https://scalars.graphql.org">
+            custom scalar types
+          </ExtLink>{" "}
+          for GraphQL, making it easier to share type definitions across
+          implementations.
+        </>
+      ),
       members: [{ name: "Martin Bonnin", github: "martinbonnin" }],
     },
   ],
   Community: [
     {
       title: "Community gardening",
-      description: "Keeping the GraphQL community running smoothly.",
-      url: "https://graphql.org/",
+      description: <>Keeping the GraphQL community running smoothly.</>,
       members: [
         { name: "Benjie Gillam", github: "benjie" },
         { name: "Jem Gillam", github: "jemgillam" },
@@ -191,22 +242,43 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "Grants Program",
-      description: "Managing the GraphQL grants program.",
-      url: "https://graphql.org/community/foundation/community-grant/",
+      description: (
+        <>
+          Managing the{" "}
+          <ExtLink href="https://graphql.org/community/foundation/community-grant/">
+            GraphQL grants program
+          </ExtLink>
+          .
+        </>
+      ),
       members: [{ name: "Martin Bonnin", github: "martinbonnin" }],
     },
     {
       title: "GraphQL Weekly",
-      description:
-        "A weekly newsletter curating the best GraphQL news, articles, tutorials, and community updates from across the ecosystem.",
-      url: "https://graphqlweekly.com",
+      description: (
+        <>
+          A weekly newsletter curating the best GraphQL news, articles,
+          tutorials, and community updates from across the ecosystem. Read it at{" "}
+          <ExtLink href="https://graphqlweekly.com">graphqlweekly.com</ExtLink>.
+        </>
+      ),
       members: [],
     },
     {
       title: "Socials",
-      description:
-        "Getting the GraphQL word out on social networks: X, BlueSky, LinkedIn,...",
-      url: "https://typefully.com/",
+      description: (
+        <>
+          Getting the GraphQL word out on social networks:{" "}
+          <ExtLink href="https://x.com/graphql">X</ExtLink>,{" "}
+          <ExtLink href="https://bsky.app/profile/graphql.org">Bluesky</ExtLink>
+          ,{" "}
+          <ExtLink href="https://www.linkedin.com/company/graphql-foundation/">
+            LinkedIn
+          </ExtLink>
+          . Posts are scheduled with{" "}
+          <ExtLink href="https://typefully.com/">Typefully</ExtLink>.
+        </>
+      ),
       members: [
         { name: "Benjie Gillam", github: "benjie" },
         { name: "Jean Lucas", github: "jeanlucaslima" },
@@ -217,14 +289,26 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "YouTube",
-      description: "Managing the YouTube channel.",
-      url: "https://www.youtube.com/@graphqltv/videos",
+      description: (
+        <>
+          Managing the{" "}
+          <ExtLink href="https://www.youtube.com/@graphqltv/videos">
+            GraphQL YouTube channel
+          </ExtLink>
+          .
+        </>
+      ),
       members: [{ name: "Michael Staib", github: "michaelstaib" }],
     },
     {
       title: "GraphQL Day",
-      description: "Organizing GraphQL Day events all around the world.",
-      url: "https://graphql.org/day",
+      description: (
+        <>
+          Organizing{" "}
+          <ExtLink href="https://graphql.org/day">GraphQL Day</ExtLink> events
+          all around the world.
+        </>
+      ),
       members: [
         { name: "Benjie Gillam", github: "benjie" },
         { name: "Jeff Auriemma", github: "bignimbus" },
@@ -238,25 +322,45 @@ const sections: Record<string, TeamSection[]> = {
   Projects: [
     {
       title: "GraphQL.js",
-      description:
-        "The reference implementation of GraphQL for JavaScript, providing the canonical implementation of the GraphQL specification.",
-      url: "https://github.com/graphql/graphql-js",
+      description: (
+        <>
+          <ExtLink href="https://github.com/graphql/graphql-js">
+            The reference implementation of GraphQL for JavaScript
+          </ExtLink>
+          , providing the canonical implementation of the GraphQL specification.
+        </>
+      ),
       members: [{ name: "Yaacov Rydzinski", github: "yaacovCR" }],
     },
     {
       title: "GraphiQL",
-      description:
-        "An in-browser IDE for exploring GraphQL APIs, used by developers worldwide to write, test, and debug queries.",
-      url: "https://github.com/graphql/graphiql",
+      description: (
+        <>
+          An in-browser IDE for exploring GraphQL APIs, used by developers
+          worldwide to write, test, and debug queries. See{" "}
+          <ExtLink href="https://github.com/graphql/graphiql">
+            GraphiQL on GitHub
+          </ExtLink>
+          .
+        </>
+      ),
       members: [{ name: "Trevor Scheer", github: "trevor-scheer" }],
     },
   ],
   "Working Groups": [
     {
       title: "Composite Schemas working group (Federation)",
-      description:
-        "Building a specification that covers many of the shared concerns when building a larger GraphQL schema as a composite of many smaller GraphQL schemas.",
-      url: "https://github.com/graphql/composite-schemas-wg",
+      description: (
+        <>
+          Building a specification that covers many of the shared concerns when
+          building a larger GraphQL schema as a composite of many smaller
+          GraphQL schemas. Work happens in the{" "}
+          <ExtLink href="https://github.com/graphql/composite-schemas-wg">
+            composite-schemas-wg repository
+          </ExtLink>
+          .
+        </>
+      ),
       members: [
         { name: "Derek Kuc", github: "dariuszkuc" },
         { name: "Michael Staib", github: "michaelstaib" },
@@ -266,9 +370,16 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "AI Working Group",
-      description:
-        "A working group focused on integrating GraphQL with AI systems and defining best practices for using GraphQL in AI-powered applications.",
-      url: "https://github.com/graphql/ai-wg",
+      description: (
+        <>
+          The{" "}
+          <ExtLink href="https://github.com/graphql/ai-wg">
+            AI working group
+          </ExtLink>{" "}
+          is focused on integrating GraphQL with AI systems and defining best
+          practices for using GraphQL in AI-powered applications.
+        </>
+      ),
       members: [
         { name: "Dale Seo", github: "DaleSeo" },
         { name: "Jeff Auriemma", github: "bignimbus" },
@@ -279,9 +390,16 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "OTel Working Group",
-      description:
-        "A working group defining OpenTelemetry conventions and semantics for GraphQL, enabling consistent observability across GraphQL implementations.",
-      url: "https://github.com/graphql/otel-wg",
+      description: (
+        <>
+          The{" "}
+          <ExtLink href="https://github.com/graphql/otel-wg">
+            OTel working group
+          </ExtLink>{" "}
+          defines OpenTelemetry conventions and semantics for GraphQL, enabling
+          consistent observability across GraphQL implementations.
+        </>
+      ),
       members: [
         { name: "Bryn Cooke", github: "BrynCooke" },
         { name: "Pascal Senn", github: "PascalSenn" },
@@ -290,9 +408,16 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "GraphQL over HTTP Working Group",
-      description:
-        "A working group that defines and maintains the specification for transporting GraphQL over HTTP, ensuring interoperability across servers and clients.",
-      url: "https://github.com/graphql/graphql-over-http",
+      description: (
+        <>
+          The{" "}
+          <ExtLink href="https://github.com/graphql/graphql-over-http">
+            GraphQL over HTTP working group
+          </ExtLink>{" "}
+          defines and maintains the specification for transporting GraphQL over
+          HTTP, ensuring interoperability across servers and clients.
+        </>
+      ),
       members: [
         { name: "Benjie Gillam", github: "benjie" },
         { name: "Michael Staib", github: "michaelstaib" },
@@ -301,9 +426,16 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "@defer/@stream Working Group",
-      description:
-        "A working group that defines and maintains the specification for transporting GraphQL over HTTP, ensuring interoperability across servers and clients.",
-      url: "https://github.com/graphql/defer-stream-wg",
+      description: (
+        <>
+          The{" "}
+          <ExtLink href="https://github.com/graphql/defer-stream-wg">
+            @defer/@stream working group
+          </ExtLink>{" "}
+          defines and maintains the specification for incremental delivery of
+          GraphQL results with @defer and @stream.
+        </>
+      ),
       members: [
         { name: "Rob Richard", github: "robrichard" },
         { name: "Yaacov Rydzinski", github: "yaacovCR" },
@@ -311,9 +443,16 @@ const sections: Record<string, TeamSection[]> = {
     },
     {
       title: "Golden Path Working Group",
-      description:
-        "Laying out the default experience for new users that should lead to the greatest chance of success with GraphQL.",
-      url: "https://github.com/graphql/golden-path-wg/",
+      description: (
+        <>
+          The{" "}
+          <ExtLink href="https://github.com/graphql/golden-path-wg/">
+            Golden Path working group
+          </ExtLink>{" "}
+          lays out the default experience for new users that should lead to the
+          greatest chance of success with GraphQL.
+        </>
+      ),
       members: [{ name: "Benjie Gillam", github: "benjie" }],
     },
   ],
@@ -322,9 +461,17 @@ const sections: Record<string, TeamSection[]> = {
 const archivedSections: TeamSection[] = [
   {
     title: "Nullability Working Group",
-    description:
-      "A working group that explored improvements to GraphQL's null handling, including the @semanticNonNull directive and related proposals. Now archived, with its work continuing in the main GraphQL WG.",
-    url: "https://github.com/graphql/nullability-wg",
+    description: (
+      <>
+        The{" "}
+        <ExtLink href="https://github.com/graphql/nullability-wg">
+          Nullability working group
+        </ExtLink>{" "}
+        explored improvements to GraphQL's null handling, including the
+        @semanticNonNull directive and related proposals. Now archived, with its
+        work continuing in the main GraphQL WG.
+      </>
+    ),
     members: [{ name: "Martin Bonnin", github: "martinbonnin" }],
   },
 ]
@@ -365,7 +512,13 @@ export default async function TeamPage() {
         </div>
 
         <ListOfSectionLists sections={sections} />
-        <h2 className="gql-section typography-h2">Archived teams</h2>
+        <h2
+          className="gql-section group typography-h2 flex scroll-mt-24 items-center gap-3"
+          id="archived-teams"
+        >
+          Archived teams
+          <Anchor id="archived-teams" />
+        </h2>
         <SectionList archived={true} sections={archivedSections} />
 
         <section className="gql-section">
