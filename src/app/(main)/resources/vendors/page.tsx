@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { withSocialImage } from "@/social-metadata"
 
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { LookingForMore } from "@/components/looking-for-more"
@@ -8,11 +9,11 @@ import { readVendors } from "@/resources/vendors/data"
 import { ResourcesHero } from "../resources-hero"
 import { VendorCard } from "./vendor-card"
 
-export const metadata = {
+export const metadata = withSocialImage("/resources/vendors/", {
   title: "Vendors",
   description:
     "Discover companies building GraphQL products and platforms in the GraphQL ecosystem.",
-}
+})
 
 export default async function VendorsPage() {
   const vendors = await readVendors()

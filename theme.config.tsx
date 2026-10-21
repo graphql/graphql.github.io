@@ -6,15 +6,11 @@ import { mdxComponents } from "@/_design-system/mdx-components"
 import { GraphQLWordmarkLogo } from "@/icons"
 import { Footer } from "@/components/footer"
 import { NextraMdxWrapper } from "@/components/nextra-mdx-wrapper"
+import { getSocialImage, SITE_DESCRIPTION, SITE_URL } from "@/social-metadata"
 
 const graphQLLogo = (
   <GraphQLWordmarkLogo className="nextra-logo h-6" title="GraphQL" />
 )
-
-const absoluteUrl =
-  `https://${process.env.VERCEL_URL}` ||
-  process.env.__NEXT_PRIVATE_ORIGIN ||
-  "http://localhost:3000"
 
 export default {
   backgroundColor: {
@@ -23,10 +19,20 @@ export default {
   },
   head: function useHead() {
     const { frontMatter, title: pageTitle } = useConfig()
-    const { asPath } = useRouter()
+    const { asPath, pathname } = useRouter()
 
     const title = `${pageTitle}${asPath === "/" ? "" : " | GraphQL"}`
-    const { description, canonical, image } = frontMatter
+    const { description = SITE_DESCRIPTION, canonical, image } = frontMatter
+    const pageUrl = new URL(asPath.split(/[?#]/)[0], SITE_URL).href
+    const socialImage = getSocialImage({
+      path: new URL(pageUrl).pathname,
+      title: frontMatter.title || pageTitle,
+      description: frontMatter.description,
+      byline:
+        typeof frontMatter.byline === "string" ? frontMatter.byline : undefined,
+      date: typeof frontMatter.date === "string" ? frontMatter.date : undefined,
+    })
+    const imageUrl = new URL(image || socialImage.url, SITE_URL).href
     return (
       <>
         <title>{title}</title>
@@ -47,23 +53,35 @@ export default {
         )}
         {canonical && <link rel="canonical" href={canonical} />}
 
-        <meta property="twitter:site" content="@graphql" />
-
-        {image ? (
+        <meta property="og:url" content={canonical || pageUrl} />
+        <meta property="og:site_name" content="GraphQL" />
+        <meta
+          property="og:type"
+          content={pathname.startsWith("/blog/") ? "article" : "website"}
+        />
+        <meta property="og:image" content={imageUrl} />
+        {!image && (
           <>
-            {/* if there is an OG image, we show a bigger card */}
-            <meta property="og:image" content={image} />
-            <meta name="twitter:card" content="summary_large_image" />
-          </>
-        ) : (
-          <>
+            <meta property="og:image:type" content={socialImage.type} />
             <meta
-              property="og:image"
-              content={`${absoluteUrl}/img/og-logo.png`}
+              property="og:image:width"
+              content={String(socialImage.width)}
             />
-            <meta name="twitter:card" content="summary" />
+            <meta
+              property="og:image:height"
+              content={String(socialImage.height)}
+            />
+            <meta property="og:image:alt" content={socialImage.alt} />
           </>
         )}
+        <meta name="twitter:site" content="@graphql" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        {description && (
+          <meta name="twitter:description" content={description} />
+        )}
+        <meta name="twitter:image" content={imageUrl} />
+        {!image && <meta name="twitter:image:alt" content={socialImage.alt} />}
       </>
     )
   },

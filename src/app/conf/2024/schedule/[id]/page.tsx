@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs"
+import { join } from "node:path"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import clsx from "clsx"
@@ -8,7 +10,7 @@ import {
   SocialMediaIconServiceType,
 } from "../../../_components/speakers/social-media"
 import { speakers, schedule } from "@/app/conf/2024/_data"
-import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
+import { metadata as layoutMetadata } from "@/app/conf/2024/layout"
 import { ScheduleSession } from "../../../2023/types"
 import { format, parseISO } from "date-fns"
 import { videos } from "../../_videos"
@@ -47,12 +49,16 @@ export function generateMetadata({ params }: SessionProps): Metadata {
     ...(event.speakers || []).map(s => s.name),
   ].filter(Boolean)
 
+  const image = `/img/__og-image/2024/${event.id}.png`
+
   return {
     title: event.name,
     description: event.description,
     keywords: [...layoutMetadata.keywords, ...keywords],
     openGraph: {
-      images: `/img/__og-image/2024/${event.id}.png`,
+      images: existsSync(join(process.cwd(), "public", image.slice(1)))
+        ? image
+        : layoutMetadata.openGraph.images,
     },
   }
 }

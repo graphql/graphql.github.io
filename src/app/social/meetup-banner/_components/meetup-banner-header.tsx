@@ -1,12 +1,12 @@
 import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
 
-import { GraphQLLogo } from "@/app/conf/2026/components/graphql-conf-logo-link"
+import { GraphQLLogo } from "@/components/og-image/graphql-logo"
 import {
   colors,
   fonts,
   RIGHT_COLUMN_WIDTH_PX,
-} from "@/app/conf/2026/components/og-images/speaker-opengraph-image"
+} from "@/components/og-image/styles"
 
 export const MEETUP_BANNER_HEADER_HEIGHT = 154
 

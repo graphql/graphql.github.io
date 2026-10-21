@@ -1,20 +1,31 @@
 import { ReactElement, ReactNode } from "react"
 import { Metadata } from "next"
 import GoogleAnalytics from "@/app/ga"
+import {
+  DEFAULT_SOCIAL_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_URL,
+} from "@/social-metadata"
 
 import "../conf.css"
 import "../globals.css"
 
 export const metadata: Metadata = {
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: "GraphQL",
+    images: [DEFAULT_SOCIAL_IMAGE],
+  },
   twitter: {
     site: "@graphql",
     card: "summary_large_image",
   },
-  metadataBase: new URL("https://graphql.org"),
+  metadataBase: new URL(SITE_URL),
   keywords: ["GraphQL"],
   applicationName: "GraphQL.ORG",
   title: {
-    absolute: "",
+    default: "GraphQL",
     template: "%s | GraphQL",
   },
 }

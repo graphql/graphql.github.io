@@ -1,4 +1,4 @@
-import { colors, fonts } from "./speaker-opengraph-image"
+import { colors, fonts } from "../styles"
 
 export function OpengraphImageFooter({
   children,

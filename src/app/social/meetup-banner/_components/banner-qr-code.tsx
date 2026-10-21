@@ -1,8 +1,5 @@
 import { QRCodeSVG } from "@/app/conf/conference-kit/_components/qr-code"
-import {
-  colors,
-  fonts,
-} from "@/app/conf/2026/components/og-images/speaker-opengraph-image"
+import { colors, fonts } from "@/components/og-image/styles"
 
 const RIGHT_COLUMN_TEXT_WIDTH_PX = 260
 

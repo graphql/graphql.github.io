@@ -1,34 +1,9 @@
-import type { SchedSpeaker } from "@/app/conf/2023/types"
-import { formatSpeakerPosition } from "../format-speaker-position"
+import type { SchedSpeaker } from "@/app/conf/_api/sched-types"
+import { formatSpeakerPosition } from "@/app/conf/_components/format-speaker-position"
+import { colors, fonts, RIGHT_COLUMN_WIDTH_PX } from "../styles"
 import { normalizeProtocolRelativeUrl } from "./normalize-protocol-relative-url"
 import { OpengraphImageFooter } from "./opengraph-image-footer"
 import { ConferenceOpengraphImageHeader } from "./conference-opengraph-image-header"
-
-/**
- * We can't use CSS variables and Tailwind classes here because we're rendering an image.
- */
-export const colors = {
-  neu0: "hsl(0 0% 100%)",
-  neu50: "hsl(75 57% 97%)",
-  neu100: "hsl(75 15% 95%)",
-  neu200: "hsl(77 14% 90%)",
-  neu300: "hsl(76 14% 85%)",
-  neu400: "hsl(77 14% 80%)",
-  neu500: "hsl(74 14% 70%)",
-  neu600: "hsl(76 15% 60%)",
-  neu700: "hsl(76 15% 40%)",
-  neu800: "hsl(77 14% 20%)",
-  neu900: "hsl(75 15% 5%)",
-  secLighter: "hsl(79 80% 90%)",
-  priBase: "hsl(319 100% 44.1%)",
-}
-
-export const fonts = {
-  sans: "'Host Grotesk', var(--font-sans)",
-  mono: "'Commit Mono', var(--font-mono)",
-}
-
-export const RIGHT_COLUMN_WIDTH_PX = 476
 
 export interface SpeakerOpengraphImageProps
   extends React.HTMLAttributes<HTMLElement> {
@@ -147,11 +122,6 @@ export function SpeakerOpengraphImage({
               style={{
                 objectFit: "cover",
                 // @vercel/og doesn't support mix blend mode
-                // and SVG `<image>` is crashing similarly to
-                // https://github.com/vercel/satori/issues/650.
-                // So we use `sepia` and `hue-rotate` to change
-                // the hue to around 79deg from the design system's
-                // secondary color (yellowish green).
                 filter: "sepia(1) hue-rotate(37.5deg)",
               }}
               width={RIGHT_COLUMN_WIDTH_PX}

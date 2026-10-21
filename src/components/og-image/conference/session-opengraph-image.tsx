@@ -1,14 +1,17 @@
-import type { SchedSpeaker, ScheduleSession } from "@/app/conf/2023/types"
-import { colors, fonts } from "./speaker-opengraph-image"
+import type { SchedSpeaker, ScheduleSession } from "@/app/conf/_api/sched-types"
+import { colors, fonts } from "../styles"
 import { ConferenceOpengraphImageHeader } from "./conference-opengraph-image-header"
 import { OpengraphImageFooter } from "./opengraph-image-footer"
 import { normalizeProtocolRelativeUrl } from "./normalize-protocol-relative-url"
-import { getEventTitle } from "../../utils"
-import { formatSpeakerPosition } from "../format-speaker-position"
-import { speakers as allSpeakers } from "../../_data"
+import { formatSpeakerPosition } from "@/app/conf/_components/format-speaker-position"
 
 export interface SessionOpengraphImageProps
   extends React.HTMLAttributes<HTMLElement> {
+  allSpeakers: SchedSpeaker[]
+  getEventTitle: (
+    event: Pick<ScheduleSession, "name">,
+    speakers: string[],
+  ) => string
   session: Pick<
     ScheduleSession,
     "name" | "speakers" | "event_type" | "event_subtype"
@@ -23,6 +26,8 @@ function isString(x: unknown): x is string {
 }
 
 export function SessionOpengraphImage({
+  allSpeakers,
+  getEventTitle,
   session,
   date,
   location,

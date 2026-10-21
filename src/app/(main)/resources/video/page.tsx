@@ -1,4 +1,5 @@
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
+import { withSocialImage } from "@/social-metadata"
 import { getResourcesByTag } from "@/resources/data"
 import { ResourcesHero } from "../resources-hero"
 import { VideoLibrary } from "./video-library"
@@ -6,11 +7,11 @@ import { KeepLearning } from "../keep-learning"
 import { LookingForMore } from "@/components/looking-for-more"
 import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 
-export const metadata = {
+export const metadata = withSocialImage("/resources/video/", {
   title: "Video Resources Library",
   description:
     "Expand your expertise with curated videos to help you master GraphQL and stay up to date with its evolving ecosystem.",
-}
+})
 
 export default async function VideoResourcesPage() {
   const resources = await getResourcesByTag("video")

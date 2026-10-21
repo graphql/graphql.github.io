@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { withSocialImage } from "@/social-metadata"
 import NextLink from "next/link"
 import Image from "next/image"
 
@@ -22,11 +23,12 @@ if (process.env.NODE_ENV === "development") {
     )
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialImage("/day/", {
   title: "GraphQL Day 2026",
+  openGraph: { siteName: "GraphQL Day" },
   description:
     "Community-organized GraphQL events at FOST conferences worldwide.",
-}
+})
 
 export default function DayIndexPage() {
   return (

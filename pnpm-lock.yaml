@@ -131,6 +131,9 @@ importers:
       lucide-react:
         specifier: ^0.469.0
         version: 0.469.0(react@18.3.1)
+      mdast-util-to-string:
+        specifier: 4.0.0
+        version: 4.0.0
       motion:
         specifier: ^12.11.0
         version: 12.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -191,6 +194,18 @@ importers:
       rehype-mermaid:
         specifier: ^3.0.0
         version: 3.0.0(playwright@1.57.0)
+      remark-frontmatter:
+        specifier: 5.0.0
+        version: 5.0.0
+      remark-gfm:
+        specifier: 4.0.1
+        version: 4.0.1
+      remark-mdx:
+        specifier: 3.1.0
+        version: 3.1.0
+      remark-parse:
+        specifier: 11.0.0
+        version: 11.0.0
       rss:
         specifier: 1.2.2
         version: 1.2.2
@@ -203,6 +218,9 @@ importers:
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
+      shiki:
+        specifier: 1.29.2
+        version: 1.29.2
       string-similarity:
         specifier: ^4.0.4
         version: 4.0.4
@@ -303,9 +321,6 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.7.0
         version: 0.7.2(prettier@3.5.3)
-      remark-frontmatter:
-        specifier: 5.0.0
-        version: 5.0.0
       remark-lint-first-heading-level:
         specifier: 3.1.2
         version: 3.1.2

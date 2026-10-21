@@ -1,8 +1,8 @@
 import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
 
-import { GraphQLLogo } from "../graphql-conf-logo-link"
-import { colors, fonts, RIGHT_COLUMN_WIDTH_PX } from "./speaker-opengraph-image"
+import { GraphQLLogo } from "../graphql-logo"
+import { colors, fonts, RIGHT_COLUMN_WIDTH_PX } from "../styles"
 
 export const OG_IMAGE_HEADER_HEIGHT = 154
 
@@ -65,8 +65,6 @@ export function ConferenceOpengraphImageHeader({
                   height: "3rem",
                   width: "3rem",
                   color: colors.priBase,
-                  /* hack: satori aligns this SVG differently than browsers, it will look off center in /workroom,
-                           but centered in the images */
                   marginTop: "-6px",
                 }}
               />
@@ -109,7 +107,6 @@ export function ConferenceOpengraphImageHeader({
               width="24"
               height="24"
               style={{
-                /* hack: different across satori and browsers */
                 transform: "translateY(-3px)",
                 color: colors.priBase,
               }}
@@ -146,7 +143,6 @@ export function ConferenceOpengraphImageHeader({
               width="24"
               height="24"
               style={{
-                /* hack: different across satori and browsers */
                 transform: "translateY(-2px)",
                 color: colors.priBase,
               }}

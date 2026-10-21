@@ -27,9 +27,6 @@ export function generateMetadata({ params }: SpeakerProps): Metadata {
     title: speaker.name,
     description: speaker.about,
     keywords: [...layoutMetadata.keywords, ...keywords],
-    openGraph: {
-      images: `/img/__og-image/2023/${speaker.username}.png`,
-    },
   }
 }
 
