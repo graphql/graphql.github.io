@@ -158,7 +158,7 @@
     ],
     "overrides": {
       "@lezer/highlight": "1.2.3",
-      "@lezer/common": "1.5.2",
+      "@lezer/common": "1.5.3",
       "@codemirror/autocomplete": "6.20.3",
       "@codemirror/commands": "6.11.1",
       "@codemirror/language": "6.12.4",
