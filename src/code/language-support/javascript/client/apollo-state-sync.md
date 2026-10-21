@@ -36,7 +36,7 @@ Modern web apps often run across multiple browser tabs or windows within the sam
 
 ## 📽️ See it in Action
 
-[<img alt="demo video" width="240px" src="https://raw.githubusercontent.com/sdev-buildz/apollo-state-sync/refs/heads/main/assets/Shopping%20Site%20Example%20-%20Demo%20Thumbnail.png"/>](https://github.com/user-attachments/assets/18df5e73-f7a6-417f-8398-2bb8251ccc3e)
+[<img alt="still from demo video" width="240px" src="https://raw.githubusercontent.com/sdev-buildz/apollo-state-sync/refs/heads/main/assets/Shopping%20Site%20Example%20-%20Demo%20Thumbnail.png"/>](https://github.com/user-attachments/assets/18df5e73-f7a6-417f-8398-2bb8251ccc3e)
 
 <br/>
 
