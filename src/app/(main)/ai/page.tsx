@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { withSocialImage } from "@/social-metadata"
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { Hero } from "./components/hero"
 import { WhyGraphQLAI } from "./components/why-graphql-ai"
@@ -11,7 +12,7 @@ import { CTACommunity } from "./components/cta-community"
 const description =
   "How AI agents use GraphQL: schema introspection for tool discovery, typed inputs and outputs, and field selection that keeps responses to what was asked for."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialImage("/ai/", {
   title: "GraphQL for AI Agents, MCP, and LLM Tools",
   description,
   alternates: { canonical: "/ai" },
@@ -20,9 +21,8 @@ export const metadata: Metadata = {
     description,
     url: "/ai",
     type: "article",
-    images: ["/img/og-image.png"],
   },
-}
+})
 
 export default function AIPage() {
   return (

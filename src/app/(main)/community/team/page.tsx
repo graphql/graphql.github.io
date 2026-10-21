@@ -1,10 +1,17 @@
 import dynamic from "next/dynamic"
+import { withSocialImage } from "@/social-metadata"
 
 import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
 import { TocHero, TocHeroContents } from "@/components/toc-hero"
 import blurBean from "@/app/(main)/community/events/events-blur-bean.webp"
 import { StripesDecoration } from "@/app/conf/_design-system/stripes-decoration.tsx"
+
+export const metadata = withSocialImage("/community/team/", {
+  title: "Team",
+  description:
+    "GraphQL is built and maintained by contributors from across the ecosystem. Below are the people behind the projects, working groups, and community programs that make GraphQL thrive.",
+})
 
 interface Member {
   name?: string

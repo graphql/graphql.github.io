@@ -1,4 +1,5 @@
 import { NavbarFixed } from "@/components/navbar/navbar-fixed"
+import { withSocialImage } from "@/social-metadata"
 import { LookingForMore } from "@/components/looking-for-more"
 
 import { ResourcesHero } from "./resources-hero"
@@ -9,11 +10,11 @@ import { BlogSection } from "./blog-section"
 import { VideoResourcesSection } from "./video-resources-section"
 import { ReadingResourcesSection } from "./reading-resources-section"
 
-export const metadata = {
+export const metadata = withSocialImage("/resources/", {
   title: "Resource Hub",
   description:
     "Explore curated GraphQL resources by topic. Find tools, videos, blog posts, and more to help you build with GraphQL.",
-}
+})
 
 export default function ResourcesPage() {
   return (

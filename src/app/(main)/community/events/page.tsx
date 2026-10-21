@@ -1,4 +1,6 @@
 import dynamic from "next/dynamic"
+import { withSocialImage } from "@/social-metadata"
+import { Metadata } from "next"
 
 import { Breadcrumbs } from "@/_design-system/breadcrumbs"
 import { Button } from "@/app/conf/_design-system/button"
@@ -19,6 +21,12 @@ const ISSUE_TEMPLATE_LINK =
   "https://github.com/graphql/community-wg/issues/new?assignees=&labels=event&template=event-submission.yml"
 
 import { GalleryStrip } from "./gallery-strip"
+
+export const metadata: Metadata = withSocialImage("/community/events/", {
+  title: "Events",
+  description:
+    "Connect with the GraphQL community through events and meetups around the world.",
+})
 
 export default async function EventsPage() {
   const { upcomingEvents, pastEvents } = await getAllEvents()

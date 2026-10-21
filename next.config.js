@@ -36,6 +36,11 @@ const ALLOWED_SVG_REGEX = new RegExp(`${sep}icons${sep}.+\\.svg$`)
  */
 const config = {
   output: undefined,
+  experimental: {
+    outputFileTracingIncludes: {
+      "/og": ["./src/pages/learn/**/*.mdx", "./src/pages/faq/**/*.mdx"],
+    },
+  },
   // reactStrictMode: true, provoke duplicated codemirror editors
   webpack(config, { isServer, dev }) {
     // #region MDX

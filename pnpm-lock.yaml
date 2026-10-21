@@ -203,6 +203,9 @@ importers:
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
+      shiki:
+        specifier: 1.29.2
+        version: 1.29.2
       string-similarity:
         specifier: ^4.0.4
         version: 4.0.4

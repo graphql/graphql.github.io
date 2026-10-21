@@ -1,10 +1,18 @@
+import { readFileSync } from "node:fs"
+import { resolve } from "node:path"
+
 import { colors, fonts } from "./speaker-opengraph-image"
 import {
   ConferenceOpengraphImageHeader,
   OG_IMAGE_HEADER_HEIGHT,
 } from "./conference-opengraph-image-header"
 
-import graphqlLogoStripes from "./graphql-logo-stripes.png"
+const graphqlLogoStripesDataUri = `data:image/png;base64,${readFileSync(
+  resolve(
+    process.cwd(),
+    "src/app/conf/2026/components/og-images/graphql-logo-stripes.png",
+  ),
+).toString("base64")}`
 
 export interface GenericOpengraphImageProps
   extends React.HTMLAttributes<HTMLElement> {
@@ -21,9 +29,6 @@ export function GenericOpengraphImage({
   pageTitle,
   ...rest
 }: GenericOpengraphImageProps) {
-  const basePath =
-    `https://${process.env.VERCEL_URL}` || process.env.__NEXT_PRIVATE_ORIGIN
-
   const height = 630
 
   return (
@@ -69,7 +74,7 @@ export function GenericOpengraphImage({
           {pageTitle}
         </h1>
         <img
-          src={`${basePath}${graphqlLogoStripes.src}`}
+          src={graphqlLogoStripesDataUri}
           style={{ position: "absolute", right: 0, bottom: -5 }}
           height={height - OG_IMAGE_HEADER_HEIGHT}
           width={673}

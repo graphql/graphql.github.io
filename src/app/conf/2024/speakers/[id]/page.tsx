@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { metadata as layoutMetadata } from "@/app/conf/2023/layout"
+import { metadata as layoutMetadata } from "@/app/conf/2024/layout"
 import React from "react"
 import { SessionList } from "@/app/conf/_components/schedule/session-list"
 import {
@@ -32,9 +32,6 @@ export function generateMetadata({ params }: SpeakerProps): Metadata {
     title: speaker.name,
     description: speaker.about,
     keywords: [...layoutMetadata.keywords, ...keywords],
-    openGraph: {
-      images: `/img/__og-image/2024/${speaker.username}.png`,
-    },
   }
 }
 
