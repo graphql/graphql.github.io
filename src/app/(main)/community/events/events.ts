@@ -9,7 +9,7 @@ export interface Event {
   date: string
   coverImage?: string
   eventLink: string
-  host: string
+  host?: string
   hostLink?: string
   kind?: EventKind
 }
@@ -30,7 +30,6 @@ const allEvents: Event[] = [
     location: "Zoom",
     date: "2026-09-22T17:00:00Z",
     eventLink: "https://guild.host/events/graphql-virtual-meetup-zywc3q",
-    host: "GraphQL Foundation",
     kind: "meetup",
   },
   {
