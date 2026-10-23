@@ -25,6 +25,11 @@ import {
   tagColors as nycTagColors,
 } from "./nyc/schedule-data"
 import {
+  parisSessions,
+  PARIS_TIMEZONE,
+  tagColors as parisTagColors,
+} from "./paris/schedule-data"
+import {
   singaporeSessions,
   SINGAPORE_TIMEZONE,
   tagColors as singaporeTagColors,
@@ -94,9 +99,9 @@ export const dayEvents = {
     city: "Paris",
     date: "Dec 1-3, 2026",
     location: "CNIT Forest, Paris",
-    timezone: "Europe/Paris",
-    sessions: [],
-    tagColors: {},
+    timezone: PARIS_TIMEZONE,
+    sessions: parisSessions,
+    tagColors: parisTagColors,
   },
 } satisfies Record<string, DayEvent>
 
