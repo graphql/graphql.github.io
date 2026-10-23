@@ -93,7 +93,6 @@ const allEvents: Event[] = [
     location: "Fremont, California",
     date: "2026-05-21T16:30:00+00:00",
     eventLink: "/conf/2026/wg-day",
-    host: "GraphQL Foundation",
   },
   {
     name: "GraphQL Day NYC",
@@ -110,7 +109,6 @@ const allEvents: Event[] = [
     location: "Fremont, California",
     date: "2026-05-19T16:00:00+00:00",
     eventLink: "/conf/2026",
-    host: "GraphQL Foundation",
   },
   {
     name: "GraphQL Day Singapore",
@@ -136,7 +134,6 @@ const allEvents: Event[] = [
     location: "Amsterdam",
     date: "2025-09-08T07:00:00+00:00",
     eventLink: "/conf/2025",
-    host: "GraphQL Foundation",
   },
   {
     name: "GraphQLConf 2024",
@@ -144,7 +141,6 @@ const allEvents: Event[] = [
     location: "San Francisco",
     date: "2024-09-09T07:00:00+00:00",
     eventLink: "/conf/2024",
-    host: "GraphQL Foundation",
   },
   {
     name: "GraphQL Bali 001",
