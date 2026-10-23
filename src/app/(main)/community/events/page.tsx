@@ -44,7 +44,7 @@ export default async function EventsPage() {
           sections={[
             "Upcoming events",
             "Meetups",
-            { name: "Past events & meetups", href: "#past-events-and-meetups" },
+            { name: "Past events", href: "#past-events" },
             "Events gallery",
             "Benefits of getting involved",
             "Get your meetup noticed",
@@ -94,7 +94,7 @@ export default async function EventsPage() {
             <EventsList events={upcomingEvents.reverse()}>
               <SubscribeToRssLink />
             </EventsList>
-            <Button className="md:hidden" href={ISSUE_TEMPLATE_LINK}>
+            <Button className="mt-6 md:hidden" href={ISSUE_TEMPLATE_LINK}>
               Add a new event
             </Button>
           </section>
@@ -112,8 +112,8 @@ export default async function EventsPage() {
           <MeetupsMap />
         </section>
 
-        <section className="gql-section" id="past-events-and-meetups">
-          <h2 className="typography-h2">Past events & meetups</h2>
+        <section className="gql-section" id="past-events">
+          <h2 className="typography-h2">Past events</h2>
           <p className="typography-body-md my-6 lg:mb-12">
             A look back at how the GraphQL community connects and grows
             together.
