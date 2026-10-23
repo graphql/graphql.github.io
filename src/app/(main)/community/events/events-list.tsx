@@ -96,7 +96,7 @@ export function categorizeEvent(
       return "foundation-meeting"
     } else if (/\bConference\s+Planning\b/i.test(summary)) {
       return "working-group"
-    } else if (/\bLocal\b/i.test(summary)) {
+    } else if (/\b(Local|Virtual\s+Meetup)\b/i.test(summary)) {
       return "meetup"
     } else if (/\bGraphQLConf[0-9]*\b/i.test(summary)) {
       // Handled elsewhere

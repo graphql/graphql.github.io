@@ -26,7 +26,7 @@ import { DocsSection } from "./docs-section"
 import { LookingForMore } from "@/components/looking-for-more"
 import { unsafeKeys } from "@/app/conf/_design-system/utils/unsafe-keys"
 import { CategoryWorkingGroups } from "./category-working-groups"
-import { loadWorkingGroupMeetings } from "../../community/events/get-all-events"
+import { loadCalendarEvents } from "../../community/events/get-all-events"
 
 interface PageParams {
   category: string
