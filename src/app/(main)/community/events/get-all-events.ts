@@ -2,15 +2,15 @@ import { join } from "node:path"
 import { readFile } from "node:fs/promises"
 import { cache } from "react"
 
-import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-working-groups"
+import type { CalendarEvent } from "@/../scripts/sync-calendar-events/sync-calendar-events"
 
 import { events, type Event } from "./events"
 
-type AnyEvent = Event | WorkingGroupMeeting
+type AnyEvent = Event | CalendarEvent
 
 const WORKING_GROUP_MEETINGS_FILE = join(
   process.cwd(),
-  "scripts/sync-working-groups/working-group-events.ndjson",
+  "scripts/sync-calendar-events/calendar-events.ndjson",
 )
 
 export const getAllEvents = cache(async () => {
@@ -60,7 +60,7 @@ export const loadWorkingGroupMeetings = cache(async () => {
     return raw
       .split("\n")
       .filter(Boolean)
-      .map(line => JSON.parse(line) as WorkingGroupMeeting)
+      .map(line => JSON.parse(line) as CalendarEvent)
   } catch (error) {
     console.error("Failed to read working group meetings", error)
     return []

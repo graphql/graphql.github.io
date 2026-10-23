@@ -1,4 +1,4 @@
 packages:
   - "."
   - "scripts/sync-landing-schema"
-  - "scripts/sync-working-groups"
+  - "scripts/sync-calendar-events"
