@@ -29,7 +29,9 @@ export async function CategoryWorkingGroups({
   const hasFutureEvents = futureEvents.length > 0
 
   // soonest/most recent first
-  const events = hasFutureEvents ? futureEvents : matchingCalendarEvents.reverse()
+  const events = hasFutureEvents
+    ? futureEvents
+    : matchingCalendarEvents.reverse()
 
   if (events.length === 0) return null
 
