@@ -95,7 +95,7 @@ export function categorizeEvent(
     } else if (/\bGoverning\b/i.test(summary)) {
       return "foundation-meeting"
     } else if (/\bConference\s+Planning\b/i.test(summary)) {
-      return "working-group"
+      return "foundation-meeting"
     } else if (/\b(Local|Virtual\s+Meetup)\b/i.test(summary)) {
       return "meetup"
     } else if (/\bGraphQLConf[0-9]*\b/i.test(summary)) {

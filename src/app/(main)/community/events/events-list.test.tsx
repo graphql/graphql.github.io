@@ -6,7 +6,7 @@ import type { CalendarEvent } from "@/../scripts/sync-calendar-events/sync-calen
 import { categorizeEvent } from "./events-list"
 
 describe(categorizeEvent.name, () => {
-  it("categorizes conference planning events as working group meetings", () => {
+  it("categorizes conference planning events as foundation meetings", () => {
     const event = {
       id: "conference-planning",
       summary: "Conference planning",
@@ -16,7 +16,7 @@ describe(categorizeEvent.name, () => {
       updated: "2026-07-26T08:35:09.000Z",
     } satisfies CalendarEvent
 
-    assert.equal(categorizeEvent(event), "working-group")
+    assert.equal(categorizeEvent(event), "foundation-meeting")
   })
 
   it("categorizes virtual meetups as meetups", () => {
