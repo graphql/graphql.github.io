@@ -1,7 +1,7 @@
 import { clsx } from "clsx"
 import { EventCard } from "@/app/(main)/community/events/event-card"
 import { EventsScrollview } from "@/app/(main)/community/events/events-scrollview"
-import { loadWorkingGroupMeetings } from "@/app/(main)/community/events/get-all-events"
+import { loadCalendarEvents } from "@/app/(main)/community/events/get-all-events"
 import type { Topic } from "@/resources/types"
 
 import { categoriesConfig, sectionIds } from "./categories-config"
@@ -19,17 +19,17 @@ export async function CategoryWorkingGroups({
   if (!predicate) return null
   const { heading, text } = categoriesConfig[category].sections.event || {}
 
-  const meetings = await loadWorkingGroupMeetings()
-  const matchingMeetings = meetings.filter(predicate)
+  const calendarEvents = await loadCalendarEvents()
+  const matchingCalendarEvents = calendarEvents.filter(predicate)
 
-  const futureEvents = matchingMeetings.filter(
+  const futureEvents = matchingCalendarEvents.filter(
     event => new Date(event.start).getTime() >= Date.now(),
   )
 
   const hasFutureEvents = futureEvents.length > 0
 
   // soonest/most recent first
-  const events = hasFutureEvents ? futureEvents : matchingMeetings.reverse()
+  const events = hasFutureEvents ? futureEvents : matchingCalendarEvents.reverse()
 
   if (events.length === 0) return null
 
