@@ -4,7 +4,11 @@ import { clsx } from "clsx"
 import { CalendarIcon } from "@/app/conf/_design-system/pixelarticons/calendar-icon"
 import { PinIcon } from "@/app/conf/_design-system/pixelarticons/pin-icon"
 import { Tag } from "@/app/conf/_design-system/tag"
-import { EventKind, eventTagColors } from "./event-filter-tag"
+import {
+  EventKind,
+  eventTagColors,
+  eventTagDescriptions,
+} from "./event-filter-tag"
 
 const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",
@@ -113,7 +117,9 @@ export function EventCard({
                 : "-mb-2 pt-2 xs:-mb-4 xs:pt-3"),
           )}
         >
-          <Tag color={eventTagColors[kind]}>{kind.replace("-", " ")}</Tag>
+          <Tag color={eventTagColors[kind]} title={eventTagDescriptions[kind]}>
+            {kind.replace("-", " ")}
+          </Tag>
           {!!meta && compact && (
             <Tag
               color="hsl(var(--color-neu-500))"

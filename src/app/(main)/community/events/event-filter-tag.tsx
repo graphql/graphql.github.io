@@ -17,6 +17,15 @@ export const eventTagColors = {
   workshop: "#3DBE7E",
 } satisfies { [kind in EventKind]: string }
 
+export const eventTagDescriptions = {
+  conference: "A large event, often with multiple talks, booth, etc...",
+  meetup: "Smaller event, often focused on one or two topics",
+  "working-group": "Online meetings where the specs are worked on",
+  "foundation-meeting":
+    "Meeting where the non-technical aspects of GraphQL are discussed",
+  workshop: "Hands on event to learn about GraphQL",
+} satisfies { [kind in EventKind]: string }
+
 export interface EventFilterTagProps
   extends Omit<React.HTMLAttributes<HTMLLabelElement>, "onChange"> {
   kind: EventKind
@@ -34,6 +43,7 @@ export function EventFilterTag({
 }: EventFilterTagProps) {
   return (
     <label
+      title={eventTagDescriptions[kind]}
       {...rest}
       className="cursor-pointer select-none hover:opacity-90 hover:ring hover:ring-neu-100 has-[>:disabled]:pointer-events-none dark:hover:ring-neu-50"
     >
