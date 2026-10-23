@@ -62,8 +62,8 @@ type AnyEvent = Event | CalendarEvent
 const DEFAULT_VISIBILITY = {
   conference: true,
   meetup: true,
-  "working-group": true,
-  "foundation-meeting": true,
+  "working-group": false,
+  "foundation-meeting": false,
   workshop: true,
 } satisfies Record<EventKind, boolean>
 
@@ -168,7 +168,8 @@ export function EventsList({
   className?: string
   children?: React.ReactNode
 }) {
-  const [kindFilters, setKindFilters] = useState(DEFAULT_VISIBILITY)
+  const [kindFilters, setKindFilters] =
+    useState<Record<EventKind, boolean>>(DEFAULT_VISIBILITY)
   const [limit, setLimit] = useState(PAGE_SIZE)
 
   const events = useMemo(() => {
@@ -210,10 +211,10 @@ export function EventsList({
 
   return (
     <div className={className}>
-      <div className="flex justify-between gap-2 max-lg:flex-col-reverse lg:mb-8 lg:items-end">
+      <div className="mb-6 flex justify-between gap-2 max-lg:flex-col-reverse lg:mb-8 lg:items-end">
         <fieldset>
           <legend className="typography-menu mt-2">Event type</legend>
-          <div className="mt-4 flex gap-3">
+          <div className="mt-4 flex flex-wrap gap-3">
             {tags.map(tag => (
               <EventFilterTag
                 key={tag}
@@ -272,6 +273,22 @@ export function EventsList({
             className="gql-focus-visible typography-body-md border border-neu-200 py-3 text-neu-800 hover:bg-neu-100 dark:border-neu-50 dark:text-neu-600 dark:hover:bg-neu-50"
           >
             Load more
+          </button>
+        )}
+        {events.length <= limit && tags.some(tag => !kindFilters[tag]) && (
+          <button
+            type="button"
+            onClick={() =>
+              setKindFilters(
+                Object.fromEntries(tags.map(tag => [tag, true])) as Record<
+                  EventKind,
+                  boolean
+                >,
+              )
+            }
+            className="gql-focus-visible typography-body-md border border-neu-200 py-3 text-neu-800 hover:bg-neu-100 dark:border-neu-50 dark:text-neu-600 dark:hover:bg-neu-50"
+          >
+            Show all event types
           </button>
         )}
       </div>

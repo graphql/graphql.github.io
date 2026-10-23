@@ -86,7 +86,7 @@ export default async function EventsPage() {
             <EventsList events={upcomingEvents.reverse()}>
               <SubscribeToRssLink />
             </EventsList>
-            <Button className="md:hidden" href={ISSUE_TEMPLATE_LINK}>
+            <Button className="mt-6 md:hidden" href={ISSUE_TEMPLATE_LINK}>
               Add a new event
             </Button>
           </section>
