@@ -157,7 +157,7 @@
       "sharp"
     ],
     "overrides": {
-      "@lezer/highlight": "1.2.3",
+      "@lezer/highlight": "1.2.5",
       "@lezer/common": "1.5.3",
       "@codemirror/autocomplete": "6.20.3",
       "@codemirror/commands": "6.11.1",
