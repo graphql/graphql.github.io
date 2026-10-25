@@ -58,8 +58,9 @@ At the top level of every GraphQL server is an Object type that represents the p
 In this example, our `Query` type provides a field called `human` which accepts the argument `id`. The resolver function for this field likely accesses a database and then constructs and returns a `Human` type:
 
 ```js
-function resolveHuman(obj, args, context, info) {
-  return context.db.loadHumanByID(args.id).then(userData => new Human(userData));
+async function resolveHuman(obj, args, context, info) {
+  const userData = await context.db.loadHumanByID(args.id);
+  return new Human(userData);
 }
 ```
 
@@ -79,12 +80,13 @@ Note that while a query operation could technically write data to the underlying
 Let's take a closer look at what's happening in this resolver function:
 
 ```js
-function resolveHuman(obj, args, context, info) {
-  return context.db.loadHumanByID(args.id).then(userData => new Human(userData));
+async function resolveHuman(obj, args, context, info) {
+  const userData = await context.db.loadHumanByID(args.id);
+  return new Human(userData);
 }
 ```
 
-The `id` argument in the GraphQL query specifies the user whose data is requested, while `context` provides access to retrieve this data from a database. Since loading from a database is an asynchronous operation, this returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). In JavaScript, Promises are used to work with asynchronous values, but the same concept exists in many languages, often called _Futures_, _Tasks_, or _Deferred_. When the database returns the data, we can construct and return a new `Human` object.
+The `id` argument in the GraphQL query specifies the user whose data is requested, while `context` provides access to retrieve this data from a database. Since loading from a database is an asynchronous operation, `loadHumanByID` returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). In JavaScript, Promises are used to work with asynchronous values, but the same concept exists in many languages, often called _Futures_, _Tasks_, or _Deferred_. Because the resolver is an `async` function, it can `await` that Promise, and once the database returns the data, we construct and return a new `Human` object. An `async` function always returns a Promise itself, so the resolver's result is still asynchronous.
 
 Notice that while the resolver function needs to be aware of Promises, the GraphQL query does not. It simply expects the `human` field to return something that can be further resolved to a scalar `name` value. During execution, GraphQL will wait for Promises, Futures, and Tasks to be completed before continuing and will do so with optimal concurrency.
 
@@ -127,9 +129,10 @@ We've already seen some of what happens when a field returns a list of things wi
 ```js
 function resolveHumanStarships(obj, args, context, info) {
   return Promise.all(
-    obj.starshipIDs.map(id =>
-      context.db.loadStarshipByID(id).then(shipData => new Starship(shipData))
-    )
+    obj.starshipIDs.map(async id => {
+      const shipData = await context.db.loadStarshipByID(id);
+      return new Starship(shipData);
+    })
   );
 }
 ```
