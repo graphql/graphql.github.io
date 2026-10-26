@@ -134,24 +134,6 @@ function calendarEventName(event: CalendarEvent) {
   }
 }
 
-function calendarEventUrl(event: CalendarEvent) {
-  // First, is the event location a non-zoom URL?
-  if (isUrl(event.location) && !/zoom/i.test(event.location)) {
-    return event.location
-  }
-  // Failing that, extract the first explicit link from the description
-  const description = event.description
-  if (description != null) {
-    const text = description.replace(/<[^>]+>/g, " ")
-    const matches = text.match(/\bhttps?:\/\/\S+/)
-    if (matches) {
-      return matches[0]
-    }
-  }
-  // Failing that, use the calendar link
-  return event.htmlLink
-}
-
 function calendarEventCity(event: CalendarEvent) {
   if (!event.location || isUrl(event.location)) {
     return "Online"
@@ -246,7 +228,7 @@ export function EventsList({
             // It's from the calendar
             <EventCard
               key={event.id}
-              href={calendarEventUrl(event)}
+              href={event.htmlLink}
               date={new Date(event.start)}
               name={calendarEventName(event)}
               city={calendarEventCity(event)}
