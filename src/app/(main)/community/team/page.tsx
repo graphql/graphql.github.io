@@ -262,7 +262,10 @@ const sections: Record<string, TeamSection[]> = {
           <ExtLink href="https://graphqlweekly.com">graphqlweekly.com</ExtLink>.
         </>
       ),
-      members: [],
+      members: [
+        { name: "Dotan Simha", github: "dotansimha" },
+        { name: "Uri Goldshtein", github: "Urigo" },
+      ],
     },
     {
       title: "Socials",
