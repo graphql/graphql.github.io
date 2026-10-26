@@ -15,7 +15,8 @@ export interface Event {
 }
 
 /**
- * Only add events here that are **not** in the calendar
+ * Only add events here that are **not** in the calendar.
+ * Calendar events are synchronized automatically.
  */
 const allEvents: Event[] = [
   {
