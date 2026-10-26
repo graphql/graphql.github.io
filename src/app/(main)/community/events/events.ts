@@ -14,6 +14,10 @@ export interface Event {
   kind?: EventKind
 }
 
+/**
+ * Only add events here that are **not** in the calendar.
+ * Calendar events are synchronized automatically.
+ */
 const allEvents: Event[] = [
   {
     name: "Apollo Summit 2026",
@@ -23,14 +27,6 @@ const allEvents: Event[] = [
     eventLink: "https://apollosummit.dev/",
     host: "Apollo GraphQL",
     hostLink: "https://www.apollographql.com",
-  },
-  {
-    name: "GraphQL Virtual Meetup, September 2026",
-    slug: "graphql-virtual-meetup-september-2026",
-    location: "Zoom",
-    date: "2026-09-22T17:00:00Z",
-    eventLink: "https://guild.host/events/graphql-virtual-meetup-zywc3q",
-    kind: "meetup",
   },
   {
     name: "From Zero to Agentic Query in One Afternoon",
