@@ -25,14 +25,6 @@ const allEvents: Event[] = [
     hostLink: "https://www.apollographql.com",
   },
   {
-    name: "GraphQL Virtual Meetup, September 2026",
-    slug: "graphql-virtual-meetup-september-2026",
-    location: "Zoom",
-    date: "2026-09-22T17:00:00Z",
-    eventLink: "https://guild.host/events/graphql-virtual-meetup-zywc3q",
-    kind: "meetup",
-  },
-  {
     name: "From Zero to Agentic Query in One Afternoon",
     slug: "jonthebeach-workshop-2026",
     location: "Málaga, Spain",
