@@ -2,270 +2,248 @@
 sidebarTitle: Federation
 ---
 
-import { Tabs } from 'nextra/components'
+# GraphQL Federation
 
-# GraphQL federation
+GraphQL Federation is an architectural approach for combining multiple independent GraphQL services into one unified API. Each service contributes part of the overall schema, while a GraphQL gateway executes queries across those services and returns a single response to clients.
 
-An alternative design approach to the classical monolith, often described as microservices, emphasizes breaking down complex systems into smaller, independently managed components. In some ways, GraphQL federation is like microservices for GraphQL - an architectural pattern that has found particular resonance in the GraphQL ecosystem.
+Federation allows organizations to distribute ownership of their GraphQL API across different teams and services. Each team can develop, deploy, and scale its services independently while contributing to one coherent graph.
 
-GraphQL federation gained widespread adoption after
-[Apollo GraphQL introduced Apollo Federation in 2019](https://www.apollographql.com/blog/apollo-federation-f260cf525d21).
-Their implementation has become a reference point for the GraphQL community, helping establish
-federation as a standard architectural pattern for building a distributed graph in the GraphQL
-ecosystem.
+This approach is particularly valuable for larger applications, where different teams own different parts of the business domain but clients still need a unified way to access their data.
 
-With more companies and developers seeing the benefits of building a distributed GraphQL schema with
-federation, the GraphQL ecosystem is now moving towards standardization of federation patterns. The
-GraphQL Foundation's
-[Composite Schema Working Group](https://github.com/graphql/composite-schemas-wg), which includes
-engineers from various organizations across the industry including
-[Apollo GraphQL](https://apollographql.com), [ChilliCream](https://chillicream.com/),
-[Graphile](https://www.graphile.org/), [Hasura](https://hasura.io/),
-[Netflix](https://www.netflix.com/), [The Guild](https://the-guild.dev), and
-[WunderGraph](https://wundergraph.com/), is actively working on creating
-[an official specification for GraphQL Federation](https://github.com/graphql/composite-schemas-spec).
-This effort aims to standardize how GraphQL services can be composed and executed across distributed
-systems, while ensuring room for innovation and different implementations.
+## What is GraphQL Federation?
 
-## What is federation?
+GraphQL Federation divides a GraphQL API into independently developed services called **subgraphs**.
 
-Architecturally, federation is an approach to organizing and managing distributed systems. At its
-core, federation allows autonomous components to work together while maintaining their independence.
-Think of it like a federal government system: individual states maintain their sovereignty while
-cooperating under a central authority for shared concerns.
+Each subgraph publishes a source schema describing the types and fields it provides. A process called **schema composition** validates these source schemas and combines them into one composite schema.
 
-In software architecture, federation enables organizations to:
+The composite schema defines the API clients see and query. Behind it, a GraphQL gateway coordinates requests across the subgraphs and assembles their results into a single response.
 
-- Distribute responsibility across independent teams
-- Scale different components independently
-- Maintain clear boundaries between different domains
-- Enable autonomous development and deployment
-- Reduce single points of failure
+This architecture consists of four main concepts:
 
-Think of the "Login with Google" or "Login with Facebook" buttons you see on websites. This is
-federation in action: you can use your Google or Facebook account to log into many different
-websites, even though each company manages their own login system separately.
+- **Subgraphs:** Independent GraphQL services that contribute types and fields to the overall graph.
+- **Source schemas:** The GraphQL schemas published by individual subgraphs, including information about how they participate in federation.
+- **Schema composition:** The process of validating and combining source schemas into one composite schema.
+- **Gateway:** The entry point that executes client queries across the necessary subgraphs.
 
-## What is federated GraphQL?
+To clients, the entire system behaves like one GraphQL API, regardless of how many services participate behind it.
 
-GraphQL federation applies those principles to GraphQL APIs. It enables organizations to build a
-unified GraphQL schema from multiple independent services (most often called subgraphs), each
-responsible for its portion of the application's data graph.
+## Why use GraphQL Federation?
 
-Consider an e-commerce platform: You might have separate teams managing products, user accounts, and
-order processing. With GraphQL federation, each team can:
+Many GraphQL APIs start with a single server and schema. This is often the simplest architecture, especially when one team owns the entire API.
 
-- Define their own GraphQL schema
-- Deploy and scale their service independently
-- Contribute to a unified GraphQL API without tight coupling
-- Maintain ownership of their domain-specific logic
+As applications grow, multiple teams may become responsible for different parts of the same graph. Maintaining everything within one application can introduce coordination overhead, particularly when teams need independent release schedules or different technology stacks.
 
-The magic happens through a federated gateway that acts as the central coordinator, composing these
-separate schemas into a unified schema that clients can query.
+Federation allows teams to preserve clear ownership boundaries without exposing the underlying service architecture to clients.
 
-## How federation works in GraphQL
+### Independent development and deployment
 
-The federation process involves several key components:
+Each team can own its subgraph, including its schema, implementation, and deployment lifecycle.
 
-- **Subgraphs**: Individual services that define their own GraphQL schemas and resolvers
-- **Gateway**: A specialized service that sits between clients and your federated services
-- **Schema composition**: The process of merging schemas while resolving references between them,
-  often handled by schema registries.
+Teams can develop and release changes independently while schema composition validates how those changes interact with the rest of the graph.
 
-<Tabs items={['Products subgraph', 'Orders subgraph', 'Users subgraph']}> <Tabs.Tab>
+### Clear domain boundaries
+
+GraphQL Federation aligns naturally with Domain-Driven Design (DDD), where complex applications are organized around distinct business domains and bounded contexts.
+
+Subgraphs can represent these boundaries, making responsibilities explicit while allowing related data to be connected across services.
+
+### One unified GraphQL API
+
+Clients interact with one GraphQL schema instead of integrating separately with every backend service.
+
+Relationships between types can span subgraphs, allowing a single query to retrieve connected data from multiple services.
+
+### Independent scaling and technology choices
+
+Subgraphs can use different programming languages, frameworks, and infrastructure.
+
+Services can also be scaled independently according to their workloads, without requiring the entire GraphQL API to scale as one application.
+
+## How does GraphQL Federation work?
+
+Consider an application where one service manages product information and another manages inventory.
+
+The catalog service owns product details such as names and descriptions. The inventory service owns stock availability.
+
+With federation, both services can contribute fields to the same `Product` type.
+
+### Defining subgraphs
+
+The catalog subgraph exposes products and provides a way to retrieve them by ID.
 
 ```graphql
+# Catalog subgraph
+
+type Query {
+  productById(id: ID!): Product @lookup
+}
+
 type Product @key(fields: "id") {
   id: ID!
-  title: String!
-  price: Float!
+  name: String!
+  description: String
+}
+```
+
+The `@key` directive identifies fields that uniquely identify a product, while `@lookup` marks a query field that can retrieve that entity.
+
+The inventory subgraph contributes the `inStock` field to the same product type.
+
+```graphql
+# Inventory subgraph
+
+type Query {
+  productById(id: ID!): Product @lookup @internal
+}
+
+type Product @key(fields: "id") {
+  id: ID!
   inStock: Boolean!
 }
 ```
 
-</Tabs.Tab> <Tabs.Tab>
+Both services describe the same entity through its stable key, but each owns different fields.
 
-```graphql
-type Order @key(fields: "id") {
-  id: ID!
-  products: [Product!]!
-  total: Float!
-}
-
-type Product {
-  id: ID!
-}
-```
-
-</Tabs.Tab> <Tabs.Tab>
-
-```graphql
-type Query {
-  user(id: ID!): User
-}
-
-type User {
-  id: ID!
-  name: String!
-  email: String
-  orders: [Order!]!
-}
-
-type Order {
-  id: ID!
-}
-```
-
-</Tabs.Tab> </Tabs>
+The inventory lookup provides a way for the distributed executor to retrieve inventory information for a particular product. Because the lookup is marked `@internal`, it is available for federation execution without becoming part of the public composite schema.
 
 ### Schema composition
 
-Let's break down schema composition in GraphQL federation with more detail and examples. Schema
-composition is the process where multiple subgraph schemas are combined into one unified schema.
-It's more complex than simply merging schemas together, though, because it needs to handle
-relationships, detect incompatibilities, and ensure types are properly connected across services and
-subgraphs.
+Schema composition validates the source schemas and determines how their types and fields fit together.
 
-Based on the examples we provided before, here's the unified schema GraphQL clients will see and can
-query:
+For this example, composition produces a client-facing schema similar to:
 
 ```graphql
 type Query {
-  user(id: ID!): User
-}
-
-type User {
-  id: ID!
-  name: String!
-  email: String
-  orders: [Order!]!
-}
-
-type Order {
-  id: ID!
-  products: [Product!]!
-  total: Float!
+  productById(id: ID!): Product
 }
 
 type Product {
   id: ID!
-  title: String!
-  price: Float!
+  name: String!
+  description: String
   inStock: Boolean!
 }
 ```
 
-This unified schema combines types and fields from all three subgraphs (Users, Orders, and
-Products), allowing clients to seamlessly query across these domains.
+The resulting schema combines fields from both services into one coherent product model.
 
-### Gateway
+Composition also detects conflicts and incompatible schema definitions, allowing problems to be identified before a new composite schema is deployed.
 
-The federation gateway is the entry point to your distributed data graph. It presents a unified
-GraphQL endpoint to clients and handles the complexity of routing queries to the appropriate
-subgraphs and assembling the results, and often provides caching and performance optimizations.
+### Distributed query execution
 
-```mermaid
-graph TD
-  Client --> FederationGateway
-  FederationGateway --> UsersService
-  FederationGateway --> OrdersService
-  FederationGateway --> ProductsService
-
-  Client[Client]
-  FederationGateway[Gateway]
-  UsersService[Users Service]
-  OrdersService[Orders Service]
-  ProductsService[Products Service]
-```
-
-Take the following query as an example:
+A client can now query product information and inventory availability through one request.
 
 ```graphql
 query {
-  user(id: "123") {
-    # Resolved by Users subgraph
+  productById(id: "123") {
     name
-    orders {
-      # Resolved by Orders subgraph
-      id
-      products {
-        # Resolved by Products subgraph
-        title
-        price
-      }
+    inStock
+  }
+}
+```
+
+The gateway determines which subgraphs are needed to resolve the requested fields.
+
+It retrieves the product's name and identifying key from the catalog service, then uses the product key to fetch availability from the inventory service.
+
+Finally, it assembles the results into one response:
+
+```json
+{
+  "data": {
+    "productById": {
+      "name": "GraphQL Handbook",
+      "inStock": true
     }
   }
 }
 ```
 
-The gateway will route parts of the query to the appropriate subgraphs, collect the results, and
-assemble them into a single response that the client can consume.
+The client doesn't need to know that two services contributed to the response. It simply queries the composite schema.
 
-## Benefits of GraphQL federation
+## Entities, keys, and lookups
 
-### Domain-driven development
+One of the defining capabilities of GraphQL Federation is connecting types across service boundaries.
 
-Teams can work independently on their services while contributing to a cohesive API. This autonomy
-accelerates development and reduces coordination overhead.
+An **entity** is a type with a stable identity that can be referenced across subgraphs.
 
-### Service integrity protection
+A **key**, declared using `@key`, identifies an entity. A **lookup**, declared using `@lookup`, describes how that entity can be retrieved.
 
-The schema composition step verifies integration between services by ensuring that changes in
-individual subgraphs do not conflict with other subgraphs.
+For example:
 
-### Scalability and performance
+```graphql
+type Query {
+  productById(id: ID!): Product @lookup
+  productBySku(sku: String!): Product @lookup
+}
 
-Subgraphs and services can be scaled independently based on their specific requirements. The product
-catalog might need different scaling characteristics than the order processing system.
+type Product @key(fields: "id") @key(fields: "sku") {
+  id: ID!
+  sku: String!
+  name: String!
+}
+```
 
-### Single, unified API
+A product can have multiple keys and multiple ways to retrieve it.
 
-Thanks to GraphQL, clients get a single endpoint with unified schema spanning multiple subgraphs.
-The complexity of distributed systems is hidden. The gateway ensures every query reaches its
-destination and returns with the right data.
+By expressing lookups as ordinary GraphQL fields, the specification allows services to participate in federation without implementing a specialized entity-resolution protocol.
 
-## Is GraphQL federation right for you?
+The same principle applies to dependencies between fields. With the `@require` directive, subgraphs can declare the data they need from other subgraphs through ordinary GraphQL field arguments.
 
-GraphQL federation aligns naturally with Domain Driven Design (DDD) principles by allowing teams to
-maintain clear boundaries around their domains, while maintaining explicit integration points
-through the GraphQL schema. It is particularly valuable for organizations where multiple teams need
-to work independently on different parts of the GraphQL API, with the flexibility to use different
-technologies and programming languages.
+Together, keys, lookups, and requirements allow a distributed executor to navigate relationships across independently developed services.
 
-However, implementing federation requires substantial infrastructure support, including a dedicated
-team to manage the gateway, schema registry, to help connect subgraphs to the federated API and
-guide teams on best practices.
+## From Apollo Federation to an open specification
 
-Before adopting federation, it's crucial to consider whether your organization truly needs this
-level of complexity. You can start with a monolithic setup and transition to federation as your needs
-evolve, rather than implementing it prematurely.
+Apollo [introduced Apollo Federation in 2019](https://www.apollographql.com/blog/apollo-federation-f260cf525d21), establishing many of the architectural concepts that define federated GraphQL APIs today.
 
-Meta (formerly Facebook), [where GraphQL was created](/blog/2015-09-14-graphql/), has continued to
-use a monolithic GraphQL API since 2012. However, companies like
-[Netflix](https://netflixtechblog.com/how-netflix-scales-its-api-with-graphql-federation-part-1-ae3557c187e2),
-[Expedia Group](https://youtu.be/kpeVT7J6Bsw?si=srGWsoxf3kTmneTu&t=79),
-[Volvo](https://www.apollographql.com/blog/volvo-cars-drives-into-the-future-of-online-car-shopping-with-the-supergraph),
-and [Booking](https://youtu.be/2KsP_x50tGk?si=mu-MOG-xZQSDNDjh&t=478) have adopted federation to
-better align with their organizational structures and microservices architecture.
+GraphQL Fusion subsequently introduced a different approach to federation, built entirely on standard GraphQL capabilities. Rather than relying on hidden fields, specialized reference resolvers, or federation-specific protocols, Fusion proposed an architecture that uses the GraphQL type system and ordinary queries to connect services into a unified graph.
 
-As you see, some of the world's largest industry leaders have successfully federated their GraphQL
-APIs, proving that it works reliably for production applications at an extraordinary scale.
+Both approaches demonstrated the value of federation, but differences in their schemas and execution protocols limited interoperability between implementations.
 
-## Getting started with GraphQL federation
+In 2023, the GraphQL Foundation's [Composite Schemas Working Group](https://github.com/graphql/composite-schemas-wg) began developing a common, vendor-neutral specification.
 
-If you're considering adopting GraphQL federation, here are some steps to get started:
+Engineers from across the GraphQL ecosystem, including [Apollo GraphQL](https://apollographql.com), [ChilliCream](https://chillicream.com/), [Graphile](https://www.graphile.org/), [Hasura](https://hasura.io/), [Netflix](https://www.netflix.com/), [The Guild](https://the-guild.dev), and [WunderGraph](https://wundergraph.com/), contribute to this work, which has evolved into the **GraphQL Federation specification**.
 
-1. **Identify Service Boundaries**: Define clear boundaries between different domains in your
-   application
-2. [**Design Schemas**](/learn/schema/ 'Learn about the different elements of the GraphQL type system'):
-   Create schemas that reflect these boundaries while considering how they'll interact
-3. [**Implement Subgraphs**](/community/tools-and-libraries/?tags=server 'Discover a list of GraphQL servers in our Tools and Libraries page'):
-   Build individual services that implement their portion of the schema
-4. [**Set Up a Gateway**](/community/tools-and-libraries/?tags=gateways-supergraphs 'Discover a list of GraphQL gateways in our Tools and Libraries page'):
-   Deploy a federation gateway to compose and serve the unified schema
-5. [**Use a Schema Registry**](/community/tools-and-libraries/?tags=schema-registry 'Discover a list of GraphQL schema registries in our Tools and Libraries page'):
-   Manage schema composition and validation to ensure integrity across subgraphs
+The specification builds on the foundations established by Apollo Federation and GraphQL Fusion while moving toward a common standard for schema composition and distributed query execution.
 
-When migrating from a monolithic to federated GraphQL API, the simplest starting point is to treat
-your existing schema as your first subgraph. From there, you can follow the steps above to gradually
-decompose your schema into smaller pieces.
+An important design goal is to make ordinary GraphQL servers first-class participants in federation. Rather than requiring specialized reference resolvers or hidden entity fields, the specification describes federation semantics through the GraphQL schema and uses standard GraphQL operations for communication between services.
+
+The standardization effort also includes work on GraphQL-over-HTTP capabilities, such as variable batching, that can support efficient distributed execution while remaining useful to GraphQL applications beyond federation.
+
+GraphQL Federation is being developed as an open specification, allowing different servers, gateways, and tooling providers to implement a common federation model.
+
+The specification is currently under active development and may evolve as it progresses through the standardization process.
+
+Backward compatibility has been a key consideration in the design of the GraphQL Federation specification. The goal is to preserve existing investments in Apollo Federation while allowing organizations to adopt the new protocol incrementally, one subgraph at a time. This enables existing Apollo Federation subgraphs and new GraphQL Federation subgraphs to coexist within the same graph, provided the gateway supports both protocols, without requiring a coordinated migration.
+
+For more information, see the [GraphQL Federation specification](https://graphql.github.io/graphql-federation-spec/).
+
+## Is GraphQL Federation right for your application?
+
+GraphQL Federation is particularly useful when multiple teams need to develop and deploy different parts of a shared GraphQL API independently.
+
+However, federation introduces additional complexity.
+
+A federated architecture requires a gateway, schema composition, and coordination of distributed requests. Queries spanning multiple subgraphs may introduce network latency and additional failure scenarios that do not exist within a single process.
+
+A single GraphQL server, including a well-structured modular monolith, can remain an excellent choice when independent service deployments are unnecessary.
+
+Federation becomes valuable when the benefits of independent ownership, deployment, and scaling outweigh the operational complexity of a distributed system.
+
+Importantly, adopting federation does not require moving every service into a separate deployment at once. Applications can begin with a single subgraph and evolve incrementally as their requirements change.
+
+## Getting started with GraphQL Federation
+
+If you're considering GraphQL Federation, start by identifying the domains and services that should contribute to your graph.
+
+1. **Identify domain boundaries.** Determine which teams or services own different parts of your API.
+2. [**Define source schemas.**](/learn/schema/ 'Learn about the different elements of the GraphQL type system') Describe the types and fields contributed by each subgraph, including entity keys and lookups where appropriate.
+3. **Compose your graph.** Use a federation composition tool to validate the source schemas and produce a composite schema.
+4. [**Configure a gateway.**](/community/tools-and-libraries/?tags=gateways-supergraphs 'Discover a list of GraphQL gateways in our Tools and Libraries page') Expose the composite schema through a GraphQL gateway that can execute queries across the participating services.
+5. **Evolve incrementally.** Introduce new subgraphs as independent ownership and deployment become valuable.
+
+If you already have a GraphQL server, you can often begin by using that server as your first subgraph and adding other services over time.
+
+GraphQL Federation enables organizations to grow from a single GraphQL API into a distributed architecture without requiring clients to understand the services behind it.
+
+For implementation details and the current status of the specification, visit the [GraphQL Federation specification repository](https://github.com/graphql/graphql-federation-spec).
