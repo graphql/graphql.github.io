@@ -14,6 +14,9 @@ export interface Event {
   kind?: EventKind
 }
 
+/**
+ * Only add events here that are **not** in the calendar
+ */
 const allEvents: Event[] = [
   {
     name: "Apollo Summit 2026",

@@ -14,7 +14,7 @@ const CALENDAR_EVENTS_FILE = join(
 )
 
 export const getAllEvents = cache(async () => {
-  const workingGroupMeetings = await loadCalendarEvents()
+  const calendarEvents = await loadCalendarEvents()
 
   let pastEvents: AnyEvent[] = []
   let upcomingEvents: AnyEvent[] = []
@@ -30,10 +30,10 @@ export const getAllEvents = cache(async () => {
     }
   }
 
-  for (const meeting of workingGroupMeetings) {
-    if (meeting.start && new Date(meeting.start) < now) {
-      pastEvents.push(meeting)
-    } else upcomingEvents.push(meeting)
+  for (const calendarEvent of calendarEvents) {
+    if (calendarEvent.start && new Date(calendarEvent.start) < now) {
+      pastEvents.push(calendarEvent)
+    } else upcomingEvents.push(calendarEvent)
   }
 
   const getDate = (event: AnyEvent) => {
