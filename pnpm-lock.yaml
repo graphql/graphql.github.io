@@ -313,14 +313,14 @@ importers:
         specifier: ^26.1.0
         version: 26.1.0
       prettier:
-        specifier: 3.5.3
-        version: 3.5.3
+        specifier: 3.9.10
+        version: 3.9.10
       prettier-plugin-pkg:
         specifier: ^0.21.0
-        version: 0.21.2(prettier@3.5.3)
+        version: 0.21.2(prettier@3.9.10)
       prettier-plugin-tailwindcss:
         specifier: ^0.7.0
-        version: 0.7.2(prettier@3.5.3)
+        version: 0.7.2(prettier@3.9.10)
       remark-lint-first-heading-level:
         specifier: 3.1.2
         version: 3.1.2
@@ -341,6 +341,15 @@ importers:
         specifier: ^1.54.2
         version: 1.57.0
 
+  scripts/sync-calendar-events:
+    dependencies:
+      arktype:
+        specifier: 2.1.29
+        version: 2.1.29
+      ical.js:
+        specifier: 2.2.1
+        version: 2.2.1
+
   scripts/sync-landing-schema:
     dependencies:
       '@graphql-codegen/cli':
@@ -352,15 +361,6 @@ importers:
       '@graphql-typed-document-node/core':
         specifier: ^3.2.0
         version: 3.2.0(graphql@16.10.0)
-
-  scripts/sync-calendar-events:
-    dependencies:
-      arktype:
-        specifier: 2.1.29
-        version: 2.1.29
-      ical.js:
-        specifier: 2.2.1
-        version: 2.2.1
 
 packages:
 
@@ -5524,8 +5524,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
+  prettier@3.9.10:
+    resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -13026,15 +13026,15 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-pkg@0.21.2(prettier@3.5.3):
+  prettier-plugin-pkg@0.21.2(prettier@3.9.10):
     dependencies:
-      prettier: 3.5.3
+      prettier: 3.9.10
 
-  prettier-plugin-tailwindcss@0.7.2(prettier@3.5.3):
+  prettier-plugin-tailwindcss@0.7.2(prettier@3.9.10):
     dependencies:
-      prettier: 3.5.3
+      prettier: 3.9.10
 
-  prettier@3.5.3: {}
+  prettier@3.9.10: {}
 
   pretty-format@27.5.1:
     dependencies:
