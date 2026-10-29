@@ -59,10 +59,12 @@ Recall that GraphQL is meant to work with your existing code and data, so the ac
 
 ```js
 const Mutation = {
-  createReview(_obj, args, context, _info) {
-    return context.db
-      .createNewReview(args.episode, args.review)
-      .then(reviewData => new Review(reviewData));
+  async createReview(_obj, args, context, _info) {
+    const reviewData = await context.db.createNewReview(
+      args.episode,
+      args.review
+    );
+    return new Review(reviewData);
   },
 };
 ```
