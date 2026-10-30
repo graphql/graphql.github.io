@@ -36,7 +36,8 @@ export function MeetupsMap() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const handleRef = useRef<MapHandle>()
   const { resolvedTheme } = useTheme()
-  const [activeMeetupId, setActiveMeetupId] = useState<string | null>(null)
+  const [activeMeetupIds, setActiveMeetupIds] = useState<string[]>([])
+  const activeMeetupId = activeMeetupIds[0] ?? null
   const themeColors = useMemo(
     () => MAP_COLORS[resolvedTheme as ThemeVariant] || MAP_COLORS.light,
     [resolvedTheme],
@@ -69,7 +70,7 @@ export function MeetupsMap() {
   )
 
   const handleMapClick = () => {
-    if (activeMeetup?.node.link) {
+    if (activeMeetupIds.length === 1 && activeMeetup?.node.link) {
       window.open(activeMeetup.node.link, "_blank", "noopener,noreferrer")
     }
   }
@@ -102,7 +103,7 @@ export function MeetupsMap() {
           aspectRatio: ASPECT_RATIO,
           theme: initialThemeRef.current,
           signal: abortController.signal,
-          onActiveMarkerChange: setActiveMeetupId,
+          onActiveMarkerChange: setActiveMeetupIds,
         })
         if (disposed) {
           engine.dispose()
@@ -141,8 +142,8 @@ export function MeetupsMap() {
   return (
     <div
       id="meetups-map"
-      onMouseOut={() => {
-        setActiveMeetupId(null)
+      onMouseLeave={() => {
+        setActiveMeetupIds([])
       }}
       className="my-6 flex flex-row-reverse divide-neu-200 border border-neu-200 bg-[--sea] [--sea:--sea-light] dark:divide-neu-50 dark:border-neu-50 dark:[--sea:--sea-dark] max-md:flex-col max-md:divide-y md:h-[592px]"
       style={
@@ -172,7 +173,7 @@ export function MeetupsMap() {
           }}
         />
 
-        <MapTooltip id="map-tooltip" activeMeetupId={activeMeetupId} />
+        <MapTooltip id="map-tooltip" activeMeetupIds={activeMeetupIds} />
 
         <InfoTip />
 
@@ -185,8 +186,8 @@ export function MeetupsMap() {
         )}
       </div>
       <MeetupsList
-        activeMeetupId={activeMeetupId}
-        onActiveMeetupChange={setActiveMeetupId}
+        activeMeetupIds={activeMeetupIds}
+        onActiveMeetupChange={id => setActiveMeetupIds(id ? [id] : [])}
         className="shrink-0 md:max-h-full lg:w-[240px]"
       />
     </div>

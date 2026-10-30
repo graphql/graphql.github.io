@@ -31,6 +31,7 @@ uniform vec3 uSeaColor;
 uniform vec4 uMarkers[${MARKER_CAPACITY}];
 uniform int uMarkerCount;
 uniform vec3 uMarkerColor;
+uniform vec3 uSharedMarkerColor;
 uniform vec3 uHaloColor;
 uniform float uHaloMinOpacity;
 uniform vec3 uPointerTrail[64];
@@ -50,6 +51,7 @@ vec2 markerCellCenter(vec4 marker, vec2 referencePx) {
 }
 
 vec2 markerStateAtCellCenterPx(vec2 cellCenterPx) {
+  vec2 state = vec2(0.0);
   ivec2 cellIndex = ivec2(floor(cellCenterPx / uCell));
   for (int i = 0; i < ${MARKER_CAPACITY}; i++) {
     if (i >= uMarkerCount) {
@@ -59,10 +61,11 @@ vec2 markerStateAtCellCenterPx(vec2 cellCenterPx) {
     vec2 markerCenter = markerCellCenter(marker, cellCenterPx);
     ivec2 markerIndex = ivec2(floor(markerCenter / uCell));
     if (markerIndex.x == cellIndex.x && markerIndex.y == cellIndex.y) {
-      return vec2(marker.z, marker.w);
+      state.x = max(state.x, marker.z);
+      state.y += 1.0;
     }
   }
-  return vec2(0.0);
+  return state;
 }
 
 float sampleCoverage(vec2 uv) {
@@ -121,7 +124,7 @@ void main() {
   vec3 terrainColor = mix(uSeaColor, uLandColor, landMask);
   vec3 color = terrainColor;
   if (markerType > 0.5) {
-    color = uMarkerColor;
+    color = markerState.y > 1.0 ? uSharedMarkerColor : uMarkerColor;
   }
   float squareHalf = baseHalfSquare;
   if (markerType <= 0.5) {
