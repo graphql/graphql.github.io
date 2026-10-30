@@ -32,7 +32,7 @@ const DEFAULT_MEETUPS: MeetupListItem[] = meetupNodes
 
 export interface MeetupsListProps {
   className?: string
-  activeMeetupId?: string | null
+  activeMeetupIds?: string[]
   onActiveMeetupChange?: (meetupId: string | null) => void
   meetups?: MeetupListItem[]
 }
@@ -42,12 +42,12 @@ export interface MeetupsListProps {
  */
 export function MeetupsList({
   className,
-  activeMeetupId,
+  activeMeetupIds = [],
   onActiveMeetupChange,
   meetups = DEFAULT_MEETUPS,
 }: MeetupsListProps) {
   useEffect(() => {
-    if (activeMeetupId) {
+    if (activeMeetupIds.length > 0) {
       const list = document.querySelector("#meetups-list")
       if (!list) return
 
@@ -60,7 +60,7 @@ export function MeetupsList({
         list.scrollTo({ top: activeAnchor.offsetTop, behavior: "smooth" })
       }
     }
-  }, [activeMeetupId])
+  }, [activeMeetupIds])
 
   if (meetups.length === 0) return null
 
@@ -73,7 +73,7 @@ export function MeetupsList({
       )}
     >
       {meetups.map((meetup, index) => {
-        const isActive = meetup.id === activeMeetupId
+        const isActive = activeMeetupIds.includes(meetup.id)
 
         return (
           <li key={meetup.id}>
