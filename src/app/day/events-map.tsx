@@ -111,7 +111,7 @@ export function EventsMap({ children }: { children: React.ReactNode }) {
           aspectRatio: ASPECT_RATIO,
           theme: initialThemeRef.current,
           signal: abortController.signal,
-          onActiveMarkerChange: setActiveEventId,
+          onActiveMarkerChange: ids => setActiveEventId(ids[0] ?? null),
         })
         if (disposed) {
           engine.dispose()
