@@ -80,6 +80,19 @@ export const meetups = [
   },
   {
     node: {
+      id: "delhi",
+      name: "GraphQL Delhi",
+      latitude: 28.7,
+      longitude: 77.1,
+      city: "Delhi",
+      state: "",
+      country: "India",
+      link: "https://guild.host/graphql-delhi",
+      official: true,
+    },
+  },
+  {
+    node: {
       id: "hyderabad",
       name: "GraphQL Hyderabad",
       latitude: 17.41,
@@ -93,6 +106,19 @@ export const meetups = [
   },
   {
     node: {
+      id: "jaipur",
+      name: "GraphQL Jaipur",
+      latitude: 26.91,
+      longitude: 75.79,
+      city: "Jaipur",
+      state: "",
+      country: "India",
+      link: "https://luma.com/GraphQL-jaipur",
+      official: false,
+    },
+  },
+  {
+    node: {
       id: "london",
       name: "London GraphQL",
       latitude: 51.51,
@@ -102,6 +128,19 @@ export const meetups = [
       country: "UK",
       link: "https://guild.host/london-graphql",
       official: true,
+    },
+  },
+  {
+    node: {
+      id: "lucknow",
+      name: "GraphQL Lucknow",
+      latitude: 26.84,
+      longitude: 80.94,
+      city: "Lucknow",
+      state: "",
+      country: "India ",
+      link: "https://guild.host/graphql-lucknow",
+      official: false,
     },
   },
   {
@@ -127,6 +166,19 @@ export const meetups = [
       state: "NY",
       country: "USA",
       link: "https://guild.host/graphql-new-york/events",
+      official: false,
+    },
+  },
+  {
+    node: {
+      id: "noida",
+      name: "GraphQL Noida",
+      latitude: 28.54,
+      longitude: 77.39,
+      city: "Noida",
+      state: "",
+      country: "India",
+      link: "https://guild.host/graphql-noida",
       official: false,
     },
   },
