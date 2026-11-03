@@ -41,7 +41,7 @@ export type BootOptions = {
   aspectRatio: number
   theme: MapColors
   signal?: AbortSignal
-  onActiveMarkerChange?: (id: string | null) => void
+  onActiveMarkerChange?: (ids: string[]) => void
 }
 
 const MIN_ZOOM = 1
@@ -109,6 +109,7 @@ class MapEngine implements MapHandle {
   private readonly markerData: Float32Array
   private markerCount: number
   private markerCapacityWarned = false
+  private readonly sharedMarkerColor: Float32Array
   private readonly markerColor: Float32Array
   private haloColor: Float32Array
   private haloMinOpacity: number
@@ -116,7 +117,7 @@ class MapEngine implements MapHandle {
   private readonly markerIntensityTarget: Float32Array
   private readonly markerIndexById: Map<string, number>
   private activeMarkerIndex = -1
-  private hoveredMarkerIndex = -1
+  private hoveredMarkerIndices: number[] = []
   private markerUniformDirty = true
   private readonly resizeObserver: ResizeObserver
   private readonly diagnostics: Diagnostics | null
@@ -144,7 +145,7 @@ class MapEngine implements MapHandle {
   }
   private readonly pointerTrail = new Float32Array(192)
   private trailCount = 0
-  private readonly onActiveMarkerChange?: (id: string | null) => void
+  private readonly onActiveMarkerChange?: (ids: string[]) => void
   private destroyed = false
 
   constructor(options: InternalOptions) {
@@ -161,6 +162,7 @@ class MapEngine implements MapHandle {
     this.markerPoints = options.markers
     this.markerData = new Float32Array(MARKER_CAPACITY * 4)
     this.markerCount = this.packMarkers(this.markerPoints, this.markerData)
+    this.sharedMarkerColor = new Float32Array(options.theme.sharedMarker)
     this.markerColor = new Float32Array(options.theme.marker)
     this.haloColor = new Float32Array(options.theme.halo)
     this.haloMinOpacity = options.theme.haloMinOpacity
@@ -204,6 +206,7 @@ class MapEngine implements MapHandle {
   setThemeColors(colors: MapColors) {
     this.seaColor.set(colors.sea)
     this.landColor.set(colors.land)
+    this.sharedMarkerColor.set(colors.sharedMarker)
     this.markerColor.set(colors.marker)
     this.haloColor.set(colors.halo)
     this.haloMinOpacity = colors.haloMinOpacity
@@ -308,14 +311,14 @@ class MapEngine implements MapHandle {
     if (!this.onActiveMarkerChange) return
     const device = this.pointerToDevice(clientX, clientY)
     if (!device) {
-      this.notifyHoverChange(-1)
+      this.notifyHoverChange([])
       return
     }
     const [px, py] = device
     const dims = this.getWorldDimensions()
     const deviceCell = this.cellSize * this.pixelRatio
     if (!(deviceCell > 0)) {
-      this.notifyHoverChange(-1)
+      this.notifyHoverChange([])
       return
     }
     const cellX = Math.floor(px / deviceCell)
@@ -324,21 +327,21 @@ class MapEngine implements MapHandle {
     const centerY = (cellY + 0.5) * deviceCell
     const zoomedHeight = dims.worldHeight * this.zoom
     if (!(zoomedHeight > 0)) {
-      this.notifyHoverChange(-1)
+      this.notifyHoverChange([])
       return
     }
     const normalizedY = (centerY - this.pan[1]) / zoomedHeight
     if (normalizedY < 0 || normalizedY > 1) {
-      this.notifyHoverChange(-1)
+      this.notifyHoverChange([])
       return
     }
     const periodX = dims.worldWidth * this.zoom
     if (!(periodX > 0 && Number.isFinite(periodX))) {
-      this.notifyHoverChange(-1)
+      this.notifyHoverChange([])
       return
     }
     const halfPeriod = 0.5 * periodX
-    let foundIndex = -1
+    const foundIndices: number[] = []
     for (let i = 0; i < this.markerCount; i++) {
       const base = i * 4
       const markerX = this.markerData[base]
@@ -351,30 +354,28 @@ class MapEngine implements MapHandle {
       const markerCellX = Math.floor(nearestX / deviceCell)
       const markerCellY = Math.floor(screenY / deviceCell)
       if (markerCellX === cellX && markerCellY === cellY) {
-        foundIndex = i
-        break
+        foundIndices.push(i)
       }
     }
-    this.notifyHoverChange(foundIndex)
+    this.notifyHoverChange(foundIndices)
   }
 
-  private notifyHoverChange(index: number) {
-    if (index === this.hoveredMarkerIndex) return
-    this.hoveredMarkerIndex = index
+  private notifyHoverChange(indices: number[]) {
+    if (
+      indices.length === this.hoveredMarkerIndices.length &&
+      indices.every((index, i) => index === this.hoveredMarkerIndices[i])
+    )
+      return
+    this.hoveredMarkerIndices = indices
     this.updateCursor()
-    if (!this.onActiveMarkerChange) return
-    if (this.destroyed) return
-    const id =
-      index >= 0 && index < this.markerPoints.length
-        ? this.markerPoints[index].id
-        : null
-    this.onActiveMarkerChange(id)
+    if (!this.onActiveMarkerChange || this.destroyed) return
+    this.onActiveMarkerChange(indices.map(index => this.markerPoints[index].id))
   }
 
   private updateCursor() {
     if (this.pointer.active) return
     this.canvas.style.cursor =
-      this.hoveredMarkerIndex >= 0 ? "pointer" : "default"
+      this.hoveredMarkerIndices.length > 0 ? "pointer" : "default"
   }
 
   private updatePointerTrail(px: number, py: number) {
@@ -479,7 +480,7 @@ class MapEngine implements MapHandle {
     this.velocity[1] = 0
     this.canvas.setPointerCapture(event.pointerId)
     this.canvas.style.cursor = "move"
-    this.notifyHoverChange(-1)
+    this.notifyHoverChange([])
     this.pointerTrail.fill(-1)
     this.trailCount = 0
   }
@@ -529,7 +530,7 @@ class MapEngine implements MapHandle {
   private handlePointerUp = (event: PointerEvent) => {
     if (event.type === "pointerleave" || event.type === "pointercancel") {
       this.hoverPointer.hasValue = false
-      this.notifyHoverChange(-1)
+      this.notifyHoverChange([])
       this.pointerTrail.fill(-1)
       this.trailCount = 0
     }
@@ -753,6 +754,14 @@ class MapEngine implements MapHandle {
       this.markerColor[0],
       this.markerColor[1],
       this.markerColor[2],
+    )
+    setUniform3f(
+      gl,
+      this.dotsProgram,
+      "uSharedMarkerColor",
+      this.sharedMarkerColor[0],
+      this.sharedMarkerColor[1],
+      this.sharedMarkerColor[2],
     )
     setUniform3f(
       gl,
