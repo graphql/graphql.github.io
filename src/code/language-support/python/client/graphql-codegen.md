@@ -7,6 +7,12 @@ tags:
   - frontend
 ---
 
+The generated package has:
+
+- **no imposed transport**: bytes in, bytes out;
+- **no runtime dependencies**: nothing to install or upgrade (apart from `typing-extensions` before Python 3.15);
+- **no redundant validation**: just dicts, statically checked (by mypy, Pyright, Pyrefly, ty, etc.).
+
 Install graphql-codegen:
 
 ```bash
