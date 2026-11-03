@@ -9,8 +9,8 @@ tags:
 
 Install graphql-codegen:
 
-```
-$ pip install graphql-codegen
+```bash
+pip install graphql-codegen
 ```
 
 Write your operations in a `bookshop/get_order.graphql` file:
@@ -37,8 +37,8 @@ extensions:
 
 Generate the package:
 
-```
-$ graphql-codegen bookshop/graphql.config.yml
+```bash
+graphql-codegen bookshop/graphql.config.yml
 ```
 
 Bring your own transport, here with the standard library alone:
