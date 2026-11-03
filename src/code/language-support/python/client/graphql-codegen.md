@@ -47,7 +47,7 @@ Generate the package:
 graphql-codegen bookshop/graphql.config.yml
 ```
 
-Bring your own transport, here with the standard library alone:
+Bring your own transport, here in `bookshop/transport.py` and with the standard library alone:
 
 ```python
 from typing import Literal
