@@ -140,7 +140,7 @@ export const meetups = [
       state: "",
       country: "India ",
       link: "https://guild.host/graphql-lucknow",
-      official: false,
+      official: true,
     },
   },
   {
@@ -179,7 +179,7 @@ export const meetups = [
       state: "",
       country: "India",
       link: "https://guild.host/graphql-noida",
-      official: false,
+      official: true,
     },
   },
   {
