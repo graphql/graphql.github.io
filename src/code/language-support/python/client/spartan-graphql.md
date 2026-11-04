@@ -7,9 +7,9 @@ tags:
   - frontend
 ---
 
-> **Spartan**, *adj.* … distinguished by simplicity, frugality, courage, or brevity of speech.
+> **Spartan**, _adj._ … distinguished by simplicity, frugality, courage, or brevity of speech.
 >
-> — *Oxford English Dictionary*
+> — _Oxford English Dictionary_
 
 Spartan GraphQL compiles GraphQL documents into a typed Python package, and stops there:
 
