@@ -1,22 +1,26 @@
 ---
-name: GraphQL Python codegen
+name: Spartan GraphQL
 description: Compile GraphQL documents into a typed Python package with no imposed transport, no runtime dependencies, and no redundant validation.
-github: tibdex/graphql-codegen
+github: tibdex/spartan-graphql
 tags:
   - tools-and-libraries
   - frontend
 ---
 
-The generated package has:
+> **Spartan**, *adj.* … distinguished by simplicity, frugality, courage, or brevity of speech.
+>
+> — *Oxford English Dictionary*
+
+Spartan GraphQL compiles GraphQL documents into a typed Python package, and stops there:
 
 - **no imposed transport**: bytes in, bytes out;
 - **no runtime dependencies**: nothing to install or upgrade (apart from `typing-extensions` before Python 3.15);
 - **no redundant validation**: just dicts, statically checked (by mypy, Pyright, Pyrefly, ty, etc.).
 
-Install graphql-codegen:
+Install spartan-graphql:
 
 ```bash
-pip install graphql-codegen
+pip install spartan-graphql
 ```
 
 Write your operations in a `bookshop/get_order.graphql` file:
@@ -36,7 +40,7 @@ Point a `bookshop/graphql.config.yml` file at your schema and documents:
 schema: schema.graphqls
 documents: "*.graphql"
 extensions:
-  pythonCodegen:
+  spartan:
     moduleRoot: ..
     package: bookshop.graphql
 ```
@@ -44,7 +48,7 @@ extensions:
 Generate the package:
 
 ```bash
-graphql-codegen bookshop/graphql.config.yml
+spartan-graphql bookshop/graphql.config.yml
 ```
 
 Bring your own transport, here in `bookshop/transport.py` and with the standard library alone:
