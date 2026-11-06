@@ -7,12 +7,12 @@ settings:
 overrides:
   '@lezer/highlight': 1.2.5
   '@lezer/common': 1.5.4
-  '@codemirror/autocomplete': 6.20.3
+  '@codemirror/autocomplete': 6.20.4
   '@codemirror/commands': 6.11.1
-  '@codemirror/language': 6.12.4
+  '@codemirror/language': 6.13.1
   '@codemirror/lint': 6.9.7
-  '@codemirror/state': 6.7.5
-  '@codemirror/view': 6.43.12
+  '@codemirror/state': 6.7.6
+  '@codemirror/view': 6.43.15
 
 patchedDependencies:
   mermaid-isomorphic:
@@ -33,23 +33,23 @@ importers:
         specifier: 1.0.0-rc.0
         version: 1.0.0-rc.0(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@codemirror/autocomplete':
-        specifier: 6.20.3
-        version: 6.20.3
+        specifier: 6.20.4
+        version: 6.20.4
       '@codemirror/commands':
         specifier: 6.11.1
         version: 6.11.1
       '@codemirror/language':
-        specifier: 6.12.4
-        version: 6.12.4
+        specifier: 6.13.1
+        version: 6.13.1
       '@codemirror/lint':
         specifier: 6.9.7
         version: 6.9.7
       '@codemirror/state':
-        specifier: 6.7.5
-        version: 6.7.5
+        specifier: 6.7.6
+        version: 6.7.6
       '@codemirror/view':
-        specifier: 6.43.12
-        version: 6.43.12
+        specifier: 6.43.15
+        version: 6.43.15
       '@graphql-tools/schema':
         specifier: 10.0.31
         version: 10.0.31(graphql@16.10.0)
@@ -97,7 +97,7 @@ importers:
         version: 2.1.1
       cm6-graphql:
         specifier: ^0.2.1
-        version: 0.2.1(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/state@6.7.5)(@codemirror/view@6.43.12)(@lezer/highlight@1.2.5)(graphql@16.10.0)
+        version: 0.2.1(@codemirror/autocomplete@6.20.4)(@codemirror/language@6.13.1)(@codemirror/lint@6.9.7)(@codemirror/state@6.7.6)(@codemirror/view@6.43.15)(@lezer/highlight@1.2.5)(graphql@16.10.0)
       date-fns:
         specifier: ^4.0.0
         version: 4.4.0
@@ -1018,23 +1018,26 @@ packages:
   '@chevrotain/utils@11.0.3':
     resolution: {integrity: sha512-YslZMgtJUyuMbZ+aKvfF3x1f5liK4mWNxghFRv7jqRR9C3R3fAOGTTKvxXDa2Y1s9zSbcpuO0cAxDYsc9SrXoQ==}
 
-  '@codemirror/autocomplete@6.20.3':
-    resolution: {integrity: sha512-tlosUqb+3BbxCxZdu4tKeRghPFC+QM7q4X5YhKV2eCmPG+1r2F3f4AaSz5sCrFqUtX4Jh20VFTKecl16MgiV9g==}
+  '@codemirror/autocomplete@6.20.4':
+    resolution: {integrity: sha512-yF8RhOf2SXlg00+qtupzLhrglcas61boqaONiNcbPIebHCpJocpqTBA6dyrtUrQO47hqyTdeob/3XnYilT7TaQ==}
 
   '@codemirror/commands@6.11.1':
     resolution: {integrity: sha512-O/4hG3SC1YwcmQ0d2UVNDs+AsaNWd1iHVxbTeEBuqH+6bExAiPK3iS/BvpY6rZGURALv4ZD3sIgcCmRvw3ehBg==}
 
-  '@codemirror/language@6.12.4':
-    resolution: {integrity: sha512-1q4PaT+o6PbgpkJt4Q8Fv5XJxTy4FUZ4MWETtyiDw3J0Pyr9E2vqcKL+k9wcvjNTIsauxvE7OfmWj3FRPHQ76A==}
+  '@codemirror/language@6.13.1':
+    resolution: {integrity: sha512-zfvU2r3TyylQLMj/te+5CnQ0rSqZi8B1oTCBbQkagcLW4Xc6imab6qN+pEJhsuNOLaJqiRyBXp9UhWA1DhVvDw==}
 
   '@codemirror/lint@6.9.7':
     resolution: {integrity: sha512-28/+iWLYxKxsvGYhSYL7zaCZqLz5+FFFDq9tVsvGv9kv8RY4fFAchJ5WX9M3YrrRlTIsECjsXPqeNgnSmNP2dg==}
 
-  '@codemirror/state@6.7.5':
-    resolution: {integrity: sha512-QjLbZmY1Au3JiRrDVYFLRD0BZ3SOKS9pR3yjIkd7u27YY8TFD9/Q9fhPnLV5l1mHFSo3hHU/N31vpwEJOx4owQ==}
+  '@codemirror/state@6.7.6':
+    resolution: {integrity: sha512-kAz+AncRtKuIknedxT1bq4XwXv4UowhbkHU1myPrtVb/jZtImWuV5BXzv5vK6i3kYACsdiZiQKFQQ5Mq7elW8w==}
 
-  '@codemirror/view@6.43.12':
-    resolution: {integrity: sha512-Nv0vxQ19NAqvB/c2pFzjIzFlzzJl7jmdtNkwOwGbn0Ks9mFAzibvumz7cQem5cRsFA2cEw2fg+uHZGbcHupLQQ==}
+  '@codemirror/streamparser@6.0.0':
+    resolution: {integrity: sha512-JTFPF6xrfjt0mnfGPgzcLiMwYmvIyNaoizp8BYzv8FE8KrT6GBGDZ190rtt+O7Wke3gG/MFHyiY9YGNeimof4w==}
+
+  '@codemirror/view@6.43.15':
+    resolution: {integrity: sha512-HHsfpqFeHyXLs983pSRe38Xajs0vFWZQ2BuX0m7Ki8w3jZ5iD8cuR3lBz2/5/X53Dhf32SBHKh6rtSTB6tKeGw==}
 
   '@corex/deepmerge@4.0.43':
     resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
@@ -3028,11 +3031,11 @@ packages:
   cm6-graphql@0.2.1:
     resolution: {integrity: sha512-FIAFHn6qyiXChTz3Pml0NgTM8LyyXs8QfP2iPG7MLA8Xi83WuVlkGG5PDs+DDeEVabHkLIZmcyNngQlxLXKk6A==}
     peerDependencies:
-      '@codemirror/autocomplete': 6.20.3
-      '@codemirror/language': 6.12.4
+      '@codemirror/autocomplete': 6.20.4
+      '@codemirror/language': 6.13.1
       '@codemirror/lint': 6.9.7
-      '@codemirror/state': 6.7.5
-      '@codemirror/view': 6.43.12
+      '@codemirror/state': 6.7.6
+      '@codemirror/view': 6.43.15
       '@lezer/highlight': 1.2.5
       graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
 
@@ -7634,24 +7637,25 @@ snapshots:
 
   '@chevrotain/utils@11.0.3': {}
 
-  '@codemirror/autocomplete@6.20.3':
+  '@codemirror/autocomplete@6.20.4':
     dependencies:
-      '@codemirror/language': 6.12.4
-      '@codemirror/state': 6.7.5
-      '@codemirror/view': 6.43.12
+      '@codemirror/language': 6.13.1
+      '@codemirror/state': 6.7.6
+      '@codemirror/view': 6.43.15
       '@lezer/common': 1.5.4
 
   '@codemirror/commands@6.11.1':
     dependencies:
-      '@codemirror/language': 6.12.4
-      '@codemirror/state': 6.7.5
-      '@codemirror/view': 6.43.12
+      '@codemirror/language': 6.13.1
+      '@codemirror/state': 6.7.6
+      '@codemirror/view': 6.43.15
       '@lezer/common': 1.5.4
 
-  '@codemirror/language@6.12.4':
+  '@codemirror/language@6.13.1':
     dependencies:
-      '@codemirror/state': 6.7.5
-      '@codemirror/view': 6.43.12
+      '@codemirror/state': 6.7.6
+      '@codemirror/streamparser': 6.0.0
+      '@codemirror/view': 6.43.15
       '@lezer/common': 1.5.4
       '@lezer/highlight': 1.2.5
       '@lezer/lr': 1.4.2
@@ -7659,17 +7663,19 @@ snapshots:
 
   '@codemirror/lint@6.9.7':
     dependencies:
-      '@codemirror/state': 6.7.5
-      '@codemirror/view': 6.43.12
+      '@codemirror/state': 6.7.6
+      '@codemirror/view': 6.43.15
       crelt: 1.0.6
 
-  '@codemirror/state@6.7.5':
+  '@codemirror/state@6.7.6':
     dependencies:
       '@marijn/find-cluster-break': 1.0.2
 
-  '@codemirror/view@6.43.12':
+  '@codemirror/streamparser@6.0.0': {}
+
+  '@codemirror/view@6.43.15':
     dependencies:
-      '@codemirror/state': 6.7.5
+      '@codemirror/state': 6.7.6
       crelt: 1.0.6
       style-mod: 4.1.3
       w3c-keyname: 2.2.8
@@ -9960,13 +9966,13 @@ snapshots:
 
   clsx@2.1.1: {}
 
-  cm6-graphql@0.2.1(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/state@6.7.5)(@codemirror/view@6.43.12)(@lezer/highlight@1.2.5)(graphql@16.10.0):
+  cm6-graphql@0.2.1(@codemirror/autocomplete@6.20.4)(@codemirror/language@6.13.1)(@codemirror/lint@6.9.7)(@codemirror/state@6.7.6)(@codemirror/view@6.43.15)(@lezer/highlight@1.2.5)(graphql@16.10.0):
     dependencies:
-      '@codemirror/autocomplete': 6.20.3
-      '@codemirror/language': 6.12.4
+      '@codemirror/autocomplete': 6.20.4
+      '@codemirror/language': 6.13.1
       '@codemirror/lint': 6.9.7
-      '@codemirror/state': 6.7.5
-      '@codemirror/view': 6.43.12
+      '@codemirror/state': 6.7.6
+      '@codemirror/view': 6.43.15
       '@lezer/highlight': 1.2.5
       graphql: 16.10.0
       graphql-language-service: 5.5.0(graphql@16.10.0)
