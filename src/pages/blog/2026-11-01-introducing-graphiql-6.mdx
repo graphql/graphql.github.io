@@ -51,7 +51,7 @@ The clip below shows how you can add fields, extract them into a reusable fragme
 
 [View the resulting fragment and response as a still image](/img/blog/graphiql-6/09-fragment-extraction-dark.png).
 
-The builder also provides argument inputs, supports promoting scalar arguments to variables, and offers type selections for fields that return interfaces or unions.
+The builder supports list arguments, with controls for adding, editing, and removing items, including lists of input objects. It also supports promoting scalar arguments to variables and offers type selections for fields that return interfaces or unions.
 
 ## Saving and sharing operations
 
@@ -105,7 +105,9 @@ The new `transport` API sends GraphQL operations to your server and returns HTTP
 
 When provided by the transport, GraphiQL shows the HTTP method, status, elapsed time, and response size of the most recent request in the response header. These details give you more context when inspecting a result, especially when the server returns an error response.
 
-By default, `createTransport` discovers which HTTP methods your server supports and prefers `QUERY` for queries, followed by `POST` and `GET`. If discovery is unavailable, it falls back to `POST`. Mutations continue to use `POST`.
+By default, `createTransport` sends an `OPTIONS` request and reads the server’s `Allow` header to discover supported HTTP methods. For queries, it prefers `QUERY`, followed by `POST` and `GET`. If discovery is unavailable, it falls back to `POST`. Mutations use `POST`.
+
+The transport also follows the [GraphQL-over-HTTP specification](https://http-spec.graphql.org/draft/#sec-Accept) for response negotiation, advertising support for `application/graphql-response+json` while retaining compatibility with legacy JSON responses and incremental delivery.
 
 ## Help shape what’s next
 
