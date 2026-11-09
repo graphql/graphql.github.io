@@ -158,7 +158,7 @@ query HeroNameAndFriends($episode: Episode) {
 ```
 
 <Callout type="info">
-You must specify an operation type and name in a GraphQL document to use variables.
+To use variables, you must specify the operation type (for example, `query`), because the shorthand syntax cannot declare variables. Naming the operation is recommended, but it is not required to use variables.
 </Callout>
 
 Now, in our client code, we can simply pass a different variable rather than needing to construct an entirely new query. In general, this is also a good practice for denoting which arguments in our query are expected to be dynamic—we should never be doing string interpolation to construct queries from user-supplied values.
