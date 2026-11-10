@@ -22,26 +22,27 @@ export const tagColors: Record<string, string> = {
 
 export const parisSessions: EventSession[] = [
   {
-    id: 6001,
-    uuid: "fdf41134-fa71-4bd0-ac52-1f3978252e27",
-    title: "Beyond the Query: GraphQL Features That Make Frontends Simpler",
-    start: "2026-12-03T09:15:00+01:00",
-    end: "2026-12-03T09:40:00+01:00",
-    tags: ["GraphQL"],
+    id: 6004,
+    uuid: "baabec13-619b-4912-991b-d27f5b65da39",
+    title:
+      "GraphQL Variables Meet JSON Schema: The New Pitfall When AI Agents Call Your API",
+    start: "2026-12-01T11:30:00+01:00",
+    end: "2026-12-01T11:55:00+01:00",
+    tags: ["GraphQL", "AI Agents"],
     description:
-      "<p>Fetching data is only the beginning. Some of GraphQL’s most useful features help with what comes next: organizing components, loading another page, keeping the UI in sync after a mutation, and catching mistakes before they reach production.</p><p>At GraphQL Day 2025, I ended my talk with a slide listing everything I didn’t have time to cover. This talk picks up that list: fragments, connections and pagination, mutations and updates, and generated types.</p><p>Through practical examples, we’ll explore how fragments keep data requirements close to the components that use them, how connections bring consistency to pagination, how mutation responses work with normalized caches, and how generated types connect your schema to your application code. We’ll also distinguish what GraphQL provides from what client libraries automate—and where you still need to do the work.</p><p>You’ll leave with concrete patterns for reducing frontend plumbing and making everyday GraphQL development easier.</p>",
+      "<p>When an MCP server exposes a GraphQL operation as a tool for AI agents, the operation's variables get turned into a JSON Schema, and that schema is what the agent sees. The two type systems look close enough that the translation seems mechanical. It isn't, and the gaps are easy to miss because nothing fails loudly.</p><p>Take a variable with a default value. GraphQL fills in the default when the caller leaves the variable out, but in JSON Schema a default is only a hint, and validators ignore it. Or take Int: GraphQL caps it at 32 bits, while JSON Schema's integer has no limit unless the generator adds one. So which contract is the real one? MCP says servers must validate tool inputs, but not against what.</p><p>We'll go through a set of these cases, look at how a few open-source GraphQL and OpenAPI MCP generators handle them, and work out which gaps a better generator could close, which come with the type systems, and which are decisions someone has to make on purpose. If you're putting a GraphQL API in front of agents, it should help you decide which parts of a generated schema to trust.</p>",
     venue: "",
     speakers: [
       {
-        id: 6101,
-        name: "Aurelien David",
-        company: "Pennylane",
-        jobtitle: "Engineering Manager",
-        avatar: aurelienDavidAvatar,
+        id: 6104,
+        name: "Camille Lawrence",
+        company: "Apollo GraphQL",
+        jobtitle: "Senior Software Engineer",
+        avatar: camilleLawrenceAvatar,
         socialurls: [
           {
             service: "linkedin",
-            url: "https://www.linkedin.com/in/aurel-spyl/",
+            url: "https://www.linkedin.com/in/camillelawrence/",
           },
         ],
       },
@@ -101,33 +102,6 @@ export const parisSessions: EventSession[] = [
     ],
   },
   {
-    id: 6004,
-    uuid: "baabec13-619b-4912-991b-d27f5b65da39",
-    title:
-      "GraphQL Variables Meet JSON Schema: The New Pitfall When AI Agents Call Your API",
-    start: "2026-12-01T11:30:00+01:00",
-    end: "2026-12-01T11:55:00+01:00",
-    tags: ["GraphQL", "AI Agents"],
-    description:
-      "<p>When an MCP server exposes a GraphQL operation as a tool for AI agents, the operation's variables get turned into a JSON Schema, and that schema is what the agent sees. The two type systems look close enough that the translation seems mechanical. It isn't, and the gaps are easy to miss because nothing fails loudly.</p><p>Take a variable with a default value. GraphQL fills in the default when the caller leaves the variable out, but in JSON Schema a default is only a hint, and validators ignore it. Or take Int: GraphQL caps it at 32 bits, while JSON Schema's integer has no limit unless the generator adds one. So which contract is the real one? MCP says servers must validate tool inputs, but not against what.</p><p>We'll go through a set of these cases, look at how a few open-source GraphQL and OpenAPI MCP generators handle them, and work out which gaps a better generator could close, which come with the type systems, and which are decisions someone has to make on purpose. If you're putting a GraphQL API in front of agents, it should help you decide which parts of a generated schema to trust.</p>",
-    venue: "",
-    speakers: [
-      {
-        id: 6104,
-        name: "Camille Lawrence",
-        company: "Apollo GraphQL",
-        jobtitle: "Senior Software Engineer",
-        avatar: camilleLawrenceAvatar,
-        socialurls: [
-          {
-            service: "linkedin",
-            url: "https://www.linkedin.com/in/camillelawrence/",
-          },
-        ],
-      },
-    ],
-  },
-  {
     id: 6005,
     uuid: "5a9c3bf4-aab7-420e-9942-d1aee9b78717",
     title: "GraphQL as the Execution Layer for AI Agents",
@@ -148,6 +122,32 @@ export const parisSessions: EventSession[] = [
           {
             service: "linkedin",
             url: "https://www.linkedin.com/in/pascal-senn-90899a15a/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 6001,
+    uuid: "fdf41134-fa71-4bd0-ac52-1f3978252e27",
+    title: "Beyond the Query: GraphQL Features That Make Frontends Simpler",
+    start: "2026-12-03T09:15:00+01:00",
+    end: "2026-12-03T09:40:00+01:00",
+    tags: ["GraphQL"],
+    description:
+      "<p>Fetching data is only the beginning. Some of GraphQL’s most useful features help with what comes next: organizing components, loading another page, keeping the UI in sync after a mutation, and catching mistakes before they reach production.</p><p>At GraphQL Day 2025, I ended my talk with a slide listing everything I didn’t have time to cover. This talk picks up that list: fragments, connections and pagination, mutations and updates, and generated types.</p><p>Through practical examples, we’ll explore how fragments keep data requirements close to the components that use them, how connections bring consistency to pagination, how mutation responses work with normalized caches, and how generated types connect your schema to your application code. We’ll also distinguish what GraphQL provides from what client libraries automate—and where you still need to do the work.</p><p>You’ll leave with concrete patterns for reducing frontend plumbing and making everyday GraphQL development easier.</p>",
+    venue: "",
+    speakers: [
+      {
+        id: 6101,
+        name: "Aurelien David",
+        company: "Pennylane",
+        jobtitle: "Engineering Manager",
+        avatar: aurelienDavidAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/aurel-spyl/",
           },
         ],
       },
