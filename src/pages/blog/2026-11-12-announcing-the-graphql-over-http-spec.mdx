@@ -39,10 +39,11 @@ The general rule is:
 
 The specification includes [detailed guidance on which status codes should be used](https://http-spec.graphql.org/September2026/#sec-Status-Codes), but implementers may choose to use an alternative status code if it better fits the situation, so long as it is consistent with the general rule. Common status codes include:
 
-* 405 for a mutation over GET
-* 406 for a non-supported media type
-* 431 for a request too large
-* 500 for a server error
+* 405 when attempting a mutation over GET
+* 406 when requesting an unsupported media type
+* 415 when providing an unsupported media type
+* 431 when headers are excessively large
+* 500 when a server error occurs
 
 A successful response would look like this:
 
