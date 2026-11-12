@@ -1,3 +1,5 @@
+import type { EventKind } from "./event-filter-tag"
+
 export * from "./event-card"
 
 export interface Event {
@@ -7,54 +9,78 @@ export interface Event {
   date: string
   coverImage?: string
   eventLink: string
-  host: string
+  host?: string
   hostLink?: string
+  kind?: EventKind
 }
 
-export const events: Event[] = [
+/**
+ * Only add events here that are **not** in the calendar.
+ * Calendar events are synchronized automatically.
+ */
+const allEvents: Event[] = [
   {
-    name: "GraphQL Day at FOST London",
+    name: "Apollo Summit 2026",
+    slug: "apollo-summit-2026",
+    location: "San Francisco",
+    date: "2026-10-06T17:00:00-07:00",
+    eventLink: "https://apollosummit.dev/",
+    host: "Apollo GraphQL",
+    hostLink: "https://www.apollographql.com",
+  },
+  {
+    name: "From Zero to Agentic Query in One Afternoon",
+    slug: "jonthebeach-workshop-2026",
+    location: "Málaga, Spain",
+    date: "2026-10-29T09:00:00+02:00",
+    eventLink: "https://jonthebeach.com/workshops/from-zero-to-agentic/",
+    host: "J On The Beach",
+    hostLink: "https://jonthebeach.com",
+    kind: "workshop" as const,
+  },
+  {
+    name: "GraphQL Day London",
     slug: "graphql-day-fost-london-2026",
     location: "London",
     date: "2026-10-01T09:00:00+01:00",
     eventLink: "/day/2026/london",
-    host: "FOST & GraphQL Community",
+    host: "FOST London",
     hostLink: "https://www.joinfost.io",
   },
   {
-    name: "GraphQL Day at FOST Paris",
+    name: "GraphQL Days Paris",
     slug: "graphql-day-fost-paris-2026",
     location: "Paris",
     date: "2026-12-01T09:00:00+01:00",
     eventLink: "/day/2026/paris",
-    host: "FOST & GraphQL Community",
+    host: "FOST Paris",
     hostLink: "https://www.joinfost.io",
   },
   {
-    name: "GraphQL Day at FOST Melbourne",
+    name: "GraphQL Day Melbourne",
     slug: "graphql-day-fost-melbourne-2026",
     location: "Melbourne",
     date: "2026-10-28T09:00:00+11:00",
     eventLink: "/day/2026/melbourne",
-    host: "FOST & GraphQL Community",
+    host: "FOST Melbourne",
     hostLink: "https://www.joinfost.io",
   },
   {
-    name: "GraphQL Day at FOST Bengaluru",
+    name: "GraphQL Day Bengaluru",
     slug: "graphql-day-fost-bengaluru-2026",
     location: "Bengaluru",
     date: "2026-08-19T09:00:00+05:30",
     eventLink: "/day/2026/bengaluru",
-    host: "FOST & GraphQL Community",
+    host: "FOST Bengaluru",
     hostLink: "https://www.joinfost.io",
   },
   {
-    name: "GraphQL Day at FOST Amsterdam",
+    name: "GraphQL Day Amsterdam",
     slug: "graphql-day-fost-amsterdam-2026",
     location: "Amsterdam",
     date: "2026-06-09T09:00:00+01:00",
     eventLink: "/day/2026/amsterdam",
-    host: "FOST & GraphQL Community",
+    host: "FOST Amsterdam",
     hostLink: "https://www.joinfost.io",
   },
   {
@@ -63,15 +89,14 @@ export const events: Event[] = [
     location: "Fremont, California",
     date: "2026-05-21T16:30:00+00:00",
     eventLink: "/conf/2026/wg-day",
-    host: "GraphQL Foundation",
   },
   {
-    name: "GraphQL Day at FOST NYC",
+    name: "GraphQL Day NYC",
     slug: "graphql-day-fost-nyc-2026",
     location: "New York",
     date: "2026-05-13T09:00:00-04:00",
     eventLink: "/day/2026/nyc",
-    host: "FOST & GraphQL Community",
+    host: "FOST NYC",
     hostLink: "https://www.joinfost.io",
   },
   {
@@ -80,15 +105,14 @@ export const events: Event[] = [
     location: "Fremont, California",
     date: "2026-05-19T16:00:00+00:00",
     eventLink: "/conf/2026",
-    host: "GraphQL Foundation",
   },
   {
-    name: "GraphQL Day at FOST Singapore",
+    name: "GraphQL Day Singapore",
     slug: "graphql-day-fost-singapore-2026",
     location: "Singapore",
     date: "2026-04-14T09:00:00+08:00",
     eventLink: "/day/2026/singapore",
-    host: "FOST & GraphQL Community",
+    host: "FOST Singapore",
     hostLink: "https://www.joinfost.io",
   },
   {
@@ -106,7 +130,6 @@ export const events: Event[] = [
     location: "Amsterdam",
     date: "2025-09-08T07:00:00+00:00",
     eventLink: "/conf/2025",
-    host: "GraphQL Foundation",
   },
   {
     name: "GraphQLConf 2024",
@@ -114,7 +137,6 @@ export const events: Event[] = [
     location: "San Francisco",
     date: "2024-09-09T07:00:00+00:00",
     eventLink: "/conf/2024",
-    host: "GraphQL Foundation",
   },
   {
     name: "GraphQL Bali 001",
@@ -236,4 +258,8 @@ export const events: Event[] = [
     host: "True Digital Park",
     hostLink: "https://www.truedigitalpark.com/",
   },
-].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+]
+
+export const events = allEvents.sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+)

@@ -1,0 +1,187 @@
+import benjieGillamAvatar from "./speakers/benjie-gillam.jpg"
+import ivanJancicAvatar from "./speakers/ivan-jancic.jpg"
+import davidStuttAvatar from "./speakers/david-stutt.jpg"
+import daleSeoAvatar from "./speakers/dale-seo.jpg"
+import zeljkoKozinaAvatar from "./speakers/zeljko-kozina.jpg"
+import vanessaJohnsonAvatar from "./speakers/vanessa-johnson.jpg"
+import patrickVanDerPlasAvatar from "./speakers/patrick-van-der-plas.jpg"
+
+import type { EventSession } from "../components/event-schedule-section"
+
+export const LONDON_TIMEZONE = "Europe/London"
+export const LONDON_TIMEZONE_LABEL = "All times in London Time (BST, UTC+1)"
+
+/** Color per topic, picked to read clearly against the cream/dark backgrounds. */
+export const tagColors: Record<string, string> = {
+  "AI Agents": "#7e66cc",
+  Federation: "#FC8251",
+  "Error Handling": "#36C1A0",
+  Accessibility: "#E0559B",
+}
+
+export const londonSessions: EventSession[] = [
+  {
+    id: 4001,
+    uuid: "38f534b0-79a9-43ff-b2b4-0dbe2761d0ae",
+    title: "Latest news from the GraphQL spec",
+    start: "2026-10-01T10:20:00+01:00",
+    end: "2026-10-01T10:45:00+01:00",
+    tags: ["GraphQL"],
+    description: "",
+    venue: "",
+    speakers: [
+      {
+        id: 4107,
+        name: "Benjie Gillam",
+        company: "GraphQL Foundation",
+        jobtitle: "GraphQL TSC",
+        avatar: benjieGillamAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/benjiegillam/",
+          },
+          { service: "github", url: "https://github.com/benjie" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4002,
+    uuid: "52b3a4d6-b5ac-40d8-bc1a-c4bb5cf2bb2f",
+    title: "Explaining GraphQL Federation to my non-technical spouse",
+    start: "2026-10-01T10:45:00+01:00",
+    end: "2026-10-01T11:10:00+01:00",
+    tags: ["GraphQL", "Federation"],
+    description:
+      "<p>In this talk, I will explain the core concepts of GraphQL Federation as accessibly as possible. The goal is that you could show this talk to anyone non-technical (such as my wife!) and they'd be able to understand and follow along. Some example topics include what subgraphs and supergraphs are, what entities are, what composition directives are, etc. It will be a fun, interactive (with audience participation!) experience.</p>\n",
+    venue: "",
+    speakers: [
+      {
+        id: 4102,
+        name: "David Stutt",
+        company: "WunderGraph",
+        jobtitle: "Senior Founding Software Engineer",
+        avatar: davidStuttAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/davidstutt",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4003,
+    uuid: "4178e7d1-37fd-4f70-8519-1aab3b34a48b",
+    title: "Teach Your AI Agent GraphQL",
+    start: "2026-10-01T11:30:00+01:00",
+    end: "2026-10-01T11:55:00+01:00",
+    tags: ["GraphQL", "AI Agents"],
+    description:
+      "<p>You can hand your GraphQL work to an AI agent today, but it tends to make the same mistakes developers have made for years: schemas that are nullable everywhere, anonymous queries, and code that ignores partial errors. Most of the time the model isn't the problem. It just doesn't know your API or your team's conventions, so it guesses.</p>\n<p>Agent Skills are a lightweight, open format for giving an agent that missing context. In this talk, I'll walk through real examples from Apollo's open-source skills and show how a few Markdown files can nudge an agent toward efficient operations that respect your conventions and intentional schema design that scales with your team, instead of leaving it to guess.</p>\n<p>You don't need to be an expert in AI or GraphQL to follow along. If you've ever used a coding assistant and wished it understood GraphQL better, this talk is for you.</p>\n",
+    venue: "",
+    speakers: [
+      {
+        id: 4103,
+        name: "Dale Seo",
+        company: "Apollo GraphQL",
+        jobtitle: "Software Engineer",
+        avatar: daleSeoAvatar,
+        socialurls: [
+          { service: "linkedin", url: "https://www.linkedin.com/in/daleseo" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4004,
+    uuid: "0d452c7b-b0a5-4021-ae49-46f3d75da007",
+    title:
+      "Server Assisted Accessibility: Embedding UI Semantics Into Your GraphQL Schema + CI",
+    start: "2026-10-01T11:55:00+01:00",
+    end: "2026-10-01T12:20:00+01:00",
+    tags: ["GraphQL", "Accessibility"],
+    description:
+      "<p>Accessibility is often an afterthought or is left until the last milestone before a feature ships. What if we shifted that left? This talk showcases a sandbox idea: embedding accessibility metadata directly into GraphQL schemas using custom directives and code generation. This enables clients (Android, iOS, and web) to get accessible defaults from day one.</p>\n<p>We'll cover the directive design, how to expose metadata in generated types, and how frontends like Jetpack Compose or SwiftUI consume it. We'll walk through a practical, low friction approach: adding CI friendly validation that catches common contract regressions before changes ship, such as missing required metadata, invalid values, and template drift.</p>\n<p>You'll leave with schema snippets you can copy & paste, strategies to introduce this in your own APIs, and a blueprint for making accessibility part of your developer experience. A repository with working code examples will be provided.</p>\n",
+    venue: "",
+    speakers: [
+      {
+        id: 4104,
+        name: "Vanessa Johnson",
+        company: "The New York Times",
+        jobtitle: "Android Engineer",
+        avatar: vanessaJohnsonAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/vanessa-johnson999/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4005,
+    uuid: "47efc864-717c-4258-90f3-dc5ed0839b82",
+    title: "Houston, We Have a Partial Response: GraphQL Error Handling",
+    start: "2026-10-01T12:20:00+01:00",
+    end: "2026-10-01T12:45:00+01:00",
+    tags: ["GraphQL", "Error Handling"],
+    description:
+      "<p>Your REST instincts are lying to you. In GraphQL the status code is almost always 200, errors travel in an array alongside your data, and one null in the wrong place can wipe out the entire response. Welcome to the partial response: a successful failure.</p>\n<p>We'll work on problems like mission control: how errors propagate and bubble, top-level errors versus errors as data, union result types, and what clients should do when half the payload burns up on re-entry. You'll leave with a clear framework for which errors belong in your schema and which belong in the errors array.</p>\n<p>Failure is not an option. It's a field.</p>\n",
+    venue: "",
+    speakers: [
+      {
+        id: 4105,
+        name: "Željko Kozina",
+        company: "Chronomill",
+        jobtitle: "Technical Architect",
+        avatar: zeljkoKozinaAvatar,
+        socialurls: [
+          { service: "linkedin", url: "https://www.linkedin.com/in/zkozina" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4006,
+    uuid: "4d529f8a-1208-4e7d-a9d3-ee2694581cf0",
+    title: "GraphQL with AWS AppSync - Building a Product API at HEMA",
+    start: "2026-10-01T12:45:00+01:00",
+    end: "2026-10-01T13:10:00+01:00",
+    tags: ["GraphQL"],
+    description:
+      '<p>I will talk about "pioneer phase" of GraphQL adoption at HEMA and using AWS AppSync for the composable commerce migration, where I will share the raw and honest lessons learned when introducing a new tech stack to a 100-year-old Dutch icon.</p>\n',
+    venue: "",
+    speakers: [
+      {
+        id: 1014,
+        name: "Ivan Jančić",
+        company: "Brighting",
+        jobtitle: "Solutions Architect",
+        avatar: ivanJancicAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/ivan-jan%C4%8Di%C4%87/",
+          },
+        ],
+      },
+      {
+        id: 4106,
+        name: "Patrick van der Plas",
+        company: "HEMA",
+        jobtitle: "Software Engineer",
+        avatar: patrickVanDerPlasAvatar,
+        socialurls: [
+          {
+            service: "linkedin",
+            url: "https://www.linkedin.com/in/patrick-van-der-plas/",
+          },
+        ],
+      },
+    ],
+  },
+]

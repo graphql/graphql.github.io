@@ -1,5 +1,6 @@
 import { ReactElement, ReactNode } from "react"
 import { Metadata } from "next"
+import { DEFAULT_SOCIAL_IMAGE } from "@/social-metadata"
 
 import { NewFontsStyleTag } from "../fonts"
 import "../colors.css"
@@ -14,6 +15,11 @@ export const metadata = {
   title: {
     absolute: "GraphQL Day",
     template: "%s | GraphQL Day",
+  },
+  openGraph: {
+    siteName: "GraphQL Day",
+    type: "website",
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
 } satisfies Metadata
 

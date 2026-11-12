@@ -36,6 +36,16 @@ export function GetYourMeetupNoticedSection({ id }: { id?: string }) {
               </a>{" "}
               channel.
             </p>
+            <p className="typography-body-lg text-balance">
+              Running a recurring meetup? Join the{" "}
+              <a
+                href="/community/foundation/local-initiative/"
+                className="typography-link"
+              >
+                GraphQL Local program
+              </a>{" "}
+              to get support from the Foundation for your local community.
+            </p>
           </div>
           <Button href={DISCORD_CHANNEL_LINK} className="mt-8 w-fit">
             Go to Discord

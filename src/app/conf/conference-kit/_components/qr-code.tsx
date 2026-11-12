@@ -1,5 +1,3 @@
-"use client"
-
 import QRCode from "qrcode"
 
 export interface QRCodeSVGProps {

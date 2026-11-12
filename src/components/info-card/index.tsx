@@ -5,6 +5,7 @@ export interface InfoCardLabelRow {
   type: "label"
   label: ReactNode
   hideInConciseMode?: boolean
+  className?: string
 }
 
 export interface InfoCardTitleRow {
@@ -32,7 +33,12 @@ export function InfoCardRow({ row }: { row: InfoCardRow }) {
   switch (row.type) {
     case "label": {
       return (
-        <div className="flex h-auto items-start justify-between gap-2 border-b border-neu-200 p-4 text-neu-700 dark:border-neu-100 dark:text-neu-600">
+        <div
+          className={clsx(
+            "flex h-auto items-start justify-between gap-2 border-b border-neu-200 p-4 text-neu-700 dark:border-neu-100 dark:text-neu-600",
+            row.className,
+          )}
+        >
           {row.label}
         </div>
       )
@@ -62,7 +68,7 @@ export function InfoCard({ rows, concise, className }: InfoCardProps) {
   return (
     <div
       className={clsx(
-        "gql-focus-visible group flex w-[240px] flex-col overflow-hidden border border-neu-200 bg-neu-0 text-left text-current no-underline ring-neu-400 dark:border-neu-100 dark:ring-neu-100",
+        "gql-focus-visible group flex w-64 flex-col overflow-hidden border border-neu-200 bg-neu-0 text-left text-current no-underline ring-neu-400 dark:border-neu-100 dark:ring-neu-100",
         className,
       )}
     >

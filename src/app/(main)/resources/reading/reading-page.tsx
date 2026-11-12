@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { withSocialImage } from "@/social-metadata"
 import { notFound } from "next/navigation"
 import { clsx } from "clsx"
 
@@ -66,10 +67,15 @@ const variants: Record<
 export function readingMetadata(variant: ReadingPageTab) {
   const config = variants[variant]
   if (!config) return {}
-  return {
-    title: config.title,
-    description: config.description,
-  }
+  return withSocialImage(
+    variant === "all"
+      ? "/resources/reading/"
+      : `/resources/reading/${variant}/`,
+    {
+      title: config.title,
+      description: config.description,
+    },
+  )
 }
 
 function hasTopicTag(resource: ResourceMetadata) {

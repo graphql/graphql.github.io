@@ -10,7 +10,7 @@ import {
 } from "graphql"
 
 const PROJECT_NAME = "GraphQL"
-const PROJECT_TAGLINE = "A query language for APIs"
+const PROJECT_TAGLINE = "The API language for humans and agents"
 
 export const INITIAL_QUERY_TEXT = `{
   project(name: "${PROJECT_NAME}") {

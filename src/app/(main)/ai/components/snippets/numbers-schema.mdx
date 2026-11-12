@@ -1,0 +1,18 @@
+```graphql filename="Schema (with embedded docs)"
+"""A product in the catalog."""
+type Product {
+  """Human-readable display name."""
+  name: String!
+
+  """Price in minor units (cents)."""
+  price: Int!
+
+  """Units in stock. 0 means unavailable."""
+  stock: Int!
+}
+
+type Query {
+  """Full-text search across the catalog."""
+  products(query: String!): [Product!]!
+}
+```

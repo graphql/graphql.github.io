@@ -1,6 +1,6 @@
 ---
 name: Apache APISIX
-description: Apache APISIX is a dynamic, real-time, high-performance API gateway providing rich traffic management features such as load balancing, dynamic upstream, canary release, observability, etc. As a cloud-native API gateway, Apache APISIX already can support GraphQL syntax at the beginning of its design. Efficiently matching GraphQL statements carried in requests can filter out abnormal traffic to further ensure security. For more information, please visit [How to Use GraphQL with API Gateway Apache APISIX](https://apisix.apache.org/blog/2022/03/02/apisix-integration-graphql-plugin/)
+description: Apache APISIX is an open-source API gateway with plugins for GraphQL traffic. [graphql-limit-count](https://apisix.apache.org/docs/apisix/plugins/graphql-limit-count/) applies fixed-window rate limits using GraphQL query AST depth as the request cost. [graphql-proxy-cache](https://apisix.apache.org/docs/apisix/plugins/graphql-proxy-cache/) caches GraphQL query responses on disk or in memory and bypasses mutation operations. [degraphql](https://apisix.apache.org/docs/apisix/plugins/degraphql/) maps regular HTTP requests to configured GraphQL queries.
 url: https://apisix.apache.org/
 github: apache/apisix
 tags:

@@ -2,19 +2,19 @@ import { join } from "node:path"
 import { readFile } from "node:fs/promises"
 import { cache } from "react"
 
-import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-working-groups"
+import type { CalendarEvent } from "@/../scripts/sync-calendar-events/sync-calendar-events"
 
 import { events, type Event } from "./events"
 
-type AnyEvent = Event | WorkingGroupMeeting
+type AnyEvent = Event | CalendarEvent
 
-const WORKING_GROUP_MEETINGS_FILE = join(
+const CALENDAR_EVENTS_FILE = join(
   process.cwd(),
-  "scripts/sync-working-groups/working-group-events.ndjson",
+  "scripts/sync-calendar-events/calendar-events.ndjson",
 )
 
 export const getAllEvents = cache(async () => {
-  const workingGroupMeetings = await loadWorkingGroupMeetings()
+  const calendarEvents = await loadCalendarEvents()
 
   let pastEvents: AnyEvent[] = []
   let upcomingEvents: AnyEvent[] = []
@@ -30,10 +30,10 @@ export const getAllEvents = cache(async () => {
     }
   }
 
-  for (const meeting of workingGroupMeetings) {
-    if (meeting.start && new Date(meeting.start) < now) {
-      pastEvents.push(meeting)
-    } else upcomingEvents.push(meeting)
+  for (const calendarEvent of calendarEvents) {
+    if (calendarEvent.start && new Date(calendarEvent.start) < now) {
+      pastEvents.push(calendarEvent)
+    } else upcomingEvents.push(calendarEvent)
   }
 
   const getDate = (event: AnyEvent) => {
@@ -53,16 +53,16 @@ export const getAllEvents = cache(async () => {
   return { pastEvents, upcomingEvents }
 })
 
-export const loadWorkingGroupMeetings = cache(async () => {
+export const loadCalendarEvents = cache(async () => {
   try {
-    const raw = (await readFile(WORKING_GROUP_MEETINGS_FILE, "utf8")).trim()
+    const raw = (await readFile(CALENDAR_EVENTS_FILE, "utf8")).trim()
     if (!raw) return []
     return raw
       .split("\n")
       .filter(Boolean)
-      .map(line => JSON.parse(line) as WorkingGroupMeeting)
+      .map(line => JSON.parse(line) as CalendarEvent)
   } catch (error) {
-    console.error("Failed to read working group meetings", error)
+    console.error("Failed to read calendar events", error)
     return []
   }
 })

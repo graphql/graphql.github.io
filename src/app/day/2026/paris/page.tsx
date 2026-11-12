@@ -4,31 +4,34 @@ import { Button } from "@/app/conf/_design-system/button"
 import { Hero, HeroDateAndLocation } from "../components/hero"
 import { AboutSection } from "../components/about-section"
 import { WhyAttendSection } from "../components/why-attend-section"
-import {
-  BecomeASpeakerSection,
-  CfpButton,
-} from "../components/become-a-speaker"
 import { EventPartnersSection } from "../components/event-partners"
 import { CtaCardSection } from "../components/cta-card-section"
 import { MarqueeRows } from "@/app/conf/2026/components/marquee-rows"
 import { PastSpeakersSection } from "../components/past-speakers"
 import { NavbarPlaceholder } from "../components/navbar"
 import { GallerySection } from "../../gallery-section"
+import { EventScheduleSection } from "../components/event-schedule-section"
+import {
+  parisSessions,
+  PARIS_TIMEZONE,
+  PARIS_TIMEZONE_LABEL,
+  tagColors,
+} from "./schedule-data"
 
 const MARQUEE_ITEMS = [
-  ["PARIS", "DECEMBER 2026", "GRAPHQL DAY", "FOST", "COMMUNITY", "APIs"],
+  ["PARIS", "DECEMBER 2026", "GRAPHQL DAYS", "FOST", "COMMUNITY", "APIs"],
   [
     "OPEN SOURCE",
     "WORKSHOPS",
     "FEDERATION",
     "DEVELOPER EXPERIENCE",
-    "GRAPHQL DAY",
+    "GRAPHQL DAYS",
     "PARIS",
   ],
 ]
 
 export const metadata: Metadata = {
-  title: "GraphQL Day @ FOST Paris — Dec 1-3",
+  title: "GraphQL Days @ FOST Paris — Dec 1-3",
 }
 
 export default function ParisPage() {
@@ -36,20 +39,61 @@ export default function ParisPage() {
     <>
       <NavbarPlaceholder className="top-0 bg-neu-100 before:bg-white/30 dark:bg-neu-50/50 dark:before:bg-blk/40" />
       <main className="gql-all-anchors-focusable">
-        <Hero subtitle="@ FOST Paris" colorScheme="neutral">
+        <Hero
+          title="GraphQL Days"
+          subtitle="@ FOST Paris"
+          colorScheme="neutral"
+        >
           <HeroDateAndLocation
             date="December 1-3, 2026"
             dateTime="2026-12-01"
             location="CNIT Forest, Paris"
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:*:flex-1">
-            <Button disabled className="whitespace-nowrap opacity-55 md:w-fit">
-              Tickets coming soon
+            <Button
+              href="https://portal.joinfost.io/event/future-of-software-technologies-paris-2026/5e27c773-7fa8-4169-b6a7-93494701212a/api-standards-conference"
+              className="whitespace-nowrap md:w-fit"
+            >
+              Get tickets
             </Button>
-            <CfpButton className="whitespace-nowrap md:w-fit" />
+            <Button
+              href="#schedule"
+              variant="secondary"
+              className="whitespace-nowrap md:w-fit"
+            >
+              View the schedule
+            </Button>
           </div>
         </Hero>
-        <AboutSection />
+        <AboutSection>
+          <p className="typography-body-lg">
+            GraphQL Days is a three-day community track hosted at{" "}
+            <a
+              href="https://www.joinfost.io"
+              className="underline hover:text-neu-900"
+            >
+              FOST
+            </a>{" "}
+            (Future of Software Technologies, think federation of conferences!),
+            shared with AsyncAPI, OpenAPI and JSON Schema.
+          </p>
+          <p className="typography-body-lg text-pretty">
+            It is an opportunity to connect with other API ecosystems, meet new
+            and seasoned GraphQL users, educate about GraphQL, share best
+            practices, and have fun!
+          </p>
+          <p className="typography-body-lg text-pretty">
+            The event is open to everyone — whether you run GraphQL in
+            production or are evaluating it for your next project.
+          </p>
+        </AboutSection>
+        <EventScheduleSection
+          city="paris"
+          sessions={parisSessions}
+          timezone={PARIS_TIMEZONE}
+          timezoneLabel={PARIS_TIMEZONE_LABEL}
+          tagColors={tagColors}
+        />
         <MarqueeRows
           variant="primary"
           className="z-10 bg-neu-0 py-4 max-sm:pb-1 sm:py-6 md:space-y-2 md:py-12"
@@ -57,20 +101,19 @@ export default function ParisPage() {
         />
         <div className="gql-container gql-conf-navbar-strip text-neu-900 before:bg-white/40 before:dark:bg-blk/30">
           <WhyAttendSection />
-          <BecomeASpeakerSection />
           <PastSpeakersSection />
           <EventPartnersSection />
           <GallerySection moving />
           <CtaCardSection
             title="Stay tuned"
-            description="Join us for a day of GraphQL talks, networking, and hands-on learning at FOST Paris."
+            description="Join us for three days of GraphQL talks, networking, and hands-on learning at FOST Paris."
           >
             <Button
-              disabled
+              href="https://portal.joinfost.io/event/future-of-software-technologies-paris-2026/5e27c773-7fa8-4169-b6a7-93494701212a/api-standards-conference"
               variant="primary"
-              className="whitespace-nowrap opacity-55"
+              className="whitespace-nowrap"
             >
-              Tickets coming soon
+              Get tickets
             </Button>
           </CtaCardSection>
           <MarqueeRows

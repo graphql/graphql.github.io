@@ -1,0 +1,33 @@
+# Example manifest for `pnpm generate:social-banner`. Copy this file,
+# fill in your event's details, and run:
+#
+#   pnpm generate:social-banner scripts/meetups/<your-file>.yaml
+#
+# Requires a dev/prod server running on :3000 (`pnpm dev`) — the script
+# fetches banners from the /social/meetup-banner route.
+#
+# Output: PNGs under ./social-banners/<event.slug>/, and a new entry in
+# src/app/(main)/community/events/events.ts (skipped if the slug already
+# exists there).
+
+event:
+  name: "GraphQL Virtual Meetup, September 2026"
+  slug: "graphql-virtual-meetup-september-2026" # used for the output dir and to dedupe events.ts entries
+  date: "2026-09-22T17:00:00Z" # ISO 8601; shown in the banner header and events.ts
+  location: "Zoom" # optional, defaults to "Zoom"
+  eventLink: "https://guild.host/events/graphql-virtual-meetup-zywc3q" # registration link; encoded into the announcement banner's QR code
+  host: "GraphQL Foundation"
+  hostLink: "https://graphql.org" # optional
+
+# Omit this whole block to skip generating a CFP banner.
+cfp:
+  deadline: "2026-09-15" # optional; date only, no time
+  link: "https://forms.gle/LqQxRV3YB9mrDMwq6" # encoded into the CFP banner's QR code
+
+# Omit or leave empty to skip speaker banners. One banner is generated per entry.
+speakers:
+  - name: "Jane Doe"
+    title: "Staff Engineer" # optional
+    company: "Acme Corp" # optional
+    photo: "https://example.com/jane.jpg" # optional
+    talkTitle: "Federation at Scale" # optional

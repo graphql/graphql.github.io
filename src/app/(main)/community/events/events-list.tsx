@@ -3,12 +3,13 @@
 import { useMemo, useState, type ComponentPropsWithoutRef } from "react"
 import { clsx } from "clsx"
 
-import type { WorkingGroupMeeting as CalendarEvent } from "@/../scripts/sync-working-groups/sync-working-groups"
+import type { CalendarEvent } from "@/../scripts/sync-calendar-events/sync-calendar-events"
 
 import { EventCard } from "./event-card"
-import { EventsScrollview } from "./events-scrollview"
 import type { Event } from "./events"
 import { EventFilterTag, EventKind } from "./event-filter-tag"
+
+const PAGE_SIZE = 12
 
 interface FilterChipProps extends ComponentPropsWithoutRef<"button"> {
   active?: boolean
@@ -61,9 +62,12 @@ type AnyEvent = Event | CalendarEvent
 const DEFAULT_VISIBILITY = {
   conference: true,
   meetup: true,
-  "working-group": true,
-  "foundation-meeting": true,
+  "working-group": false,
+  "foundation-meeting": false,
+  workshop: true,
 } satisfies Record<EventKind, boolean>
+
+const tags = Object.keys(DEFAULT_VISIBILITY) as EventKind[]
 
 const DAY_IN_MS = 24 * 60 * 60 * 1000
 
@@ -91,8 +95,8 @@ export function categorizeEvent(
     } else if (/\bGoverning\b/i.test(summary)) {
       return "foundation-meeting"
     } else if (/\bConference\s+Planning\b/i.test(summary)) {
-      return "working-group"
-    } else if (/\bLocal\b/i.test(summary)) {
+      return "foundation-meeting"
+    } else if (/\b(Local|Virtual\s+Meetup)\b/i.test(summary)) {
       return "meetup"
     } else if (/\bGraphQLConf[0-9]*\b/i.test(summary)) {
       // Handled elsewhere
@@ -104,7 +108,7 @@ export function categorizeEvent(
       return "working-group"
     }
   } else if ("slug" in event) {
-    return "conference"
+    return event.kind ?? "conference"
   } else {
     // Uncategorized!
     if (process.env.NODE_ENV !== "production") {
@@ -130,24 +134,6 @@ function calendarEventName(event: CalendarEvent) {
   }
 }
 
-function calendarEventUrl(event: CalendarEvent) {
-  // First, is the event location a non-zoom URL?
-  if (isUrl(event.location) && !/zoom/i.test(event.location)) {
-    return event.location
-  }
-  // Failing that, extract the first explicit link from the description
-  const description = event.description
-  if (description != null) {
-    const text = description.replace(/<[^>]+>/g, " ")
-    const matches = text.match(/\bhttps?:\/\/\S+/)
-    if (matches) {
-      return matches[0]
-    }
-  }
-  // Failing that, use the calendar link
-  return event.htmlLink
-}
-
 function calendarEventCity(event: CalendarEvent) {
   if (!event.location || isUrl(event.location)) {
     return "Online"
@@ -164,30 +150,21 @@ export function EventsList({
   className?: string
   children?: React.ReactNode
 }) {
-  const [kindFilters, setKindFilters] = useState(DEFAULT_VISIBILITY)
+  const [kindFilters, setKindFilters] =
+    useState<Record<EventKind, boolean>>(DEFAULT_VISIBILITY)
+  const [limit, setLimit] = useState(PAGE_SIZE)
 
-  const { events, tags } = useMemo(() => {
-    const visibleTags: Set<EventKind> = new Set()
-    /** Determines if this event kind should be shown, and if so ensures the tag is present in tags */
+  const events = useMemo(() => {
+    /** Determines if this event kind should be shown */
     const shouldShow = (kind: EventKind, date?: Date): boolean => {
       if (kind === "working-group" || kind === "foundation-meeting") {
         if (!date) return false
         // we filter out all working groups further in the future than 30 days
         if (!isSoon(date)) return false
       }
-      visibleTags.add(kind)
       return kindFilters[kind]
     }
-    const majorEvents: AnyEvent[] = []
-    const minorEvents: AnyEvent[] = []
-
-    // Prioritize major vs minor events
-    const target = {
-      conference: majorEvents,
-      meetup: majorEvents,
-      "working-group": minorEvents,
-      "foundation-meeting": minorEvents,
-    } satisfies { [kind in EventKind]: AnyEvent[] }
+    const events: AnyEvent[] = []
 
     for (const event of allEvents) {
       const kind = categorizeEvent(event)
@@ -203,30 +180,23 @@ export function EventsList({
       } else if ("start" in event) {
         const date = new Date(event.start)
         if (shouldShow(kind, date)) {
-          target[kind].push(event)
+          events.push(event)
         }
       } else {
         if (shouldShow(kind)) {
-          target[kind].push(event)
+          events.push(event)
         }
       }
     }
-    // Ensure that major events are surfaced higher than minor events, even though this breaks date order
-    const events = [...majorEvents, ...minorEvents]
-    const keys = Object.keys(DEFAULT_VISIBILITY)
-    // Sort tags into a sensible order
-    const tags = [...visibleTags].sort(
-      (a, z) => keys.indexOf(a) - keys.indexOf(z),
-    )
-    return { events, tags }
+    return events
   }, [allEvents, kindFilters])
 
   return (
     <div className={className}>
-      <div className="flex justify-between gap-2 max-lg:flex-col-reverse lg:mb-8 lg:items-end">
+      <div className="mb-6 flex justify-between gap-2 max-lg:flex-col-reverse lg:mb-8 lg:items-end">
         <fieldset>
           <legend className="typography-menu mt-2">Event type</legend>
-          <div className="mt-4 flex gap-3">
+          <div className="mt-4 flex flex-wrap gap-3">
             {tags.map(tag => (
               <EventFilterTag
                 key={tag}
@@ -248,8 +218,8 @@ export function EventsList({
         </fieldset>
         {children}
       </div>
-      <EventsScrollview>
-        {events.map(event => {
+      <div className="flex flex-col gap-2">
+        {events.slice(0, limit).map(event => {
           const kind = categorizeEvent(event)
           if (kind === "duplicate" || kind == null) {
             return null
@@ -258,11 +228,12 @@ export function EventsList({
             // It's from the calendar
             <EventCard
               key={event.id}
-              href={calendarEventUrl(event)}
+              href={event.htmlLink}
               date={new Date(event.start)}
               name={calendarEventName(event)}
               city={calendarEventCity(event)}
               kind={kind}
+              compact
             />
           ) : (
             <EventCard
@@ -273,10 +244,36 @@ export function EventsList({
               name={event.name}
               city={event.location}
               kind={kind}
+              compact
             />
           )
         })}
-      </EventsScrollview>
+        {events.length > limit && (
+          <button
+            type="button"
+            onClick={() => setLimit(limit + PAGE_SIZE)}
+            className="gql-focus-visible typography-body-md border border-neu-200 py-3 text-neu-800 hover:bg-neu-100 dark:border-neu-50 dark:text-neu-600 dark:hover:bg-neu-50"
+          >
+            Load more
+          </button>
+        )}
+        {events.length <= limit && tags.some(tag => !kindFilters[tag]) && (
+          <button
+            type="button"
+            onClick={() =>
+              setKindFilters(
+                Object.fromEntries(tags.map(tag => [tag, true])) as Record<
+                  EventKind,
+                  boolean
+                >,
+              )
+            }
+            className="gql-focus-visible typography-body-md border border-neu-200 py-3 text-neu-800 hover:bg-neu-100 dark:border-neu-50 dark:text-neu-600 dark:hover:bg-neu-50"
+          >
+            Show all event types
+          </button>
+        )}
+      </div>
     </div>
   )
 }

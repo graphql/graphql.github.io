@@ -10,7 +10,7 @@ import { SpeakerTags } from "./speaker-tags"
 import { SpeakerLinks } from "./speaker-links"
 
 import styles from "./speaker-card.module.css"
-import { formatSpeakerPosition } from "./format-speaker-position"
+import { formatSpeakerPosition } from "@/app/conf/_components/format-speaker-position"
 import { formatDescription } from "../schedule/[id]/format-description"
 import { getBase64Placeholder } from "../../_design-system/utils/get-base64-placeholder"
 

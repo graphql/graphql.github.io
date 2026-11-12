@@ -1,6 +1,14 @@
 import { ReactNode } from "react"
 
-export function AboutSection({ children }: { children?: ReactNode }) {
+export function AboutSection({
+  children,
+  date,
+  hostNote,
+}: {
+  children?: ReactNode
+  date?: ReactNode
+  hostNote?: ReactNode
+}) {
   return (
     <div className="bg-neu-100 dark:bg-neu-0/50">
       <section className="gql-section gql-container flex gap-6 max-md:flex-col xl:py-12">
@@ -9,7 +17,8 @@ export function AboutSection({ children }: { children?: ReactNode }) {
           {children || (
             <>
               <p className="typography-body-lg">
-                GraphQL Day is a one-day community event hosted at{" "}
+                GraphQL Day is a one-day community event
+                {date && <> on {date}</>} hosted at{" "}
                 <a
                   href="https://www.joinfost.io"
                   className="underline hover:text-neu-900"
@@ -17,7 +26,7 @@ export function AboutSection({ children }: { children?: ReactNode }) {
                   FOST
                 </a>{" "}
                 (Future of Software Technologies, think federation of
-                conferences!).
+                conferences!).{hostNote && <> {hostNote}</>}
               </p>
               <p className="typography-body-lg text-pretty">
                 It is an opportunity to connect with other API ecosystems, meet

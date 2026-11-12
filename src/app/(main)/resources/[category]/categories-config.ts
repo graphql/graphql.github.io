@@ -1,6 +1,6 @@
 import type { LearnPagePath } from "@/components/learn-aggregator/learn-pages"
 import type { Kind, Topic } from "@/resources/types"
-import type { WorkingGroupMeeting } from "@/../scripts/sync-working-groups/sync-working-groups"
+import type { CalendarEvent } from "@/../scripts/sync-calendar-events/sync-calendar-events"
 
 // TODO: If the pages need to be customized further, consider flattening [category]/page.tsx
 //       into multiple page files and defining the following texts in usual JSX.
@@ -99,7 +99,7 @@ export const categoriesConfig: CategoriesConfig = {
       event: {
         heading: "Help shape the standards",
         text: "Join the Composite Schemas Working Group meetings to participate in the latest developments in Federation and Composite Schemas.",
-        predicate: (event: WorkingGroupMeeting) => {
+        predicate: (event: CalendarEvent) => {
           return (
             event.summary?.toLowerCase().includes("composite schemas") || false
           )
@@ -122,7 +122,7 @@ export const categoriesConfig: CategoriesConfig = {
       event: {
         heading: "AI Working Group",
         text: "Help define the intersection of GraphQL and AI. Join the working group meetings to contribute to the latest developments.",
-        predicate: (event: WorkingGroupMeeting) => {
+        predicate: (event: CalendarEvent) => {
           return (
             event.summary?.toLowerCase().includes("ai working group") || false
           )
@@ -210,7 +210,7 @@ type CategoriesConfig = {
       event?: {
         heading: string
         text: string
-        predicate: (event: WorkingGroupMeeting) => boolean
+        predicate: (event: CalendarEvent) => boolean
       }
     }
   }

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og"
 
 import { loadFontsForOG } from "@/app/fonts/og/load-fonts-for-og"
 
-import { GenericOpengraphImage } from "./generic-opengraph-image"
+import { GenericOpengraphImage } from "@/components/og-image/conference/generic-opengraph-image"
 
 export const contentType = "image/png"
 export const size = {

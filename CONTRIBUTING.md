@@ -124,6 +124,51 @@ To add or remove a resource to this page, follow our [development guide](#develo
 
 The content for this page is located in [various directories under `src/code`](./src/code). Everything is written and formatted in [Markdown](https://nextra.site/docs/guide/markdown).
 
+### Add a vendor to the Vendors page
+
+The [Vendors page](https://graphql.org/resources/vendors) lists GraphQL companies in one place. It is separate from the [Code page](#add-a-library-tool-or-service-to-the-code-page), which catalogs individual libraries, tools, and services.
+
+#### When to list a vendor here
+
+- Add a **company** that builds GraphQL products or platforms.
+- Add individual **products** to the Code page under [`src/code`](./src/code) instead.
+- Add vendor **community chat channels** to the [Community page](#add-a-resource-to-the-community-page) (`vendor-channels.mdx`).
+
+#### General guidelines
+
+**Adding a vendor:**
+
+- Include a logo (SVG preferred), company name, short description, and website URL.
+- Descriptions should be 1–3 sentences, plain text, and written in a neutral tone. Avoid marketing superlatives.
+- Include a GitHub organization or repository link when relevant.
+- Logo files should be recognizable brand marks or icons suitable for display at roughly 32×32px. Full wordmarks are acceptable when sourced from official brand assets.
+
+**Removing a vendor:**
+
+- Companies that no longer exist or have shut down GraphQL-related products
+- Any website link that consistently 404s
+
+#### Workflow
+
+To add or remove a vendor, follow our [development guide](#development-guide) to [open a pull request](https://github.com/graphql/graphql.github.io/pulls).
+
+1. Add a logo using one of these patterns in [`vendor-logo.tsx`](<./src/app/(main)/resources/vendors/vendor-logo.tsx>):
+   - **Icon component**: If an SVG icon already exists in [`src/icons/`](../../icons/), register the slug in the `iconLogos` map (see Apollo, ChilliCream, Graphile, Stellate).
+   - **SVG file**: Add an SVG to [`public/img/vendors/`](../../public/img/vendors/), import it with the `?svgr` suffix, and register the slug in the `iconLogos` map (square brand marks) or `wordmarkLogos` map (wide wordmarks). SVGs should use `fill="currentColor"` so the mark inherits the surrounding text color and stays legible in both light and dark mode (see the WunderGraph mark and the Hasura/The Guild/Hygraph/Tyk wordmarks).
+2. Add an entry to the `vendors` array in [`src/resources/vendors/data.ts`](./src/resources/vendors/data.ts):
+
+```ts
+{
+  name: "Example Co",
+  slug: "example-co",
+  description: "One to three sentences describing what the company builds.",
+  url: "https://example.com/",
+  github: "example-org",
+},
+```
+
+The `slug` links the entry to its logo registered in `vendor-logo.tsx`. The `github` field is optional. Descriptions support light Markdown (links, bold, inline code). Entries are sorted alphabetically by `name` automatically.
+
 ### Add a resource to the Community page
 
 The [Community page](https://graphql.org/community) highlights resources and groups that help people get more involved with GraphQL.

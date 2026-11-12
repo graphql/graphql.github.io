@@ -30,7 +30,7 @@ export async function GET() {
         title: event.name,
         date: event.date,
         url: event.eventLink,
-        description: `Host: ${event.host} | Location: ${event.location}`,
+        description: `${event.host ? `Host: ${event.host} | ` : ""}Location: ${event.location}`,
       })
     }
   }

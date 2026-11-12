@@ -1,0 +1,91 @@
+import { logoStripes } from "@/components/og-image/artwork"
+import { colors, fonts } from "@/components/og-image/styles"
+
+import {
+  DayOpengraphImageHeader,
+  OG_IMAGE_HEADER_HEIGHT,
+} from "./day-opengraph-image-header"
+
+export interface GenericDayOpengraphImageProps
+  extends React.HTMLAttributes<HTMLElement> {
+  city: string
+  date: string
+  location: string
+}
+
+export function GenericDayOpengraphImage({
+  city,
+  date,
+  location,
+  ...rest
+}: GenericDayOpengraphImageProps) {
+  const height = 630
+
+  return (
+    <article
+      style={{
+        display: "flex",
+        height,
+        width: "1200px",
+        flexDirection: "column",
+        overflow: "hidden",
+        borderWidth: "2px",
+        borderColor: colors.neu600,
+        backgroundColor: colors.neu100,
+        fontFamily: fonts.sans,
+      }}
+      {...rest}
+    >
+      <DayOpengraphImageHeader city={city} date={date} location={location} />
+
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          padding: "2.5rem",
+          position: "relative",
+        }}
+      >
+        <h1
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: 0,
+            fontFamily: fonts.sans,
+            lineHeight: "1.25",
+            fontWeight: "bold",
+            fontSize: "72px",
+          }}
+        >
+          <span style={{ color: colors.neu900 }}>GraphQL Day</span>
+          <span style={{ color: colors.priBase }}>at FOST {city}</span>
+        </h1>
+        <div
+          style={{
+            display: "flex",
+            alignSelf: "flex-start",
+            marginTop: "2.5rem",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: colors.neu900,
+            color: colors.neu0,
+            fontFamily: fonts.sans,
+            fontSize: "1.75rem",
+            height: "4.5rem",
+            padding: "0 2.5rem",
+          }}
+        >
+          Register now
+        </div>
+        <img
+          src={logoStripes}
+          style={{ position: "absolute", right: 0, bottom: -5 }}
+          height={height - OG_IMAGE_HEADER_HEIGHT}
+          width={673}
+        />
+      </div>
+    </article>
+  )
+}

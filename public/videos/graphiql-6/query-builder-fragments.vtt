@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.361
+Add fields in the query builder.
+
+00:00:06.361 --> 00:00:15.226
+Extract the selected fields into a reusable fragment.
+
+00:00:15.226 --> 00:00:23.400
+Keep editing the fragment through the builder.

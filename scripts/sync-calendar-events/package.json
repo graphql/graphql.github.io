@@ -1,0 +1,13 @@
+{
+  "name": "@graphql-website/sync-calendar-events",
+  "private": true,
+  "type": "module",
+  "main": "./sync-calendar-events.ts",
+  "scripts": {
+    "start": "node ./sync-calendar-events.ts"
+  },
+  "dependencies": {
+    "arktype": "2.1.29",
+    "ical.js": "2.2.1"
+  }
+}

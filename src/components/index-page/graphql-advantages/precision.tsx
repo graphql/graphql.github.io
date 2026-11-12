@@ -1,12 +1,17 @@
 import { ComponentPropsWithoutRef, useEffect, useRef } from "react"
 import { Code } from "nextra/components"
 import { clsx } from "clsx"
+import { useInView } from "motion/react"
 
 import { Pre } from "@/components/pre"
+import { useCodeAnimation } from "@/components/code-animation/use-code-animation"
 
 import PredictableResult from "../../code-blocks/predictable-result.mdx"
 
 import classes from "./precision.module.css"
+
+const extraFields = "\n    height\n    mass"
+const fieldPauses = { 11: 1500 }
 
 const components = {
   pre: (props: ComponentPropsWithoutRef<typeof Pre>) => (
@@ -25,67 +30,32 @@ const components = {
 
 export function PrecisionFigure() {
   const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref)
+  const { code, visibleCharacters } = useCodeAnimation(extraFields, {
+    active: inView,
+    initialDelay: 2000,
+    minTypingDelay: 70,
+    maxTypingDelay: 250,
+    pauses: fieldPauses,
+    loop: true,
+  })
+  const responseLines =
+    visibleCharacters < 11 ? 1 : visibleCharacters < 20 ? 2 : 3
 
   useEffect(() => {
-    const showResponse = (num: Number) => {
-      const lines = ref.current!.querySelectorAll(
-        "code > span",
-      ) as unknown as HTMLSpanElement[] & { children: HTMLSpanElement[] }[]
+    const lines = ref.current?.querySelectorAll("code > span")
+    if (!lines || lines.length < 5) return
 
-      if (num === 1) {
-        Array.from(lines[2].children).at(-1)!.style.display = "none"
-        lines[3].style.display = "none"
-        lines[4].style.display = "none"
-      } else if (num === 2 || num === 3) {
-        Array.from(lines[2].children).at(-1)!.style.display = "inline"
-        lines[3].style.display = "inline"
-        if (num === 2) {
-          Array.from(lines[3].children).at(-1)!.style.display = "none"
-        } else {
-          Array.from(lines[3].children).at(-1)!.style.display = "inline"
-          lines[4].style.display = "inline"
-        }
-      }
-    }
-    let i = 0
-    let forward = true
-    let timer: any
-    timer = setTimeout(type, 2000)
-    showResponse(1)
+    const firstComma = Array.from(lines[2].children).at(-1) as HTMLElement
+    const secondComma = Array.from(lines[3].children).at(-1) as HTMLElement
+    const secondResultLine = lines[3] as HTMLElement
+    const thirdResultLine = lines[4] as HTMLElement
 
-    function type() {
-      if (forward) {
-        if (document.getElementById("ch" + i)) {
-          document.getElementById("ch" + i)!.style.display = "inline"
-          i++
-          if (i === 20) {
-            forward = false
-            showResponse(3)
-            timer = setTimeout(type, 1500)
-          } else if (i === 11) {
-            showResponse(2)
-            timer = setTimeout(type, 1500)
-          } else {
-            timer = setTimeout(type, Math.random() * 180 + 70)
-          }
-        }
-      } else {
-        i--
-        if (document.getElementById("ch" + i)) {
-          document.getElementById("ch" + i)!.style.display = "none"
-          if (i === 0) {
-            forward = true
-            showResponse(1)
-            timer = setTimeout(type, 2000)
-          } else {
-            timer = setTimeout(type, 80)
-          }
-        }
-      }
-    }
-
-    return () => clearTimeout(timer)
-  }, [])
+    firstComma.style.display = responseLines > 1 ? "inline" : "none"
+    secondResultLine.style.display = responseLines > 1 ? "inline" : "none"
+    secondComma.style.display = responseLines > 2 ? "inline" : "none"
+    thirdResultLine.style.display = responseLines > 2 ? "inline" : "none"
+  }, [responseLines])
 
   const Pre = components.pre
 
@@ -104,18 +74,10 @@ export function PrecisionFigure() {
         <span className="!text-pri-base dark:!text-sec-light">
           {"\n    name"}
         </span>
-        {"\n    height\n    mass".split("").map((char, i) => (
-          <span
-            key={i}
-            id={"ch" + i}
-            className="hidden !text-pri-base dark:!text-sec-light"
-          >
-            {char === "\n" ? <br /> : char}
-          </span>
-        ))}
+        <span className="!text-pri-base dark:!text-sec-light">{code}</span>
         <span
           className={clsx(
-            "-mb-0.5 ml-px inline-block h-4 w-2 !bg-pri-base/50 dark:!bg-pri-light/60",
+            "-mb-0.5 ml-px inline-block h-4 w-2 !bg-pri-base/50 motion-reduce:hidden dark:!bg-pri-light/60",
             classes.cursor,
           )}
         />

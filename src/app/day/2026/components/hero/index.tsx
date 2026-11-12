@@ -15,6 +15,7 @@ import blurBean from "@/app/conf/2026/components/hero/blur-bean-cropped.webp"
 
 export type HeroProps = {
   pageName?: string
+  title?: string
   children?: React.ReactNode
   bottom?: React.ReactNode
   colorScheme?: "primary" | "neutral"
@@ -56,7 +57,7 @@ export function Hero(props: HeroProps) {
               </div>
             ) : (
               <h1 className="typography-d1 flex flex-wrap gap-2 leading-none">
-                <span>GraphQL Day</span>
+                <span>{props.title || "GraphQL Day"}</span>
                 <span
                   className={clsx(
                     "typography-h1 w-full",

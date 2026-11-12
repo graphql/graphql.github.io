@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { withSocialImage } from "@/social-metadata"
 
 import { Button } from "../_design-system/button"
 import { Hero, HeroStripes } from "../2026/components/hero"
@@ -9,9 +10,9 @@ import { NycBanner } from "./_components/nyc-banner"
 import { LanguageBanner } from "./_components/language-banner"
 import { AiHeroBanner } from "./_components/ai-hero-banner"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialImage("/conf/conference-kit/", {
   title: "Conference Kit",
-}
+})
 
 export default function ConferenceKitPage() {
   return (

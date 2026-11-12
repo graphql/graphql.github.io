@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { withSocialImage } from "@/social-metadata"
 import { notFound } from "next/navigation"
 import type { Item } from "nextra/normalize-pages"
 
@@ -25,7 +26,7 @@ import { DocsSection } from "./docs-section"
 import { LookingForMore } from "@/components/looking-for-more"
 import { unsafeKeys } from "@/app/conf/_design-system/utils/unsafe-keys"
 import { CategoryWorkingGroups } from "./category-working-groups"
-import { loadWorkingGroupMeetings } from "../../community/events/get-all-events"
+import { loadCalendarEvents } from "../../community/events/get-all-events"
 
 interface PageParams {
   category: string
@@ -46,7 +47,7 @@ export async function generateMetadata({
   const title = `${categoriesConfig[category].heading} Resources`
   const description = categoriesConfig[category].subtitle
 
-  return { title, description }
+  return withSocialImage(`/resources/${category}/`, { title, description })
 }
 
 export default async function CategoryPage({ params }: { params: PageParams }) {
