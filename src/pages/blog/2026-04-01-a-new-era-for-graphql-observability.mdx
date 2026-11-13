@@ -6,6 +6,15 @@ byline: Martin Bonnin and Mark Larah
 featured: true
 ---
 
+import { Callout } from "nextra/components"
+
+<Callout type="info">
+  **Update (November 2026):** as you probably guessed, this post was an April
+  Fools' joke, but the problem was real, and it's all fixed now! The [GraphQL over HTTP
+  specification has been released](/blog/2026-11-12-announcing-the-graphql-over-http-spec/),
+  with clear guidance on which status codes to use.
+</Callout>
+
 GraphQL is ten years old. During those ten years, teams small and large have adopted the typesafe, concise query language. It powers everything from tiny side projects to some of the most demanding APIs on the planet. The type system, the developer tooling, the ecosystem — all of it has matured tremendously.
 
 And yet, one thing has remained a persistent point of criticism: the [HTTP 200 status code](https://x.com/iamdevloper/status/1384074981840097289). By returning 200 even when errors occur, GraphQL makes it harder for existing monitoring tools, proxies, and CDNs to detect failures. Teams building on GraphQL have had to work around this limitation from day one, and it remains one of the most common pain points raised by newcomers and experienced users alike.
@@ -78,9 +87,6 @@ We look forward to a new era of GraphQL observability!
 
 PS: _If you've read this far, congrats and happy first of April!_
 
-_You can now use the status code of your liking together with the [`application/graphql-response+json` content type](https://graphql.github.io/graphql-over-http/draft/#sec-application-graphql-response-json)._
+_You can now use the status code of your liking together with the [`application/graphql-response+json` content type](https://http-spec.graphql.org/September2026/#sec-Media-Types)._
 
 _We also recommend that servers implement tracing with OpenTelemetry (or similar); resolvers that throw errors can be observed via [errors recorded on spans](https://opentelemetry.io/docs/specs/semconv/general/recording-errors/#recording-errors-on-spans)._
-
-_Join us at [GraphQLConf](https://graphql.org/conf/2026/) in a few of weeks to learn more!_  
-
