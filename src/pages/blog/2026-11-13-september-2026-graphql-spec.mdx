@@ -1,0 +1,176 @@
+---
+title: "September 2026 GraphQL Spec released"
+tags: ["announcements"]
+date: 2026-11-13
+byline: Benjie, on behalf of the GraphQL TSC
+featured: true
+---
+
+The way software is built is undergoing profound change, yet interoperability,
+clear boundaries, and strong guardrails remain as important as ever. The
+GraphQL specification is the beating heart of GraphQL: a reliable bedrock that
+implementations share, yet one that can evolve without leaving users behind.
+This year, we've been delighted to see so much work happening around that core!
+
+## GraphQL beyond the spec
+
+The long-awaited [GraphQL over HTTP
+specification](https://http-spec.graphql.org), [launched alongside this
+release](/blog/2026-11-12-announcing-the-graphql-over-http-spec/), brings years
+of collaboration to an agreed standard for how clients and servers communicate.
+With its draft already widely adopted, it builds on the patterns of the past
+whilst extending them to make the most of the rich HTTP protocol.
+
+The new [GraphQL Auxiliary Proposals (GAPs)](https://gaps.graphql.org/) project
+gives the wider community a place to contribute and develop shared, optional
+building blocks on top of GraphQL, covering everything from schema design to
+client behaviours.
+
+The Federation working group, a strong collaboration between many vendors, is
+hard at work developing a vendor-neutral approach to composing GraphQL schemas,
+with a focus on enabling communication and collaboration between teams.
+
+The GraphQL OpenTelemetry working group has proposed [Semantic Conventions for
+GraphQL](https://github.com/open-telemetry/semantic-conventions/pull/3515), now
+open for review.
+
+The [Golden Path](https://goldenpath.graphql.org) is exploring
+the default experience we'd like libraries and frameworks to offer GraphQL
+users, while the AI Working Group is considering how GraphQL fits into new ways
+of building, delivering, and consuming software.
+
+And that's not to mention all the work going on across implementations,
+development tools, and websites!
+
+## September 2026
+
+But despite all this activity outside the specification, work on the spec itself
+has not stopped! Last year's spec release was the first in four years; we all felt
+that was a bit long, so we're now aiming for spec releases to come closer to a
+yearly cadence, and this is the first release at this cadence.
+
+Here are some highlights from the release:
+
+### Empty selection sets
+
+As GraphQL clients get more powerful, it's becoming common to define fields that
+are executed on the client rather than the server. These client-local fields
+need to be removed from the request before it's sent to the server, but what
+happens when you need to remove the last field from a selection set?
+
+<figure>
+
+```graphql
+query GetBusinessInfo($id: ID!) {
+  business(id: $id) {
+    # this field is defined locally but not yet deployed on the server
+    website @mock(value: "https://www.example.com")
+  }
+}
+```
+
+<figcaption>A GraphQL query using the <a
+href="https://gaps.graphql.org/GAP-10/draft/"><code>@mock</code> directive
+specified in GAP-10</a></figcaption>
+
+</figure>
+
+All of the existing options had drawbacks, so now we allow empty selection sets
+to be validated and executed.
+
+A little fun trivia: previously, the smallest query valid against all GraphQL
+servers was `{__typename}`, but with servers that implement the September 2026
+GraphQL Specification, the smallest valid query is now just `{}`!
+
+### Directives-on-directives
+
+Ever wanted to deprecate a custom directive? Now you can!
+
+```graphql
+directive @myCustomDirective(someInput: Int!) @deprecated(reason: "...") on OBJECT
+```
+
+To create a directive that can be applied to a directive definition, use the
+`DIRECTIVE_DEFINITION` target:
+
+```graphql
+directive @onDirective on DIRECTIVE_DEFINITION
+```
+
+Cycles are not allowed!
+
+### Fragments are not for reuse
+
+Previously, the GraphQL spec read:
+
+> Fragments allow for the reuse of common repeated selections of fields, reducing duplicated text in the document.
+
+That sounded like we were suggesting you
+[DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) up your code by
+extracting repeated patterns into fragments. It's subtle, but that's not really
+what we meant. We've clarified this now:
+
+> Each data-consuming component (function, class, UI element, and so on) of
+> a client application should declare its data needs in a dedicated fragment.
+> These fragments may then be composed, following the usage of the components
+> themselves, to form a GraphQL operation to issue to the server.
+
+This better describes the fragment-composition pattern that has been a best
+practice for the lifetime of GraphQL.
+
+Ask your GraphQL client vendor about fragment composition today! Side effects
+may include reduced over-fetching, lower latency, improved maintainability, and
+reduced context switching thanks to localised reasoning.
+
+### `@oneOf` inhabitability
+
+Last year's September 2025 spec release introduced `@oneOf` input objects. A
+OneOf Input Object is like a regular input object, except exactly one field must
+be specified at runtime, and that field must not be `null`; this allows you to
+accept polymorphic inputs in a straightforward manner:
+
+```graphql
+input UserBy @oneOf {
+  id: ID
+  username: String
+  email: String
+}
+
+type Query {
+  user(by: UserBy!): User
+}
+```
+
+```graphql
+{
+  user(by: { username: "leebyron" }) {
+    email
+  }
+}
+```
+
+However, we were not strict enough and accidentally allowed you to define OneOf
+input objects that could never be satisfied:
+
+```graphql
+input InfiniteOneOf @oneOf {
+  a: InfiniteOneOf
+}
+```
+
+To form a value for `InfiniteOneOf`: it's a OneOf, so it must have one field,
+which can only be `a`, and that field cannot be `null`, so its value must be an
+`InfiniteOneOf`, so we need to form a value for `InfiniteOneOf`... Oh no!
+Infinite loop!
+
+This spec release includes updated schema validation rules for input objects so
+that you can't accidentally include such unsatisfiable type constructs in your
+schema.
+
+## Thank you, contributors!
+
+It has been a privilege to see so many people contribute to GraphQL
+technologies over the last year. GraphQL remains a dependable foundation because
+you continue to improve it, challenge it, and help it meet changing needs.
+
+Thank you for your dedication, enthusiasm, and hard work!
