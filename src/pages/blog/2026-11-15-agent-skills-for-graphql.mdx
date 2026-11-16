@@ -15,9 +15,9 @@ type Query {
 }
 ```
 
-This is valid GraphQL, but it gives clients no way to request a page of results. If the resolver returns the whole catalog, the response grows with it. By the time that hurts, your clients depend on the field's type.
+This is valid GraphQL, but it gives clients no way to request a page of results. If the resolver returns the whole catalog, the response grows with it. By the time that hurts, your clients already depend on the field returning a list.
 
-This post is for anyone who uses a coding agent on a GraphQL API. It covers where Agent Skills change what the agent writes, where they don't, and how to build on the Skills that already exist.
+This post is for anyone who uses a coding agent with GraphQL. It covers where Agent Skills change what the agent writes, where they don't, and how to build on the Skills that already exist.
 
 ## Valid GraphQL is not always good GraphQL
 
@@ -29,11 +29,11 @@ Useful guidance comes from three places. The community has practices such as [pa
 
 ## Skills in brief
 
-An [Agent Skill](https://agentskills.io) is a folder that contains a `SKILL.md` file. The file has a name, a description, and instructions. The agent first reads only the name and description of each Skill. It reads the full instructions when a task matches. The [specification](https://agentskills.io/specification) also allows scripts and reference files. If you ever wrote onboarding docs for a new hire, you already know how to write one.
+[Agent Skills](https://agentskills.io) is an open format hosted by the [Agentic AI Foundation](https://aaif.io), which, like the GraphQL Foundation, is part of the Linux Foundation. A Skill is a folder that contains a `SKILL.md` file. The file has a name, a description, and instructions. The agent first reads only the name and description of each Skill. It reads the full instructions when a task matches. The [specification](https://agentskills.io/specification) also allows scripts, reference files, and assets such as templates. If you ever wrote onboarding docs for a new hire, you already know how to write one.
 
-You can put the same guidance in a prompt or in a repository instruction file such as `AGENTS.md`. A Skill packages those instructions. You can reuse it across projects, and the agent loads it when a task calls for it.
+You can put the same guidance in a prompt or in a project instruction file such as `AGENTS.md`. A Skill packages those instructions so that you can reuse them across projects, and the agent loads them only when a task calls for them.
 
-For example, [`graphql-schema`](https://www.skills.sh/apollographql/skills/graphql-schema), a Skill in the open-source [Apollo Skills](https://github.com/apollographql/skills) collection that I maintain, includes rules like these:
+For example, [`graphql-schema`](https://www.skills.sh/apollographql/skills/graphql-schema) is a Skill in [Apollo Skills](https://github.com/apollographql/skills), an open-source collection that I maintain. It includes instructions like these:
 
 ```md
 - ALWAYS paginate lists that can grow without limit, such as `Query.users` or
@@ -44,11 +44,11 @@ For example, [`graphql-schema`](https://www.skills.sh/apollographql/skills/graph
 
 ## Same prompt, with and without Skills
 
-To see what rules like these do, I used a small online shop project. Its server schema has products, customers, and orders, and it has one client operation, `GetProduct`, which selects a product's `title` for the product page. I gave the agent the same prompt in two copies of the project. One copy had the whole Apollo Skills collection installed, and the other had no Skills.
+To see what instructions like these do, I used a small online shop project. Its server schema has products, customers, and orders, and it has one client operation, `GetProduct`, which selects a product's `title` for the product page. I gave the agent the same prompt in two copies of the project. One copy had the whole Apollo Skills collection installed, and the other had no Skills.
 
 I first ran this side by side on stage at GraphQL Day London. The examples below come from runs that used Claude Code with Sonnet 5.5.
 
-Agent output varies from run to run, so I ran each prompt 10 to 15 times on each side. I compared the whole collection with no Skills, so the results don't isolate individual rules.
+Agent output varies from run to run, so I ran each prompt 10 to 15 times on each side. I compared the whole Apollo Skills collection with no Skills, so the results don't show which instruction made the difference.
 
 ### A list that can grow
 
@@ -81,7 +81,7 @@ type ProductConnection {
 }
 ```
 
-Both designs can serve a small catalog. Only one is ready for a catalog of 50,000 products. The connection makes page-by-page retrieval part of the API from the start. If you replace an existing list field with a connection later, you break the queries that select product fields directly. You can add a new paginated field and migrate clients gradually, but then you have another API transition to manage. The schema is only the interface, so the server still has to implement the cursors and enforce a page size limit.
+Both designs can serve a small catalog. Only one scales as the catalog grows. The connection makes page-by-page retrieval part of the API from the start. If you replace an existing list field with a connection later, you break the queries that select product fields directly. You can add a new paginated field and migrate clients gradually, but then you have another API transition to manage. The schema is only the interface, so the server still has to implement the cursors and enforce a page size limit.
 
 ### A rename that clients survive
 
@@ -119,7 +119,7 @@ type Product {
 
 In GraphQL, a rename is an addition plus a deprecation. The revised schema lets existing queries continue to validate while new queries use `name`. The server still has to resolve both fields, and the deprecation alone doesn't prove that `title` is safe to remove.
 
-Same model, same prompt. The difference was a folder of Markdown, and the pagination and deprecation rules that I showed earlier cover exactly these cases. The model didn't get smarter. It got the context that an experienced GraphQL developer brings to the task.
+Same model, same prompt. The difference was a folder of Markdown, and the pagination and deprecation instructions that I showed earlier cover exactly these cases. The model didn't get smarter. It got the context that an experienced GraphQL developer brings to the task.
 
 ## Where Skills didn't help
 
@@ -160,15 +160,15 @@ Other runs showed redundant guidance and mistakes:
 - **Some guidance was redundant.** When I asked for prices in several currencies, or for customers with several email addresses, the output met the intended design with or without Skills.
 - **Newer models needed less guidance.** Without Skills, Sonnet 5 almost always added a non-null input field without a default. That breaks existing clients that omit the field. Sonnet 5.5 supplied a default without Skills.
 - **Examples leaked into output.** An `updatedAt` field appeared in several runs with Skills and in none without, even though the project's schema did not contain it. The same field appeared in an example in the Skill, so the example probably influenced the output.
-- **The agent missed rules in reference files.** A convention to start Boolean field names with `is` or `has` was only in a reference file. The agent never followed it.
+- **The agent missed instructions in reference files.** A convention to start Boolean field names with `is` or `has` was only in a reference file. The agent never followed it.
 
 Loading instructions also uses context and adds latency. Runs with Skills took 10 to 15 seconds longer in my tests. When you decide which Skills to keep, measure those costs together with the output quality.
 
-So will better models make Skills unnecessary? For some rules, yes. When a model catches up with a rule, delete the rule. But the same Sonnet 5.5 that learned to add defaults still removed a field that clients used, every time. And no model can learn from public data what your team agreed on last quarter. A bigger model gives the agent more horsepower. A Skill gives it direction.
-
-Rerun your comparisons when you change models, and use repeated results to decide which rules to revise or remove.
+Rerun your comparisons when you change models. When a model catches up with a rule, delete the rule.
 
 ## Where Skills help most
+
+So will better models make Skills unnecessary? For some rules, yes. Sonnet 5.5 added defaults without being told, but it still removed a field that clients used, every time. And no model can learn from public data what your team agreed on last quarter. A bigger model gives the agent more horsepower. A Skill gives it direction.
 
 Across these results, and a year of maintaining Skills, I see them make the biggest difference in three areas.
 
@@ -180,26 +180,26 @@ Across these results, and a year of maintaining Skills, I see them make the bigg
 
 ## Skills guide changes, and checks verify them
 
-A Skill tells the agent what your team expects. It doesn't prove that the agent did it. That is the job of automated checks:
+A Skill tells the agent what your team expects. It doesn't prove that the agent did it. An agent is probabilistic: a Skill makes the change you expect more likely, not certain. Automated checks are deterministic: they give the same answer for the same schema every time. Use both, and let the checks have the final say:
 
 - **Schema validation** checks the schema's structural validity.
 - **Operation validation** checks known client queries against the proposed schema.
 - **Schema comparison** identifies breaking changes, such as the field removal reported by GraphQL Inspector above.
 - **Execution tests** check behavior that the schema alone cannot establish, such as whether both field names resolve correctly or pagination returns the expected records.
 
-A schema can pass the first check and fail the others. Keep those checks in place whether or not an agent uses Skills. If a tool can check a policy, put that check into your review or CI workflow too.
+A schema can pass the first check and fail the others. Keep those checks in place whether or not an agent uses Skills. If a tool can check a policy, put that check into your review or CI workflow too. Keep the instruction in the Skill as well, so the agent gets it right before the check runs.
 
 ## Start from published Skills, then add your own
 
-You don't have to write every rule yourself. Pagination, deprecation, and input shape come up in almost every GraphQL API, and published Skills already cover them. Many people use those Skills, so their problems get found and fixed. The leaked `updatedAt` example, for instance, is already fixed upstream. Still, read the guidance before you adopt it, and make sure that it fits your API.
+You don't have to write every instruction yourself. Pagination, deprecation, and input shape come up in almost every GraphQL API, and published Skills already cover them. A widely used Skill also gets tested by far more people than one that only your team runs. Apollo Skills, for example, has more than 60,000 installs on [skills.sh](https://www.skills.sh/apollographql/skills), and its fixes reach everyone who installed it. Still, read the guidance before you adopt it, and make sure that it fits your API.
 
-You can layer Skills instead of putting every rule into one file. Start with published guidance, then add small Skills for the conventions specific to your team and your own work:
+You can layer Skills instead of putting every instruction into one file. Start with published guidance, then add small Skills for the conventions specific to your team and your own work:
 
 - **Community guidance:** Install a published Skill for common GraphQL practices. For example, `npx skills add apollographql/skills` installs [the collection that this post uses](https://www.skills.sh/apollographql/skills).
-- **Team conventions:** Add a repository Skill for shared policies, such as mutation error handling or deprecation procedures, and commit it so teammates can use it too.
+- **Team conventions:** Add a project Skill for shared policies, such as mutation error handling or deprecation procedures, and commit it so teammates can use it too.
 - **Personal preferences:** Keep a Skill in your home directory for preferences such as how you split fragments, as long as they fit the team's conventions.
 
-For example, a published schema Skill covers pagination and deprecation. A team Skill tells the agent where to check client usage before it removes a field. The team Skill only needs to add that project-specific procedure. It doesn't need to repeat the general guidance. When you keep the Skills separate, you can also update the published one without rewriting your team's rules.
+For example, a published schema Skill covers pagination and deprecation. A team Skill tells the agent where to check client usage before it removes a field. The team Skill only needs to add that project-specific procedure. It doesn't need to repeat the general guidance. When you keep the Skills separate, you can also update the published one without rewriting your team's Skill.
 
 The Skill format doesn't give these groups an order of priority. Check how your coding agent discovers and activates Skills. If your team uses offset pagination while a published Skill requires connections, say so in your team Skill: "This API paginates with `limit` and `offset`. Ignore other guidance to use connections." Then test that the agent follows it.
 
@@ -233,7 +233,7 @@ Then test it on a small change:
 
 As a community, we spent years making GraphQL easier for people, through the spec, the docs, and the tooling. But much of what we learned along the way is scattered across review comments or never written down, where an agent can't use it. That gap is the opportunity. Now we have a chance to do the same for agents.
 
-So start with one convention your team keeps correcting in code review. Put it in a Skill, try the same task with and without it, and inspect the changes. When a rule works for more than your team, share it. That is how we make GraphQL easier for agents, and for the people who work with them.
+So start with one convention your team keeps correcting in code review. Put it in a Skill, try the same task with and without it, and inspect the changes. When a Skill works for more than your team, share it. That is how we make GraphQL easier for agents, and for the people who work with them.
 
 Related resources:
 
