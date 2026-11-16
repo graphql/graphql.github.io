@@ -79,6 +79,14 @@ const vendors: VendorMetadata[] = [
     github: "graphile",
   },
   {
+    name: "GraphPilot",
+    slug: "graphpilot",
+    description:
+      "GraphPilot provides a managed edge cache for GraphQL APIs that derives caching and invalidation from the schema, purging cached responses when a mutation changes an object they contain.",
+    url: "https://graphpilot.io/",
+    github: "GraphPilot",
+  },
+  {
     name: "GraphQL.Security",
     slug: "graphql-security",
     description:

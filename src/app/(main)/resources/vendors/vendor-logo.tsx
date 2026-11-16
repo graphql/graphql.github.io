@@ -1,3 +1,4 @@
+import GraphPilotMark from "public/img/vendors/graphpilot.svg?svgr"
 import HasuraWordmark from "public/img/vendors/hasura.svg?svgr"
 import HygraphWordmark from "public/img/vendors/hygraph.svg?svgr"
 import KongMark from "public/img/vendors/kong.svg?svgr"
@@ -18,6 +19,7 @@ const iconLogos: Record<string, LogoComponent> = {
 }
 
 const wordmarkLogos: Record<string, LogoComponent> = {
+  graphpilot: GraphPilotMark,
   hasura: HasuraWordmark,
   "the-guild": TheGuildWordmark,
   hygraph: HygraphWordmark,
