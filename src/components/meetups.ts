@@ -120,13 +120,13 @@ export const meetups = [
   {
     node: {
       id: "kochi",
-      name: "GraphQL Kochi",
+      name: "GraphQL Kerala",
       latitude: 9.93,
       longitude: 76.26,
       city: "Kochi",
       state: "",
       country: "India",
-      link: "https://guild.host/graphql-kochi",
+      link: "https://guild.host/graphql-kerala",
       official: false,
     },
   },
