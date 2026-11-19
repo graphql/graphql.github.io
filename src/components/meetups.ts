@@ -106,19 +106,6 @@ export const meetups = [
   },
   {
     node: {
-      id: "jaipur",
-      name: "GraphQL Jaipur",
-      latitude: 26.91,
-      longitude: 75.79,
-      city: "Jaipur",
-      state: "",
-      country: "India",
-      link: "https://luma.com/GraphQL-jaipur",
-      official: true,
-    },
-  },
-  {
-    node: {
       id: "kochi",
       name: "GraphQL Kerala",
       latitude: 9.93,
@@ -180,19 +167,6 @@ export const meetups = [
       country: "USA",
       link: "https://guild.host/graphql-new-york/events",
       official: false,
-    },
-  },
-  {
-    node: {
-      id: "noida",
-      name: "GraphQL Noida",
-      latitude: 28.54,
-      longitude: 77.39,
-      city: "Noida",
-      state: "",
-      country: "India",
-      link: "https://guild.host/graphql-noida",
-      official: true,
     },
   },
   {
