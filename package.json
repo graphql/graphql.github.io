@@ -85,7 +85,7 @@
     "rehype-mermaid": "^3.0.0",
     "remark-frontmatter": "5.0.0",
     "remark-gfm": "4.0.1",
-    "remark-mdx": "3.1.0",
+    "remark-mdx": "3.1.1",
     "remark-parse": "11.0.0",
     "rss": "1.2.2",
     "scroll-into-view-if-needed": "^3.1.0",
