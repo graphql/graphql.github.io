@@ -87,6 +87,13 @@ export function categorizeEvent(
 ): EventKind | "duplicate" | null {
   if ("start" in event) {
     // From https://calendar.graphql.org
+    if (event.type) {
+      return event.type === "meeting"
+        ? "foundation-meeting"
+        : event.type === "working group"
+          ? "working-group"
+          : event.type
+    }
     const summary = event.summary ?? ""
     if (/\b(Subcommittee|Committee)\b/i.test(summary)) {
       return "foundation-meeting"
@@ -230,6 +237,7 @@ export function EventsList({
               key={event.id}
               href={event.htmlLink}
               date={new Date(event.start)}
+              meta={event.hostedBy}
               name={calendarEventName(event)}
               city={calendarEventCity(event)}
               kind={kind}

@@ -15,8 +15,9 @@ export interface Event {
 }
 
 /**
- * Only add events here that are **not** in the calendar.
- * Calendar events are synchronized automatically.
+ * Do not add events here.
+ * Add them to the GraphQL calendar and they will be synchronized automagically.
+ * See https://github.com/graphql/working-sessions/tree/main/calendar for how to add calendar events.
  */
 const allEvents: Event[] = [
   {
@@ -45,15 +46,6 @@ const allEvents: Event[] = [
     date: "2026-10-01T09:00:00+01:00",
     eventLink: "/day/2026/london",
     host: "FOST London",
-    hostLink: "https://www.joinfost.io",
-  },
-  {
-    name: "GraphQL Days Paris",
-    slug: "graphql-day-fost-paris-2026",
-    location: "Paris",
-    date: "2026-12-01T09:00:00+01:00",
-    eventLink: "/day/2026/paris",
-    host: "FOST Paris",
     hostLink: "https://www.joinfost.io",
   },
   {
