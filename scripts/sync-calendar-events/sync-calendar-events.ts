@@ -23,6 +23,14 @@ const Instant = type({
   })
   .to("string.date")
 
+const eventTypes = [
+  "conference",
+  "meetup",
+  "workshop",
+  "meeting",
+  "working group",
+] as const
+
 const calendarEventSchema = type({
   id: "string",
   "summary?": "string",
@@ -33,6 +41,8 @@ const calendarEventSchema = type({
   end: Instant,
   htmlLink: "string.url",
   updated: "string",
+  "type?": type.enumerated(...eventTypes),
+  "hostedBy?": "string",
 })
 
 /** An event from the public GraphQL Foundation calendar */
@@ -159,6 +169,7 @@ function parseCalendar(
         : end.toJSDate().toISOString(),
       htmlLink: `https://www.google.com/calendar/event?eid=${eid}`,
       updated: updated.toJSDate().toISOString(),
+      ...parseMetadata(item.description),
     })
   }
 
@@ -207,6 +218,42 @@ function parseCalendar(
   return calendarEvents
 }
 
+/**
+ * Reads `key: value` lines at the top of the description:
+ *
+ *   type: meetup
+ *   hostedBy: GraphQL Paris
+ *
+ * Google Calendar descriptions may be HTML, so `<br>` and block tags count as
+ * line breaks and other tags are stripped.
+ */
+function parseMetadata(description: string | null | undefined) {
+  const metadata: Pick<CalendarEvent, "type" | "hostedBy"> = {}
+  const lines = (description ?? "")
+    .replace(/<br\s*\/?>|<\/(p|div|li)>/gi, "\n")
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .split("\n")
+    .map(line => line.trim())
+
+  for (const line of lines) {
+    if (!line) continue
+    const match = /^(type|hostedBy)\s*:\s*(.*)$/i.exec(line)
+    if (!match) break
+    const value = match[2].trim()
+    if (match[1].toLowerCase() === "type") {
+      const kind = eventTypes.find(kind => kind === value.toLowerCase())
+      if (kind) metadata.type = kind
+      else console.warn(`Unknown event type "${value}"`)
+    } else if (value) {
+      metadata.hostedBy = value
+    }
+  }
+
+  return metadata
+}
+
 async function readExistingEvents(): Promise<CalendarEvent[]> {
   try {
     const content = await readFile(OUTPUT_FILE, "utf8")
@@ -241,7 +288,8 @@ function mergeEvents(
   for (const event of incoming) {
     toDelete.delete(event.id)
     const existing = byId.get(event.id)
-    if (!existing || event.updated > existing.updated) {
+    // `>=` so changes to the parsing apply to unchanged events too
+    if (!existing || event.updated >= existing.updated) {
       byId.set(event.id, event)
     }
   }

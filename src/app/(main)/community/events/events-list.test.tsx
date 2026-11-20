@@ -31,4 +31,19 @@ describe(categorizeEvent.name, () => {
 
     assert.equal(categorizeEvent(event), "meetup")
   })
+
+  it("prefers the type from the description metadata", () => {
+    const event = {
+      id: "paris-meetup",
+      summary: "GraphQL Day Paris Conference",
+      start: "2026-12-01T08:00:00.000Z",
+      end: "2026-12-01T17:00:00.000Z",
+      htmlLink: "https://calendar.google.com/event?eid=paris-meetup",
+      updated: "2026-10-20T15:13:22.000Z",
+      type: "working group",
+      hostedBy: "FOST Paris",
+    } satisfies CalendarEvent
+
+    assert.equal(categorizeEvent(event), "working-group")
+  })
 })
