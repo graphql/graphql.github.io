@@ -70,16 +70,16 @@ describe("documentation social cards", () => {
     })
   })
 
-  it("does not mistake frontmatter for a section heading", async () => {
-    const source = await readFile("src/pages/learn/federation.mdx", "utf8")
-    const { preview } = extractDocumentationExample(
-      source,
-      "/learn/federation/",
+  it("does not mistake frontmatter for a section heading", () => {
+    const content = extractDocumentationExample(
+      "---\nsidebarTitle: Federation\n---\n\n# GraphQL federation\n\n## What is federation?",
+      "/learn/example/",
     )
-    assert.equal(preview.kind, "headings")
-    if (preview.kind === "headings") {
-      assert.equal(preview.headings[0], "What is federation?")
-    }
+    assert.deepEqual(content.preview, {
+      kind: "headings",
+      label: "On this page",
+      headings: ["What is federation?"],
+    })
   })
 
   it("never extracts headings or JSX subtitles from code fences", () => {
