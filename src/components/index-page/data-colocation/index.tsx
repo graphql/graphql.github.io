@@ -150,7 +150,7 @@ export function DataColocation() {
   return (
     <section
       ref={sectionRef}
-      className="gql-container gql-section flex justify-between gap-4 max-xl:flex-wrap sm:max-xl:gap-y-8 xl:p-24 3xl:px-60"
+      className="gql-container gql-section flex justify-between gap-4 max-xl:flex-wrap sm:max-xl:gap-y-8 xl:gap-x-8 xl:px-8 xl:py-24 min-[1366px]:gap-x-24 min-[1366px]:px-24 3xl:px-60"
       onMouseOver={markSector}
       onMouseOut={unmarkSector}
       onPointerDown={markSector}
@@ -185,7 +185,7 @@ export function DataColocation() {
             <FriendList friends={json.friends} />
           </div>
         </div>
-        <div className="flex grow *:w-full *:rounded-lg *:border *:border-neu-100 *:bg-neu-50/50 lg:p-4">
+        <div className="flex min-w-0 grow *:w-full *:rounded-lg *:border *:border-neu-100 *:bg-neu-50/50 lg:p-4">
           <Query components={components} />
         </div>
       </article>

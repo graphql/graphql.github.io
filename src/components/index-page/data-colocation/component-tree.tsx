@@ -16,7 +16,7 @@ export const ComponentTree = forwardRef(function ComponentTree(
     <div
       ref={ref}
       className={clsx(
-        "sector-opacity flex max-w-[500px] justify-between [--gap-x:20px] md:gap-x-10 md:[--gap-x:32px] 3xl:gap-x-20",
+        "sector-opacity flex max-w-[500px] justify-between [--gap-x:20px] max-[360px]:[--gap-x:6px] md:gap-x-10 md:[--gap-x:32px] 3xl:gap-x-20",
         className,
       )}
       {...rest}
@@ -28,7 +28,7 @@ export const ComponentTree = forwardRef(function ComponentTree(
           </ComponentLabel>
         </div>
 
-        <div className="h-4 max-[375px]:h-1" />
+        <div className="h-4 max-xs:h-1" />
 
         <div className="flex h-12 items-center" data-sector="2">
           <ComponentLabel className="border-neu-600 bg-neu-400 dark:border-neu-200 dark:bg-neu-50">
@@ -36,7 +36,7 @@ export const ComponentTree = forwardRef(function ComponentTree(
           </ComponentLabel>
         </div>
 
-        <div className="h-4 max-[375px]:h-1" />
+        <div className="h-4 max-xs:h-1" />
 
         <div className="flex h-12 items-center" data-sector="3">
           <ComponentLabel className="border-sec-base bg-sec-lighter dark:border-sec-dark dark:bg-sec-darker/50">
@@ -44,7 +44,7 @@ export const ComponentTree = forwardRef(function ComponentTree(
           </ComponentLabel>
         </div>
 
-        <div className="h-4 max-[375px]:h-1" />
+        <div className="h-4 max-xs:h-1" />
 
         <div className="flex h-12 items-center" data-sector="4">
           <ComponentLabel className="border-pri-base bg-pri-lighter/40 dark:border-pri-dark dark:bg-pri-darker/50">
@@ -53,7 +53,7 @@ export const ComponentTree = forwardRef(function ComponentTree(
         </div>
       </div>
 
-      <div className="flex flex-col items-center max-[375px]:-translate-y-2.5 max-[375px]:scale-[.85]">
+      <div className="flex flex-col items-center max-xs:[zoom:.85]">
         <div
           className="flex size-12 items-center justify-center bg-neu-100 dark:bg-neu-50"
           data-sector="1"
